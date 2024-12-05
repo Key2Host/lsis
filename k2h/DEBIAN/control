@@ -1,0 +1,9 @@
+Package: k2h
+Version: 0.1
+Maintainer: Key2Host Development Team <contact@key2host.com>
+Description: Key2Host Server System
+Section: utilities
+Priority: required
+Essential: yes
+Architecture: all
+Depends: nodejs, npm, nginx, apache2, ufw, certbot, fail2ban, unattended-upgrades, clamav, clamav-daemon
