@@ -1,0 +1,22 @@
+[Unit]
+Description=Key2Host - Server Application Communication Interface (SACI)
+After=network.target
+
+[Service]
+WorkingDirectory=/var/k2h-saci
+Restart=always
+User=root
+Group=root
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+RestartSec=10
+
+ExecStartPre=/usr/bin/npm install
+ExecStart=/bin/bash start-api.sh
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=usapi
+
+[Install]
+WantedBy=multi-user.target
