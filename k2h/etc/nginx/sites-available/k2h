@@ -1,0 +1,170 @@
+# (c) Copyright Key2Host - All Rights Reserved
+
+limit_req_zone $binary_remote_addr zone=default:20m rate=30r/s;
+limit_req_zone $binary_remote_addr zone=restricted:20m rate=20r/s;
+limit_req_status 429;
+
+# REDIRECT HTTPS
+server {
+    listen 80;
+    server_name key2host.com *.key2host.com;
+    server_tokens off;
+    proxy_hide_header X-Powered-By;
+    proxy_hide_header Server;
+    
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+# REDIRECT WWWW
+server {
+    listen 443 ssl;
+    server_name key2host.com;
+    
+    include /etc/nginx/snippets/security_k2h.conf;
+    add_header Access-Control-Allow-Origin "https://key2host.com";
+    ssl_certificate /etc/letsencrypt/live/key2host.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/key2host.com/privkey.pem;
+
+    return 301 https://www.key2host.com$request_uri;
+}
+
+# LANDING
+server {
+    listen 443 ssl;
+    server_name www.key2host.com;
+    limit_req zone=default burst=20 nodelay;    
+    
+    include /etc/nginx/snippets/security_k2h.conf;
+    add_header Access-Control-Allow-Origin "https://key2host.com";
+    ssl_certificate /etc/letsencrypt/live/www.key2host.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.key2host.com/privkey.pem;
+    
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+    }
+}
+
+# API    
+server {
+    listen 443 ssl;
+    server_name saci.key2host.com;
+    limit_req zone=restricted burst=5 nodelay;
+    
+    include /etc/nginx/snippets/security_k2h.conf;
+    ssl_certificate /etc/letsencrypt/live/saci.key2host.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/saci.key2host.com/privkey.pem;
+    
+    location / {
+        proxy_pass http://127.0.0.1:1505;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+    }
+}
+
+# APP
+server {
+    listen 443 ssl;
+    server_name app.key2host.com;
+    limit_req zone=default burst=20 nodelay;  
+    
+    include /etc/nginx/snippets/security_k2h.conf;
+    add_header Access-Control-Allow-Origin "https://key2host.com";
+    ssl_certificate /etc/letsencrypt/live/app.key2host.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/app.key2host.com/privkey.pem;
+    
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+    }
+}
+
+# AUTH
+server {
+    listen 443 ssl;
+    server_name auth.key2host.com;
+    limit_req zone=restricted burst=5 nodelay;
+    
+    include /etc/nginx/snippets/security_k2h.conf;
+    add_header Access-Control-Allow-Origin "https://key2host.com";
+    ssl_certificate /etc/letsencrypt/live/auth.key2host.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/auth.key2host.com/privkey.pem;
+    
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+    }
+}
+
+# HELP
+server {
+    listen 443 ssl;
+    server_name help.key2host.com;
+    limit_req zone=default burst=20 nodelay;  
+        
+    include /etc/nginx/snippets/security_k2h.conf;
+    add_header Access-Control-Allow-Origin "https://key2host.com";
+    ssl_certificate /etc/letsencrypt/live/help.key2host.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/help.key2host.com/privkey.pem;
+    
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+    }
+}
+
+# JOBS
+server {
+    listen 443 ssl;
+    server_name jobs.key2host.com;
+    limit_req zone=default burst=20 nodelay;  
+    
+    include /etc/nginx/snippets/security_k2h.conf;
+    add_header Access-Control-Allow-Origin "https://key2host.com";
+    ssl_certificate /etc/letsencrypt/live/jobs.key2host.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/jobs.key2host.com/privkey.pem;
+    
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+    }
+}
+
+# STATUS
+server {
+    listen 443 ssl;
+    server_name status.key2host.com;
+    limit_req zone=default burst=20 nodelay;  
+    
+    include /etc/nginx/snippets/security_k2h.conf;
+    add_header Access-Control-Allow-Origin "https://key2host.com";
+    ssl_certificate /etc/letsencrypt/live/status.key2host.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/status.key2host.com/privkey.pem;
+    
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+    }
+}
