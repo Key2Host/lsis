@@ -1,0 +1,75 @@
+#!/bin/bash
+set -e
+
+case "$1" in
+    remove)
+        echo "Entferne NGINX, Apache2 und die Key2Host API..."
+
+        # Überprüfen und Deaktivieren von NGINX und Apache2
+        if systemctl is-active --quiet nginx; then
+            systemctl stop nginx
+            systemctl disable nginx
+        fi
+
+        if systemctl is-active --quiet apache2; then
+            systemctl stop apache2
+            systemctl disable apache2
+        fi
+
+        # Entfernen der Konfigurationsdateien, wenn sie existieren
+        if [ -f /etc/nginx/default.conf ]; then
+            rm /etc/nginx/default.conf
+        fi
+
+        if [ -f /etc/nginx/k2h.conf ]; then
+            rm /etc/nginx/k2h.conf
+        fi
+
+        if [ -f /etc/apache2/sites-available/k2h.conf ]; then
+            a2dissite k2h.conf
+            rm /etc/apache2/sites-available/k2h.conf
+        fi
+
+        # UFW stoppen und die Konfiguration löschen
+        if systemctl is-active --quiet ufw; then
+            systemctl stop ufw
+            systemctl disable ufw
+        fi
+        ufw --force reset
+
+        # Entfernen des System-Services für die API
+        if systemctl is-active --quiet k2h-saci.service; then
+            systemctl stop k2h-saci.service
+            systemctl disable k2h-saci.service
+        fi
+
+SERVICE_FILE="/etc/systemd/system/k2h-api.service"
+
+if [ -f "$SERVICE_FILE" ]; then
+    echo "Die Datei $SERVICE_FILE ist vorhanden. Sie wird entfernt."
+    rm "$SERVICE_FILE"
+else
+    echo "Die Datei $SERVICE_FILE ist nicht vorhanden."
+fi
+
+        echo "Uninstall-Skript abgeschlossen."
+        ;;
+    purge)
+        echo "Nicht verfügbar"
+        ;;
+    upgrade)
+        echo "Nicht verfügbar"
+        ;;
+    failed-upgrade)
+        echo "Nicht verfügbar"
+        ;;
+    abort-upgrade)
+        echo "Nicht verfügbar"
+        ;;
+    *)
+        echo "Unbekannter Befehl: $1"
+        exit 1
+        ;;
+esac
+
+exit 0
