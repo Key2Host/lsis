@@ -6,4 +6,4 @@ Section: utilities
 Priority: required
 Essential: yes
 Architecture: all
-Depends: ufw, fail2ban, unattended-upgrades, clamav, clamav-daemon
+Depends: ufw, fail2ban, unattended-upgrades, clamav, clamav-daemon, docker-ce, docker-ce-cli, containerd.io, docker-buildx-plugin, docker-compose-plugin
