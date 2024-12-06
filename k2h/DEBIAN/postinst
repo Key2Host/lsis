@@ -1,211 +1,39 @@
 #!/bin/bash
 set -e
 
-# Überprüfe ob NodeJS installiert ist
-if ! dpkg -l | grep -q nodejs; then
-  echo "NodeJS ist nicht installiert"
-  exit 1
-else
-  echo "NodeJS ist bereits installiert."
-fi
+packages=("fail2ban" "ufw" "clamav")
+for package in "${packages[@]}"; do
+  if ! dpkg -l | grep -q "$package"; then
+    echo "$package ist nicht installiert."
+    exit 1
+  else
+    echo "$package ist bereits installiert."
+  fi
+done
 
-# Überprüfe ob NPM installiert ist
-if ! dpkg -l | grep -q npm; then
-  echo "NPM ist nicht installiert"
-  exit 1
-else
-  echo "NPM ist bereits installiert."
-fi
+# Docker
+rm -f /etc/apt/keyrings/docker.gpg
+rm -f /etc/apt/sources.list.d/docker.list
 
-# Überprüfe ob Nginx installiert ist
-if ! dpkg -l | grep -q nginx; then
-  echo "Nginx ist nicht installiert"
-  exit 1
-else
-  echo "Nginx ist bereits installiert."
-  systemctl enable nginx
-fi
+mkdir -m 0755 -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
-# Überprüfe ob Apache2 installiert ist
-if ! dpkg -l | grep -q apache2; then
-  echo "Apache2 ist nicht installiert"
-  exit 1
-else
-  echo "Apache2 ist bereits installiert."
-  systemctl enable apache2
-fi
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# Überprüfe ob UFW installiert ist
-if ! dpkg -l | grep -q ufw; then
-  echo "UFW ist nicht installiert"
-  exit 1
-else
-  echo "UFW ist bereits installiert."
-fi
+apt update
 
-# Überprüfe ob unattended-upgrades installiert ist
-if ! dpkg -l | grep -q unattended-upgrades; then
-  echo "unattended-upgrades ist nicht installiert"
-  exit 1
-else
-  echo "vunattended-upgrades ist bereits installiert."
-fi
+apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
-# Überprüfe ob Fail2Ban installiert ist
-if ! dpkg -l | grep -q fail2ban; then
-  echo "Fail2Ban ist nicht installiert"
-  exit 1
-else
-  echo "Fail2Ban ist bereits installiert."
-fi
-
-# Überprüfe ob ClamAV installiert ist
-if ! dpkg -l | grep -q clamav; then
-  echo "ClamAV ist nicht installiert"
-  exit 1
-else
-  echo "ClamAV ist bereits installiert."
-fi
-
-# Überprüfe ob ClamAV-Daemon installiert ist
-if ! dpkg -l | grep -q clamav-daemon; then
-  echo "ClamAV-Daemon ist nicht installiert"
-  exit 1
-else
-  echo "ClamAV-Daemon ist bereits installiert."
-fi
-
-# Überprüfe ob Certbot installiert ist
-if ! dpkg -l | grep -q certbot; then
-  echo "CertBot ist nicht installiert"
-  exit 1
-else
-  echo "CertBot ist bereits installiert."
-fi
-
-# Permissions
-chown -R www-data:www-data /var/www/k2h
-chmod -R 755 /var/www/k2h
-chown -R www-data:www-data /var/k2h-saci
-
-# Aktivieren der notwendigen Apache-Module
-echo "Aktiviere Apache-Module..."
-a2enmod ssl
-a2enmod rewrite
-a2enmod headers
-a2enmod deflate
-
-# Aktivieren der 000-default.conf Site und Deaktivieren der default-ssl.conf Site
-echo "Aktiviere/Deaktiviere Sites..."
-a2dissite default-ssl.conf
-a2dissite 000-default.conf
-a2ensite k2h.conf
-
-LINK_TARGET="/etc/nginx/sites-enabled/k2h-ssl"
-SOURCE="/etc/nginx/sites-available/k2h-ssl"
-
-# Überprüfen, ob der Symlink bereits existiert
-if [ ! -L "$LINK_TARGET" ]; then
-    ln -s "$SOURCE" "$LINK_TARGET"
-    echo "Symlink wurde erstellt: $LINK_TARGET -> $SOURCE"
-else
-    echo "Symlink existiert bereits: $LINK_TARGET"
-fi
-
-FILE="/etc/nginx/sites-enabled/default"
-
-# Überprüfen, ob die Datei existiert
-if [ -f "$FILE" ]; then
-    rm "$FILE"
-    echo "Datei entfernt: $FILE"
-else
-    echo "Datei existiert nicht: $FILE"
-fi
-
-# Aktualisiere Ports
-rm /etc/apache2/ports.conf
-echo "Listen 127.0.0.1:8080" | tee /etc/apache2/ports.conf
-
-# Apache: Server-Tokens und Server-Signatur deaktivieren
-APACHE_CONF="/etc/apache2/conf-enabled/security.conf"  # Ändere den Pfad, falls notwendig
-if [ -f "$APACHE_CONF" ]; then
-    echo "Deaktiviere Server-Tokens und Server-Signatur in Apache..."
-    if ! grep -q "ServerTokens Prod" "$APACHE_CONF"; then
-        echo "ServerTokens Prod" >> "$APACHE_CONF"
-    fi
-    if ! grep -q "ServerSignature Off" "$APACHE_CONF"; then
-        echo "ServerSignature Off" >> "$APACHE_CONF"
-    fi
-    systemctl restart apache2  # Für Debian/Ubuntu
-    # systemctl restart httpd  # Für CentOS/RHEL, falls nötig
-    echo "Apache neu gestartet."
-else
-    echo "Apache Konfigurationsdatei nicht gefunden!"
-fi
-
-# NGINX neu starten
-if systemctl is-active --quiet nginx; then
-  echo "NGINX wird neu gestartet..."
-  systemctl restart nginx
-else
-  echo "NGINX ist nicht aktiv, starte NGINX..."
-  systemctl start nginx
-fi
-
-# Apache2 neu starten
-if systemctl is-active --quiet apache2; then
-  echo "Apache2 wird neu gestartet..."
-  systemctl restart apache2
-else
-  echo "Apache2 ist nicht aktiv, starte Apache2..."
-  systemctl start apache2
-fi
-
-# SSL
-mkdir -p /var/www/certbot
-certbot certonly --webroot -w /var/www/certbot -d "key2host.com" --non-interactive --agree-tos --email webmaster@key2host.com
-certbot certonly --webroot -w /var/www/certbot -d "www.key2host.com" --non-interactive --agree-tos --email webmaster@key2host.com
-certbot certonly --webroot -w /var/www/certbot -d "saci.key2host.com" --non-interactive --agree-tos --email webmaster@key2host.com
-certbot certonly --webroot -w /var/www/certbot -d "app.key2host.com" --non-interactive --agree-tos --email webmaster@key2host.com
-certbot certonly --webroot -w /var/www/certbot -d "auth.key2host.com" --non-interactive --agree-tos --email webmaster@key2host.com
-certbot certonly --webroot -w /var/www/certbot -d "help.key2host.com" --non-interactive --agree-tos --email webmaster@key2host.com
-certbot certonly --webroot -w /var/www/certbot -d "jobs.key2host.com" --non-interactive --agree-tos --email webmaster@key2host.com
-certbot certonly --webroot -w /var/www/certbot -d "status.key2host.com" --non-interactive --agree-tos --email webmaster@key2host.com
-echo "0 3 * * * /usr/bin/certbot renew --quiet --post-hook 'systemctl reload nginx'" | crontab -
-
-LINK_TARGET="/etc/nginx/sites-enabled/k2h"
-SOURCE="/etc/nginx/sites-available/k2h"
-
-# Überprüfen, ob der Symlink bereits existiert
-if [ ! -L "$LINK_TARGET" ]; then
-    ln -s "$SOURCE" "$LINK_TARGET"
-    echo "Symlink wurde erstellt: $LINK_TARGET -> $SOURCE"
-else
-    echo "Symlink existiert bereits: $LINK_TARGET"
-fi
-
-# NGINX neu starten
-if systemctl is-active --quiet nginx; then
-  echo "NGINX wird neu gestartet..."
-  systemctl restart nginx
-else
-  echo "NGINX ist nicht aktiv, starte NGINX..."
-  systemctl start nginx
-fi
-
-# Apache2 neu starten
-if systemctl is-active --quiet apache2; then
-  echo "Apache2 wird neu gestartet..."
-  systemctl restart apache2
-else
-  echo "Apache2 ist nicht aktiv, starte Apache2..."
-  systemctl start apache2
-fi
+# Portainer
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 
 # System Services laden
 systemctl daemon-reload
-systemctl enable k2h-saci.service
-systemctl start k2h-saci.service
+systemctl enable k2h.service
+systemctl start k2h.service
 
 # Fail2Ban
 systemctl enable fail2ban
@@ -213,13 +41,13 @@ systemctl start fail2ban
 
 # UFW
 echo "Konfiguriere Firewall..."
-ufw --force enable
-ufw default deny incoming
-ufw default allow outgoing
-ufw allow 80/tcp
-ufw allow 443/tcp
-ufw allow 22/tcp
-ufw allow 21/tcp
+#ufw --force enable
+#ufw default deny incoming
+#ufw default allow outgoing
+#ufw allow 80/tcp
+#ufw allow 443/tcp
+#ufw allow 22/tcp
+#ufw allow 21/tcp
 ufw logging on
 
 # ClamAV

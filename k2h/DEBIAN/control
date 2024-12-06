@@ -6,4 +6,4 @@ Section: utilities
 Priority: required
 Essential: yes
 Architecture: all
-Depends: nodejs, npm, nginx, apache2, ufw, certbot, fail2ban, unattended-upgrades, clamav, clamav-daemon
+Depends: ufw, fail2ban, unattended-upgrades, clamav, clamav-daemon

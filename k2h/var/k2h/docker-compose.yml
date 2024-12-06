@@ -1,0 +1,77 @@
+version: '3.8'
+services:
+##  NGINX  ##
+    nginx:
+        container_name: k2h_nginx
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            - 80:80
+            - 443:443
+        links:
+            - apache2
+        volumes:
+            - ssl:/etc/nginx/ssl/
+        networks:
+            - network
+##  CERTBOT  ##
+    certbot:
+        container_name: k2h
+        build:
+            context: ./certbot
+            dockerfile: Dockerfile
+        stdin_open: true
+        tty: true
+        volumes:
+            - ssl:/etc/letsencrypt/
+        networks:
+            - network
+##  APACHE2  ##
+    apache2:
+        container_name: k2h_apache2
+        build:
+            context: ./webapp
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        networks:
+            - network
+##  MYSQL  ##
+    mysql:
+        container_name: k2h_mysql
+        build:
+            context: ./mysql
+            dockerfile: Dockerfile
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: johnpw
+            MYSQL_DATABASE: john
+            MYSQL_USER: john
+            MYSQL_PASSWORD: johnpw
+        volumes:
+            - db:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        networks:
+            - network
+##  PHPMYADMIN  ##
+    phpmyadmin:
+        container_name: k2h_phpmyadmin
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - '8080:80'
+        environment:
+            PMA_HOST: database
+        depends_on:
+            - database
+        links:
+           - database
+        networks:
+           - network
+networks:
+  network:
+    driver: bridge
+volumes:
+  db:
+  ssl:
