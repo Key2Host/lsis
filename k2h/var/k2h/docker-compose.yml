@@ -31,7 +31,7 @@ services:
     apache2:
         container_name: k2h_apache2
         build:
-            context: ./webapp
+            context: ./apache2
             dockerfile: Dockerfile
         restart: unless-stopped
         networks:
