@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'development') {
     app.use(errorHandler())
 }
 
-//pp.use('/auth', require('./routes/authRoutes'));
+app.use('/public/status', require('./controllers/public/statusRoutes'));
 //app.use('/admins', require('./routes/adminRoutes'));
 //app.use('/clients', require('./routes/clientRoutes'));
 //app.use('/public', require('./routes/publicRoutes'))
