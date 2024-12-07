@@ -1,6 +1,6 @@
 services:
-    webproxyserver:
-        container_name: k2h_webproxyserver
+    proxy:
+        container_name: k2h_proxy
         build:
             context: ./nginx
             dockerfile: Dockerfile
