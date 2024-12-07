@@ -24,6 +24,7 @@ services:
         stdin_open: true
         tty: true
         volumes:
+            - ssl_acme:/var/www/certbot
             - ssl:/etc/letsencrypt/
         networks:
             - network
@@ -33,6 +34,8 @@ services:
         build:
             context: ./apache2
             dockerfile: Dockerfile
+        volumes:
+            - ssl_acme:/var/www/certbot
         restart: unless-stopped
         networks:
             - network
@@ -74,3 +77,4 @@ networks:
 volumes:
   db:
   ssl:
+  ssl_acme:
