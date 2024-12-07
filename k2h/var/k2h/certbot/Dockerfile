@@ -1,5 +1,6 @@
 FROM certbot/certbot
 
+RUN mkdir -p /var/www/certbot
 RUN certbot certonly --webroot -w /var/www/certbot -d "key2host.com" --non-interactive --agree-tos --email webmaster@key2host.com
 RUN certbot certonly --webroot -w /var/www/certbot -d "www.key2host.com" --non-interactive --agree-tos --email webmaster@key2host.com
 RUN certbot certonly --webroot -w /var/www/certbot -d "saci.key2host.com" --non-interactive --agree-tos --email webmaster@key2host.com
