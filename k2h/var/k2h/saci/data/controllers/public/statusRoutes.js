@@ -7,26 +7,26 @@ let serverData = [
         coords: [50.1109, 8.6821],
         state: 3,
         stats: {
-            "-20": 99.8,
-            "-19": 99.8,
-            "-18": 99.8,
-            "-17": 99.8,
+            "-20": 99.5,
+            "-19": 99.6,
+            "-18": 99.7,
+            "-17": 99.4,
             "-16": 99.8,
-            "-15": 99.8,
-            "-14": 99.8,
-            "-13": 99.8,
-            "-12": 99.8,
-            "-11": 99.8,
+            "-15": 99.3,
+            "-14": 99.6,
+            "-13": 99.9,
+            "-12": 98.7,
+            "-11": 99.1,
             "-10": 99.8,
-            "-9": 99.8,
-            "-8": 99.8,
+            "-9": 98.9,
+            "-8": 99.3,
             "-7": 99.8,
-            "-6": 99.8,
-            "-5": 99.8,
-            "-4": 99.8,
-            "-3": 99.8,
-            "-2": 99.8,
-            "-1": 99.8
+            "-6": 99.0,
+            "-5": 99.7,
+            "-4": 99.4,
+            "-3": 99.2,
+            "-2": 98.8,
+            "-1": 99.6
         },
         incidents: {
             "01-01-2020": {
@@ -198,8 +198,8 @@ app.post('/', (req, res) => {
     if (!name || !coords || !state || !stats || !lastcheck) {
         return res.status(400).json({ message: "Fehlende Daten im Anfragetext" });
     }
-    
-    
+
+
     // Neue Serverdaten hinzufügen
     serverData.push({
         name,
@@ -211,7 +211,7 @@ app.post('/', (req, res) => {
         lastcheck
     });
 
-    res.json({ message: "Serverdaten erfolgreich hinzugefügt"});
+    res.json({ message: "Serverdaten erfolgreich hinzugefügt" });
 });
 
 // DELETE-Endpunkt, um alle Server zu löschen
