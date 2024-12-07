@@ -11,8 +11,6 @@ services:
             - 443:443
         links:
             - apache2
-        volumes:
-            - ssl:/etc/nginx/ssl/
         networks:
             - network
     ##  APACHE2  ##
@@ -21,22 +19,7 @@ services:
         build:
             context: ./apache2
             dockerfile: Dockerfile
-        volumes:
-            - ssl_acme:/var/www/certbot
         restart: unless-stopped
-        networks:
-            - network
-    ##  CERTBOT  ##
-    certbot:
-        container_name: k2h
-        build:
-            context: ./certbot
-            dockerfile: Dockerfile
-        stdin_open: true
-        tty: true
-        volumes:
-            - ssl_acme:/var/www/certbot
-            - ssl:/etc/letsencrypt/
         networks:
             - network
     ##  MYSQL  ##
@@ -76,5 +59,3 @@ networks:
         driver: bridge
 volumes:
     db:
-    ssl:
-    ssl_acme:
