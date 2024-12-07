@@ -1,16 +1,6 @@
 #!/bin/bash
 set -e
 
-packages=("fail2ban" "ufw" "clamav" "docker-ce")
-for package in "${packages[@]}"; do
-  if ! dpkg -l | grep -q "$package"; then
-    echo "$package ist nicht installiert."
-    exit 1
-  else
-    echo "$package ist bereits installiert."
-  fi
-done
-
 # Portainer
 docker volume create portainer_data
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
