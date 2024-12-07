@@ -4,4 +4,4 @@ WORKDIR /app
 COPY data/package*.json ./
 RUN npm install
 COPY data/ .
-CMD ["exec", "node", "server.js"]
+CMD ["node", "server.js"]
