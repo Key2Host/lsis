@@ -17,8 +17,8 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /va
 
 # System Services laden
 systemctl daemon-reload
-systemctl enable k2h.service
-systemctl start k2h.service
+#systemctl enable k2h.service
+#systemctl start k2h.service
 
 # Fail2Ban
 systemctl enable fail2ban
