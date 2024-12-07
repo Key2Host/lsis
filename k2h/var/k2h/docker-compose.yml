@@ -1,7 +1,6 @@
 services:
-    ##  NGINX  ##
-    nginx:
-        container_name: k2h_nginx
+    webproxyserver:
+        container_name: k2h_webproxyserver
         build:
             context: ./nginx
             dockerfile: Dockerfile
@@ -9,20 +8,20 @@ services:
         ports:
             - 80:80
             - 443:443
+        links:
+            - webserver
         networks:
-            - k2h_network
-    ##  APACHE2  ##
-    apache2:
-        container_name: k2h_apache2
+            - network
+    webserver:
+        container_name: k2h_webserver
         build:
             context: ./apache2
             dockerfile: Dockerfile
         restart: unless-stopped
         networks:
-            - k2h_network
-    ##  MYSQL  ##
-    mysql:
-        container_name: k2h_mysql
+            - network
+    database:
+        container_name: k2h_database
         build:
             context: ./mysql
             dockerfile: Dockerfile
@@ -37,21 +36,22 @@ services:
         ports:
             - "3306:3306"
         networks:
-            - k2h_network
-    ##  PHPMYADMIN  ##
+            - network
     phpmyadmin:
-        container_name: k2h_phpmyadmin
+        container_name: k2h
         image: phpmyadmin/phpmyadmin
         ports:
             - '8080:80'
         environment:
-            PMA_HOST: mysql
+            PMA_HOST: database
         depends_on:
-            - mysql
+            - database
+        links:
+           - database
         networks:
-            - k2h_network
+           - network
 networks:
-    k2h_network:
-        driver: bridge
+  network:
+    driver: bridge
 volumes:
-    db:
+  db:
