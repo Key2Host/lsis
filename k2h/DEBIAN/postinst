@@ -44,7 +44,7 @@ echo "---"
 
 # Countdown von 10 Sekunden
 echo "Das System wird neu gestartet um die Änderungen anzuwenden."
-echo "Drücken Sie Strg+C, um den Neustart abzubrechen."
+echo "Bitte breche diesen Schritt nicht ab!"
 for i in {15..1}
 do
     if [ $i -eq 1 ]; then
