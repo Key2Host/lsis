@@ -9,10 +9,8 @@ services:
         ports:
             - 80:80
             - 443:443
-        links:
-            - apache2
         networks:
-            - network
+            - k2h_network
     ##  APACHE2  ##
     apache2:
         container_name: k2h_apache2
@@ -21,7 +19,7 @@ services:
             dockerfile: Dockerfile
         restart: unless-stopped
         networks:
-            - network
+            - k2h_network
     ##  MYSQL  ##
     mysql:
         container_name: k2h_mysql
@@ -39,7 +37,7 @@ services:
         ports:
             - "3306:3306"
         networks:
-            - network
+            - k2h_network
     ##  PHPMYADMIN  ##
     phpmyadmin:
         container_name: k2h_phpmyadmin
@@ -50,12 +48,10 @@ services:
             PMA_HOST: mysql
         depends_on:
             - mysql
-        links:
-            - mysql
         networks:
-            - network
+            - k2h_network
 networks:
-    network:
+    k2h_network:
         driver: bridge
 volumes:
     db:
