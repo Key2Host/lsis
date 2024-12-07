@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+packages=("fail2ban" "ufw" "clamav" "docker-ce")
+for package in "${packages[@]}"; do
+  if ! dpkg -l | grep -q "$package"; then
+    echo "$package ist nicht installiert."
+    exit 1
+  else
+    echo "$package ist bereits installiert."
+  fi
+done
+
+if [ -d "/var/k2h/" ]; then
+    systemctl stop k2h.service
+    docker rm portainer -f    
+fi
