@@ -3,7 +3,7 @@ Description=Key2Host
 After=network.target
 
 [Service]
-WorkingDirectory=/var/k2h
+WorkingDirectory=/var/k2h/
 Restart=always
 User=root
 Group=root
@@ -12,7 +12,7 @@ Environment=NODE_ENV=production
 RestartSec=10
 
 ExecStartPre=/usr/bin/docker compose down --rmi local
-ExecStart=/usr/bin/docker compose -p "k2h" up -d --remove-orphans
+ExecStart=/usr/bin/docker compose -p "k2h" up --remove-orphans
 ExecStop=/usr/bin/docker compose down
 
 StandardOutput=journal
