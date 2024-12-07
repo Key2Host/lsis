@@ -1,0 +1,188 @@
+{
+	"rooms": [
+		{
+			"id": 1,
+			"type": 3,
+			"roomNo": "01",
+			"bedsused": 4,
+			"totalbeds": 4,
+			"status": 2,
+			"leave": "4 Tage",
+			"orderNo": "0001",
+			"orders": [
+				{
+					"image": "/assets/img/pos/product-2.jpg",
+					"title": "Kind",
+					"quantity": 2,
+					"price": "80.99"
+				},
+				{
+					"image": "/assets/img/pos/product-8.jpg",
+					"title": "Erwachsener",
+					"quantity": 2,
+					"price": "120.69"
+				},
+				{
+					"image": "/assets/img/pos/product-13.jpg",
+					"title": "Tresor",
+					"quantity": 1,
+					"price": "4.99",
+					"options": [
+						"1 Woche"
+					]
+				},
+				{
+					"image": "/assets/img/pos/product-1.jpg",
+					"title": "WLAN-Zugang",
+					"quantity": 4,
+					"price": "3.99",
+					"options": [
+						"Schnell"
+					]
+				}
+			]
+		},
+		{
+			"id": 2,
+			"type": 1,
+			"roomNo": "02",
+			"bedsused": 2,
+			"totalbeds": 2,
+			"status": 2,
+			"leave": "7 Tage",
+			"orderNo": "0002",
+			"orders": [
+				{
+					"image": "/assets/img/pos/product-2.jpg",
+					"title": "Kind",
+					"quantity": 2,
+					"price": "80.99"
+				},
+				{
+					"image": "/assets/img/pos/product-8.jpg",
+					"title": "Erwachsener",
+					"quantity": 2,
+					"price": "120.69"
+				},
+				{
+					"image": "/assets/img/pos/product-13.jpg",
+					"title": "Tresor",
+					"quantity": 1,
+					"price": "4.99",
+					"options": [
+						"1 Woche"
+					]
+				},
+				{
+					"image": "/assets/img/pos/product-1.jpg",
+					"title": "WLAN-Zugang",
+					"quantity": 4,
+					"price": "3.99",
+					"options": [
+						"Schnell"
+					]
+				}
+			]
+		},
+		{
+			"id": 3,
+			"type": 0,
+			"roomNo": "03",
+			"bedsused": 0,
+			"totalbeds": 1,
+			"status": 0
+		},
+		{
+			"id": 4,
+			"type": 0,
+			"roomNo": "04",
+			"bedsused": 1,
+			"totalbeds": 1,
+			"status": 2,
+			"leave": "2 Tage",
+			"orderNo": "0003",
+			"orders": [
+				{
+					"image": "/assets/img/pos/product-2.jpg",
+					"title": "Kind",
+					"quantity": 2,
+					"price": "80.99"
+				},
+				{
+					"image": "/assets/img/pos/product-8.jpg",
+					"title": "Erwachsener",
+					"quantity": 2,
+					"price": "120.69"
+				},
+				{
+					"image": "/assets/img/pos/product-13.jpg",
+					"title": "Tresor",
+					"quantity": 1,
+					"price": "4.99",
+					"options": [
+						"1 Woche"
+					]
+				},
+				{
+					"image": "/assets/img/pos/product-1.jpg",
+					"title": "WLAN-Zugang",
+					"quantity": 4,
+					"price": "3.99",
+					"options": [
+						"Schnell"
+					]
+				}
+			]
+		},
+		{
+			"id": 5,
+			"type": 3,
+			"roomNo": "05",
+			"bedsused": 3,
+			"totalbeds": 4,
+			"status": 2,
+			"leave": "13 Tage",
+			"orderNo": "0004",
+			"orders": [
+				{
+					"image": "/assets/img/pos/product-2.jpg",
+					"title": "Kind",
+					"quantity": 2,
+					"price": "80.99"
+				},
+				{
+					"image": "/assets/img/pos/product-8.jpg",
+					"title": "Erwachsener",
+					"quantity": 2,
+					"price": "120.69"
+				},
+				{
+					"image": "/assets/img/pos/product-13.jpg",
+					"title": "Tresor",
+					"quantity": 1,
+					"price": "4.99",
+					"options": [
+						"1 Woche"
+					]
+				},
+				{
+					"image": "/assets/img/pos/product-1.jpg",
+					"title": "WLAN-Zugang",
+					"quantity": 4,
+					"price": "3.99",
+					"options": [
+						"Schnell"
+					]
+				}
+			]
+		},
+		{
+			"id": 6,
+			"type": 2,
+			"roomNo": "06",
+			"bedsused": 0,
+			"totalbeds": 4,
+			"status": 4
+		}
+	]
+}

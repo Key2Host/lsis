@@ -1,0 +1,70 @@
+{
+	"tables": [
+		{
+			"id": 1,
+			"tableNo": "01",
+			"seatsUsed": 2,
+			"totalSeats": 4,
+			"status": 2,
+			"arrived": "12:21",
+			"orderNo": "0001",
+			"orders": [
+				{
+					"image": "/assets/img/pos/product-2.jpg",
+					"title": "Kind",
+					"quantity": 2,
+					"price": "80.99"
+				},
+				{
+					"image": "/assets/img/pos/product-8.jpg",
+					"title": "Erwachsener",
+					"quantity": 2,
+					"price": "120.69"
+				},
+				{
+					"image": "/assets/img/pos/product-13.jpg",
+					"title": "Tresor",
+					"quantity": 1,
+					"price": "4.99",
+					"options": [
+						"1 Woche"
+					]
+				},
+				{
+					"image": "/assets/img/pos/product-1.jpg",
+					"title": "WLAN-Zugang",
+					"quantity": 4,
+					"price": "3.99",
+					"options": [
+						"Schnell"
+					]
+				}
+			]
+		},
+		{
+			"id": 2,
+			"tableNo": "02",
+			"totalSeats": 4,
+			"status": 1,
+			"reserveName": "Mustermann"
+		},
+		{
+			"id": 3,
+			"tableNo": "03",
+			"totalSeats": 5,
+			"status": 0
+		},
+		{
+			"id": 4,
+			"tableNo": "04",
+			"totalSeats": 6,
+			"status": 3
+		},
+		{
+			"id": 5,
+			"tableNo": "05",
+			"totalSeats": 2,
+			"status": 4
+		}
+	]
+}
