@@ -37,6 +37,14 @@ services:
             - "3306:3306"
         networks:
             - network
+    saci:
+        container_name: k2h_saci
+        build:
+            context: ./saci
+            dockerfile: Dockerfile
+        restart: always
+        networks:
+            - network
     phpmyadmin:
         container_name: k2h_phpmyadmin
         image: phpmyadmin/phpmyadmin
