@@ -1,5 +1,5 @@
 services:
-##  NGINX  ##
+    ##  NGINX  ##
     nginx:
         container_name: k2h_nginx
         build:
@@ -15,7 +15,18 @@ services:
             - ssl:/etc/nginx/ssl/
         networks:
             - network
-##  CERTBOT  ##
+    ##  APACHE2  ##
+    apache2:
+        container_name: k2h_apache2
+        build:
+            context: ./apache2
+            dockerfile: Dockerfile
+        volumes:
+            - ssl_acme:/var/www/certbot
+        restart: unless-stopped
+        networks:
+            - network
+    ##  CERTBOT  ##
     certbot:
         container_name: k2h
         build:
@@ -28,18 +39,7 @@ services:
             - ssl:/etc/letsencrypt/
         networks:
             - network
-##  APACHE2  ##
-    apache2:
-        container_name: k2h_apache2
-        build:
-            context: ./apache2
-            dockerfile: Dockerfile
-        volumes:
-            - ssl_acme:/var/www/certbot
-        restart: unless-stopped
-        networks:
-            - network
-##  MYSQL  ##
+    ##  MYSQL  ##
     mysql:
         container_name: k2h_mysql
         build:
@@ -57,7 +57,7 @@ services:
             - "3306:3306"
         networks:
             - network
-##  PHPMYADMIN  ##
+    ##  PHPMYADMIN  ##
     phpmyadmin:
         container_name: k2h_phpmyadmin
         image: phpmyadmin/phpmyadmin
@@ -68,13 +68,13 @@ services:
         depends_on:
             - mysql
         links:
-           - mysql
+            - mysql
         networks:
-           - network
+            - network
 networks:
-  network:
-    driver: bridge
+    network:
+        driver: bridge
 volumes:
-  db:
-  ssl:
-  ssl_acme:
+    db:
+    ssl:
+    ssl_acme:
