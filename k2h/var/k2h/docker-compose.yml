@@ -66,11 +66,6 @@ services:
            - "465:465"
            - "587:587"
            - "993:993"
-        volumes:
-           - ./docker-data/dms/mail-data/:/var/mail/
-           - ./docker-data/dms/mail-state/:/var/mail-state/
-           - ./docker-data/dms/mail-logs/:/var/log/mail/
-           - ./docker-data/dms/config/:/tmp/docker-mailserver/
         environment:
            - ENABLE_RSPAMD=1
            - ENABLE_CLAMAV=1
