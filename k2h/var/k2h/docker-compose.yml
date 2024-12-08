@@ -1,94 +1,126 @@
+version: '3'
+
 services:
 
-    proxy:
-        container_name: k2h_proxy
-        build:
-            context: ./nginx
-            dockerfile: Dockerfile
-        restart: always
-        ports:
-            - 80:80
-            - 443:443
-        links:
-            - webserver
-        networks:
-            - network
+  # Proxy-Service (bereits vorhanden)
+  proxy:
+    container_name: k2h_proxy
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - webserver
+      - mailcow
+    networks:
+      - network
 
-    webserver:
-        container_name: k2h_webserver
-        build:
-            context: ./apache2
-            dockerfile: Dockerfile
-        restart: unless-stopped
-        networks:
-            - network
+  # Webserver-Service (bereits vorhanden)
+  webserver:
+    container_name: k2h_webserver
+    build:
+      context: ./apache2
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      - network
 
-    database:
-        container_name: k2h_database
-        build:
-            context: ./mysql
-            dockerfile: Dockerfile
-        restart: always
-        environment:
-            MYSQL_ROOT_PASSWORD: johnpw
-            MYSQL_DATABASE: john
-            MYSQL_USER: john
-            MYSQL_PASSWORD: johnpw
-        volumes:
-            - db:/var/lib/mysql
-        networks:
-            - network
+  # Datenbank-Service (bereits vorhanden)
+  database:
+    container_name: k2h_database
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: johnpw
+      MYSQL_DATABASE: john
+      MYSQL_USER: john
+      MYSQL_PASSWORD: johnpw
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - network
 
-    saci:
-        container_name: k2h_saci
-        build:
-            context: ./saci
-            dockerfile: Dockerfile
-        restart: always
-        networks:
-            - network
+  # Saci-Service (bereits vorhanden)
+  saci:
+    container_name: k2h_saci
+    build:
+      context: ./saci
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - network
 
-    phpmyadmin:
-        container_name: k2h_phpmyadmin
-        image: phpmyadmin/phpmyadmin
-        ports:
-            - '8080:80'
-        environment:
-            PMA_HOST: database
-            HIDE_PHP_VERSION: true
-        depends_on:
-            - database
-        links:
-            - database
-        networks:
-            - network
+  # PhpMyAdmin-Service (bereits vorhanden)
+  phpmyadmin:
+    container_name: k2h_phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - '8080:80'
+    environment:
+      PMA_HOST: database
+      HIDE_PHP_VERSION: true
+    depends_on:
+      - database
+    links:
+      - database
+    networks:
+      - network
 
-    webmail:
-        container_name: k2h_webmail
-        image: roundcube/roundcubemail
-        environment:
-            ROUNDCUBEMAIL_DEFAULT_HOST: ssl://mailserver
-            ROUNDCUBEMAIL_SMTP_SERVER: ssl://mailserver
-            ROUNDCUBEMAIL_INSTALL_PLUGINS: 1
-            ROUNDCUBEMAIL_PLUGINS: password, zipdownload, markasjunk, archive
-            ROUNDCUBEMAIL_ASPELL_DICTS: de, en
-            ROUNDCUBEMAIL_DB_TYPE: mysql
-            ROUNDCUBEMAIL_DB_HOST: database
-            ROUNDCUBEMAIL_DB_PORT: 3306
-            ROUNDCUBEMAIL_DB_USER: wmusr
-            ROUNDCUBEMAIL_DB_PASSWORD: 7U05K234hKohhQWa
-            ROUNDCUBEMAIL_DB_NAME: webmail
-        depends_on:
-            - database
-            - mailserver
-        links:
-            - database
-            - mailserver
-        networks:
-            - network
+  # Webmail-Service (bereits vorhanden, für Roundcube)
+  webmail:
+    container_name: k2h_webmail
+    image: roundcube/roundcubemail
+    environment:
+      ROUNDCUBEMAIL_DEFAULT_HOST: ssl://mailserver
+      ROUNDCUBEMAIL_SMTP_SERVER: ssl://mailserver
+      ROUNDCUBEMAIL_INSTALL_PLUGINS: 1
+      ROUNDCUBEMAIL_PLUGINS: password, zipdownload, markasjunk, archive
+      ROUNDCUBEMAIL_ASPELL_DICTS: de, en
+      ROUNDCUBEMAIL_DB_TYPE: mysql
+      ROUNDCUBEMAIL_DB_HOST: database
+      ROUNDCUBEMAIL_DB_PORT: 3306
+      ROUNDCUBEMAIL_DB_USER: wmusr
+      ROUNDCUBEMAIL_DB_PASSWORD: 7U05K234hKohhQWa
+      ROUNDCUBEMAIL_DB_NAME: webmail
+    depends_on:
+      - database
+    links:
+      - database
+    networks:
+      - network
+
+  # Mailcow-Service (hinzugefügt)
+  mailserver:
+    container_name: k2h_mailserver
+    image: mailcow/mailcow-dockerized
+    restart: always
+    ports:
+      - '25:25'    # SMTP
+      - '143:143'  # IMAP
+      - '587:587'  # Submission
+      - '993:993'  # IMAPS
+      - '110:110'  # POP3
+      - '995:995'  # POP3S
+      - '150580:80'    # HTTP
+      - '1505443:443'  # HTTPS
+    networks:
+      - network
+    depends_on:
+      - database
+    volumes:
+      - mailcow_data:/var/lib/mailcow
+      - mailcow_config:/etc/mailcow
 
 networks:
   network:
     driver: bridge
+
 volumes:
   db:
+  mailcow_data:
+  mailcow_config:
