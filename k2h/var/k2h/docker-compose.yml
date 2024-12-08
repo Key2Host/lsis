@@ -69,9 +69,9 @@ services:
            ROUNDCUBEMAIL_DB_TYPE: mysql
            ROUNDCUBEMAIL_DB_HOST: database
            ROUNDCUBEMAIL_DB_PORT: 3306
-           ROUNDCUBEMAIL_DB_USER: "wmusr"
-           ROUNDCUBEMAIL_DB_PASSWORD: "KN9v8%72£c;V"
-           ROUNDCUBEMAIL_DB_NAME: "webmail"
+           ROUNDCUBEMAIL_DB_USER: "john"
+           ROUNDCUBEMAIL_DB_PASSWORD: "johnpw"
+           ROUNDCUBEMAIL_DB_NAME: "john"
         depends_on:
             - database
         links:
