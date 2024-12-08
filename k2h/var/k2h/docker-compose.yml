@@ -57,19 +57,6 @@ services:
            - database
         networks:
            - network
-    mailserver:
-        container_name: k2h_mailserver
-        image: ghcr.io/docker-mailserver/docker-mailserver:latest
-        hostname: key2host.com
-        ports:
-           - "25:25"
-           - "465:465"
-           - "587:587"
-           - "993:993"
-        environment:
-           - ENABLE_RSPAMD=1
-        networks:
-            - network
     webmail:
         container_name: k2h_webmail
         image: roundcube/roundcubemail
@@ -87,10 +74,8 @@ services:
            ROUNDCUBEMAIL_DB_NAME: webmail
         depends_on:
             - database
-            - mailserver
         links:
            - database
-           - mailserver
         networks:
             - network
 networks:
