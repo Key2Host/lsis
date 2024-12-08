@@ -99,10 +99,10 @@ services:
             - "587:587"  # ESMTP (explicit TLS => STARTTLS)
             - "993:993"  # IMAP4 (implicit TLS)
         volumes:
-            - maildata/mail-data/:/var/mail/
-            - mailstate/mail-state/:/var/mail-state/
-            - maillogs/mail-logs/:/var/log/mail/
-            - mailconfig/config/:/tmp/docker-mailserver/
+            - maildata:/var/mail/
+            - mailstate:/var/mail-state/
+            - maillogs:/var/log/mail/
+            - mailconfig:/tmp/docker-mailserver/
             - /etc/localtime:/etc/localtime:ro
         restart: always
         networks:
