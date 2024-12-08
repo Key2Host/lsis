@@ -70,7 +70,7 @@ services:
            ROUNDCUBEMAIL_DB_HOST: database
            ROUNDCUBEMAIL_DB_PORT: 3306
            ROUNDCUBEMAIL_DB_USER: wmusr
-           ROUNDCUBEMAIL_DB_PASSWORD: pplsAAOV4I7U05K234hKohhQWaS4udO5aHIwsAyGYhmvDekn
+           ROUNDCUBEMAIL_DB_PASSWORD: 7U05K234hKohhQWa
            ROUNDCUBEMAIL_DB_NAME: webmail
         depends_on:
             - database
