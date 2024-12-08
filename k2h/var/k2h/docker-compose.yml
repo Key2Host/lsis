@@ -98,10 +98,10 @@ services:
            ROUNDCUBEMAIL_DB_NAME: webmail
         depends_on:
             - database
-            - network
+            - mailserver
         links:
            - database
-           - network
+           - mailserver
         networks:
             - network
 networks:
