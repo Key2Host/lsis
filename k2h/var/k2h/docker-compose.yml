@@ -50,7 +50,7 @@ services:
             - '8080:80'
         environment:
             PMA_HOST: database
-            PMA_HIDE_DBS: '^(information_schema|performance_schema)$'
+            HIDE_PHP_VERSION: true
         depends_on:
             - database
         links:
@@ -69,9 +69,9 @@ services:
            ROUNDCUBEMAIL_DB_TYPE: mysql
            ROUNDCUBEMAIL_DB_HOST: database
            ROUNDCUBEMAIL_DB_PORT: 3306
-           ROUNDCUBEMAIL_DB_USER: wmusr
-           ROUNDCUBEMAIL_DB_PASSWORD: KN9v8%72£c;V
-           ROUNDCUBEMAIL_DB_NAME: webmail
+           ROUNDCUBEMAIL_DB_USER: "wmusr"
+           ROUNDCUBEMAIL_DB_PASSWORD: "KN9v8%72£c;V"
+           ROUNDCUBEMAIL_DB_NAME: "webmail"
         depends_on:
             - database
         links:
