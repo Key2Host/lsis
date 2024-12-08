@@ -26,7 +26,7 @@ ufw allow 21/tcp
 ufw logging on
 
 # ClamAV
-echo "Konfiguriere Anti Virus..."
+echo "Konfiguriere Antivirus..."
 (crontab -l; echo "0 3 * * * /usr/bin/freshclam --quiet") | crontab -
 (crontab -l; echo "30 4 * * * /usr/bin/clamscan -r /etc /var /home /usr/local /tmp -i --log=/var/log/clamav/scan.log") | crontab -
 systemctl enable clamav-daemon
