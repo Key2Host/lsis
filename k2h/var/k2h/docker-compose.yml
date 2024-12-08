@@ -65,10 +65,10 @@ services:
            ROUNDCUBEMAIL_DEFAULT_HOST: ssl://mailserver
            ROUNDCUBEMAIL_SMTP_SERVER: ssl://mailserver
            ROUNDCUBEMAIL_PLUGINS: password, contextmenu, zipdownload, markasjunk, archive
-        depends_on:
-            - mailserver
-        links:
-            - mailserver
+        #depends_on:
+        #    - mailserver
+        #links:
+        #    - mailserver
         networks:
             - network
 networks:
