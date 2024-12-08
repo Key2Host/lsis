@@ -59,8 +59,8 @@ services:
            - network
     mailserver:
         container_name: k2h_mailserver
-        image: mailserver/docker-mailserver
-        hostname: mail.example.com
+        image: ghcr.io/docker-mailserver/docker-mailserver:latest
+        hostname: key2host.com
         ports:
            - "25:25"
            - "465:465"
