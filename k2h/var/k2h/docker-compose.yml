@@ -12,7 +12,6 @@ services:
       - 443:443
     links:
       - webserver
-      - mailcow
     networks:
       - network
 
@@ -95,15 +94,15 @@ services:
   # Mailcow-Service (hinzugefügt)
   mailserver:
     container_name: k2h_mailserver
-    image: mailcow/mailcow-dockerized
+    image: mailcow/sogo
     restart: always
     ports:
-      - '25:25'    # SMTP
-      - '143:143'  # IMAP
-      - '587:587'  # Submission
-      - '993:993'  # IMAPS
-      - '110:110'  # POP3
-      - '995:995'  # POP3S
+    #  - '25:25'    # SMTP
+    #  - '143:143'  # IMAP
+    #  - '587:587'  # Submission
+    #  - '993:993'  # IMAPS
+    #  - '110:110'  # POP3
+    #  - '995:995'  # POP3S
       - '1080:80'    # HTTP
       - '1443:443'  # HTTPS
     networks:
