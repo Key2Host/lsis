@@ -91,27 +91,28 @@ services:
     networks:
       - network
 
-  # Mailcow-Service (hinzugefügt)
-  mailserver:
-    container_name: k2h_mailserver
-    image: mailcow/sogo
-    restart: always
-    ports:
-    #  - '25:25'    # SMTP
-    #  - '143:143'  # IMAP
-    #  - '587:587'  # Submission
-    #  - '993:993'  # IMAPS
-    #  - '110:110'  # POP3
-    #  - '995:995'  # POP3S
-      - '1080:80'    # HTTP
-      - '1443:443'  # HTTPS
-    networks:
-      - network
-    depends_on:
-      - database
-    volumes:
-      - mailcow_data:/var/lib/mailcow
-      - mailcow_config:/etc/mailcow
+  # Mailserver
+    mailserver:
+        image: ghcr.io/docker-mailserver/docker-mailserver:latest
+        container_name: mailserver
+        # Provide the FQDN of your mail server here (Your DNS MX record should point to this value)
+        hostname: key2host.com
+        env_file: mailserver.env
+        # More information about the mail-server ports:
+        # https://docker-mailserver.github.io/docker-mailserver/latest/config/security/understanding-the-ports/
+        ports:
+            - "25:25"    # SMTP  (explicit TLS => STARTTLS, Authentication is DISABLED => use port 465/587 instead)
+            - "143:143"  # IMAP4 (explicit TLS => STARTTLS)
+            - "465:465"  # ESMTP (implicit TLS)
+            - "587:587"  # ESMTP (explicit TLS => STARTTLS)
+            - "993:993"  # IMAP4 (implicit TLS)
+        volumes:
+            - ./docker-data/dms/mail-data/:/var/mail/
+            - ./docker-data/dms/mail-state/:/var/mail-state/
+            - ./docker-data/dms/mail-logs/:/var/log/mail/
+            - ./docker-data/dms/config/:/tmp/docker-mailserver/
+            - /etc/localtime:/etc/localtime:ro
+        restart: always
 
 networks:
   network:
