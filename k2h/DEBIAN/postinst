@@ -22,6 +22,10 @@ ufw default allow outgoing
 ufw allow 80/tcp        # HTTP
 ufw allow 443/tcp       # HTTPS
 ufw allow 22/tcp        # SSH
+ufw allow 143/tcp        # IMAP
+ufw allow 465/tcp        # SMTP
+ufw allow 587/tcp        # SMTP
+ufw allow 993/tcp        # IMAP
 ufw logging on
 
 # ClamAV
