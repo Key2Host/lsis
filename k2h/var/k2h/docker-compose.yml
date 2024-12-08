@@ -33,8 +33,6 @@ services:
             MYSQL_PASSWORD: johnpw
         volumes:
             - db:/var/lib/mysql
-        ports:
-            - "3306:3306"
         networks:
             - network
     saci:
@@ -64,7 +62,14 @@ services:
         environment:
            ROUNDCUBEMAIL_DEFAULT_HOST: ssl://mailserver
            ROUNDCUBEMAIL_SMTP_SERVER: ssl://mailserver
+           ROUNDCUBEMAIL_INSTALL_PLUGINS: 1
            ROUNDCUBEMAIL_PLUGINS: password, contextmenu, zipdownload, markasjunk, archive
+           ROUNDCUBEMAIL_ASPELL_DICTS: de, en+
+           ROUNDCUBEMAIL_DB_TYPE: mysql
+           ROUNDCUBEMAIL_DB_HOST: database
+           ROUNDCUBEMAIL_DB_USER: wmusr
+           ROUNDCUBEMAIL_DB_PASSWORD: KN9v8%72£c;V
+           ROUNDCUBEMAIL_DB_NAME: webmail
         #depends_on:
         #    - mailserver
         #links:
