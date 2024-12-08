@@ -58,6 +58,19 @@ services:
            - database
         networks:
            - network
+    webmail:
+        container_name: k2h_webmail
+        image: roundcube/roundcubemail
+        environment:
+           ROUNDCUBEMAIL_DEFAULT_HOST: ssl://mailserver
+           ROUNDCUBEMAIL_SMTP_SERVER: ssl://mailserver
+           ROUNDCUBEMAIL_PLUGINS: password, contextmenu, zipdownload, markasjunk, archive
+        depends_on:
+            - mailserver
+        links:
+            - mailserver
+        networks:
+            - network
 networks:
   network:
     driver: bridge
