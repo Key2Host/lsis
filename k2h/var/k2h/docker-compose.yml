@@ -58,7 +58,7 @@ services:
         networks:
            - network
     mailserver:
-        container:name: k2h_mailserver
+        container_name: k2h_mailserver
         image: mailserver/docker-mailserver
         hostname: mail.example.com
         ports:
