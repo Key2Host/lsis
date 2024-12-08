@@ -57,6 +57,30 @@ services:
            - database
         networks:
            - network
+    mailserver:
+        container:name: k2h_mailserver
+        image: mailserver/docker-mailserver
+        hostname: mail.example.com
+        ports:
+           - "25:25"
+           - "465:465"
+           - "587:587"
+           - "993:993"
+        volumes:
+           - ./docker-data/dms/mail-data/:/var/mail/
+           - ./docker-data/dms/mail-state/:/var/mail-state/
+           - ./docker-data/dms/mail-logs/:/var/log/mail/
+           - ./docker-data/dms/config/:/tmp/docker-mailserver/
+           - /etc/localtime:/etc/localtime:ro
+        environment:
+           - ENABLE_RSPAMD=1
+           - ENABLE_CLAMAV=1
+           - ENABLE_FAIL2BAN=1
+        cap_add:
+           - NET_ADMIN
+        restart: always
+        networks:
+            - network
     webmail:
         container_name: k2h_webmail
         image: roundcube/roundcubemail
@@ -74,8 +98,10 @@ services:
            ROUNDCUBEMAIL_DB_NAME: webmail
         depends_on:
             - database
+            - network
         links:
            - database
+           - network
         networks:
             - network
 networks:
