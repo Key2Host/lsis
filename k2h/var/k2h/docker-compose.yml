@@ -123,5 +123,3 @@ networks:
 
 volumes:
     db:
-    mailcow_data:
-    mailcow_config:
