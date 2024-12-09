@@ -1,0 +1,29 @@
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
+    
+AddDefaultCharset UTF-8
+DirectoryIndex index.html
+    
+Options -ExecCGI
+AddHandler cgi-script .php .pl .py .jsp .asp .htm .shtml .sh .cgi
+    
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.html [L]
+</IfModule>
+    
+<IfModule mod_headers.c>
+    Header set X-Frame-Options: SAMEORIGIN
+    Header set X-Content-Type-Options: nosniff
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy: no-referrer
+    <FilesMatch ".(js|css|xml|gz|html)$">
+        Header append Vary: Accept-Encoding
+    </FilesMatch>
+</IfModule>
