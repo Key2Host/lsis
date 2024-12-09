@@ -48,7 +48,7 @@ services:
         build:
             context: ./saci
             dockerfile: Dockerfile
-        restart: always
+        restart: unless-stopped
         networks:
             - network
 
@@ -84,6 +84,7 @@ services:
             ROUNDCUBEMAIL_DB_USER: wmusr
             ROUNDCUBEMAIL_DB_PASSWORD: 7U05K234hKohhQWa
             ROUNDCUBEMAIL_DB_NAME: webmail
+        restart: unless-stopped
         depends_on:
             - database
             - mailserver
