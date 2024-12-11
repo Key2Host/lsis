@@ -13,7 +13,6 @@ done
 
 if [ -d "/var/k2h/" ]; then
     systemctl stop k2h.service
-    docker stop portainer -f
     docker rm portainer -f    
     docker pull portainer/portainer-ce:latest
 fi
