@@ -1,6 +1,3 @@
 User-agent: *
 Disallow: /assets/
-Sitemap: https://auth.key2host.com/sitemap.xml
-Sitemap: https://cp.key2host.com/sitemap.xml
 Sitemap: https://www.key2host.com/sitemap.xml
-Sitemap: https://status.key2host.com/sitemap.xml
