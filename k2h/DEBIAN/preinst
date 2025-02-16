@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+# Überprüfe, ob die benötigten Pakete installiert sind
 packages=("fail2ban" "ufw" "clamav" "docker-ce")
 for package in "${packages[@]}"; do
   if ! dpkg -l | grep -q "$package"; then
@@ -11,8 +12,32 @@ for package in "${packages[@]}"; do
   fi
 done
 
+# Falls der Ordner existiert, k2h stoppen und Portainer aktualisieren
 if [ -d "/var/k2h/" ]; then
     systemctl stop k2h.service
     docker rm portainer -f    
     docker pull portainer/portainer-ce:latest
+fi
+
+# Token Pfad
+TOKEN_PATH="/var/k2h/git_token"
+
+# Token abfragen, falls er noch nicht existiert
+if [ ! -f "$TOKEN_PATH" ]; then
+    read -sp "Gib dein GitHub Access Token ein: " GITHUB_TOKEN
+    echo ""
+
+    # Token validieren mit API-Request
+    RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/user)
+
+    if [ "$RESPONSE" -eq 200 ]; then
+        echo "$GITHUB_TOKEN" | sudo tee "$TOKEN_PATH" > /dev/null
+        sudo chmod 600 "$TOKEN_PATH"  # Nur Root darf lesen
+        echo "GitHub Token ist gültig und wurde gespeichert."
+    else
+        echo "Ungültiger GitHub Token! Abbruch."
+        exit 1
+    fi
+else
+    echo "GitHub Token existiert bereits."
 fi
