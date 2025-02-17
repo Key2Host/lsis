@@ -675,7 +675,7 @@ const _routes = [
   {
     name: "checkout",
     path: "/checkout",
-    component: () => import('./index-BGCSIXfK.mjs')
+    component: () => import('./index-CA227-M_.mjs')
   },
   {
     name: "checkout-success",
@@ -740,7 +740,7 @@ const _routes = [
   {
     name: "products-domain",
     path: "/products/domain",
-    component: () => import('./index-DNF2L0oT.mjs')
+    component: () => import('./index-tANrHzw_.mjs')
   },
   {
     name: "products-lic-cert",
@@ -755,7 +755,7 @@ const _routes = [
   {
     name: "products-webspace",
     path: "/products/webspace",
-    component: () => import('./index-wdoNcFLu.mjs')
+    component: () => import('./index-DS0Wdgrd.mjs')
   }
 ];
 const ROUTE_KEY_PARENTHESES_RE = /(:\w+)\([^)]+\)/g;
