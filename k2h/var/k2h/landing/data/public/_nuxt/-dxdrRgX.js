@@ -1,1 +1,0 @@
-import{a2 as n,o,aj as s,an as a}from"./CgUrtwKu.js";const r={};function t(e,c){return o(),s("code",null,[a(e.$slots,"default")])}const _=Object.assign(n(r,[["render",t]]),{__name:"ProseCodeInline"});export{_ as default};

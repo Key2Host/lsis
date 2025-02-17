@@ -675,7 +675,7 @@ const _routes = [
   {
     name: "checkout",
     path: "/checkout",
-    component: () => import('./index-CA227-M_.mjs')
+    component: () => import('./index-dUvRxTtP.mjs')
   },
   {
     name: "checkout-success",
