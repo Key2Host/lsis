@@ -705,7 +705,7 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import('./index-BMv6U4sh.mjs')
+    component: () => import('./index-l0Azy9-8.mjs')
   },
   {
     name: "legal-notice",
@@ -14873,8 +14873,8 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     });
     const cart = useCartStore();
     useSeoMeta({
-      ogImage: "https://landing-template.nuxt.dev/social-card.png",
-      twitterImage: "https://landing-template.nuxt.dev/social-card.png",
+      ogImage: "/img/brand/logo-wide.svg",
+      twitterImage: "/img/brand/logo-wide.svg",
       twitterCard: "summary_large_image"
     });
     return (_ctx, _push, _parent, _attrs) => {

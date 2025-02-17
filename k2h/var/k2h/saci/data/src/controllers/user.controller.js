@@ -107,8 +107,8 @@ async function buy(req, res) {
                 quantity: item.quantity, // Menge des Produkts
             })),
             mode: 'subscription', // Setzt den Modus auf Abonnement
-            success_url: `http://localhost:3000/checkout/success`,
-            cancel_url: `http://localhost:3000/checkout/failed`,
+            success_url: `https://www.key2host.com/checkout/success`,
+            cancel_url: `https://www.key2host.com/checkout/failed`,
         });
 
         res.json({ id: session.id });
