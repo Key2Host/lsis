@@ -1,42 +1,39 @@
-const logger = require("morgan");
-const cors = require("cors");
-const http = require("http");
-const express = require("express");
-const errorHandler = require("errorhandler");
-const dotenv = require("dotenv");
-const bodyParser = require("body-parser");
-const helmet = require('helmet');
-const { log } = require('./utils/logger');
+const express = require('express');
+const app = express();
+require('dotenv').config();
+const { log } = require('./src/utils/logger');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
-var app = express();
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (!origin || origin.startsWith('http://localhost')) {
+            callback(null, true);
+        } else {
+            callback(new Error('Nicht erlaubt durch CORS'));
+        }
+    },
+    credentials: true
+};
 
-dotenv.config();
+app.use(cors(corsOptions));
+app.use(cookieParser());
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(cors());
-app.use(helmet());
+log(`The REST API is started up. Please wait...`)
 
-app.use(function (err, req, res, next) {
-    if (err.name === 'StatusError') {
-        res.send(err.status, err.message);
-    } else {
-        next(err);
-    }
-});
+// Importiere Routen
+const userRoutes = require('./src/routes/user.routes');
+const adminRoutes = require('./src/routes/admin.routes');
+const publicRoutes = require('./src/routes/public.routes');
+const authRoutes = require('./src/routes/auth.routes');
 
-if (process.env.NODE_ENV === 'development') {
-    app.use(logger('dev'));
-    app.use(errorHandler())
-}
+app.use(express.json()); // JSON-Parsing aktivieren
 
-app.use('/public/status', require('./controllers/public/statusRoutes'));
-//app.use('/admins', require('./routes/adminRoutes'));
-//app.use('/clients', require('./routes/clientRoutes'));
-//app.use('/public', require('./routes/publicRoutes'))
+// API-Routen registrieren
+app.use('/api/user', userRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/public', publicRoutes);
+app.use('/api/auth', authRoutes);
 
-var port = process.env.PORT || 80;
-
-http.createServer(app).listen(port, function (err) {
-    log('API listening on port ' + port + '.');
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => log(`Server läuft auf http://localhost:${PORT}`));
