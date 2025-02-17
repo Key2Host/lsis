@@ -7,7 +7,8 @@ const cookieParser = require('cookie-parser');
 
 const corsOptions = {
     origin: (origin, callback) => {
-        if (!origin || origin.startsWith('http://localhost')) {
+        const allowedDomain = /\.key2host\.com$/;  // Regulärer Ausdruck für Subdomains von key2host.com
+        if (!origin || allowedDomain.test(origin)) {
             callback(null, true);
         } else {
             callback(new Error('Nicht erlaubt durch CORS'));
