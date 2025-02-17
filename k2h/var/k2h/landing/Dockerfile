@@ -1,7 +1,6 @@
 FROM node:18
 
 WORKDIR /app
-COPY data/package*.json ./
-RUN npm install
 COPY data/ .
+RUN npm install
 CMD ["node", "server/index.mjs"]
