@@ -52,6 +52,16 @@ services:
         networks:
             - network
 
+    # Landing (bereits vorhanden)
+    landing:
+        container_name: k2h_landing
+        build:
+            context: ./landing
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        networks:
+            - network
+
     # PhpMyAdmin-Service (bereits vorhanden)
     phpmyadmin:
         container_name: k2h_phpmyadmin
