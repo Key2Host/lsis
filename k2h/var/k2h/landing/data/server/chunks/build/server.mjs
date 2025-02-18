@@ -14873,8 +14873,8 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     });
     const cart = useCartStore();
     useSeoMeta({
-      ogImage: "/img/brand/logo-wide.svg",
-      twitterImage: "/img/brand/logo-wide.svg",
+      ogImage: "/img/brand/og.jpg",
+      twitterImage: "/img/brand/og.jpg",
       twitterCard: "summary_large_image"
     });
     return (_ctx, _push, _parent, _attrs) => {
