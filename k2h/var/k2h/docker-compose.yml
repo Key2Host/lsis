@@ -19,10 +19,10 @@ services:
             dockerfile: Dockerfile
         restart: always
         environment:
-            MYSQL_ROOT_PASSWORD: johnpw
-            MYSQL_DATABASE: john
-            MYSQL_USER: john
-            MYSQL_PASSWORD: johnpw
+            MYSQL_ROOT_PASSWORD: k2hrootpw
+            MYSQL_DATABASE: k2h
+            MYSQL_USER: k2husr
+            MYSQL_PASSWORD: k2hpw
         volumes:
             - db:/var/lib/mysql
         networks:
