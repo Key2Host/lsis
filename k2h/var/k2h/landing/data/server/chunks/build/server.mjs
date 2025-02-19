@@ -695,17 +695,17 @@ const _routes = [
   {
     name: "company-partners",
     path: "/company/partners",
-    component: () => import('./partners-KtCaqmZ7.mjs')
+    component: () => import('./partners-B7aktesq.mjs')
   },
   {
     name: "contact",
     path: "/contact",
-    component: () => import('./contact-C1yLmtPL.mjs')
+    component: () => import('./contact-Bg9z4Tv6.mjs')
   },
   {
     name: "index",
     path: "/",
-    component: () => import('./index-l0Azy9-8.mjs')
+    component: () => import('./index-_mb7ORBB.mjs')
   },
   {
     name: "legal-notice",
@@ -725,12 +725,12 @@ const _routes = [
   {
     name: "newsroom-id",
     path: "/newsroom/:id()",
-    component: () => import('./_id_-bOsbA_ot.mjs')
+    component: () => import('./_id_-CkG9lXOw.mjs')
   },
   {
     name: "newsroom",
     path: "/newsroom",
-    component: () => import('./index-D3rG3oNx.mjs')
+    component: () => import('./index-DisBpy1k.mjs')
   },
   {
     name: "products-dedicated",
@@ -740,7 +740,7 @@ const _routes = [
   {
     name: "products-domain",
     path: "/products/domain",
-    component: () => import('./index-tANrHzw_.mjs')
+    component: () => import('./index-CELx1wYo.mjs')
   },
   {
     name: "products-lic-cert",
@@ -2003,14 +2003,14 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
     };
   }
 });
-const LazyCallout = defineAsyncComponent(() => import('./Callout-DipbPYlK.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCard = defineAsyncComponent(() => import('./Card-DvvkDIkV.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCallout = defineAsyncComponent(() => import('./Callout-D-SFQlVZ.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCard = defineAsyncComponent(() => import('./Card-BDE1ORqH.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyCardGroup = defineAsyncComponent(() => import('./CardGroup-DelJ9q3N.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyCodeGroup = defineAsyncComponent(() => import('./CodeGroup-ClRjJL2R.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCollapsible = defineAsyncComponent(() => import('./Collapsible-B0Hjcw8R.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCollapsible = defineAsyncComponent(() => import('./Collapsible-B_UsY9IR.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyField = defineAsyncComponent(() => import('./Field-BwY4pv4A.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyFieldGroup = defineAsyncComponent(() => import('./FieldGroup-CYO3lMAV.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyShortcut = defineAsyncComponent(() => import('./Shortcut-CoSQf8w2.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyShortcut = defineAsyncComponent(() => import('./Shortcut-DPy6mwsI.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyTabs = defineAsyncComponent(() => import('./Tabs-nxoR_OHZ.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseCode = defineAsyncComponent(() => import('./ProseCode-B9ZQDiE4.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseCodeButton = defineAsyncComponent(() => import('./ProseCodeButton-BDwNYNR7.mjs').then((r2) => r2["default"] || r2.default || r2));
@@ -2019,12 +2019,12 @@ const LazyProseH1 = defineAsyncComponent(() => import('./ProseH1-Cjof21Ki.mjs').
 const LazyProseH2 = defineAsyncComponent(() => import('./ProseH2-CNfw02UT.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseH3 = defineAsyncComponent(() => import('./ProseH3-D3EpAtN3.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseH4 = defineAsyncComponent(() => import('./ProseH4-F1JtfKvw.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentDoc = defineAsyncComponent(() => import('./ContentDoc-Bk9seTJj.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentList = defineAsyncComponent(() => import('./ContentList-DTDO7IxP.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentNavigation = defineAsyncComponent(() => import('./ContentNavigation-CooGm8sV.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentQuery = defineAsyncComponent(() => import('./ContentQuery-DzfYYtZ5.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentRenderer = defineAsyncComponent(() => import('./ContentRenderer-Bk_O8T1c.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentRendererMarkdown = defineAsyncComponent(() => import('./ContentRendererMarkdown-Bjj6wXgi.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentDoc = defineAsyncComponent(() => import('./ContentDoc-lkPu4b4y.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentList = defineAsyncComponent(() => import('./ContentList-DmwQlRAl.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentNavigation = defineAsyncComponent(() => import('./ContentNavigation-CVmvBPwO.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentQuery = defineAsyncComponent(() => import('./ContentQuery-DET8eXad.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentRenderer = defineAsyncComponent(() => import('./ContentRenderer-DoqwpQvh.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentRendererMarkdown = defineAsyncComponent(() => import('./ContentRendererMarkdown-BBL_njh4.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyContentSlot = defineAsyncComponent(() => import('./ContentSlot-FDRu14QV.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyDocumentDrivenEmpty = defineAsyncComponent(() => import('./DocumentDrivenEmpty-Cnbqc6qM.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyDocumentDrivenNotFound = defineAsyncComponent(() => import('./DocumentDrivenNotFound-CrGBz1Ho.mjs').then((r2) => r2["default"] || r2.default || r2));
@@ -2034,10 +2034,10 @@ const LazyProsePre = defineAsyncComponent(() => import('./ProsePre-BHHkf67M.mjs'
 const LazyProseA = defineAsyncComponent(() => import('./ProseA-BqCnWhvm.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseBlockquote = defineAsyncComponent(() => import('./ProseBlockquote-Cay-jfZ9.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseEm = defineAsyncComponent(() => import('./ProseEm-DQJmn_6s.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH5 = defineAsyncComponent(() => import('./ProseH5-Bgva6TZ_.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH6 = defineAsyncComponent(() => import('./ProseH6-OKZyDp3e.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH5 = defineAsyncComponent(() => import('./ProseH5-YWXFgGmY.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH6 = defineAsyncComponent(() => import('./ProseH6-C-MJHl1v.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseHr = defineAsyncComponent(() => import('./ProseHr-7taPBcv8.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseImg = defineAsyncComponent(() => import('./ProseImg-CgpIiuT2.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseImg = defineAsyncComponent(() => import('./ProseImg-83kVDFEf.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseLi = defineAsyncComponent(() => import('./ProseLi-B8hKMFV7.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseOl = defineAsyncComponent(() => import('./ProseOl-9fgFML-g.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseP = defineAsyncComponent(() => import('./ProseP-Bmw01xNN.mjs').then((r2) => r2["default"] || r2.default || r2));
@@ -14179,8 +14179,11 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
       loading.value = true;
       setTimeout(() => {
         toast.add({
-          title: "Subscribed!",
-          description: "You've been subscribed to our newsletter."
+          icon: "i-heroicons-check-circle",
+          description: "Du hast dich erfolgreich beim Newsletter angemeldet.",
+          color: "green",
+          timeout: 2500,
+          title: "Newsletter"
         });
         loading.value = false;
       }, 2500);
@@ -14219,14 +14222,15 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                           required: "",
                           size: "xl",
                           autocomplete: "off",
-                          class: "w-full"
+                          class: "w-full",
+                          disabled: unref(loading)
                         }, {
                           trailing: withCtx((_4, _push5, _parent5, _scopeId4) => {
                             if (_push5) {
                               _push5(ssrRenderComponent(_component_UButton, {
                                 type: "submit",
                                 size: "xs",
-                                label: unref(loading) ? "Anmelden..." : "Newsletter anmelden",
+                                icon: "i-heroicons-check-circle",
                                 loading: unref(loading)
                               }, null, _parent5, _scopeId4));
                             } else {
@@ -14234,9 +14238,9 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                 createVNode(_component_UButton, {
                                   type: "submit",
                                   size: "xs",
-                                  label: unref(loading) ? "Anmelden..." : "Newsletter anmelden",
+                                  icon: "i-heroicons-check-circle",
                                   loading: unref(loading)
-                                }, null, 8, ["label", "loading"])
+                                }, null, 8, ["loading"])
                               ];
                             }
                           }),
@@ -14253,18 +14257,19 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                             required: "",
                             size: "xl",
                             autocomplete: "off",
-                            class: "w-full"
+                            class: "w-full",
+                            disabled: unref(loading)
                           }, {
                             trailing: withCtx(() => [
                               createVNode(_component_UButton, {
                                 type: "submit",
                                 size: "xs",
-                                label: unref(loading) ? "Anmelden..." : "Newsletter anmelden",
+                                icon: "i-heroicons-check-circle",
                                 loading: unref(loading)
-                              }, null, 8, ["label", "loading"])
+                              }, null, 8, ["loading"])
                             ]),
                             _: 1
-                          }, 8, ["modelValue", "onUpdate:modelValue"])
+                          }, 8, ["modelValue", "onUpdate:modelValue", "disabled"])
                         ];
                       }
                     }),
@@ -14292,18 +14297,19 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                             required: "",
                             size: "xl",
                             autocomplete: "off",
-                            class: "w-full"
+                            class: "w-full",
+                            disabled: unref(loading)
                           }, {
                             trailing: withCtx(() => [
                               createVNode(_component_UButton, {
                                 type: "submit",
                                 size: "xs",
-                                label: unref(loading) ? "Anmelden..." : "Newsletter anmelden",
+                                icon: "i-heroicons-check-circle",
                                 loading: unref(loading)
-                              }, null, 8, ["label", "loading"])
+                              }, null, 8, ["loading"])
                             ]),
                             _: 1
-                          }, 8, ["modelValue", "onUpdate:modelValue"])
+                          }, 8, ["modelValue", "onUpdate:modelValue", "disabled"])
                         ]),
                         _: 1
                       })
@@ -14339,18 +14345,19 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                           required: "",
                           size: "xl",
                           autocomplete: "off",
-                          class: "w-full"
+                          class: "w-full",
+                          disabled: unref(loading)
                         }, {
                           trailing: withCtx(() => [
                             createVNode(_component_UButton, {
                               type: "submit",
                               size: "xs",
-                              label: unref(loading) ? "Anmelden..." : "Newsletter anmelden",
+                              icon: "i-heroicons-check-circle",
                               loading: unref(loading)
-                            }, null, 8, ["label", "loading"])
+                            }, null, 8, ["loading"])
                           ]),
                           _: 1
-                        }, 8, ["modelValue", "onUpdate:modelValue"])
+                        }, 8, ["modelValue", "onUpdate:modelValue", "disabled"])
                       ]),
                       _: 1
                     })
@@ -15096,5 +15103,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { useCookieNoticeStore as $, A$3 as A, selectMenu as B, __nuxt_component_1$3 as C, __nuxt_component_4$3 as D, E$2 as E, useUI as F, usePopper as G, useInjectButtonGroup as H, useFormGroup as I, twMerge as J, get as K, s$5 as L, omit as M, N$4 as N, O$2 as O, __nuxt_component_0$9 as P, __nuxt_component_2$3 as Q, __nuxt_component_4 as R, __nuxt_component_7 as S, T$2 as T, useToast as U, useCartStore as V, __nuxt_component_0$4 as W, __nuxt_component_0$e as X, useAppConfig as Y, __nuxt_component_0$3 as Z, _export_sfc as _, o$2 as a, getNuxtLinkProps as a0, useHead as a1, __nuxt_component_1$2 as a2, __nuxt_component_0$d as a3, nuxtLinkProps as a4, getSlotChildrenText as a5, useAsyncData as a6, avatar as a7, getSlotsChildren as a8, __nuxt_component_2$1 as a9, config$i as aa, N$1 as ab, Q$1 as ac, V as ad, __nuxt_component_0$7 as ae, useRuntimeConfig as af, useRequestEvent as ag, useCookie as ah, useRoute as ai, useNuxtApp as aj, useState as ak, u$7 as b, c$1 as c, f$2 as d, entry$1 as default, u$4 as e, f$1 as f, i$6 as g, i$4 as h, i$1 as i, i$2 as j, u$5 as k, l$2 as l, o$1 as m, t$1 as n, o$4 as o, n$2 as p, w$4 as q, h as r, s$3 as s, t$2 as t, useSeoMeta as u, p as v, w$2 as w, mergeConfig as x, select as y, appConfig as z };
+export { useCookieNoticeStore as $, A$3 as A, selectMenu as B, __nuxt_component_1$3 as C, __nuxt_component_4$3 as D, E$2 as E, useUI as F, usePopper as G, useInjectButtonGroup as H, useFormGroup as I, twMerge as J, get as K, s$5 as L, omit as M, N$4 as N, O$2 as O, __nuxt_component_0$9 as P, __nuxt_component_2$3 as Q, __nuxt_component_4 as R, __nuxt_component_7 as S, T$2 as T, useToast as U, useCartStore as V, __nuxt_component_0$4 as W, __nuxt_component_0$e as X, useAppConfig as Y, __nuxt_component_0$3 as Z, _export_sfc as _, o$2 as a, getNuxtLinkProps as a0, useHead as a1, __nuxt_component_1$2 as a2, __nuxt_component_0$d as a3, nuxtLinkProps as a4, getSlotChildrenText as a5, avatar as a6, getSlotsChildren as a7, __nuxt_component_2$1 as a8, config$i as a9, N$1 as aa, Q$1 as ab, V as ac, __nuxt_component_0$7 as ad, useRequestEvent as ae, useNuxtApp as af, useRuntimeConfig as ag, useRoute as ah, useAsyncData as ai, useCookie as aj, useState as ak, u$7 as b, c$1 as c, f$2 as d, entry$1 as default, u$4 as e, f$1 as f, i$6 as g, i$4 as h, i$1 as i, i$2 as j, u$5 as k, l$2 as l, o$1 as m, t$1 as n, o$4 as o, n$2 as p, w$4 as q, h as r, s$3 as s, t$2 as t, useSeoMeta as u, p as v, w$2 as w, mergeConfig as x, select as y, appConfig as z };
 //# sourceMappingURL=server.mjs.map

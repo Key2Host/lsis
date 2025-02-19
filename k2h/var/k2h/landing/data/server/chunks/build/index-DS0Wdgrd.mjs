@@ -5,7 +5,7 @@ import { x as mergeConfig, z as appConfig, C as __nuxt_component_1$3, P as __nux
 import { twJoin } from 'tailwind-merge';
 import { _ as __nuxt_component_3 } from './Skeleton-Cmf3b7L4.mjs';
 import { _ as __nuxt_component_2$1, a as __nuxt_component_0, b as __nuxt_component_5 } from './Alert-CSXSXC1a.mjs';
-import { R as upperFirst, o as defu, s as isEqual } from '../nitro/nitro.mjs';
+import { P as upperFirst, o as defu, s as isEqual } from '../nitro/nitro.mjs';
 import { useVModel } from '@vueuse/core';
 import 'pinia';
 import 'unhead';
