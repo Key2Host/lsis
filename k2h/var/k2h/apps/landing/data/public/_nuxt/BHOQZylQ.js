@@ -1,1 +1,0 @@
-import{a2 as o,o as s,aj as a,an as n}from"./CicocnTy.js";const r={};function t(e,c){return s(),a("tbody",null,[n(e.$slots,"default")])}const _=Object.assign(o(r,[["render",t]]),{__name:"ProseTbody"});export{_ as default};

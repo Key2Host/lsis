@@ -1,1 +1,0 @@
-import{a2 as s,o as a,aj as n,an as o}from"./CicocnTy.js";const r={};function t(e,c){return a(),n("em",null,[o(e.$slots,"default")])}const _=Object.assign(s(r,[["render",t]]),{__name:"ProseEm"});export{_ as default};
