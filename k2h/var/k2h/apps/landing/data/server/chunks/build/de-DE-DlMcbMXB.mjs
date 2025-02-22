@@ -1,0 +1,217 @@
+const resource = {
+  "menus": {
+    "header": {
+      "home": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Start" } },
+      "products": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Produkte" } },
+        "items": {
+          "1": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Webspaces" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Leistungsstarke Webhosting-Pakete." } }
+          },
+          "2": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domains" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sichere dir deine Wunschdomain." } }
+          },
+          "3": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "VPS & Root-Server" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Flexibel skalierbare Server für kleine/mittlere Projekte." } }
+          },
+          "4": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dedizierte Server" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dedizierte Server ohne Ressourcen-Sharing." } }
+          },
+          "5": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Lizenzen & Zertifikate" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Plesk, cPanel & SSL/TLS Zertifikate." } }
+          }
+        }
+      },
+      "news": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Newsroom" } },
+      "contact": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kontakt" } },
+      "buttons": {
+        "startnow": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Jetzt loslegen" } },
+        "login": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Anmelden" } },
+        "signup": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Neues Konto erstellen" } }
+      }
+    },
+    "footer": {
+      "products": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Produkte" } },
+        "items": {
+          "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Webspaces" } },
+          "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domains" } },
+          "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "VPS & Root-Server" } },
+          "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dedizierte Server" } },
+          "5": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Lizenzen & Zertifikate" } }
+        }
+      },
+      "help": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hilfe" } },
+        "items": {
+          "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kontakt" } },
+          "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "FAQ" } },
+          "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Supportcenter" } },
+          "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dokumentation" } },
+          "5": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Service Status" } }
+        }
+      },
+      "company": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unternehmen" } },
+        "items": {
+          "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Newsroom" } },
+          "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unser Büro" } },
+          "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Meilensteine" } },
+          "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Karriere" } },
+          "5": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Partnerschaften" } }
+        }
+      },
+      "newsletter": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Verpasse keine Neuigkeiten mehr!" } },
+        "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Deine E-Mail Adresse" } },
+        "successModal": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Newsletter" } },
+          "message": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Du hast dich erfolgreich beim Newsletter angemeldet." } }
+        }
+      },
+      "legal": {
+        "notice": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Impressum" } },
+        "privacy": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Datenschutz" } },
+        "tos": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "AGB" } }
+      }
+    }
+  },
+  "index": {
+    "hero": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Zur Dokumentation" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dein Weg ins Internet mit Key2Host" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Warum kompliziert, wenn es auch einfach geht? Mit Key2Host hast du alles, was du brauchst, an einem Ort. Ob Hosting, Domains oder Lizenzen – wir sind dein Schlüssel zur digitalen Welt." } },
+      "links": {
+        "searchproducts": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Produkte durchsuchen" } },
+        "startnow": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Jetzt loslegen" } }
+      }
+    },
+    "partners": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die besten der Welt vertrauen auf uns" } }
+    },
+    "features": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Features" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Warum Key2Host?" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wieso Sie sich für Key2Host entscheiden sollten, stellen wir Ihnen transparent zur Verfügung. Hier finden Sie unsere wichtigsten Features!" } },
+      "items": {
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Einfache Verwaltung" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unsere Plattform ist so gestaltet, dass auch Einsteiger sie problemlos nutzen können. Starten Sie mit Key2Host, selbst wenn Sie keine Vorkenntnisse haben!" } }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hohe Performance" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Erleben Sie blitzschnelle Ladezeiten, selbst bei hoher Auslastung – dank unserer leistungsstarken und zuverlässigen Infrastruktur." } }
+        },
+        "3": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sicherheit" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Mit höchsten Sicherheitsstandards und regelmäßigen Updates schützen wir Ihre Daten und halten Schwachstellen fern." } }
+        },
+        "4": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "24/7 Support" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unser erfahrenes Support-Team steht Ihnen rund um die Uhr zur Verfügung, um alle Fragen schnell und kompetent zu beantworten." } }
+        },
+        "5": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Globale Standorte" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Mit unseren Server-Standorten in vielen Ländern garantieren wir Ihnen weltweit optimale Verfügbarkeit und schnelle Verbindungen." } }
+        },
+        "6": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Datenschutz" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wir garantieren Ihnen höchste Standards im Umgang mit Ihren Daten – sicher, transparent und DSGVO-konform." } }
+        }
+      }
+    },
+    "reviews": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Rezensionen" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Was unsere Kunden sagen" } }
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kontakt" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hier können Sie uns jederzeit erreichen." } }
+    },
+    "information": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Informationen" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sie können uns gerne über einer der angegebenen Kontaktmethoden erreichen." } },
+      "phone": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Telefon" } },
+      "email": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "E-Mail" } },
+      "address": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Adresse" } },
+      "nomaps": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Google Maps wurde durch deine Cookie-Einstellungen blockiert." } }
+    },
+    "contactform": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kontaktformular" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hier können Sie uns ganz bequem eine Nachricht hinterlassen!" } },
+      "inputs": {
+        "firstname": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Vorname" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ihr Vorname" } }
+        },
+        "lastname": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Nachname" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ihr Nachname" } }
+        },
+        "email": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "E-Mail Adresse" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ihre E-Mail" } }
+        },
+        "message": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Nachricht" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ihre Nachricht" } },
+          "words": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Worte" } }
+        },
+        "checkbox": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hiermit erklären Sie sich mit unseren AGB und dem Datenschutz einverstanden." } },
+        "submit": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Absenden" } }
+      },
+      "successModal": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Nachricht gesendet" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Vielen Dank für deine Nachricht. Wir werden uns zeitnah bei dir melden." } }
+      },
+      "errorModal": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ein Fehler ist aufgetreten" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Deine Nachricht konnte nicht gesendet werden" } }
+      }
+    },
+    "faq": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Meist gestellte Frage" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Vielleicht bist du nicht der erste mit der Frage und findest hier deine Antwort!" } },
+      "items": {
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wie sicher ist mein Hosting bei Key2Host?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wir legen großen Wert auf Sicherheit. Alle Registrierungen werden manuell überprüft, um Spam und Betrug zu vermeiden. Zudem setzen wir auf moderne Verschlüsselungstechnologien, DDoS-Schutz und regelmäßige Sicherheitsupdates. Mehr dazu findest du in unserer Dokumentation." } }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wie lange dauert die Freischaltung meines Accounts?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Bei der Erstellung deines Kundenkontos wirst du aufgefordert deinen Ausweis zu verifizieren. Dies dauert in der Regel höchstens 2-3 Minuten. Dies gewährleistet ein sicheres und professionelles Umfeld für unsere Kunden." } }
+        },
+        "3": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Gibt es ein Mindestalter für die Nutzung von Key2Host?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ja, das Mindestalter für die Nutzung unserer Dienste beträgt 18 Jahre. Geschäftskunden müssen einen Nachweis über ihr Unternehmen erbringen." } }
+        },
+        "4": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Welche Zahlungsmethoden werden akzeptiert?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wir akzeptieren gängige Zahlungsmethoden wie Kreditkarte, PayPal und SEPA-Lastschrift. Je nach Standort können weitere Optionen verfügbar sein." } }
+        },
+        "5": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kann ich meinen Tarif jederzeit wechseln?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ja, ein Upgrade oder Downgrade deines Hosting-Pakets ist jederzeit möglich. Änderungen werden in der Regel sofort oder zum nächsten Abrechnungszeitraum wirksam." } }
+        },
+        "6": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Gibt es eine Geld-zurück-Garantie?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ja, wir bieten eine 3-tägige Geld-zurück-Garantie auf unsere Webhosting- und VPS-Tarife, sofern keine Verstöße gegen unsere Nutzungsbedingungen vorliegen." } }
+        },
+        "7": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wie erreiche ich den Support?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unser Support-Team ist per Ticket-System und E-Mail erreichbar. Geschäftskunden haben zudem die Möglichkeit, einen persönlichen Ansprechpartner zu erhalten." } }
+        }
+      }
+    }
+  }
+};
+
+export { resource as default };
+//# sourceMappingURL=de-DE-DlMcbMXB.mjs.map
