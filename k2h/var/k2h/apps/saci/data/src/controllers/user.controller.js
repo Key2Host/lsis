@@ -1,4 +1,6 @@
 const { Stripe } = require('stripe');
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET } = require('../config/jwt.config');
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 function userHello(req, res) {
