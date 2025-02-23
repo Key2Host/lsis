@@ -34,6 +34,8 @@ services:
             context: ./apps/saci
             dockerfile: Dockerfile
         restart: unless-stopped
+        depends_on:
+            - database
         networks:
             - network
 
