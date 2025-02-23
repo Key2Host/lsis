@@ -103,6 +103,7 @@ async function buy(req, res) {
         }
 
         // Get User Email
+        const token = req.cookies.accessToken;
         const decoded = jwt.verify(token, JWT_SECRET);
         const userid = decoded.id;
         const userMail = await UserEmail.findOne({ where: { user: userid, isPrimary: true } });
