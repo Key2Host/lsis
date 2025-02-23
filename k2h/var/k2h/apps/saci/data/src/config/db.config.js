@@ -9,7 +9,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
   logging: false
 });
 
-async function connectWithRetry(retries = 5, delay = 5000) {
+async function connectWithRetry(retries = 5, delay = 10000) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       await sequelize.authenticate();
