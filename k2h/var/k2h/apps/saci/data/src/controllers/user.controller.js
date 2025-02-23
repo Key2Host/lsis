@@ -118,7 +118,7 @@ async function buy(req, res) {
             mode: 'subscription', // Setzt den Modus auf Abonnement
             success_url: `https://www.key2host.com/checkout/success`,
             cancel_url: `https://www.key2host.com/checkout/failed`,
-            customer_email: userMail
+            customer_email: userMail.email
         });
 
         res.json({ id: session.id });
