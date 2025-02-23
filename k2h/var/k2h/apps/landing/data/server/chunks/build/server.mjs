@@ -932,13 +932,13 @@ function handleHotUpdate(_router, _generateRoutes) {
 }
 const _routes = [
   {
-    name: "checkout-failed___en___default",
-    path: "/checkout/failed",
+    name: "checkout-failed___en",
+    path: "/en/checkout/failed",
     component: () => import('./failed-ciPUqt5d.mjs')
   },
   {
-    name: "checkout-failed___en",
-    path: "/en/checkout/failed",
+    name: "checkout-failed___de___default",
+    path: "/checkout/failed",
     component: () => import('./failed-ciPUqt5d.mjs')
   },
   {
@@ -947,13 +947,13 @@ const _routes = [
     component: () => import('./failed-ciPUqt5d.mjs')
   },
   {
-    name: "checkout___en___default",
-    path: "/checkout",
+    name: "checkout___en",
+    path: "/en/checkout",
     component: () => import('./index-L9y9_rpU.mjs')
   },
   {
-    name: "checkout___en",
-    path: "/en/checkout",
+    name: "checkout___de___default",
+    path: "/checkout",
     component: () => import('./index-L9y9_rpU.mjs')
   },
   {
@@ -962,13 +962,13 @@ const _routes = [
     component: () => import('./index-L9y9_rpU.mjs')
   },
   {
-    name: "checkout-success___en___default",
-    path: "/checkout/success",
+    name: "checkout-success___en",
+    path: "/en/checkout/success",
     component: () => import('./success-BgZsDqZY.mjs')
   },
   {
-    name: "checkout-success___en",
-    path: "/en/checkout/success",
+    name: "checkout-success___de___default",
+    path: "/checkout/success",
     component: () => import('./success-BgZsDqZY.mjs')
   },
   {
@@ -977,13 +977,13 @@ const _routes = [
     component: () => import('./success-BgZsDqZY.mjs')
   },
   {
-    name: "company-milestones___en___default",
-    path: "/company/milestones",
+    name: "company-milestones___en",
+    path: "/en/company/milestones",
     component: () => import('./milestones-DK-Z0igO.mjs')
   },
   {
-    name: "company-milestones___en",
-    path: "/en/company/milestones",
+    name: "company-milestones___de___default",
+    path: "/company/milestones",
     component: () => import('./milestones-DK-Z0igO.mjs')
   },
   {
@@ -992,13 +992,13 @@ const _routes = [
     component: () => import('./milestones-DK-Z0igO.mjs')
   },
   {
-    name: "company-partners___en___default",
-    path: "/company/partners",
+    name: "company-partners___en",
+    path: "/en/company/partners",
     component: () => import('./partners-B1Aj4kVf.mjs')
   },
   {
-    name: "company-partners___en",
-    path: "/en/company/partners",
+    name: "company-partners___de___default",
+    path: "/company/partners",
     component: () => import('./partners-B1Aj4kVf.mjs')
   },
   {
@@ -1007,13 +1007,13 @@ const _routes = [
     component: () => import('./partners-B1Aj4kVf.mjs')
   },
   {
-    name: "contact___en___default",
-    path: "/contact",
+    name: "contact___en",
+    path: "/en/contact",
     component: () => import('./contact-Uk0oJYTU.mjs')
   },
   {
-    name: "contact___en",
-    path: "/en/contact",
+    name: "contact___de___default",
+    path: "/contact",
     component: () => import('./contact-Uk0oJYTU.mjs')
   },
   {
@@ -1022,13 +1022,13 @@ const _routes = [
     component: () => import('./contact-Uk0oJYTU.mjs')
   },
   {
-    name: "index___en___default",
-    path: "/",
+    name: "index___en",
+    path: "/en",
     component: () => import('./index-WHMGPkFS.mjs')
   },
   {
-    name: "index___en",
-    path: "/en",
+    name: "index___de___default",
+    path: "/",
     component: () => import('./index-WHMGPkFS.mjs')
   },
   {
@@ -1037,13 +1037,13 @@ const _routes = [
     component: () => import('./index-WHMGPkFS.mjs')
   },
   {
-    name: "legal-notice___en___default",
-    path: "/legal/notice",
+    name: "legal-notice___en",
+    path: "/en/legal/notice",
     component: () => import('./notice-DutVcrVD.mjs')
   },
   {
-    name: "legal-notice___en",
-    path: "/en/legal/notice",
+    name: "legal-notice___de___default",
+    path: "/legal/notice",
     component: () => import('./notice-DutVcrVD.mjs')
   },
   {
@@ -1052,13 +1052,13 @@ const _routes = [
     component: () => import('./notice-DutVcrVD.mjs')
   },
   {
-    name: "legal-privacy___en___default",
-    path: "/legal/privacy",
+    name: "legal-privacy___en",
+    path: "/en/legal/privacy",
     component: () => import('./privacy-mSx3PS1F.mjs')
   },
   {
-    name: "legal-privacy___en",
-    path: "/en/legal/privacy",
+    name: "legal-privacy___de___default",
+    path: "/legal/privacy",
     component: () => import('./privacy-mSx3PS1F.mjs')
   },
   {
@@ -1067,13 +1067,13 @@ const _routes = [
     component: () => import('./privacy-mSx3PS1F.mjs')
   },
   {
-    name: "legal-tos___en___default",
-    path: "/legal/tos",
+    name: "legal-tos___en",
+    path: "/en/legal/tos",
     component: () => import('./tos-Ds9PEMb2.mjs')
   },
   {
-    name: "legal-tos___en",
-    path: "/en/legal/tos",
+    name: "legal-tos___de___default",
+    path: "/legal/tos",
     component: () => import('./tos-Ds9PEMb2.mjs')
   },
   {
@@ -1082,13 +1082,13 @@ const _routes = [
     component: () => import('./tos-Ds9PEMb2.mjs')
   },
   {
-    name: "newsroom-id___en___default",
-    path: "/newsroom/:id()",
+    name: "newsroom-id___en",
+    path: "/en/newsroom/:id()",
     component: () => import('./_id_-Bpj6rCHm.mjs')
   },
   {
-    name: "newsroom-id___en",
-    path: "/en/newsroom/:id()",
+    name: "newsroom-id___de___default",
+    path: "/newsroom/:id()",
     component: () => import('./_id_-Bpj6rCHm.mjs')
   },
   {
@@ -1097,13 +1097,13 @@ const _routes = [
     component: () => import('./_id_-Bpj6rCHm.mjs')
   },
   {
-    name: "newsroom___en___default",
-    path: "/newsroom",
+    name: "newsroom___en",
+    path: "/en/newsroom",
     component: () => import('./index-Cd9xo6tI.mjs')
   },
   {
-    name: "newsroom___en",
-    path: "/en/newsroom",
+    name: "newsroom___de___default",
+    path: "/newsroom",
     component: () => import('./index-Cd9xo6tI.mjs')
   },
   {
@@ -1112,13 +1112,13 @@ const _routes = [
     component: () => import('./index-Cd9xo6tI.mjs')
   },
   {
-    name: "products-dedicated___en___default",
-    path: "/products/dedicated",
+    name: "products-dedicated___en",
+    path: "/en/products/dedicated",
     component: () => import('./index-DCnUo6LU.mjs')
   },
   {
-    name: "products-dedicated___en",
-    path: "/en/products/dedicated",
+    name: "products-dedicated___de___default",
+    path: "/products/dedicated",
     component: () => import('./index-DCnUo6LU.mjs')
   },
   {
@@ -1127,13 +1127,13 @@ const _routes = [
     component: () => import('./index-DCnUo6LU.mjs')
   },
   {
-    name: "products-domain___en___default",
-    path: "/products/domain",
+    name: "products-domain___en",
+    path: "/en/products/domain",
     component: () => import('./index-Bk7qoSAl.mjs')
   },
   {
-    name: "products-domain___en",
-    path: "/en/products/domain",
+    name: "products-domain___de___default",
+    path: "/products/domain",
     component: () => import('./index-Bk7qoSAl.mjs')
   },
   {
@@ -1142,13 +1142,13 @@ const _routes = [
     component: () => import('./index-Bk7qoSAl.mjs')
   },
   {
-    name: "products-lic-cert___en___default",
-    path: "/products/lic-cert",
+    name: "products-lic-cert___en",
+    path: "/en/products/lic-cert",
     component: () => import('./index-B7mh1jHC.mjs')
   },
   {
-    name: "products-lic-cert___en",
-    path: "/en/products/lic-cert",
+    name: "products-lic-cert___de___default",
+    path: "/products/lic-cert",
     component: () => import('./index-B7mh1jHC.mjs')
   },
   {
@@ -1157,13 +1157,13 @@ const _routes = [
     component: () => import('./index-B7mh1jHC.mjs')
   },
   {
-    name: "products-vps-root___en___default",
-    path: "/products/vps-root",
+    name: "products-vps-root___en",
+    path: "/en/products/vps-root",
     component: () => import('./index-BCiCclzk.mjs')
   },
   {
-    name: "products-vps-root___en",
-    path: "/en/products/vps-root",
+    name: "products-vps-root___de___default",
+    path: "/products/vps-root",
     component: () => import('./index-BCiCclzk.mjs')
   },
   {
@@ -1172,13 +1172,13 @@ const _routes = [
     component: () => import('./index-BCiCclzk.mjs')
   },
   {
-    name: "products-webspace___en___default",
-    path: "/products/webspace",
+    name: "products-webspace___en",
+    path: "/en/products/webspace",
     component: () => import('./index-BAmt6Yb7.mjs')
   },
   {
-    name: "products-webspace___en",
-    path: "/en/products/webspace",
+    name: "products-webspace___de___default",
+    path: "/products/webspace",
     component: () => import('./index-BAmt6Yb7.mjs')
   },
   {
@@ -1188,12 +1188,12 @@ const _routes = [
   },
   {
     name: void 0 ,
-    path: "/sitemap.xml",
+    path: "/en/sitemap.xml",
     component: component_45stubljRFnMG14V
   },
   {
     name: void 0 ,
-    path: "/en/sitemap.xml",
+    path: "/sitemap.xml",
     component: component_45stubljRFnMG14V
   },
   {
