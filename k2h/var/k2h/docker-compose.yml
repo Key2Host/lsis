@@ -1,17 +1,4 @@
 services:
-
-    proxy:
-        container_name: k2h_proxy
-        build:
-            context: ./proxy
-            dockerfile: Dockerfile
-        restart: always
-        ports:
-            - 80:80
-            - 443:443
-        networks:
-            - network
-
     database:
         container_name: k2h_database
         build:
@@ -27,7 +14,6 @@ services:
             - db:/var/lib/mysql
         networks:
             - network
-
     saci:
         container_name: k2h_saci
         build:
@@ -38,7 +24,6 @@ services:
             - database
         networks:
             - network
-
     landing:
         container_name: k2h_landing
         build:
@@ -47,7 +32,20 @@ services:
         restart: unless-stopped
         networks:
             - network
-
+    proxy:
+        container_name: k2h_proxy
+        build:
+            context: ./proxy
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            - 80:80
+            - 443:443
+        depends_on:
+            - saci
+            - landing
+        networks:
+            - network
     phpmyadmin:
         container_name: k2h_phpmyadmin
         image: phpmyadmin/phpmyadmin
@@ -58,14 +56,10 @@ services:
             HIDE_PHP_VERSION: true
         depends_on:
             - database
-        links:
-            - database
         networks:
             - network
-
 networks:
     network:
         driver: bridge
-
 volumes:
     db:
