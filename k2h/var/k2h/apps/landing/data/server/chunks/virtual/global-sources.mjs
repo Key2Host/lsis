@@ -640,30 +640,7 @@ const sources = [
             ]
         },
         "urls": [
-            {
-                "loc": "/",
-                "_sitemap": "de",
-                "images": [
-                    {
-                        "loc": "https://i.pravatar.cc/120?img=1"
-                    },
-                    {
-                        "loc": "https://i.pravatar.cc/120?img=7"
-                    },
-                    {
-                        "loc": "https://i.pravatar.cc/120?img=3"
-                    },
-                    {
-                        "loc": "https://i.pravatar.cc/120?img=5"
-                    },
-                    {
-                        "loc": "https://i.pravatar.cc/120?img=8"
-                    },
-                    {
-                        "loc": "https://i.pravatar.cc/120?img=9"
-                    }
-                ]
-            }
+            null
         ],
         "sourceType": "app"
     }
