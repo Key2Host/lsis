@@ -13,7 +13,7 @@ async function login(req, res) {
     // Nutzer-ID anhand der E-Mail in "users_mails" finden
     const emailEntry = await UserEmail.findOne({ where: { email } });
     if (!emailEntry) {
-      return res.status(400).json({ error: 'Ungültige Anmeldedaten' });
+      return res.status(401).json({ error: 'Ungültige Anmeldedaten' });
     }
 
     // Nutzer in "users" anhand der gefundenen ID suchen
