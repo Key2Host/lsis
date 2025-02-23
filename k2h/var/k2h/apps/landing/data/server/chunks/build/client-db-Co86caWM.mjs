@@ -170,8 +170,8 @@ function createPipelineFetcher(getContentsList) {
   const surround = (data, { query, before, after }) => {
     const matchQuery = typeof query === "string" ? { _path: query } : query;
     const index = data.findIndex((item) => match(item, matchQuery));
-    before = before ?? 1;
-    after = after ?? 1;
+    before = before != null ? before : 1;
+    after = after != null ? after : 1;
     const slice = new Array(before + after).fill(null, 0);
     return index === -1 ? slice : slice.map((_, i) => data[index - before + i + Number(i >= before)] || null);
   };

@@ -1,9 +1,9 @@
 import * as e$1 from 'vue';
 import { defineComponent, computed, useAttrs, toValue, ref, getCurrentInstance, provide, inject, h as h$1, resolveComponent, onMounted, onUnmounted, watchEffect, hasInjectionContext, shallowRef, toRef, onServerPrefetch, isRef, cloneVNode, watch, mergeProps, createVNode, resolveDynamicComponent, withCtx, renderSlot, createBlock, createCommentVNode, openBlock, useId, Fragment, unref, normalizeClass, nextTick, Teleport, reactive, version, defineAsyncComponent, useSSRContext, useSlots, shallowReactive, Suspense, createElementBlock, createApp, Text, Transition, createTextVNode, toDisplayString as toDisplayString$1, withAsyncContext, createSlots, renderList, withKeys, withDirectives, vShow, withModifiers, onErrorCaptured, effectScope, isReadonly, isShallow, isReactive, toRaw, getCurrentScope } from 'vue';
-import { j as defuFn, k as defu, l as klona, m as destr, n as createDefu, o as parse$1, q as getRequestHeader, s as isEqual$1, t as getContext, v as setCookie, w as getCookie, x as deleteCookie, y as sanitizeStatusCode, z as diff, $ as $fetch$1, A as baseURL, p as publicAssetsURL, c as createError$1, B as createHooks, C as toRouteMatcher, D as createRouter$1, E as getRequestHeaders } from '../nitro/nitro.mjs';
+import { j as defuFn, k as defu, l as createDefu, m as klona, n as destr, o as parse$1, q as getRequestHeader, s as isEqual$1, t as getContext, v as setCookie, w as getCookie, x as deleteCookie, y as sanitizeStatusCode, z as diff, $ as $fetch$1, A as baseURL, p as publicAssetsURL, c as createError$1, B as createHooks, C as toRouteMatcher, D as createRouter$1, E as getRequestHeaders } from '../nitro/nitro.mjs';
 import { defineStore, createPinia, setActivePinia, shouldHydrate } from 'pinia';
 import { getActiveHead, CapoPlugin } from 'unhead';
-import { unpackMeta, defineHeadPlugin, composableNames } from '@unhead/shared';
+import { defineHeadPlugin, composableNames, unpackMeta } from '@unhead/shared';
 import { RouterView, useRoute as useRoute$1, createMemoryHistory, createRouter, START_LOCATION, isNavigationFailure } from 'vue-router';
 import { deepPickUnsafe, deepOmitUnsafe } from 'deep-pick-omit';
 import { useDebounceFn, createSharedComposable, useTimestamp } from '@vueuse/core';
@@ -933,87 +933,87 @@ const _routes = [
   {
     name: "checkout-failed",
     path: "/checkout/failed",
-    component: () => import('./failed-DVAv49Lq.mjs')
+    component: () => import('./failed-BbP4atel.mjs')
   },
   {
     name: "checkout",
     path: "/checkout",
-    component: () => import('./index-ClzklRl3.mjs')
+    component: () => import('./index-DUNiaqOX.mjs')
   },
   {
     name: "checkout-success",
     path: "/checkout/success",
-    component: () => import('./success-DnfMux_-.mjs')
+    component: () => import('./success-MG4WjDLA.mjs')
   },
   {
     name: "company-milestones",
     path: "/company/milestones",
-    component: () => import('./milestones-Dvd3wN7t.mjs')
+    component: () => import('./milestones-CiHKktPg.mjs')
   },
   {
     name: "company-partners",
     path: "/company/partners",
-    component: () => import('./partners-BmQrX4d4.mjs')
+    component: () => import('./partners-HphSxQxw.mjs')
   },
   {
     name: "contact",
     path: "/contact",
-    component: () => import('./contact-Dw75wfLr.mjs')
+    component: () => import('./contact-C67dnGjF.mjs')
   },
   {
     name: "index",
     path: "/",
-    component: () => import('./index-72FkP0B2.mjs')
+    component: () => import('./index-BS4ltz9d.mjs')
   },
   {
     name: "legal-notice",
     path: "/legal/notice",
-    component: () => import('./notice-BtdpxsVB.mjs')
+    component: () => import('./notice-iIrUg-Lz.mjs')
   },
   {
     name: "legal-privacy",
     path: "/legal/privacy",
-    component: () => import('./privacy-BYo4eDcZ.mjs')
+    component: () => import('./privacy-Bxd1mD1l.mjs')
   },
   {
     name: "legal-tos",
     path: "/legal/tos",
-    component: () => import('./tos-p9bnClbj.mjs')
+    component: () => import('./tos-B972X6To.mjs')
   },
   {
     name: "newsroom-id",
     path: "/newsroom/:id()",
-    component: () => import('./_id_--KdKeQkW.mjs')
+    component: () => import('./_id_-CZLefSNw.mjs')
   },
   {
     name: "newsroom",
     path: "/newsroom",
-    component: () => import('./index-DbL7tm8A.mjs')
+    component: () => import('./index-_KnBywgK.mjs')
   },
   {
     name: "products-dedicated",
     path: "/products/dedicated",
-    component: () => import('./index-Dhq-zfXE.mjs')
+    component: () => import('./index-DAi-petS.mjs')
   },
   {
     name: "products-domain",
     path: "/products/domain",
-    component: () => import('./index-gf8sIM4O.mjs')
+    component: () => import('./index-Bmiu2BOo.mjs')
   },
   {
     name: "products-lic-cert",
     path: "/products/lic-cert",
-    component: () => import('./index-k1ItWsFS.mjs')
+    component: () => import('./index-BvMGgCfY.mjs')
   },
   {
     name: "products-vps-root",
     path: "/products/vps-root",
-    component: () => import('./index-CxheQFIg.mjs')
+    component: () => import('./index-CC-My4pg.mjs')
   },
   {
     name: "products-webspace",
     path: "/products/webspace",
-    component: () => import('./index-Be_vEFn7.mjs')
+    component: () => import('./index-DerKgexT.mjs')
   }
 ];
 const ROUTE_KEY_PARENTHESES_RE = /(:\w+)\([^)]+\)/g;
@@ -2276,25 +2276,25 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
     };
   }
 });
-const LazyCallout = defineAsyncComponent(() => import('./Callout-LCNaQQFA.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCard = defineAsyncComponent(() => import('./Card-DyhdVjEZ.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCardGroup = defineAsyncComponent(() => import('./CardGroup-lnHplxG5.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCodeGroup = defineAsyncComponent(() => import('./CodeGroup-CvmgKUHU.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCollapsible = defineAsyncComponent(() => import('./Collapsible-DSTs97TS.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyField = defineAsyncComponent(() => import('./Field-D7A7QHiz.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyFieldGroup = defineAsyncComponent(() => import('./FieldGroup-BjqsdCos.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyShortcut = defineAsyncComponent(() => import('./Shortcut-ChfDVo3_.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyTabs = defineAsyncComponent(() => import('./Tabs-ChuaTjFf.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseCode = defineAsyncComponent(() => import('./ProseCode-Bbg2rPfs.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseCodeButton = defineAsyncComponent(() => import('./ProseCodeButton-Dmh4iOKZ.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseCodeIcon = defineAsyncComponent(() => import('./ProseCodeIcon-BOmclKHJ.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH1 = defineAsyncComponent(() => import('./ProseH1-BTlWu0AK.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH2 = defineAsyncComponent(() => import('./ProseH2-re1tBRyk.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH3 = defineAsyncComponent(() => import('./ProseH3-D2UrU6qK.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH4 = defineAsyncComponent(() => import('./ProseH4-CWhGRhVX.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCallout = defineAsyncComponent(() => import('./Callout-Dzo_0VTh.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCard = defineAsyncComponent(() => import('./Card-BMLdthNS.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCardGroup = defineAsyncComponent(() => import('./CardGroup-BYcjC4Jv.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCodeGroup = defineAsyncComponent(() => import('./CodeGroup-DRKgRk2l.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCollapsible = defineAsyncComponent(() => import('./Collapsible--NXKQscT.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyField = defineAsyncComponent(() => import('./Field-DQcPBSMA.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyFieldGroup = defineAsyncComponent(() => import('./FieldGroup-t18qjcgW.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyShortcut = defineAsyncComponent(() => import('./Shortcut-Bhr5RUZK.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyTabs = defineAsyncComponent(() => import('./Tabs-Dj1VcoGf.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseCode = defineAsyncComponent(() => import('./ProseCode-4PhKB-20.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseCodeButton = defineAsyncComponent(() => import('./ProseCodeButton-DC_jqFfU.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseCodeIcon = defineAsyncComponent(() => import('./ProseCodeIcon-CA7o3Azf.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH1 = defineAsyncComponent(() => import('./ProseH1-Ci5w70Kt.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH2 = defineAsyncComponent(() => import('./ProseH2-A01_hk8j.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH3 = defineAsyncComponent(() => import('./ProseH3-BTb5E2gu.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH4 = defineAsyncComponent(() => import('./ProseH4-C51tu1xs.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyContentDoc = defineAsyncComponent(() => import('./ContentDoc-D1FRrNUu.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyContentList = defineAsyncComponent(() => import('./ContentList-BbEa2ZYc.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentNavigation = defineAsyncComponent(() => import('./ContentNavigation-D7xPLZcx.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentNavigation = defineAsyncComponent(() => import('./ContentNavigation-Cu5wgmJ3.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyContentQuery = defineAsyncComponent(() => import('./ContentQuery-CrLoExto.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyContentRenderer = defineAsyncComponent(() => import('./ContentRenderer-DIfM-53h.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyContentRendererMarkdown = defineAsyncComponent(() => import('./ContentRendererMarkdown-Bjm3SZ4K.mjs').then((r2) => r2["default"] || r2.default || r2));
@@ -2303,8 +2303,8 @@ const LazyDocumentDrivenEmpty = defineAsyncComponent(() => import('./DocumentDri
 const LazyDocumentDrivenNotFound = defineAsyncComponent(() => import('./DocumentDrivenNotFound-CrGBz1Ho.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyMarkdown = defineAsyncComponent(() => import('./Markdown-B7hjVgod.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseCodeInline = defineAsyncComponent(() => import('./ProseCodeInline-CrWG38Gs.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProsePre = defineAsyncComponent(() => import('./ProsePre-Bna-mE8C.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseA = defineAsyncComponent(() => import('./ProseA-C50mTj33.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProsePre = defineAsyncComponent(() => import('./ProsePre-BLnpKkxA.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseA = defineAsyncComponent(() => import('./ProseA-B0iN15fk.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseBlockquote = defineAsyncComponent(() => import('./ProseBlockquote-CvqcBul5.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseEm = defineAsyncComponent(() => import('./ProseEm-Cw25bCx-.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseH5 = defineAsyncComponent(() => import('./ProseH5-CkrwdI-E.mjs').then((r2) => r2["default"] || r2.default || r2));
@@ -2376,7 +2376,7 @@ const lazyGlobalComponents = [
   ["ProseUl", LazyProseUl],
   ["Icon", LazyIcon]
 ];
-const components_plugin_zlvi6dcIsi = /* @__PURE__ */ defineNuxtPlugin({
+const components_plugin_KR1HBZs4kY = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:global-components",
   setup(nuxtApp) {
     for (const [name, component] of lazyGlobalComponents) {
@@ -2471,12 +2471,12 @@ const localeCodes = [
   "de"
 ];
 const localeLoaders = {
-  "en": [{ key: "../../../../i18n/locales/en-US.json", load: () => import(
-    './en-US-Dks_UhIi.mjs'
+  "en": [{ key: "../i18n/locales/en-US.json", load: () => import(
+    './en-US-1aKAarF8.mjs'
     /* webpackChunkName: "locale__Users_lpoggemann_GitHub_landing_i18n_locales_en_US_json" */
   ), cache: true }],
-  "de": [{ key: "../../../../i18n/locales/de-DE.json", load: () => import(
-    './de-DE-DdRv_hPZ.mjs'
+  "de": [{ key: "../i18n/locales/de-DE.json", load: () => import(
+    './de-DE-CysroB41.mjs'
     /* webpackChunkName: "locale__Users_lpoggemann_GitHub_landing_i18n_locales_de_DE_json" */
   ), cache: true }]
 };
@@ -8153,7 +8153,7 @@ const plugins = [
   _0_siteConfig_jtc2qNDx4l,
   revive_payload_server_eJ33V7gbc6,
   plugin,
-  components_plugin_zlvi6dcIsi,
+  components_plugin_KR1HBZs4kY,
   switch_locale_path_ssr_5csfIgkrBP,
   route_locale_detect_VrpP1JaYg8,
   i18n_sq1MuCrqbC,
@@ -17579,33 +17579,36 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const cookienotice = useCookieNoticeStore();
     const route = useRoute$1();
+    const { t: t2 } = useI18n({
+      useScope: "global"
+    });
     const menu = [
       [{
-        label: "Mehr Informationen",
+        label: t2("cookienotice.details.title"),
         click: () => {
           cookienotice.showDetails = true;
         }
       }],
       [{
-        label: "Impressum",
+        label: t2("legal.notice.title"),
         to: "/legal/notice"
       }, {
-        label: "Datenschutzerklärung",
+        label: t2("legal.privacy.title"),
         to: "/legal/privacy"
       }]
     ];
     const neededCookies = [
       {
-        label: "1. Cloudflare",
-        content: "Cloudflare ist ein Content Delivery Network (CDN) und bietet Sicherheits- und Leistungsoptimierungen für deine Website. Es wird eingesetzt, um den Datenverkehr auf unserer Seite abzusichern und zu beschleunigen, indem es die Last auf unseren Servern reduziert. Dies ist für die Funktionsfähigkeit und Sicherheit der Seite notwendig. Der Cookie wird für 1 Jahr gespeichert, um die Sicherheit und Leistung zu gewährleisten."
+        label: "1. " + t2("cookienotice.details.needed.1.title"),
+        content: t2("cookienotice.details.needed.1.description")
       },
       {
-        label: "2. Stripe",
-        content: "Stripe ist ein Zahlungsanbieter, der auf unserer Website für sichere Online-Zahlungen eingesetzt wird. Stripe verwendet Cookies, um die Zahlungstransaktionen zu verarbeiten, Betrug zu verhindern und eine reibungslose Kaufabwicklung zu gewährleisten. Diese Cookies sind für die Funktionalität der Zahlungsabwicklung erforderlich und werden während des Zahlungsprozesses gesetzt."
+        label: "2. " + t2("cookienotice.details.needed.2.title"),
+        content: t2("cookienotice.details.needed.2.description")
       },
       {
-        label: "3. Warenkorb",
-        content: "Unser selbstprogrammierter Warenkorb nutzt Cookies, um deine ausgewählten Produkte auch nach einem Seitenwechsel oder erneuten Besuch zu speichern. Dafür werden Cookies oder LocalStorage genutzt, um deine Warenkorbdaten zwischenzuspeichern. Dies ist notwendig, um deine Bestellung zu ermöglichen und eine bessere Nutzererfahrung zu bieten."
+        label: "3. " + t2("cookienotice.details.needed.3.title"),
+        content: t2("cookienotice.details.needed.3.description")
       }
     ];
     const optionalCookies = [];
@@ -17638,7 +17641,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
               _push2(ssrRenderComponent(_component_UCard, { ui: { ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" } }, {
                 header: withCtx((_22, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
-                    _push3(`<div class="flex items-center justify-between w-full"${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId2}> 🍪 Welche Cookies möchtest du zulassen? </h3>`);
+                    _push3(`<div class="flex items-center justify-between w-full"${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId2}> 🍪 ${ssrInterpolate(_ctx.$t("cookienotice.start.title"))}</h3>`);
                     _push3(ssrRenderComponent(_component_UDropdown, {
                       items: menu,
                       popper: { placement: "bottom-start" }
@@ -17666,7 +17669,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                   } else {
                     return [
                       createVNode("div", { class: "flex items-center justify-between w-full" }, [
-                        createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " 🍪 Welche Cookies möchtest du zulassen? "),
+                        createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " 🍪 " + toDisplayString$1(_ctx.$t("cookienotice.start.title")), 1),
                         createVNode(_component_UDropdown, {
                           items: menu,
                           popper: { placement: "bottom-start" }
@@ -17693,10 +17696,10 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                     }, {
                       default: withCtx((_3, _push4, _parent4, _scopeId3) => {
                         if (_push4) {
-                          _push4(`Notwendige akzeptieren `);
+                          _push4(`${ssrInterpolate(_ctx.$t("cookienotice.start.actions.needed"))}`);
                         } else {
                           return [
-                            createTextVNode("Notwendige akzeptieren ")
+                            createTextVNode(toDisplayString$1(_ctx.$t("cookienotice.start.actions.needed")), 1)
                           ];
                         }
                       }),
@@ -17709,10 +17712,10 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                     }, {
                       default: withCtx((_3, _push4, _parent4, _scopeId3) => {
                         if (_push4) {
-                          _push4(`Alle akzeptieren `);
+                          _push4(`${ssrInterpolate(_ctx.$t("cookienotice.start.actions.all"))}`);
                         } else {
                           return [
-                            createTextVNode("Alle akzeptieren ")
+                            createTextVNode(toDisplayString$1(_ctx.$t("cookienotice.start.actions.all")), 1)
                           ];
                         }
                       }),
@@ -17727,7 +17730,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                           onClick: ($event) => unref(cookienotice).setConsent("needed")
                         }, {
                           default: withCtx(() => [
-                            createTextVNode("Notwendige akzeptieren ")
+                            createTextVNode(toDisplayString$1(_ctx.$t("cookienotice.start.actions.needed")), 1)
                           ]),
                           _: 1
                         }, 8, ["onClick"]),
@@ -17737,7 +17740,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                           autofocus: ""
                         }, {
                           default: withCtx(() => [
-                            createTextVNode("Alle akzeptieren ")
+                            createTextVNode(toDisplayString$1(_ctx.$t("cookienotice.start.actions.all")), 1)
                           ]),
                           _: 1
                         }, 8, ["onClick"])
@@ -17747,14 +17750,14 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                 }),
                 default: withCtx((_22, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
-                    _push3(`<div class="max-h-[425px] overflow-y-auto"${_scopeId2}><p class="mb-4"${_scopeId2}>Wir verwenden Cookies und ähnliche Technologien, um die Nutzererfahrung zu verbessern und personenbezogene Daten wie IP-Adressen zu verarbeiten. Weitere Informationen zu den eingesetzten Cookies und deren Verwaltung findest du in den Cookie-Einstellungen.</p><p class="mb-4"${_scopeId2}>Die Datenverarbeitung erfolgt mit deiner Zustimmung oder aufgrund eines berechtigten Interesses. Du kannst deine Einwilligung jederzeit in den Cookie-Einstellungen widerrufen. Details zur Verarbeitung deiner Daten findest du in unserer Datenschutzerklärung.</p><p class="mb-4"${_scopeId2}>Einige Dienste verarbeiten deine Daten in Ländern außerhalb der EU mit möglicherweise niedrigerem Datenschutzniveau. Durch die Zustimmung erklärst du dich mit diesen Risiken einverstanden.</p><p${_scopeId2}>Für Nutzer unter 16 Jahren ist die Zustimmung der Eltern erforderlich, um optionale Cookies zu nutzen.</p></div>`);
+                    _push3(`<div class="max-h-[425px] overflow-y-auto"${_scopeId2}><p class="mb-4"${_scopeId2}>${ssrInterpolate(_ctx.$t("cookienotice.start.description.1"))}</p><p class="mb-4"${_scopeId2}>${ssrInterpolate(_ctx.$t("cookienotice.start.description.2"))}</p><p class="mb-4"${_scopeId2}>${ssrInterpolate(_ctx.$t("cookienotice.start.description.3"))}</p><p${_scopeId2}>${ssrInterpolate(_ctx.$t("cookienotice.start.description.4"))}</p></div>`);
                   } else {
                     return [
                       createVNode("div", { class: "max-h-[425px] overflow-y-auto" }, [
-                        createVNode("p", { class: "mb-4" }, "Wir verwenden Cookies und ähnliche Technologien, um die Nutzererfahrung zu verbessern und personenbezogene Daten wie IP-Adressen zu verarbeiten. Weitere Informationen zu den eingesetzten Cookies und deren Verwaltung findest du in den Cookie-Einstellungen."),
-                        createVNode("p", { class: "mb-4" }, "Die Datenverarbeitung erfolgt mit deiner Zustimmung oder aufgrund eines berechtigten Interesses. Du kannst deine Einwilligung jederzeit in den Cookie-Einstellungen widerrufen. Details zur Verarbeitung deiner Daten findest du in unserer Datenschutzerklärung."),
-                        createVNode("p", { class: "mb-4" }, "Einige Dienste verarbeiten deine Daten in Ländern außerhalb der EU mit möglicherweise niedrigerem Datenschutzniveau. Durch die Zustimmung erklärst du dich mit diesen Risiken einverstanden."),
-                        createVNode("p", null, "Für Nutzer unter 16 Jahren ist die Zustimmung der Eltern erforderlich, um optionale Cookies zu nutzen.")
+                        createVNode("p", { class: "mb-4" }, toDisplayString$1(_ctx.$t("cookienotice.start.description.1")), 1),
+                        createVNode("p", { class: "mb-4" }, toDisplayString$1(_ctx.$t("cookienotice.start.description.2")), 1),
+                        createVNode("p", { class: "mb-4" }, toDisplayString$1(_ctx.$t("cookienotice.start.description.3")), 1),
+                        createVNode("p", null, toDisplayString$1(_ctx.$t("cookienotice.start.description.4")), 1)
                       ])
                     ];
                   }
@@ -17765,11 +17768,11 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
               _push2(ssrRenderComponent(_component_UCard, { ui: { ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" } }, {
                 header: withCtx((_22, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
-                    _push3(`<div class="flex items-center justify-between w-full"${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId2}> Mehr Informationen </h3></div>`);
+                    _push3(`<div class="flex items-center justify-between w-full"${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId2}>${ssrInterpolate(_ctx.$t("cookienotice.details.title"))}</h3></div>`);
                   } else {
                     return [
                       createVNode("div", { class: "flex items-center justify-between w-full" }, [
-                        createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " Mehr Informationen ")
+                        createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, toDisplayString$1(_ctx.$t("cookienotice.details.title")), 1)
                       ])
                     ];
                   }
@@ -17781,10 +17784,10 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                     }, {
                       default: withCtx((_3, _push4, _parent4, _scopeId3) => {
                         if (_push4) {
-                          _push4(`Zurück`);
+                          _push4(`${ssrInterpolate(_ctx.$t("cookienotice.details.actions.back"))}`);
                         } else {
                           return [
-                            createTextVNode("Zurück")
+                            createTextVNode(toDisplayString$1(_ctx.$t("cookienotice.details.actions.back")), 1)
                           ];
                         }
                       }),
@@ -17796,7 +17799,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                         onClick: ($event) => unref(cookienotice).showDetails = false
                       }, {
                         default: withCtx(() => [
-                          createTextVNode("Zurück")
+                          createTextVNode(toDisplayString$1(_ctx.$t("cookienotice.details.actions.back")), 1)
                         ]),
                         _: 1
                       }, 8, ["onClick"])
@@ -17807,7 +17810,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                   if (_push3) {
                     _push3(`<div class="max-h-[425px] overflow-y-auto"${_scopeId2}>`);
                     if (neededCookies && neededCookies.length != 0) {
-                      _push3(`<div${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2"${_scopeId2}> Notwendige Cookies </h3>`);
+                      _push3(`<div${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2"${_scopeId2}>${ssrInterpolate(_ctx.$t("cookienotice.details.needed.title"))}</h3>`);
                       _push3(ssrRenderComponent(_component_UAccordion, {
                         color: "primary",
                         variant: "soft",
@@ -17819,7 +17822,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                       _push3(`<!---->`);
                     }
                     if (optionalCookies && optionalCookies.length != 0) {
-                      _push3(`<div${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2"${_scopeId2}> Optionale Cookies </h3>`);
+                      _push3(`<div${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2"${_scopeId2}>${ssrInterpolate(_ctx.$t("cookienotice.details.optional.title"))}</h3>`);
                       _push3(ssrRenderComponent(_component_UAccordion, {
                         color: "primary",
                         variant: "soft",
@@ -17830,12 +17833,12 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                     } else {
                       _push3(`<!---->`);
                     }
-                    _push3(`<p class="text-center opacity-75"${_scopeId2}>Weitere Informationen zu den eingesetzten Cookies sowie deren Funktionen und Verarbeitung finden Sie auf den jeweiligen Webseiten der Anbieter,</p></div>`);
+                    _push3(`<p class="text-center opacity-75"${_scopeId2}>${ssrInterpolate(_ctx.$t("cookienotice.details.notice"))}</p></div>`);
                   } else {
                     return [
                       createVNode("div", { class: "max-h-[425px] overflow-y-auto" }, [
                         neededCookies && neededCookies.length != 0 ? (openBlock(), createBlock("div", { key: 0 }, [
-                          createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Notwendige Cookies "),
+                          createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, toDisplayString$1(_ctx.$t("cookienotice.details.needed.title")), 1),
                           createVNode(_component_UAccordion, {
                             color: "primary",
                             variant: "soft",
@@ -17845,7 +17848,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                           createVNode("hr", { class: "my-4" })
                         ])) : createCommentVNode("", true),
                         optionalCookies && optionalCookies.length != 0 ? (openBlock(), createBlock("div", { key: 1 }, [
-                          createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Optionale Cookies "),
+                          createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, toDisplayString$1(_ctx.$t("cookienotice.details.optional.title")), 1),
                           createVNode(_component_UAccordion, {
                             color: "primary",
                             variant: "soft",
@@ -17854,7 +17857,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                           }),
                           createVNode("hr", { class: "my-4" })
                         ])) : createCommentVNode("", true),
-                        createVNode("p", { class: "text-center opacity-75" }, "Weitere Informationen zu den eingesetzten Cookies sowie deren Funktionen und Verarbeitung finden Sie auf den jeweiligen Webseiten der Anbieter,")
+                        createVNode("p", { class: "text-center opacity-75" }, toDisplayString$1(_ctx.$t("cookienotice.details.notice")), 1)
                       ])
                     ];
                   }
@@ -17870,7 +17873,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
               }, {
                 header: withCtx(() => [
                   createVNode("div", { class: "flex items-center justify-between w-full" }, [
-                    createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " 🍪 Welche Cookies möchtest du zulassen? "),
+                    createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " 🍪 " + toDisplayString$1(_ctx.$t("cookienotice.start.title")), 1),
                     createVNode(_component_UDropdown, {
                       items: menu,
                       popper: { placement: "bottom-start" }
@@ -17893,7 +17896,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                       onClick: ($event) => unref(cookienotice).setConsent("needed")
                     }, {
                       default: withCtx(() => [
-                        createTextVNode("Notwendige akzeptieren ")
+                        createTextVNode(toDisplayString$1(_ctx.$t("cookienotice.start.actions.needed")), 1)
                       ]),
                       _: 1
                     }, 8, ["onClick"]),
@@ -17903,7 +17906,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                       autofocus: ""
                     }, {
                       default: withCtx(() => [
-                        createTextVNode("Alle akzeptieren ")
+                        createTextVNode(toDisplayString$1(_ctx.$t("cookienotice.start.actions.all")), 1)
                       ]),
                       _: 1
                     }, 8, ["onClick"])
@@ -17911,10 +17914,10 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                 ]),
                 default: withCtx(() => [
                   createVNode("div", { class: "max-h-[425px] overflow-y-auto" }, [
-                    createVNode("p", { class: "mb-4" }, "Wir verwenden Cookies und ähnliche Technologien, um die Nutzererfahrung zu verbessern und personenbezogene Daten wie IP-Adressen zu verarbeiten. Weitere Informationen zu den eingesetzten Cookies und deren Verwaltung findest du in den Cookie-Einstellungen."),
-                    createVNode("p", { class: "mb-4" }, "Die Datenverarbeitung erfolgt mit deiner Zustimmung oder aufgrund eines berechtigten Interesses. Du kannst deine Einwilligung jederzeit in den Cookie-Einstellungen widerrufen. Details zur Verarbeitung deiner Daten findest du in unserer Datenschutzerklärung."),
-                    createVNode("p", { class: "mb-4" }, "Einige Dienste verarbeiten deine Daten in Ländern außerhalb der EU mit möglicherweise niedrigerem Datenschutzniveau. Durch die Zustimmung erklärst du dich mit diesen Risiken einverstanden."),
-                    createVNode("p", null, "Für Nutzer unter 16 Jahren ist die Zustimmung der Eltern erforderlich, um optionale Cookies zu nutzen.")
+                    createVNode("p", { class: "mb-4" }, toDisplayString$1(_ctx.$t("cookienotice.start.description.1")), 1),
+                    createVNode("p", { class: "mb-4" }, toDisplayString$1(_ctx.$t("cookienotice.start.description.2")), 1),
+                    createVNode("p", { class: "mb-4" }, toDisplayString$1(_ctx.$t("cookienotice.start.description.3")), 1),
+                    createVNode("p", null, toDisplayString$1(_ctx.$t("cookienotice.start.description.4")), 1)
                   ])
                 ]),
                 _: 1
@@ -17924,7 +17927,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
               }, {
                 header: withCtx(() => [
                   createVNode("div", { class: "flex items-center justify-between w-full" }, [
-                    createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " Mehr Informationen ")
+                    createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, toDisplayString$1(_ctx.$t("cookienotice.details.title")), 1)
                   ])
                 ]),
                 footer: withCtx(() => [
@@ -17932,7 +17935,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                     onClick: ($event) => unref(cookienotice).showDetails = false
                   }, {
                     default: withCtx(() => [
-                      createTextVNode("Zurück")
+                      createTextVNode(toDisplayString$1(_ctx.$t("cookienotice.details.actions.back")), 1)
                     ]),
                     _: 1
                   }, 8, ["onClick"])
@@ -17940,7 +17943,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                 default: withCtx(() => [
                   createVNode("div", { class: "max-h-[425px] overflow-y-auto" }, [
                     neededCookies && neededCookies.length != 0 ? (openBlock(), createBlock("div", { key: 0 }, [
-                      createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Notwendige Cookies "),
+                      createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, toDisplayString$1(_ctx.$t("cookienotice.details.needed.title")), 1),
                       createVNode(_component_UAccordion, {
                         color: "primary",
                         variant: "soft",
@@ -17950,7 +17953,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                       createVNode("hr", { class: "my-4" })
                     ])) : createCommentVNode("", true),
                     optionalCookies && optionalCookies.length != 0 ? (openBlock(), createBlock("div", { key: 1 }, [
-                      createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Optionale Cookies "),
+                      createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, toDisplayString$1(_ctx.$t("cookienotice.details.optional.title")), 1),
                       createVNode(_component_UAccordion, {
                         color: "primary",
                         variant: "soft",
@@ -17959,7 +17962,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                       }),
                       createVNode("hr", { class: "my-4" })
                     ])) : createCommentVNode("", true),
-                    createVNode("p", { class: "text-center opacity-75" }, "Weitere Informationen zu den eingesetzten Cookies sowie deren Funktionen und Verarbeitung finden Sie auf den jeweiligen Webseiten der Anbieter,")
+                    createVNode("p", { class: "text-center opacity-75" }, toDisplayString$1(_ctx.$t("cookienotice.details.notice")), 1)
                   ])
                 ]),
                 _: 1
@@ -18711,7 +18714,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
         name: "i-heroicons-x-mark",
         class: "w-5 h-5"
       }, null, _parent));
-      _push(`</button><h2 class="text-3xl font-bold">Warenkorb</h2><button class="text-red-600 hover:text-red-500">`);
+      _push(`</button><h2 class="text-3xl font-bold">${ssrInterpolate(_ctx.$t("cart.title"))}</h2><button class="text-red-600 hover:text-red-500">`);
       _push(ssrRenderComponent(_component_UIcon, {
         name: "i-heroicons-trash",
         class: "w-5 h-5"
@@ -18721,7 +18724,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
         default: withCtx((_2, _push2, _parent2, _scopeId) => {
           if (_push2) {
             if (unref(cart).items.length === 0) {
-              _push2(`<div class="p-4 text-center"${_scopeId}>Dein Warenkorb ist leer.</div>`);
+              _push2(`<div class="p-4 text-center"${_scopeId}>${ssrInterpolate(_ctx.$t("cart.isEmpty"))}.</div>`);
             } else {
               _push2(`<ul${_scopeId}><!--[-->`);
               ssrRenderList(unref(cart).items, (item) => {
@@ -18794,7 +18797,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
                     required: ""
                   }, null, _parent2, _scopeId));
                 }
-                _push2(`<div class="flex"${_scopeId}><button type="button" class="font-medium text-blue-600 hover:text-blue-700"${_scopeId}>Entfernen</button></div></div></div></li>`);
+                _push2(`<div class="flex"${_scopeId}><button type="button" class="font-medium text-blue-600 hover:text-blue-700"${_scopeId}>${ssrInterpolate(_ctx.$t("cart.remove"))}</button></div></div></div></li>`);
               });
               _push2(`<!--]--></ul>`);
             }
@@ -18803,7 +18806,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
               unref(cart).items.length === 0 ? (openBlock(), createBlock("div", {
                 key: 0,
                 class: "p-4 text-center"
-              }, "Dein Warenkorb ist leer.")) : (openBlock(), createBlock("ul", { key: 1 }, [
+              }, toDisplayString$1(_ctx.$t("cart.isEmpty")) + ".", 1)) : (openBlock(), createBlock("ul", { key: 1 }, [
                 (openBlock(true), createBlock(Fragment, null, renderList(unref(cart).items, (item) => {
                   return openBlock(), createBlock("li", {
                     key: item.id,
@@ -18894,7 +18897,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
                             type: "button",
                             class: "font-medium text-blue-600 hover:text-blue-700",
                             onClick: ($event) => remove(item.id)
-                          }, "Entfernen", 8, ["onClick"])
+                          }, toDisplayString$1(_ctx.$t("cart.remove")), 9, ["onClick"])
                         ])
                       ])
                     ])
@@ -18907,15 +18910,15 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
         _: 1
       }, _parent));
       if (isDomainOnly()) {
-        _push(`<div class="p-4 text-center text-red-600 font-semibold"> Domains können nicht mit anderen Artikeln kombiniert werden. </div>`);
+        _push(`<div class="p-4 text-center text-red-600 font-semibold">${ssrInterpolate(_ctx.$t("cart.domainerror"))}</div>`);
       } else {
         _push(`<!---->`);
       }
-      _push(`<div class="p-4 sticky bottom-0 w-full z-10"><div class="flex justify-between items-center text-xl font-semibold"><span>Zwischensumme</span><span>${ssrInterpolate(unref(cart).totalPrice)} €</span></div>`);
+      _push(`<div class="p-4 sticky bottom-0 w-full z-10"><div class="flex justify-between items-center text-xl font-semibold"><span>${ssrInterpolate(_ctx.$t("cart.subtotal"))}</span><span>${ssrInterpolate(unref(cart).totalPrice)} €</span></div>`);
       _push(ssrRenderComponent(_component_NuxtLink, { to: "/checkout" }, {
         default: withCtx((_2, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<button${ssrIncludeBooleanAttr(isCartEmpty() || isDomainOnly()) ? " disabled" : ""} class="${ssrRenderClass([{ "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }, "mt-4 w-full py-3 bg-indigo-600 text-white font-medium text-lg rounded-md hover:bg-indigo-700 disabled:bg-gray-300"])}" autofocus${_scopeId}> Zur Bezahlung </button>`);
+            _push2(`<button${ssrIncludeBooleanAttr(isCartEmpty() || isDomainOnly()) ? " disabled" : ""} class="${ssrRenderClass([{ "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }, "mt-4 w-full py-3 bg-indigo-600 text-white font-medium text-lg rounded-md hover:bg-indigo-700 disabled:bg-gray-300"])}" autofocus${_scopeId}>${ssrInterpolate(_ctx.$t("cart.checkout"))}</button>`);
           } else {
             return [
               createVNode("button", {
@@ -18923,7 +18926,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
                 onClick: ($event) => unref(cart).closeSlideover(),
                 class: ["mt-4 w-full py-3 bg-indigo-600 text-white font-medium text-lg rounded-md hover:bg-indigo-700 disabled:bg-gray-300", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
                 autofocus: ""
-              }, " Zur Bezahlung ", 10, ["disabled", "onClick"])
+              }, toDisplayString$1(_ctx.$t("cart.checkout")), 11, ["disabled", "onClick"])
             ];
           }
         }),
@@ -20516,5 +20519,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { __nuxt_component_0$3 as $, A$3 as A, useUI as B, usePopper as C, useInjectButtonGroup as D, E$2 as E, useFormGroup as F, twMerge as G, appConfig as H, get as I, s$5 as J, select as K, selectMenu as L, __nuxt_component_0$9 as M, N$4 as N, O$2 as O, __nuxt_component_2$3 as P, __nuxt_component_4 as Q, omit as R, __nuxt_component_7 as S, T$2 as T, useToast as U, useCartStore as V, __nuxt_component_0$4 as W, __nuxt_component_0$e as X, useI18n as Y, useAppConfig as Z, _export_sfc as _, i$4 as a, useCookieNoticeStore as a0, getNuxtLinkProps as a1, useHead as a2, __nuxt_component_1$2 as a3, __nuxt_component_0$d as a4, nuxtLinkProps as a5, getSlotChildrenText as a6, __nuxt_component_0$b as a7, getULinkProps as a8, getSlotsChildren as a9, avatar as aa, button as ab, __nuxt_component_2$1 as ac, config$i as ad, N$1 as ae, Q$1 as af, V as ag, __nuxt_component_0$7 as ah, useRequestEvent as ai, withLeadingSlash as aj, hasProtocol as ak, joinURL as al, parseURL as am, encodeParam as an, encodePath as ao, useNuxtApp as ap, useRuntimeConfig as aq, useRoute as ar, withTrailingSlash as as, withoutTrailingSlash as at, useAsyncData as au, withBase as av, useCookie as aw, useState as ax, o$2 as b, u$5 as c, i$1 as d, entry$1 as default, i$2 as e, u$7 as f, f$2 as g, u$4 as h, i$6 as i, t$1 as j, o$1 as k, l$2 as l, c$1 as m, n$2 as n, o$4 as o, f$1 as p, p as q, w$4 as r, s$3 as s, t$2 as t, useSeoMeta as u, h as v, w$2 as w, __nuxt_component_1$3 as x, __nuxt_component_4$3 as y, mergeConfig as z };
+export { __nuxt_component_0$3 as $, A$3 as A, mergeConfig as B, useUI as C, usePopper as D, E$2 as E, useInjectButtonGroup as F, useFormGroup as G, twMerge as H, appConfig as I, get as J, s$5 as K, select as L, selectMenu as M, N$4 as N, O$2 as O, __nuxt_component_0$9 as P, __nuxt_component_2$3 as Q, __nuxt_component_4 as R, omit as S, T$2 as T, __nuxt_component_7 as U, useToast as V, useCartStore as W, __nuxt_component_0$4 as X, __nuxt_component_0$e as Y, useAppConfig as Z, _export_sfc as _, useSeoMeta as a, useCookieNoticeStore as a0, getNuxtLinkProps as a1, useHead as a2, __nuxt_component_1$2 as a3, __nuxt_component_0$d as a4, nuxtLinkProps as a5, getSlotChildrenText as a6, __nuxt_component_0$b as a7, getULinkProps as a8, getSlotsChildren as a9, avatar as aa, button as ab, __nuxt_component_2$1 as ac, config$i as ad, N$1 as ae, Q$1 as af, V as ag, __nuxt_component_0$7 as ah, useRequestEvent as ai, withLeadingSlash as aj, hasProtocol as ak, joinURL as al, parseURL as am, encodeParam as an, encodePath as ao, useNuxtApp as ap, useRuntimeConfig as aq, useRoute as ar, withTrailingSlash as as, withoutTrailingSlash as at, useAsyncData as au, withBase as av, useCookie as aw, useState as ax, i$4 as b, o$2 as c, u$5 as d, entry$1 as default, i$1 as e, i$2 as f, u$7 as g, f$2 as h, i$6 as i, u$4 as j, t$1 as k, l$2 as l, o$1 as m, c$1 as n, o$4 as o, n$2 as p, f$1 as q, p as r, s$3 as s, t$2 as t, useI18n as u, w$4 as v, w$2 as w, h as x, __nuxt_component_1$3 as y, __nuxt_component_4$3 as z };
 //# sourceMappingURL=server.mjs.map

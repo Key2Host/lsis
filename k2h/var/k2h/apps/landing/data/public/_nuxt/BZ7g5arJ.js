@@ -1,0 +1,1 @@
+import{a0 as s,a2 as a,o,a6 as r}from"./DTsxA36v.js";const n={};function t(e,c){return o(),a("p",null,[r(e.$slots,"default")])}const _=Object.assign(s(n,[["render",t]]),{__name:"ProseP"});export{_ as default};

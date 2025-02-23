@@ -1,1 +1,0 @@
-import{_ as a,a0 as s,o,a4 as r}from"./BeKIkNF4.js";const t={};function n(e,c){return o(),s("table",null,[r(e.$slots,"default")])}const _=Object.assign(a(t,[["render",n]]),{__name:"ProseTable"});export{_ as default};

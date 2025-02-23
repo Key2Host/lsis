@@ -52,6 +52,7 @@ const useContentHead = (_content, to = useRoute()) => {
   const content = unref(_content);
   const config = useRuntimeConfig();
   const refreshHead = (data = content) => {
+    var _a;
     if (!to.path || !data) {
       return;
     }
@@ -70,7 +71,7 @@ const useContentHead = (_content, to = useRoute()) => {
     }
     const host = config.public.content.host;
     if (host) {
-      const _url = joinURL(host ?? "/", config.app.baseURL, to.fullPath);
+      const _url = joinURL(host != null ? host : "/", config.app.baseURL, to.fullPath);
       const url = config.public.content.trailingSlash ? withTrailingSlash(_url) : withoutTrailingSlash(_url);
       if (!head.meta.some((m) => m.property === "og:url")) {
         head.meta.push({
@@ -118,7 +119,7 @@ const useContentHead = (_content, to = useRoute()) => {
         for (const key of imageKeys) {
           if (key === "src" && image.src) {
             const isAbsoluteURL = hasProtocol(image.src);
-            const imageURL = isAbsoluteURL ? image.src : joinURL(config.app.baseURL, image.src ?? "/");
+            const imageURL = isAbsoluteURL ? image.src : joinURL(config.app.baseURL, (_a = image.src) != null ? _a : "/");
             head.meta.push({
               property: "og:image",
               content: host && !isAbsoluteURL ? new URL(imageURL, host).href : imageURL

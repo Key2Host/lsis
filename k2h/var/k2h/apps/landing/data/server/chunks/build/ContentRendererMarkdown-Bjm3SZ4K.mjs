@@ -1,5 +1,5 @@
 import { defineComponent, computed, mergeProps, unref, h, getCurrentInstance, toRaw, reactive, watch, resolveComponent, defineAsyncComponent, Text, Comment, useSSRContext } from 'vue';
-import { H as pascalCase, I as kebabCase, m as destr } from '../nitro/nitro.mjs';
+import { H as pascalCase, I as kebabCase, n as destr } from '../nitro/nitro.mjs';
 import { find, html } from 'property-information';
 import { f as flatUnwrap } from './node-hwMnPqaI.mjs';
 import { ssrRenderComponent } from 'vue/server-renderer';
@@ -302,6 +302,7 @@ function renderNode(node, h2, documentMeta, parentScope = {}) {
   );
 }
 function renderBinding(node, h2, documentMeta, parentScope = {}) {
+  var _a2;
   var _a, _b;
   const data = {
     ...documentMeta.runtimeData,
@@ -322,7 +323,7 @@ function renderBinding(node, h2, documentMeta, parentScope = {}) {
     return void 0;
   }, data);
   const defaultValue = (_b = node.props) == null ? void 0 : _b.defaultValue;
-  return h2(Text, value ?? defaultValue ?? "");
+  return h2(Text, (_a2 = value != null ? value : defaultValue) != null ? _a2 : "");
 }
 function renderSlots(node, h2, documentMeta, parentProps) {
   const children = node.children || [];

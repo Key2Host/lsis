@@ -1,1 +1,0 @@
-import{_ as n,a0 as o,o as s,a4 as r}from"./BeKIkNF4.js";const a={};function t(e,c){return s(),o("code",null,[r(e.$slots,"default")])}const _=Object.assign(n(a,[["render",t]]),{__name:"ProseCodeInline"});export{_ as default};

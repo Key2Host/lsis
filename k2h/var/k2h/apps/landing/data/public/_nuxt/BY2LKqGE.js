@@ -1,1 +1,0 @@
-import{_ as o,a0 as t,o as s,a4 as c}from"./BeKIkNF4.js";const r={};function a(e,n){return s(),t("blockquote",null,[c(e.$slots,"default")])}const _=Object.assign(o(r,[["render",a]]),{__name:"ProseBlockquote"});export{_ as default};
