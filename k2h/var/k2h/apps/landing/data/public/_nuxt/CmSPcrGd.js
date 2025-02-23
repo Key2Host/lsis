@@ -1,1 +1,0 @@
-import{a1 as r,a3 as s,o as a,a7 as o}from"./CYmx1MYN.js";const t={};function n(e,c){return a(),s("tr",null,[o(e.$slots,"default")])}const _=Object.assign(r(t,[["render",n]]),{__name:"ProseTr"});export{_ as default};
