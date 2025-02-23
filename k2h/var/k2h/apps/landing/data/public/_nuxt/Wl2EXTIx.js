@@ -1,1 +1,0 @@
-import{a0 as r,a2 as s,o as a,a6 as o}from"./CM2APgab.js";const t={};function n(e,c){return a(),s("tr",null,[o(e.$slots,"default")])}const _=Object.assign(r(t,[["render",n]]),{__name:"ProseTr"});export{_ as default};

@@ -1,15 +1,15 @@
 import * as e$1 from 'vue';
-import { defineComponent, computed, useAttrs, toValue, ref, getCurrentInstance, provide, inject, h as h$1, resolveComponent, onMounted, onUnmounted, watchEffect, hasInjectionContext, shallowRef, toRef, onServerPrefetch, isRef, cloneVNode, watch, mergeProps, createVNode, resolveDynamicComponent, withCtx, renderSlot, createBlock, createCommentVNode, openBlock, useId, Fragment, unref, normalizeClass, nextTick, Teleport, reactive, version, defineAsyncComponent, useSSRContext, useSlots, shallowReactive, Suspense, createElementBlock, createApp, Text, Transition, createTextVNode, toDisplayString as toDisplayString$1, withAsyncContext, createSlots, renderList, withKeys, withDirectives, vShow, withModifiers, onErrorCaptured, effectScope, isReadonly, isShallow, isReactive, toRaw, getCurrentScope } from 'vue';
-import { j as defuFn, k as defu, l as createDefu, m as klona, n as destr, o as parse$1, q as getRequestHeader, s as isEqual$1, t as getContext, v as setCookie, w as getCookie, x as deleteCookie, y as sanitizeStatusCode, z as diff, $ as $fetch$1, A as baseURL, p as publicAssetsURL, c as createError$1, B as createHooks, C as toRouteMatcher, D as createRouter$1, E as getRequestHeaders } from '../nitro/nitro.mjs';
+import { defineComponent, computed, useAttrs, toValue, ref, getCurrentInstance, provide, inject, h as h$1, resolveComponent, onMounted, onUnmounted, watchEffect, hasInjectionContext, shallowRef, toRef, onServerPrefetch, isRef, cloneVNode, mergeProps, withCtx, createVNode, renderSlot, createTextVNode, toDisplayString as toDisplayString$1, withKeys, Transition, createBlock, withDirectives, openBlock, vShow, watch, useId, resolveDynamicComponent, createCommentVNode, Fragment, unref, normalizeClass, nextTick, Teleport, reactive, version, defineAsyncComponent, useSSRContext, useSlots, shallowReactive, Suspense, createElementBlock, createApp, Text, withAsyncContext, createSlots, renderList, withModifiers, onErrorCaptured, effectScope, isReadonly, isShallow, isReactive, toRaw, getCurrentScope } from 'vue';
+import { D as defuFn, E as klona, k as defu, F as createDefu, G as destr, H as parse$1, I as getRequestHeader, J as isEqual$1, K as getContext, L as setCookie, M as getCookie, N as deleteCookie, O as sanitizeStatusCode, P as diff, $ as $fetch$1, Q as baseURL, p as publicAssetsURL, c as createError$1, R as createHooks, S as toRouteMatcher, T as createRouter$1, U as getRequestHeaders } from '../nitro/nitro.mjs';
 import { defineStore, createPinia, setActivePinia, shouldHydrate } from 'pinia';
 import { getActiveHead, CapoPlugin } from 'unhead';
-import { defineHeadPlugin, composableNames, unpackMeta } from '@unhead/shared';
+import { unpackMeta, defineHeadPlugin, composableNames } from '@unhead/shared';
 import { RouterView, useRoute as useRoute$1, createMemoryHistory, createRouter, START_LOCATION, isNavigationFailure } from 'vue-router';
 import { deepPickUnsafe, deepOmitUnsafe } from 'deep-pick-omit';
 import { useDebounceFn, createSharedComposable, useTimestamp } from '@vueuse/core';
 import { extendTailwindMerge, twJoin, twMerge as twMerge$1 } from 'tailwind-merge';
 import { Icon, getIcon, loadIcon as loadIcon$1, _api, disableCache, addAPIProvider, setCustomIconsLoader } from '@iconify/vue';
-import { ssrRenderAttrs, ssrRenderSlot, ssrRenderComponent, ssrInterpolate, ssrRenderVNode, ssrRenderClass, ssrIncludeBooleanAttr, ssrRenderStyle, ssrRenderList, ssrRenderAttr, ssrRenderTeleport, ssrRenderSuspense } from 'vue/server-renderer';
+import { ssrRenderAttrs, ssrRenderList, ssrRenderComponent, ssrRenderSlot, ssrInterpolate, ssrRenderStyle, ssrRenderVNode, ssrRenderClass, ssrIncludeBooleanAttr, ssrRenderAttr, ssrRenderTeleport, ssrRenderSuspense } from 'vue/server-renderer';
 import { getIconCSS } from '@iconify/utils/lib/css/icon';
 import 'unist-util-visit';
 import 'hast-util-to-string';
@@ -48,7 +48,7 @@ if (!globalThis.$fetch) {
   });
 }
 const appPageTransition = false;
-const nuxtLinkDefaults = { "componentName": "NuxtLink" };
+const nuxtLinkDefaults = { "componentName": "NuxtLink", "prefetch": true, "prefetchOn": { "visibility": true } };
 const asyncDataDefaults = { "deep": false };
 const appId = "nuxt-app";
 function getNuxtAppCtx(id = appId) {
@@ -927,93 +927,279 @@ const generateRouteKey$1 = (routeProps, override) => {
 function toArray$1(value) {
   return Array.isArray(value) ? value : [value];
 }
+const component_45stubljRFnMG14V = {};
 function handleHotUpdate(_router, _generateRoutes) {
 }
 const _routes = [
   {
-    name: "checkout-failed",
+    name: "checkout-failed___en___default",
     path: "/checkout/failed",
-    component: () => import('./failed-BbP4atel.mjs')
+    component: () => import('./failed-ciPUqt5d.mjs')
   },
   {
-    name: "checkout",
+    name: "checkout-failed___en",
+    path: "/en/checkout/failed",
+    component: () => import('./failed-ciPUqt5d.mjs')
+  },
+  {
+    name: "checkout-failed___de",
+    path: "/de/checkout/failed",
+    component: () => import('./failed-ciPUqt5d.mjs')
+  },
+  {
+    name: "checkout___en___default",
     path: "/checkout",
-    component: () => import('./index-DUNiaqOX.mjs')
+    component: () => import('./index-L9y9_rpU.mjs')
   },
   {
-    name: "checkout-success",
+    name: "checkout___en",
+    path: "/en/checkout",
+    component: () => import('./index-L9y9_rpU.mjs')
+  },
+  {
+    name: "checkout___de",
+    path: "/de/checkout",
+    component: () => import('./index-L9y9_rpU.mjs')
+  },
+  {
+    name: "checkout-success___en___default",
     path: "/checkout/success",
-    component: () => import('./success-MG4WjDLA.mjs')
+    component: () => import('./success-BgZsDqZY.mjs')
   },
   {
-    name: "company-milestones",
+    name: "checkout-success___en",
+    path: "/en/checkout/success",
+    component: () => import('./success-BgZsDqZY.mjs')
+  },
+  {
+    name: "checkout-success___de",
+    path: "/de/checkout/success",
+    component: () => import('./success-BgZsDqZY.mjs')
+  },
+  {
+    name: "company-milestones___en___default",
     path: "/company/milestones",
-    component: () => import('./milestones-CiHKktPg.mjs')
+    component: () => import('./milestones-DK-Z0igO.mjs')
   },
   {
-    name: "company-partners",
+    name: "company-milestones___en",
+    path: "/en/company/milestones",
+    component: () => import('./milestones-DK-Z0igO.mjs')
+  },
+  {
+    name: "company-milestones___de",
+    path: "/de/company/milestones",
+    component: () => import('./milestones-DK-Z0igO.mjs')
+  },
+  {
+    name: "company-partners___en___default",
     path: "/company/partners",
-    component: () => import('./partners-HphSxQxw.mjs')
+    component: () => import('./partners-B1Aj4kVf.mjs')
   },
   {
-    name: "contact",
+    name: "company-partners___en",
+    path: "/en/company/partners",
+    component: () => import('./partners-B1Aj4kVf.mjs')
+  },
+  {
+    name: "company-partners___de",
+    path: "/de/company/partners",
+    component: () => import('./partners-B1Aj4kVf.mjs')
+  },
+  {
+    name: "contact___en___default",
     path: "/contact",
-    component: () => import('./contact-CUBFAO9P.mjs')
+    component: () => import('./contact-Uk0oJYTU.mjs')
   },
   {
-    name: "index",
+    name: "contact___en",
+    path: "/en/contact",
+    component: () => import('./contact-Uk0oJYTU.mjs')
+  },
+  {
+    name: "contact___de",
+    path: "/de/contact",
+    component: () => import('./contact-Uk0oJYTU.mjs')
+  },
+  {
+    name: "index___en___default",
     path: "/",
-    component: () => import('./index-BS4ltz9d.mjs')
+    component: () => import('./index-WHMGPkFS.mjs')
   },
   {
-    name: "legal-notice",
+    name: "index___en",
+    path: "/en",
+    component: () => import('./index-WHMGPkFS.mjs')
+  },
+  {
+    name: "index___de",
+    path: "/de",
+    component: () => import('./index-WHMGPkFS.mjs')
+  },
+  {
+    name: "legal-notice___en___default",
     path: "/legal/notice",
-    component: () => import('./notice-iIrUg-Lz.mjs')
+    component: () => import('./notice-DutVcrVD.mjs')
   },
   {
-    name: "legal-privacy",
+    name: "legal-notice___en",
+    path: "/en/legal/notice",
+    component: () => import('./notice-DutVcrVD.mjs')
+  },
+  {
+    name: "legal-notice___de",
+    path: "/de/legal/notice",
+    component: () => import('./notice-DutVcrVD.mjs')
+  },
+  {
+    name: "legal-privacy___en___default",
     path: "/legal/privacy",
-    component: () => import('./privacy-Bxd1mD1l.mjs')
+    component: () => import('./privacy-mSx3PS1F.mjs')
   },
   {
-    name: "legal-tos",
+    name: "legal-privacy___en",
+    path: "/en/legal/privacy",
+    component: () => import('./privacy-mSx3PS1F.mjs')
+  },
+  {
+    name: "legal-privacy___de",
+    path: "/de/legal/privacy",
+    component: () => import('./privacy-mSx3PS1F.mjs')
+  },
+  {
+    name: "legal-tos___en___default",
     path: "/legal/tos",
-    component: () => import('./tos-B972X6To.mjs')
+    component: () => import('./tos-Ds9PEMb2.mjs')
   },
   {
-    name: "newsroom-id",
+    name: "legal-tos___en",
+    path: "/en/legal/tos",
+    component: () => import('./tos-Ds9PEMb2.mjs')
+  },
+  {
+    name: "legal-tos___de",
+    path: "/de/legal/tos",
+    component: () => import('./tos-Ds9PEMb2.mjs')
+  },
+  {
+    name: "newsroom-id___en___default",
     path: "/newsroom/:id()",
-    component: () => import('./_id_-CZLefSNw.mjs')
+    component: () => import('./_id_-Bpj6rCHm.mjs')
   },
   {
-    name: "newsroom",
+    name: "newsroom-id___en",
+    path: "/en/newsroom/:id()",
+    component: () => import('./_id_-Bpj6rCHm.mjs')
+  },
+  {
+    name: "newsroom-id___de",
+    path: "/de/newsroom/:id()",
+    component: () => import('./_id_-Bpj6rCHm.mjs')
+  },
+  {
+    name: "newsroom___en___default",
     path: "/newsroom",
-    component: () => import('./index-_KnBywgK.mjs')
+    component: () => import('./index-Cd9xo6tI.mjs')
   },
   {
-    name: "products-dedicated",
+    name: "newsroom___en",
+    path: "/en/newsroom",
+    component: () => import('./index-Cd9xo6tI.mjs')
+  },
+  {
+    name: "newsroom___de",
+    path: "/de/newsroom",
+    component: () => import('./index-Cd9xo6tI.mjs')
+  },
+  {
+    name: "products-dedicated___en___default",
     path: "/products/dedicated",
-    component: () => import('./index-DAi-petS.mjs')
+    component: () => import('./index-DCnUo6LU.mjs')
   },
   {
-    name: "products-domain",
+    name: "products-dedicated___en",
+    path: "/en/products/dedicated",
+    component: () => import('./index-DCnUo6LU.mjs')
+  },
+  {
+    name: "products-dedicated___de",
+    path: "/de/products/dedicated",
+    component: () => import('./index-DCnUo6LU.mjs')
+  },
+  {
+    name: "products-domain___en___default",
     path: "/products/domain",
-    component: () => import('./index-Bmiu2BOo.mjs')
+    component: () => import('./index-Bk7qoSAl.mjs')
   },
   {
-    name: "products-lic-cert",
+    name: "products-domain___en",
+    path: "/en/products/domain",
+    component: () => import('./index-Bk7qoSAl.mjs')
+  },
+  {
+    name: "products-domain___de",
+    path: "/de/products/domain",
+    component: () => import('./index-Bk7qoSAl.mjs')
+  },
+  {
+    name: "products-lic-cert___en___default",
     path: "/products/lic-cert",
-    component: () => import('./index-BvMGgCfY.mjs')
+    component: () => import('./index-B7mh1jHC.mjs')
   },
   {
-    name: "products-vps-root",
+    name: "products-lic-cert___en",
+    path: "/en/products/lic-cert",
+    component: () => import('./index-B7mh1jHC.mjs')
+  },
+  {
+    name: "products-lic-cert___de",
+    path: "/de/products/lic-cert",
+    component: () => import('./index-B7mh1jHC.mjs')
+  },
+  {
+    name: "products-vps-root___en___default",
     path: "/products/vps-root",
-    component: () => import('./index-CC-My4pg.mjs')
+    component: () => import('./index-BCiCclzk.mjs')
   },
   {
-    name: "products-webspace",
+    name: "products-vps-root___en",
+    path: "/en/products/vps-root",
+    component: () => import('./index-BCiCclzk.mjs')
+  },
+  {
+    name: "products-vps-root___de",
+    path: "/de/products/vps-root",
+    component: () => import('./index-BCiCclzk.mjs')
+  },
+  {
+    name: "products-webspace___en___default",
     path: "/products/webspace",
-    component: () => import('./index-DerKgexT.mjs')
+    component: () => import('./index-BAmt6Yb7.mjs')
+  },
+  {
+    name: "products-webspace___en",
+    path: "/en/products/webspace",
+    component: () => import('./index-BAmt6Yb7.mjs')
+  },
+  {
+    name: "products-webspace___de",
+    path: "/de/products/webspace",
+    component: () => import('./index-BAmt6Yb7.mjs')
+  },
+  {
+    name: void 0 ,
+    path: "/sitemap.xml",
+    component: component_45stubljRFnMG14V
+  },
+  {
+    name: void 0 ,
+    path: "/en/sitemap.xml",
+    component: component_45stubljRFnMG14V
+  },
+  {
+    name: void 0 ,
+    path: "/de/sitemap.xml",
+    component: component_45stubljRFnMG14V
   }
 ];
 const ROUTE_KEY_PARENTHESES_RE = /(:\w+)\([^)]+\)/g;
@@ -2276,41 +2462,41 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
     };
   }
 });
-const LazyCallout = defineAsyncComponent(() => import('./Callout-Dzo_0VTh.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCard = defineAsyncComponent(() => import('./Card-BMLdthNS.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCardGroup = defineAsyncComponent(() => import('./CardGroup-BYcjC4Jv.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCodeGroup = defineAsyncComponent(() => import('./CodeGroup-DRKgRk2l.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCollapsible = defineAsyncComponent(() => import('./Collapsible--NXKQscT.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyField = defineAsyncComponent(() => import('./Field-DQcPBSMA.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyFieldGroup = defineAsyncComponent(() => import('./FieldGroup-t18qjcgW.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyShortcut = defineAsyncComponent(() => import('./Shortcut-Bhr5RUZK.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyTabs = defineAsyncComponent(() => import('./Tabs-Dj1VcoGf.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseCode = defineAsyncComponent(() => import('./ProseCode-4PhKB-20.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseCodeButton = defineAsyncComponent(() => import('./ProseCodeButton-DC_jqFfU.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseCodeIcon = defineAsyncComponent(() => import('./ProseCodeIcon-CA7o3Azf.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH1 = defineAsyncComponent(() => import('./ProseH1-Ci5w70Kt.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH2 = defineAsyncComponent(() => import('./ProseH2-A01_hk8j.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH3 = defineAsyncComponent(() => import('./ProseH3-BTb5E2gu.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH4 = defineAsyncComponent(() => import('./ProseH4-C51tu1xs.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentDoc = defineAsyncComponent(() => import('./ContentDoc-D1FRrNUu.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentList = defineAsyncComponent(() => import('./ContentList-BbEa2ZYc.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentNavigation = defineAsyncComponent(() => import('./ContentNavigation-Cu5wgmJ3.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentQuery = defineAsyncComponent(() => import('./ContentQuery-CrLoExto.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentRenderer = defineAsyncComponent(() => import('./ContentRenderer-DIfM-53h.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyContentRendererMarkdown = defineAsyncComponent(() => import('./ContentRendererMarkdown-Bjm3SZ4K.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCallout = defineAsyncComponent(() => import('./Callout-DMKZwg6J.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCard = defineAsyncComponent(() => import('./Card-x8cycqmh.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCardGroup = defineAsyncComponent(() => import('./CardGroup-CeVnXrZB.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCodeGroup = defineAsyncComponent(() => import('./CodeGroup-CoaCL24q.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCollapsible = defineAsyncComponent(() => import('./Collapsible-BRa8Pc2P.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyField = defineAsyncComponent(() => import('./Field-C4GabotK.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyFieldGroup = defineAsyncComponent(() => import('./FieldGroup-CNlAwXtE.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyShortcut = defineAsyncComponent(() => import('./Shortcut-W5aeoCMF.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyTabs = defineAsyncComponent(() => import('./Tabs-Cvfta96R.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseCode = defineAsyncComponent(() => import('./ProseCode-BSEGSEFM.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseCodeButton = defineAsyncComponent(() => import('./ProseCodeButton-z3t5dUJr.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseCodeIcon = defineAsyncComponent(() => import('./ProseCodeIcon-DCqOFRMp.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH1 = defineAsyncComponent(() => import('./ProseH1-BYSh1rSU.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH2 = defineAsyncComponent(() => import('./ProseH2-BFdXAhR3.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH3 = defineAsyncComponent(() => import('./ProseH3-D4MGsg8z.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH4 = defineAsyncComponent(() => import('./ProseH4-61kExXRY.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentDoc = defineAsyncComponent(() => import('./ContentDoc-Z3KrE-BH.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentList = defineAsyncComponent(() => import('./ContentList-Deh68ul1.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentNavigation = defineAsyncComponent(() => import('./ContentNavigation-BFtmEoXO.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentQuery = defineAsyncComponent(() => import('./ContentQuery-DqArMJKj.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentRenderer = defineAsyncComponent(() => import('./ContentRenderer-DcaAFW50.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyContentRendererMarkdown = defineAsyncComponent(() => import('./ContentRendererMarkdown-BS-phn5a.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyContentSlot = defineAsyncComponent(() => import('./ContentSlot-BuS_Inaf.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyDocumentDrivenEmpty = defineAsyncComponent(() => import('./DocumentDrivenEmpty-Cnbqc6qM.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyDocumentDrivenNotFound = defineAsyncComponent(() => import('./DocumentDrivenNotFound-CrGBz1Ho.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyMarkdown = defineAsyncComponent(() => import('./Markdown-B7hjVgod.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseCodeInline = defineAsyncComponent(() => import('./ProseCodeInline-CrWG38Gs.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProsePre = defineAsyncComponent(() => import('./ProsePre-BLnpKkxA.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseA = defineAsyncComponent(() => import('./ProseA-B0iN15fk.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProsePre = defineAsyncComponent(() => import('./ProsePre-DcM15k9X.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseA = defineAsyncComponent(() => import('./ProseA-C3PtzSzj.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseBlockquote = defineAsyncComponent(() => import('./ProseBlockquote-CvqcBul5.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseEm = defineAsyncComponent(() => import('./ProseEm-Cw25bCx-.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH5 = defineAsyncComponent(() => import('./ProseH5-CkrwdI-E.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH6 = defineAsyncComponent(() => import('./ProseH6-DA-OFvem.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH5 = defineAsyncComponent(() => import('./ProseH5-CMm-32at.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH6 = defineAsyncComponent(() => import('./ProseH6-DMXcJY20.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseHr = defineAsyncComponent(() => import('./ProseHr-CKKMz3aL.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseImg = defineAsyncComponent(() => import('./ProseImg-Bu9vJC3T.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseImg = defineAsyncComponent(() => import('./ProseImg-CBm1IziG.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseLi = defineAsyncComponent(() => import('./ProseLi-MCRnFbRm.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseOl = defineAsyncComponent(() => import('./ProseOl-B1vMyDPO.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseP = defineAsyncComponent(() => import('./ProseP-Bee1wMit.mjs').then((r2) => r2["default"] || r2.default || r2));
@@ -13009,7 +13195,7 @@ _sfc_main$v.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/header/HeaderLinks.vue");
   return _sfc_setup$v ? _sfc_setup$v(props, ctx) : void 0;
 };
-const __nuxt_component_2$4 = Object.assign(_sfc_main$v, { __name: "UHeaderLinks" });
+const __nuxt_component_2$5 = Object.assign(_sfc_main$v, { __name: "UHeaderLinks" });
 function useInjectButtonGroup({ ui, props }) {
   const instance = getCurrentInstance();
   provide("ButtonGroupContextConsumer", true);
@@ -13531,7 +13717,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UContainer = __nuxt_component_0$d;
       const _component_NuxtLink = __nuxt_component_0$e;
-      const _component_UHeaderLinks = __nuxt_component_2$4;
+      const _component_UHeaderLinks = __nuxt_component_2$5;
       const _component_UButton = __nuxt_component_0$9;
       const _component_UAsideLinks = __nuxt_component_4$4;
       _push(`<header${ssrRenderAttrs(mergeProps({
@@ -15740,7 +15926,7 @@ _sfc_main$l.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/layout/Divider.vue");
   return _sfc_setup$l ? _sfc_setup$l(props, ctx) : void 0;
 };
-const __nuxt_component_2$3 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$a]]), { __name: "UDivider" });
+const __nuxt_component_2$4 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$a]]), { __name: "UDivider" });
 const _imports_0 = publicAssetsURL("/img/brand/logo.svg");
 const useScrollspy = () => {
   const observer = ref();
@@ -15773,12 +15959,13 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
   setup(__props) {
     useNuxtApp();
     useScrollspy();
+    const localePath2 = useLocalePath();
     const { t: t2 } = useI18n({
       useScope: "global"
     });
     const links = computed(() => [{
       label: t2("menus.header.home"),
-      to: "/",
+      to: localePath2("/"),
       icon: "i-heroicons-home"
     }, {
       label: t2("menus.header.products.title"),
@@ -15786,37 +15973,37 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
       defaultOpen: false,
       children: [{
         label: t2("menus.header.products.items.1.title"),
-        to: "/products/webspace",
+        to: localePath2("/products/webspace"),
         icon: "i-heroicons-cloud",
         description: t2("menus.header.products.items.1.description")
       }, {
         label: t2("menus.header.products.items.2.title"),
-        to: "/products/domain",
+        to: localePath2("/products/domain"),
         icon: "i-heroicons-at-symbol",
         description: t2("menus.header.products.items.2.description")
       }, {
         label: t2("menus.header.products.items.3.title"),
-        to: "/products/vps-root",
+        to: localePath2("/products/vps-root"),
         icon: "i-heroicons-server",
         description: t2("menus.header.products.items.3.description")
       }, {
         label: t2("menus.header.products.items.4.title"),
-        to: "/products/dedicated",
+        to: localePath2("/products/dedicated"),
         icon: "i-heroicons-server-stack",
         description: t2("menus.header.products.items.4.description")
       }, {
         label: t2("menus.header.products.items.5.title"),
-        to: "/products/lic-cert",
+        to: localePath2("/products/lic-cert"),
         icon: "i-heroicons-key",
         description: t2("menus.header.products.items.5.description")
       }]
     }, {
       label: t2("menus.header.news"),
-      to: "/newsroom",
+      to: localePath2("/newsroom"),
       icon: "i-heroicons-newspaper"
     }, {
       label: t2("menus.header.contact"),
-      to: "/contact",
+      to: localePath2("/contact"),
       icon: "i-heroicons-question-mark-circle"
     }]);
     return (_ctx, _push, _parent, _attrs) => {
@@ -15824,7 +16011,7 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
       const _component_NuxtLink = __nuxt_component_0$e;
       const _component_UButton = __nuxt_component_0$9;
       const _component_UDashboardSidebarLinks = __nuxt_component_3$1;
-      const _component_UDivider = __nuxt_component_2$3;
+      const _component_UDivider = __nuxt_component_2$4;
       _push(ssrRenderComponent(_component_UHeader, mergeProps({ links: unref(links) }, _attrs), {
         logo: withCtx((_2, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -16053,7 +16240,7 @@ const RouteProvider = defineComponent({
     };
   }
 });
-const __nuxt_component_2$2 = defineComponent({
+const __nuxt_component_2$3 = defineComponent({
   name: "NuxtPage",
   inheritAttrs: false,
   props: {
@@ -16433,7 +16620,7 @@ _sfc_main$i.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/overlays/Modal.vue");
   return _sfc_setup$i ? _sfc_setup$i(props, ctx) : void 0;
 };
-const __nuxt_component_2$1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$9]]), { __name: "UModal" });
+const __nuxt_component_2$2 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$9]]), { __name: "UModal" });
 const config$7 = mergeConfig(appConfig.ui.strategy, appConfig.ui.card, card);
 const _sfc_main$h = defineComponent({
   inheritAttrs: false,
@@ -17177,7 +17364,7 @@ _sfc_main$g.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/elements/Dropdown.vue");
   return _sfc_setup$g ? _sfc_setup$g(props, ctx) : void 0;
 };
-const __nuxt_component_2 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$g, [["ssrRender", _sfc_ssrRender$7]]), { __name: "UDropdown" });
+const __nuxt_component_2$1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$g, [["ssrRender", _sfc_ssrRender$7]]), { __name: "UDropdown" });
 const config$5 = mergeConfig(appConfig.ui.strategy, appConfig.ui.accordion, accordion);
 const configButton = mergeConfig(appConfig.ui.strategy, appConfig.ui.button, button);
 const _sfc_main$f = defineComponent({
@@ -17577,6 +17764,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
   __name: "CookieNotice",
   __ssrInlineRender: true,
   setup(__props) {
+    const localePath2 = useLocalePath();
     const cookienotice = useCookieNoticeStore();
     const route = useRoute$1();
     const { t: t2 } = useI18n({
@@ -17591,10 +17779,10 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
       }],
       [{
         label: t2("legal.notice.title"),
-        to: "/legal/notice"
+        to: localePath2("/legal/notice")
       }, {
         label: t2("legal.privacy.title"),
-        to: "/legal/privacy"
+        to: localePath2("/legal/privacy")
       }]
     ];
     const neededCookies = [
@@ -17625,9 +17813,9 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
       check();
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UModal = __nuxt_component_2$1;
+      const _component_UModal = __nuxt_component_2$2;
       const _component_UCard = __nuxt_component_0$4;
-      const _component_UDropdown = __nuxt_component_2;
+      const _component_UDropdown = __nuxt_component_2$1;
       const _component_UButton = __nuxt_component_0$9;
       const _component_UAccordion = __nuxt_component_0$3;
       _push(ssrRenderComponent(_component_UModal, mergeProps({
@@ -18632,6 +18820,50 @@ _sfc_main$c.setup = (props, ctx) => {
   return _sfc_setup$c ? _sfc_setup$c(props, ctx) : void 0;
 };
 const __nuxt_component_7 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$c, [["ssrRender", _sfc_ssrRender$4]]), { __name: "UInput" });
+const NuxtLinkLocale = /* @__PURE__ */ defineNuxtLink({ ...nuxtLinkDefaults, componentName: "NuxtLinkLocale" });
+const __nuxt_component_2 = defineComponent({
+  name: "NuxtLinkLocale",
+  props: {
+    ...NuxtLinkLocale.props,
+    locale: {
+      type: String,
+      default: void 0,
+      required: false
+    }
+  },
+  setup(props, { slots }) {
+    const localePath2 = useLocalePath();
+    const resolvedPath = computed(() => {
+      const destination = props.to ?? props.href;
+      return destination != null ? localePath2(destination, props.locale) : destination;
+    });
+    const isExternal = computed(() => {
+      if (props.external) {
+        return true;
+      }
+      if (props.target && props.target !== "_self") {
+        return true;
+      }
+      const destination = props.to ?? props.href;
+      if (typeof destination === "object") {
+        return false;
+      }
+      return destination === "" || destination == null || hasProtocol(destination, { acceptRelative: true });
+    });
+    const getNuxtLinkProps2 = () => {
+      const _props = {
+        ...props
+      };
+      if (!isExternal.value) {
+        _props.to = resolvedPath.value;
+      }
+      delete _props.href;
+      delete _props.locale;
+      return _props;
+    };
+    return () => h$1(NuxtLinkLocale, getNuxtLinkProps2(), slots.default);
+  }
+});
 const useCartStore = defineStore("cart", {
   state: () => ({
     isSlideoverOpen: false,
@@ -18708,7 +18940,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
       const _component_UIcon = __nuxt_component_1$3;
       const _component_UCard = __nuxt_component_0$4;
       const _component_UInput = __nuxt_component_7;
-      const _component_NuxtLink = __nuxt_component_0$e;
+      const _component_NuxtLinkLocale = __nuxt_component_2;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex flex-col h-screen" }, _attrs))}><div class="flex justify-between items-center p-4 sticky top-0 z-10"><button class="text-indigo-600 hover:text-indigo-500 block sm:hidden">`);
       _push(ssrRenderComponent(_component_UIcon, {
         name: "i-heroicons-x-mark",
@@ -18915,7 +19147,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
         _push(`<!---->`);
       }
       _push(`<div class="p-4 sticky bottom-0 w-full z-10"><div class="flex justify-between items-center text-xl font-semibold"><span>${ssrInterpolate(_ctx.$t("cart.subtotal"))}</span><span>${ssrInterpolate(unref(cart).totalPrice)} €</span></div>`);
-      _push(ssrRenderComponent(_component_NuxtLink, { to: "/checkout" }, {
+      _push(ssrRenderComponent(_component_NuxtLinkLocale, { to: "/checkout" }, {
         default: withCtx((_2, _push2, _parent2, _scopeId) => {
           if (_push2) {
             _push2(`<button${ssrIncludeBooleanAttr(isCartEmpty() || isDomainOnly()) ? " disabled" : ""} class="${ssrRenderClass([{ "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }, "mt-4 w-full py-3 bg-indigo-600 text-white font-medium text-lg rounded-md hover:bg-indigo-700 disabled:bg-gray-300"])}" autofocus${_scopeId}>${ssrInterpolate(_ctx.$t("cart.checkout"))}</button>`);
@@ -19519,6 +19751,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
   __name: "AppFooter",
   __ssrInlineRender: true,
   setup(__props) {
+    const localePath2 = useLocalePath();
     const { t: t2 } = useI18n({
       useScope: "global"
     });
@@ -19526,28 +19759,28 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
       label: t2("menus.footer.products.title"),
       children: [{
         label: t2("menus.footer.products.items.1"),
-        to: "/products/webspace"
+        to: localePath2("/products/webspace")
       }, {
         label: t2("menus.footer.products.items.2"),
-        to: "/products/domain"
+        to: localePath2("/products/domain")
       }, {
         label: t2("menus.footer.products.items.3"),
-        to: "/products/vps-root"
+        to: localePath2("/products/vps-root")
       }, {
         label: t2("menus.footer.products.items.4"),
-        to: "/products/dedicated"
+        to: localePath2("/products/dedicated")
       }, {
         label: t2("menus.footer.products.items.5"),
-        to: "/products/lic-cert"
+        to: localePath2("/products/lic-cert")
       }]
     }, {
       label: t2("menus.footer.help.title"),
       children: [{
         label: t2("menus.footer.help.items.1"),
-        to: "/contact"
+        to: localePath2("/contact")
       }, {
         label: t2("menus.footer.help.items.2"),
-        to: "/contact/#faq"
+        to: localePath2("/contact/#faq")
       }, {
         label: t2("menus.footer.help.items.3"),
         to: "https://help.key2host.com",
@@ -19565,28 +19798,28 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
       label: t2("menus.footer.company.title"),
       children: [{
         label: t2("menus.footer.company.items.1"),
-        to: "/newsroom"
+        to: localePath2("/newsroom")
       }, {
         label: t2("menus.footer.company.items.2"),
-        to: "/company/milestones"
+        to: localePath2("/company/milestones")
       }, {
         label: t2("menus.footer.company.items.3"),
         to: "https://jobs.key2host.com",
         target: "_blank"
       }, {
         label: t2("menus.footer.company.items.4"),
-        to: "/company/partners"
+        to: localePath2("/company/partners")
       }]
     }];
     const Legallinks = [{
       label: t2("menus.footer.legal.notice"),
-      to: "/legal/notice"
+      to: localePath2("/legal/notice")
     }, {
       label: t2("menus.footer.legal.privacy"),
-      to: "/legal/privacy"
+      to: localePath2("/legal/privacy")
     }, {
       label: t2("menus.footer.legal.tos"),
-      to: "/legal/tos"
+      to: localePath2("/legal/tos")
     }];
     const toast = useToast();
     const email = ref("");
@@ -20303,7 +20536,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_AppHeader = __nuxt_component_0$5;
       const _component_UMain = __nuxt_component_1$1;
-      const _component_NuxtPage = __nuxt_component_2$2;
+      const _component_NuxtPage = __nuxt_component_2$3;
       const _component_CookieNotice = __nuxt_component_3;
       const _component_USlideover = __nuxt_component_4$1;
       const _component_UCard = __nuxt_component_0$4;
@@ -20519,5 +20752,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { __nuxt_component_0$3 as $, A$3 as A, mergeConfig as B, useUI as C, usePopper as D, E$2 as E, useInjectButtonGroup as F, useFormGroup as G, twMerge as H, appConfig as I, get as J, s$5 as K, select as L, selectMenu as M, N$4 as N, O$2 as O, __nuxt_component_0$9 as P, __nuxt_component_2$3 as Q, __nuxt_component_4 as R, omit as S, T$2 as T, __nuxt_component_7 as U, useToast as V, useCartStore as W, __nuxt_component_0$4 as X, __nuxt_component_0$e as Y, useAppConfig as Z, _export_sfc as _, useSeoMeta as a, useCookieNoticeStore as a0, getNuxtLinkProps as a1, useHead as a2, __nuxt_component_1$2 as a3, __nuxt_component_0$d as a4, nuxtLinkProps as a5, getSlotChildrenText as a6, __nuxt_component_0$b as a7, getULinkProps as a8, getSlotsChildren as a9, avatar as aa, button as ab, __nuxt_component_2$1 as ac, config$i as ad, N$1 as ae, Q$1 as af, V as ag, __nuxt_component_0$7 as ah, useRequestEvent as ai, withLeadingSlash as aj, hasProtocol as ak, joinURL as al, parseURL as am, encodeParam as an, encodePath as ao, useNuxtApp as ap, useRuntimeConfig as aq, useRoute as ar, withTrailingSlash as as, withoutTrailingSlash as at, useAsyncData as au, withBase as av, useCookie as aw, useState as ax, i$4 as b, o$2 as c, u$5 as d, entry$1 as default, i$1 as e, i$2 as f, u$7 as g, f$2 as h, i$6 as i, u$4 as j, t$1 as k, l$2 as l, o$1 as m, c$1 as n, o$4 as o, n$2 as p, f$1 as q, p as r, s$3 as s, t$2 as t, useI18n as u, w$4 as v, w$2 as w, h as x, __nuxt_component_1$3 as y, __nuxt_component_4$3 as z };
+export { useAppConfig as $, A$3 as A, __nuxt_component_4$3 as B, mergeConfig as C, useUI as D, E$2 as E, usePopper as F, useInjectButtonGroup as G, useFormGroup as H, twMerge as I, appConfig as J, get as K, s$5 as L, select as M, N$4 as N, O$2 as O, selectMenu as P, __nuxt_component_0$9 as Q, __nuxt_component_2$4 as R, __nuxt_component_4 as S, T$2 as T, omit as U, __nuxt_component_7 as V, useToast as W, useCartStore as X, __nuxt_component_0$4 as Y, __nuxt_component_2 as Z, _export_sfc as _, useI18n as a, __nuxt_component_0$3 as a0, useCookieNoticeStore as a1, __nuxt_component_0$e as a2, getNuxtLinkProps as a3, useHead as a4, __nuxt_component_1$2 as a5, __nuxt_component_0$d as a6, nuxtLinkProps as a7, getSlotChildrenText as a8, __nuxt_component_0$b as a9, getULinkProps as aa, getSlotsChildren as ab, avatar as ac, button as ad, __nuxt_component_2$2 as ae, config$i as af, N$1 as ag, Q$1 as ah, V as ai, __nuxt_component_0$7 as aj, useRequestEvent as ak, withLeadingSlash as al, hasProtocol as am, joinURL as an, parseURL as ao, encodeParam as ap, encodePath as aq, useNuxtApp as ar, useRuntimeConfig as as, useRoute as at, withTrailingSlash as au, withoutTrailingSlash as av, useAsyncData as aw, withBase as ax, useCookie as ay, useState as az, useSeoMeta as b, i$4 as c, o$2 as d, entry$1 as default, u$5 as e, i$1 as f, i$2 as g, u$7 as h, i$6 as i, f$2 as j, u$4 as k, l$2 as l, t$1 as m, o$1 as n, o$4 as o, c$1 as p, n$2 as q, f$1 as r, s$3 as s, t$2 as t, useLocalePath as u, p as v, w$2 as w, w$4 as x, h as y, __nuxt_component_1$3 as z };
 //# sourceMappingURL=server.mjs.map

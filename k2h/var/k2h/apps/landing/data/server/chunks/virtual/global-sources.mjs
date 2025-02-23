@@ -28,52 +28,592 @@ const sources = [
         },
         "urls": [
             {
-                "loc": "/checkout/failed"
+                "loc": "/checkout/failed",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/checkout/failed"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/checkout/failed"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/checkout/failed"
+                    }
+                ]
             },
             {
-                "loc": "/checkout"
+                "loc": "/de/checkout/failed",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/checkout/failed"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/checkout/failed"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/checkout/failed"
+                    }
+                ]
             },
             {
-                "loc": "/checkout/success"
+                "loc": "/checkout",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/checkout"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/checkout"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/checkout"
+                    }
+                ]
             },
             {
-                "loc": "/company/milestones"
+                "loc": "/de/checkout",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/checkout"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/checkout"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/checkout"
+                    }
+                ]
             },
             {
-                "loc": "/company/partners"
+                "loc": "/checkout/success",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/checkout/success"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/checkout/success"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/checkout/success"
+                    }
+                ]
             },
             {
-                "loc": "/contact"
+                "loc": "/de/checkout/success",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/checkout/success"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/checkout/success"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/checkout/success"
+                    }
+                ]
             },
             {
-                "loc": "/"
+                "loc": "/company/milestones",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/company/milestones"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/company/milestones"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/company/milestones"
+                    }
+                ]
             },
             {
-                "loc": "/legal/notice"
+                "loc": "/de/company/milestones",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/company/milestones"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/company/milestones"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/company/milestones"
+                    }
+                ]
             },
             {
-                "loc": "/legal/privacy"
+                "loc": "/company/partners",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/company/partners"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/company/partners"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/company/partners"
+                    }
+                ]
             },
             {
-                "loc": "/legal/tos"
+                "loc": "/de/company/partners",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/company/partners"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/company/partners"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/company/partners"
+                    }
+                ]
             },
             {
-                "loc": "/newsroom"
+                "loc": "/contact",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/contact"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/contact"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/contact"
+                    }
+                ]
             },
             {
-                "loc": "/products/dedicated"
+                "loc": "/de/contact",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/contact"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/contact"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/contact"
+                    }
+                ]
             },
             {
-                "loc": "/products/domain"
+                "loc": "/",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/"
+                    }
+                ]
             },
             {
-                "loc": "/products/lic-cert"
+                "loc": "/de",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/"
+                    }
+                ]
             },
             {
-                "loc": "/products/vps-root"
+                "loc": "/legal/notice",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/legal/notice"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/legal/notice"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/legal/notice"
+                    }
+                ]
             },
             {
-                "loc": "/products/webspace"
+                "loc": "/de/legal/notice",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/legal/notice"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/legal/notice"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/legal/notice"
+                    }
+                ]
+            },
+            {
+                "loc": "/legal/privacy",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/legal/privacy"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/legal/privacy"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/legal/privacy"
+                    }
+                ]
+            },
+            {
+                "loc": "/de/legal/privacy",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/legal/privacy"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/legal/privacy"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/legal/privacy"
+                    }
+                ]
+            },
+            {
+                "loc": "/legal/tos",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/legal/tos"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/legal/tos"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/legal/tos"
+                    }
+                ]
+            },
+            {
+                "loc": "/de/legal/tos",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/legal/tos"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/legal/tos"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/legal/tos"
+                    }
+                ]
+            },
+            {
+                "loc": "/newsroom",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/newsroom"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/newsroom"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/newsroom"
+                    }
+                ]
+            },
+            {
+                "loc": "/de/newsroom",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/newsroom"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/newsroom"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/newsroom"
+                    }
+                ]
+            },
+            {
+                "loc": "/products/dedicated",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/products/dedicated"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/products/dedicated"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/products/dedicated"
+                    }
+                ]
+            },
+            {
+                "loc": "/de/products/dedicated",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/products/dedicated"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/products/dedicated"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/products/dedicated"
+                    }
+                ]
+            },
+            {
+                "loc": "/products/domain",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/products/domain"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/products/domain"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/products/domain"
+                    }
+                ]
+            },
+            {
+                "loc": "/de/products/domain",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/products/domain"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/products/domain"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/products/domain"
+                    }
+                ]
+            },
+            {
+                "loc": "/products/lic-cert",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/products/lic-cert"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/products/lic-cert"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/products/lic-cert"
+                    }
+                ]
+            },
+            {
+                "loc": "/de/products/lic-cert",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/products/lic-cert"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/products/lic-cert"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/products/lic-cert"
+                    }
+                ]
+            },
+            {
+                "loc": "/products/vps-root",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/products/vps-root"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/products/vps-root"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/products/vps-root"
+                    }
+                ]
+            },
+            {
+                "loc": "/de/products/vps-root",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/products/vps-root"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/products/vps-root"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/products/vps-root"
+                    }
+                ]
+            },
+            {
+                "loc": "/products/webspace",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/products/webspace"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/products/webspace"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/products/webspace"
+                    }
+                ]
+            },
+            {
+                "loc": "/de/products/webspace",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "en",
+                        "href": "/products/webspace"
+                    },
+                    {
+                        "hreflang": "de",
+                        "href": "/de/products/webspace"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/products/webspace"
+                    }
+                ]
+            },
+            {
+                "loc": "/sitemap.xml",
+                "_sitemap": "en"
+            },
+            {
+                "loc": "/en/sitemap.xml",
+                "_sitemap": "en"
+            },
+            {
+                "loc": "/de/sitemap.xml",
+                "_sitemap": "en"
             }
         ],
         "sourceType": "app"
@@ -102,6 +642,7 @@ const sources = [
         "urls": [
             {
                 "loc": "/",
+                "_sitemap": "en",
                 "images": [
                     {
                         "loc": "https://i.pravatar.cc/120?img=1"
