@@ -948,77 +948,72 @@ const _routes = [
   {
     name: "company-milestones",
     path: "/company/milestones",
-    component: () => import('./milestones-CNXn47Rg.mjs')
-  },
-  {
-    name: "company-office",
-    path: "/company/office",
-    component: () => import('./office-DAJYgs6G.mjs')
+    component: () => import('./milestones-Dvd3wN7t.mjs')
   },
   {
     name: "company-partners",
     path: "/company/partners",
-    component: () => import('./partners-D7PxD0Py.mjs')
+    component: () => import('./partners-BmQrX4d4.mjs')
   },
   {
     name: "contact",
     path: "/contact",
-    component: () => import('./contact-BCkGN0bm.mjs')
+    component: () => import('./contact-Dw75wfLr.mjs')
   },
   {
     name: "index",
     path: "/",
-    component: () => import('./index-BL0sjwQg.mjs')
+    component: () => import('./index-72FkP0B2.mjs')
   },
   {
     name: "legal-notice",
     path: "/legal/notice",
-    component: () => import('./notice-BRv0AM1L.mjs')
+    component: () => import('./notice-BtdpxsVB.mjs')
   },
   {
     name: "legal-privacy",
     path: "/legal/privacy",
-    component: () => import('./privacy-TtW9NoJX.mjs')
+    component: () => import('./privacy-BYo4eDcZ.mjs')
   },
   {
     name: "legal-tos",
     path: "/legal/tos",
-    component: () => import('./tos-DBSacX1W.mjs')
+    component: () => import('./tos-p9bnClbj.mjs')
   },
   {
     name: "newsroom-id",
     path: "/newsroom/:id()",
-    component: () => import('./_id_-C_ZC2QHT.mjs')
+    component: () => import('./_id_--KdKeQkW.mjs')
   },
   {
     name: "newsroom",
     path: "/newsroom",
-    component: () => import('./index-C7UmDH0Z.mjs')
+    component: () => import('./index-DbL7tm8A.mjs')
   },
   {
     name: "products-dedicated",
     path: "/products/dedicated",
-    component: () => import('./index-DFh19mhn.mjs')
+    component: () => import('./index-Dhq-zfXE.mjs')
   },
   {
     name: "products-domain",
     path: "/products/domain",
-    component: () => import('./index-CrUEJ8b7.mjs')
+    component: () => import('./index-gf8sIM4O.mjs')
   },
   {
     name: "products-lic-cert",
     path: "/products/lic-cert",
-    component: () => import('./index-Cr7qA7C9.mjs')
+    component: () => import('./index-k1ItWsFS.mjs')
   },
   {
     name: "products-vps-root",
     path: "/products/vps-root",
-    component: () => import('./index-Du3yxny3.mjs')
+    component: () => import('./index-CxheQFIg.mjs')
   },
   {
     name: "products-webspace",
     path: "/products/webspace",
-    component: () => import('./index-C4IPI4lM.mjs')
+    component: () => import('./index-Be_vEFn7.mjs')
   }
 ];
 const ROUTE_KEY_PARENTHESES_RE = /(:\w+)\([^)]+\)/g;
@@ -2281,11 +2276,11 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
     };
   }
 });
-const LazyCallout = defineAsyncComponent(() => import('./Callout-Zc9ETwnh.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCard = defineAsyncComponent(() => import('./Card-tHLw4_PA.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCallout = defineAsyncComponent(() => import('./Callout-LCNaQQFA.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCard = defineAsyncComponent(() => import('./Card-DyhdVjEZ.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyCardGroup = defineAsyncComponent(() => import('./CardGroup-lnHplxG5.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyCodeGroup = defineAsyncComponent(() => import('./CodeGroup-CvmgKUHU.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyCollapsible = defineAsyncComponent(() => import('./Collapsible-Gnqn5Tm0.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyCollapsible = defineAsyncComponent(() => import('./Collapsible-DSTs97TS.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyField = defineAsyncComponent(() => import('./Field-D7A7QHiz.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyFieldGroup = defineAsyncComponent(() => import('./FieldGroup-BjqsdCos.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyShortcut = defineAsyncComponent(() => import('./Shortcut-ChfDVo3_.mjs').then((r2) => r2["default"] || r2.default || r2));
@@ -2293,10 +2288,10 @@ const LazyTabs = defineAsyncComponent(() => import('./Tabs-ChuaTjFf.mjs').then((
 const LazyProseCode = defineAsyncComponent(() => import('./ProseCode-Bbg2rPfs.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseCodeButton = defineAsyncComponent(() => import('./ProseCodeButton-Dmh4iOKZ.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyProseCodeIcon = defineAsyncComponent(() => import('./ProseCodeIcon-BOmclKHJ.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH1 = defineAsyncComponent(() => import('./ProseH1-BPucCk_S.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH2 = defineAsyncComponent(() => import('./ProseH2-CZKsXkgm.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH3 = defineAsyncComponent(() => import('./ProseH3-E-ENHIFZ.mjs').then((r2) => r2["default"] || r2.default || r2));
-const LazyProseH4 = defineAsyncComponent(() => import('./ProseH4-4ucYav0y.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH1 = defineAsyncComponent(() => import('./ProseH1-BTlWu0AK.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH2 = defineAsyncComponent(() => import('./ProseH2-re1tBRyk.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH3 = defineAsyncComponent(() => import('./ProseH3-D2UrU6qK.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyProseH4 = defineAsyncComponent(() => import('./ProseH4-CWhGRhVX.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyContentDoc = defineAsyncComponent(() => import('./ContentDoc-D1FRrNUu.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyContentList = defineAsyncComponent(() => import('./ContentList-BbEa2ZYc.mjs').then((r2) => r2["default"] || r2.default || r2));
 const LazyContentNavigation = defineAsyncComponent(() => import('./ContentNavigation-D7xPLZcx.mjs').then((r2) => r2["default"] || r2.default || r2));
@@ -2472,16 +2467,29 @@ function isHTTPS(req, trustProxy = true) {
   return false;
 }
 const localeCodes = [
+  "en",
   "de"
 ];
 const localeLoaders = {
+  "en": [{ key: "../../../../i18n/locales/en-US.json", load: () => import(
+    './en-US-Dks_UhIi.mjs'
+    /* webpackChunkName: "locale__Users_lpoggemann_GitHub_landing_i18n_locales_en_US_json" */
+  ), cache: true }],
   "de": [{ key: "../../../../i18n/locales/de-DE.json", load: () => import(
-    './de-DE-DlMcbMXB.mjs'
+    './de-DE-DdRv_hPZ.mjs'
     /* webpackChunkName: "locale__Users_lpoggemann_GitHub_landing_i18n_locales_de_DE_json" */
   ), cache: true }]
 };
 const vueI18nConfigs = [];
 const normalizedLocales = [
+  {
+    "code": "en",
+    "files": [
+      {
+        "path": "/Users/lpoggemann/GitHub/landing/i18n/locales/en-US.json"
+      }
+    ]
+  },
   {
     "code": "de",
     "files": [
@@ -17600,12 +17608,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
         content: "Unser selbstprogrammierter Warenkorb nutzt Cookies, um deine ausgewählten Produkte auch nach einem Seitenwechsel oder erneuten Besuch zu speichern. Dafür werden Cookies oder LocalStorage genutzt, um deine Warenkorbdaten zwischenzuspeichern. Dies ist notwendig, um deine Bestellung zu ermöglichen und eine bessere Nutzererfahrung zu bieten."
       }
     ];
-    const optionalCookies = [
-      {
-        label: "1. Google Maps",
-        content: "Google Maps wird verwendet, um interaktive Karten und Standortdienste auf unserer Website bereitzustellen. Wenn du Google Maps aktivierst, können Cookies gesetzt werden, um deine bevorzugten Einstellungen zu speichern und dir relevante Karteninhalte bereitzustellen. Diese Cookies werden von Google verwaltet und können für Analyse- und Personalisierungszwecke verwendet werden."
-      }
-    ];
+    const optionalCookies = [];
     function check() {
       if (!cookienotice.checkConsent()) {
         if (route.path === "/legal/notice" || route.path === "/legal/privacy") {
@@ -17706,10 +17709,10 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                     }, {
                       default: withCtx((_3, _push4, _parent4, _scopeId3) => {
                         if (_push4) {
-                          _push4(`Alle akzeptieren`);
+                          _push4(`Alle akzeptieren `);
                         } else {
                           return [
-                            createTextVNode("Alle akzeptieren")
+                            createTextVNode("Alle akzeptieren ")
                           ];
                         }
                       }),
@@ -17734,7 +17737,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                           autofocus: ""
                         }, {
                           default: withCtx(() => [
-                            createTextVNode("Alle akzeptieren")
+                            createTextVNode("Alle akzeptieren ")
                           ]),
                           _: 1
                         }, 8, ["onClick"])
@@ -17802,40 +17805,55 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                 }),
                 default: withCtx((_22, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
-                    _push3(`<div class="max-h-[425px] overflow-y-auto"${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2"${_scopeId2}> Notwendige Cookies </h3>`);
-                    _push3(ssrRenderComponent(_component_UAccordion, {
-                      color: "primary",
-                      variant: "soft",
-                      size: "sm",
-                      items: neededCookies
-                    }, null, _parent3, _scopeId2));
-                    _push3(`<hr class="my-4"${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2"${_scopeId2}> Optionale Cookies </h3>`);
-                    _push3(ssrRenderComponent(_component_UAccordion, {
-                      color: "primary",
-                      variant: "soft",
-                      size: "sm",
-                      items: optionalCookies
-                    }, null, _parent3, _scopeId2));
-                    _push3(`<hr class="my-4"${_scopeId2}><p class="text-center opacity-75"${_scopeId2}>Weitere Informationen zu den eingesetzten Cookies sowie deren Funktionen und Verarbeitung finden Sie auf den jeweiligen Webseiten der Anbieter,</p></div>`);
+                    _push3(`<div class="max-h-[425px] overflow-y-auto"${_scopeId2}>`);
+                    if (neededCookies && neededCookies.length != 0) {
+                      _push3(`<div${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2"${_scopeId2}> Notwendige Cookies </h3>`);
+                      _push3(ssrRenderComponent(_component_UAccordion, {
+                        color: "primary",
+                        variant: "soft",
+                        size: "sm",
+                        items: neededCookies
+                      }, null, _parent3, _scopeId2));
+                      _push3(`<hr class="my-4"${_scopeId2}></div>`);
+                    } else {
+                      _push3(`<!---->`);
+                    }
+                    if (optionalCookies && optionalCookies.length != 0) {
+                      _push3(`<div${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2"${_scopeId2}> Optionale Cookies </h3>`);
+                      _push3(ssrRenderComponent(_component_UAccordion, {
+                        color: "primary",
+                        variant: "soft",
+                        size: "sm",
+                        items: optionalCookies
+                      }, null, _parent3, _scopeId2));
+                      _push3(`<hr class="my-4"${_scopeId2}></div>`);
+                    } else {
+                      _push3(`<!---->`);
+                    }
+                    _push3(`<p class="text-center opacity-75"${_scopeId2}>Weitere Informationen zu den eingesetzten Cookies sowie deren Funktionen und Verarbeitung finden Sie auf den jeweiligen Webseiten der Anbieter,</p></div>`);
                   } else {
                     return [
                       createVNode("div", { class: "max-h-[425px] overflow-y-auto" }, [
-                        createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Notwendige Cookies "),
-                        createVNode(_component_UAccordion, {
-                          color: "primary",
-                          variant: "soft",
-                          size: "sm",
-                          items: neededCookies
-                        }),
-                        createVNode("hr", { class: "my-4" }),
-                        createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Optionale Cookies "),
-                        createVNode(_component_UAccordion, {
-                          color: "primary",
-                          variant: "soft",
-                          size: "sm",
-                          items: optionalCookies
-                        }),
-                        createVNode("hr", { class: "my-4" }),
+                        neededCookies && neededCookies.length != 0 ? (openBlock(), createBlock("div", { key: 0 }, [
+                          createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Notwendige Cookies "),
+                          createVNode(_component_UAccordion, {
+                            color: "primary",
+                            variant: "soft",
+                            size: "sm",
+                            items: neededCookies
+                          }),
+                          createVNode("hr", { class: "my-4" })
+                        ])) : createCommentVNode("", true),
+                        optionalCookies && optionalCookies.length != 0 ? (openBlock(), createBlock("div", { key: 1 }, [
+                          createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Optionale Cookies "),
+                          createVNode(_component_UAccordion, {
+                            color: "primary",
+                            variant: "soft",
+                            size: "sm",
+                            items: optionalCookies
+                          }),
+                          createVNode("hr", { class: "my-4" })
+                        ])) : createCommentVNode("", true),
                         createVNode("p", { class: "text-center opacity-75" }, "Weitere Informationen zu den eingesetzten Cookies sowie deren Funktionen und Verarbeitung finden Sie auf den jeweiligen Webseiten der Anbieter,")
                       ])
                     ];
@@ -17885,7 +17903,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                       autofocus: ""
                     }, {
                       default: withCtx(() => [
-                        createTextVNode("Alle akzeptieren")
+                        createTextVNode("Alle akzeptieren ")
                       ]),
                       _: 1
                     }, 8, ["onClick"])
@@ -17921,22 +17939,26 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                 ]),
                 default: withCtx(() => [
                   createVNode("div", { class: "max-h-[425px] overflow-y-auto" }, [
-                    createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Notwendige Cookies "),
-                    createVNode(_component_UAccordion, {
-                      color: "primary",
-                      variant: "soft",
-                      size: "sm",
-                      items: neededCookies
-                    }),
-                    createVNode("hr", { class: "my-4" }),
-                    createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Optionale Cookies "),
-                    createVNode(_component_UAccordion, {
-                      color: "primary",
-                      variant: "soft",
-                      size: "sm",
-                      items: optionalCookies
-                    }),
-                    createVNode("hr", { class: "my-4" }),
+                    neededCookies && neededCookies.length != 0 ? (openBlock(), createBlock("div", { key: 0 }, [
+                      createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Notwendige Cookies "),
+                      createVNode(_component_UAccordion, {
+                        color: "primary",
+                        variant: "soft",
+                        size: "sm",
+                        items: neededCookies
+                      }),
+                      createVNode("hr", { class: "my-4" })
+                    ])) : createCommentVNode("", true),
+                    optionalCookies && optionalCookies.length != 0 ? (openBlock(), createBlock("div", { key: 1 }, [
+                      createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white mb-2" }, " Optionale Cookies "),
+                      createVNode(_component_UAccordion, {
+                        color: "primary",
+                        variant: "soft",
+                        size: "sm",
+                        items: optionalCookies
+                      }),
+                      createVNode("hr", { class: "my-4" })
+                    ])) : createCommentVNode("", true),
                     createVNode("p", { class: "text-center opacity-75" }, "Weitere Informationen zu den eingesetzten Cookies sowie deren Funktionen und Verarbeitung finden Sie auf den jeweiligen Webseiten der Anbieter,")
                   ])
                 ]),
@@ -19543,16 +19565,13 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
         to: "/newsroom"
       }, {
         label: t2("menus.footer.company.items.2"),
-        to: "/company/office"
-      }, {
-        label: t2("menus.footer.company.items.3"),
         to: "/company/milestones"
       }, {
-        label: t2("menus.footer.company.items.4"),
+        label: t2("menus.footer.company.items.3"),
         to: "https://jobs.key2host.com",
         target: "_blank"
       }, {
-        label: t2("menus.footer.company.items.5"),
+        label: t2("menus.footer.company.items.4"),
         to: "/company/partners"
       }]
     }];
@@ -20497,5 +20516,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { useCookieNoticeStore as $, A$3 as A, useUI as B, usePopper as C, useInjectButtonGroup as D, E$2 as E, useFormGroup as F, twMerge as G, appConfig as H, get as I, s$5 as J, select as K, selectMenu as L, __nuxt_component_0$9 as M, N$4 as N, O$2 as O, __nuxt_component_2$3 as P, __nuxt_component_4 as Q, omit as R, __nuxt_component_7 as S, T$2 as T, useToast as U, useCartStore as V, __nuxt_component_0$4 as W, __nuxt_component_0$e as X, useAppConfig as Y, __nuxt_component_0$3 as Z, _export_sfc as _, i$4 as a, useI18n as a0, getNuxtLinkProps as a1, useHead as a2, __nuxt_component_1$2 as a3, __nuxt_component_0$d as a4, nuxtLinkProps as a5, getSlotChildrenText as a6, __nuxt_component_0$b as a7, getULinkProps as a8, getSlotsChildren as a9, avatar as aa, button as ab, __nuxt_component_2$1 as ac, config$i as ad, N$1 as ae, Q$1 as af, V as ag, __nuxt_component_0$7 as ah, useRequestEvent as ai, withLeadingSlash as aj, hasProtocol as ak, joinURL as al, parseURL as am, encodeParam as an, encodePath as ao, useNuxtApp as ap, useRuntimeConfig as aq, useRoute as ar, withTrailingSlash as as, withoutTrailingSlash as at, useAsyncData as au, withBase as av, useCookie as aw, useState as ax, o$2 as b, u$5 as c, i$1 as d, entry$1 as default, i$2 as e, u$7 as f, f$2 as g, u$4 as h, i$6 as i, t$1 as j, o$1 as k, l$2 as l, c$1 as m, n$2 as n, o$4 as o, f$1 as p, p as q, w$4 as r, s$3 as s, t$2 as t, useSeoMeta as u, h as v, w$2 as w, __nuxt_component_1$3 as x, __nuxt_component_4$3 as y, mergeConfig as z };
+export { __nuxt_component_0$3 as $, A$3 as A, useUI as B, usePopper as C, useInjectButtonGroup as D, E$2 as E, useFormGroup as F, twMerge as G, appConfig as H, get as I, s$5 as J, select as K, selectMenu as L, __nuxt_component_0$9 as M, N$4 as N, O$2 as O, __nuxt_component_2$3 as P, __nuxt_component_4 as Q, omit as R, __nuxt_component_7 as S, T$2 as T, useToast as U, useCartStore as V, __nuxt_component_0$4 as W, __nuxt_component_0$e as X, useI18n as Y, useAppConfig as Z, _export_sfc as _, i$4 as a, useCookieNoticeStore as a0, getNuxtLinkProps as a1, useHead as a2, __nuxt_component_1$2 as a3, __nuxt_component_0$d as a4, nuxtLinkProps as a5, getSlotChildrenText as a6, __nuxt_component_0$b as a7, getULinkProps as a8, getSlotsChildren as a9, avatar as aa, button as ab, __nuxt_component_2$1 as ac, config$i as ad, N$1 as ae, Q$1 as af, V as ag, __nuxt_component_0$7 as ah, useRequestEvent as ai, withLeadingSlash as aj, hasProtocol as ak, joinURL as al, parseURL as am, encodeParam as an, encodePath as ao, useNuxtApp as ap, useRuntimeConfig as aq, useRoute as ar, withTrailingSlash as as, withoutTrailingSlash as at, useAsyncData as au, withBase as av, useCookie as aw, useState as ax, o$2 as b, u$5 as c, i$1 as d, entry$1 as default, i$2 as e, u$7 as f, f$2 as g, u$4 as h, i$6 as i, t$1 as j, o$1 as k, l$2 as l, c$1 as m, n$2 as n, o$4 as o, f$1 as p, p as q, w$4 as r, s$3 as s, t$2 as t, useSeoMeta as u, h as v, w$2 as w, __nuxt_component_1$3 as x, __nuxt_component_4$3 as y, mergeConfig as z };
 //# sourceMappingURL=server.mjs.map

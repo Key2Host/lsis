@@ -1,0 +1,1 @@
+import{_ as s,a0 as o,o as r,a4 as a}from"./BeKIkNF4.js";const n={};function t(e,c){return r(),o("em",null,[a(e.$slots,"default")])}const l=Object.assign(s(n,[["render",t]]),{__name:"ProseEm"});export{l as default};

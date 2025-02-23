@@ -1,0 +1,1 @@
+import{_ as s,a0 as o,o as r,a4 as t}from"./BeKIkNF4.js";const a={};function n(e,c){return r(),o("th",null,[t(e.$slots,"default")])}const l=Object.assign(s(a,[["render",n]]),{__name:"ProseTh"});export{l as default};

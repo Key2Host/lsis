@@ -40,9 +40,6 @@ const sources = [
                 "loc": "/company/milestones"
             },
             {
-                "loc": "/company/office"
-            },
-            {
                 "loc": "/company/partners"
             },
             {
