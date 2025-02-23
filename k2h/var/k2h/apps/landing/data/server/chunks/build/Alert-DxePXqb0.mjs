@@ -405,10 +405,9 @@ const _sfc_main$1 = defineComponent({
   },
   emits: ["update:modelValue", "change"],
   setup(props, { emit }) {
-    var _a;
     const { ui, attrs } = useUI("checkbox", toRef(props, "ui"), config$1, toRef(props, "class"));
     const { emitFormChange, color, name, inputId: _inputId } = useFormGroup(props);
-    const inputId = (_a = _inputId.value) != null ? _a : useId();
+    const inputId = _inputId.value ?? useId();
     const toggle = computed({
       get() {
         return props.modelValue;

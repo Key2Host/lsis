@@ -1,0 +1,1 @@
+import{a0 as o,a2 as s,o as a,a6 as r}from"./CM2APgab.js";const t={};function n(e,c){return a(),s("tbody",null,[r(e.$slots,"default")])}const _=Object.assign(o(t,[["render",n]]),{__name:"ProseTbody"});export{_ as default};

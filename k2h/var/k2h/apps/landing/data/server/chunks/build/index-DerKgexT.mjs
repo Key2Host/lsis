@@ -361,7 +361,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                 } else {
                   _push2(`<!---->`);
                 }
-                _push2(`<p class="${ssrRenderClass(unref(ui).amount.price)}"${_scopeId}>${ssrInterpolate(__props.discount || __props.price || "\xA0")}</p>`);
+                _push2(`<p class="${ssrRenderClass(unref(ui).amount.price)}"${_scopeId}>${ssrInterpolate(__props.discount || __props.price || " ")}</p>`);
                 ssrRenderSlot(_ctx.$slots, "cycle", {}, () => {
                   if (__props.cycle) {
                     _push2(`<p class="${ssrRenderClass(unref(ui).amount.cycle)}"${_scopeId}>${ssrInterpolate(__props.cycle)}</p>`);
@@ -407,7 +407,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                 } else {
                   _push2(`<!---->`);
                 }
-                _push2(`<p class="${ssrRenderClass(unref(ui).amount.price)}"${_scopeId}>${ssrInterpolate(__props.discount || __props.price || "\xA0")}</p>`);
+                _push2(`<p class="${ssrRenderClass(unref(ui).amount.price)}"${_scopeId}>${ssrInterpolate(__props.discount || __props.price || " ")}</p>`);
                 ssrRenderSlot(_ctx.$slots, "cycle", {}, () => {
                   if (__props.cycle) {
                     _push2(`<p class="${ssrRenderClass(unref(ui).amount.cycle)}"${_scopeId}>${ssrInterpolate(__props.cycle)}</p>`);
@@ -510,7 +510,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                     }, toDisplayString(__props.price), 3)) : createCommentVNode("", true),
                     createVNode("p", {
                       class: unref(ui).amount.price
-                    }, toDisplayString(__props.discount || __props.price || "\xA0"), 3),
+                    }, toDisplayString(__props.discount || __props.price || " "), 3),
                     renderSlot(_ctx.$slots, "cycle", {}, () => [
                       __props.cycle ? (openBlock(), createBlock("p", {
                         key: 0,
@@ -563,7 +563,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
                     }, toDisplayString(__props.price), 3)) : createCommentVNode("", true),
                     createVNode("p", {
                       class: unref(ui).amount.price
-                    }, toDisplayString(__props.discount || __props.price || "\xA0"), 3),
+                    }, toDisplayString(__props.discount || __props.price || " "), 3),
                     renderSlot(_ctx.$slots, "cycle", {}, () => [
                       __props.cycle ? (openBlock(), createBlock("p", {
                         key: 0,
@@ -738,8 +738,7 @@ const _sfc_main$1 = defineComponent({
   setup(props, { emit, attrs: $attrs }) {
     const { ui, attrs } = useUI("table", toRef(props, "ui"), config, toRef(props, "class"));
     const columns = computed(() => {
-      var _a;
-      const defaultColumns = (_a = props.columns) != null ? _a : Object.keys(props.rows[0]).map((key) => ({
+      const defaultColumns = props.columns ?? Object.keys(props.rows[0]).map((key) => ({
         key,
         label: upperFirst(key),
         sortable: false,
@@ -774,11 +773,10 @@ const _sfc_main$1 = defineComponent({
       }
       const { column, direction } = sort.value;
       return props.rows.slice().sort((a, b) => {
-        var _a3;
         var _a2;
         const aValue = get(a, column);
         const bValue = get(b, column);
-        const sort2 = (_a3 = (_a2 = columns.value.find((col) => col.key === column)) == null ? void 0 : _a2.sort) != null ? _a3 : defaultSort;
+        const sort2 = ((_a2 = columns.value.find((col) => col.key === column)) == null ? void 0 : _a2.sort) ?? defaultSort;
         return sort2(aValue, bValue, direction);
       });
     });
@@ -1150,8 +1148,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     }, {
       feature: t("products.webspace.tablerows.3"),
       weblite: "3",
-      webpro: "\u221E",
-      webmax: "\u221E"
+      webpro: "∞",
+      webmax: "∞"
     }, {
       feature: t("products.webspace.tablerows.4"),
       weblite: "1",
@@ -1221,7 +1219,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       feature: t("products.webspace.tablerows.17"),
       weblite: "",
       webpro: "1",
-      webmax: "\u221E"
+      webmax: "∞"
     }, {
       feature: t("products.webspace.tablerows.18"),
       weblite: "",
@@ -1242,7 +1240,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             });
           });
         } else {
-          console.error("Die API hat kein Array von Paketen zur\xFCckgegeben.");
+          console.error("Die API hat kein Array von Paketen zurückgegeben.");
         }
       } catch (error) {
         console.error("Fehler beim Abrufen der Webspace-Informationen:", error);

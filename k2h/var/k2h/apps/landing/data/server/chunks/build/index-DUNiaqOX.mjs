@@ -958,13 +958,10 @@ async function validateYupSchema(state, schema) {
     };
   } catch (error) {
     if (isYupError(error)) {
-      const errors = error.inner.map((issue) => {
-        var _a;
-        return {
-          path: (_a = issue.path) != null ? _a : "",
-          message: issue.message
-        };
-      });
+      const errors = error.inner.map((issue) => ({
+        path: issue.path ?? "",
+        message: issue.message
+      }));
       return {
         errors,
         result: null
@@ -1202,15 +1199,11 @@ const _sfc_main$3 = defineComponent({
     });
     const { size: sizeButtonGroup, rounded } = useInjectButtonGroup({ ui, props });
     const { emitFormBlur, emitFormChange, inputId, color, size: sizeFormGroup, name } = useFormGroup(props, config);
-    const size = computed(() => {
-      var _a;
-      return (_a = sizeButtonGroup.value) != null ? _a : sizeFormGroup.value;
-    });
+    const size = computed(() => sizeButtonGroup.value ?? sizeFormGroup.value);
     const internalQuery = ref("");
     const query = computed({
       get() {
-        var _a;
-        return (_a = props.query) != null ? _a : internalQuery.value;
+        return props.query ?? internalQuery.value;
       },
       set(value) {
         internalQuery.value = value;
@@ -1218,7 +1211,6 @@ const _sfc_main$3 = defineComponent({
       }
     });
     const selected = computed(() => {
-      var _a;
       function compareValues(value1, value2) {
         if (by.value && typeof by.value !== "function" && typeof value1 === "object" && typeof value2 === "object") {
           return isEqual(value1[by.value], value2[by.value]);
@@ -1241,10 +1233,10 @@ const _sfc_main$3 = defineComponent({
           return modelValue.some((value) => compareValues(value, optionValue));
         });
       }
-      return (_a = options.value.find((option) => {
+      return options.value.find((option) => {
         const optionValue = getValue(option);
         return compareValues(optionValue, toRaw(props.modelValue));
-      })) != null ? _a : props.modelValue;
+      }) ?? props.modelValue;
     });
     const label = computed(() => {
       if (!props.modelValue) return null;
@@ -1492,7 +1484,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                   if (_ctx.label) {
                     _push3(`<span class="${ssrRenderClass(_ctx.uiMenu.label)}"${_scopeId2}>${ssrInterpolate(_ctx.label)}</span>`);
                   } else {
-                    _push3(`<span class="${ssrRenderClass(_ctx.uiMenu.label)}"${_scopeId2}>${ssrInterpolate(_ctx.placeholder || "\xA0")}</span>`);
+                    _push3(`<span class="${ssrRenderClass(_ctx.uiMenu.label)}"${_scopeId2}>${ssrInterpolate(_ctx.placeholder || " ")}</span>`);
                   }
                 }, _push3, _parent3, _scopeId2);
                 if (_ctx.isTrailing && _ctx.trailingIconName || _ctx.$slots.trailing) {
@@ -1549,7 +1541,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                       }, toDisplayString(_ctx.label), 3)) : (openBlock(), createBlock("span", {
                         key: 1,
                         class: _ctx.uiMenu.label
-                      }, toDisplayString(_ctx.placeholder || "\xA0"), 3))
+                      }, toDisplayString(_ctx.placeholder || " "), 3))
                     ]),
                     _ctx.isTrailing && _ctx.trailingIconName || _ctx.$slots.trailing ? (openBlock(), createBlock("span", {
                       key: 1,
@@ -1917,7 +1909,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
                     }, toDisplayString(_ctx.label), 3)) : (openBlock(), createBlock("span", {
                       key: 1,
                       class: _ctx.uiMenu.label
-                    }, toDisplayString(_ctx.placeholder || "\xA0"), 3))
+                    }, toDisplayString(_ctx.placeholder || " "), 3))
                   ]),
                   _ctx.isTrailing && _ctx.trailingIconName || _ctx.$slots.trailing ? (openBlock(), createBlock("span", {
                     key: 1,
@@ -2288,10 +2280,9 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             if (_push2) {
               _push2(`<!--[-->`);
               ssrRenderList(__props.fields, (field) => {
-                var _a2;
                 _push2(ssrRenderComponent(_component_UFormGroup, {
                   key: field.name,
-                  label: field.type === "checkbox" ? "" : (_a2 = field.label) != null ? _a2 : "",
+                  label: field.type === "checkbox" ? "" : field.label ?? "",
                   description: field.description,
                   help: field.help,
                   hint: field.hint,
@@ -2470,10 +2461,9 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             } else {
               return [
                 (openBlock(true), createBlock(Fragment, null, renderList(__props.fields, (field) => {
-                  var _a2;
                   return openBlock(), createBlock(_component_UFormGroup, {
                     key: field.name,
-                    label: field.type === "checkbox" ? "" : (_a2 = field.label) != null ? _a2 : "",
+                    label: field.type === "checkbox" ? "" : field.label ?? "",
                     description: field.description,
                     help: field.help,
                     hint: field.hint,

@@ -122,10 +122,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return (((_a = props.filename) == null ? void 0 : _a.split(".").pop()) || "").toLowerCase();
     });
     const hasIcon = computed(() => props.icon || ui.value[extension.value] || props.filename.includes("."));
-    const icon = computed(() => {
-      var _a, _b, _c;
-      return (_c = props.icon) != null ? _c : props.filename && ((_b = (_a = ui.value[props.filename.split("/").pop()]) != null ? _a : ui.value[extension.value]) != null ? _b : `i-vscode-icons-file-type-${extension.value}`);
-    });
+    const icon = computed(() => props.icon ?? (props.filename && (ui.value[props.filename.split("/").pop()] ?? ui.value[extension.value] ?? `i-vscode-icons-file-type-${extension.value}`)));
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UIcon = __nuxt_component_1$3;
       if (unref(hasIcon)) {

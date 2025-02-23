@@ -958,7 +958,7 @@ const _routes = [
   {
     name: "contact",
     path: "/contact",
-    component: () => import('./contact-C67dnGjF.mjs')
+    component: () => import('./contact-CUBFAO9P.mjs')
   },
   {
     name: "index",
@@ -2376,7 +2376,7 @@ const lazyGlobalComponents = [
   ["ProseUl", LazyProseUl],
   ["Icon", LazyIcon]
 ];
-const components_plugin_KR1HBZs4kY = /* @__PURE__ */ defineNuxtPlugin({
+const components_plugin_zlvi6dcIsi = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:global-components",
   setup(nuxtApp) {
     for (const [name, component] of lazyGlobalComponents) {
@@ -2471,12 +2471,12 @@ const localeCodes = [
   "de"
 ];
 const localeLoaders = {
-  "en": [{ key: "../i18n/locales/en-US.json", load: () => import(
-    './en-US-1aKAarF8.mjs'
+  "en": [{ key: "../../../../i18n/locales/en-US.json", load: () => import(
+    './en-US-CBX3_3wb.mjs'
     /* webpackChunkName: "locale__Users_lpoggemann_GitHub_landing_i18n_locales_en_US_json" */
   ), cache: true }],
-  "de": [{ key: "../i18n/locales/de-DE.json", load: () => import(
-    './de-DE-CysroB41.mjs'
+  "de": [{ key: "../../../../i18n/locales/de-DE.json", load: () => import(
+    './de-DE-DKg3okgJ.mjs'
     /* webpackChunkName: "locale__Users_lpoggemann_GitHub_landing_i18n_locales_de_DE_json" */
   ), cache: true }]
 };
@@ -8153,7 +8153,7 @@ const plugins = [
   _0_siteConfig_jtc2qNDx4l,
   revive_payload_server_eJ33V7gbc6,
   plugin,
-  components_plugin_KR1HBZs4kY,
+  components_plugin_zlvi6dcIsi,
   switch_locale_path_ssr_5csfIgkrBP,
   route_locale_detect_VrpP1JaYg8,
   i18n_sq1MuCrqbC,

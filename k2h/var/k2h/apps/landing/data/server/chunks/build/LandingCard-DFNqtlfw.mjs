@@ -7,7 +7,7 @@ import { createSharedComposable, defaultWindow, watchThrottled, unrefElement, us
 const useSharedMouse = createSharedComposable(useMouse);
 function useSharedMouseInElement(target, options = {}) {
   const { x, y } = useSharedMouse(options);
-  const targetRef = ref(target != null ? target : void 0);
+  const targetRef = ref(target ?? void 0);
   const elementX = ref(0);
   const elementY = ref(0);
   if (defaultWindow) {

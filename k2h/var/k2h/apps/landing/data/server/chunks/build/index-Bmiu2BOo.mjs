@@ -82,7 +82,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         if (Array.isArray(data.packages)) {
           return data.packages;
         } else {
-          console.error("Die API hat kein Array von Paketen zur\xFCckgegeben.");
+          console.error("Die API hat kein Array von Paketen zurückgegeben.");
         }
       } catch (error) {
         console.error("Fehler beim Abrufen der Webspace-Informationen:", error);
@@ -106,7 +106,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           console.log("Keine passende Domain gefunden.");
         }
       } else {
-        console.log("Results ist kein g\xFCltiges Array oder leer:", results.value);
+        console.log("Results ist kein gültiges Array oder leer:", results.value);
       }
     };
     useSeoMeta({
@@ -164,10 +164,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           }, {
             description: withCtx((_, _push2, _parent2, _scopeId) => {
               if (_push2) {
-                _push2(` Die Domain ${ssrInterpolate(searchQuery.value.split(".")[0] + "." + result.name)} kostet ${ssrInterpolate(result.amount + "\u20AC")} pro Jahr. `);
+                _push2(` Die Domain ${ssrInterpolate(searchQuery.value.split(".")[0] + "." + result.name)} kostet ${ssrInterpolate(result.amount + "€")} pro Jahr. `);
               } else {
                 return [
-                  createTextVNode(" Die Domain " + toDisplayString(searchQuery.value.split(".")[0] + "." + result.name) + " kostet " + toDisplayString(result.amount + "\u20AC") + " pro Jahr. ", 1)
+                  createTextVNode(" Die Domain " + toDisplayString(searchQuery.value.split(".")[0] + "." + result.name) + " kostet " + toDisplayString(result.amount + "€") + " pro Jahr. ", 1)
                 ];
               }
             }),
@@ -208,7 +208,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             if (selectedDomainAvailable.value) {
               _push2(`<div class="p-4 text-lg"${_scopeId}> Die Domain ${ssrInterpolate(selectedDomain.value)} kann momentan nicht gekauft werden. </div>`);
             } else {
-              _push2(`<div class="p-6 text-center"${_scopeId}><h2 class="text-2xl font-bold mb-2"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.title"))}</h2><p class="text-base text-gray-700 mb-6"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.message"))}</p><input type="text"${ssrRenderAttr("placeholder", "AUTH-Schl\xFCssel f\xFCr " + selectedDomain.value)} class="border border-gray-300 rounded-lg p-2 w-1/2 mb-6"${_scopeId}><div class="flex justify-center gap-4"${_scopeId}><button class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.abort"))}</button><button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.continue"))}</button></div></div>`);
+              _push2(`<div class="p-6 text-center"${_scopeId}><h2 class="text-2xl font-bold mb-2"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.title"))}</h2><p class="text-base text-gray-700 mb-6"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.message"))}</p><input type="text"${ssrRenderAttr("placeholder", "AUTH-Schlüssel für " + selectedDomain.value)} class="border border-gray-300 rounded-lg p-2 w-1/2 mb-6"${_scopeId}><div class="flex justify-center gap-4"${_scopeId}><button class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.abort"))}</button><button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.continue"))}</button></div></div>`);
             }
           } else {
             return [
@@ -223,7 +223,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 createVNode("p", { class: "text-base text-gray-700 mb-6" }, toDisplayString(_ctx.$t("products.domain.transfer.message")), 1),
                 createVNode("input", {
                   type: "text",
-                  placeholder: "AUTH-Schl\xFCssel f\xFCr " + selectedDomain.value,
+                  placeholder: "AUTH-Schlüssel für " + selectedDomain.value,
                   class: "border border-gray-300 rounded-lg p-2 w-1/2 mb-6"
                 }, null, 8, ["placeholder"]),
                 createVNode("div", { class: "flex justify-center gap-4" }, [

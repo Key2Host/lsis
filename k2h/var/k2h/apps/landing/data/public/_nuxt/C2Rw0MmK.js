@@ -1,0 +1,1 @@
+import{a0 as s,a2 as a,o,a6 as r}from"./CM2APgab.js";const t={};function n(e,c){return o(),a("td",null,[r(e.$slots,"default")])}const _=Object.assign(s(t,[["render",n]]),{__name:"ProseTd"});export{_ as default};

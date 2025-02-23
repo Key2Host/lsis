@@ -1,1 +1,0 @@
-import{a0 as o,a2 as s,o as a,a6 as r}from"./DTsxA36v.js";const n={};function t(e,c){return a(),s("ol",null,[r(e.$slots,"default")])}const _=Object.assign(o(n,[["render",t]]),{__name:"ProseOl"});export{_ as default};

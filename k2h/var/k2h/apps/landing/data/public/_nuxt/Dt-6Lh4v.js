@@ -1,0 +1,1 @@
+import{a0 as o,a2 as r,o as n,a6 as s}from"./CM2APgab.js";const t={};function a(e,c){return n(),r("strong",null,[s(e.$slots,"default")])}const _=Object.assign(o(t,[["render",a]]),{__name:"ProseStrong"});export{_ as default};

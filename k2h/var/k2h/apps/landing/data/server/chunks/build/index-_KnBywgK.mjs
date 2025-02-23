@@ -550,7 +550,7 @@ const _sfc_main$1 = defineComponent({
     },
     divider: {
       type: String,
-      default: "\u2026"
+      default: "…"
     },
     class: {
       type: [String, Object, Array],

@@ -1,0 +1,1 @@
+import{a0 as n,a2 as o,o as s,a6 as a}from"./CM2APgab.js";const r={};function t(e,c){return s(),o("code",null,[a(e.$slots,"default")])}const _=Object.assign(n(r,[["render",t]]),{__name:"ProseCodeInline"});export{_ as default};
