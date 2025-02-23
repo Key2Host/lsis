@@ -103,7 +103,7 @@ async function buy(req, res) {
         // Get User Email
         const decoded = jwt.verify(token, JWT_SECRET);
         const userid = decoded.id;
-        const userMail = await UserEmail.findOne({ where: { user: userid, isPrimary: true^ } });
+        const userMail = await UserEmail.findOne({ where: { user: userid, isPrimary: true } });
 
         // Angenommen, das 'item' hat jetzt eine 'prodID', die auf ein Stripe-Produkt verweist
         const session = await stripe.checkout.sessions.create({
