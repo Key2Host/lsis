@@ -9,8 +9,24 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
   logging: false
 });
 
-sequelize.authenticate()
-  .then(() => log('The database connection has been successfully established.'))
-  .catch(err => log('The database connection could also be established due to an error:', err));
+async function connectWithRetry(retries = 5, delay = 5000) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      await sequelize.authenticate();
+      log('The database connection has been successfully established.');
+      return;
+    } catch (err) {
+      log(`Database connection attempt ${attempt} failed:`, err);
+      if (attempt < retries) {
+        log(`Retrying in ${delay / 1000} seconds...`);
+        await new Promise(res => setTimeout(res, delay));
+      } else {
+        log('All retry attempts failed. Please check your database configuration.');
+      }
+    }
+  }
+}
+
+connectWithRetry();
 
 module.exports = sequelize;
