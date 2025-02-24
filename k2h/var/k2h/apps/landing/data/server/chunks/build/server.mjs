@@ -1129,17 +1129,17 @@ const _routes = [
   {
     name: "products-domain___en",
     path: "/en/products/domain",
-    component: () => import('./index-BfTl32L3.mjs')
+    component: () => import('./index-N4dMETDG.mjs')
   },
   {
     name: "products-domain___de___default",
     path: "/products/domain",
-    component: () => import('./index-BfTl32L3.mjs')
+    component: () => import('./index-N4dMETDG.mjs')
   },
   {
     name: "products-domain___de",
     path: "/de/products/domain",
-    component: () => import('./index-BfTl32L3.mjs')
+    component: () => import('./index-N4dMETDG.mjs')
   },
   {
     name: "products-lic-cert___en",
