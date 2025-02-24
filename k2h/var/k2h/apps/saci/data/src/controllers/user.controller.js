@@ -48,18 +48,18 @@ async function getWebspaceInfo(req, res) {
 
 async function getDomainInfo(req, res) {
     const priceIDs = [
-        'price_1Qso7ICh2zruBO1L133TYiCs', // .dev
-        'price_1Qso77Ch2zruBO1LsAv5mDfB', // .xyz
-        'price_1Qso6oCh2zruBO1LDQqUB064', // .shop
-        'price_1Qso6YCh2zruBO1LARARUfW0', // .app
-        'price_1Qso6LCh2zruBO1LC9q5kVUJ', // .io
-        'price_1Qso61Ch2zruBO1LSHrmuLNw', // .biz
-        'price_1Qso5WCh2zruBO1Ld9eAso20', // .info
-        'price_1Qso57Ch2zruBO1LcI6l3BMi', // .org
-        'price_1Qso3kCh2zruBO1L1zwd9aZI', // .eu
-        'price_1Qso3TCh2zruBO1LbtzlyGXr', // .net
         'price_1Qso2HCh2zruBO1Lnsvtotct', // .de
         'price_1Qso1ZCh2zruBO1LPVYmDbWY', // .com
+        'price_1Qso3TCh2zruBO1LbtzlyGXr', // .net
+        'price_1Qso57Ch2zruBO1LcI6l3BMi', // .org
+        'price_1Qso3kCh2zruBO1L1zwd9aZI', // .eu
+        'price_1Qso61Ch2zruBO1LSHrmuLNw', // .biz
+        'price_1Qso6LCh2zruBO1LC9q5kVUJ', // .io
+        'price_1Qso7ICh2zruBO1L133TYiCs', // .dev
+        'price_1Qso6YCh2zruBO1LARARUfW0', // .app
+        'price_1Qso6oCh2zruBO1LDQqUB064', // .shop
+        'price_1Qso5WCh2zruBO1Ld9eAso20', // .info
+        'price_1Qso77Ch2zruBO1LsAv5mDfB', // .xyz
     ];
 
     try {
