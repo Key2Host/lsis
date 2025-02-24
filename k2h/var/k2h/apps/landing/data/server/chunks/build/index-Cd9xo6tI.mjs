@@ -1,7 +1,7 @@
 import { _ as __nuxt_component_0 } from './LandingSection-C0LNW591.mjs';
 import { defineComponent, ref, mergeProps, withCtx, unref, createBlock, openBlock, Fragment, renderList, createVNode, computed, toRef, useSlots, createCommentVNode, cloneVNode, h, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderList, ssrRenderAttrs, ssrRenderSlot, ssrRenderClass, ssrInterpolate, ssrRenderAttr } from 'vue/server-renderer';
-import { u as useLocalePath, a as useI18n, b as useSeoMeta, _ as _export_sfc, D as useUI, a7 as nuxtLinkProps, a3 as getNuxtLinkProps, a8 as getSlotChildrenText, a2 as __nuxt_component_0$e, a5 as __nuxt_component_1$2, B as __nuxt_component_4$3, Q as __nuxt_component_0$9, C as mergeConfig, ab as getSlotsChildren, I as twMerge, J as appConfig, ad as button, ac as avatar } from './server.mjs';
+import { u as useLocalePath, a as useI18n, b as useSeoMeta, _ as _export_sfc, D as useUI, a7 as nuxtLinkProps, a3 as getNuxtLinkProps, a8 as getSlotChildrenText, a2 as __nuxt_component_0$e, a5 as __nuxt_component_1$2, B as __nuxt_component_4$4, Q as __nuxt_component_0$9, C as mergeConfig, ab as getSlotsChildren, I as twMerge, J as appConfig, ad as button, ac as avatar } from './server.mjs';
 import { I as ImageComponent } from './NuxtImg-BMjs1Txh.mjs';
 import { twJoin } from 'tailwind-merge';
 import '../nitro/nitro.mjs';
@@ -170,7 +170,7 @@ const __nuxt_component_3$1 = defineComponent({
         return cloneVNode(node, vProps);
       }
       if (max.value !== void 0 && index === max.value) {
-        return h(__nuxt_component_4$3, {
+        return h(__nuxt_component_4$4, {
           size: props.size || avatarConfig.default.size,
           text: `+${children.value.length - max.value}`,
           class: twJoin(ui.value.ring, ui.value.margin)
@@ -277,7 +277,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       const _component_NuxtLink = __nuxt_component_0$e;
       const _component_UBadge = __nuxt_component_1$2;
       const _component_UAvatarGroup = __nuxt_component_3$1;
-      const _component_UAvatar = __nuxt_component_4$3;
+      const _component_UAvatar = __nuxt_component_4$4;
       _push(`<article${ssrRenderAttrs(mergeProps({
         class: unref(ui).wrapper
       }, unref(attrs), _attrs))}>`);

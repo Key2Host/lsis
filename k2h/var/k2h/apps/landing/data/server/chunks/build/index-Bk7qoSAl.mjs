@@ -1,6 +1,6 @@
 import { _ as __nuxt_component_0 } from './LandingSection-C0LNW591.mjs';
 import { _ as __nuxt_component_1 } from './LandingCard-DBRdhmsO.mjs';
-import { a as useI18n, b as useSeoMeta, ae as __nuxt_component_2$2, X as useCartStore } from './server.mjs';
+import { a as useI18n, b as useSeoMeta, ae as __nuxt_component_2$1, X as useCartStore } from './server.mjs';
 import { defineComponent, ref, withCtx, createVNode, withDirectives, withKeys, vModelText, toDisplayString, createTextVNode, createBlock, openBlock, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderAttr, ssrInterpolate, ssrRenderList, ssrRenderClass } from 'vue/server-renderer';
 import 'tailwind-merge';
@@ -118,7 +118,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_ULandingSection = __nuxt_component_0;
       const _component_ULandingCard = __nuxt_component_1;
-      const _component_UModal = __nuxt_component_2$2;
+      const _component_UModal = __nuxt_component_2$1;
       _push(`<!--[-->`);
       _push(ssrRenderComponent(_component_ULandingSection, {
         headline: _ctx.$t("products.domain.headline"),

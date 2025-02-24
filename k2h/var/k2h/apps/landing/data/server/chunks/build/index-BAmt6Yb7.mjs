@@ -1,7 +1,7 @@
 import { _ as __nuxt_component_0 } from './LandingSection-C0LNW591.mjs';
 import { defineComponent, withAsyncContext, withCtx, createVNode, toDisplayString, createBlock, createCommentVNode, openBlock, Fragment, renderList, unref, createTextVNode, toRef, mergeProps, computed, createSlots, renderSlot, ref, watch, toRaw, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrRenderAttrs, ssrRenderSlot, ssrRenderClass, ssrRenderAttr } from 'vue/server-renderer';
-import { u as useLocalePath, a as useI18n, b as useSeoMeta, X as useCartStore, _ as _export_sfc, D as useUI, $ as useAppConfig, Y as __nuxt_component_0$4, a5 as __nuxt_component_1$2, R as __nuxt_component_2$4, z as __nuxt_component_1$3, Q as __nuxt_component_0$9, C as mergeConfig, K as get, J as appConfig } from './server.mjs';
+import { u as useLocalePath, a as useI18n, b as useSeoMeta, X as useCartStore, _ as _export_sfc, D as useUI, $ as useAppConfig, Y as __nuxt_component_0$4, a5 as __nuxt_component_1$2, R as __nuxt_component_2$3, z as __nuxt_component_1$3, Q as __nuxt_component_0$9, C as mergeConfig, K as get, J as appConfig } from './server.mjs';
 import { twJoin } from 'tailwind-merge';
 import { _ as __nuxt_component_3 } from './Skeleton-JACvfoN5.mjs';
 import { a as __nuxt_component_5, b as __nuxt_component_0$1, _ as __nuxt_component_2$1 } from './Alert-SG_bcirw.mjs';
@@ -286,7 +286,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UCard = __nuxt_component_0$4;
       const _component_UBadge = __nuxt_component_1$2;
-      const _component_UDivider = __nuxt_component_2$4;
+      const _component_UDivider = __nuxt_component_2$3;
       const _component_UIcon = __nuxt_component_1$3;
       const _component_UButton = __nuxt_component_0$9;
       _push(ssrRenderComponent(_component_UCard, mergeProps({

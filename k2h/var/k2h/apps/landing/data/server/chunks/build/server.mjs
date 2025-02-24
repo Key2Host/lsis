@@ -12999,7 +12999,7 @@ _sfc_main$w.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/header/HeaderPopoverLinks.vue");
   return _sfc_setup$w ? _sfc_setup$w(props, ctx) : void 0;
 };
-const __nuxt_component_3$2 = Object.assign(_sfc_main$w, { __name: "UHeaderPopoverLinks" });
+const __nuxt_component_3$1 = Object.assign(_sfc_main$w, { __name: "UHeaderPopoverLinks" });
 const _sfc_main$v = /* @__PURE__ */ defineComponent({
   ...{
     inheritAttrs: false
@@ -13054,7 +13054,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
       const _component_UPopover = __nuxt_component_0$c;
       const _component_ULink = __nuxt_component_0$b;
       const _component_UIcon = __nuxt_component_1$3;
-      const _component_UHeaderPopoverLinks = __nuxt_component_3$2;
+      const _component_UHeaderPopoverLinks = __nuxt_component_3$1;
       if ((_a2 = __props.links) == null ? void 0 : _a2.length) {
         _push(`<ul${ssrRenderAttrs(mergeProps({
           class: unref(ui).wrapper
@@ -13604,7 +13604,7 @@ _sfc_main$t.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/aside/AsideLinks.vue");
   return _sfc_setup$t ? _sfc_setup$t(props, ctx) : void 0;
 };
-const __nuxt_component_4$4 = Object.assign(_sfc_main$t, { __name: "UAsideLinks" });
+const __nuxt_component_4$5 = Object.assign(_sfc_main$t, { __name: "UAsideLinks" });
 const getSlotChildrenText = (children) => children.map((node) => {
   if (!node.children || typeof node.children === "string") return node.children || "";
   else if (Array.isArray(node.children)) return getSlotChildrenText(node.children);
@@ -13719,7 +13719,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
       const _component_NuxtLink = __nuxt_component_0$e;
       const _component_UHeaderLinks = __nuxt_component_2$5;
       const _component_UButton = __nuxt_component_0$9;
-      const _component_UAsideLinks = __nuxt_component_4$4;
+      const _component_UAsideLinks = __nuxt_component_4$5;
       _push(`<header${ssrRenderAttrs(mergeProps({
         class: unref(ui).wrapper
       }, unref(attrs), _attrs))}>`);
@@ -14092,6 +14092,50 @@ _sfc_main$s.setup = (props, ctx) => {
   return _sfc_setup$s ? _sfc_setup$s(props, ctx) : void 0;
 };
 const __nuxt_component_0$8 = Object.assign(_sfc_main$s, { __name: "UHeader" });
+const NuxtLinkLocale = /* @__PURE__ */ defineNuxtLink({ ...nuxtLinkDefaults, componentName: "NuxtLinkLocale" });
+const __nuxt_component_2$4 = defineComponent({
+  name: "NuxtLinkLocale",
+  props: {
+    ...NuxtLinkLocale.props,
+    locale: {
+      type: String,
+      default: void 0,
+      required: false
+    }
+  },
+  setup(props, { slots }) {
+    const localePath2 = useLocalePath();
+    const resolvedPath = computed(() => {
+      const destination = props.to ?? props.href;
+      return destination != null ? localePath2(destination, props.locale) : destination;
+    });
+    const isExternal = computed(() => {
+      if (props.external) {
+        return true;
+      }
+      if (props.target && props.target !== "_self") {
+        return true;
+      }
+      const destination = props.to ?? props.href;
+      if (typeof destination === "object") {
+        return false;
+      }
+      return destination === "" || destination == null || hasProtocol(destination, { acceptRelative: true });
+    });
+    const getNuxtLinkProps2 = () => {
+      const _props = {
+        ...props
+      };
+      if (!isExternal.value) {
+        _props.to = resolvedPath.value;
+      }
+      delete _props.href;
+      delete _props.locale;
+      return _props;
+    };
+    return () => h$1(NuxtLinkLocale, getNuxtLinkProps2(), slots.default);
+  }
+});
 const config$e = mergeConfig(appConfig.ui.strategy, appConfig.ui.kbd, kbd);
 const _sfc_main$r = defineComponent({
   inheritAttrs: false,
@@ -14461,7 +14505,7 @@ _sfc_main$p.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/elements/Avatar.vue");
   return _sfc_setup$p ? _sfc_setup$p(props, ctx) : void 0;
 };
-const __nuxt_component_4$3 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$p, [["ssrRender", _sfc_ssrRender$d]]), { __name: "UAvatar" });
+const __nuxt_component_4$4 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$p, [["ssrRender", _sfc_ssrRender$d]]), { __name: "UAvatar" });
 const config$b = mergeConfig(appConfig.ui.strategy, appConfig.ui.chip, chip);
 const _sfc_main$o = defineComponent({
   inheritAttrs: false,
@@ -14549,7 +14593,7 @@ _sfc_main$o.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/elements/Chip.vue");
   return _sfc_setup$o ? _sfc_setup$o(props, ctx) : void 0;
 };
-const __nuxt_component_4$2 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$o, [["ssrRender", _sfc_ssrRender$c]]), { __name: "UChip" });
+const __nuxt_component_4$3 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$o, [["ssrRender", _sfc_ssrRender$c]]), { __name: "UChip" });
 const config$a = mergeConfig(appConfig.ui.strategy, appConfig.ui.badge, badge);
 const _sfc_main$n = defineComponent({
   components: {
@@ -14853,10 +14897,10 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
       const _component_UTooltip = __nuxt_component_0$6;
       const _component_ULink = __nuxt_component_0$b;
       const _component_UIcon = __nuxt_component_1$3;
-      const _component_UAvatar = __nuxt_component_4$3;
-      const _component_UChip = __nuxt_component_4$2;
+      const _component_UAvatar = __nuxt_component_4$4;
+      const _component_UChip = __nuxt_component_4$3;
       const _component_UBadge = __nuxt_component_1$2;
-      const _component_UDashboardSidebarLinks = __nuxt_component_3$1;
+      const _component_UDashboardSidebarLinks = __nuxt_component_4$2;
       ssrRenderVNode(_push, createVNode(resolveDynamicComponent(__props.draggable && unref(Container) ? unref(Container) : "ul"), mergeProps({
         class: unref(ui).wrapper
       }, {
@@ -15813,12 +15857,12 @@ _sfc_main$m.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/dashboard/DashboardSidebarLinks.vue");
   return _sfc_setup$m ? _sfc_setup$m(props, ctx) : void 0;
 };
-const __nuxt_component_3$1 = Object.assign(_sfc_main$m, { __name: "UDashboardSidebarLinks" });
+const __nuxt_component_4$2 = Object.assign(_sfc_main$m, { __name: "UDashboardSidebarLinks" });
 const config$9 = mergeConfig(appConfig.ui.strategy, appConfig.ui.divider, divider);
 const _sfc_main$l = defineComponent({
   components: {
     UIcon: __nuxt_component_1$3,
-    UAvatar: __nuxt_component_4$3
+    UAvatar: __nuxt_component_4$4
   },
   inheritAttrs: false,
   props: {
@@ -15894,7 +15938,7 @@ const _sfc_main$l = defineComponent({
 });
 function _sfc_ssrRender$a(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_UIcon = __nuxt_component_1$3;
-  const _component_UAvatar = __nuxt_component_4$3;
+  const _component_UAvatar = __nuxt_component_4$4;
   _push(`<div${ssrRenderAttrs(mergeProps({ class: _ctx.wrapperClass }, _ctx.attrs, _attrs))}><div class="${ssrRenderClass(_ctx.borderClass)}"></div>`);
   if (_ctx.label || _ctx.icon || _ctx.avatar || _ctx.$slots.default) {
     _push(`<!--[--><div class="${ssrRenderClass(_ctx.containerClass)}">`);
@@ -15926,7 +15970,7 @@ _sfc_main$l.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/layout/Divider.vue");
   return _sfc_setup$l ? _sfc_setup$l(props, ctx) : void 0;
 };
-const __nuxt_component_2$4 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$a]]), { __name: "UDivider" });
+const __nuxt_component_2$3 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$l, [["ssrRender", _sfc_ssrRender$a]]), { __name: "UDivider" });
 const _imports_0 = publicAssetsURL("/img/brand/logo.svg");
 const useScrollspy = () => {
   const observer = ref();
@@ -16008,23 +16052,52 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
     }]);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UHeader = __nuxt_component_0$8;
+      const _component_NuxtLinkLocale = __nuxt_component_2$4;
       const _component_NuxtLink = __nuxt_component_0$e;
       const _component_UButton = __nuxt_component_0$9;
-      const _component_UDashboardSidebarLinks = __nuxt_component_3$1;
-      const _component_UDivider = __nuxt_component_2$4;
+      const _component_UDashboardSidebarLinks = __nuxt_component_4$2;
+      const _component_UDivider = __nuxt_component_2$3;
       _push(ssrRenderComponent(_component_UHeader, mergeProps({ links: unref(links) }, _attrs), {
-        logo: withCtx((_2, _push2, _parent2, _scopeId) => {
+        left: withCtx((_2, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${ssrRenderAttr("src", _imports_0)} alt="Key2Host Logo" width="25px" height="25px"${_scopeId}> Key2Host `);
+            _push2(ssrRenderComponent(_component_NuxtLinkLocale, {
+              to: "/",
+              class: "flex items-center"
+            }, {
+              default: withCtx((_22, _push3, _parent3, _scopeId2) => {
+                if (_push3) {
+                  _push3(`<img${ssrRenderAttr("src", _imports_0)} alt="Key2Host Logo" width="25px" height="25px"${_scopeId2}><span class="font-bold ml-2"${_scopeId2}>Key2Host</span>`);
+                } else {
+                  return [
+                    createVNode("img", {
+                      src: _imports_0,
+                      alt: "Key2Host Logo",
+                      width: "25px",
+                      height: "25px"
+                    }),
+                    createVNode("span", { class: "font-bold ml-2" }, "Key2Host")
+                  ];
+                }
+              }),
+              _: 1
+            }, _parent2, _scopeId));
           } else {
             return [
-              createVNode("img", {
-                src: _imports_0,
-                alt: "Key2Host Logo",
-                width: "25px",
-                height: "25px"
-              }),
-              createTextVNode(" Key2Host ")
+              createVNode(_component_NuxtLinkLocale, {
+                to: "/",
+                class: "flex items-center"
+              }, {
+                default: withCtx(() => [
+                  createVNode("img", {
+                    src: _imports_0,
+                    alt: "Key2Host Logo",
+                    width: "25px",
+                    height: "25px"
+                  }),
+                  createVNode("span", { class: "font-bold ml-2" }, "Key2Host")
+                ]),
+                _: 1
+              })
             ];
           }
         }),
@@ -16240,7 +16313,7 @@ const RouteProvider = defineComponent({
     };
   }
 });
-const __nuxt_component_2$3 = defineComponent({
+const __nuxt_component_2$2 = defineComponent({
   name: "NuxtPage",
   inheritAttrs: false,
   props: {
@@ -16620,7 +16693,7 @@ _sfc_main$i.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/overlays/Modal.vue");
   return _sfc_setup$i ? _sfc_setup$i(props, ctx) : void 0;
 };
-const __nuxt_component_2$2 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$9]]), { __name: "UModal" });
+const __nuxt_component_2$1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$9]]), { __name: "UModal" });
 const config$7 = mergeConfig(appConfig.ui.strategy, appConfig.ui.card, card);
 const _sfc_main$h = defineComponent({
   inheritAttrs: false,
@@ -16724,7 +16797,7 @@ const _sfc_main$g = defineComponent({
     HMenuItems: Me,
     HMenuItem: be,
     UIcon: __nuxt_component_1$3,
-    UAvatar: __nuxt_component_4$3,
+    UAvatar: __nuxt_component_4$4,
     UKbd: __nuxt_component_0$7
   },
   inheritAttrs: false,
@@ -16902,7 +16975,7 @@ function _sfc_ssrRender$7(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
   const _component_NuxtLink = __nuxt_component_0$e;
   const _component_HMenuItem = resolveComponent("HMenuItem");
   const _component_UIcon = __nuxt_component_1$3;
-  const _component_UAvatar = __nuxt_component_4$3;
+  const _component_UAvatar = __nuxt_component_4$4;
   const _component_UKbd = __nuxt_component_0$7;
   _push(ssrRenderComponent(_component_HMenu, mergeProps({
     as: "div",
@@ -17364,7 +17437,7 @@ _sfc_main$g.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/elements/Dropdown.vue");
   return _sfc_setup$g ? _sfc_setup$g(props, ctx) : void 0;
 };
-const __nuxt_component_2$1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$g, [["ssrRender", _sfc_ssrRender$7]]), { __name: "UDropdown" });
+const __nuxt_component_2 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$g, [["ssrRender", _sfc_ssrRender$7]]), { __name: "UDropdown" });
 const config$5 = mergeConfig(appConfig.ui.strategy, appConfig.ui.accordion, accordion);
 const configButton = mergeConfig(appConfig.ui.strategy, appConfig.ui.button, button);
 const _sfc_main$f = defineComponent({
@@ -17813,9 +17886,9 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
       check();
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UModal = __nuxt_component_2$2;
+      const _component_UModal = __nuxt_component_2$1;
       const _component_UCard = __nuxt_component_0$4;
-      const _component_UDropdown = __nuxt_component_2$1;
+      const _component_UDropdown = __nuxt_component_2;
       const _component_UButton = __nuxt_component_0$9;
       const _component_UAccordion = __nuxt_component_0$3;
       _push(ssrRenderComponent(_component_UModal, mergeProps({
@@ -18820,50 +18893,6 @@ _sfc_main$c.setup = (props, ctx) => {
   return _sfc_setup$c ? _sfc_setup$c(props, ctx) : void 0;
 };
 const __nuxt_component_7 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$c, [["ssrRender", _sfc_ssrRender$4]]), { __name: "UInput" });
-const NuxtLinkLocale = /* @__PURE__ */ defineNuxtLink({ ...nuxtLinkDefaults, componentName: "NuxtLinkLocale" });
-const __nuxt_component_2 = defineComponent({
-  name: "NuxtLinkLocale",
-  props: {
-    ...NuxtLinkLocale.props,
-    locale: {
-      type: String,
-      default: void 0,
-      required: false
-    }
-  },
-  setup(props, { slots }) {
-    const localePath2 = useLocalePath();
-    const resolvedPath = computed(() => {
-      const destination = props.to ?? props.href;
-      return destination != null ? localePath2(destination, props.locale) : destination;
-    });
-    const isExternal = computed(() => {
-      if (props.external) {
-        return true;
-      }
-      if (props.target && props.target !== "_self") {
-        return true;
-      }
-      const destination = props.to ?? props.href;
-      if (typeof destination === "object") {
-        return false;
-      }
-      return destination === "" || destination == null || hasProtocol(destination, { acceptRelative: true });
-    });
-    const getNuxtLinkProps2 = () => {
-      const _props = {
-        ...props
-      };
-      if (!isExternal.value) {
-        _props.to = resolvedPath.value;
-      }
-      delete _props.href;
-      delete _props.locale;
-      return _props;
-    };
-    return () => h$1(NuxtLinkLocale, getNuxtLinkProps2(), slots.default);
-  }
-});
 const useCartStore = defineStore("cart", {
   state: () => ({
     isSlideoverOpen: false,
@@ -18940,7 +18969,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
       const _component_UIcon = __nuxt_component_1$3;
       const _component_UCard = __nuxt_component_0$4;
       const _component_UInput = __nuxt_component_7;
-      const _component_NuxtLinkLocale = __nuxt_component_2;
+      const _component_NuxtLinkLocale = __nuxt_component_2$4;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex flex-col h-screen" }, _attrs))}><div class="flex justify-between items-center p-4 sticky top-0 z-10"><button class="text-indigo-600 hover:text-indigo-500 block sm:hidden">`);
       _push(ssrRenderComponent(_component_UIcon, {
         name: "i-heroicons-x-mark",
@@ -20173,7 +20202,7 @@ const config$1 = mergeConfig(appConfig.ui.strategy, appConfig.ui.notification, n
 const _sfc_main$4 = defineComponent({
   components: {
     UIcon: __nuxt_component_1$3,
-    UAvatar: __nuxt_component_4$3,
+    UAvatar: __nuxt_component_4$4,
     UButton: __nuxt_component_0$9
   },
   inheritAttrs: false,
@@ -20328,7 +20357,7 @@ const _sfc_main$4 = defineComponent({
 });
 function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_UIcon = __nuxt_component_1$3;
-  const _component_UAvatar = __nuxt_component_4$3;
+  const _component_UAvatar = __nuxt_component_4$4;
   const _component_UButton = __nuxt_component_0$9;
   _push(`<template><div${ssrRenderAttrs(mergeProps({
     class: _ctx.wrapperClass,
@@ -20536,7 +20565,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_AppHeader = __nuxt_component_0$5;
       const _component_UMain = __nuxt_component_1$1;
-      const _component_NuxtPage = __nuxt_component_2$3;
+      const _component_NuxtPage = __nuxt_component_2$2;
       const _component_CookieNotice = __nuxt_component_3;
       const _component_USlideover = __nuxt_component_4$1;
       const _component_UCard = __nuxt_component_0$4;
@@ -20752,5 +20781,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { useAppConfig as $, A$3 as A, __nuxt_component_4$3 as B, mergeConfig as C, useUI as D, E$2 as E, usePopper as F, useInjectButtonGroup as G, useFormGroup as H, twMerge as I, appConfig as J, get as K, s$5 as L, select as M, N$4 as N, O$2 as O, selectMenu as P, __nuxt_component_0$9 as Q, __nuxt_component_2$4 as R, __nuxt_component_4 as S, T$2 as T, omit as U, __nuxt_component_7 as V, useToast as W, useCartStore as X, __nuxt_component_0$4 as Y, __nuxt_component_2 as Z, _export_sfc as _, useI18n as a, __nuxt_component_0$3 as a0, useCookieNoticeStore as a1, __nuxt_component_0$e as a2, getNuxtLinkProps as a3, useHead as a4, __nuxt_component_1$2 as a5, __nuxt_component_0$d as a6, nuxtLinkProps as a7, getSlotChildrenText as a8, __nuxt_component_0$b as a9, getULinkProps as aa, getSlotsChildren as ab, avatar as ac, button as ad, __nuxt_component_2$2 as ae, config$i as af, N$1 as ag, Q$1 as ah, V as ai, __nuxt_component_0$7 as aj, useRequestEvent as ak, withLeadingSlash as al, hasProtocol as am, joinURL as an, parseURL as ao, encodeParam as ap, encodePath as aq, useNuxtApp as ar, useRuntimeConfig as as, useRoute as at, withTrailingSlash as au, withoutTrailingSlash as av, useAsyncData as aw, withBase as ax, useCookie as ay, useState as az, useSeoMeta as b, i$4 as c, o$2 as d, entry$1 as default, u$5 as e, i$1 as f, i$2 as g, u$7 as h, i$6 as i, f$2 as j, u$4 as k, l$2 as l, t$1 as m, o$1 as n, o$4 as o, c$1 as p, n$2 as q, f$1 as r, s$3 as s, t$2 as t, useLocalePath as u, p as v, w$2 as w, w$4 as x, h as y, __nuxt_component_1$3 as z };
+export { useAppConfig as $, A$3 as A, __nuxt_component_4$4 as B, mergeConfig as C, useUI as D, E$2 as E, usePopper as F, useInjectButtonGroup as G, useFormGroup as H, twMerge as I, appConfig as J, get as K, s$5 as L, select as M, N$4 as N, O$2 as O, selectMenu as P, __nuxt_component_0$9 as Q, __nuxt_component_2$3 as R, __nuxt_component_4 as S, T$2 as T, omit as U, __nuxt_component_7 as V, useToast as W, useCartStore as X, __nuxt_component_0$4 as Y, __nuxt_component_2$4 as Z, _export_sfc as _, useI18n as a, __nuxt_component_0$3 as a0, useCookieNoticeStore as a1, __nuxt_component_0$e as a2, getNuxtLinkProps as a3, useHead as a4, __nuxt_component_1$2 as a5, __nuxt_component_0$d as a6, nuxtLinkProps as a7, getSlotChildrenText as a8, __nuxt_component_0$b as a9, getULinkProps as aa, getSlotsChildren as ab, avatar as ac, button as ad, __nuxt_component_2$1 as ae, config$i as af, N$1 as ag, Q$1 as ah, V as ai, __nuxt_component_0$7 as aj, useRequestEvent as ak, withLeadingSlash as al, hasProtocol as am, joinURL as an, parseURL as ao, encodeParam as ap, encodePath as aq, useNuxtApp as ar, useRuntimeConfig as as, useRoute as at, withTrailingSlash as au, withoutTrailingSlash as av, useAsyncData as aw, withBase as ax, useCookie as ay, useState as az, useSeoMeta as b, i$4 as c, o$2 as d, entry$1 as default, u$5 as e, i$1 as f, i$2 as g, u$7 as h, i$6 as i, f$2 as j, u$4 as k, l$2 as l, t$1 as m, o$1 as n, o$4 as o, c$1 as p, n$2 as q, f$1 as r, s$3 as s, t$2 as t, useLocalePath as u, p as v, w$2 as w, w$4 as x, h as y, __nuxt_component_1$3 as z };
 //# sourceMappingURL=server.mjs.map
