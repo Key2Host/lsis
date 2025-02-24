@@ -1,1 +1,0 @@
-import{d as n,a2 as o}from"./DqorrIxl.js";const e=n({name:"DocumentDrivenNotFound",render(){return o("div","Document not found")}}),m=Object.assign(e,{__name:"DocumentDrivenNotFound"});export{m as default};
