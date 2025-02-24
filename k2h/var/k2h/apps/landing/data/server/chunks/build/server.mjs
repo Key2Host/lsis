@@ -1174,17 +1174,17 @@ const _routes = [
   {
     name: "products-webspace___en",
     path: "/en/products/webspace",
-    component: () => import('./index-BAmt6Yb7.mjs')
+    component: () => import('./index-C2ZthUom.mjs')
   },
   {
     name: "products-webspace___de___default",
     path: "/products/webspace",
-    component: () => import('./index-BAmt6Yb7.mjs')
+    component: () => import('./index-C2ZthUom.mjs')
   },
   {
     name: "products-webspace___de",
     path: "/de/products/webspace",
-    component: () => import('./index-BAmt6Yb7.mjs')
+    component: () => import('./index-C2ZthUom.mjs')
   },
   {
     name: void 0 ,
@@ -2658,11 +2658,11 @@ const localeCodes = [
 ];
 const localeLoaders = {
   "en": [{ key: "../../../../i18n/locales/en-US.json", load: () => import(
-    './en-US-CYxKU5vj.mjs'
+    './en-US-3RR6owuR.mjs'
     /* webpackChunkName: "locale__Users_lpoggemann_GitHub_landing_i18n_locales_en_US_json" */
   ), cache: true }],
   "de": [{ key: "../../../../i18n/locales/de-DE.json", load: () => import(
-    './de-DE-DKg3okgJ.mjs'
+    './de-DE-DRc10zso.mjs'
     /* webpackChunkName: "locale__Users_lpoggemann_GitHub_landing_i18n_locales_de_DE_json" */
   ), cache: true }]
 };
