@@ -2658,7 +2658,7 @@ const localeCodes = [
 ];
 const localeLoaders = {
   "en": [{ key: "../../../../i18n/locales/en-US.json", load: () => import(
-    './en-US-CBX3_3wb.mjs'
+    './en-US-CYxKU5vj.mjs'
     /* webpackChunkName: "locale__Users_lpoggemann_GitHub_landing_i18n_locales_en_US_json" */
   ), cache: true }],
   "de": [{ key: "../../../../i18n/locales/de-DE.json", load: () => import(
