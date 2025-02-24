@@ -28,14 +28,6 @@ const sources = [
         },
         "urls": [
             {
-                "loc": "/en/sitemap.xml",
-                "_sitemap": "de"
-            },
-            {
-                "loc": "/de/sitemap.xml",
-                "_sitemap": "de"
-            },
-            {
                 "loc": "/en/checkout/failed",
                 "_sitemap": "en",
                 "alternatives": [
@@ -45,16 +37,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/checkout/failed"
+                        "href": "/checkout/failed"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/checkout/failed"
+                        "href": "/checkout/failed"
                     }
                 ]
             },
             {
-                "loc": "/de/checkout/failed",
+                "loc": "/checkout/failed",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -63,11 +55,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/checkout/failed"
+                        "href": "/checkout/failed"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/checkout/failed"
+                        "href": "/checkout/failed"
                     }
                 ]
             },
@@ -81,16 +73,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/checkout"
+                        "href": "/checkout"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/checkout"
+                        "href": "/checkout"
                     }
                 ]
             },
             {
-                "loc": "/de/checkout",
+                "loc": "/checkout",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -99,11 +91,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/checkout"
+                        "href": "/checkout"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/checkout"
+                        "href": "/checkout"
                     }
                 ]
             },
@@ -117,16 +109,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/checkout/success"
+                        "href": "/checkout/success"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/checkout/success"
+                        "href": "/checkout/success"
                     }
                 ]
             },
             {
-                "loc": "/de/checkout/success",
+                "loc": "/checkout/success",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -135,11 +127,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/checkout/success"
+                        "href": "/checkout/success"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/checkout/success"
+                        "href": "/checkout/success"
                     }
                 ]
             },
@@ -153,16 +145,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/company/milestones"
+                        "href": "/company/milestones"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/company/milestones"
+                        "href": "/company/milestones"
                     }
                 ]
             },
             {
-                "loc": "/de/company/milestones",
+                "loc": "/company/milestones",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -171,11 +163,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/company/milestones"
+                        "href": "/company/milestones"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/company/milestones"
+                        "href": "/company/milestones"
                     }
                 ]
             },
@@ -189,16 +181,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/company/partners"
+                        "href": "/company/partners"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/company/partners"
+                        "href": "/company/partners"
                     }
                 ]
             },
             {
-                "loc": "/de/company/partners",
+                "loc": "/company/partners",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -207,11 +199,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/company/partners"
+                        "href": "/company/partners"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/company/partners"
+                        "href": "/company/partners"
                     }
                 ]
             },
@@ -225,16 +217,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/contact"
+                        "href": "/contact"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/contact"
+                        "href": "/contact"
                     }
                 ]
             },
             {
-                "loc": "/de/contact",
+                "loc": "/contact",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -243,11 +235,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/contact"
+                        "href": "/contact"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/contact"
+                        "href": "/contact"
                     }
                 ]
             },
@@ -261,16 +253,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de"
+                        "href": "/"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de"
+                        "href": "/"
                     }
                 ]
             },
             {
-                "loc": "/de",
+                "loc": "/",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -279,11 +271,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de"
+                        "href": "/"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de"
+                        "href": "/"
                     }
                 ]
             },
@@ -297,16 +289,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/legal/notice"
+                        "href": "/legal/notice"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/legal/notice"
+                        "href": "/legal/notice"
                     }
                 ]
             },
             {
-                "loc": "/de/legal/notice",
+                "loc": "/legal/notice",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -315,11 +307,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/legal/notice"
+                        "href": "/legal/notice"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/legal/notice"
+                        "href": "/legal/notice"
                     }
                 ]
             },
@@ -333,16 +325,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/legal/privacy"
+                        "href": "/legal/privacy"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/legal/privacy"
+                        "href": "/legal/privacy"
                     }
                 ]
             },
             {
-                "loc": "/de/legal/privacy",
+                "loc": "/legal/privacy",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -351,11 +343,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/legal/privacy"
+                        "href": "/legal/privacy"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/legal/privacy"
+                        "href": "/legal/privacy"
                     }
                 ]
             },
@@ -369,16 +361,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/legal/tos"
+                        "href": "/legal/tos"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/legal/tos"
+                        "href": "/legal/tos"
                     }
                 ]
             },
             {
-                "loc": "/de/legal/tos",
+                "loc": "/legal/tos",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -387,11 +379,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/legal/tos"
+                        "href": "/legal/tos"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/legal/tos"
+                        "href": "/legal/tos"
                     }
                 ]
             },
@@ -405,16 +397,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/newsroom"
+                        "href": "/newsroom"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/newsroom"
+                        "href": "/newsroom"
                     }
                 ]
             },
             {
-                "loc": "/de/newsroom",
+                "loc": "/newsroom",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -423,11 +415,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/newsroom"
+                        "href": "/newsroom"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/newsroom"
+                        "href": "/newsroom"
                     }
                 ]
             },
@@ -441,16 +433,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/products/dedicated"
+                        "href": "/products/dedicated"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/products/dedicated"
+                        "href": "/products/dedicated"
                     }
                 ]
             },
             {
-                "loc": "/de/products/dedicated",
+                "loc": "/products/dedicated",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -459,11 +451,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/products/dedicated"
+                        "href": "/products/dedicated"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/products/dedicated"
+                        "href": "/products/dedicated"
                     }
                 ]
             },
@@ -477,16 +469,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/products/domain"
+                        "href": "/products/domain"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/products/domain"
+                        "href": "/products/domain"
                     }
                 ]
             },
             {
-                "loc": "/de/products/domain",
+                "loc": "/products/domain",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -495,11 +487,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/products/domain"
+                        "href": "/products/domain"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/products/domain"
+                        "href": "/products/domain"
                     }
                 ]
             },
@@ -513,16 +505,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/products/lic-cert"
+                        "href": "/products/lic-cert"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/products/lic-cert"
+                        "href": "/products/lic-cert"
                     }
                 ]
             },
             {
-                "loc": "/de/products/lic-cert",
+                "loc": "/products/lic-cert",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -531,11 +523,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/products/lic-cert"
+                        "href": "/products/lic-cert"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/products/lic-cert"
+                        "href": "/products/lic-cert"
                     }
                 ]
             },
@@ -549,16 +541,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/products/vps-root"
+                        "href": "/products/vps-root"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/products/vps-root"
+                        "href": "/products/vps-root"
                     }
                 ]
             },
             {
-                "loc": "/de/products/vps-root",
+                "loc": "/products/vps-root",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -567,11 +559,11 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/products/vps-root"
+                        "href": "/products/vps-root"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/products/vps-root"
+                        "href": "/products/vps-root"
                     }
                 ]
             },
@@ -585,16 +577,16 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/products/webspace"
+                        "href": "/products/webspace"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/products/webspace"
+                        "href": "/products/webspace"
                     }
                 ]
             },
             {
-                "loc": "/de/products/webspace",
+                "loc": "/products/webspace",
                 "_sitemap": "de",
                 "alternatives": [
                     {
@@ -603,13 +595,25 @@ const sources = [
                     },
                     {
                         "hreflang": "de",
-                        "href": "/de/products/webspace"
+                        "href": "/products/webspace"
                     },
                     {
                         "hreflang": "x-default",
-                        "href": "/de/products/webspace"
+                        "href": "/products/webspace"
                     }
                 ]
+            },
+            {
+                "loc": "/en/sitemap.xml",
+                "_sitemap": "de"
+            },
+            {
+                "loc": "/sitemap.xml",
+                "_sitemap": "de"
+            },
+            {
+                "loc": "/de/sitemap.xml",
+                "_sitemap": "de"
             }
         ],
         "sourceType": "app"
@@ -636,7 +640,30 @@ const sources = [
             ]
         },
         "urls": [
-            null
+            {
+                "loc": "/",
+                "_sitemap": "de",
+                "images": [
+                    {
+                        "loc": "https://i.pravatar.cc/120?img=1"
+                    },
+                    {
+                        "loc": "https://i.pravatar.cc/120?img=7"
+                    },
+                    {
+                        "loc": "https://i.pravatar.cc/120?img=3"
+                    },
+                    {
+                        "loc": "https://i.pravatar.cc/120?img=5"
+                    },
+                    {
+                        "loc": "https://i.pravatar.cc/120?img=8"
+                    },
+                    {
+                        "loc": "https://i.pravatar.cc/120?img=9"
+                    }
+                ]
+            }
         ],
         "sourceType": "app"
     }
