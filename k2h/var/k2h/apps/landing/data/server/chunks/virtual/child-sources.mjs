@@ -1,6 +1,6 @@
 const sources = {
-    "en": [],
-    "de": []
+    "de": [],
+    "en": []
 };
 
 export { sources };
