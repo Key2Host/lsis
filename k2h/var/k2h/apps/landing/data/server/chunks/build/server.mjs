@@ -9817,18 +9817,16 @@ const _sfc_main$y = {
   setup(__props) {
     const { locale, locales } = useI18n();
     const switchLocalePath2 = useSwitchLocalePath();
-    const userLang = useState("userLang", () => "en");
+    const userLang = useState("userLang", () => null);
     const showGermanBanner = computed(() => locale.value === "en" && userLang.value.startsWith("de"));
     const showEnglishBanner = computed(() => locale.value === "de" && userLang.value.startsWith("en"));
-    computed(() => {
-      return locales.value.filter((i2) => i2.code !== locale.value);
-    });
+    const dismiss = ref(false);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UButton = __nuxt_component_0$b;
       const _component_UIcon = __nuxt_component_1$3;
       _push(`<!--[-->`);
-      if (showGermanBanner.value) {
-        _push(`<div class="bg-gray-500 p-2 flex justify-center items-center"><h1 class="text-xs text-white font-semibold"> Wir haben erkannt, dass die von Ihnen verwendete Sprache auf Deutsch eingestellt ist.<br> Möchten Sie zur deutschen Version unserer Website wechseln? </h1>`);
+      if (unref(userLang) && showGermanBanner.value && !unref(dismiss)) {
+        _push(`<div class="bg-gray-500 p-2 flex justify-center items-center"><h1 class="text-xs text-white font-semibold"> Wir zeigen dir Inhalte, die International relevant sind.<br> Um Inhalte für ein anderes Land anzuzeigen, ändere bitte deine Spracheinstellungen. </h1>`);
         _push(ssrRenderComponent(_component_UButton, {
           class: "ml-4",
           size: "lg",
@@ -9847,14 +9845,15 @@ const _sfc_main$y = {
         }, _parent));
         _push(ssrRenderComponent(_component_UIcon, {
           name: "i-heroicons-x-mark",
-          class: "w-6 h-6 text-white ml-2"
+          class: "w-6 h-6 text-white hover:bg-gray-200 ml-2 cursor-pointer",
+          onClick: ($event) => dismiss.value = true
         }, null, _parent));
         _push(`</div>`);
       } else {
         _push(`<!---->`);
       }
-      if (showEnglishBanner.value) {
-        _push(`<div class="bg-blue-500 p-2 flex justify-center items-center"><h1 class="text-xs text-white font-semibold"> We have detected that the language you are using does not match German.<br> Would you like to switch to the English version of our website? </h1>`);
+      if (unref(userLang) && showEnglishBanner.value && !unref(dismiss)) {
+        _push(`<div class="bg-blue-500 p-2 flex justify-center items-center"><h1 class="text-xs text-white font-semibold"> We show you content that is relevant for Germany.<br> To display content for another country, please change your language settings. </h1>`);
         _push(ssrRenderComponent(_component_UButton, {
           class: "ml-4",
           size: "lg",
@@ -9873,7 +9872,8 @@ const _sfc_main$y = {
         }, _parent));
         _push(ssrRenderComponent(_component_UIcon, {
           name: "i-heroicons-x-mark",
-          class: "w-6 h-6 text-white ml-2"
+          class: "w-6 h-6 text-white hover:bg-gray-200 ml-2 cursor-pointer",
+          onClick: ($event) => dismiss.value = true
         }, null, _parent));
         _push(`</div>`);
       } else {
