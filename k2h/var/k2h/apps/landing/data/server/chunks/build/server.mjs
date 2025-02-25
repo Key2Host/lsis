@@ -2652,19 +2652,1127 @@ function isHTTPS(req, trustProxy = true) {
   }
   return false;
 }
+const resource$1 = {
+  "menus": {
+    "header": {
+      "home": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Home" } },
+      "products": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Products" } },
+        "items": {
+          "1": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Webspaces" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Powerful webhosting packages." } }
+          },
+          "2": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domains" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Get the domain you want." } }
+          },
+          "3": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "VPS & root server" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Flexibly scalable servers for small/medium projects." } }
+          },
+          "4": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dedicated server" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dedicated servers without resource sharing." } }
+          },
+          "5": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Licenses & Certificates" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Plesk, cPanel & SSL/TLS certificates." } }
+          }
+        }
+      },
+      "news": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Newsroom" } },
+      "contact": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Contact" } },
+      "buttons": {
+        "startnow": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Start now" } },
+        "login": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sign in" } },
+        "signup": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Create a new account" } }
+      }
+    },
+    "footer": {
+      "products": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Products" } },
+        "items": {
+          "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Webspaces" } },
+          "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domains" } },
+          "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "VPS & root server" } },
+          "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dedicated server" } },
+          "5": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Licenses & Certificates" } }
+        }
+      },
+      "help": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Help" } },
+        "items": {
+          "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Contact" } },
+          "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "FAQ" } },
+          "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Supportcenter" } },
+          "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Documentation" } },
+          "5": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Service Status" } }
+        }
+      },
+      "company": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Company" } },
+        "items": {
+          "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Newsroom" } },
+          "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Milestones" } },
+          "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Career" } },
+          "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Partnerships" } }
+        }
+      },
+      "newsletter": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Never miss any news again!" } },
+        "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Your email address" } },
+        "successModal": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Newsletter" } },
+          "message": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "You have successfully subscribed to the newsletter." } }
+        }
+      },
+      "legal": {
+        "notice": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Legal Notice" } },
+        "privacy": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Privcy Policy" } },
+        "tos": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Terms Of Service" } }
+      }
+    }
+  },
+  "cookienotice": {
+    "start": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Which cookies would you like to allow?" } },
+      "description": {
+        "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "We use cookies and similar technologies to improve the user experience and to process personal data such as IP addresses. You can find more information about the cookies used and how to manage them in the cookie settings." } },
+        "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Data processing is carried out with your consent or on the basis of a legitimate interest. You can revoke your consent at any time in the cookie settings. You can find details on the processing of your data in our privacy policy." } },
+        "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Some services process your data in countries outside the EU that may have a lower level of data protection. By giving your consent, you agree to these risks." } },
+        "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "For users under the age of 16, parental consent is required to use optional cookies." } }
+      },
+      "actions": {
+        "needed": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Accept necessary" } },
+        "all": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Accept all" } }
+      }
+    },
+    "details": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "More information" } },
+      "needed": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Necessary cookies" } },
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Cloudflare" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Cloudflare is a content delivery network (CDN) and provides security and performance optimizations for your website. It is used to secure and accelerate traffic on our site by reducing the load on our servers. This is necessary for the functionality and security of the site. The cookie is stored for 1 year to ensure security and performance." } }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Stripe" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Stripe is a payment provider used on our website for secure online payments. Stripe uses cookies to process payment transactions, prevent fraud and ensure a smooth checkout process. These cookies are necessary for the functionality of payment processing and are set during the payment process." } }
+        },
+        "3": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Shopping cart" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Our self-programmed shopping cart uses cookies to save your selected products even after a page change or a new visit. Cookies or LocalStorage are used to temporarily store your shopping cart data. This is necessary to enable your order and provide a better user experience." } }
+        }
+      },
+      "optional": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Optional cookies" } }
+      },
+      "notice": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Further information on the cookies used and their functions and processing can be found on the respective websites of the providers." } },
+      "actions": {
+        "back": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Back" } }
+      }
+    }
+  },
+  "index": {
+    "hero": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "To the documentation" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Your way to the Internet with Key2Host" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Why make it complicated when you can make it simple? With Key2Host, you have everything you need in one place. Whether hosting, domains or licenses - we are your key to the digital world." } },
+      "links": {
+        "news": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Browse the latest news" } },
+        "startnow": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Start now" } }
+      }
+    },
+    "partners": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The best in the world rely on us" } }
+    },
+    "features": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Features" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Why Key2Host?" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "We provide you with transparent information on why you should choose Key2Host. Here you will find our most important features!" } },
+      "items": {
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Easy management" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Our platform is designed so that even beginners can use it without any problems. Get started with Key2Host, even if you have no prior knowledge!" } }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "High performance" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Experience lightning-fast loading times, even at high capacity - thanks to our powerful and reliable infrastructure." } }
+        },
+        "3": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Safety and security" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "With the highest security standards and regular updates, we protect your data and keep vulnerabilities at bay." } }
+        },
+        "4": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "24/7 support" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Our experienced support team is available around the clock to answer all your questions quickly and competently." } }
+        },
+        "5": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Global locations" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "With our server locations in many countries, we guarantee you optimum availability and fast connections worldwide." } }
+        },
+        "6": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Data protection" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "We guarantee the highest standards in handling your data - secure, transparent and GDPR-compliant." } }
+        }
+      }
+    },
+    "reviews": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Reviews" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "What our customers say" } }
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Contact" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "You can reach us at any time here." } }
+    },
+    "information": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Information" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "You are welcome to contact us using one of the contact methods provided." } },
+      "phone": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Phone" } },
+      "email": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Email" } },
+      "address": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Address" } },
+      "nomaps": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The map was blocked by your cookie settings." } }
+    },
+    "contactform": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Contact form" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Here you can easily leave us a message!" } },
+      "inputs": {
+        "firstname": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "First name" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Your first name" } }
+        },
+        "lastname": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Last name" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Your last name" } }
+        },
+        "email": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Email address" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Your email address" } }
+        },
+        "message": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Message" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Your message" } },
+          "words": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Words" } }
+        },
+        "checkbox": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "You hereby agree to our terms and conditions and data protection." } },
+        "submit": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Submit" } }
+      },
+      "successModal": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Message sent" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Thank you for your message. We will get back to you as soon as possible." } }
+      },
+      "errorModal": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "An error has occurred" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Your message could not be sent" } }
+      },
+      "lengthModal": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Message could not be sent" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The message is too long or too short." } }
+      }
+    },
+    "faq": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Most frequently asked questions" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Maybe you are not the first one with this question and will find your answer here!" } },
+      "items": {
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "How secure is my hosting at Key2Host?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "We attach great importance to security. All registrations are checked manually to avoid spam and fraud. We also use modern encryption technologies, DDoS protection and regular security updates. You can find out more in our documentation." } }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "How long will it take to activate my account?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "When you create your customer account, you will be asked to verify your ID. This usually takes a maximum of 2-3 minutes. This ensures a secure and professional environment for our customers." } }
+        },
+        "3": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Is there a minimum age for using Key2Host?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Yes, the minimum age for using our services is 18 years. Business customers must provide proof of their company." } }
+        },
+        "4": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Which payment methods do you accept?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "We accept common payment methods such as credit card, PayPal and SEPA direct debit. Depending on the location, other options may be available." } }
+        },
+        "5": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Can I change my plan at any time?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Yes, you can upgrade or downgrade your hosting package at any time. Changes usually take effect immediately or at the next billing period." } }
+        },
+        "6": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Is there a money-back guarantee?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Yes, we offer a 3-day money-back guarantee on our web hosting and VPS plans, provided there are no violations of our Terms of Service." } }
+        },
+        "7": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "How do I contact the support team?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Our support team can be reached by ticket system and e-mail. Business customers also have the option of having a personal contact person." } }
+        }
+      }
+    }
+  },
+  "newsroom": {
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Newsroom" } },
+    "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Read the latest news from our blog." } },
+    "published": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Published on" } }
+  },
+  "milestones": {
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Milestones" } },
+    "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Learn more about our history!" } },
+    "items": {
+      "1": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Start of the development" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "On this day, the foundation stone for Key2Host was laid: The start of the development of the frontend, backend and API to create a powerful and user-friendly hosting platform." } }
+      },
+      "2": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Purchase of the first root server" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "An important milestone: The first own root server was acquired to launch the infrastructure for Key2Host and enable high-quality hosting services." } }
+      },
+      "3": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": 'Registration of the domain "key2host.com"' } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": `The official domain "key2host.com" was secured to build the company's online presence and provide a professional platform for customers.` } }
+      }
+    }
+  },
+  "partners": {
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Partnerships" } },
+    "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Our official partnerships" } }
+  },
+  "legal": {
+    "notice": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Legal Notice" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Here you will find all legal information about Key2Host." } },
+      "provider": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Service provider" } },
+      "ceo": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "CEO" } },
+      "contact": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Contact options" } },
+        "phone": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Phone" } },
+        "email": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Email" } }
+      },
+      "vat": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "VAT identification number" } },
+        "notice": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "According to §19 UStG (the German law) Key2Host does not charge sales tax due to the application of the small business regulation." } }
+      },
+      "dispute": {
+        "title": { "t": 0, "b": { "static": "", "t": 2, "i": [] } },
+        "description": { "t": 0, "b": { "static": "", "t": 2, "i": [] } }
+      },
+      "socialmedia": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Social media and other online presences" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "This legal notice also applies to the social media presences and online profiles linked on the website." } }
+      },
+      "liability": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Liability and property rights" } },
+        "items": {
+          "1": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Disclaimer" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The content of this website has been carefully compiled and is for information purposes only. No liability is assumed for the accuracy, completeness and topicality of the content. No liability is assumed for damages arising from the use of the information, unless they are based on intent or gross negligence." } }
+          },
+          "2": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Links to third-party websites" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Our website contains links to external websites over whose content we have no influence. We assume no responsibility for their content. If we become aware of any legal infringements, we will remove the relevant links immediately." } }
+          },
+          "3": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Copyright and trademark rights" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "All contents of this website are protected by copyright. Use or reproduction without express permission is not permitted. All trademarks and logos used are subject to the rights of their respective owners." } }
+          },
+          "4": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Information on legal violations" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "If you discover any legal violations on our website, please notify us as soon as possible. We will investigate the matter and take appropriate action." } }
+          }
+        }
+      }
+    },
+    "tos": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Terms and Conditions (TOS)" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Here you will find the terms and conditions of Key2Host." } },
+      "items": {
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "1. Scope of application" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "These erms and Conditions (TOS) apply to all contracts concluded between Key2Host and the customer for the provision of hosting services. Deviating agreements are only effective if they have been confirmed in writing by Key2Host." } }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "2. Contract conclusion" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The contract is concluded with the acceptance of the customer's order by Key2Host. The customer receives a confirmation by e-mail. All offers are subject to change and non-binding. Key2Host reserves the right to refuse orders without giving reasons." } }
+        },
+        "3": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "3. Services" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Key2Host offers services such as the provision of virtual servers (VPS), dedicated servers, domain registrations and VPN services. The exact services can be found in the service description on the website. Key2Host is entitled to change or discontinue the services at any time, provided this is reasonable for the customer." } }
+        },
+        "4": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "4. Availability and maintenance" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Key2Host strives for the highest possible availability of its services, but does not guarantee continuous availability. Maintenance work and unforeseen outages can lead to interruptions. However, Key2Host will try to announce planned maintenance work in good time and minimize the impact on operations." } }
+        },
+        "5": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "5 Prices and terms of payment" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "All prices are quoted in euros and include VAT unless otherwise stated. Payments must be made in advance. Supported payment methods are indicated on the website. If the customer defaults on payment, Key2Host reserves the right to restrict or discontinue services. In the event of late payment, reminder fees and default interest will be charged in accordance with the statutory provisions." } }
+        },
+        "6": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "6. User account" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The customer is obliged to keep his access data safe and secret. Key2Host is not liable for damages caused by unauthorized use of the account. The customer is obliged to inform Key2Host immediately of the loss or misuse of access data." } }
+        },
+        "7": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "7. Privacy" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Key2Host is committed to protecting the personal data of customers in accordance with the General Data Protection Regulation (GDPR). Further information can be found in the privacy policy. The customer consents to the processing of their data insofar as this is necessary for the performance of the contract." } }
+        },
+        "8": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "8. Protection of intellectual property" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The customer guarantees that all content stored on or distributed via Key2Host's servers does not violate any copyrights or intellectual property rights of third parties. Key2Host reserves the right to remove content that violates applicable law or these TOS without prior notice." } }
+        },
+        "9": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "9. Liability" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Key2Host is only liable for intent and gross negligence. In the case of slight negligence, Key2Host is only liable for breaches of essential contractual obligations. Liability for loss of data or unforeseeable damage is excluded. Key2Host accepts no liability for server failures or other technical faults that are beyond its control." } }
+        },
+        "10": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "10. Account suspension" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Key2Host reserves the right to block a customer's account if there are indications of illegal activities, misuse or violations of these TOS. An account may also be blocked without prior notice if there is an acute threat to the security of systems or data." } }
+        },
+        "11": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "11. Abuse and misuse" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The customer undertakes not to use the services of Key2Host for illegal, harmful or abusive activities. This includes, but is not limited to: Denial of Service (DoS) attacks, spreading malware, sending spam or hosting phishing sites. In the event of such abuse, Key2Host reserves the right to immediately block the customer's access and terminate the contract without refund." } }
+        },
+        "12": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "12. Cryptomining and illegal applications" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The customer is expressly prohibited from using server resources for hosting cryptomining services, illegal software applications or other programs that violate applicable law or morality. This includes, in particular, applications that are used to mine cryptocurrencies or to carry out illegal activities. Violations of this provision will result in the immediate blocking of the account and termination of the contract without notice and without reimbursement of payments." } }
+        },
+        "13": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "13. Terrorism and the spread of hate" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The dissemination of terrorist content or material that incites violence or the spread of hatred and intolerance is strictly prohibited. Key2Host will take all necessary measures immediately if such activities are suspected, including the immediate blocking of accounts and reporting to the relevant authorities." } }
+        },
+        "14": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "14. Cancellation" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unless otherwise agreed, contracts can be terminated with 14 days' notice to the end of the term. The right to extraordinary termination remains unaffected. Key2Host reserves the right to terminate the contract without notice in the event of serious breaches of the TOS, e.g. misuse of services." } }
+        },
+        "15": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "15. Severability clause" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Should individual provisions of these Terms and Conditions be invalid or unenforceable in whole or in part, this shall not affect the validity of the remaining provisions. The invalid or unenforceable provision shall be replaced by a provision that comes closest to the economic purpose of the invalid provision. The same applies to any loopholes in these TOS." } }
+        },
+        "16": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "16. Final clauses" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The law of the Federal Republic of Germany shall apply. The place of jurisdiction is Ibbenbüren, provided the customer is a merchant. Should individual provisions be invalid, the validity of the remaining provisions shall remain unaffected. Key2Host reserves the right to change these TOS at any time, whereby the customer will be notified of the changes at least 14 days before they come into effect." } }
+        }
+      }
+    },
+    "privacy": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Privacy Policy" } }
+    }
+  },
+  "products": {
+    "webspace": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Products > Webspaces" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Browse our webhosting packages!" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "A high-performance web space is the basis of every successful website. Whether you run a company website, an online store or a private site - our web spaces offer you the perfect combination of performance, security and user-friendliness." } },
+      "addBasket": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Add to cart" } },
+      "cycle": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Month" } },
+      "domain": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domain needed?" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "For a successful online presence, we recommend securing a suitable domain (e.g. example.org) in addition to your web hosting package." } },
+        "action": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Secure your favorite domain" } }
+      },
+      "tablerows": {
+        "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Storage (SSD)" } },
+        "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domains" } },
+        "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Subdomains" } },
+        "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "E-Mail Accounts" } },
+        "5": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "E-Mail Addresses" } },
+        "6": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Databases" } },
+        "7": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "FTP-Users" } },
+        "8": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Antivirus / Antispam" } },
+        "9": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "DDoS-Protection" } },
+        "10": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Traffic" } },
+        "11": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "PHP Memory Limit" } },
+        "12": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "PHP Upload Max Filesize" } },
+        "13": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Free SSL-Certificate" } },
+        "14": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Backups" } },
+        "15": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Database-Remote-Access" } },
+        "16": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Catch-All Email" } },
+        "17": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Scheduled tasks" } },
+        "18": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "SSL/TLS Certificate manager" } },
+        "yes": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Yes" } }
+      }
+    },
+    "domain": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Products > Domains" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Secure your favorite domain" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Secure your favorite domain!" } },
+      "searchPlaceholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Enter the domain you want..." } },
+      "search": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Search" } },
+      "addBasket": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Add to cart" } },
+      "transfer": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Transfer domain" } },
+        "message": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "This domain is already taken. If it belongs to you, you can transfer it to Key2Host. To do this, ask your provider for the AUTH key." } },
+        "abort": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Abort" } },
+        "continue": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Continue" } }
+      },
+      "noresults": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "No results found. Please enter another domain." } },
+      "loading": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Data is being loaded..." } },
+      "notvalid": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Please enter a valid domain name." } }
+    },
+    "vps-root": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Products > VPS & root server" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Find the perfect server for your project!" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Rely on maximum performance and full control with our VPS and root servers. Whether for demanding applications, hosting projects or business solutions - here you get scalable resources, fast connections and maximum security." } }
+    },
+    "dedicated": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Products > Dedicated server" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Get the best performance!" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "For large projects, scalable applications and demanding requirements - with our dedicated servers you get 100% undivided resources and full control. Perfect for companies, developers or projects that require maximum performance." } }
+    },
+    "lic-cert": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Products > Licenses & Certificates" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Find the right license or certificate for your project!" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "With licenses for Plesk, KeyHelp and cPanel, you get the best tools to easily manage your servers. Optimized for high efficiency, full control and user-friendly interfaces - ideal for hosting professionals and developers who rely on reliable software." } }
+    }
+  },
+  "cart": {
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Shopping cart" } },
+    "isEmpty": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Your cart is empty" } },
+    "remove": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Remove" } },
+    "subtotal": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Subtotal" } },
+    "checkout": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Checkout" } },
+    "domainerror": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domains cannot be combined with other items." } }
+  },
+  "checkout": {
+    "index": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Payment process" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Coming Soon" } },
+      "errorModal": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Payment failed" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The transaction could not be created. If this error persists, please contact support." } }
+      },
+      "steps": {
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Login / Register" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Create an account or log in to complete the order." } },
+          "noaccount": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Don't have an account?" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "No problem, create an account now!" } },
+            "actions": {
+              "createAccount": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Create an account" } }
+            }
+          }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Complete payment" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Choose one of the payment methods to pay for your products." } },
+          "waitForPaymentProvider": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Waiting for payment service provider..." } },
+          "loggedInAs": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Logged in as" } },
+          "notYou": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Not you" } },
+          "unknownUser": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unknown user" } }
+        }
+      }
+    },
+    "failed": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "An error has occurred" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unfortunately your transaction could not be processed." } },
+      "actions": {
+        "home": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Back to home" } }
+      },
+      "content": {
+        "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The payment could not be submitted. Try again or contact support." } },
+        "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "If you notice that money has been charged from your account, contact customer service immediately." } }
+      }
+    },
+    "success": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Order completed" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Thank you for your trust in Key2Host." } },
+      "actions": {
+        "home": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Back to home" } },
+        "cp": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "To the control panel" } }
+      },
+      "content": {
+        "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The transaction has been successfully processed. You will receive the invoice automatically by e-mail." } },
+        "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Please be patient while your service is automatically created by the system." } }
+      }
+    }
+  },
+  "authform": {
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sign In" } },
+    "resetPW": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Password forgotten" } },
+    "inputs": {
+      "email": {
+        "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Email" } },
+        "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Your email address" } },
+        "err": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Email is required" } }
+      },
+      "password": {
+        "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Password" } },
+        "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Your password" } },
+        "err": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Password is required" } }
+      },
+      "submit": {
+        "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Log in" } }
+      }
+    },
+    "errorModal": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Security alert" } },
+      "wrongCred": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The email or password is incorrect." } },
+      "suspended": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Your user account has been suspended. Some functions are not available." } },
+      "err": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Error with the API request. Please try again later." } }
+    }
+  }
+};
+const resource = {
+  "menus": {
+    "header": {
+      "home": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Start" } },
+      "products": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Produkte" } },
+        "items": {
+          "1": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Webspaces" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Leistungsstarke Webhosting-Pakete." } }
+          },
+          "2": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domains" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sichere dir deine Wunschdomain." } }
+          },
+          "3": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "VPS & Root-Server" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Flexibel skalierbare Server für kleine/mittlere Projekte." } }
+          },
+          "4": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dedizierte Server" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dedizierte Server ohne Ressourcen-Sharing." } }
+          },
+          "5": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Lizenzen & Zertifikate" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Plesk, cPanel & SSL/TLS Zertifikate." } }
+          }
+        }
+      },
+      "news": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Newsroom" } },
+      "contact": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kontakt" } },
+      "buttons": {
+        "startnow": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Jetzt loslegen" } },
+        "login": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Anmelden" } },
+        "signup": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Neues Konto erstellen" } }
+      }
+    },
+    "footer": {
+      "products": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Produkte" } },
+        "items": {
+          "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Webspaces" } },
+          "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domains" } },
+          "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "VPS & Root-Server" } },
+          "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dedizierte Server" } },
+          "5": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Lizenzen & Zertifikate" } }
+        }
+      },
+      "help": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hilfe" } },
+        "items": {
+          "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kontakt" } },
+          "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "FAQ" } },
+          "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Supportcenter" } },
+          "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dokumentation" } },
+          "5": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Service Status" } }
+        }
+      },
+      "company": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unternehmen" } },
+        "items": {
+          "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Newsroom" } },
+          "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Meilensteine" } },
+          "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Karriere" } },
+          "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Partnerschaften" } }
+        }
+      },
+      "newsletter": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Verpasse keine Neuigkeiten mehr!" } },
+        "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Deine E-Mail Adresse" } },
+        "successModal": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Newsletter" } },
+          "message": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Du hast dich erfolgreich beim Newsletter angemeldet." } }
+        }
+      },
+      "legal": {
+        "notice": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Impressum" } },
+        "privacy": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Datenschutz" } },
+        "tos": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "AGB" } }
+      }
+    }
+  },
+  "cookienotice": {
+    "start": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Welche Cookies möchtest du zulassen?" } },
+      "description": {
+        "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wir verwenden Cookies und ähnliche Technologien, um die Nutzererfahrung zu verbessern und personenbezogene Daten wie IP-Adressen zu verarbeiten. Weitere Informationen zu den eingesetzten Cookies und deren Verwaltung findest du in den Cookie-Einstellungen." } },
+        "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die Datenverarbeitung erfolgt mit deiner Zustimmung oder aufgrund eines berechtigten Interesses. Du kannst deine Einwilligung jederzeit in den Cookie-Einstellungen widerrufen. Details zur Verarbeitung deiner Daten findest du in unserer Datenschutzerklärung." } },
+        "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Einige Dienste verarbeiten deine Daten in Ländern außerhalb der EU mit möglicherweise niedrigerem Datenschutzniveau. Durch die Zustimmung erklärst du dich mit diesen Risiken einverstanden." } },
+        "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Für Nutzer unter 16 Jahren ist die Zustimmung der Eltern erforderlich, um optionale Cookies zu nutzen." } }
+      },
+      "actions": {
+        "needed": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Notwendige akzeptieren" } },
+        "all": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Alle akzeptieren" } }
+      }
+    },
+    "details": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Mehr Informationen" } },
+      "needed": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Notwendige Cookies" } },
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Cloudflare" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Cloudflare ist ein Content Delivery Network (CDN) und bietet Sicherheits- und Leistungsoptimierungen für deine Website. Es wird eingesetzt, um den Datenverkehr auf unserer Seite abzusichern und zu beschleunigen, indem es die Last auf unseren Servern reduziert. Dies ist für die Funktionsfähigkeit und Sicherheit der Seite notwendig. Der Cookie wird für 1 Jahr gespeichert, um die Sicherheit und Leistung zu gewährleisten." } }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Stripe" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Stripe ist ein Zahlungsanbieter, der auf unserer Website für sichere Online-Zahlungen eingesetzt wird. Stripe verwendet Cookies, um die Zahlungstransaktionen zu verarbeiten, Betrug zu verhindern und eine reibungslose Kaufabwicklung zu gewährleisten. Diese Cookies sind für die Funktionalität der Zahlungsabwicklung erforderlich und werden während des Zahlungsprozesses gesetzt." } }
+        },
+        "3": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Warenkorb" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unser selbstprogrammierter Warenkorb nutzt Cookies, um deine ausgewählten Produkte auch nach einem Seitenwechsel oder erneuten Besuch zu speichern. Dafür werden Cookies oder LocalStorage genutzt, um deine Warenkorbdaten zwischenzuspeichern. Dies ist notwendig, um deine Bestellung zu ermöglichen und eine bessere Nutzererfahrung zu bieten." } }
+        }
+      },
+      "optional": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Optionale Cookies" } }
+      },
+      "notice": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Weitere Informationen zu den eingesetzten Cookies sowie deren Funktionen und Verarbeitung finden Sie auf den jeweiligen Webseiten der Anbieter." } },
+      "actions": {
+        "back": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Zurück" } }
+      }
+    }
+  },
+  "index": {
+    "hero": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Zur Dokumentation" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dein Weg ins Internet mit Key2Host" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Warum kompliziert, wenn es auch einfach geht? Mit Key2Host hast du alles, was du brauchst, an einem Ort. Ob Hosting, Domains oder Lizenzen – wir sind dein Schlüssel zur digitalen Welt." } },
+      "links": {
+        "news": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Neuigkeiten durchstöbern" } },
+        "startnow": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Jetzt loslegen" } }
+      }
+    },
+    "partners": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die besten der Welt vertrauen auf uns" } }
+    },
+    "features": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Features" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Warum Key2Host?" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wieso Sie sich für Key2Host entscheiden sollten, stellen wir Ihnen transparent zur Verfügung. Hier finden Sie unsere wichtigsten Features!" } },
+      "items": {
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Einfache Verwaltung" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unsere Plattform ist so gestaltet, dass auch Einsteiger sie problemlos nutzen können. Starten Sie mit Key2Host, selbst wenn Sie keine Vorkenntnisse haben!" } }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hohe Performance" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Erleben Sie blitzschnelle Ladezeiten, selbst bei hoher Auslastung – dank unserer leistungsstarken und zuverlässigen Infrastruktur." } }
+        },
+        "3": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sicherheit" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Mit höchsten Sicherheitsstandards und regelmäßigen Updates schützen wir Ihre Daten und halten Schwachstellen fern." } }
+        },
+        "4": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "24/7 Support" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unser erfahrenes Support-Team steht Ihnen rund um die Uhr zur Verfügung, um alle Fragen schnell und kompetent zu beantworten." } }
+        },
+        "5": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Globale Standorte" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Mit unseren Server-Standorten in vielen Ländern garantieren wir Ihnen weltweit optimale Verfügbarkeit und schnelle Verbindungen." } }
+        },
+        "6": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Datenschutz" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wir garantieren Ihnen höchste Standards im Umgang mit Ihren Daten – sicher, transparent und DSGVO-konform." } }
+        }
+      }
+    },
+    "reviews": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Rezensionen" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Was unsere Kunden sagen" } }
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kontakt" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hier können Sie uns jederzeit erreichen." } }
+    },
+    "information": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Informationen" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sie können uns gerne über einer der angegebenen Kontaktmethoden erreichen." } },
+      "phone": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Telefon" } },
+      "email": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "E-Mail" } },
+      "address": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Adresse" } },
+      "nomaps": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Google Maps wurde durch deine Cookie-Einstellungen blockiert." } }
+    },
+    "contactform": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kontaktformular" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hier können Sie uns ganz bequem eine Nachricht hinterlassen!" } },
+      "inputs": {
+        "firstname": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Vorname" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ihr Vorname" } }
+        },
+        "lastname": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Nachname" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ihr Nachname" } }
+        },
+        "email": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "E-Mail Adresse" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ihre E-Mail" } }
+        },
+        "message": {
+          "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Nachricht" } },
+          "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ihre Nachricht" } },
+          "words": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Worte" } }
+        },
+        "checkbox": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hiermit erklären Sie sich mit unseren AGB und dem Datenschutz einverstanden." } },
+        "submit": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Absenden" } }
+      },
+      "successModal": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Nachricht gesendet" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Vielen Dank für deine Nachricht. Wir werden uns zeitnah bei dir melden." } }
+      },
+      "errorModal": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ein Fehler ist aufgetreten" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Deine Nachricht konnte nicht gesendet werden" } }
+      },
+      "lengthModal": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Nachricht konnte nicht gesendet werden" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die Nachricht ist zu lang oder zu kurz." } }
+      }
+    },
+    "faq": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Meist gestellte Frage" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Vielleicht bist du nicht der erste mit der Frage und findest hier deine Antwort!" } },
+      "items": {
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wie sicher ist mein Hosting bei Key2Host?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wir legen großen Wert auf Sicherheit. Alle Registrierungen werden manuell überprüft, um Spam und Betrug zu vermeiden. Zudem setzen wir auf moderne Verschlüsselungstechnologien, DDoS-Schutz und regelmäßige Sicherheitsupdates. Mehr dazu findest du in unserer Dokumentation." } }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wie lange dauert die Freischaltung meines Accounts?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Bei der Erstellung deines Kundenkontos wirst du aufgefordert deinen Ausweis zu verifizieren. Dies dauert in der Regel höchstens 2-3 Minuten. Dies gewährleistet ein sicheres und professionelles Umfeld für unsere Kunden." } }
+        },
+        "3": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Gibt es ein Mindestalter für die Nutzung von Key2Host?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ja, das Mindestalter für die Nutzung unserer Dienste beträgt 18 Jahre. Geschäftskunden müssen einen Nachweis über ihr Unternehmen erbringen." } }
+        },
+        "4": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Welche Zahlungsmethoden werden akzeptiert?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wir akzeptieren gängige Zahlungsmethoden wie Kreditkarte, PayPal und SEPA-Lastschrift. Je nach Standort können weitere Optionen verfügbar sein." } }
+        },
+        "5": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kann ich meinen Tarif jederzeit wechseln?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ja, ein Upgrade oder Downgrade deines Hosting-Pakets ist jederzeit möglich. Änderungen werden in der Regel sofort oder zum nächsten Abrechnungszeitraum wirksam." } }
+        },
+        "6": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Gibt es eine Geld-zurück-Garantie?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ja, wir bieten eine 3-tägige Geld-zurück-Garantie auf unsere Webhosting- und VPS-Tarife, sofern keine Verstöße gegen unsere Nutzungsbedingungen vorliegen." } }
+        },
+        "7": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wie erreiche ich den Support?" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unser Support-Team ist per Ticket-System und E-Mail erreichbar. Geschäftskunden haben zudem die Möglichkeit, einen persönlichen Ansprechpartner zu erhalten." } }
+        }
+      }
+    }
+  },
+  "newsroom": {
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Newsroom" } },
+    "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Lesen Sie die neuesten Nachrichten aus unserem Blog." } },
+    "published": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Veröffentlicht am" } }
+  },
+  "milestones": {
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Meilensteine" } },
+    "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Erfahren Sie mehr über unsere Geschichte!" } },
+    "items": {
+      "1": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Beginn der Entwicklung" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "An diesem Tag wurde der Grundstein für Key2Host gelegt: Der Beginn der Entwicklung des Frontends, des Backends und der API, um eine leistungsstarke und benutzerfreundliche Hosting-Plattform zu schaffen." } }
+      },
+      "2": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kauf des ersten Rootservers" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ein wichtiger Meilenstein: Der erste eigene Rootserver wurde erworben, um die Infrastruktur für Key2Host zu starten und hochwertige Hosting-Services zu ermöglichen." } }
+      },
+      "3": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": 'Registrierung der Domain "key2host.com"' } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": 'Die offizielle Domain "key2host.com" wurde gesichert, um die Online-Präsenz des Unternehmens aufzubauen und eine professionelle Plattform für Kunden zu bieten.' } }
+      }
+    }
+  },
+  "partners": {
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Partnerschaften" } },
+    "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unsere offiziellen Partnerschaften" } }
+  },
+  "legal": {
+    "notice": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Impressum" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hier finden Sie alle rechtlichen Informationen von Key2Host." } },
+      "provider": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Diensteanbieter" } },
+      "ceo": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Geschäftsführer" } },
+      "contact": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kontaktmöglichkeiten" } },
+        "phone": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Telefon" } },
+        "email": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "E-Mail" } }
+      },
+      "vat": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Umsatzsteuer-Identifikationsnummer" } },
+        "notice": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Gemäß §19 UStG erhebt Key2Host keine Umsatzsteuer aufgrund der Anwendung der Kleinunternehmerregelung." } }
+      },
+      "dispute": {
+        "title": { "t": 0, "b": { "static": "", "t": 2, "i": [] } },
+        "description": { "t": 0, "b": { "static": "", "t": 2, "i": [] } }
+      },
+      "socialmedia": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Social Media und andere Onlinepräsenzen" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dieses Impressum gilt auch für die auf der Website verlinkten Social-Media-Präsenzen und Onlineprofile." } }
+      },
+      "liability": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Haftungs- und Schutzrechtshinweise" } },
+        "items": {
+          "1": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Haftungsausschluss" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die Inhalte dieses Onlineangebots wurden sorgfältig erstellt und dienen ausschließlich der Information. Eine Haftung für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird nicht übernommen. Für Schäden, die durch die Nutzung der Informationen entstehen, wird keine Haftung übernommen, es sei denn, sie beruhen auf Vorsatz oder grober Fahrlässigkeit." } }
+          },
+          "2": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Links auf fremde Webseiten" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unser Onlineangebot enthält Links zu externen Webseiten, auf deren Inhalte wir keinen Einfluss haben. Für deren Inhalte übernehmen wir keine Verantwortung. Bei Bekanntwerden von Rechtsverstößen werden wir die entsprechenden Links umgehend entfernen." } }
+          },
+          "3": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Urheberrechte und Markenrechte" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Alle Inhalte dieser Webseite sind urheberrechtlich geschützt. Die Nutzung oder Vervielfältigung ohne ausdrückliche Zustimmung ist nicht gestattet. Alle verwendeten Marken und Logos unterliegen den Rechten ihrer jeweiligen Inhaber." } }
+          },
+          "4": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hinweise auf Rechtsverstöße" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sollten Sie Rechtsverstöße auf unserer Webseite feststellen, bitten wir um eine schnelle Mitteilung. Wir werden die Angelegenheit prüfen und entsprechende Maßnahmen ergreifen." } }
+          }
+        }
+      }
+    },
+    "tos": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Allgemeine Geschäftsbedingungen (AGB)" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hier finden Sie die Allgemeinen Geschäftsbedingungen von Key2Host." } },
+      "items": {
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "1. Geltungsbereich" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, die zwischen Key2Host und den Kunden über die Bereitstellung von Hosting-Dienstleistungen abgeschlossen werden. Abweichende Vereinbarungen sind nur wirksam, wenn sie schriftlich von Key2Host bestätigt wurden." } }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "2. Vertragsabschluss" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Der Vertrag kommt mit der Annahme der Bestellung des Kunden durch Key2Host zustande. Der Kunde erhält eine Bestätigung per E-Mail. Alle Angebote sind freibleibend und unverbindlich. Key2Host behält sich vor, Bestellungen ohne Angabe von Gründen abzulehnen." } }
+        },
+        "3": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "3. Leistungen" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Key2Host bietet Dienstleistungen wie die Bereitstellung von virtuellen Servern (VPS), dedizierten Servern, Domain-Registrierungen und VPN-Diensten an. Die genauen Leistungen ergeben sich aus der Leistungsbeschreibung auf der Website. Key2Host ist berechtigt, die Leistungen jederzeit zu ändern oder einzustellen, sofern dies dem Kunden zumutbar ist." } }
+        },
+        "4": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "4. Verfügbarkeit und Wartung" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Key2Host strebt eine möglichst hohe Verfügbarkeit seiner Dienste an, übernimmt jedoch keine Garantie für eine kontinuierliche Verfügbarkeit. Wartungsarbeiten und unvorhergesehene Ausfälle können zu Unterbrechungen führen. Key2Host wird jedoch versuchen, geplante Wartungsarbeiten rechtzeitig anzukündigen und die Auswirkungen auf den Betrieb zu minimieren." } }
+        },
+        "5": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "5. Preise und Zahlungsbedingungen" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Alle Preise sind in Euro angegeben und enthalten die gesetzliche Mehrwertsteuer, sofern nicht anders angegeben. Zahlungen sind im Voraus zu leisten. Unterstützte Zahlungsmethoden werden auf der Website angegeben. Kommt der Kunde in Zahlungsverzug, behält sich Key2Host das Recht vor, Leistungen einzuschränken oder einzustellen. Für den Fall eines Zahlungsverzugs werden Mahngebühren und Verzugszinsen gemäß der gesetzlichen Bestimmungen erhoben." } }
+        },
+        "6": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "6. Nutzerkonto" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Der Kunde ist verpflichtet, seine Zugangsdaten sicher aufzubewahren und geheim zu halten. Key2Host haftet nicht für Schäden, die durch unbefugte Nutzung des Kontos entstehen. Der Kunde ist verpflichtet, Key2Host unverzüglich über den Verlust oder Missbrauch von Zugangsdaten zu informieren." } }
+        },
+        "7": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "7. Datenschutz" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Key2Host verpflichtet sich, die personenbezogenen Daten der Kunden gemäß der Datenschutz-Grundverordnung (DSGVO) zu schützen. Weitere Informationen finden Sie in der Datenschutzerklärung. Der Kunde stimmt der Verarbeitung seiner Daten zu, soweit dies für die Durchführung des Vertrags erforderlich ist." } }
+        },
+        "8": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "8. Schutz geistigen Eigentums" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Der Kunde garantiert, dass alle Inhalte, die auf den Servern von Key2Host gespeichert oder über diese verbreitet werden, keine Urheberrechte oder geistigen Eigentumsrechte Dritter verletzen. Key2Host behält sich vor, Inhalte, die gegen geltendes Recht oder diese AGB verstoßen, ohne vorherige Ankündigung zu entfernen." } }
+        },
+        "9": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "9. Haftung" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Key2Host haftet nur für Vorsatz und grobe Fahrlässigkeit. Bei leichter Fahrlässigkeit haftet Key2Host nur bei Verletzung wesentlicher Vertragspflichten. Eine Haftung für Datenverluste oder unvorhersehbare Schäden ist ausgeschlossen. Key2Host übernimmt keine Haftung für Ausfälle von Servern oder anderen technischen Störungen, die nicht in seinem Einflussbereich liegen." } }
+        },
+        "10": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "10. Sperrung des Kontos" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Key2Host behält sich das Recht vor, das Konto eines Kunden zu sperren, wenn Anzeichen für illegale Aktivitäten, Missbrauch oder Verstöße gegen diese AGB vorliegen. Eine Sperrung kann auch ohne vorherige Ankündigung erfolgen, wenn eine akute Gefährdung für die Sicherheit von Systemen oder Daten vorliegt." } }
+        },
+        "11": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "11. Abuse und Missbrauch" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Der Kunde verpflichtet sich, die Dienste von Key2Host nicht für illegale, schadhafte oder missbräuchliche Aktivitäten zu nutzen. Hierzu zählen, aber sind nicht beschränkt auf: Denial-of-Service (DoS)-Angriffe, das Verbreiten von Malware, das Versenden von Spam oder das Hosting von Phishing-Seiten. Im Falle eines solchen Missbrauchs behält sich Key2Host das Recht vor, den Zugang des Kunden sofort zu sperren und den Vertrag ohne Rückerstattung zu kündigen." } }
+        },
+        "12": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "12. Kryptomining und illegalen Anwendungen" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Es ist dem Kunden ausdrücklich untersagt, Serverressourcen für das Hosting von Kryptomining-Diensten, illegalen Softwareanwendungen oder anderen Programmen zu verwenden, die gegen geltendes Recht oder die guten Sitten verstoßen. Hierzu gehören insbesondere Anwendungen, die zum Abbau von Kryptowährungen oder zur Durchführung illegaler Aktivitäten genutzt werden. Verstöße gegen diese Bestimmung führen zur sofortigen Sperrung des Kontos und zur fristlosen Kündigung des Vertrages ohne Rückerstattung von Zahlungen." } }
+        },
+        "13": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "13. Terrorismus und Verbreitung von Hass" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Das Verbreiten von terroristischen Inhalten oder Material, das zur Gewalt oder zur Verbreitung von Hass und Intoleranz aufruft, ist strikt untersagt. Key2Host wird bei Verdacht auf solche Aktivitäten sofort alle erforderlichen Maßnahmen ergreifen, einschließlich der sofortigen Sperrung von Konten und der Meldung an die zuständigen Behörden." } }
+        },
+        "14": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "14. Kündigung" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Verträge können, sofern nicht anders vereinbart, mit einer Frist von 14 Tagen zum Ende der Laufzeit gekündigt werden. Das Recht zur außerordentlichen Kündigung bleibt unberührt. Bei schwerwiegenden Verstößen gegen die AGB, wie z.B. bei Missbrauch von Dienstleistungen, behält sich Key2Host das Recht vor, den Vertrag fristlos zu kündigen." } }
+        },
+        "15": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "15. Salvatorische Klausel" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sollten einzelne Bestimmungen dieser Allgemeinen Geschäftsbedingungen (AGB) ganz oder teilweise unwirksam oder nicht durchsetzbar sein, so bleibt die Wirksamkeit der übrigen Bestimmungen davon unberührt. Anstelle der unwirksamen oder nicht durchsetzbaren Bestimmung tritt eine solche Regelung, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung am nächsten kommt. Dasselbe gilt für etwaige Lücken in diesen AGB." } }
+        },
+        "16": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "16. Schlussbestimmungen" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Es gilt das Recht der Bundesrepublik Deutschland. Gerichtsstand ist Ibbenbüren, sofern der Kunde Kaufmann ist. Sollten einzelne Bestimmungen unwirksam sein, bleibt die Wirksamkeit der übrigen Regelungen unberührt. Key2Host behält sich vor, diese AGB jederzeit zu ändern, wobei die Änderungen dem Kunden spätestens 14 Tage vor Inkrafttreten mitgeteilt werden." } }
+        }
+      }
+    },
+    "privacy": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Datenschutz" } }
+    }
+  },
+  "products": {
+    "webspace": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Produkte > Webspaces" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Durchstöbere unsere Webhosting-Pakete!" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ein leistungsstarker Webspace ist die Basis jeder erfolgreichen Website. Egal, ob Sie eine Unternehmenswebsite, einen Online-Shop oder eine private Seite betreiben – unsere Webspaces bieten Ihnen die perfekte Kombination aus Performance, Sicherheit und Benutzerfreundlichkeit." } },
+      "addBasket": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "In den Warenkorb" } },
+      "cycle": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Monat" } },
+      "domain": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domain benötigt?" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Für eine erfolgreiche Online-Präsenz empfehlen wir, zusätzlich zu Ihrem Webhosting-Paket eine passende Domain zu sichern (beispielsweise example.org)." } },
+        "action": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wunschdomain sichern" } }
+      },
+      "tablerows": {
+        "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Speicherplatz (SSD)" } },
+        "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domains" } },
+        "3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Subdomains" } },
+        "4": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "E-Mail Konten" } },
+        "5": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "E-Mail Adressen" } },
+        "6": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Datenbanken" } },
+        "7": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "FTP-Benutzer" } },
+        "8": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Antivirus / Antispam" } },
+        "9": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "DDoS-Schutz" } },
+        "10": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Traffic" } },
+        "11": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "PHP Memory Limit" } },
+        "12": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "PHP Upload Max Filesize" } },
+        "13": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kostenloses SSL-Zertifikat" } },
+        "14": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Backups" } },
+        "15": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Datenbank-Fernzugriff" } },
+        "16": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Catch-All E-Mail" } },
+        "17": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Geplante Aufgaben" } },
+        "18": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "SSL/TLS Zertifikatsmanager" } },
+        "yes": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ja" } }
+      }
+    },
+    "domain": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Produkte > Domains" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Jetzt deine Wunschdomain sichern!" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Jetzt deine Wunschdomain sichern!" } },
+      "searchPlaceholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Deine Wunschdomain eingeben..." } },
+      "search": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Suchen" } },
+      "addBasket": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "In den Warenkorb" } },
+      "transfer": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domain transferieren" } },
+        "message": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Diese Domain ist bereits vergeben. Wenn sie dir gehört, kannst du sie nach Key2Host übertragen. Frage dazu bei deinem Anbieter nach dem AUTH-Schlüssel." } },
+        "abort": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Abbrechen" } },
+        "continue": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Fortfahren" } }
+      },
+      "noresults": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Keine Ergebnisse gefunden. Bitte eine andere Domain eingeben." } },
+      "loading": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Daten werden geladen..." } },
+      "notvalid": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Bitte eine gültige Domain eingeben." } }
+    },
+    "vps-root": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Produkte > VPS & Root-Server" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Finde den perfekten Server für dein Projekt!" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Setzen Sie auf höchste Performance und volle Kontrolle mit unseren VPS und Root-Servern. Ob für anspruchsvolle Anwendungen, Hosting-Projekte oder Unternehmenslösungen – hier bekommen Sie skalierbare Ressourcen, schnelle Anbindungen und maximale Sicherheit." } }
+    },
+    "dedicated": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Produkte > Dedizierte Server" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hole dir die höchste Performance!" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Für große Projekte, skalierbare Anwendungen und anspruchsvolle Anforderungen – mit unseren Dedicated Servern erhältst du 100% ungeteilte Ressourcen und volle Kontrolle. Perfekt für Unternehmen, Entwickler oder Projekte, die höchste Performance benötigen." } }
+    },
+    "lic-cert": {
+      "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Produkte > Lizenzen & Zertifikate" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Finde die passende Lizenz oder das passende Zertifikat für dein Projekt!" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Mit Lizenzen für Plesk, KeyHelp und cPanel erhältst du die besten Tools zur einfachen Verwaltung deiner Server. Optimiert für hohe Effizienz, volle Kontrolle und benutzerfreundliche Oberflächen – ideal für Hosting-Profis und Entwickler, die auf zuverlässige Software setzen." } }
+    }
+  },
+  "cart": {
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Warenkorb" } },
+    "isEmpty": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dein Warenkorb ist leer" } },
+    "remove": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Entfernen" } },
+    "subtotal": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Zwischensumme" } },
+    "checkout": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Zum Bezahlvorgang" } },
+    "domainerror": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Domains können nicht mit anderen Artikeln kombiniert werden." } }
+  },
+  "checkout": {
+    "index": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Bezahlvorgang" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Coming Soon" } },
+      "errorModal": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Zahlung fehlgeschlagen" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die Transaktion konnte nicht erstellt werden. Sollte dieser Fehler bestehen, melde dich bitte beim Support." } }
+      },
+      "steps": {
+        "1": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Anmelden / Registrieren" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Erstelle ein Konto oder logge dich ein, um die Bestellung abzuschließen." } },
+          "noaccount": {
+            "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Du besitzt kein Konto?" } },
+            "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kein Problem, erstelle dir jetzt ein Konto!" } },
+            "actions": {
+              "createAccount": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Konto erstellen" } }
+            }
+          }
+        },
+        "2": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Zahlung abschließen" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wähle eine der Zahlungsmethoden, um deine Produkte zu bezahlen." } },
+          "waitForPaymentProvider": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Warten auf Zahlungsdienstleister..." } },
+          "loggedInAs": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Angemeldet als" } },
+          "notYou": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Nicht du" } },
+          "unknownUser": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Unbekannter Nutzer" } }
+        }
+      }
+    },
+    "failed": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ein Fehler ist aufgetreten" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Leider konnte deine Transaktion nicht bearbeitet werden." } },
+      "actions": {
+        "home": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Zurück zur Startseite" } }
+      },
+      "content": {
+        "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die Zahlung konnte nicht übermittelt werden. Versuche es erneut oder kontaktiere den Support." } },
+        "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Falls du bemerkst, dass Geld von deinem Konto abgezogen wurde, melde dich umgehend beim Kundenservice." } }
+      }
+    },
+    "success": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Bestellung abgeschlossen" } },
+      "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Vielen Dank für dein Vertrauen in Key2Host." } },
+      "actions": {
+        "home": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Zurück zur Startseite" } },
+        "cp": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Zum Control-Panel" } }
+      },
+      "content": {
+        "1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die Transaktion wurde erfolgreich bearbeitet. Die Rechnung erhältst du automatisch via E-Mail." } },
+        "2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Bitte habe einen Moment Geduld, während dein Service automatisch vom System angelegt wird." } }
+      }
+    }
+  },
+  "authform": {
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Anmeldung" } },
+    "resetPW": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Passwort vergessen" } },
+    "inputs": {
+      "email": {
+        "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "E-Mail" } },
+        "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Deine E-Mail Adresse" } },
+        "err": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "E-Mail wird benötigt" } }
+      },
+      "password": {
+        "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Passwort" } },
+        "placeholder": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dein Passwort" } },
+        "err": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Passwort wird benötigt" } }
+      },
+      "submit": {
+        "label": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Anmelden" } }
+      }
+    },
+    "errorModal": {
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sicherheitsmeldung" } },
+      "wrongCred": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die E-Mail oder das Passwort sind falsch." } },
+      "suspended": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ihr Nutzerkonto wurde gesperrt. Einige Funktionen stehen nicht zur Verfügung." } },
+      "err": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Fehler bei der API-Anfrage. Bitte später erneut versuchen." } }
+    }
+  }
+};
 const localeCodes = [
   "en",
   "de"
 ];
 const localeLoaders = {
-  "en": [{ key: "../../../../i18n/locales/en-US.json", load: () => import(
-    './en-US-3RR6owuR.mjs'
-    /* webpackChunkName: "locale__Users_lpoggemann_GitHub_landing_i18n_locales_en_US_json" */
-  ), cache: true }],
-  "de": [{ key: "../../../../i18n/locales/de-DE.json", load: () => import(
-    './de-DE-DRc10zso.mjs'
-    /* webpackChunkName: "locale__Users_lpoggemann_GitHub_landing_i18n_locales_de_DE_json" */
-  ), cache: true }]
+  "en": [{ key: "../../../../i18n/locales/en-US.json", load: () => Promise.resolve(resource$1), cache: true }],
+  "de": [{ key: "../../../../i18n/locales/de-DE.json", load: () => Promise.resolve(resource), cache: true }]
 };
 const vueI18nConfigs = [];
 const normalizedLocales = [
@@ -4740,10 +5848,10 @@ function minify(node) {
   node.t = node.type;
   switch (node.type) {
     case 0: {
-      const resource = node;
-      minify(resource.body);
-      resource.b = resource.body;
-      delete resource.body;
+      const resource2 = node;
+      minify(resource2.body);
+      resource2.b = resource2.body;
+      delete resource2.body;
       break;
     }
     case 1: {
@@ -6480,12 +7588,12 @@ function getLocaleMessages(locale, options) {
   if (isArray(__i18n)) {
     __i18n.forEach((custom) => {
       if ("locale" in custom && "resource" in custom) {
-        const { locale: locale2, resource } = custom;
+        const { locale: locale2, resource: resource2 } = custom;
         if (locale2) {
           ret[locale2] = ret[locale2] || create();
-          deepCopy(resource, ret[locale2]);
+          deepCopy(resource2, ret[locale2]);
         } else {
-          deepCopy(resource, ret);
+          deepCopy(resource2, ret);
         }
       } else {
         isString(custom) && deepCopy(JSON.parse(custom), ret);
