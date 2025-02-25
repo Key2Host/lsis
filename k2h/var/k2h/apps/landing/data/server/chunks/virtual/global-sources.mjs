@@ -608,10 +608,6 @@ const sources = [
                 "_sitemap": "de"
             },
             {
-                "loc": "/de/sitemap.xml",
-                "_sitemap": "de"
-            },
-            {
                 "loc": "/en/sitemap.xml",
                 "_sitemap": "de"
             }

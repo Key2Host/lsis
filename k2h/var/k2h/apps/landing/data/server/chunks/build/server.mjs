@@ -932,13 +932,8 @@ function handleHotUpdate(_router, _generateRoutes) {
 }
 const _routes = [
   {
-    name: "checkout-failed___de___default",
-    path: "/checkout/failed",
-    component: () => import('./failed-ciPUqt5d.mjs')
-  },
-  {
     name: "checkout-failed___de",
-    path: "/de/checkout/failed",
+    path: "/checkout/failed",
     component: () => import('./failed-ciPUqt5d.mjs')
   },
   {
@@ -947,13 +942,8 @@ const _routes = [
     component: () => import('./failed-ciPUqt5d.mjs')
   },
   {
-    name: "checkout___de___default",
-    path: "/checkout",
-    component: () => import('./index-L9y9_rpU.mjs')
-  },
-  {
     name: "checkout___de",
-    path: "/de/checkout",
+    path: "/checkout",
     component: () => import('./index-L9y9_rpU.mjs')
   },
   {
@@ -962,13 +952,8 @@ const _routes = [
     component: () => import('./index-L9y9_rpU.mjs')
   },
   {
-    name: "checkout-success___de___default",
-    path: "/checkout/success",
-    component: () => import('./success-BgZsDqZY.mjs')
-  },
-  {
     name: "checkout-success___de",
-    path: "/de/checkout/success",
+    path: "/checkout/success",
     component: () => import('./success-BgZsDqZY.mjs')
   },
   {
@@ -977,13 +962,8 @@ const _routes = [
     component: () => import('./success-BgZsDqZY.mjs')
   },
   {
-    name: "company-milestones___de___default",
-    path: "/company/milestones",
-    component: () => import('./milestones-DK-Z0igO.mjs')
-  },
-  {
     name: "company-milestones___de",
-    path: "/de/company/milestones",
+    path: "/company/milestones",
     component: () => import('./milestones-DK-Z0igO.mjs')
   },
   {
@@ -992,13 +972,8 @@ const _routes = [
     component: () => import('./milestones-DK-Z0igO.mjs')
   },
   {
-    name: "company-partners___de___default",
-    path: "/company/partners",
-    component: () => import('./partners-B1Aj4kVf.mjs')
-  },
-  {
     name: "company-partners___de",
-    path: "/de/company/partners",
+    path: "/company/partners",
     component: () => import('./partners-B1Aj4kVf.mjs')
   },
   {
@@ -1007,13 +982,8 @@ const _routes = [
     component: () => import('./partners-B1Aj4kVf.mjs')
   },
   {
-    name: "contact___de___default",
-    path: "/contact",
-    component: () => import('./contact-Uk0oJYTU.mjs')
-  },
-  {
     name: "contact___de",
-    path: "/de/contact",
+    path: "/contact",
     component: () => import('./contact-Uk0oJYTU.mjs')
   },
   {
@@ -1022,13 +992,8 @@ const _routes = [
     component: () => import('./contact-Uk0oJYTU.mjs')
   },
   {
-    name: "index___de___default",
-    path: "/",
-    component: () => import('./index-WHMGPkFS.mjs')
-  },
-  {
     name: "index___de",
-    path: "/de",
+    path: "/",
     component: () => import('./index-WHMGPkFS.mjs')
   },
   {
@@ -1037,13 +1002,8 @@ const _routes = [
     component: () => import('./index-WHMGPkFS.mjs')
   },
   {
-    name: "legal-notice___de___default",
-    path: "/legal/notice",
-    component: () => import('./notice-DutVcrVD.mjs')
-  },
-  {
     name: "legal-notice___de",
-    path: "/de/legal/notice",
+    path: "/legal/notice",
     component: () => import('./notice-DutVcrVD.mjs')
   },
   {
@@ -1052,13 +1012,8 @@ const _routes = [
     component: () => import('./notice-DutVcrVD.mjs')
   },
   {
-    name: "legal-privacy___de___default",
-    path: "/legal/privacy",
-    component: () => import('./privacy-mSx3PS1F.mjs')
-  },
-  {
     name: "legal-privacy___de",
-    path: "/de/legal/privacy",
+    path: "/legal/privacy",
     component: () => import('./privacy-mSx3PS1F.mjs')
   },
   {
@@ -1067,13 +1022,8 @@ const _routes = [
     component: () => import('./privacy-mSx3PS1F.mjs')
   },
   {
-    name: "legal-tos___de___default",
-    path: "/legal/tos",
-    component: () => import('./tos-Ds9PEMb2.mjs')
-  },
-  {
     name: "legal-tos___de",
-    path: "/de/legal/tos",
+    path: "/legal/tos",
     component: () => import('./tos-Ds9PEMb2.mjs')
   },
   {
@@ -1082,13 +1032,8 @@ const _routes = [
     component: () => import('./tos-Ds9PEMb2.mjs')
   },
   {
-    name: "newsroom-id___de___default",
-    path: "/newsroom/:id()",
-    component: () => import('./_id_-Bpj6rCHm.mjs')
-  },
-  {
     name: "newsroom-id___de",
-    path: "/de/newsroom/:id()",
+    path: "/newsroom/:id()",
     component: () => import('./_id_-Bpj6rCHm.mjs')
   },
   {
@@ -1097,13 +1042,8 @@ const _routes = [
     component: () => import('./_id_-Bpj6rCHm.mjs')
   },
   {
-    name: "newsroom___de___default",
-    path: "/newsroom",
-    component: () => import('./index-Cd9xo6tI.mjs')
-  },
-  {
     name: "newsroom___de",
-    path: "/de/newsroom",
+    path: "/newsroom",
     component: () => import('./index-Cd9xo6tI.mjs')
   },
   {
@@ -1112,13 +1052,8 @@ const _routes = [
     component: () => import('./index-Cd9xo6tI.mjs')
   },
   {
-    name: "products-dedicated___de___default",
-    path: "/products/dedicated",
-    component: () => import('./index-DCnUo6LU.mjs')
-  },
-  {
     name: "products-dedicated___de",
-    path: "/de/products/dedicated",
+    path: "/products/dedicated",
     component: () => import('./index-DCnUo6LU.mjs')
   },
   {
@@ -1127,13 +1062,8 @@ const _routes = [
     component: () => import('./index-DCnUo6LU.mjs')
   },
   {
-    name: "products-domain___de___default",
-    path: "/products/domain",
-    component: () => import('./index-N4dMETDG.mjs')
-  },
-  {
     name: "products-domain___de",
-    path: "/de/products/domain",
+    path: "/products/domain",
     component: () => import('./index-N4dMETDG.mjs')
   },
   {
@@ -1142,13 +1072,8 @@ const _routes = [
     component: () => import('./index-N4dMETDG.mjs')
   },
   {
-    name: "products-lic-cert___de___default",
-    path: "/products/lic-cert",
-    component: () => import('./index-B7mh1jHC.mjs')
-  },
-  {
     name: "products-lic-cert___de",
-    path: "/de/products/lic-cert",
+    path: "/products/lic-cert",
     component: () => import('./index-B7mh1jHC.mjs')
   },
   {
@@ -1157,13 +1082,8 @@ const _routes = [
     component: () => import('./index-B7mh1jHC.mjs')
   },
   {
-    name: "products-vps-root___de___default",
-    path: "/products/vps-root",
-    component: () => import('./index-BCiCclzk.mjs')
-  },
-  {
     name: "products-vps-root___de",
-    path: "/de/products/vps-root",
+    path: "/products/vps-root",
     component: () => import('./index-BCiCclzk.mjs')
   },
   {
@@ -1172,13 +1092,8 @@ const _routes = [
     component: () => import('./index-BCiCclzk.mjs')
   },
   {
-    name: "products-webspace___de___default",
-    path: "/products/webspace",
-    component: () => import('./index-C2ZthUom.mjs')
-  },
-  {
     name: "products-webspace___de",
-    path: "/de/products/webspace",
+    path: "/products/webspace",
     component: () => import('./index-C2ZthUom.mjs')
   },
   {
@@ -1189,11 +1104,6 @@ const _routes = [
   {
     name: void 0 ,
     path: "/sitemap.xml",
-    component: component_45stubljRFnMG14V
-  },
-  {
-    name: void 0 ,
-    path: "/de/sitemap.xml",
     component: component_45stubljRFnMG14V
   },
   {
