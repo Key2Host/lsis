@@ -3,7 +3,7 @@ import { _ as __nuxt_component_7 } from './PageGrid-af6w5tN2.mjs';
 import { _ as __nuxt_component_2 } from './PageCard-C5iZq7w5.mjs';
 import { LMap, LTileLayer, LMarker } from '@vue-leaflet/vue-leaflet';
 import { _ as __nuxt_component_3 } from './Skeleton-JACvfoN5.mjs';
-import { W as useToast, a1 as useCookieNoticeStore, a as useI18n, b as useSeoMeta, Z as __nuxt_component_2$4, $ as useAppConfig, D as useUI, a0 as __nuxt_component_0$3, Q as __nuxt_component_0$9, z as __nuxt_component_1$3 } from './server.mjs';
+import { W as useToast, a1 as useCookieNoticeStore, a as useI18n, b as useSeoMeta, Z as __nuxt_component_2$4, $ as useAppConfig, D as useUI, a0 as __nuxt_component_0$3, Q as __nuxt_component_0$b, z as __nuxt_component_1$3 } from './server.mjs';
 import { defineComponent, ref, computed, withCtx, unref, createVNode, createBlock, createTextVNode, toDisplayString, openBlock, withDirectives, vModelText, toRef, mergeProps, renderSlot, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderAttr, ssrRenderStyle, ssrIncludeBooleanAttr, ssrRenderSlot, ssrRenderClass } from 'vue/server-renderer';
 import axios from 'axios';
@@ -95,7 +95,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     const { ui, attrs } = useUI("landing.faq", toRef(props, "ui"), config, toRef(props, "class"), true);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UAccordion = __nuxt_component_0$3;
-      const _component_UButton = __nuxt_component_0$9;
+      const _component_UButton = __nuxt_component_0$b;
       const _component_UIcon = __nuxt_component_1$3;
       _push(ssrRenderComponent(_component_UAccordion, mergeProps({
         class: unref(ui).wrapper,

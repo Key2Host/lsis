@@ -1,4 +1,4 @@
-import { D as useUI, aj as __nuxt_component_0$7 } from './server.mjs';
+import { D as useUI, aj as __nuxt_component_0$6 } from './server.mjs';
 import { defineComponent, toRef, computed, mergeProps, unref, withCtx, createTextVNode, toDisplayString, ref, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrInterpolate } from 'vue/server-renderer';
 import { createSharedComposable, useActiveElement } from '@vueuse/core';
@@ -88,7 +88,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const { ui, attrs } = useUI("content.shortcut", void 0, config, toRef(props, "class"), true);
     const shortcut = computed(() => props.value === "meta" ? metaSymbol.value : props.value);
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UKbd = __nuxt_component_0$7;
+      const _component_UKbd = __nuxt_component_0$6;
       _push(ssrRenderComponent(_component_UKbd, mergeProps({
         class: unref(ui).wrapper
       }, unref(attrs), _attrs), {

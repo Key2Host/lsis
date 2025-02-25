@@ -1,4 +1,4 @@
-import { D as useUI, Q as __nuxt_component_0$9, W as useToast } from './server.mjs';
+import { D as useUI, Q as __nuxt_component_0$b, W as useToast } from './server.mjs';
 import { defineComponent, ref, mergeProps, unref, useSSRContext } from 'vue';
 import { ssrRenderComponent } from 'vue/server-renderer';
 import { useClipboard } from '@vueuse/core';
@@ -93,7 +93,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }, 2e3);
     }
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UButton = __nuxt_component_0$9;
+      const _component_UButton = __nuxt_component_0$b;
       _push(ssrRenderComponent(_component_UButton, mergeProps({
         icon: unref(icon),
         color: "gray",

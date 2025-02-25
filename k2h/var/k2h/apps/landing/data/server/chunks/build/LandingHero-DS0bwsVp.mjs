@@ -1,4 +1,4 @@
-import { D as useUI, a6 as __nuxt_component_0$d, Q as __nuxt_component_0$9 } from './server.mjs';
+import { D as useUI, a6 as __nuxt_component_0$9, Q as __nuxt_component_0$b } from './server.mjs';
 import { defineComponent, computed, toRef, mergeProps, unref, withCtx, createVNode, renderSlot, createBlock, createCommentVNode, openBlock, createTextVNode, toDisplayString, Fragment, renderList, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderSlot, ssrRenderComponent, ssrRenderClass, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import { twJoin } from 'tailwind-merge';
@@ -60,8 +60,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     const { ui, attrs } = useUI("landing.hero", toRef(props, "ui"), config, toRef(props, "class"), true);
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UContainer = __nuxt_component_0$d;
-      const _component_UButton = __nuxt_component_0$9;
+      const _component_UContainer = __nuxt_component_0$9;
+      const _component_UButton = __nuxt_component_0$b;
       _push(`<div${ssrRenderAttrs(mergeProps({
         class: unref(ui).wrapper
       }, unref(attrs), _attrs))}>`);

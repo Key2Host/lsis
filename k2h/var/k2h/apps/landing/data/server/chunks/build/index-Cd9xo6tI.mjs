@@ -1,7 +1,7 @@
 import { _ as __nuxt_component_0 } from './LandingSection-C0LNW591.mjs';
 import { defineComponent, ref, mergeProps, withCtx, unref, createBlock, openBlock, Fragment, renderList, createVNode, computed, toRef, useSlots, createCommentVNode, cloneVNode, h, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderList, ssrRenderAttrs, ssrRenderSlot, ssrRenderClass, ssrInterpolate, ssrRenderAttr } from 'vue/server-renderer';
-import { u as useLocalePath, a as useI18n, b as useSeoMeta, _ as _export_sfc, D as useUI, a7 as nuxtLinkProps, a3 as getNuxtLinkProps, a8 as getSlotChildrenText, a2 as __nuxt_component_0$e, a5 as __nuxt_component_1$2, B as __nuxt_component_4$4, Q as __nuxt_component_0$9, C as mergeConfig, ab as getSlotsChildren, I as twMerge, J as appConfig, ad as button, ac as avatar } from './server.mjs';
+import { u as useLocalePath, a as useI18n, b as useSeoMeta, _ as _export_sfc, D as useUI, a7 as nuxtLinkProps, a3 as getNuxtLinkProps, a8 as getSlotChildrenText, a2 as __nuxt_component_0$e, a5 as __nuxt_component_1$2, B as __nuxt_component_4$4, Q as __nuxt_component_0$b, C as mergeConfig, ab as getSlotsChildren, I as twMerge, J as appConfig, ad as button, ac as avatar } from './server.mjs';
 import { I as ImageComponent } from './NuxtImg-BMjs1Txh.mjs';
 import { twJoin } from 'tailwind-merge';
 import '../nitro/nitro.mjs';
@@ -478,7 +478,7 @@ const config = mergeConfig(appConfig.ui.strategy, appConfig.ui.pagination, pagin
 const buttonConfig = mergeConfig(appConfig.ui.strategy, appConfig.ui.button, button);
 const _sfc_main$1 = defineComponent({
   components: {
-    UButton: __nuxt_component_0$9
+    UButton: __nuxt_component_0$b
   },
   inheritAttrs: false,
   props: {
@@ -668,7 +668,7 @@ const _sfc_main$1 = defineComponent({
   }
 });
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_UButton = __nuxt_component_0$9;
+  const _component_UButton = __nuxt_component_0$b;
   _push(`<div${ssrRenderAttrs(mergeProps({
     class: _ctx.ui.wrapper
   }, _ctx.attrs, _attrs))}>`);
