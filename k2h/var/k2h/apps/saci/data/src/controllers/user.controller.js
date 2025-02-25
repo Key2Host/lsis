@@ -124,6 +124,7 @@ async function buy(req, res) {
                 price: item.id, // Nutze die prodID, die dem Stripe-Produkt zugeordnet ist
                 quantity: item.quantity, // Menge des Produkts
             })),
+            currency: "eur",
             mode: 'subscription', // Setzt den Modus auf Abonnement
             success_url: `https://www.key2host.com/checkout/success`,
             cancel_url: `https://www.key2host.com/checkout/failed`,
