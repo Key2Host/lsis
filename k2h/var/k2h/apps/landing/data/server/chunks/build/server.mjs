@@ -2582,7 +2582,7 @@ const normalizedLocales = [
     "code": "de",
     "files": [
       {
-        "path": "/Users/lpoggemann/GitHub/landing/i18n/locales/de-DE.json"
+        "path": "i18n/locales/de-DE.json"
       }
     ]
   },
@@ -2590,7 +2590,7 @@ const normalizedLocales = [
     "code": "en",
     "files": [
       {
-        "path": "/Users/lpoggemann/GitHub/landing/i18n/locales/en-US.json"
+        "path": "i18n/locales/en-US.json"
       }
     ]
   }
@@ -17901,14 +17901,16 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                           _push4(ssrRenderComponent(_component_UButton, {
                             color: "white",
                             "trailing-icon": "i-heroicons-cog",
-                            class: "opacity-75"
+                            class: "opacity-75",
+                            "aria-label": "More"
                           }, null, _parent4, _scopeId3));
                         } else {
                           return [
                             createVNode(_component_UButton, {
                               color: "white",
                               "trailing-icon": "i-heroicons-cog",
-                              class: "opacity-75"
+                              class: "opacity-75",
+                              "aria-label": "More"
                             })
                           ];
                         }
@@ -17928,7 +17930,8 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                             createVNode(_component_UButton, {
                               color: "white",
                               "trailing-icon": "i-heroicons-cog",
-                              class: "opacity-75"
+                              class: "opacity-75",
+                              "aria-label": "More"
                             })
                           ]),
                           _: 1
@@ -18132,7 +18135,8 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                         createVNode(_component_UButton, {
                           color: "white",
                           "trailing-icon": "i-heroicons-cog",
-                          class: "opacity-75"
+                          class: "opacity-75",
+                          "aria-label": "More"
                         })
                       ]),
                       _: 1
