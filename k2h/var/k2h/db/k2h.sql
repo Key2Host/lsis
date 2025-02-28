@@ -141,6 +141,7 @@ CREATE TABLE `users` (
   `state` varchar(100) NOT NULL,
   `country` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `stripeCustomerId` varchar(255) NOT NULL,
   `pendingActivation` tinyint(4) NOT NULL DEFAULT 1,
   `suspended` tinyint(4) NOT NULL DEFAULT 0,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
