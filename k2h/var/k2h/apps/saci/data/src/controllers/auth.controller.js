@@ -110,21 +110,6 @@ async function signup(req, res) {
         city: city,
         state: state,
         country: country
-      },
-      shipping: {
-        address: {
-          line1: street,
-          postal_code: postalcode,
-          city: city,
-          state: state,
-          country: country
-        },
-        name: `${firstname} ${lastname}`,
-      },
-      metadata: {
-        timezone: 'Europe/Berlin',
-        language: 'de',
-        currency: 'EUR'
       }
     });
 
