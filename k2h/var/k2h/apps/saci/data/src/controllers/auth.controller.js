@@ -100,6 +100,19 @@ async function signup(req, res) {
     // Passwort mit Argon2 hashen
     const hashedPassword = await argon2.hash(password);
 
+    const stripeCustomer = await stripe.customers.create({
+      name: `${firstname} ${lastname}`,
+      email: email,
+      phone: phone,
+      address: {
+        line1: street,
+        postal_code: postalcode,
+        city: city,
+        state: state,
+        country: country
+      }
+    });
+
     // Benutzer erstellen
     const newUser = await User.create({
       username,
@@ -112,7 +125,8 @@ async function signup(req, res) {
       postalcode,
       city,
       state,
-      country
+      country,
+      stripeCustomerId: stripeCustomer.id
     });
 
     // E-Mail-Eintrag
@@ -130,21 +144,6 @@ async function signup(req, res) {
       is_primary: 1,
       verified: 0
     });
-
-    const stripeCustomer = await stripe.customers.create({
-      name: `${firstname} ${lastname}`,
-      email: email,
-      phone: phone,
-      address: {
-        line1: street,
-        postal_code: postalcode,
-        city: city,
-        state: state,
-        country: country
-      }
-    });
-
-    await newUser.update({ stripeCustomerId: stripeCustomer.id });
 
     res.status(201).json({
       message: 'Benutzer erfolgreich erstellt',
