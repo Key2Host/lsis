@@ -56,6 +56,11 @@ const User = sequelize.define('users', {
         type: DataTypes.STRING(255),
         allowNull: false
     },
+    stripeCustomerId: {
+        type: DataTypes.INTEGER,
+        primaryKey: false,
+        allowNull: false
+    },
     pendingActivation: {
         type: DataTypes.TINYINT,
         allowNull: false,

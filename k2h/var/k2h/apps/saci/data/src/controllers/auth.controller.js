@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const { JWT_SECRET, JWT_EXPIRATION, JWT_REFRESH_EXPIRATION } = require('../config/jwt.config');
 const { log } = require('../utils/logger');
+const { Stripe } = require('stripe');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 async function login(req, res) {
   const { email, password } = req.body;
@@ -128,6 +130,21 @@ async function signup(req, res) {
       is_primary: 1,
       verified: 0
     });
+
+    const stripeCustomer = await stripe.customers.create({
+      name: `${firstname} ${lastname}`,
+      email: email,
+      phone: phone,
+      address: {
+        line1: street,
+        postal_code: postalcode,
+        city: city,
+        state: state,
+        country: country
+      }
+    });
+
+    await newUser.update({ stripeCustomerId: stripeCustomer.id });
 
     res.status(201).json({
       message: 'Benutzer erfolgreich erstellt',
