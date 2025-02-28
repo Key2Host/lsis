@@ -116,7 +116,7 @@ async function buy(req, res) {
         const token = req.cookies.accessToken;
         const decoded = jwt.verify(token, JWT_SECRET);
         const userid = decoded.id;
-        const userMail = await UserEmail.findOne({ where: { user: userid, is_primary: true } });
+        const user = await User.findOne({ where: { user: userid } });
 
         // Angenommen, das 'item' hat jetzt eine 'prodID', die auf ein Stripe-Produkt verweist
         const session = await stripe.checkout.sessions.create({
@@ -128,7 +128,7 @@ async function buy(req, res) {
             mode: 'subscription', // Setzt den Modus auf Abonnement
             success_url: `https://www.key2host.com/checkout/success`,
             cancel_url: `https://www.key2host.com/checkout/failed`,
-            customer_email: userMail.email
+            customer: user.stripeCustomerId
         });
 
         res.json({ id: session.id });
