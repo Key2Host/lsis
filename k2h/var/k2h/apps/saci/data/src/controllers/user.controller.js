@@ -116,7 +116,7 @@ async function buy(req, res) {
         const token = req.cookies.accessToken;
         const decoded = jwt.verify(token, JWT_SECRET);
         const userid = decoded.id;
-        const user = await User.findOne({ where: { user: userid } });
+        const user = await User.findOne({ where: { id: userid } });
 
         // Angenommen, das 'item' hat jetzt eine 'prodID', die auf ein Stripe-Produkt verweist
         const session = await stripe.checkout.sessions.create({
