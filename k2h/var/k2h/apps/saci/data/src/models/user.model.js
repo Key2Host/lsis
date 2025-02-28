@@ -11,7 +11,7 @@ const User = sequelize.define('users', {
         type: DataTypes.BLOB('long'),
         allowNull: true
     },
-    username: {
+    customerID: {
         type: DataTypes.STRING(45),
         allowNull: false,
         unique: true

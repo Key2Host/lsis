@@ -75,13 +75,25 @@ async function login(req, res) {
   }
 }
 
+async function generateCustomerID() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let customerID;
+  let exists;
+
+  do {
+    customerID = 'k2h-' + Array.from({ length: 6 }, () => characters.charAt(Math.floor(Math.random() * characters.length))).join('');
+    exists = await User.findOne({ where: { customerID } });
+  } while (exists);
+
+  return customerID;
+}
+
 async function signup(req, res) {
   try {
     const {
-      username,
-      password,
       firstname,
       lastname,
+      password,
       sex,
       birthday,
       street,
@@ -93,9 +105,11 @@ async function signup(req, res) {
       phone
     } = req.body;
 
-    if (!username || !password || !firstname || !lastname || !sex || !birthday || !street || !postalcode || !city || !state || !country || !email || !phone) {
+    if (!firstname || !lastname || !password || !sex || !birthday || !street || !postalcode || !city || !state || !country || !email || !phone) {
       return res.status(400).json({ message: 'Alle Felder müssen ausgefüllt werden!' });
     }
+
+    const customerID = await generateCustomerID();
 
     // Passwort mit Argon2 hashen
     const hashedPassword = await argon2.hash(password);
@@ -115,7 +129,7 @@ async function signup(req, res) {
 
     // Benutzer erstellen
     const newUser = await User.create({
-      username,
+      customerID: customerID,
       password: hashedPassword,
       firstname,
       lastname,
@@ -149,7 +163,7 @@ async function signup(req, res) {
       message: 'Benutzer erfolgreich erstellt',
       user: {
         id: newUser.id,
-        username: newUser.username,
+        customerID: newUser.customerID,
         firstname: newUser.firstname,
         lastname: newUser.lastname,
         city: newUser.city,

@@ -129,7 +129,7 @@ CREATE TABLE `shop_voucher` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `image` longblob DEFAULT NULL,
-  `username` varchar(45) NOT NULL,
+  `customerID` varchar(45) NOT NULL,
   `firstname` varchar(45) NOT NULL,
   `lastname` varchar(45) NOT NULL,
   `company` varchar(45),
