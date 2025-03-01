@@ -944,12 +944,12 @@ const _routes = [
   {
     name: "checkout___de",
     path: "/checkout",
-    component: () => import('./index-BAi7CJ6f.mjs')
+    component: () => import('./index-D3HF3z0M.mjs')
   },
   {
     name: "checkout___en",
     path: "/en/checkout",
-    component: () => import('./index-BAi7CJ6f.mjs')
+    component: () => import('./index-D3HF3z0M.mjs')
   },
   {
     name: "checkout-success___de",
@@ -18889,10 +18889,7 @@ const __nuxt_component_6$1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main
 const useCartStore = defineStore("cart", {
   state: () => ({
     isSlideoverOpen: false,
-    items: [
-      { type: "domain", name: "test.dev", amount: 2, id: "" },
-      { type: "domain", name: "test.dev", amount: 3, id: "" }
-    ],
+    items: [],
     voucher: ""
   }),
   actions: {
