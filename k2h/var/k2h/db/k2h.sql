@@ -234,7 +234,7 @@ ALTER TABLE `shop_voucher`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username_UNIQUE` (`username`);
+  ADD UNIQUE KEY `customerID_UNIQUE` (`customerID`);
 
 --
 -- Indizes für die Tabelle `users_emails`
