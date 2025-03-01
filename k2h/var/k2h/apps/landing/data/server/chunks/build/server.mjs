@@ -944,12 +944,12 @@ const _routes = [
   {
     name: "checkout___de",
     path: "/checkout",
-    component: () => import('./index-D3HF3z0M.mjs')
+    component: () => import('./index-UpbOmHJc.mjs')
   },
   {
     name: "checkout___en",
     path: "/en/checkout",
-    component: () => import('./index-D3HF3z0M.mjs')
+    component: () => import('./index-UpbOmHJc.mjs')
   },
   {
     name: "checkout-success___de",
