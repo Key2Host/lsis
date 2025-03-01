@@ -1,6 +1,6 @@
 import { defineComponent, mergeProps, toRef, computed, useId as useId$1, useSSRContext } from 'vue';
 import { twJoin } from 'tailwind-merge';
-import { _ as _export_sfc, C as mergeConfig, D as useUI, J as appConfig, z as __nuxt_component_1$3, B as __nuxt_component_4$4, Q as __nuxt_component_0$b, I as twMerge, H as useFormGroup } from './server.mjs';
+import { _ as _export_sfc, C as mergeConfig, D as useUI, J as appConfig, z as __nuxt_component_1$3, B as __nuxt_component_4$3, Q as __nuxt_component_0$b, I as twMerge, H as useFormGroup } from './server.mjs';
 import { ssrRenderAttrs, ssrRenderSlot, ssrRenderClass, ssrRenderStyle, ssrInterpolate, ssrRenderList, ssrRenderComponent, ssrLooseContain, ssrGetDynamicModelProps, ssrRenderAttr } from 'vue/server-renderer';
 
 const useId = useId$1;
@@ -498,7 +498,7 @@ const config = mergeConfig(appConfig.ui.strategy, appConfig.ui.alert, alert);
 const _sfc_main = defineComponent({
   components: {
     UIcon: __nuxt_component_1$3,
-    UAvatar: __nuxt_component_4$4,
+    UAvatar: __nuxt_component_4$3,
     UButton: __nuxt_component_0$b
   },
   inheritAttrs: false,
@@ -584,7 +584,7 @@ const _sfc_main = defineComponent({
 });
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_UIcon = __nuxt_component_1$3;
-  const _component_UAvatar = __nuxt_component_4$4;
+  const _component_UAvatar = __nuxt_component_4$3;
   const _component_UButton = __nuxt_component_0$b;
   _push(`<div${ssrRenderAttrs(mergeProps({ class: _ctx.alertClass }, _ctx.attrs, _attrs))}><div class="${ssrRenderClass([[_ctx.ui.gap, { "items-start": _ctx.description || _ctx.$slots.description, "items-center": !_ctx.description && !_ctx.$slots.description }], "flex"])}">`);
   ssrRenderSlot(_ctx.$slots, "icon", { icon: _ctx.icon }, () => {

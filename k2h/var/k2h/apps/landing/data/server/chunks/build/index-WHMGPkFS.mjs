@@ -1,5 +1,5 @@
 import { _ as __nuxt_component_0 } from './LandingHero-DS0bwsVp.mjs';
-import { u as useLocalePath, a as useI18n, a4 as useHead, b as useSeoMeta, z as __nuxt_component_1$3, a5 as __nuxt_component_1$2, Z as __nuxt_component_2$4, _ as _export_sfc, D as useUI, Y as __nuxt_component_0$4, B as __nuxt_component_4$4, a2 as __nuxt_component_0$e, a3 as getNuxtLinkProps } from './server.mjs';
+import { u as useLocalePath, a as useI18n, a4 as useHead, b as useSeoMeta, z as __nuxt_component_1$3, a5 as __nuxt_component_1$2, Z as __nuxt_component_2$4, _ as _export_sfc, D as useUI, Y as __nuxt_component_0$4, B as __nuxt_component_4$3, a2 as __nuxt_component_0$e, a3 as getNuxtLinkProps } from './server.mjs';
 import { defineComponent, unref, withCtx, createVNode, createTextVNode, toDisplayString, mergeProps, computed, toRef, createBlock, createCommentVNode, openBlock, renderSlot, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderAttr, ssrRenderClass, ssrRenderSlot } from 'vue/server-renderer';
 import { p as publicAssetsURL } from '../nitro/nitro.mjs';
@@ -190,7 +190,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UCard = __nuxt_component_0$4;
       const _component_UIcon = __nuxt_component_1$3;
-      const _component_UAvatar = __nuxt_component_4$4;
+      const _component_UAvatar = __nuxt_component_4$3;
       _push(ssrRenderComponent(_component_UCard, mergeProps({
         class: unref(ui).wrapper
       }, unref(attrs), { ui: unref(ui) }, _attrs), {
