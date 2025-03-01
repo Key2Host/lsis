@@ -111,6 +111,8 @@ async function signup(req, res) {
 
     const customerID = await generateCustomerID();
 
+    console.log(customerID);
+
     // Passwort mit Argon2 hashen
     const hashedPassword = await argon2.hash(password);
 
