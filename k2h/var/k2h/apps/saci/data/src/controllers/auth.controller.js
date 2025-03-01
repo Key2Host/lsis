@@ -244,6 +244,9 @@ async function logout(req, res) {
 
     await refreshTokenDB.destroy();
 
+    res.clearCookie('accessToken', { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: 'None', path: "/" });
+    res.clearCookie('refreshToken', { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: 'None', path: "/" });
+    
     res.status(200).json({ message: 'Erfolgreich ausgeloggt' });
 
   } catch (err) {
