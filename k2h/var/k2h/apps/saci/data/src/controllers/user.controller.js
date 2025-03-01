@@ -8,7 +8,7 @@ function userHello(req, res) {
     res.json({
         message: "Welcome!",
         user: {
-            fullname: req.user.customerID,
+            fullname: req.user.firstname + " " + req.user.lastname,
             firstname: req.user.firstname,
             lastname: req.user.lastname,
             customerID: req.user.customerID
