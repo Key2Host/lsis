@@ -7,7 +7,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 function userHello(req, res) {
     res.json({
         message: "Welcome!",
-        user: { name: req.user.username }
+        user: {
+            fullname: req.user.customerID,
+            firstname: req.user.firstname,
+            lastname: req.user.lastname,
+            customerID: req.user.customerID
+        }
     });
 }
 
