@@ -944,12 +944,12 @@ const _routes = [
   {
     name: "checkout___de",
     path: "/checkout",
-    component: () => import('./index-BlO3YoyS.mjs')
+    component: () => import('./index-BpRUmTxB.mjs')
   },
   {
     name: "checkout___en",
     path: "/en/checkout",
-    component: () => import('./index-BlO3YoyS.mjs')
+    component: () => import('./index-BpRUmTxB.mjs')
   },
   {
     name: "checkout-success___de",
@@ -20554,6 +20554,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       titleTemplate: "%s - Key2Host"
     });
     const cart = useCartStore();
+    const route = useRoute$1();
     useSeoMeta({
       ogImage: "/img/brand/og.jpg",
       twitterImage: "/img/brand/og.jpg",
@@ -20619,7 +20620,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      if (unref(cart).totalItems != 0) {
+      if (unref(cart).totalItems != 0 && !unref(route).path.startsWith("/checkout")) {
         _push(`<div class="fixed bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer bg-blue-600 text-white hover:bg-blue-700 transition z-10">`);
         _push(ssrRenderComponent(_component_UIcon, {
           name: "i-heroicons-shopping-cart",
