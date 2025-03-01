@@ -45,14 +45,14 @@ async function authenticateUser(req, res, next) {
 
       // Neuer Refresh Token mit der gleichen Ablaufzeit wie der alte
       const newRefreshToken = jwt.sign(
-        { id: decoded.id, username: decoded.username },
+        { id: decoded.id, customerID: decoded.customerID },
         JWT_SECRET,
         { expiresIn: remainingTime } // **Restlaufzeit übernehmen!**
       );
 
       // Neues Access Token erstellen
       const newAccessToken = jwt.sign(
-        { id: decoded.id, username: decoded.username },
+        { id: decoded.id, customerID: decoded.customerID },
         JWT_SECRET,
         { expiresIn: JWT_EXPIRATION } // Normale kurze Lebensdauer
       );
