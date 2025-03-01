@@ -228,7 +228,7 @@ async function recover(req, res) {
 }
 
 async function logout(req, res) {
-  const { refreshToken } = req.body;
+  const refreshToken = req.cookies.refreshToken;
 
   if (!refreshToken) {
     return res.status(400).json({ error: 'Kein Refresh Token bereitgestellt' });
