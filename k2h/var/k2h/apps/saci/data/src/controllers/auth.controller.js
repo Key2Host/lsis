@@ -128,26 +128,20 @@ async function signup(req, res) {
     });
 
     // Benutzer erstellen
-    try {
-      const newUser = await User.create({
-        customerID: customerID,
-        password: hashedPassword,
-        firstname,
-        lastname,
-        sex,
-        birthday,
-        street,
-        postalcode,
-        city,
-        state,
-        country,
-        stripeCustomerId: stripeCustomer.id
-      });
-    } catch (err) {
-      console.error("❌ Fehler beim Erstellen des Benutzers:", err);
-      if (err.original) console.error("MySQL Fehler:", err.original);
-      res.status(500).json({ message: "Fehler beim Erstellen des Benutzers" });
-    }
+    const newUser = await User.create({
+      customerID: customerID,
+      password: hashedPassword,
+      firstname,
+      lastname,
+      sex,
+      birthday,
+      street,
+      postalcode,
+      city,
+      state,
+      country,
+      stripeCustomerId: stripeCustomer.id
+    });
 
     // E-Mail-Eintrag
     await UserEmail.create({
