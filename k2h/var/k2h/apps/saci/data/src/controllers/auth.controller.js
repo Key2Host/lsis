@@ -32,13 +32,13 @@ async function login(req, res) {
 
     // JWT generieren
     const accessToken = jwt.sign(
-      { id: user.id, username: user.username, firstname: user.firstname, lastname: user.lastname, email: user.email },
+      { id: user.id, customerID: user.customerID, firstname: user.firstname, lastname: user.lastname, email: user.email },
       JWT_SECRET,
       { expiresIn: JWT_EXPIRATION }  // Kurze Lebensdauer (z. B. 15 Minuten)
     );
 
     const refreshToken = jwt.sign(
-      { id: user.id, username: user.username, firstname: user.firstname, lastname: user.lastname, email: user.email },
+      { id: user.id, customerID: user.customerID, firstname: user.firstname, lastname: user.lastname, email: user.email },
       JWT_SECRET,
       { expiresIn: JWT_REFRESH_EXPIRATION }  // Lange Lebensdauer (z. B. 7 Tage)
     );
