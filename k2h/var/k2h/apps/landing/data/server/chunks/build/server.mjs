@@ -1,6 +1,6 @@
 import * as e$1 from 'vue';
 import { defineComponent, computed, useAttrs, toValue, ref, getCurrentInstance, provide, inject, h as h$1, onMounted, isRef, watch, onScopeDispose, resolveComponent, toRef, onUnmounted, watchEffect, hasInjectionContext, shallowRef, onServerPrefetch, cloneVNode, mergeProps, withCtx, createVNode, renderSlot, createTextVNode, toDisplayString as toDisplayString$1, withKeys, Transition, createBlock, withDirectives, openBlock, vShow, useId, resolveDynamicComponent, createCommentVNode, Fragment, unref, normalizeClass, nextTick, Teleport, reactive, version, defineAsyncComponent, useSSRContext, useSlots, shallowReactive, Suspense, createElementBlock, createApp, Text, withAsyncContext, createSlots, renderList, withModifiers, onErrorCaptured, effectScope, isReadonly, isShallow, isReactive, toRaw, getCurrentScope } from 'vue';
-import { D as defuFn, E as klona, k as defu, F as createDefu, G as destr, H as parse$1, I as getRequestHeader, J as isEqual$1, K as getContext, L as setCookie, M as getCookie, N as deleteCookie, O as sanitizeStatusCode, P as diff, $ as $fetch$1, Q as baseURL, p as publicAssetsURL, c as createError$1, R as createHooks, S as toRouteMatcher, T as createRouter$1, U as getRequestHeaders } from '../nitro/nitro.mjs';
+import { F as defuFn, G as klona, m as defu, H as createDefu, I as destr, J as parse$1, K as getRequestHeader, L as isEqual$1, M as getContext, N as setCookie, O as getCookie, P as deleteCookie, Q as sanitizeStatusCode, R as diff, $ as $fetch$1, S as baseURL, p as publicAssetsURL, c as createError$1, T as createHooks, U as toRouteMatcher, V as createRouter$1, W as getRequestHeaders } from '../nitro/nitro.mjs';
 import { defineStore, createPinia, setActivePinia, shouldHydrate } from 'pinia';
 import { getActiveHead, useScript as useScript$1, CapoPlugin } from 'unhead';
 import { unpackMeta, defineHeadPlugin, composableNames } from '@unhead/shared';
@@ -1050,12 +1050,12 @@ const _routes = [
   {
     name: "contact___de",
     path: "/contact",
-    component: () => import('./contact-IwJSRiRV.mjs')
+    component: () => import('./contact-C5cl1KDM.mjs')
   },
   {
     name: "contact___en",
     path: "/en/contact",
-    component: () => import('./contact-IwJSRiRV.mjs')
+    component: () => import('./contact-C5cl1KDM.mjs')
   },
   {
     name: "index___de",

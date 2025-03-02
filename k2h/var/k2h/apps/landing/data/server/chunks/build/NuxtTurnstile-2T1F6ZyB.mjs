@@ -1,6 +1,6 @@
 import { defineComponent, ref, createVNode, resolveDynamicComponent, mergeProps, watch, reactive, useSSRContext } from 'vue';
 import { ssrRenderVNode } from 'vue/server-renderer';
-import { k as defu } from '../nitro/nitro.mjs';
+import { m as defu } from '../nitro/nitro.mjs';
 import { a5 as useRuntimeConfig, a2 as useNuxtApp, a3 as injectHead, a4 as useScript$1, a6 as parseURL, a7 as useHead } from './server.mjs';
 import { resolveScriptKey } from 'unhead';
 import { useEventListener } from '@vueuse/core';

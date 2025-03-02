@@ -1,4 +1,4 @@
-import { W as hash } from '../nitro/nitro.mjs';
+import { Y as hash } from '../nitro/nitro.mjs';
 import { defineComponent, useSlots, h, toRefs, computed, watch, useSSRContext } from 'vue';
 import { a5 as useRuntimeConfig, ay as useAsyncData } from './server.mjs';
 import { q as queryContent } from './query-Ci50fnQp.mjs';

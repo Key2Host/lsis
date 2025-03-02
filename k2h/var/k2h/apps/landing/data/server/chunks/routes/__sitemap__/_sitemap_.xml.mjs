@@ -1,4 +1,4 @@
-import { o as defineEventHandler, q as useSitemapRuntimeConfig, x as withoutLeadingSlash, y as withoutTrailingSlash, z as getRouterParam, c as createError, A as createSitemap } from '../../nitro/nitro.mjs';
+import { d as defineEventHandler, t as useSitemapRuntimeConfig, z as withoutLeadingSlash, A as withoutTrailingSlash, B as getRouterParam, c as createError, C as createSitemap } from '../../nitro/nitro.mjs';
 import 'unist-util-visit';
 import 'hast-util-to-string';
 import 'node:http';
