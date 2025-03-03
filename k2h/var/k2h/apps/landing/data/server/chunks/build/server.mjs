@@ -1010,12 +1010,12 @@ const _routes = [
   {
     name: "checkout___de",
     path: "/checkout",
-    component: () => import('./index-BTYsdm_r.mjs')
+    component: () => import('./index-QjM84Ytc.mjs')
   },
   {
     name: "checkout___en",
     path: "/en/checkout",
-    component: () => import('./index-BTYsdm_r.mjs')
+    component: () => import('./index-QjM84Ytc.mjs')
   },
   {
     name: "checkout-success___de",
