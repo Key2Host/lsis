@@ -1,4 +1,5 @@
-import { d as defineEventHandler, r as readBody, v as verifyTurnstileToken } from '../../../nitro/nitro.mjs';
+import { d as defineEventHandler, r as readBody } from '../../../nitro/nitro.mjs';
+import axios from 'axios';
 import 'unist-util-visit';
 import 'hast-util-to-string';
 import 'node:http';
@@ -32,7 +33,21 @@ import 'ipx';
 
 const verify = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  return await verifyTurnstileToken(body.token || body["cf-turnstile-response"]);
+  const secretKey = process.env.CLOUDFLARE_TURNSTILE_SECRET;
+  try {
+    const response = await axios.post("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      secret: secretKey,
+      response: body.token
+    });
+    if (response.data.success) {
+      return { success: true };
+    } else {
+      return { success: false, message: "Captcha-\xDCberpr\xFCfung fehlgeschlagen." };
+    }
+  } catch (error) {
+    console.error("Fehler bei der Turnstile-\xDCberpr\xFCfung:", error);
+    return { success: false, message: "Fehler bei der Turnstile-\xDCberpr\xFCfung." };
+  }
 });
 
 export { verify as default };

@@ -1,6 +1,6 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import 'node:http';
 import 'node:https';
-export { a3 as default } from './chunks/nitro/nitro.mjs';
+export { a2 as default } from './chunks/nitro/nitro.mjs';
 import 'unist-util-visit';
 import 'hast-util-to-string';
 import 'node:fs';

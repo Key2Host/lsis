@@ -1,4 +1,4 @@
-import { j as resolveSitemapSources, k as globalSitemapSources, l as resolveSitemapEntries, m as defu, n as joinURL, o as normaliseDate, q as escapeValueForXml, w as wrapSitemapXml, s as sortSitemapUrls, d as defineEventHandler, t as useSitemapRuntimeConfig, x as useNitroUrlResolvers, f as useNitroApp, y as setHeader } from '../nitro/nitro.mjs';
+import { j as resolveSitemapSources, k as globalSitemapSources, l as resolveSitemapEntries, m as defu, n as joinURL, o as normaliseDate, q as escapeValueForXml, w as wrapSitemapXml, s as sortSitemapUrls, d as defineEventHandler, t as useSitemapRuntimeConfig, v as useNitroUrlResolvers, f as useNitroApp, x as setHeader } from '../nitro/nitro.mjs';
 import 'unist-util-visit';
 import 'hast-util-to-string';
 import 'node:http';

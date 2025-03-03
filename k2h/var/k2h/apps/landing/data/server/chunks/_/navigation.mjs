@@ -1,4 +1,4 @@
-import { u as useRuntimeConfig, D as generateTitle } from '../nitro/nitro.mjs';
+import { u as useRuntimeConfig, C as generateTitle } from '../nitro/nitro.mjs';
 import 'unist-util-visit';
 import 'hast-util-to-string';
 import 'node:http';
