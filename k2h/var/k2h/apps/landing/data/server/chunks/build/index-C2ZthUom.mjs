@@ -5,7 +5,7 @@ import { u as useLocalePath, a as useI18n, b as useSeoMeta, X as useCartStore, _
 import { twJoin } from 'tailwind-merge';
 import { _ as __nuxt_component_3 } from './Skeleton-JACvfoN5.mjs';
 import { a as __nuxt_component_5, b as __nuxt_component_0$1, _ as __nuxt_component_2$1 } from './Alert-SG_bcirw.mjs';
-import { W as upperFirst, m as defu, K as isEqual } from '../nitro/nitro.mjs';
+import { V as upperFirst, k as defu, J as isEqual } from '../nitro/nitro.mjs';
 import { useVModel } from '@vueuse/core';
 import 'pinia';
 import 'unhead';

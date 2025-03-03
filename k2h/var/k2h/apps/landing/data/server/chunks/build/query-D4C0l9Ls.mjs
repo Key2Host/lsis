@@ -1,5 +1,5 @@
 import { ax as withBase, as as useRuntimeConfig, al as withLeadingSlash, an as joinURL, av as withoutTrailingSlash, ak as useRequestEvent } from './server.mjs';
-import { X as hash } from '../nitro/nitro.mjs';
+import { W as hash } from '../nitro/nitro.mjs';
 import { u as useContentPreview } from './preview-CUAk9-L9.mjs';
 
 const get = (obj, path) => path.split(".").reduce((acc, part) => acc && acc[part], obj);

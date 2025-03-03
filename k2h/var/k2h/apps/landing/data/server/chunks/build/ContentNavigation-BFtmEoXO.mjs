@@ -1,5 +1,5 @@
 import { defineComponent, useSlots, h, toRefs, computed, useSSRContext } from 'vue';
-import { X as hash } from '../nitro/nitro.mjs';
+import { W as hash } from '../nitro/nitro.mjs';
 import { az as useState, aw as useAsyncData, as as useRuntimeConfig, a2 as __nuxt_component_0$e } from './server.mjs';
 import { u as useContentDisabled, q as queryContent, w as withContentBase, e as encodeQueryParams, a as addPrerenderPath, s as shouldUseClientDB, j as jsonStringify } from './query-D4C0l9Ls.mjs';
 import { u as useContentPreview } from './preview-CUAk9-L9.mjs';
