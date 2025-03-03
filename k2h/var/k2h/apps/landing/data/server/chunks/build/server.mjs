@@ -1050,12 +1050,12 @@ const _routes = [
   {
     name: "contact___de",
     path: "/contact",
-    component: () => import('./contact-C5cl1KDM.mjs')
+    component: () => import('./contact-ntoAokWq.mjs')
   },
   {
     name: "contact___en",
     path: "/en/contact",
-    component: () => import('./contact-C5cl1KDM.mjs')
+    component: () => import('./contact-ntoAokWq.mjs')
   },
   {
     name: "index___de",
