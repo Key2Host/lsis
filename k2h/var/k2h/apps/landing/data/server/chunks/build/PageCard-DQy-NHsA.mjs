@@ -1,4 +1,4 @@
-import { ac as nuxtLinkProps, D as useUI, a9 as getNuxtLinkProps, ad as getSlotChildrenText, Y as __nuxt_component_0$4, a8 as __nuxt_component_0$e, z as __nuxt_component_1$3 } from './server.mjs';
+import { ac as nuxtLinkProps, D as useUI, a9 as getNuxtLinkProps, ad as getSlotChildrenText, Y as __nuxt_component_0$2, a8 as __nuxt_component_0$e, z as __nuxt_component_1$3 } from './server.mjs';
 import { defineComponent, useSlots, toRef, computed, mergeProps, unref, createSlots, withCtx, createVNode, createBlock, createCommentVNode, renderSlot, openBlock, createTextVNode, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate } from 'vue/server-renderer';
 
@@ -51,7 +51,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const nuxtLinkBind = computed(() => getNuxtLinkProps(props));
     const ariaLabel = computed(() => (props.title || slots.title && getSlotChildrenText(slots.title()) || "Card link").trim());
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UCard = __nuxt_component_0$4;
+      const _component_UCard = __nuxt_component_0$2;
       const _component_NuxtLink = __nuxt_component_0$e;
       const _component_UIcon = __nuxt_component_1$3;
       _push(ssrRenderComponent(_component_UCard, mergeProps({

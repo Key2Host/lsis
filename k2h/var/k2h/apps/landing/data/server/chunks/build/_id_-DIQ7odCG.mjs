@@ -1,5 +1,5 @@
 import { _ as __nuxt_component_0 } from './LandingSection-D8wZHn5-.mjs';
-import { u as useLocalePath, b as useSeoMeta, _ as _export_sfc, ae as __nuxt_component_0$d, z as __nuxt_component_1$3, C as mergeConfig, D as useUI, I as twMerge, af as getULinkProps, J as appConfig } from './server.mjs';
+import { u as useLocalePath, b as useSeoMeta, _ as _export_sfc, ae as __nuxt_component_0$b, z as __nuxt_component_1$3, C as mergeConfig, D as useUI, I as twMerge, af as getULinkProps, J as appConfig } from './server.mjs';
 import { defineComponent, withCtx, createVNode, mergeProps, renderSlot, createBlock, createCommentVNode, openBlock, toDisplayString, toRef, useSSRContext } from 'vue';
 import { twJoin } from 'tailwind-merge';
 import { ssrRenderComponent, ssrInterpolate, ssrRenderAttrs, ssrRenderClass, ssrRenderList, ssrRenderSlot } from 'vue/server-renderer';
@@ -66,7 +66,7 @@ const config = mergeConfig(appConfig.ui.strategy, appConfig.ui.breadcrumb, bread
 const _sfc_main$1 = defineComponent({
   components: {
     UIcon: __nuxt_component_1$3,
-    ULink: __nuxt_component_0$d
+    ULink: __nuxt_component_0$b
   },
   inheritAttrs: false,
   props: {
@@ -100,7 +100,7 @@ const _sfc_main$1 = defineComponent({
   }
 });
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_ULink = __nuxt_component_0$d;
+  const _component_ULink = __nuxt_component_0$b;
   const _component_UIcon = __nuxt_component_1$3;
   _push(`<nav${ssrRenderAttrs(mergeProps({
     "aria-label": "Breadcrumb",

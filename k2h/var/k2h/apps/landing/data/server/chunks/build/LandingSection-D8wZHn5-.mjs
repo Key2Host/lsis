@@ -1,4 +1,4 @@
-import { $ as useAppConfig, D as useUI, ab as __nuxt_component_0$9, z as __nuxt_component_1$3, Q as __nuxt_component_0$b } from './server.mjs';
+import { $ as useAppConfig, D as useUI, ab as __nuxt_component_0$d, z as __nuxt_component_1$3, Q as __nuxt_component_0$9 } from './server.mjs';
 import { defineComponent, computed, toRef, mergeProps, unref, withCtx, createBlock, createCommentVNode, renderSlot, openBlock, createVNode, createTextVNode, toDisplayString, Fragment, renderList, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderSlot, ssrRenderComponent, ssrRenderClass, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import { twJoin, twMerge } from 'tailwind-merge';
@@ -94,9 +94,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     const { ui, attrs } = useUI("landing.section", toRef(props, "ui"), config, toRef(props, "class"), true);
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UContainer = __nuxt_component_0$9;
+      const _component_UContainer = __nuxt_component_0$d;
       const _component_UIcon = __nuxt_component_1$3;
-      const _component_UButton = __nuxt_component_0$b;
+      const _component_UButton = __nuxt_component_0$9;
       _push(`<div${ssrRenderAttrs(mergeProps({
         class: unref(ui).wrapper
       }, unref(attrs), _attrs))}>`);

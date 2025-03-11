@@ -1,4 +1,4 @@
-import { _ as _export_sfc, ac as nuxtLinkProps, ak as config$i, D as useUI, a9 as getNuxtLinkProps, ad as getSlotChildrenText, Y as __nuxt_component_0$4, a8 as __nuxt_component_0$e, z as __nuxt_component_1$3 } from './server.mjs';
+import { _ as _export_sfc, ac as nuxtLinkProps, ak as config$i, D as useUI, a9 as getNuxtLinkProps, ad as getSlotChildrenText, Y as __nuxt_component_0$2, a8 as __nuxt_component_0$e, z as __nuxt_component_1$3 } from './server.mjs';
 import { defineComponent, computed, useSlots, ref, toRef, unref, mergeProps, withCtx, createVNode, renderSlot, createCommentVNode, createBlock, openBlock, createTextVNode, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate } from 'vue/server-renderer';
 import { twJoin } from 'tailwind-merge';
@@ -124,7 +124,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const nuxtLinkBind = computed(() => getNuxtLinkProps(props));
     const ariaLabel = computed(() => (props.title || slots.title && getSlotChildrenText(slots.title()) || "Card link").trim());
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UCard = __nuxt_component_0$4;
+      const _component_UCard = __nuxt_component_0$2;
       const _component_NuxtLink = __nuxt_component_0$e;
       const _component_UIcon = __nuxt_component_1$3;
       const _cssVars = { style: {

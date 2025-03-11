@@ -1,4 +1,4 @@
-import { $ as useAppConfig, D as useUI, ak as config$i, Y as __nuxt_component_0$4, a8 as __nuxt_component_0$e, z as __nuxt_component_1$3 } from './server.mjs';
+import { $ as useAppConfig, D as useUI, ak as config$i, Y as __nuxt_component_0$2, a8 as __nuxt_component_0$e, z as __nuxt_component_1$3 } from './server.mjs';
 import { defineComponent, computed, toRef, mergeProps, unref, withCtx, createVNode, createBlock, createCommentVNode, openBlock, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrInterpolate } from 'vue/server-renderer';
 import { s as ssrRenderSlot } from './ssrSlot-Dz0uHKhh.mjs';
@@ -116,7 +116,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     const target = computed(() => props.target || (props.to && props.to.startsWith("http") ? "_blank" : void 0));
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UCard = __nuxt_component_0$4;
+      const _component_UCard = __nuxt_component_0$2;
       const _component_NuxtLink = __nuxt_component_0$e;
       const _component_UIcon = __nuxt_component_1$3;
       _push(ssrRenderComponent(_component_UCard, mergeProps({

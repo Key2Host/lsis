@@ -1,4 +1,4 @@
-import { D as useUI, Y as __nuxt_component_0$4, Q as __nuxt_component_0$b } from './server.mjs';
+import { D as useUI, Y as __nuxt_component_0$2, Q as __nuxt_component_0$9 } from './server.mjs';
 import { defineComponent, computed, toRef, mergeProps, unref, withCtx, createVNode, renderSlot, createBlock, createCommentVNode, openBlock, createTextVNode, toDisplayString, Fragment, renderList, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import { twJoin } from 'tailwind-merge';
@@ -82,8 +82,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     const { ui, attrs } = useUI("landing.cta", toRef(props, "ui"), config, toRef(props, "class"), true);
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UCard = __nuxt_component_0$4;
-      const _component_UButton = __nuxt_component_0$b;
+      const _component_UCard = __nuxt_component_0$2;
+      const _component_UButton = __nuxt_component_0$9;
       _push(ssrRenderComponent(_component_UCard, mergeProps({
         class: unref(ui).wrapper
       }, unref(attrs), { ui: unref(ui) }, _attrs), {

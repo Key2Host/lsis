@@ -1,0 +1,1 @@
+import{a1 as n,a3 as o,o as s,a7 as a}from"./6PaLlcQt.js";const r={};function t(e,c){return s(),o("code",null,[a(e.$slots,"default")])}const _=Object.assign(n(r,[["render",t]]),{__name:"ProseCodeInline"});export{_ as default};
