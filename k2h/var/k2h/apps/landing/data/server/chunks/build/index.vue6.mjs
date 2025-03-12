@@ -1,8 +1,8 @@
-import { _ as __nuxt_component_0 } from './LandingSection.vue.mjs';
+import { U as UPageSection } from './PageSection.vue.mjs';
 import { defineComponent, withCtx, createVNode, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrInterpolate } from 'vue/server-renderer';
 import { a as useI18n, b as useSeoMeta } from './server.mjs';
-import 'tailwind-merge';
+import 'reka-ui';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -18,7 +18,6 @@ import 'ipx';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
-import '@vueuse/core';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
@@ -26,7 +25,11 @@ import 'unhead/plugins';
 import 'unhead/utils';
 import 'devalue';
 import '@iconify/vue';
+import '@vueuse/core';
 import '@iconify/utils/lib/css/icon';
+import 'tailwind-variants';
+import 'vaul-vue';
+import 'reka-ui/namespaced';
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",
@@ -42,12 +45,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       ogDescription: t("products.lic-cert.description")
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_ULandingSection = __nuxt_component_0;
+      const _component_UPageSection = UPageSection;
       _push(`<!--[-->`);
-      _push(ssrRenderComponent(_component_ULandingSection, {
+      _push(ssrRenderComponent(_component_UPageSection, {
         headline: _ctx.$t("products.lic-cert.headline"),
         title: _ctx.$t("products.lic-cert.title"),
-        align: "left"
+        orientation: "horizontal"
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -60,7 +63,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(`<p class="text-center mt-10 text-4xl"> Coming Soon </p><!--]-->`);
+      _push(`<p class="text-center mb-40 text-4xl"> Coming Soon </p><!--]-->`);
     };
   }
 });

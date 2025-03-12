@@ -1,8 +1,8 @@
-import { _ as __nuxt_component_0$1 } from './LandingSection.vue.mjs';
-import { _ as _export_sfc, F as mergeConfig, L as appConfig, ac as __nuxt_component_0, C as __nuxt_component_3, G as useUI, K as twMerge, ad as getULinkProps, u as useLocalePath, b as useSeoMeta } from './server.mjs';
-import { defineComponent, toRef, useSSRContext, mergeProps, withCtx, renderSlot, createBlock, createCommentVNode, openBlock, toDisplayString, createVNode } from 'vue';
-import { twJoin } from 'tailwind-merge';
-import { ssrRenderAttrs, ssrRenderClass, ssrRenderList, ssrRenderComponent, ssrRenderSlot, ssrInterpolate } from 'vue/server-renderer';
+import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, renderSlot, createBlock, createCommentVNode, openBlock, createTextVNode, toDisplayString, createVNode, Fragment, renderList, useSSRContext } from 'vue';
+import { ssrRenderComponent, ssrRenderClass, ssrRenderList, ssrRenderSlot, ssrInterpolate } from 'vue/server-renderer';
+import { Primitive } from 'reka-ui';
+import { c as useLocale, h as useAppConfig, t as tv, L as __nuxt_component_0$1, M as pickLinkProps, U as ULinkBase, j as __nuxt_component_1, o as __nuxt_component_3, m as get, _ as _appConfig, u as useLocalePath, b as useSeoMeta } from './server.mjs';
+import { U as UPageSection } from './PageSection.vue.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -18,7 +18,6 @@ import 'ipx';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
-import '@vueuse/core';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
@@ -26,170 +25,389 @@ import 'unhead/plugins';
 import 'unhead/utils';
 import 'devalue';
 import '@iconify/vue';
+import '@vueuse/core';
 import '@iconify/utils/lib/css/icon';
+import 'tailwind-variants';
+import 'vaul-vue';
+import 'reka-ui/namespaced';
 
-const breadcrumb = {
-  wrapper: "relative min-w-0",
-  ol: "flex items-center gap-x-1.5",
-  li: "flex items-center gap-x-1.5 text-gray-500 dark:text-gray-400 text-sm leading-6 min-w-0",
-  base: "flex items-center gap-x-1.5 group font-semibold min-w-0",
-  label: "block truncate",
-  icon: {
-    base: "flex-shrink-0 w-5 h-5",
-    active: "",
-    inactive: ""
+const theme = {
+  "slots": {
+    "root": "relative min-w-0",
+    "list": "flex items-center gap-1.5",
+    "item": "flex min-w-0",
+    "link": "group relative flex items-center gap-1.5 text-sm min-w-0 focus-visible:outline-(--ui-primary)",
+    "linkLeadingIcon": "shrink-0 size-5",
+    "linkLeadingAvatar": "shrink-0",
+    "linkLeadingAvatarSize": "2xs",
+    "linkLabel": "truncate",
+    "separator": "flex",
+    "separatorIcon": "shrink-0 size-5 text-(--ui-text-muted)"
   },
-  divider: {
-    base: "flex-shrink-0 w-5 h-5 rtl:rotate-180"
-  },
-  active: "text-primary-500 dark:text-primary-400",
-  inactive: " hover:text-gray-700 dark:hover:text-gray-200",
-  default: {
-    divider: "i-heroicons-chevron-right-20-solid"
-  }
-};
-
-const config = mergeConfig(appConfig.ui.strategy, appConfig.ui.breadcrumb, breadcrumb);
-const _sfc_main$1 = defineComponent({
-  components: {
-    UIcon: __nuxt_component_3,
-    ULink: __nuxt_component_0
-  },
-  inheritAttrs: false,
-  props: {
-    links: {
-      type: Array,
-      default: () => []
+  "variants": {
+    "active": {
+      "true": {
+        "link": "text-(--ui-primary) font-semibold"
+      },
+      "false": {
+        "link": "text-(--ui-text-muted) font-medium"
+      }
     },
-    divider: {
-      type: String,
-      default: () => config.default.divider
+    "disabled": {
+      "true": {
+        "link": "cursor-not-allowed opacity-75"
+      }
     },
-    class: {
-      type: [String, Object, Array],
-      default: () => ""
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
+    "to": {
+      "true": ""
     }
   },
-  setup(props) {
-    const { ui, attrs } = useUI("breadcrumb", toRef(props, "ui"), config, toRef(props, "class"));
-    return {
-      // eslint-disable-next-line vue/no-dupe-keys
-      ui,
-      attrs,
-      getULinkProps,
-      twMerge,
-      twJoin
+  "compoundVariants": [
+    {
+      "disabled": false,
+      "active": false,
+      "to": true,
+      "class": {
+        "link": [
+          "hover:text-(--ui-text)",
+          "transition-colors"
+        ]
+      }
+    }
+  ]
+};
+
+var _a;
+const appConfigBreadcrumb = _appConfig;
+const breadcrumb = tv({ extend: tv(theme), ...((_a = appConfigBreadcrumb.ui) == null ? void 0 : _a.breadcrumb) || {} });
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+  __name: "Breadcrumb",
+  __ssrInlineRender: true,
+  props: {
+    as: { default: "nav" },
+    items: {},
+    separatorIcon: {},
+    labelKey: { default: "label" },
+    class: {},
+    ui: {}
+  },
+  setup(__props) {
+    const props = __props;
+    const slots = useSlots();
+    const { dir } = useLocale();
+    const appConfig = useAppConfig();
+    const separatorIcon = computed(() => props.separatorIcon || (dir.value === "rtl" ? appConfig.ui.icons.chevronLeft : appConfig.ui.icons.chevronRight));
+    const ui = breadcrumb();
+    return (_ctx, _push, _parent, _attrs) => {
+      var _a2;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        "aria-label": "breadcrumb",
+        class: unref(ui).root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b;
+          if (_push2) {
+            _push2(`<ol class="${ssrRenderClass(unref(ui).list({ class: (_a3 = props.ui) == null ? void 0 : _a3.list }))}"${_scopeId}><!--[-->`);
+            ssrRenderList(_ctx.items, (item, index) => {
+              var _a4, _b2;
+              _push2(`<!--[--><li class="${ssrRenderClass(unref(ui).item({ class: (_a4 = props.ui) == null ? void 0 : _a4.item }))}"${_scopeId}>`);
+              _push2(ssrRenderComponent(__nuxt_component_0$1, mergeProps({ ref_for: true }, unref(pickLinkProps)(item), { custom: "" }), {
+                default: withCtx(({ active, ...slotProps }, _push3, _parent3, _scopeId2) => {
+                  var _a5, _b3;
+                  if (_push3) {
+                    _push3(ssrRenderComponent(ULinkBase, mergeProps({ ref_for: true }, slotProps, {
+                      as: "span",
+                      "aria-current": active && index === _ctx.items.length - 1 ? "page" : void 0,
+                      class: unref(ui).link({ class: [(_a5 = props.ui) == null ? void 0 : _a5.link, item.class], active: index === _ctx.items.length - 1, disabled: !!item.disabled, to: !!item.to })
+                    }), {
+                      default: withCtx((_2, _push4, _parent4, _scopeId3) => {
+                        if (_push4) {
+                          ssrRenderSlot(_ctx.$slots, item.slot || "item", {
+                            item,
+                            index
+                          }, () => {
+                            var _a6;
+                            ssrRenderSlot(_ctx.$slots, item.slot ? `${item.slot}-leading` : "item-leading", {
+                              item,
+                              active: index === _ctx.items.length - 1,
+                              index
+                            }, () => {
+                              var _a7, _b4, _c;
+                              if (item.icon) {
+                                _push4(ssrRenderComponent(__nuxt_component_1, {
+                                  name: item.icon,
+                                  class: unref(ui).linkLeadingIcon({ class: (_a7 = props.ui) == null ? void 0 : _a7.linkLeadingIcon, active: index === _ctx.items.length - 1 })
+                                }, null, _parent4, _scopeId3));
+                              } else if (item.avatar) {
+                                _push4(ssrRenderComponent(__nuxt_component_3, mergeProps({
+                                  size: ((_b4 = props.ui) == null ? void 0 : _b4.linkLeadingAvatarSize) || unref(ui).linkLeadingAvatarSize(),
+                                  ref_for: true
+                                }, item.avatar, {
+                                  class: unref(ui).linkLeadingAvatar({ class: (_c = props.ui) == null ? void 0 : _c.linkLeadingAvatar, active: index === _ctx.items.length - 1 })
+                                }), null, _parent4, _scopeId3));
+                              } else {
+                                _push4(`<!---->`);
+                              }
+                            }, _push4, _parent4, _scopeId3);
+                            if (unref(get)(item, props.labelKey) || !!slots[item.slot ? `${item.slot}-label` : "item-label"]) {
+                              _push4(`<span class="${ssrRenderClass(unref(ui).linkLabel({ class: (_a6 = props.ui) == null ? void 0 : _a6.linkLabel }))}"${_scopeId3}>`);
+                              ssrRenderSlot(_ctx.$slots, item.slot ? `${item.slot}-label` : "item-label", {
+                                item,
+                                active: index === _ctx.items.length - 1,
+                                index
+                              }, () => {
+                                _push4(`${ssrInterpolate(unref(get)(item, props.labelKey))}`);
+                              }, _push4, _parent4, _scopeId3);
+                              _push4(`</span>`);
+                            } else {
+                              _push4(`<!---->`);
+                            }
+                            ssrRenderSlot(_ctx.$slots, item.slot ? `${item.slot}-trailing` : "item-trailing", {
+                              item,
+                              active: index === _ctx.items.length - 1,
+                              index
+                            }, null, _push4, _parent4, _scopeId3);
+                          }, _push4, _parent4, _scopeId3);
+                        } else {
+                          return [
+                            renderSlot(_ctx.$slots, item.slot || "item", {
+                              item,
+                              index
+                            }, () => {
+                              var _a6;
+                              return [
+                                renderSlot(_ctx.$slots, item.slot ? `${item.slot}-leading` : "item-leading", {
+                                  item,
+                                  active: index === _ctx.items.length - 1,
+                                  index
+                                }, () => {
+                                  var _a7, _b4, _c;
+                                  return [
+                                    item.icon ? (openBlock(), createBlock(__nuxt_component_1, {
+                                      key: 0,
+                                      name: item.icon,
+                                      class: unref(ui).linkLeadingIcon({ class: (_a7 = props.ui) == null ? void 0 : _a7.linkLeadingIcon, active: index === _ctx.items.length - 1 })
+                                    }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3, mergeProps({
+                                      key: 1,
+                                      size: ((_b4 = props.ui) == null ? void 0 : _b4.linkLeadingAvatarSize) || unref(ui).linkLeadingAvatarSize(),
+                                      ref_for: true
+                                    }, item.avatar, {
+                                      class: unref(ui).linkLeadingAvatar({ class: (_c = props.ui) == null ? void 0 : _c.linkLeadingAvatar, active: index === _ctx.items.length - 1 })
+                                    }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                                  ];
+                                }),
+                                unref(get)(item, props.labelKey) || !!slots[item.slot ? `${item.slot}-label` : "item-label"] ? (openBlock(), createBlock("span", {
+                                  key: 0,
+                                  class: unref(ui).linkLabel({ class: (_a6 = props.ui) == null ? void 0 : _a6.linkLabel })
+                                }, [
+                                  renderSlot(_ctx.$slots, item.slot ? `${item.slot}-label` : "item-label", {
+                                    item,
+                                    active: index === _ctx.items.length - 1,
+                                    index
+                                  }, () => [
+                                    createTextVNode(toDisplayString(unref(get)(item, props.labelKey)), 1)
+                                  ])
+                                ], 2)) : createCommentVNode("", true),
+                                renderSlot(_ctx.$slots, item.slot ? `${item.slot}-trailing` : "item-trailing", {
+                                  item,
+                                  active: index === _ctx.items.length - 1,
+                                  index
+                                })
+                              ];
+                            })
+                          ];
+                        }
+                      }),
+                      _: 2
+                    }, _parent3, _scopeId2));
+                  } else {
+                    return [
+                      createVNode(ULinkBase, mergeProps({ ref_for: true }, slotProps, {
+                        as: "span",
+                        "aria-current": active && index === _ctx.items.length - 1 ? "page" : void 0,
+                        class: unref(ui).link({ class: [(_b3 = props.ui) == null ? void 0 : _b3.link, item.class], active: index === _ctx.items.length - 1, disabled: !!item.disabled, to: !!item.to })
+                      }), {
+                        default: withCtx(() => [
+                          renderSlot(_ctx.$slots, item.slot || "item", {
+                            item,
+                            index
+                          }, () => {
+                            var _a6;
+                            return [
+                              renderSlot(_ctx.$slots, item.slot ? `${item.slot}-leading` : "item-leading", {
+                                item,
+                                active: index === _ctx.items.length - 1,
+                                index
+                              }, () => {
+                                var _a7, _b4, _c;
+                                return [
+                                  item.icon ? (openBlock(), createBlock(__nuxt_component_1, {
+                                    key: 0,
+                                    name: item.icon,
+                                    class: unref(ui).linkLeadingIcon({ class: (_a7 = props.ui) == null ? void 0 : _a7.linkLeadingIcon, active: index === _ctx.items.length - 1 })
+                                  }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3, mergeProps({
+                                    key: 1,
+                                    size: ((_b4 = props.ui) == null ? void 0 : _b4.linkLeadingAvatarSize) || unref(ui).linkLeadingAvatarSize(),
+                                    ref_for: true
+                                  }, item.avatar, {
+                                    class: unref(ui).linkLeadingAvatar({ class: (_c = props.ui) == null ? void 0 : _c.linkLeadingAvatar, active: index === _ctx.items.length - 1 })
+                                  }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                                ];
+                              }),
+                              unref(get)(item, props.labelKey) || !!slots[item.slot ? `${item.slot}-label` : "item-label"] ? (openBlock(), createBlock("span", {
+                                key: 0,
+                                class: unref(ui).linkLabel({ class: (_a6 = props.ui) == null ? void 0 : _a6.linkLabel })
+                              }, [
+                                renderSlot(_ctx.$slots, item.slot ? `${item.slot}-label` : "item-label", {
+                                  item,
+                                  active: index === _ctx.items.length - 1,
+                                  index
+                                }, () => [
+                                  createTextVNode(toDisplayString(unref(get)(item, props.labelKey)), 1)
+                                ])
+                              ], 2)) : createCommentVNode("", true),
+                              renderSlot(_ctx.$slots, item.slot ? `${item.slot}-trailing` : "item-trailing", {
+                                item,
+                                active: index === _ctx.items.length - 1,
+                                index
+                              })
+                            ];
+                          })
+                        ]),
+                        _: 2
+                      }, 1040, ["aria-current", "class"])
+                    ];
+                  }
+                }),
+                _: 2
+              }, _parent2, _scopeId));
+              _push2(`</li>`);
+              if (index < _ctx.items.length - 1) {
+                _push2(`<li role="presentation" aria-hidden="true" class="${ssrRenderClass(unref(ui).separator({ class: (_b2 = props.ui) == null ? void 0 : _b2.separator }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, "separator", {}, () => {
+                  var _a5;
+                  _push2(ssrRenderComponent(__nuxt_component_1, {
+                    name: separatorIcon.value,
+                    class: unref(ui).separatorIcon({ class: (_a5 = props.ui) == null ? void 0 : _a5.separatorIcon })
+                  }, null, _parent2, _scopeId));
+                }, _push2, _parent2, _scopeId);
+                _push2(`</li>`);
+              } else {
+                _push2(`<!---->`);
+              }
+              _push2(`<!--]-->`);
+            });
+            _push2(`<!--]--></ol>`);
+          } else {
+            return [
+              createVNode("ol", {
+                class: unref(ui).list({ class: (_b = props.ui) == null ? void 0 : _b.list })
+              }, [
+                (openBlock(true), createBlock(Fragment, null, renderList(_ctx.items, (item, index) => {
+                  var _a4, _b2;
+                  return openBlock(), createBlock(Fragment, { key: index }, [
+                    createVNode("li", {
+                      class: unref(ui).item({ class: (_a4 = props.ui) == null ? void 0 : _a4.item })
+                    }, [
+                      createVNode(__nuxt_component_0$1, mergeProps({ ref_for: true }, unref(pickLinkProps)(item), { custom: "" }), {
+                        default: withCtx(({ active, ...slotProps }) => {
+                          var _a5;
+                          return [
+                            createVNode(ULinkBase, mergeProps({ ref_for: true }, slotProps, {
+                              as: "span",
+                              "aria-current": active && index === _ctx.items.length - 1 ? "page" : void 0,
+                              class: unref(ui).link({ class: [(_a5 = props.ui) == null ? void 0 : _a5.link, item.class], active: index === _ctx.items.length - 1, disabled: !!item.disabled, to: !!item.to })
+                            }), {
+                              default: withCtx(() => [
+                                renderSlot(_ctx.$slots, item.slot || "item", {
+                                  item,
+                                  index
+                                }, () => {
+                                  var _a6;
+                                  return [
+                                    renderSlot(_ctx.$slots, item.slot ? `${item.slot}-leading` : "item-leading", {
+                                      item,
+                                      active: index === _ctx.items.length - 1,
+                                      index
+                                    }, () => {
+                                      var _a7, _b3, _c;
+                                      return [
+                                        item.icon ? (openBlock(), createBlock(__nuxt_component_1, {
+                                          key: 0,
+                                          name: item.icon,
+                                          class: unref(ui).linkLeadingIcon({ class: (_a7 = props.ui) == null ? void 0 : _a7.linkLeadingIcon, active: index === _ctx.items.length - 1 })
+                                        }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3, mergeProps({
+                                          key: 1,
+                                          size: ((_b3 = props.ui) == null ? void 0 : _b3.linkLeadingAvatarSize) || unref(ui).linkLeadingAvatarSize(),
+                                          ref_for: true
+                                        }, item.avatar, {
+                                          class: unref(ui).linkLeadingAvatar({ class: (_c = props.ui) == null ? void 0 : _c.linkLeadingAvatar, active: index === _ctx.items.length - 1 })
+                                        }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                                      ];
+                                    }),
+                                    unref(get)(item, props.labelKey) || !!slots[item.slot ? `${item.slot}-label` : "item-label"] ? (openBlock(), createBlock("span", {
+                                      key: 0,
+                                      class: unref(ui).linkLabel({ class: (_a6 = props.ui) == null ? void 0 : _a6.linkLabel })
+                                    }, [
+                                      renderSlot(_ctx.$slots, item.slot ? `${item.slot}-label` : "item-label", {
+                                        item,
+                                        active: index === _ctx.items.length - 1,
+                                        index
+                                      }, () => [
+                                        createTextVNode(toDisplayString(unref(get)(item, props.labelKey)), 1)
+                                      ])
+                                    ], 2)) : createCommentVNode("", true),
+                                    renderSlot(_ctx.$slots, item.slot ? `${item.slot}-trailing` : "item-trailing", {
+                                      item,
+                                      active: index === _ctx.items.length - 1,
+                                      index
+                                    })
+                                  ];
+                                })
+                              ]),
+                              _: 2
+                            }, 1040, ["aria-current", "class"])
+                          ];
+                        }),
+                        _: 2
+                      }, 1040)
+                    ], 2),
+                    index < _ctx.items.length - 1 ? (openBlock(), createBlock("li", {
+                      key: 0,
+                      role: "presentation",
+                      "aria-hidden": "true",
+                      class: unref(ui).separator({ class: (_b2 = props.ui) == null ? void 0 : _b2.separator })
+                    }, [
+                      renderSlot(_ctx.$slots, "separator", {}, () => {
+                        var _a5;
+                        return [
+                          createVNode(__nuxt_component_1, {
+                            name: separatorIcon.value,
+                            class: unref(ui).separatorIcon({ class: (_a5 = props.ui) == null ? void 0 : _a5.separatorIcon })
+                          }, null, 8, ["name", "class"])
+                        ];
+                      })
+                    ], 2)) : createCommentVNode("", true)
+                  ], 64);
+                }), 128))
+              ], 2)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
     };
   }
 });
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_ULink = __nuxt_component_0;
-  const _component_UIcon = __nuxt_component_3;
-  _push(`<nav${ssrRenderAttrs(mergeProps({
-    "aria-label": "Breadcrumb",
-    class: _ctx.ui.wrapper
-  }, _ctx.attrs, _attrs))}><ol class="${ssrRenderClass(_ctx.ui.ol)}"><!--[-->`);
-  ssrRenderList(_ctx.links, (link, index) => {
-    _push(`<li class="${ssrRenderClass(_ctx.ui.li)}">`);
-    _push(ssrRenderComponent(_component_ULink, mergeProps({
-      as: "span",
-      class: [_ctx.ui.base, index === _ctx.links.length - 1 ? _ctx.ui.active : !!link.to ? _ctx.ui.inactive : ""],
-      "aria-current": index === _ctx.links.length - 1 ? "page" : void 0,
-      ref_for: true
-    }, _ctx.getULinkProps(link), {
-      onClick: link.click
-    }), {
-      default: withCtx((_, _push2, _parent2, _scopeId) => {
-        if (_push2) {
-          ssrRenderSlot(_ctx.$slots, "icon", {
-            link,
-            index,
-            isActive: index === _ctx.links.length - 1
-          }, () => {
-            if (link.icon) {
-              _push2(ssrRenderComponent(_component_UIcon, {
-                name: link.icon,
-                class: _ctx.twMerge(_ctx.twJoin(_ctx.ui.icon.base, index === _ctx.links.length - 1 ? _ctx.ui.icon.active : !!link.to ? _ctx.ui.icon.inactive : ""), link.iconClass)
-              }, null, _parent2, _scopeId));
-            } else {
-              _push2(`<!---->`);
-            }
-          }, _push2, _parent2, _scopeId);
-          ssrRenderSlot(_ctx.$slots, "default", {
-            link,
-            index,
-            isActive: index === _ctx.links.length - 1
-          }, () => {
-            if (link.label) {
-              _push2(`<span class="${ssrRenderClass(_ctx.twMerge(_ctx.ui.label, link.labelClass))}"${_scopeId}>${ssrInterpolate(link.label)}</span>`);
-            } else {
-              _push2(`<!---->`);
-            }
-          }, _push2, _parent2, _scopeId);
-        } else {
-          return [
-            renderSlot(_ctx.$slots, "icon", {
-              link,
-              index,
-              isActive: index === _ctx.links.length - 1
-            }, () => [
-              link.icon ? (openBlock(), createBlock(_component_UIcon, {
-                key: 0,
-                name: link.icon,
-                class: _ctx.twMerge(_ctx.twJoin(_ctx.ui.icon.base, index === _ctx.links.length - 1 ? _ctx.ui.icon.active : !!link.to ? _ctx.ui.icon.inactive : ""), link.iconClass)
-              }, null, 8, ["name", "class"])) : createCommentVNode("", true)
-            ]),
-            renderSlot(_ctx.$slots, "default", {
-              link,
-              index,
-              isActive: index === _ctx.links.length - 1
-            }, () => [
-              link.label ? (openBlock(), createBlock("span", {
-                key: 0,
-                class: _ctx.twMerge(_ctx.ui.label, link.labelClass)
-              }, toDisplayString(link.label), 3)) : createCommentVNode("", true)
-            ])
-          ];
-        }
-      }),
-      _: 2
-    }, _parent));
-    if (index < _ctx.links.length - 1) {
-      ssrRenderSlot(_ctx.$slots, "divider", {}, () => {
-        if (_ctx.divider) {
-          _push(`<!--[-->`);
-          if (_ctx.divider.startsWith("i-")) {
-            _push(ssrRenderComponent(_component_UIcon, {
-              name: _ctx.divider,
-              class: _ctx.ui.divider.base,
-              role: "presentation"
-            }, null, _parent));
-          } else {
-            _push(`<span role="presentation">${ssrInterpolate(_ctx.divider)}</span>`);
-          }
-          _push(`<!--]-->`);
-        } else {
-          _push(`<!---->`);
-        }
-      }, _push, _parent);
-    } else {
-      _push(`<!---->`);
-    }
-    _push(`</li>`);
-  });
-  _push(`<!--]--></ol></nav>`);
-}
+
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/navigation/Breadcrumb.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Breadcrumb.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_1 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender]]), { __name: "UBreadcrumb" });
+const __nuxt_component_0 = Object.assign(_sfc_main$1, { __name: "UBreadcrumb" });
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "[id]",
@@ -215,21 +433,20 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       ogDescription: ""
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_ULandingSection = __nuxt_component_0$1;
-      const _component_UBreadcrumb = __nuxt_component_1;
+      const _component_UBreadcrumb = __nuxt_component_0;
       _push(`<!--[-->`);
-      _push(ssrRenderComponent(_component_ULandingSection, null, {
+      _push(ssrRenderComponent(unref(UPageSection), null, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             _push2(`<div class="text-center min-h-[65vh]"${_scopeId}><h1 class="text-5xl font-bold"${_scopeId}>Beispiel Beitrag</h1><div class="flex justify-center opacity-75 mb-4 mt-4"${_scopeId}>`);
-            _push2(ssrRenderComponent(_component_UBreadcrumb, { links }, null, _parent2, _scopeId));
+            _push2(ssrRenderComponent(_component_UBreadcrumb, { items: links }, null, _parent2, _scopeId));
             _push2(`</div><div class="flex justify-center"${_scopeId}><img src="https://picsum.photos/id/12/640/360" alt="Blog Image" class="rounded-lg mt-4 w-[100vh] h-auto"${_scopeId}></div></div>`);
           } else {
             return [
               createVNode("div", { class: "text-center min-h-[65vh]" }, [
                 createVNode("h1", { class: "text-5xl font-bold" }, "Beispiel Beitrag"),
                 createVNode("div", { class: "flex justify-center opacity-75 mb-4 mt-4" }, [
-                  createVNode(_component_UBreadcrumb, { links })
+                  createVNode(_component_UBreadcrumb, { items: links })
                 ]),
                 createVNode("div", { class: "flex justify-center" }, [
                   createVNode("img", {

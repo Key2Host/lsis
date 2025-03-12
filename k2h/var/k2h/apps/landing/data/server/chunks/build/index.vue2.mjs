@@ -1,17 +1,15 @@
-import { _ as __nuxt_component_0$1 } from './LandingHero.vue.mjs';
-import { _ as _export_sfc, G as useUI, Y as __nuxt_component_0, C as __nuxt_component_3, D as __nuxt_component_4$1, a5 as __nuxt_component_1, a6 as getNuxtLinkProps, u as useLocalePath, a as useI18n, a7 as useHead, b as useSeoMeta, a8 as __nuxt_component_1$1, Z as __nuxt_component_2 } from './server.mjs';
-import { useSSRContext, mergeProps, defineComponent, computed, toRef, unref, withCtx, createVNode, createBlock, createCommentVNode, openBlock, renderSlot, createTextVNode, toDisplayString } from 'vue';
-import { ssrRenderAttrs, ssrRenderAttr, ssrRenderClass, ssrInterpolate, ssrRenderSlot, ssrRenderComponent } from 'vue/server-renderer';
+import { _ as __nuxt_component_0 } from './PageHero.vue.mjs';
+import { r as tv, _ as _appConfig, u as useLocalePath, a as useI18n, I as useHead, b as useSeoMeta, j as __nuxt_component_1, J as __nuxt_component_0$1, B as __nuxt_component_2 } from './server.mjs';
+import { useSSRContext, mergeProps, defineComponent, computed, unref, withCtx, createBlock, openBlock, Fragment, renderList, renderSlot, createVNode, toDisplayString, createTextVNode } from 'vue';
+import { ssrRenderAttrs, ssrRenderAttr, ssrRenderComponent, ssrRenderList, ssrRenderClass, ssrRenderSlot, ssrInterpolate } from 'vue/server-renderer';
 import { p as publicAssetsURL } from '../nitro/nitro.mjs';
-import { _ as __nuxt_component_0$2 } from './LandingSection.vue.mjs';
+import { Primitive } from 'reka-ui';
+import { U as UPageSection } from './PageSection.vue.mjs';
 import { _ as __nuxt_component_7 } from './PageGrid.vue.mjs';
-import { _ as __nuxt_component_1$2 } from './LandingCard.vue.mjs';
-import { _ as __nuxt_component_1$3 } from './PageColumns.vue.mjs';
-import 'tailwind-merge';
+import { _ as __nuxt_component_1$1 } from './PageCard.vue.mjs';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
-import '@vueuse/core';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
@@ -19,7 +17,11 @@ import 'unhead/plugins';
 import 'unhead/utils';
 import 'devalue';
 import '@iconify/vue';
+import '@vueuse/core';
 import '@iconify/utils/lib/css/icon';
+import 'tailwind-variants';
+import 'vaul-vue';
+import 'reka-ui/namespaced';
 import 'node:http';
 import 'node:https';
 import 'node:events';
@@ -34,278 +36,139 @@ import 'ipx';
 
 const _imports_0 = publicAssetsURL("/video/Intro.mp4");
 
-const _sfc_main$3 = {};
+const _export_sfc = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+
+const _sfc_main$2 = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   _push(`<div${ssrRenderAttrs(mergeProps({ class: "relative" }, _attrs))} data-v-2a92cdde><div class="bg-background border-gradient rounded-xl p-4" data-v-2a92cdde><div class="aspect-w-16 aspect-h-9 rounded-lg relative overflow-hidden border border-dashed border-gray-950/10 dark:border-white/10" data-v-2a92cdde><video${ssrRenderAttr("src", _imports_0)} autoplay playsinline muted data-v-2a92cdde></video></div></div></div>`);
 }
-const _sfc_setup$3 = _sfc_main$3.setup;
-_sfc_main$3.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/IntroVideo.vue");
-  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
-};
-const __nuxt_component_4 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-2a92cdde"]]), { __name: "IntroVideo" });
-
-const _sfc_main$2 = /* @__PURE__ */ defineComponent({
-  ...{
-    inheritAttrs: false
-  },
-  __name: "LandingLogos",
-  __ssrInlineRender: true,
-  props: {
-    title: {
-      type: String,
-      default: void 0
-    },
-    align: {
-      type: String,
-      default: "center"
-    },
-    class: {
-      type: [String, Object, Array],
-      default: void 0
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const config = computed(() => {
-      const wrapper = {
-        center: "text-center",
-        right: "text-right",
-        left: "text-left"
-      }[props.align];
-      return {
-        wrapper,
-        title: "text-lg font-semibold leading-8 text-gray-900 dark:text-white",
-        images: "mx-auto mt-10 flex flex-wrap items-center justify-between gap-8"
-      };
-    });
-    const { ui, attrs } = useUI("landing.logos", toRef(props, "ui"), config, toRef(props, "class"), true);
-    return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({
-        class: unref(ui).wrapper
-      }, unref(attrs), _attrs))}>`);
-      if (__props.title) {
-        _push(`<h2 class="${ssrRenderClass(unref(ui).title)}">${ssrInterpolate(__props.title)}</h2>`);
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`<div class="${ssrRenderClass(unref(ui).images)}">`);
-      ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
-      _push(`</div></div>`);
-    };
-  }
-});
-
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/landing/LandingLogos.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/IntroVideo.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const __nuxt_component_5 = Object.assign(_sfc_main$2, { __name: "ULandingLogos" });
+const __nuxt_component_4 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-2a92cdde"]]), { __name: "IntroVideo" });
 
-const _sfc_main$1 = /* @__PURE__ */ defineComponent({
-  ...{
-    inheritAttrs: false
+const theme = {
+  "slots": {
+    "root": "group relative flex items-center overflow-hidden gap-(--gap) [--gap:--spacing(16)] [--duration:20s]",
+    "content": "flex items-center shrink-0 justify-around gap-(--gap) min-w-max"
   },
-  __name: "LandingTestimonial",
+  "variants": {
+    "orientation": {
+      "horizontal": {
+        "content": "w-full"
+      },
+      "vertical": {
+        "content": "h-full"
+      }
+    },
+    "pauseOnHover": {
+      "true": {
+        "content": "group-hover:[animation-play-state:paused]"
+      }
+    },
+    "reverse": {
+      "true": {
+        "content": "[animation-direction:reverse]"
+      }
+    },
+    "overlay": {
+      "true": {
+        "root": 'before:absolute before:pointer-events-none before:content-[""] before:z-2 before:from-(--ui-bg) before:to-transparent after:absolute after:pointer-events-none after:content-[""] after:z-2 after:from-(--ui-bg) after:to-transparent'
+      }
+    }
+  },
+  "compoundVariants": [
+    {
+      "orientation": "horizontal",
+      "class": {
+        "root": "flex-row",
+        "content": "flex-row animate-[marquee_var(--duration)_linear_infinite] rtl:animate-[marquee-rtl_var(--duration)_linear_infinite] backface-hidden perspective-1000"
+      }
+    },
+    {
+      "orientation": "horizontal",
+      "overlay": true,
+      "class": {
+        "root": "before:inset-y-0 before:left-0 before:h-full before:w-1/3 before:bg-gradient-to-r after:inset-y-0 after:right-0 after:h-full after:w-1/3 after:bg-gradient-to-l"
+      }
+    },
+    {
+      "orientation": "vertical",
+      "class": {
+        "root": "flex-col",
+        "content": "flex-col animate-[marquee-vertical_var(--duration)_linear_infinite] rtl:animate-[marquee-vertical-rtl_var(--duration)_linear_infinite] h-[fit-content] backface-hidden perspective-1000"
+      }
+    },
+    {
+      "orientation": "vertical",
+      "overlay": true,
+      "class": {
+        "root": "before:inset-x-0 before:top-0 before:w-full before:h-1/3 before:bg-gradient-to-b after:inset-x-0 after:bottom-0 after:w-full after:h-1/3 after:bg-gradient-to-t"
+      }
+    }
+  ]
+};
+
+var _a;
+const appConfigPageMarquee = _appConfig;
+const pageMarquee = tv({ extend: tv(theme), ...((_a = appConfigPageMarquee.uiPro) == null ? void 0 : _a.pageMarquee) || {} });
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+  __name: "PageMarquee",
   __ssrInlineRender: true,
   props: {
-    icon: {
-      type: String,
-      default: void 0
-    },
-    quote: {
-      type: String,
-      required: true
-    },
-    author: {
-      type: Object,
-      default: void 0
-    },
-    card: {
-      type: Boolean,
-      default: true
-    },
-    class: {
-      type: [String, Object, Array],
-      default: void 0
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
-    }
+    as: {},
+    pauseOnHover: { type: Boolean },
+    reverse: { type: Boolean },
+    orientation: { default: "horizontal" },
+    repeat: { default: 4 },
+    overlay: { type: Boolean, default: true },
+    class: {},
+    ui: {}
   },
   setup(__props) {
     const props = __props;
-    const config = computed(() => {
-      const card = {};
-      if (!props.card) {
-        card.ring = "";
-        card.rounded = "";
-        card.background = "";
-        card.shadow = "";
-        card.divide = "";
-      }
-      const padding = props.card ? void 0 : "";
-      return {
-        ...card,
-        body: {
-          base: "flex flex-col",
-          padding
-        },
-        wrapper: "relative",
-        quote: "text-gray-600 dark:text-gray-300",
-        icon: {
-          wrapper: "mb-6 flex",
-          base: "w-8 h-8 flex-shrink-0 text-gray-900 dark:text-white"
-        },
-        author: {
-          wrapper: "flex items-center gap-3 mt-6 relative",
-          name: "font-semibold text-gray-900 dark:text-white text-sm",
-          description: "text-gray-500 dark:text-gray-400 text-sm",
-          avatar: {
-            base: "",
-            size: "md"
-          }
-        }
-      };
-    });
-    const { ui, attrs } = useUI("landing.testimonial", toRef(props, "ui"), config, toRef(props, "class"), true);
+    const ui = computed(() => pageMarquee({
+      pauseOnHover: props.pauseOnHover,
+      orientation: props.orientation,
+      reverse: props.reverse,
+      overlay: props.overlay
+    }));
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UCard = __nuxt_component_0;
-      const _component_UIcon = __nuxt_component_3;
-      const _component_UAvatar = __nuxt_component_4$1;
-      _push(ssrRenderComponent(_component_UCard, mergeProps({
-        class: unref(ui).wrapper
-      }, unref(attrs), { ui: unref(ui) }, _attrs), {
+      var _a2;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<div${_scopeId}>`);
-            if (__props.icon || _ctx.$slots.icon) {
-              _push2(`<div class="${ssrRenderClass(unref(ui).icon.wrapper)}"${_scopeId}>`);
-              ssrRenderSlot(_ctx.$slots, "icon", {}, () => {
-                _push2(ssrRenderComponent(_component_UIcon, {
-                  name: __props.icon,
-                  class: unref(ui).icon.base
-                }, null, _parent2, _scopeId));
-              }, _push2, _parent2, _scopeId);
+            _push2(`<!--[-->`);
+            ssrRenderList(_ctx.repeat, (i) => {
+              var _a3;
+              _push2(`<div class="${ssrRenderClass(ui.value.content({ class: [(_a3 = props.ui) == null ? void 0 : _a3.content] }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "default", {}, null, _push2, _parent2, _scopeId);
               _push2(`</div>`);
-            } else {
-              _push2(`<!---->`);
-            }
-            if (__props.quote || _ctx.$slots.quote) {
-              _push2(`<q class="${ssrRenderClass(unref(ui).quote)}"${_scopeId}>`);
-              ssrRenderSlot(_ctx.$slots, "quote", {}, () => {
-                _push2(`${ssrInterpolate(__props.quote)}`);
-              }, _push2, _parent2, _scopeId);
-              _push2(`</q>`);
-            } else {
-              _push2(`<!---->`);
-            }
-            if (__props.author) {
-              _push2(`<div class="${ssrRenderClass(unref(ui).author.wrapper)}"${_scopeId}>`);
-              if (__props.author.avatar) {
-                _push2(ssrRenderComponent(_component_UAvatar, mergeProps({
-                  alt: __props.author.name
-                }, { size: unref(ui).author.avatar.size, ...__props.author.avatar }, {
-                  class: unref(ui).author.avatar.base
-                }), null, _parent2, _scopeId));
-              } else {
-                _push2(`<!---->`);
-              }
-              _push2(`<div${_scopeId}>`);
-              if (__props.author.to) {
-                _push2(ssrRenderComponent(unref(__nuxt_component_1), mergeProps({
-                  "aria-label": __props.author.name
-                }, unref(getNuxtLinkProps)(__props.author), {
-                  class: "focus:outline-none",
-                  tabindex: "-1"
-                }), {
-                  default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-                    if (_push3) {
-                      _push3(`<span class="absolute inset-0" aria-hidden="true"${_scopeId2}></span>`);
-                    } else {
-                      return [
-                        createVNode("span", {
-                          class: "absolute inset-0",
-                          "aria-hidden": "true"
-                        })
-                      ];
-                    }
-                  }),
-                  _: 1
-                }, _parent2, _scopeId));
-              } else {
-                _push2(`<!---->`);
-              }
-              _push2(`<p class="${ssrRenderClass(unref(ui).author.name)}"${_scopeId}>${ssrInterpolate(__props.author.name)}</p><p class="${ssrRenderClass(unref(ui).author.description)}"${_scopeId}>${ssrInterpolate(__props.author.description)}</p></div></div>`);
-            } else {
-              _push2(`<!---->`);
-            }
-            _push2(`</div>`);
+            });
+            _push2(`<!--]-->`);
           } else {
             return [
-              createVNode("div", null, [
-                __props.icon || _ctx.$slots.icon ? (openBlock(), createBlock("div", {
-                  key: 0,
-                  class: unref(ui).icon.wrapper
+              (openBlock(true), createBlock(Fragment, null, renderList(_ctx.repeat, (i) => {
+                var _a3;
+                return openBlock(), createBlock("div", {
+                  key: i,
+                  class: ui.value.content({ class: [(_a3 = props.ui) == null ? void 0 : _a3.content] })
                 }, [
-                  renderSlot(_ctx.$slots, "icon", {}, () => [
-                    createVNode(_component_UIcon, {
-                      name: __props.icon,
-                      class: unref(ui).icon.base
-                    }, null, 8, ["name", "class"])
-                  ])
-                ], 2)) : createCommentVNode("", true),
-                __props.quote || _ctx.$slots.quote ? (openBlock(), createBlock("q", {
-                  key: 1,
-                  class: unref(ui).quote
-                }, [
-                  renderSlot(_ctx.$slots, "quote", {}, () => [
-                    createTextVNode(toDisplayString(__props.quote), 1)
-                  ])
-                ], 2)) : createCommentVNode("", true),
-                __props.author ? (openBlock(), createBlock("div", {
-                  key: 2,
-                  class: unref(ui).author.wrapper
-                }, [
-                  __props.author.avatar ? (openBlock(), createBlock(_component_UAvatar, mergeProps({
-                    key: 0,
-                    alt: __props.author.name
-                  }, { size: unref(ui).author.avatar.size, ...__props.author.avatar }, {
-                    class: unref(ui).author.avatar.base
-                  }), null, 16, ["alt", "class"])) : createCommentVNode("", true),
-                  createVNode("div", null, [
-                    __props.author.to ? (openBlock(), createBlock(unref(__nuxt_component_1), mergeProps({
-                      key: 0,
-                      "aria-label": __props.author.name
-                    }, unref(getNuxtLinkProps)(__props.author), {
-                      class: "focus:outline-none",
-                      tabindex: "-1"
-                    }), {
-                      default: withCtx(() => [
-                        createVNode("span", {
-                          class: "absolute inset-0",
-                          "aria-hidden": "true"
-                        })
-                      ]),
-                      _: 1
-                    }, 16, ["aria-label"])) : createCommentVNode("", true),
-                    createVNode("p", {
-                      class: unref(ui).author.name
-                    }, toDisplayString(__props.author.name), 3),
-                    createVNode("p", {
-                      class: unref(ui).author.description
-                    }, toDisplayString(__props.author.description), 3)
-                  ])
-                ], 2)) : createCommentVNode("", true)
-              ])
+                  renderSlot(_ctx.$slots, "default")
+                ], 2);
+              }), 128))
             ];
           }
         }),
@@ -318,10 +181,10 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/landing/LandingTestimonial.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/PageMarquee.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_10 = Object.assign(_sfc_main$1, { __name: "ULandingTestimonial" });
+const __nuxt_component_5 = Object.assign(_sfc_main$1, { __name: "UPageMarquee" });
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",
@@ -341,24 +204,22 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       ogDescription: t("index.hero.description")
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_ULandingHero = __nuxt_component_0$1;
-      const _component_UBadge = __nuxt_component_1$1;
+      const _component_UPageHero = __nuxt_component_0;
+      const _component_UBadge = __nuxt_component_0$1;
       const _component_NuxtLinkLocale = __nuxt_component_2;
-      const _component_UIcon = __nuxt_component_3;
+      const _component_UIcon = __nuxt_component_1;
       const _component_IntroVideo = __nuxt_component_4;
-      const _component_ULandingLogos = __nuxt_component_5;
-      const _component_ULandingSection = __nuxt_component_0$2;
+      const _component_UPageMarquee = __nuxt_component_5;
+      const _component_UPageSection = UPageSection;
       const _component_UPageGrid = __nuxt_component_7;
-      const _component_ULandingCard = __nuxt_component_1$2;
-      const _component_UPageColumns = __nuxt_component_1$3;
-      const _component_ULandingTestimonial = __nuxt_component_10;
+      const _component_UPageCard = __nuxt_component_1$1;
       _push(`<div${ssrRenderAttrs(_attrs)}>`);
-      _push(ssrRenderComponent(_component_ULandingHero, {
+      _push(ssrRenderComponent(_component_UPageHero, {
         title: _ctx.$t("index.hero.title"),
         description: _ctx.$t("index.hero.description"),
         links: [
-          { label: _ctx.$t("index.hero.links.news"), icon: "i-heroicons-newspaper", trailing: true, to: unref(localePath)("/newsroom"), size: "xl" },
-          { label: _ctx.$t("index.hero.links.startnow"), icon: "i-heroicons-arrow-right-20-solid", size: "xl", color: "gray", to: unref(localePath)("https://cp.key2host.com/"), target: "_blank" }
+          { color: "neutral", label: _ctx.$t("index.hero.links.news"), icon: "i-heroicons-newspaper", trailing: true, to: unref(localePath)("/newsroom"), size: "xl" },
+          { variant: "outline", color: "neutral", label: _ctx.$t("index.hero.links.startnow"), icon: "i-heroicons-arrow-right-20-solid", size: "xl", to: unref(localePath)("https://cp.key2host.com/"), target: "_blank" }
         ]
       }, {
         headline: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -457,10 +318,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             _push2(ssrRenderComponent(_component_IntroVideo, null, null, _parent2, _scopeId));
-            _push2(ssrRenderComponent(_component_ULandingLogos, {
-              title: _ctx.$t("index.partners.title"),
-              align: "center"
-            }, {
+            _push2(`<h1 class="text-center text-lg mt-4 font-bold"${_scopeId}>${ssrInterpolate(_ctx.$t("index.partners.title"))}</h1>`);
+            _push2(ssrRenderComponent(_component_UPageMarquee, null, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
                   _push3(ssrRenderComponent(_component_UIcon, {
@@ -513,10 +372,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           } else {
             return [
               createVNode(_component_IntroVideo),
-              createVNode(_component_ULandingLogos, {
-                title: _ctx.$t("index.partners.title"),
-                align: "center"
-              }, {
+              createVNode("h1", { class: "text-center text-lg mt-4 font-bold" }, toDisplayString(_ctx.$t("index.partners.title")), 1),
+              createVNode(_component_UPageMarquee, null, {
                 default: withCtx(() => [
                   createVNode(_component_UIcon, {
                     name: "i-simple-icons-cloudflare",
@@ -540,13 +397,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   })
                 ]),
                 _: 1
-              }, 8, ["title"])
+              })
             ];
           }
         }),
         _: 1
       }, _parent));
-      _push(ssrRenderComponent(_component_ULandingSection, {
+      _push(ssrRenderComponent(_component_UPageSection, {
         title: _ctx.$t("index.features.title"),
         description: _ctx.$t("index.features.description"),
         headline: _ctx.$t("index.features.headline")
@@ -556,65 +413,77 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             _push2(ssrRenderComponent(_component_UPageGrid, { class: "scroll-mt-[calc(var(--header-height)+140px+128px+96px)]" }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
-                  _push3(ssrRenderComponent(_component_ULandingCard, {
+                  _push3(ssrRenderComponent(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.1.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.1.description"),
                     icon: "i-heroicons-cog"
                   }, null, _parent3, _scopeId2));
-                  _push3(ssrRenderComponent(_component_ULandingCard, {
+                  _push3(ssrRenderComponent(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.2.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.2.description"),
                     icon: "i-heroicons-rocket-launch"
                   }, null, _parent3, _scopeId2));
-                  _push3(ssrRenderComponent(_component_ULandingCard, {
+                  _push3(ssrRenderComponent(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.3.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.3.description"),
                     icon: "i-heroicons-shield-check"
                   }, null, _parent3, _scopeId2));
-                  _push3(ssrRenderComponent(_component_ULandingCard, {
+                  _push3(ssrRenderComponent(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.4.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.4.description"),
                     icon: "i-heroicons-question-mark-circle"
                   }, null, _parent3, _scopeId2));
-                  _push3(ssrRenderComponent(_component_ULandingCard, {
+                  _push3(ssrRenderComponent(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.5.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.5.description"),
                     icon: "i-heroicons-globe-europe-africa"
                   }, null, _parent3, _scopeId2));
-                  _push3(ssrRenderComponent(_component_ULandingCard, {
+                  _push3(ssrRenderComponent(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.6.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.6.description"),
                     icon: "i-heroicons-lock-closed"
                   }, null, _parent3, _scopeId2));
                 } else {
                   return [
-                    createVNode(_component_ULandingCard, {
+                    createVNode(_component_UPageCard, {
                       title: _ctx.$t("index.features.items.1.title"),
+                      spotlight: "",
                       description: _ctx.$t("index.features.items.1.description"),
                       icon: "i-heroicons-cog"
                     }, null, 8, ["title", "description"]),
-                    createVNode(_component_ULandingCard, {
+                    createVNode(_component_UPageCard, {
                       title: _ctx.$t("index.features.items.2.title"),
+                      spotlight: "",
                       description: _ctx.$t("index.features.items.2.description"),
                       icon: "i-heroicons-rocket-launch"
                     }, null, 8, ["title", "description"]),
-                    createVNode(_component_ULandingCard, {
+                    createVNode(_component_UPageCard, {
                       title: _ctx.$t("index.features.items.3.title"),
+                      spotlight: "",
                       description: _ctx.$t("index.features.items.3.description"),
                       icon: "i-heroicons-shield-check"
                     }, null, 8, ["title", "description"]),
-                    createVNode(_component_ULandingCard, {
+                    createVNode(_component_UPageCard, {
                       title: _ctx.$t("index.features.items.4.title"),
+                      spotlight: "",
                       description: _ctx.$t("index.features.items.4.description"),
                       icon: "i-heroicons-question-mark-circle"
                     }, null, 8, ["title", "description"]),
-                    createVNode(_component_ULandingCard, {
+                    createVNode(_component_UPageCard, {
                       title: _ctx.$t("index.features.items.5.title"),
+                      spotlight: "",
                       description: _ctx.$t("index.features.items.5.description"),
                       icon: "i-heroicons-globe-europe-africa"
                     }, null, 8, ["title", "description"]),
-                    createVNode(_component_ULandingCard, {
+                    createVNode(_component_UPageCard, {
                       title: _ctx.$t("index.features.items.6.title"),
+                      spotlight: "",
                       description: _ctx.$t("index.features.items.6.description"),
                       icon: "i-heroicons-lock-closed"
                     }, null, 8, ["title", "description"])
@@ -627,214 +496,42 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             return [
               createVNode(_component_UPageGrid, { class: "scroll-mt-[calc(var(--header-height)+140px+128px+96px)]" }, {
                 default: withCtx(() => [
-                  createVNode(_component_ULandingCard, {
+                  createVNode(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.1.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.1.description"),
                     icon: "i-heroicons-cog"
                   }, null, 8, ["title", "description"]),
-                  createVNode(_component_ULandingCard, {
+                  createVNode(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.2.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.2.description"),
                     icon: "i-heroicons-rocket-launch"
                   }, null, 8, ["title", "description"]),
-                  createVNode(_component_ULandingCard, {
+                  createVNode(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.3.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.3.description"),
                     icon: "i-heroicons-shield-check"
                   }, null, 8, ["title", "description"]),
-                  createVNode(_component_ULandingCard, {
+                  createVNode(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.4.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.4.description"),
                     icon: "i-heroicons-question-mark-circle"
                   }, null, 8, ["title", "description"]),
-                  createVNode(_component_ULandingCard, {
+                  createVNode(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.5.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.5.description"),
                     icon: "i-heroicons-globe-europe-africa"
                   }, null, 8, ["title", "description"]),
-                  createVNode(_component_ULandingCard, {
+                  createVNode(_component_UPageCard, {
                     title: _ctx.$t("index.features.items.6.title"),
+                    spotlight: "",
                     description: _ctx.$t("index.features.items.6.description"),
                     icon: "i-heroicons-lock-closed"
                   }, null, 8, ["title", "description"])
-                ]),
-                _: 1
-              })
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(ssrRenderComponent(_component_ULandingSection, {
-        headline: _ctx.$t("index.reviews.headline"),
-        title: _ctx.$t("index.reviews.title")
-      }, {
-        default: withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(ssrRenderComponent(_component_UPageColumns, {
-              id: "testimonials",
-              class: "xl:columns-4 scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
-            }, {
-              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-                if (_push3) {
-                  _push3(ssrRenderComponent(_component_ULandingTestimonial, {
-                    quote: "Nostrud tempor sunt fugiat. Dolor in sint dolore labore non occaecat adipisicing Lorem labore ullamco enim excepteur. In fugiat Lorem sit velit id veniam esse eiusmod non ea voluptate cupidatat reprehenderit ullamco dolore. Mollit laborum occaecat aliquip.",
-                    author: {
-                      name: "Rose Roberson",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=1" }
-                    }
-                  }, null, _parent3, _scopeId2));
-                  _push3(ssrRenderComponent(_component_ULandingTestimonial, {
-                    quote: "Eiusmod dolor aute ut nulla pariatur officia consequat aute amet exercitation.",
-                    author: {
-                      name: "Chace Rodgers",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=7" }
-                    }
-                  }, null, _parent3, _scopeId2));
-                  _push3(ssrRenderComponent(_component_ULandingTestimonial, {
-                    quote: "Id duis velit enim officia ad nisi incididunt magna ex dolor minim deserunt dolor. Esse incididunt cillum nostrud esse do quis amet labore amet nulla eiusmod amet nulla Lorem. Incididunt ex voluptate irure officia laboris ea proident est qui.",
-                    author: {
-                      name: "Cornelius Sheppard",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=3" }
-                    }
-                  }, null, _parent3, _scopeId2));
-                  _push3(ssrRenderComponent(_component_ULandingTestimonial, {
-                    quote: "Velit consectetur in adipisicing culpa eiusmod commodo eu ex dolore. Officia irure nisi dolor dolore velit fugiat. Aliqua sint aliqua aute elit eu sunt.",
-                    author: {
-                      name: "Destinee Woods",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=5" }
-                    }
-                  }, null, _parent3, _scopeId2));
-                  _push3(ssrRenderComponent(_component_ULandingTestimonial, {
-                    quote: "Proident quis deserunt qui ex exercitation veniam id Lorem est cupidatat ipsum irure aliquip ad.",
-                    author: {
-                      name: "Kaleb Mccormick",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=8" }
-                    }
-                  }, null, _parent3, _scopeId2));
-                  _push3(ssrRenderComponent(_component_ULandingTestimonial, {
-                    quote: "Magna officia quis ea ea in officia non voluptate ipsum culpa do labore sunt. Aute est dolore commodo sint officia ad laboris dolor magna aliquip exercitation tempor commodo.",
-                    author: {
-                      name: "Jazmin Mccall",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=9" }
-                    }
-                  }, null, _parent3, _scopeId2));
-                } else {
-                  return [
-                    createVNode(_component_ULandingTestimonial, {
-                      quote: "Nostrud tempor sunt fugiat. Dolor in sint dolore labore non occaecat adipisicing Lorem labore ullamco enim excepteur. In fugiat Lorem sit velit id veniam esse eiusmod non ea voluptate cupidatat reprehenderit ullamco dolore. Mollit laborum occaecat aliquip.",
-                      author: {
-                        name: "Rose Roberson",
-                        description: "CEO at Company",
-                        avatar: { src: "https://i.pravatar.cc/120?img=1" }
-                      }
-                    }),
-                    createVNode(_component_ULandingTestimonial, {
-                      quote: "Eiusmod dolor aute ut nulla pariatur officia consequat aute amet exercitation.",
-                      author: {
-                        name: "Chace Rodgers",
-                        description: "CEO at Company",
-                        avatar: { src: "https://i.pravatar.cc/120?img=7" }
-                      }
-                    }),
-                    createVNode(_component_ULandingTestimonial, {
-                      quote: "Id duis velit enim officia ad nisi incididunt magna ex dolor minim deserunt dolor. Esse incididunt cillum nostrud esse do quis amet labore amet nulla eiusmod amet nulla Lorem. Incididunt ex voluptate irure officia laboris ea proident est qui.",
-                      author: {
-                        name: "Cornelius Sheppard",
-                        description: "CEO at Company",
-                        avatar: { src: "https://i.pravatar.cc/120?img=3" }
-                      }
-                    }),
-                    createVNode(_component_ULandingTestimonial, {
-                      quote: "Velit consectetur in adipisicing culpa eiusmod commodo eu ex dolore. Officia irure nisi dolor dolore velit fugiat. Aliqua sint aliqua aute elit eu sunt.",
-                      author: {
-                        name: "Destinee Woods",
-                        description: "CEO at Company",
-                        avatar: { src: "https://i.pravatar.cc/120?img=5" }
-                      }
-                    }),
-                    createVNode(_component_ULandingTestimonial, {
-                      quote: "Proident quis deserunt qui ex exercitation veniam id Lorem est cupidatat ipsum irure aliquip ad.",
-                      author: {
-                        name: "Kaleb Mccormick",
-                        description: "CEO at Company",
-                        avatar: { src: "https://i.pravatar.cc/120?img=8" }
-                      }
-                    }),
-                    createVNode(_component_ULandingTestimonial, {
-                      quote: "Magna officia quis ea ea in officia non voluptate ipsum culpa do labore sunt. Aute est dolore commodo sint officia ad laboris dolor magna aliquip exercitation tempor commodo.",
-                      author: {
-                        name: "Jazmin Mccall",
-                        description: "CEO at Company",
-                        avatar: { src: "https://i.pravatar.cc/120?img=9" }
-                      }
-                    })
-                  ];
-                }
-              }),
-              _: 1
-            }, _parent2, _scopeId));
-          } else {
-            return [
-              createVNode(_component_UPageColumns, {
-                id: "testimonials",
-                class: "xl:columns-4 scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
-              }, {
-                default: withCtx(() => [
-                  createVNode(_component_ULandingTestimonial, {
-                    quote: "Nostrud tempor sunt fugiat. Dolor in sint dolore labore non occaecat adipisicing Lorem labore ullamco enim excepteur. In fugiat Lorem sit velit id veniam esse eiusmod non ea voluptate cupidatat reprehenderit ullamco dolore. Mollit laborum occaecat aliquip.",
-                    author: {
-                      name: "Rose Roberson",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=1" }
-                    }
-                  }),
-                  createVNode(_component_ULandingTestimonial, {
-                    quote: "Eiusmod dolor aute ut nulla pariatur officia consequat aute amet exercitation.",
-                    author: {
-                      name: "Chace Rodgers",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=7" }
-                    }
-                  }),
-                  createVNode(_component_ULandingTestimonial, {
-                    quote: "Id duis velit enim officia ad nisi incididunt magna ex dolor minim deserunt dolor. Esse incididunt cillum nostrud esse do quis amet labore amet nulla eiusmod amet nulla Lorem. Incididunt ex voluptate irure officia laboris ea proident est qui.",
-                    author: {
-                      name: "Cornelius Sheppard",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=3" }
-                    }
-                  }),
-                  createVNode(_component_ULandingTestimonial, {
-                    quote: "Velit consectetur in adipisicing culpa eiusmod commodo eu ex dolore. Officia irure nisi dolor dolore velit fugiat. Aliqua sint aliqua aute elit eu sunt.",
-                    author: {
-                      name: "Destinee Woods",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=5" }
-                    }
-                  }),
-                  createVNode(_component_ULandingTestimonial, {
-                    quote: "Proident quis deserunt qui ex exercitation veniam id Lorem est cupidatat ipsum irure aliquip ad.",
-                    author: {
-                      name: "Kaleb Mccormick",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=8" }
-                    }
-                  }),
-                  createVNode(_component_ULandingTestimonial, {
-                    quote: "Magna officia quis ea ea in officia non voluptate ipsum culpa do labore sunt. Aute est dolore commodo sint officia ad laboris dolor magna aliquip exercitation tempor commodo.",
-                    author: {
-                      name: "Jazmin Mccall",
-                      description: "CEO at Company",
-                      avatar: { src: "https://i.pravatar.cc/120?img=9" }
-                    }
-                  })
                 ]),
                 _: 1
               })

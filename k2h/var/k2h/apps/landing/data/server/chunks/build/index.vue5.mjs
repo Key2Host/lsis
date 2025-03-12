@@ -1,9 +1,9 @@
-import { _ as __nuxt_component_0 } from './LandingSection.vue.mjs';
-import { _ as __nuxt_component_1 } from './LandingCard.vue.mjs';
-import { a as useI18n, b as useSeoMeta, an as __nuxt_component_2, X as useCartStore } from './server.mjs';
+import { U as UPageSection } from './PageSection.vue.mjs';
+import { _ as __nuxt_component_1 } from './PageCard.vue.mjs';
+import { a as useI18n, b as useSeoMeta, R as __nuxt_component_2, z as useCartStore } from './server.mjs';
 import { defineComponent, ref, withCtx, createVNode, withDirectives, withKeys, vModelText, toDisplayString, createTextVNode, createBlock, openBlock, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderAttr, ssrInterpolate, ssrRenderList, ssrRenderClass } from 'vue/server-renderer';
-import 'tailwind-merge';
+import 'reka-ui';
 import '@vueuse/core';
 import '../nitro/nitro.mjs';
 import 'node:http';
@@ -28,6 +28,9 @@ import 'unhead/utils';
 import 'devalue';
 import '@iconify/vue';
 import '@iconify/utils/lib/css/icon';
+import 'tailwind-variants';
+import 'vaul-vue';
+import 'reka-ui/namespaced';
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",
@@ -46,15 +49,27 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const searchDomain = async () => {
       errorMessage.value = "";
       results.value = [];
+      let domainResults;
       errorMessage.value = t("products.domain.loading");
       const domainPattern = /^[a-zA-Z0-9.-]+$/;
       if (!domain.value.trim() || !domainPattern.test(domain.value) || domain.value.startsWith(".")) {
-        errorMessage.value = t("products.domain.notvalid");
+        errorMessage.value = t("products.domain.errors.notvalid");
         return;
       }
       searchQuery.value = domain.value.trim();
-      console.log(`Suche nach Domain: ${searchQuery.value}`);
-      let domainResults = await fetchPackageInfo();
+      try {
+        const response = await fetch("https://saci.key2host.com/api/user/getDomainInfo");
+        const data = await response.json();
+        if (Array.isArray(data.packages)) {
+          domainResults = data.packages;
+        } else {
+          errorMessage.value = t("products.domain.errors.erranswer");
+          return;
+        }
+      } catch (error) {
+        errorMessage.value = t("products.domain.errors.confailed");
+        return;
+      }
       const domainParts = searchQuery.value.split(".");
       const userTld = domainParts.length > 1 ? domainParts[domainParts.length - 1] : null;
       errorMessage.value = "";
@@ -65,19 +80,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         });
       }
       results.value = domainResults;
-    };
-    const fetchPackageInfo = async () => {
-      try {
-        const response = await fetch("https://saci.key2host.com/api/user/getDomainInfo");
-        const data = await response.json();
-        if (Array.isArray(data.packages)) {
-          return data.packages;
-        } else {
-          console.error("Die API hat kein Array von Paketen zurückgegeben.");
-        }
-      } catch (error) {
-        console.error("Fehler beim Abrufen der Webspace-Informationen:", error);
-      }
     };
     const buyDomain = (domain2, available, amount) => {
       selectedDomain.value = domain2;
@@ -107,14 +109,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       ogDescription: t("products.domain.description")
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_ULandingSection = __nuxt_component_0;
-      const _component_ULandingCard = __nuxt_component_1;
+      const _component_UPageSection = UPageSection;
+      const _component_UPageCard = __nuxt_component_1;
       const _component_UModal = __nuxt_component_2;
       _push(`<!--[-->`);
-      _push(ssrRenderComponent(_component_ULandingSection, {
+      _push(ssrRenderComponent(_component_UPageSection, {
         headline: _ctx.$t("products.domain.headline"),
         title: _ctx.$t("products.domain.title"),
-        align: "left"
+        orientation: "horizontal"
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -143,11 +145,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
+      _push(`<div class="mb-40">`);
       if (searchQuery.value && results.value.length > 0) {
         _push(`<div><!--[-->`);
         ssrRenderList(results.value, (result) => {
           _push(`<div class="w-full flex flex-wrap justify-center gap-4 mb-4">`);
-          _push(ssrRenderComponent(_component_ULandingCard, {
+          _push(ssrRenderComponent(_component_UPageCard, {
             class: ["w-full max-w-6xl relative", !result.available ? "opacity-50" : ""],
             title: `.${result.name} Domain`,
             color: result.available ? "primary" : "gray",
@@ -190,11 +193,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       } else {
         _push(`<!---->`);
       }
+      _push(`</div>`);
       _push(ssrRenderComponent(_component_UModal, {
-        modelValue: showModal.value,
-        "onUpdate:modelValue": ($event) => showModal.value = $event
+        open: showModal.value,
+        "onUpdate:open": ($event) => showModal.value = $event,
+        dismissible: false
       }, {
-        default: withCtx((_, _push2, _parent2, _scopeId) => {
+        content: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             if (selectedDomainAvailable.value) {
               _push2(`<div class="p-4 text-lg"${_scopeId}> Die Domain ${ssrInterpolate(selectedDomain.value)} kann momentan nicht gekauft werden. </div>`);

@@ -75,7 +75,7 @@ const resource = {
       },
       "legal": {
         "notice": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Legal Notice" } },
-        "privacy": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Privcy Policy" } },
+        "privacy": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Privacy Policy" } },
         "tos": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Terms Of Service" } }
       }
     }
@@ -432,6 +432,16 @@ const resource = {
         "17": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Scheduled tasks" } },
         "18": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "SSL/TLS Certificate manager" } },
         "yes": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Yes" } }
+      },
+      "errors": {
+        "emptydata": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Error loading information" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The response from the server was faulty. Please try again later." } }
+        },
+        "nodata": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Connection failed" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The data could not be retrieved from the server. Please try again later." } }
+        }
       }
     },
     "domain": {
@@ -447,9 +457,13 @@ const resource = {
         "abort": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Abort" } },
         "continue": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Continue" } }
       },
-      "noresults": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "No results found. Please enter another domain." } },
-      "loading": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Data is being loaded..." } },
-      "notvalid": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Please enter a valid domain name." } }
+      "loading": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Loading data..." } },
+      "errors": {
+        "noresults": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "No results found. Please enter a different domain." } },
+        "notvalid": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Please enter a valid domain." } },
+        "erranswer": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The response from the server was faulty." } },
+        "confailed": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "No connection to the server." } }
+      }
     },
     "vps-root": {
       "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Products > VPS & root server" } },

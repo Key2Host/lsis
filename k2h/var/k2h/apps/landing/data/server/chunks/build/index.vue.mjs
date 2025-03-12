@@ -1,11 +1,11 @@
-import { _ as __nuxt_component_0$1, a as __nuxt_component_5, b as __nuxt_component_2$2 } from './Alert.vue.mjs';
-import { c as arrow, i as input, _ as _export_sfc, o as o$1, d as i$1, e as i$2, f as o$2, A as A$1, N, g as u, T, l, h as i$3, j as i$4, s, k as u$1, w, t as t$1, m as f$1, E, n as u$2, p as t$2, q as o$3, r as c, v as n, x as f$2, O, y as p, z as w$1, B as h$1, C as __nuxt_component_3$1, D as __nuxt_component_4, F as mergeConfig, G as useUI, H as usePopper, I as useInjectButtonGroup, J as useFormGroup, K as twMerge, L as appConfig, M as get, P as s$1, Q as __nuxt_component_1, R as __nuxt_component_2$1, S as __nuxt_component_7, U as omit, V as __nuxt_component_6$1, W as useToast, a as useI18n, X as useCartStore, b as useSeoMeta, Y as __nuxt_component_0$2, Z as __nuxt_component_2$3 } from './server.mjs';
-import { defineComponent, useId, ref, provide, readonly, useSSRContext, computed, onUnmounted, onMounted, watch, inject, watchEffect, nextTick, h, Fragment, cloneVNode, toRaw, reactive, resolveComponent, createVNode, resolveDynamicComponent, mergeProps, withCtx, renderSlot, createBlock, createCommentVNode, openBlock, toDisplayString, renderList, createTextVNode, Transition, toRef, unref, createSlots, isRef, withAsyncContext, withModifiers } from 'vue';
-import { useEventBus, computedAsync, useDebounceFn } from '@vueuse/core';
-import { ssrRenderAttrs, ssrRenderSlot, ssrRenderVNode, ssrRenderAttr, ssrRenderClass, ssrIncludeBooleanAttr, ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrRenderStyle } from 'vue/server-renderer';
-import { useVirtualizer } from '@tanstack/vue-virtual';
-import { m as defu, P as isEqual } from '../nitro/nitro.mjs';
-import { twJoin } from 'tailwind-merge';
+import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, createVNode, createBlock, createCommentVNode, openBlock, renderSlot, createTextVNode, toDisplayString, Fragment, renderList, useSSRContext, useId, inject, provide, ref, readonly, resolveDynamicComponent, mergeModels, useModel, toRef, withModifiers, toRaw, reactive, createSlots, isRef, withAsyncContext, resolveComponent } from 'vue';
+import { ssrRenderComponent, ssrRenderClass, ssrRenderStyle, ssrRenderSlot, ssrInterpolate, ssrRenderList, ssrRenderVNode, ssrRenderAttrs, ssrIncludeBooleanAttr } from 'vue/server-renderer';
+import { useForwardPropsEmits, Primitive, ProgressRoot, ProgressIndicator, useForwardProps, CheckboxRoot, CheckboxIndicator, Label, useFilter, ComboboxGroup, ComboboxItem, ComboboxRoot, ComboboxAnchor, ComboboxTrigger, ComboboxPortal, ComboboxContent, FocusScope, ComboboxInput, ComboboxEmpty, ComboboxViewport, ComboboxLabel, ComboboxSeparator, ComboboxItemIndicator, ComboboxArrow } from 'reka-ui';
+import { reactivePick, useEventBus, createReusableTemplate } from '@vueuse/core';
+import { c as useLocale, t as tv, _ as _appConfig, f as formBusInjectionKey, d as formInputsInjectionKey, e as formLoadingInjectionKey, g as formOptionsInjectionKey, h as useAppConfig, i as useFormField, j as __nuxt_component_1, k as useButtonGroup, l as useComponentIcons, m as get, n as compare, o as __nuxt_component_3$1, p as __nuxt_component_6$1, q as useLocalePro, r as tv$1, s as __nuxt_component_2$1, v as __nuxt_component_2$2, w as __nuxt_component_4, x as omit, y as useToast, a as useI18n, z as useCartStore, b as useSeoMeta, A as __nuxt_component_1$1, B as __nuxt_component_2$3 } from './server.mjs';
+import { m as defu } from '../nitro/nitro.mjs';
+import { _ as __nuxt_component_0$2 } from './Chip.vue.mjs';
+import { _ as __nuxt_component_3$2 } from './Alert.vue.mjs';
 import { _ as __nuxt_component_8 } from './NuxtTurnstile.vue.mjs';
 import axios from 'axios';
 import { loadStripe } from '@stripe/stripe-js';
@@ -20,6 +20,9 @@ import 'unhead/utils';
 import 'devalue';
 import '@iconify/vue';
 import '@iconify/utils/lib/css/icon';
+import 'tailwind-variants';
+import 'vaul-vue';
+import 'reka-ui/namespaced';
 import 'node:http';
 import 'node:https';
 import 'node:events';
@@ -34,257 +37,485 @@ import 'ipx';
 import 'unhead/scripts';
 import '@vueuse/shared';
 
-const inputMenu = {
-  container: "z-20 group",
-  trigger: "flex items-center w-full",
-  width: "w-full",
-  height: "max-h-60",
-  base: "relative focus:outline-none overflow-y-auto scroll-py-1",
-  background: "bg-white dark:bg-gray-800",
-  shadow: "shadow-lg",
-  rounded: "rounded-md",
-  padding: "p-1",
-  ring: "ring-1 ring-gray-200 dark:ring-gray-700",
-  empty: "text-sm text-gray-400 dark:text-gray-500 px-2 py-1.5",
-  option: {
-    base: "cursor-default select-none relative flex items-center justify-between gap-1",
-    rounded: "rounded-md",
-    padding: "px-1.5 py-1.5",
-    size: "text-sm",
-    color: "text-gray-900 dark:text-white",
-    container: "flex items-center gap-1.5 min-w-0",
-    active: "bg-gray-100 dark:bg-gray-900",
-    inactive: "",
-    selected: "pe-7",
-    disabled: "cursor-not-allowed opacity-50",
-    empty: "text-sm text-gray-400 dark:text-gray-500 px-2 py-1.5",
-    icon: {
-      base: "flex-shrink-0 h-5 w-5",
-      active: "text-gray-900 dark:text-white",
-      inactive: "text-gray-400 dark:text-gray-500"
+const theme$4 = {
+  "slots": {
+    "root": "gap-2",
+    "base": "relative overflow-hidden rounded-full bg-(--ui-bg-accented)",
+    "indicator": "rounded-full size-full transition-transform duration-200 ease-out",
+    "status": "flex justify-end text-(--ui-text-dimmed) transition-[width] duration-200",
+    "steps": "grid items-end",
+    "step": "truncate text-end row-start-1 col-start-1 transition-opacity"
+  },
+  "variants": {
+    "animation": {
+      "carousel": "",
+      "carousel-inverse": "",
+      "swing": "",
+      "elastic": ""
     },
-    selectedIcon: {
-      wrapper: "absolute inset-y-0 end-0 flex items-center",
-      padding: "pe-2",
-      base: "h-5 w-5 text-gray-900 dark:text-white flex-shrink-0"
+    "color": {
+      "primary": {
+        "indicator": "bg-(--ui-primary)",
+        "steps": "text-(--ui-primary)"
+      },
+      "secondary": {
+        "indicator": "bg-(--ui-secondary)",
+        "steps": "text-(--ui-secondary)"
+      },
+      "success": {
+        "indicator": "bg-(--ui-success)",
+        "steps": "text-(--ui-success)"
+      },
+      "info": {
+        "indicator": "bg-(--ui-info)",
+        "steps": "text-(--ui-info)"
+      },
+      "warning": {
+        "indicator": "bg-(--ui-warning)",
+        "steps": "text-(--ui-warning)"
+      },
+      "error": {
+        "indicator": "bg-(--ui-error)",
+        "steps": "text-(--ui-error)"
+      },
+      "neutral": {
+        "indicator": "bg-(--ui-bg-inverted)",
+        "steps": "text-(--ui-bg)"
+      }
     },
-    avatar: {
-      base: "flex-shrink-0",
-      size: "2xs"
+    "size": {
+      "2xs": {
+        "status": "text-xs",
+        "steps": "text-xs"
+      },
+      "xs": {
+        "status": "text-xs",
+        "steps": "text-xs"
+      },
+      "sm": {
+        "status": "text-sm",
+        "steps": "text-sm"
+      },
+      "md": {
+        "status": "text-sm",
+        "steps": "text-sm"
+      },
+      "lg": {
+        "status": "text-sm",
+        "steps": "text-sm"
+      },
+      "xl": {
+        "status": "text-base",
+        "steps": "text-base"
+      },
+      "2xl": {
+        "status": "text-base",
+        "steps": "text-base"
+      }
     },
-    chip: {
-      base: "flex-shrink-0 w-2 h-2 mx-1 rounded-full"
+    "step": {
+      "active": {
+        "step": "opacity-100"
+      },
+      "first": {
+        "step": "opacity-100 text-(--ui-text-muted)"
+      },
+      "other": {
+        "step": "opacity-0"
+      },
+      "last": {
+        "step": ""
+      }
+    },
+    "orientation": {
+      "horizontal": {
+        "root": "w-full flex flex-col",
+        "base": "w-full",
+        "status": "flex-row"
+      },
+      "vertical": {
+        "root": "h-full flex flex-row-reverse",
+        "base": "h-full",
+        "status": "flex-col"
+      }
+    },
+    "inverted": {
+      "true": {
+        "status": "self-end"
+      }
     }
   },
-  // Syntax for `<Transition>` component https://vuejs.org/guide/built-ins/transition.html#css-based-transitions
-  transition: {
-    leaveActiveClass: "transition ease-in duration-100",
-    leaveFromClass: "opacity-100",
-    leaveToClass: "opacity-0"
-  },
-  popper: {
-    placement: "bottom-end"
-  },
-  default: {
-    selectedIcon: "i-heroicons-check-20-solid",
-    trailingIcon: "i-heroicons-chevron-down-20-solid",
-    empty: {
-      label: "No options."
+  "compoundVariants": [
+    {
+      "inverted": true,
+      "orientation": "horizontal",
+      "class": {
+        "step": "text-start",
+        "status": "flex-row-reverse"
+      }
     },
-    optionEmpty: {
-      label: 'No results for "{query}".'
+    {
+      "inverted": true,
+      "orientation": "vertical",
+      "class": {
+        "steps": "items-start",
+        "status": "flex-col-reverse"
+      }
+    },
+    {
+      "orientation": "horizontal",
+      "size": "2xs",
+      "class": "h-px"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "xs",
+      "class": "h-0.5"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "sm",
+      "class": "h-1"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "md",
+      "class": "h-2"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "lg",
+      "class": "h-3"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "xl",
+      "class": "h-4"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "2xl",
+      "class": "h-5"
+    },
+    {
+      "orientation": "vertical",
+      "size": "2xs",
+      "class": "w-px"
+    },
+    {
+      "orientation": "vertical",
+      "size": "xs",
+      "class": "w-0.5"
+    },
+    {
+      "orientation": "vertical",
+      "size": "sm",
+      "class": "w-1"
+    },
+    {
+      "orientation": "vertical",
+      "size": "md",
+      "class": "w-2"
+    },
+    {
+      "orientation": "vertical",
+      "size": "lg",
+      "class": "w-3"
+    },
+    {
+      "orientation": "vertical",
+      "size": "xl",
+      "class": "w-4"
+    },
+    {
+      "orientation": "vertical",
+      "size": "2xl",
+      "class": "w-5"
+    },
+    {
+      "orientation": "horizontal",
+      "animation": "carousel",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[carousel_2s_ease-in-out_infinite] data-[state=indeterminate]:rtl:animate-[carousel-rtl_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "vertical",
+      "animation": "carousel",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[carousel-vertical_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "horizontal",
+      "animation": "carousel-inverse",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[carousel-inverse_2s_ease-in-out_infinite] data-[state=indeterminate]:rtl:animate-[carousel-inverse-rtl_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "vertical",
+      "animation": "carousel-inverse",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[carousel-inverse-vertical_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "horizontal",
+      "animation": "swing",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[swing_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "vertical",
+      "animation": "swing",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[swing-vertical_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "horizontal",
+      "animation": "elastic",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[elastic_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "vertical",
+      "animation": "elastic",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[elastic-vertical_2s_ease-in-out_infinite]"
+      }
     }
-  },
-  arrow: {
-    ...arrow,
-    ring: "before:ring-1 before:ring-gray-200 dark:before:ring-gray-700",
-    background: "before:bg-white dark:before:bg-gray-700"
+  ],
+  "defaultVariants": {
+    "animation": "carousel",
+    "color": "primary",
+    "size": "md"
   }
 };
 
-const select = {
-  ...input,
-  form: "form-select",
-  placeholder: "text-gray-400 dark:text-gray-500",
-  default: {
-    size: "sm",
-    color: "white",
-    variant: "outline",
-    loadingIcon: "i-heroicons-arrow-path-20-solid",
-    trailingIcon: "i-heroicons-chevron-down-20-solid"
-  }
-};
-
-const selectMenu = {
-  ...inputMenu,
-  select: "inline-flex items-center text-left cursor-default",
-  input: "block w-[calc(100%+0.5rem)] focus:ring-transparent text-sm px-3 py-1.5 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border-0 border-b border-gray-200 dark:border-gray-700 sticky -top-1 -mt-1 mb-1 -mx-1 z-10 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none",
-  required: "absolute inset-0 w-px opacity-0 cursor-default",
-  label: "block truncate",
-  option: {
-    ...inputMenu.option,
-    create: "block truncate"
-  },
-  // Syntax for `<Transition>` component https://vuejs.org/guide/built-ins/transition.html#css-based-transitions
-  transition: {
-    leaveActiveClass: "transition ease-in duration-100",
-    leaveFromClass: "opacity-100",
-    leaveToClass: "opacity-0"
-  },
-  popper: {
-    placement: "bottom-end"
-  },
-  default: {
-    selectedIcon: "i-heroicons-check-20-solid",
-    clearSearchOnClose: false,
-    showCreateOptionWhen: "empty",
-    searchablePlaceholder: {
-      label: "Search..."
-    },
-    empty: {
-      label: "No options."
-    },
-    optionEmpty: {
-      label: 'No results for "{query}".'
-    }
-  },
-  arrow: {
-    ...arrow,
-    ring: "before:ring-1 before:ring-gray-200 dark:before:ring-gray-700",
-    background: "before:bg-white dark:before:bg-gray-700"
-  }
-};
-
-class FormException extends Error {
-  constructor(message) {
-    super(message);
-    this.message = message;
-    Object.setPrototypeOf(this, FormException.prototype);
-  }
-}
-const _sfc_main$4 = defineComponent({
+var _a$4;
+const appConfigProgress = _appConfig;
+const progress = tv({ extend: tv(theme$4), ...((_a$4 = appConfigProgress.ui) == null ? void 0 : _a$4.progress) || {} });
+const _sfc_main$6 = /* @__PURE__ */ defineComponent({
+  __name: "Progress",
+  __ssrInlineRender: true,
   props: {
-    schema: {
-      type: [Object, Function],
-      default: void 0
-    },
-    state: {
-      type: Object,
-      required: true
-    },
-    validate: {
-      type: Function,
-      default: () => []
-    },
-    validateOn: {
-      type: Array,
-      default: () => ["blur", "input", "change", "submit"]
-    }
+    as: {},
+    max: {},
+    status: { type: Boolean },
+    inverted: { type: Boolean, default: false },
+    size: {},
+    color: {},
+    orientation: { default: "horizontal" },
+    animation: {},
+    class: {},
+    ui: {},
+    getValueLabel: {},
+    modelValue: { default: null }
   },
-  emits: ["submit", "error"],
-  setup(props, { expose, emit }) {
-    const formId = useId();
-    const bus = useEventBus(`form-${formId}`);
-    const parsedValue = ref(null);
-    const errors = ref([]);
-    provide("form-errors", errors);
-    provide("form-events", bus);
-    const inputs = ref({});
-    provide("form-inputs", inputs);
-    async function getErrors() {
-      let errs = await props.validate(props.state);
-      if (props.schema) {
-        const { errors: errors2, result } = await parseSchema(props.state, props.schema);
-        if (errors2) {
-          errs = errs.concat(errors2);
-        } else {
-          parsedValue.value = result;
-        }
+  emits: ["update:modelValue", "update:max"],
+  setup(__props, { emit: __emit }) {
+    const props = __props;
+    const emits = __emit;
+    const slots = useSlots();
+    const { dir } = useLocale();
+    const rootProps = useForwardPropsEmits(reactivePick(props, "getValueLabel", "modelValue"), emits);
+    const isIndeterminate = computed(() => rootProps.value.modelValue === null);
+    const hasSteps = computed(() => Array.isArray(props.max));
+    const realMax = computed(() => {
+      if (isIndeterminate.value || !props.max) {
+        return void 0;
       }
-      return errs;
-    }
-    async function validate(path, opts = { silent: false }) {
-      let paths = path;
-      if (path && !Array.isArray(path)) {
-        paths = [path];
+      if (Array.isArray(props.max)) {
+        return props.max.length - 1;
       }
-      if (paths) {
-        const otherErrors = errors.value.filter(
-          (error) => !paths.includes(error.path)
-        );
-        const pathErrors = (await getErrors()).filter(
-          (error) => paths.includes(error.path)
-        );
-        errors.value = otherErrors.concat(pathErrors);
-      } else {
-        errors.value = await getErrors();
+      return Number(props.max);
+    });
+    const percent = computed(() => {
+      if (isIndeterminate.value) {
+        return void 0;
       }
-      if (errors.value.length > 0) {
-        if (opts.silent) return false;
-        throw new FormException(
-          `Form validation failed: ${JSON.stringify(errors.value, null, 2)}`
-        );
+      switch (true) {
+        case rootProps.value.modelValue < 0:
+          return 0;
+        case rootProps.value.modelValue > (realMax.value ?? 100):
+          return 100;
+        default:
+          return Math.round(rootProps.value.modelValue / (realMax.value ?? 100) * 100);
       }
-      return props.state;
-    }
-    async function onSubmit(payload) {
-      var _a;
-      const event = payload;
-      try {
-        if ((_a = props.validateOn) == null ? void 0 : _a.includes("submit")) {
-          await validate();
-        }
-        event.data = props.schema ? parsedValue.value : props.state;
-        emit("submit", event);
-      } catch (error) {
-        if (!(error instanceof FormException)) {
-          throw error;
-        }
-        const errorEvent = {
-          ...event,
-          errors: errors.value.map((err) => ({
-            ...err,
-            id: inputs.value[err.path]
-          }))
+    });
+    const indicatorStyle = computed(() => {
+      if (percent.value === void 0) {
+        return;
+      }
+      if (props.orientation === "vertical") {
+        return {
+          transform: `translateY(${props.inverted ? "" : "-"}${100 - percent.value}%)`
         };
-        emit("error", errorEvent);
-      }
-    }
-    expose({
-      validate,
-      errors,
-      setErrors(errs, path) {
-        if (path) {
-          errors.value = errors.value.filter(
-            (error) => error.path !== path
-          ).concat(errs);
+      } else {
+        if (dir.value === "rtl") {
+          return {
+            transform: `translateX(${props.inverted ? "-" : ""}${100 - percent.value}%)`
+          };
         } else {
-          errors.value = errs;
-        }
-      },
-      async submit() {
-        await onSubmit(new Event("submit"));
-      },
-      getErrors(path) {
-        if (path) {
-          return errors.value.filter((err) => err.path === path);
-        }
-        return errors.value;
-      },
-      clear(path) {
-        if (path) {
-          errors.value = errors.value.filter((err) => err.path !== path);
-        } else {
-          errors.value = [];
+          return {
+            transform: `translateX(${props.inverted ? "" : "-"}${100 - percent.value}%)`
+          };
         }
       }
     });
-    return {
-      onSubmit,
-      errors: readonly(errors)
+    const statusStyle = computed(() => {
+      return {
+        [props.orientation === "vertical" ? "height" : "width"]: percent.value ? `${percent.value}%` : "fit-content"
+      };
+    });
+    function isActive(index) {
+      return index === Number(props.modelValue);
+    }
+    function isFirst(index) {
+      return index === 0;
+    }
+    function isLast(index) {
+      return index === realMax.value;
+    }
+    function stepVariant(index) {
+      index = Number(index);
+      if (isActive(index) && !isFirst(index)) {
+        return "active";
+      }
+      if (isFirst(index) && isActive(index)) {
+        return "first";
+      }
+      if (isLast(index) && isActive(index)) {
+        return "last";
+      }
+      return "other";
+    }
+    const ui = computed(() => progress({
+      animation: props.animation,
+      size: props.size,
+      color: props.color,
+      orientation: props.orientation,
+      inverted: props.inverted
+    }));
+    return (_ctx, _push, _parent, _attrs) => {
+      var _a2;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b, _c, _d, _e, _f;
+          if (_push2) {
+            if (!isIndeterminate.value && (_ctx.status || !!slots.status)) {
+              _push2(`<div class="${ssrRenderClass(ui.value.status({ class: (_a3 = props.ui) == null ? void 0 : _a3.status }))}" style="${ssrRenderStyle(statusStyle.value)}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "status", { percent: percent.value }, () => {
+                _push2(`${ssrInterpolate(percent.value)}% `);
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            _push2(ssrRenderComponent(unref(ProgressRoot), mergeProps(unref(rootProps), {
+              max: realMax.value,
+              class: ui.value.base({ class: (_b = props.ui) == null ? void 0 : _b.base }),
+              style: { "transform": "translateZ(0)" }
+            }), {
+              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                var _a4, _b2;
+                if (_push3) {
+                  _push3(ssrRenderComponent(unref(ProgressIndicator), {
+                    class: ui.value.indicator({ class: (_a4 = props.ui) == null ? void 0 : _a4.indicator }),
+                    style: indicatorStyle.value
+                  }, null, _parent3, _scopeId2));
+                } else {
+                  return [
+                    createVNode(unref(ProgressIndicator), {
+                      class: ui.value.indicator({ class: (_b2 = props.ui) == null ? void 0 : _b2.indicator }),
+                      style: indicatorStyle.value
+                    }, null, 8, ["class", "style"])
+                  ];
+                }
+              }),
+              _: 1
+            }, _parent2, _scopeId));
+            if (hasSteps.value) {
+              _push2(`<div class="${ssrRenderClass(ui.value.steps({ class: (_c = props.ui) == null ? void 0 : _c.steps }))}"${_scopeId}><!--[-->`);
+              ssrRenderList(_ctx.max, (step, index) => {
+                var _a4;
+                _push2(`<div class="${ssrRenderClass(ui.value.step({ class: (_a4 = props.ui) == null ? void 0 : _a4.step, step: stepVariant(index) }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, `step-${index}`, { step }, () => {
+                  _push2(`${ssrInterpolate(step)}`);
+                }, _push2, _parent2, _scopeId);
+                _push2(`</div>`);
+              });
+              _push2(`<!--]--></div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+          } else {
+            return [
+              !isIndeterminate.value && (_ctx.status || !!slots.status) ? (openBlock(), createBlock("div", {
+                key: 0,
+                class: ui.value.status({ class: (_d = props.ui) == null ? void 0 : _d.status }),
+                style: statusStyle.value
+              }, [
+                renderSlot(_ctx.$slots, "status", { percent: percent.value }, () => [
+                  createTextVNode(toDisplayString(percent.value) + "% ", 1)
+                ])
+              ], 6)) : createCommentVNode("", true),
+              createVNode(unref(ProgressRoot), mergeProps(unref(rootProps), {
+                max: realMax.value,
+                class: ui.value.base({ class: (_e = props.ui) == null ? void 0 : _e.base }),
+                style: { "transform": "translateZ(0)" }
+              }), {
+                default: withCtx(() => {
+                  var _a4;
+                  return [
+                    createVNode(unref(ProgressIndicator), {
+                      class: ui.value.indicator({ class: (_a4 = props.ui) == null ? void 0 : _a4.indicator }),
+                      style: indicatorStyle.value
+                    }, null, 8, ["class", "style"])
+                  ];
+                }),
+                _: 1
+              }, 16, ["max", "class"]),
+              hasSteps.value ? (openBlock(), createBlock("div", {
+                key: 1,
+                class: ui.value.steps({ class: (_f = props.ui) == null ? void 0 : _f.steps })
+              }, [
+                (openBlock(true), createBlock(Fragment, null, renderList(_ctx.max, (step, index) => {
+                  var _a4;
+                  return openBlock(), createBlock("div", {
+                    key: index,
+                    class: ui.value.step({ class: (_a4 = props.ui) == null ? void 0 : _a4.step, step: stepVariant(index) })
+                  }, [
+                    renderSlot(_ctx.$slots, `step-${index}`, { step }, () => [
+                      createTextVNode(toDisplayString(step), 1)
+                    ])
+                  ], 2);
+                }), 128))
+              ], 2)) : createCommentVNode("", true)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
     };
   }
 });
+
+const _sfc_setup$6 = _sfc_main$6.setup;
+_sfc_main$6.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Progress.vue");
+  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
+};
+const __nuxt_component_0$1 = Object.assign(_sfc_main$6, { __name: "UProgress" });
+
 function isYupSchema(schema) {
   return schema.validate && schema.__isYupSchema__;
 }
@@ -294,6 +525,9 @@ function isYupError(error) {
 function isSuperStructSchema(schema) {
   return "schema" in schema && typeof schema.coercer === "function" && typeof schema.validator === "function" && typeof schema.refiner === "function";
 }
+function isZodSchema(schema) {
+  return schema.parse !== void 0;
+}
 function isJoiSchema(schema) {
   return schema.validateAsync !== void 0 && schema.id !== void 0;
 }
@@ -301,110 +535,29 @@ function isJoiError(error) {
   return error.isJoi === true;
 }
 function isValibotSchema(schema) {
-  return "_parse" in schema || "_run" in schema || typeof schema === "function" && "schema" in schema;
-}
-function isZodSchema(schema) {
-  return schema.parse !== void 0;
+  return "_run" in schema || typeof schema === "function" && "schema" in schema;
 }
 function isStandardSchema(schema) {
   return "~standard" in schema;
 }
 async function validateStandardSchema(state, schema) {
+  var _a;
   const result = await schema["~standard"].validate(state);
-  if (!result.issues || result.issues.length === 0) {
-    const output = "value" in result ? result.value : null;
+  if (result.issues) {
     return {
-      errors: null,
-      result: output
-    };
-  }
-  const errors = result.issues.map((issue) => {
-    var _a;
-    return {
-      path: ((_a = issue.path) == null ? void 0 : _a.map((item) => typeof item === "object" ? item.key : item).join(".")) || "",
-      message: issue.message
-    };
-  });
-  return {
-    errors,
-    result: null
-  };
-}
-async function validateValibotSchema(state, schema) {
-  const result = await ("_parse" in schema ? schema._parse(state) : "_run" in schema ? schema._run({ typed: false, value: state }, {}) : schema(state));
-  if (!result.issues || result.issues.length === 0) {
-    const output = "output" in result ? result.output : "value" in result ? result.value : null;
-    return {
-      errors: null,
-      result: output
-    };
-  }
-  const errors = result.issues.map((issue) => {
-    var _a;
-    return {
-      path: ((_a = issue.path) == null ? void 0 : _a.map((item) => item.key).join(".")) || "",
-      message: issue.message
-    };
-  });
-  return {
-    errors,
-    result: null
-  };
-}
-async function validateJoiSchema(state, schema) {
-  try {
-    const result = await schema.validateAsync(state, { abortEarly: false });
-    return {
-      errors: null,
-      result
-    };
-  } catch (error) {
-    if (isJoiError(error)) {
-      const errors = error.details.map((issue) => ({
-        path: issue.path.join("."),
-        message: issue.message
-      }));
-      return {
-        errors,
-        result: null
-      };
-    } else {
-      throw error;
-    }
-  }
-}
-async function validateZodSchema(state, schema) {
-  const result = await schema.safeParseAsync(state);
-  if (result.success === false) {
-    const errors = result.error.issues.map((issue) => ({
-      path: issue.path.join("."),
-      message: issue.message
-    }));
-    return {
-      errors,
-      result: null
-    };
-  }
-  return {
-    result: result.data,
-    errors: null
-  };
-}
-async function validateSuperstructSchema(state, schema) {
-  const [err, result] = schema.validate(state);
-  if (err) {
-    const errors = err.failures().map((error) => ({
-      message: error.message,
-      path: error.path.join(".")
-    }));
-    return {
-      errors,
+      errors: ((_a = result.issues) == null ? void 0 : _a.map((issue) => {
+        var _a2;
+        return {
+          name: ((_a2 = issue.path) == null ? void 0 : _a2.map((item) => typeof item === "object" ? item.key : item).join(".")) || "",
+          message: issue.message
+        };
+      })) || [],
       result: null
     };
   }
   return {
     errors: null,
-    result
+    result: result.value
   };
 }
 async function validateYupSchema(state, schema) {
@@ -417,7 +570,7 @@ async function validateYupSchema(state, schema) {
   } catch (error) {
     if (isYupError(error)) {
       const errors = error.inner.map((issue) => ({
-        path: issue.path ?? "",
+        name: issue.path ?? "",
         message: issue.message
       }));
       return {
@@ -429,13 +582,90 @@ async function validateYupSchema(state, schema) {
     }
   }
 }
-function parseSchema(state, schema) {
-  if (isStandardSchema(schema)) {
-    return validateStandardSchema(state, schema);
-  } else if (isZodSchema(schema)) {
+async function validateSuperstructSchema(state, schema) {
+  const [err, result] = schema.validate(state);
+  if (err) {
+    const errors = err.failures().map((error) => ({
+      message: error.message,
+      name: error.path.join(".")
+    }));
+    return {
+      errors,
+      result: null
+    };
+  }
+  return {
+    errors: null,
+    result
+  };
+}
+async function validateZodSchema(state, schema) {
+  const result = await schema.safeParseAsync(state);
+  if (result.success === false) {
+    const errors = result.error.issues.map((issue) => ({
+      name: issue.path.join("."),
+      message: issue.message
+    }));
+    return {
+      errors,
+      result: null
+    };
+  }
+  return {
+    result: result.data,
+    errors: null
+  };
+}
+async function validateJoiSchema(state, schema) {
+  try {
+    const result = await schema.validateAsync(state, { abortEarly: false });
+    return {
+      errors: null,
+      result
+    };
+  } catch (error) {
+    if (isJoiError(error)) {
+      const errors = error.details.map((issue) => ({
+        name: issue.path.join("."),
+        message: issue.message
+      }));
+      return {
+        errors,
+        result: null
+      };
+    } else {
+      throw error;
+    }
+  }
+}
+async function validateValibotSchema(state, schema) {
+  const result = await ("_run" in schema ? schema._run({ typed: false, value: state }, {}) : schema(state));
+  if (!result.issues || result.issues.length === 0) {
+    const output = "output" in result ? result.output : "value" in result ? result.value : null;
+    return {
+      errors: null,
+      result: output
+    };
+  }
+  const errors = result.issues.map((issue) => {
+    var _a;
+    return {
+      name: ((_a = issue.path) == null ? void 0 : _a.map((item) => item.key).join(".")) || "",
+      message: issue.message
+    };
+  });
+  return {
+    errors,
+    result: null
+  };
+}
+function validateSchema(state, schema) {
+  if (isZodSchema(schema)) {
     return validateZodSchema(state, schema);
   } else if (isJoiSchema(schema)) {
     return validateJoiSchema(state, schema);
+  } else if (isStandardSchema(schema)) {
+    return validateStandardSchema(state, schema);
   } else if (isValibotSchema(schema)) {
     return validateValibotSchema(state, schema);
   } else if (isYupSchema(schema)) {
@@ -446,2280 +676,3264 @@ function parseSchema(state, schema) {
     throw new Error("Form validation failed: Unsupported form schema");
   }
 }
-function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<form${ssrRenderAttrs(_attrs)}>`);
-  ssrRenderSlot(_ctx.$slots, "default", { errors: _ctx.errors }, null, _push, _parent);
-  _push(`</form>`);
+
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+class FormValidationException extends Error {
+  constructor(formId, errors, childErrors) {
+    super("Form validation exception");
+    __publicField(this, "formId");
+    __publicField(this, "errors");
+    __publicField(this, "children");
+    this.formId = formId;
+    this.errors = errors;
+    this.children = childErrors;
+    Object.setPrototypeOf(this, FormValidationException.prototype);
+  }
 }
-const _sfc_setup$4 = _sfc_main$4.setup;
-_sfc_main$4.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/forms/Form.vue");
-  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
+
+const theme$3 = {
+  "base": ""
 };
-const __nuxt_component_3 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$1]]), { __name: "UForm" });
 
-function d(u, e, r) {
-  let i = ref(r == null ? void 0 : r.value), f = computed(() => u.value !== void 0);
-  return [computed(() => f.value ? u.value : i.value), function(t) {
-    return f.value || (i.value = t), e == null ? void 0 : e(t);
-  }];
-}
-
-function i() {
-  let o$1$1 = o$1();
-  return onUnmounted(() => o$1$1.dispose()), o$1$1;
-}
-
-function t() {
-  let e = i();
-  return (o) => {
-    e.dispose(), e.nextFrame(o);
-  };
-}
-
-var g = ((f) => (f[f.Left = 0] = "Left", f[f.Right = 2] = "Right", f))(g || {});
-
-function e(i = {}, s = null, t = []) {
-  for (let [r, n] of Object.entries(i)) o(t, f(s, r), n);
-  return t;
-}
-function f(i, s) {
-  return i ? i + "[" + s + "]" : s;
-}
-function o(i, s, t) {
-  if (Array.isArray(t)) for (let [r, n] of t.entries()) o(i, f(s, r.toString()), n);
-  else t instanceof Date ? i.push([s, t.toISOString()]) : typeof t == "boolean" ? i.push([s, t ? "1" : "0"]) : typeof t == "string" ? i.push([s, t]) : typeof t == "number" ? i.push([s, `${t}`]) : t == null ? i.push([s, ""]) : e(t, s, i);
-}
-
-function De(a, h2) {
-  return a === h2;
-}
-var Ee = ((r) => (r[r.Open = 0] = "Open", r[r.Closed = 1] = "Closed", r))(Ee || {}), Ve = ((r) => (r[r.Single = 0] = "Single", r[r.Multi = 1] = "Multi", r))(Ve || {}), ke = ((y) => (y[y.Pointer = 0] = "Pointer", y[y.Focus = 1] = "Focus", y[y.Other = 2] = "Other", y))(ke || {});
-let ne = Symbol("ComboboxContext");
-function K(a) {
-  let h2 = inject(ne, null);
-  if (h2 === null) {
-    let r = new Error(`<${a} /> is missing a parent <Combobox /> component.`);
-    throw Error.captureStackTrace && Error.captureStackTrace(r, K), r;
-  }
-  return h2;
-}
-let ie = Symbol("VirtualContext"), Ae$1 = defineComponent({ name: "VirtualProvider", setup(a, { slots: h$1 }) {
-  let r = K("VirtualProvider"), y = computed(() => {
-    let c2 = o$2(r.optionsRef);
-    if (!c2) return { start: 0, end: 0 };
-    let f2 = (void 0).getComputedStyle(c2);
-    return { start: parseFloat(f2.paddingBlockStart || f2.paddingTop), end: parseFloat(f2.paddingBlockEnd || f2.paddingBottom) };
-  }), o$12 = useVirtualizer(computed(() => ({ scrollPaddingStart: y.value.start, scrollPaddingEnd: y.value.end, count: r.virtual.value.options.length, estimateSize() {
-    return 40;
-  }, getScrollElement() {
-    return o$2(r.optionsRef);
-  }, overscan: 12 }))), u2 = computed(() => {
-    var c2;
-    return (c2 = r.virtual.value) == null ? void 0 : c2.options;
-  }), e2 = ref(0);
-  return watch([u2], () => {
-    e2.value += 1;
-  }), provide(ie, r.virtual.value ? o$12 : null), () => [h("div", { style: { position: "relative", width: "100%", height: `${o$12.value.getTotalSize()}px` }, ref: (c2) => {
-    if (c2) {
-      if (typeof process != "undefined" && process.env.JEST_WORKER_ID !== void 0 || r.activationTrigger.value === 0) return;
-      r.activeOptionIndex.value !== null && r.virtual.value.options.length > r.activeOptionIndex.value && o$12.value.scrollToIndex(r.activeOptionIndex.value);
-    }
-  } }, o$12.value.getVirtualItems().map((c2) => cloneVNode(h$1.default({ option: r.virtual.value.options[c2.index], open: r.comboboxState.value === 0 })[0], { key: `${e2.value}-${c2.index}`, "data-index": c2.index, "aria-setsize": r.virtual.value.options.length, "aria-posinset": c2.index + 1, style: { position: "absolute", top: 0, left: 0, transform: `translateY(${c2.start}px)`, overflowAnchor: "none" } })))];
-} }), lt = defineComponent({ name: "Combobox", emits: { "update:modelValue": (a) => true }, props: { as: { type: [Object, String], default: "template" }, disabled: { type: [Boolean], default: false }, by: { type: [String, Function], nullable: true, default: null }, modelValue: { type: [Object, String, Number, Boolean], default: void 0 }, defaultValue: { type: [Object, String, Number, Boolean], default: void 0 }, form: { type: String, optional: true }, name: { type: String, optional: true }, nullable: { type: Boolean, default: false }, multiple: { type: [Boolean], default: false }, immediate: { type: [Boolean], default: false }, virtual: { type: Object, default: null } }, inheritAttrs: false, setup(a, { slots: h$1, attrs: r, emit: y }) {
-  let o$12 = ref(1), u2 = ref(null), e$1 = ref(null), c$1 = ref(null), f$2$1 = ref(null), S = ref({ static: false, hold: false }), v = ref([]), d$1 = ref(null), D = ref(2), E$1 = ref(false);
-  function w$1(t2 = (n2) => n2) {
-    let n2 = d$1.value !== null ? v.value[d$1.value] : null, s2 = t2(v.value.slice()), b = s2.length > 0 && s2[0].dataRef.order.value !== null ? s2.sort((C, A2) => C.dataRef.order.value - A2.dataRef.order.value) : O(s2, (C) => o$2(C.dataRef.domRef)), O$1 = n2 ? b.indexOf(n2) : null;
-    return O$1 === -1 && (O$1 = null), { options: b, activeOptionIndex: O$1 };
-  }
-  let M = computed(() => a.multiple ? 1 : 0), $ = computed(() => a.nullable), [B, p] = d(computed(() => a.modelValue), (t2) => y("update:modelValue", t2), computed(() => a.defaultValue)), R = computed(() => B.value === void 0 ? u$1(M.value, { [1]: [], [0]: void 0 }) : B.value), V = null, i2 = null;
-  function I(t2) {
-    return u$1(M.value, { [0]() {
-      return p == null ? void 0 : p(t2);
-    }, [1]: () => {
-      let n2 = toRaw(l2.value.value).slice(), s2 = toRaw(t2), b = n2.findIndex((O2) => l2.compare(s2, toRaw(O2)));
-      return b === -1 ? n2.push(s2) : n2.splice(b, 1), p == null ? void 0 : p(n2);
-    } });
-  }
-  let T$1 = computed(() => {
-  });
-  watch([T$1], ([t2], [n2]) => {
-    if (l2.virtual.value && t2 && n2 && d$1.value !== null) {
-      let s2 = t2.indexOf(n2[d$1.value]);
-      s2 !== -1 ? d$1.value = s2 : d$1.value = null;
-    }
-  });
-  let l2 = { comboboxState: o$12, value: R, mode: M, compare(t2, n2) {
-    if (typeof a.by == "string") {
-      let s2 = a.by;
-      return (t2 == null ? void 0 : t2[s2]) === (n2 == null ? void 0 : n2[s2]);
-    }
-    return a.by === null ? De(t2, n2) : a.by(t2, n2);
-  }, calculateIndex(t2) {
-    return l2.virtual.value ? a.by === null ? l2.virtual.value.options.indexOf(t2) : l2.virtual.value.options.findIndex((n2) => l2.compare(n2, t2)) : v.value.findIndex((n2) => l2.compare(n2.dataRef.value, t2));
-  }, defaultValue: computed(() => a.defaultValue), nullable: $, immediate: computed(() => false), virtual: computed(() => null), inputRef: e$1, labelRef: u2, buttonRef: c$1, optionsRef: f$2$1, disabled: computed(() => a.disabled), options: v, change(t2) {
-    p(t2);
-  }, activeOptionIndex: computed(() => {
-    if (E$1.value && d$1.value === null && (l2.virtual.value ? l2.virtual.value.options.length > 0 : v.value.length > 0)) {
-      if (l2.virtual.value) {
-        let n2 = l2.virtual.value.options.findIndex((s2) => {
-          var b;
-          return !((b = l2.virtual.value) != null && b.disabled(s2));
-        });
-        if (n2 !== -1) return n2;
-      }
-      let t2 = v.value.findIndex((n2) => !n2.dataRef.disabled);
-      if (t2 !== -1) return t2;
-    }
-    return d$1.value;
-  }), activationTrigger: D, optionsPropsRef: S, closeCombobox() {
-    E$1.value = false, !a.disabled && o$12.value !== 1 && (o$12.value = 1, d$1.value = null);
-  }, openCombobox() {
-    if (E$1.value = true, !a.disabled && o$12.value !== 0) {
-      if (l2.value.value) {
-        let t2 = l2.calculateIndex(l2.value.value);
-        t2 !== -1 && (d$1.value = t2);
-      }
-      o$12.value = 0;
-    }
-  }, setActivationTrigger(t2) {
-    D.value = t2;
-  }, goToOption(t2, n2, s2) {
-    E$1.value = false, V !== null && cancelAnimationFrame(V), V = requestAnimationFrame(() => {
-      if (a.disabled || f$2$1.value && !S.value.static && o$12.value === 1) return;
-      if (l2.virtual.value) {
-        d$1.value = t2 === c.Specific ? n2 : f$2({ focus: t2 }, { resolveItems: () => l2.virtual.value.options, resolveActiveIndex: () => {
-          var C, A2;
-          return (A2 = (C = l2.activeOptionIndex.value) != null ? C : l2.virtual.value.options.findIndex((j) => {
-            var q;
-            return !((q = l2.virtual.value) != null && q.disabled(j));
-          })) != null ? A2 : null;
-        }, resolveDisabled: (C) => l2.virtual.value.disabled(C), resolveId() {
-          throw new Error("Function not implemented.");
-        } }), D.value = s2 != null ? s2 : 2;
-        return;
-      }
-      let b = w$1();
-      if (b.activeOptionIndex === null) {
-        let C = b.options.findIndex((A2) => !A2.dataRef.disabled);
-        C !== -1 && (b.activeOptionIndex = C);
-      }
-      let O2 = t2 === c.Specific ? n2 : f$2({ focus: t2 }, { resolveItems: () => b.options, resolveActiveIndex: () => b.activeOptionIndex, resolveId: (C) => C.id, resolveDisabled: (C) => C.dataRef.disabled });
-      d$1.value = O2, D.value = s2 != null ? s2 : 2, v.value = b.options;
-    });
-  }, selectOption(t2) {
-    let n2 = v.value.find((b) => b.id === t2);
-    if (!n2) return;
-    let { dataRef: s2 } = n2;
-    I(s2.value);
-  }, selectActiveOption() {
-    if (l2.activeOptionIndex.value !== null) {
-      if (l2.virtual.value) I(l2.virtual.value.options[l2.activeOptionIndex.value]);
-      else {
-        let { dataRef: t2 } = v.value[l2.activeOptionIndex.value];
-        I(t2.value);
-      }
-      l2.goToOption(c.Specific, l2.activeOptionIndex.value);
-    }
-  }, registerOption(t2, n2) {
-    let s2 = reactive({ id: t2, dataRef: n2 });
-    if (l2.virtual.value) {
-      v.value.push(s2);
-      return;
-    }
-    i2 && cancelAnimationFrame(i2);
-    let b = w$1((O2) => (O2.push(s2), O2));
-    d$1.value === null && l2.isSelected(n2.value.value) && (b.activeOptionIndex = b.options.indexOf(s2)), v.value = b.options, d$1.value = b.activeOptionIndex, D.value = 2, b.options.some((O2) => !o$2(O2.dataRef.domRef)) && (i2 = requestAnimationFrame(() => {
-      let O2 = w$1();
-      v.value = O2.options, d$1.value = O2.activeOptionIndex;
-    }));
-  }, unregisterOption(t2, n2) {
-    if (V !== null && cancelAnimationFrame(V), n2 && (E$1.value = true), l2.virtual.value) {
-      v.value = v.value.filter((b) => b.id !== t2);
-      return;
-    }
-    let s2 = w$1((b) => {
-      let O2 = b.findIndex((C) => C.id === t2);
-      return O2 !== -1 && b.splice(O2, 1), b;
-    });
-    v.value = s2.options, d$1.value = s2.activeOptionIndex, D.value = 2;
-  }, isSelected(t2) {
-    return u$1(M.value, { [0]: () => l2.compare(toRaw(l2.value.value), toRaw(t2)), [1]: () => toRaw(l2.value.value).some((n2) => l2.compare(toRaw(n2), toRaw(t2))) });
-  }, isActive(t2) {
-    return d$1.value === l2.calculateIndex(t2);
-  } };
-  w([e$1, c$1, f$2$1], () => l2.closeCombobox(), computed(() => o$12.value === 0)), provide(ne, l2), t$1(computed(() => u$1(o$12.value, { [0]: i$3.Open, [1]: i$3.Closed })));
-  let g2 = computed(() => {
-    var t2;
-    return (t2 = o$2(e$1)) == null ? void 0 : t2.closest("form");
-  });
-  return onMounted(() => {
-    watch([g2], () => {
-      if (!g2.value || a.defaultValue === void 0) return;
-      function t2() {
-        l2.change(a.defaultValue);
-      }
-      return g2.value.addEventListener("reset", t2), () => {
-        var n2;
-        (n2 = g2.value) == null || n2.removeEventListener("reset", t2);
-      };
-    }, { immediate: true });
-  }), () => {
-    var C, A$1$1, j;
-    let { name: t2, disabled: n2, form: s2, ...b } = a, O2 = { open: o$12.value === 0, disabled: n2, activeIndex: l2.activeOptionIndex.value, activeOption: l2.activeOptionIndex.value === null ? null : l2.virtual.value ? l2.virtual.value.options[(C = l2.activeOptionIndex.value) != null ? C : 0] : (j = (A$1$1 = l2.options.value[l2.activeOptionIndex.value]) == null ? void 0 : A$1$1.dataRef.value) != null ? j : null, value: R.value };
-    return h(Fragment, [...t2 != null && R.value != null ? e({ [t2]: R.value }).map(([q, ue]) => h(f$1, E({ features: u$2.Hidden, key: q, as: "input", type: "hidden", hidden: true, readOnly: true, form: s2, disabled: n2, name: q, value: ue }))) : [], A$1({ theirProps: { ...r, ...T(b, ["by", "defaultValue", "immediate", "modelValue", "multiple", "nullable", "onUpdate:modelValue", "virtual"]) }, ourProps: {}, slot: O2, slots: h$1, attrs: r, name: "Combobox" })]);
-  };
-} });
-defineComponent({ name: "ComboboxLabel", props: { as: { type: [Object, String], default: "label" }, id: { type: String, default: null } }, setup(a, { attrs: h2, slots: r }) {
-  var e2;
-  let y = (e2 = a.id) != null ? e2 : `headlessui-combobox-label-${i$1()}`, o$12 = K("ComboboxLabel");
-  function u2() {
-    var c2;
-    (c2 = o$2(o$12.inputRef)) == null || c2.focus({ preventScroll: true });
-  }
-  return () => {
-    let c2 = { open: o$12.comboboxState.value === 0, disabled: o$12.disabled.value }, { ...f2 } = a, S = { id: y, ref: o$12.labelRef, onClick: u2 };
-    return A$1({ ourProps: S, theirProps: f2, slot: c2, attrs: h2, slots: r, name: "ComboboxLabel" });
-  };
-} });
-let nt = defineComponent({ name: "ComboboxButton", props: { as: { type: [Object, String], default: "button" }, id: { type: String, default: null } }, setup(a, { attrs: h2, slots: r, expose: y }) {
-  var S;
-  let o$12 = (S = a.id) != null ? S : `headlessui-combobox-button-${i$1()}`, u2 = K("ComboboxButton");
-  y({ el: u2.buttonRef, $el: u2.buttonRef });
-  function e2(v) {
-    u2.disabled.value || (u2.comboboxState.value === 0 ? u2.closeCombobox() : (v.preventDefault(), u2.openCombobox()), nextTick(() => {
-      var d2;
-      return (d2 = o$2(u2.inputRef)) == null ? void 0 : d2.focus({ preventScroll: true });
-    }));
-  }
-  function c$1(v) {
-    switch (v.key) {
-      case o$3.ArrowDown:
-        v.preventDefault(), v.stopPropagation(), u2.comboboxState.value === 1 && u2.openCombobox(), nextTick(() => {
-          var d2;
-          return (d2 = u2.inputRef.value) == null ? void 0 : d2.focus({ preventScroll: true });
-        });
-        return;
-      case o$3.ArrowUp:
-        v.preventDefault(), v.stopPropagation(), u2.comboboxState.value === 1 && (u2.openCombobox(), nextTick(() => {
-          u2.value.value || u2.goToOption(c.Last);
-        })), nextTick(() => {
-          var d2;
-          return (d2 = u2.inputRef.value) == null ? void 0 : d2.focus({ preventScroll: true });
-        });
-        return;
-      case o$3.Escape:
-        if (u2.comboboxState.value !== 0) return;
-        v.preventDefault(), u2.optionsRef.value && !u2.optionsPropsRef.value.static && v.stopPropagation(), u2.closeCombobox(), nextTick(() => {
-          var d2;
-          return (d2 = u2.inputRef.value) == null ? void 0 : d2.focus({ preventScroll: true });
-        });
-        return;
-    }
-  }
-  let f2 = s(computed(() => ({ as: a.as, type: h2.type })), u2.buttonRef);
-  return () => {
-    var E2, w2;
-    let v = { open: u2.comboboxState.value === 0, disabled: u2.disabled.value, value: u2.value.value }, { ...d2 } = a, D = { ref: u2.buttonRef, id: o$12, type: f2.value, tabindex: "-1", "aria-haspopup": "listbox", "aria-controls": (E2 = o$2(u2.optionsRef)) == null ? void 0 : E2.id, "aria-expanded": u2.comboboxState.value === 0, "aria-labelledby": u2.labelRef.value ? [(w2 = o$2(u2.labelRef)) == null ? void 0 : w2.id, o$12].join(" ") : void 0, disabled: u2.disabled.value === true ? true : void 0, onKeydown: c$1, onClick: e2 };
-    return A$1({ ourProps: D, theirProps: d2, slot: v, attrs: h2, slots: r, name: "ComboboxButton" });
-  };
-} }), it = defineComponent({ name: "ComboboxInput", props: { as: { type: [Object, String], default: "input" }, static: { type: Boolean, default: false }, unmount: { type: Boolean, default: true }, displayValue: { type: Function }, defaultValue: { type: String, default: void 0 }, id: { type: String, default: null } }, emits: { change: (a) => true }, setup(a, { emit: h2, attrs: r, slots: y, expose: o$3$1 }) {
-  var V;
-  let u2 = (V = a.id) != null ? V : `headlessui-combobox-input-${i$1()}`, e2 = K("ComboboxInput"), c$1 = computed(() => i$2(o$2(e2.inputRef))), f2 = { value: false };
-  o$3$1({ el: e2.inputRef, $el: e2.inputRef });
-  function S() {
-    e2.change(null);
-    let i2 = o$2(e2.optionsRef);
-    i2 && (i2.scrollTop = 0), e2.goToOption(c.Nothing);
-  }
-  let v = computed(() => {
-    var I;
-    let i2 = e2.value.value;
-    return o$2(e2.inputRef) ? typeof a.displayValue != "undefined" && i2 !== void 0 ? (I = a.displayValue(i2)) != null ? I : "" : typeof i2 == "string" ? i2 : "" : "";
-  });
-  onMounted(() => {
-    watch([v, e2.comboboxState, c$1], ([i2, I], [T2, l2]) => {
-      if (f2.value) return;
-      let g2 = o$2(e2.inputRef);
-      g2 && ((l2 === 0 && I === 1 || i2 !== T2) && (g2.value = i2), requestAnimationFrame(() => {
-        var s2;
-        if (f2.value || !g2 || ((s2 = c$1.value) == null ? void 0 : s2.activeElement) !== g2) return;
-        let { selectionStart: t2, selectionEnd: n2 } = g2;
-        Math.abs((n2 != null ? n2 : 0) - (t2 != null ? t2 : 0)) === 0 && t2 === 0 && g2.setSelectionRange(g2.value.length, g2.value.length);
-      }));
-    }, { immediate: true }), watch([e2.comboboxState], ([i2], [I]) => {
-      if (i2 === 0 && I === 1) {
-        if (f2.value) return;
-        let T2 = o$2(e2.inputRef);
-        if (!T2) return;
-        let l2 = T2.value, { selectionStart: g2, selectionEnd: t2, selectionDirection: n2 } = T2;
-        T2.value = "", T2.value = l2, n2 !== null ? T2.setSelectionRange(g2, t2, n2) : T2.setSelectionRange(g2, t2);
-      }
-    });
-  });
-  let d2 = ref(false);
-  function D() {
-    d2.value = true;
-  }
-  function E2() {
-    o$1().nextFrame(() => {
-      d2.value = false;
-    });
-  }
-  let w2 = t();
-  function M(i2) {
-    switch (f2.value = true, w2(() => {
-      f2.value = false;
-    }), i2.key) {
-      case o$3.Enter:
-        if (f2.value = false, e2.comboboxState.value !== 0 || d2.value) return;
-        if (i2.preventDefault(), i2.stopPropagation(), e2.activeOptionIndex.value === null) {
-          e2.closeCombobox();
-          return;
-        }
-        e2.selectActiveOption(), e2.mode.value === 0 && e2.closeCombobox();
-        break;
-      case o$3.ArrowDown:
-        return f2.value = false, i2.preventDefault(), i2.stopPropagation(), u$1(e2.comboboxState.value, { [0]: () => e2.goToOption(c.Next), [1]: () => e2.openCombobox() });
-      case o$3.ArrowUp:
-        return f2.value = false, i2.preventDefault(), i2.stopPropagation(), u$1(e2.comboboxState.value, { [0]: () => e2.goToOption(c.Previous), [1]: () => {
-          e2.openCombobox(), nextTick(() => {
-            e2.value.value || e2.goToOption(c.Last);
-          });
-        } });
-      case o$3.Home:
-        if (i2.shiftKey) break;
-        return f2.value = false, i2.preventDefault(), i2.stopPropagation(), e2.goToOption(c.First);
-      case o$3.PageUp:
-        return f2.value = false, i2.preventDefault(), i2.stopPropagation(), e2.goToOption(c.First);
-      case o$3.End:
-        if (i2.shiftKey) break;
-        return f2.value = false, i2.preventDefault(), i2.stopPropagation(), e2.goToOption(c.Last);
-      case o$3.PageDown:
-        return f2.value = false, i2.preventDefault(), i2.stopPropagation(), e2.goToOption(c.Last);
-      case o$3.Escape:
-        if (f2.value = false, e2.comboboxState.value !== 0) return;
-        i2.preventDefault(), e2.optionsRef.value && !e2.optionsPropsRef.value.static && i2.stopPropagation(), e2.nullable.value && e2.mode.value === 0 && e2.value.value === null && S(), e2.closeCombobox();
-        break;
-      case o$3.Tab:
-        if (f2.value = false, e2.comboboxState.value !== 0) return;
-        e2.mode.value === 0 && e2.activationTrigger.value !== 1 && e2.selectActiveOption(), e2.closeCombobox();
-        break;
-    }
-  }
-  function $(i2) {
-    h2("change", i2), e2.nullable.value && e2.mode.value === 0 && i2.target.value === "" && S(), e2.openCombobox();
-  }
-  function B(i2) {
-    var T2, l2, g2;
-    let I = (T2 = i2.relatedTarget) != null ? T2 : t$2.find((t2) => t2 !== i2.currentTarget);
-    if (f2.value = false, !((l2 = o$2(e2.optionsRef)) != null && l2.contains(I)) && !((g2 = o$2(e2.buttonRef)) != null && g2.contains(I)) && e2.comboboxState.value === 0) return i2.preventDefault(), e2.mode.value === 0 && (e2.nullable.value && e2.value.value === null ? S() : e2.activationTrigger.value !== 1 && e2.selectActiveOption()), e2.closeCombobox();
-  }
-  function p(i2) {
-    var T2, l2, g2;
-    let I = (T2 = i2.relatedTarget) != null ? T2 : t$2.find((t2) => t2 !== i2.currentTarget);
-    (l2 = o$2(e2.buttonRef)) != null && l2.contains(I) || (g2 = o$2(e2.optionsRef)) != null && g2.contains(I) || e2.disabled.value || e2.immediate.value && e2.comboboxState.value !== 0 && (e2.openCombobox(), o$1().nextFrame(() => {
-      e2.setActivationTrigger(1);
-    }));
-  }
-  let R = computed(() => {
-    var i2, I, T2, l2;
-    return (l2 = (T2 = (I = a.defaultValue) != null ? I : e2.defaultValue.value !== void 0 ? (i2 = a.displayValue) == null ? void 0 : i2.call(a, e2.defaultValue.value) : null) != null ? T2 : e2.defaultValue.value) != null ? l2 : "";
-  });
-  return () => {
-    var t2, n2, s2, b, O2, C, A$1$1;
-    let i2 = { open: e2.comboboxState.value === 0 }, { displayValue: I, onChange: T2, ...l2 } = a, g2 = { "aria-controls": (t2 = e2.optionsRef.value) == null ? void 0 : t2.id, "aria-expanded": e2.comboboxState.value === 0, "aria-activedescendant": e2.activeOptionIndex.value === null ? void 0 : e2.virtual.value ? (n2 = e2.options.value.find((j) => !e2.virtual.value.disabled(j.dataRef.value) && e2.compare(j.dataRef.value, e2.virtual.value.options[e2.activeOptionIndex.value]))) == null ? void 0 : n2.id : (s2 = e2.options.value[e2.activeOptionIndex.value]) == null ? void 0 : s2.id, "aria-labelledby": (C = (b = o$2(e2.labelRef)) == null ? void 0 : b.id) != null ? C : (O2 = o$2(e2.buttonRef)) == null ? void 0 : O2.id, "aria-autocomplete": "list", id: u2, onCompositionstart: D, onCompositionend: E2, onKeydown: M, onInput: $, onFocus: p, onBlur: B, role: "combobox", type: (A$1$1 = r.type) != null ? A$1$1 : "text", tabIndex: 0, ref: e2.inputRef, defaultValue: R.value, disabled: e2.disabled.value === true ? true : void 0 };
-    return A$1({ ourProps: g2, theirProps: l2, slot: i2, attrs: r, slots: y, features: N.RenderStrategy | N.Static, name: "ComboboxInput" });
-  };
-} }), ut = defineComponent({ name: "ComboboxOptions", props: { as: { type: [Object, String], default: "ul" }, static: { type: Boolean, default: false }, unmount: { type: Boolean, default: true }, hold: { type: [Boolean], default: false } }, setup(a, { attrs: h$1, slots: r, expose: y }) {
-  let o$12 = K("ComboboxOptions"), u2 = `headlessui-combobox-options-${i$1()}`;
-  y({ el: o$12.optionsRef, $el: o$12.optionsRef }), watchEffect(() => {
-    o$12.optionsPropsRef.value.static = a.static;
-  }), watchEffect(() => {
-    o$12.optionsPropsRef.value.hold = a.hold;
-  });
-  let e2 = l(), c2 = computed(() => e2 !== null ? (e2.value & i$3.Open) === i$3.Open : o$12.comboboxState.value === 0);
-  i$4({ container: computed(() => o$2(o$12.optionsRef)), enabled: computed(() => o$12.comboboxState.value === 0), accept(S) {
-    return S.getAttribute("role") === "option" ? NodeFilter.FILTER_REJECT : S.hasAttribute("role") ? NodeFilter.FILTER_SKIP : NodeFilter.FILTER_ACCEPT;
-  }, walk(S) {
-    S.setAttribute("role", "none");
-  } });
-  function f2(S) {
-    S.preventDefault();
-  }
-  return () => {
-    var D, E2, w2;
-    let S = { open: o$12.comboboxState.value === 0 }, v = { "aria-labelledby": (w2 = (D = o$2(o$12.labelRef)) == null ? void 0 : D.id) != null ? w2 : (E2 = o$2(o$12.buttonRef)) == null ? void 0 : E2.id, id: u2, ref: o$12.optionsRef, role: "listbox", "aria-multiselectable": o$12.mode.value === 1 ? true : void 0, onMousedown: f2 }, d2 = T(a, ["hold"]);
-    return A$1({ ourProps: v, theirProps: d2, slot: S, attrs: h$1, slots: o$12.virtual.value && o$12.comboboxState.value === 0 ? { ...r, default: () => [h(Ae$1, {}, r.default)] } : r, features: N.RenderStrategy | N.Static, visible: c2.value, name: "ComboboxOptions" });
-  };
-} }), rt = defineComponent({ name: "ComboboxOption", props: { as: { type: [Object, String], default: "li" }, value: { type: [Object, String, Number, Boolean] }, disabled: { type: Boolean, default: false }, order: { type: [Number], default: null } }, setup(a, { slots: h2, attrs: r, expose: y }) {
-  let o$12 = K("ComboboxOption"), u$12 = `headlessui-combobox-option-${i$1()}`, e2 = ref(null), c$1 = computed(() => a.disabled);
-  y({ el: e2, $el: e2 });
-  let f2 = computed(() => {
-    var p;
-    return o$12.virtual.value ? o$12.activeOptionIndex.value === o$12.calculateIndex(a.value) : o$12.activeOptionIndex.value === null ? false : ((p = o$12.options.value[o$12.activeOptionIndex.value]) == null ? void 0 : p.id) === u$12;
-  }), S = computed(() => o$12.isSelected(a.value)), v = inject(ie, null), d2 = computed(() => ({ disabled: a.disabled, value: a.value, domRef: e2, order: computed(() => a.order) }));
-  onMounted(() => o$12.registerOption(u$12, d2)), onUnmounted(() => o$12.unregisterOption(u$12, f2.value)), watchEffect(() => {
-    let p = o$2(e2);
-    p && (v == null || v.value.measureElement(p));
-  }), watchEffect(() => {
-    o$12.comboboxState.value === 0 && f2.value && (o$12.virtual.value || o$12.activationTrigger.value !== 0 && nextTick(() => {
-      var p, R;
-      return (R = (p = o$2(e2)) == null ? void 0 : p.scrollIntoView) == null ? void 0 : R.call(p, { block: "nearest" });
-    }));
-  });
-  function D(p) {
-    p.preventDefault(), p.button === g.Left && (c$1.value || (o$12.selectOption(u$12), n() || requestAnimationFrame(() => {
-      var R;
-      return (R = o$2(o$12.inputRef)) == null ? void 0 : R.focus({ preventScroll: true });
-    }), o$12.mode.value === 0 && o$12.closeCombobox()));
-  }
-  function E2() {
-    var R;
-    if (a.disabled || (R = o$12.virtual.value) != null && R.disabled(a.value)) return o$12.goToOption(c.Nothing);
-    let p = o$12.calculateIndex(a.value);
-    o$12.goToOption(c.Specific, p);
-  }
-  let w2 = u();
-  function M(p) {
-    w2.update(p);
-  }
-  function $(p) {
-    var V;
-    if (!w2.wasMoved(p) || a.disabled || (V = o$12.virtual.value) != null && V.disabled(a.value) || f2.value) return;
-    let R = o$12.calculateIndex(a.value);
-    o$12.goToOption(c.Specific, R, 0);
-  }
-  function B(p) {
-    var R;
-    w2.wasMoved(p) && (a.disabled || (R = o$12.virtual.value) != null && R.disabled(a.value) || f2.value && (o$12.optionsPropsRef.value.hold || o$12.goToOption(c.Nothing)));
-  }
-  return () => {
-    let { disabled: p } = a, R = { active: f2.value, selected: S.value, disabled: p }, V = { id: u$12, ref: e2, role: "option", tabIndex: p === true ? void 0 : -1, "aria-disabled": p === true ? true : void 0, "aria-selected": S.value, disabled: void 0, onMousedown: D, onFocus: E2, onPointerenter: M, onMouseenter: M, onPointermove: $, onMousemove: $, onPointerleave: B, onMouseleave: B }, i2 = T(a, ["order", "value"]);
-    return A$1({ ourProps: V, theirProps: i2, slot: R, attrs: r, slots: h2, name: "ComboboxOption" });
-  };
-} });
-
-function pe(o2, b) {
-  return o2 === b;
-}
-var ce = ((r) => (r[r.Open = 0] = "Open", r[r.Closed = 1] = "Closed", r))(ce || {}), ve = ((r) => (r[r.Single = 0] = "Single", r[r.Multi = 1] = "Multi", r))(ve || {}), be = ((r) => (r[r.Pointer = 0] = "Pointer", r[r.Other = 1] = "Other", r))(be || {});
-function me(o2) {
-  requestAnimationFrame(() => requestAnimationFrame(o2));
-}
-let $ = Symbol("ListboxContext");
-function A(o2) {
-  let b = inject($, null);
-  if (b === null) {
-    let r = new Error(`<${o2} /> is missing a parent <Listbox /> component.`);
-    throw Error.captureStackTrace && Error.captureStackTrace(r, A), r;
-  }
-  return b;
-}
-let Ie = defineComponent({ name: "Listbox", emits: { "update:modelValue": (o2) => true }, props: { as: { type: [Object, String], default: "template" }, disabled: { type: [Boolean], default: false }, by: { type: [String, Function], default: () => pe }, horizontal: { type: [Boolean], default: false }, modelValue: { type: [Object, String, Number, Boolean], default: void 0 }, defaultValue: { type: [Object, String, Number, Boolean], default: void 0 }, form: { type: String, optional: true }, name: { type: String, optional: true }, multiple: { type: [Boolean], default: false } }, inheritAttrs: false, setup(o$12, { slots: b, attrs: r, emit: w$2 }) {
-  let n = ref(1), e$1 = ref(null), f$2$1 = ref(null), v = ref(null), s2 = ref([]), m = ref(""), p2 = ref(null), a = ref(1);
-  function u$12(t2 = (i2) => i2) {
-    let i2 = p2.value !== null ? s2.value[p2.value] : null, l2 = O(t2(s2.value.slice()), (O2) => o$2(O2.dataRef.domRef)), d2 = i2 ? l2.indexOf(i2) : null;
-    return d2 === -1 && (d2 = null), { options: l2, activeOptionIndex: d2 };
-  }
-  let D = computed(() => o$12.multiple ? 1 : 0), [y, L] = d(computed(() => o$12.modelValue), (t2) => w$2("update:modelValue", t2), computed(() => o$12.defaultValue)), M = computed(() => y.value === void 0 ? u$1(D.value, { [1]: [], [0]: void 0 }) : y.value), k = { listboxState: n, value: M, mode: D, compare(t2, i2) {
-    if (typeof o$12.by == "string") {
-      let l2 = o$12.by;
-      return (t2 == null ? void 0 : t2[l2]) === (i2 == null ? void 0 : i2[l2]);
-    }
-    return o$12.by(t2, i2);
-  }, orientation: computed(() => o$12.horizontal ? "horizontal" : "vertical"), labelRef: e$1, buttonRef: f$2$1, optionsRef: v, disabled: computed(() => o$12.disabled), options: s2, searchQuery: m, activeOptionIndex: p2, activationTrigger: a, closeListbox() {
-    o$12.disabled || n.value !== 1 && (n.value = 1, p2.value = null);
-  }, openListbox() {
-    o$12.disabled || n.value !== 0 && (n.value = 0);
-  }, goToOption(t2, i2, l2) {
-    if (o$12.disabled || n.value === 1) return;
-    let d2 = u$12(), O2 = f$2(t2 === c.Specific ? { focus: c.Specific, id: i2 } : { focus: t2 }, { resolveItems: () => d2.options, resolveActiveIndex: () => d2.activeOptionIndex, resolveId: (h2) => h2.id, resolveDisabled: (h2) => h2.dataRef.disabled });
-    m.value = "", p2.value = O2, a.value = l2 != null ? l2 : 1, s2.value = d2.options;
-  }, search(t2) {
-    if (o$12.disabled || n.value === 1) return;
-    let l2 = m.value !== "" ? 0 : 1;
-    m.value += t2.toLowerCase();
-    let O2 = (p2.value !== null ? s2.value.slice(p2.value + l2).concat(s2.value.slice(0, p2.value + l2)) : s2.value).find((I) => I.dataRef.textValue.startsWith(m.value) && !I.dataRef.disabled), h2 = O2 ? s2.value.indexOf(O2) : -1;
-    h2 === -1 || h2 === p2.value || (p2.value = h2, a.value = 1);
-  }, clearSearch() {
-    o$12.disabled || n.value !== 1 && m.value !== "" && (m.value = "");
-  }, registerOption(t2, i2) {
-    let l2 = u$12((d2) => [...d2, { id: t2, dataRef: i2 }]);
-    s2.value = l2.options, p2.value = l2.activeOptionIndex;
-  }, unregisterOption(t2) {
-    let i2 = u$12((l2) => {
-      let d2 = l2.findIndex((O2) => O2.id === t2);
-      return d2 !== -1 && l2.splice(d2, 1), l2;
-    });
-    s2.value = i2.options, p2.value = i2.activeOptionIndex, a.value = 1;
-  }, theirOnChange(t2) {
-    o$12.disabled || L(t2);
-  }, select(t2) {
-    o$12.disabled || L(u$1(D.value, { [0]: () => t2, [1]: () => {
-      let i2 = toRaw(k.value.value).slice(), l2 = toRaw(t2), d2 = i2.findIndex((O2) => k.compare(l2, toRaw(O2)));
-      return d2 === -1 ? i2.push(l2) : i2.splice(d2, 1), i2;
-    } }));
-  } };
-  w([f$2$1, v], (t2, i2) => {
-    var l2;
-    k.closeListbox(), w$1(i2, h$1.Loose) || (t2.preventDefault(), (l2 = o$2(f$2$1)) == null || l2.focus());
-  }, computed(() => n.value === 0)), provide($, k), t$1(computed(() => u$1(n.value, { [0]: i$3.Open, [1]: i$3.Closed })));
-  let C = computed(() => {
-    var t2;
-    return (t2 = o$2(f$2$1)) == null ? void 0 : t2.closest("form");
-  });
-  return onMounted(() => {
-    watch([C], () => {
-      if (!C.value || o$12.defaultValue === void 0) return;
-      function t2() {
-        k.theirOnChange(o$12.defaultValue);
-      }
-      return C.value.addEventListener("reset", t2), () => {
-        var i2;
-        (i2 = C.value) == null || i2.removeEventListener("reset", t2);
-      };
-    }, { immediate: true });
-  }), () => {
-    let { name: t2, modelValue: i2, disabled: l2, form: d2, ...O2 } = o$12, h2 = { open: n.value === 0, disabled: l2, value: M.value };
-    return h(Fragment, [...t2 != null && M.value != null ? e({ [t2]: M.value }).map(([I, Q]) => h(f$1, E({ features: u$2.Hidden, key: I, as: "input", type: "hidden", hidden: true, readOnly: true, form: d2, disabled: l2, name: I, value: Q }))) : [], A$1({ ourProps: {}, theirProps: { ...r, ...T(O2, ["defaultValue", "onUpdate:modelValue", "horizontal", "multiple", "by"]) }, slot: h2, slots: b, attrs: r, name: "Listbox" })]);
-  };
-} });
-defineComponent({ name: "ListboxLabel", props: { as: { type: [Object, String], default: "label" }, id: { type: String, default: null } }, setup(o$12, { attrs: b, slots: r }) {
-  var f2;
-  let w2 = (f2 = o$12.id) != null ? f2 : `headlessui-listbox-label-${i$1()}`, n = A("ListboxLabel");
-  function e2() {
-    var v;
-    (v = o$2(n.buttonRef)) == null || v.focus({ preventScroll: true });
-  }
-  return () => {
-    let v = { open: n.listboxState.value === 0, disabled: n.disabled.value }, { ...s2 } = o$12, m = { id: w2, ref: n.labelRef, onClick: e2 };
-    return A$1({ ourProps: m, theirProps: s2, slot: v, attrs: b, slots: r, name: "ListboxLabel" });
-  };
-} });
-let je = defineComponent({ name: "ListboxButton", props: { as: { type: [Object, String], default: "button" }, id: { type: String, default: null } }, setup(o$2$1, { attrs: b, slots: r, expose: w2 }) {
-  var p2;
-  let n = (p2 = o$2$1.id) != null ? p2 : `headlessui-listbox-button-${i$1()}`, e2 = A("ListboxButton");
-  w2({ el: e2.buttonRef, $el: e2.buttonRef });
-  function f2(a) {
-    switch (a.key) {
-      case o$3.Space:
-      case o$3.Enter:
-      case o$3.ArrowDown:
-        a.preventDefault(), e2.openListbox(), nextTick(() => {
-          var u2;
-          (u2 = o$2(e2.optionsRef)) == null || u2.focus({ preventScroll: true }), e2.value.value || e2.goToOption(c.First);
-        });
-        break;
-      case o$3.ArrowUp:
-        a.preventDefault(), e2.openListbox(), nextTick(() => {
-          var u2;
-          (u2 = o$2(e2.optionsRef)) == null || u2.focus({ preventScroll: true }), e2.value.value || e2.goToOption(c.Last);
-        });
-        break;
-    }
-  }
-  function v(a) {
-    switch (a.key) {
-      case o$3.Space:
-        a.preventDefault();
-        break;
-    }
-  }
-  function s$1(a) {
-    e2.disabled.value || (e2.listboxState.value === 0 ? (e2.closeListbox(), nextTick(() => {
-      var u2;
-      return (u2 = o$2(e2.buttonRef)) == null ? void 0 : u2.focus({ preventScroll: true });
-    })) : (a.preventDefault(), e2.openListbox(), me(() => {
-      var u2;
-      return (u2 = o$2(e2.optionsRef)) == null ? void 0 : u2.focus({ preventScroll: true });
-    })));
-  }
-  let m = s(computed(() => ({ as: o$2$1.as, type: b.type })), e2.buttonRef);
-  return () => {
-    var y, L;
-    let a = { open: e2.listboxState.value === 0, disabled: e2.disabled.value, value: e2.value.value }, { ...u2 } = o$2$1, D = { ref: e2.buttonRef, id: n, type: m.value, "aria-haspopup": "listbox", "aria-controls": (y = o$2(e2.optionsRef)) == null ? void 0 : y.id, "aria-expanded": e2.listboxState.value === 0, "aria-labelledby": e2.labelRef.value ? [(L = o$2(e2.labelRef)) == null ? void 0 : L.id, n].join(" ") : void 0, disabled: e2.disabled.value === true ? true : void 0, onKeydown: f2, onKeyup: v, onClick: s$1 };
-    return A$1({ ourProps: D, theirProps: u2, slot: a, attrs: b, slots: r, name: "ListboxButton" });
-  };
-} }), Ae = defineComponent({ name: "ListboxOptions", props: { as: { type: [Object, String], default: "ul" }, static: { type: Boolean, default: false }, unmount: { type: Boolean, default: true }, id: { type: String, default: null } }, setup(o$2$1, { attrs: b, slots: r, expose: w2 }) {
-  var p2;
-  let n = (p2 = o$2$1.id) != null ? p2 : `headlessui-listbox-options-${i$1()}`, e2 = A("ListboxOptions"), f2 = ref(null);
-  w2({ el: e2.optionsRef, $el: e2.optionsRef });
-  function v(a) {
-    switch (f2.value && clearTimeout(f2.value), a.key) {
-      case o$3.Space:
-        if (e2.searchQuery.value !== "") return a.preventDefault(), a.stopPropagation(), e2.search(a.key);
-      case o$3.Enter:
-        if (a.preventDefault(), a.stopPropagation(), e2.activeOptionIndex.value !== null) {
-          let u2 = e2.options.value[e2.activeOptionIndex.value];
-          e2.select(u2.dataRef.value);
-        }
-        e2.mode.value === 0 && (e2.closeListbox(), nextTick(() => {
-          var u2;
-          return (u2 = o$2(e2.buttonRef)) == null ? void 0 : u2.focus({ preventScroll: true });
-        }));
-        break;
-      case u$1(e2.orientation.value, { vertical: o$3.ArrowDown, horizontal: o$3.ArrowRight }):
-        return a.preventDefault(), a.stopPropagation(), e2.goToOption(c.Next);
-      case u$1(e2.orientation.value, { vertical: o$3.ArrowUp, horizontal: o$3.ArrowLeft }):
-        return a.preventDefault(), a.stopPropagation(), e2.goToOption(c.Previous);
-      case o$3.Home:
-      case o$3.PageUp:
-        return a.preventDefault(), a.stopPropagation(), e2.goToOption(c.First);
-      case o$3.End:
-      case o$3.PageDown:
-        return a.preventDefault(), a.stopPropagation(), e2.goToOption(c.Last);
-      case o$3.Escape:
-        a.preventDefault(), a.stopPropagation(), e2.closeListbox(), nextTick(() => {
-          var u2;
-          return (u2 = o$2(e2.buttonRef)) == null ? void 0 : u2.focus({ preventScroll: true });
-        });
-        break;
-      case o$3.Tab:
-        a.preventDefault(), a.stopPropagation();
-        break;
-      default:
-        a.key.length === 1 && (e2.search(a.key), f2.value = setTimeout(() => e2.clearSearch(), 350));
-        break;
-    }
-  }
-  let s2 = l(), m = computed(() => s2 !== null ? (s2.value & i$3.Open) === i$3.Open : e2.listboxState.value === 0);
-  return () => {
-    var y, L;
-    let a = { open: e2.listboxState.value === 0 }, { ...u2 } = o$2$1, D = { "aria-activedescendant": e2.activeOptionIndex.value === null || (y = e2.options.value[e2.activeOptionIndex.value]) == null ? void 0 : y.id, "aria-multiselectable": e2.mode.value === 1 ? true : void 0, "aria-labelledby": (L = o$2(e2.buttonRef)) == null ? void 0 : L.id, "aria-orientation": e2.orientation.value, id: n, onKeydown: v, role: "listbox", tabIndex: 0, ref: e2.optionsRef };
-    return A$1({ ourProps: D, theirProps: u2, slot: a, attrs: b, slots: r, features: N.RenderStrategy | N.Static, visible: m.value, name: "ListboxOptions" });
-  };
-} }), Fe = defineComponent({ name: "ListboxOption", props: { as: { type: [Object, String], default: "li" }, value: { type: [Object, String, Number, Boolean] }, disabled: { type: Boolean, default: false }, id: { type: String, default: null } }, setup(o$12, { slots: b, attrs: r, expose: w2 }) {
-  var C;
-  let n = (C = o$12.id) != null ? C : `headlessui-listbox-option-${i$1()}`, e2 = A("ListboxOption"), f2 = ref(null);
-  w2({ el: f2, $el: f2 });
-  let v = computed(() => e2.activeOptionIndex.value !== null ? e2.options.value[e2.activeOptionIndex.value].id === n : false), s2 = computed(() => u$1(e2.mode.value, { [0]: () => e2.compare(toRaw(e2.value.value), toRaw(o$12.value)), [1]: () => toRaw(e2.value.value).some((t2) => e2.compare(toRaw(t2), toRaw(o$12.value))) })), m = computed(() => u$1(e2.mode.value, { [1]: () => {
-    var i2;
-    let t2 = toRaw(e2.value.value);
-    return ((i2 = e2.options.value.find((l2) => t2.some((d2) => e2.compare(toRaw(d2), toRaw(l2.dataRef.value))))) == null ? void 0 : i2.id) === n;
-  }, [0]: () => s2.value })), p$1 = p(f2), a = computed(() => ({ disabled: o$12.disabled, value: o$12.value, get textValue() {
-    return p$1();
-  }, domRef: f2 }));
-  onMounted(() => e2.registerOption(n, a)), onUnmounted(() => e2.unregisterOption(n)), onMounted(() => {
-    watch([e2.listboxState, s2], () => {
-      e2.listboxState.value === 0 && s2.value && u$1(e2.mode.value, { [1]: () => {
-        m.value && e2.goToOption(c.Specific, n);
-      }, [0]: () => {
-        e2.goToOption(c.Specific, n);
-      } });
-    }, { immediate: true });
-  }), watchEffect(() => {
-    e2.listboxState.value === 0 && v.value && e2.activationTrigger.value !== 0 && nextTick(() => {
-      var t2, i2;
-      return (i2 = (t2 = o$2(f2)) == null ? void 0 : t2.scrollIntoView) == null ? void 0 : i2.call(t2, { block: "nearest" });
-    });
-  });
-  function u$22(t2) {
-    if (o$12.disabled) return t2.preventDefault();
-    e2.select(o$12.value), e2.mode.value === 0 && (e2.closeListbox(), nextTick(() => {
-      var i2;
-      return (i2 = o$2(e2.buttonRef)) == null ? void 0 : i2.focus({ preventScroll: true });
-    }));
-  }
-  function D() {
-    if (o$12.disabled) return e2.goToOption(c.Nothing);
-    e2.goToOption(c.Specific, n);
-  }
-  let y = u();
-  function L(t2) {
-    y.update(t2);
-  }
-  function M(t2) {
-    y.wasMoved(t2) && (o$12.disabled || v.value || e2.goToOption(c.Specific, n, 0));
-  }
-  function k(t2) {
-    y.wasMoved(t2) && (o$12.disabled || v.value && e2.goToOption(c.Nothing));
-  }
-  return () => {
-    let { disabled: t2 } = o$12, i2 = { active: v.value, selected: s2.value, disabled: t2 }, { value: l2, disabled: d2, ...O2 } = o$12, h2 = { id: n, ref: f2, role: "option", tabIndex: t2 === true ? void 0 : -1, "aria-disabled": t2 === true ? true : void 0, "aria-selected": s2.value, disabled: void 0, onClick: u$22, onFocus: D, onPointerenter: L, onMouseenter: L, onPointermove: M, onMousemove: M, onPointerleave: k, onMouseleave: k };
-    return A$1({ ourProps: h2, theirProps: O2, slot: i2, attrs: r, slots: b, name: "ListboxOption" });
-  };
-} });
-
-const config = mergeConfig(appConfig.ui.strategy, appConfig.ui.select, select);
-const configMenu = mergeConfig(appConfig.ui.strategy, appConfig.ui.selectMenu, selectMenu);
-const _sfc_main$3 = defineComponent({
-  components: {
-    HCombobox: lt,
-    HComboboxButton: nt,
-    HComboboxOptions: ut,
-    HComboboxOption: rt,
-    HComboboxInput: it,
-    HListbox: Ie,
-    HListboxButton: je,
-    HListboxOptions: Ae,
-    HListboxOption: Fe,
-    UIcon: __nuxt_component_3$1,
-    UAvatar: __nuxt_component_4
-  },
-  inheritAttrs: false,
+var _a$3;
+const appConfigForm = _appConfig;
+const form = tv({ extend: tv(theme$3), ...((_a$3 = appConfigForm.ui) == null ? void 0 : _a$3.form) || {} });
+const _sfc_main$5 = /* @__PURE__ */ defineComponent({
+  __name: "Form",
+  __ssrInlineRender: true,
   props: {
-    modelValue: {
-      type: [String, Number, Object, Array, Boolean],
-      default: ""
-    },
-    query: {
-      type: String,
-      default: null
-    },
-    by: {
-      type: String,
-      default: void 0
-    },
-    options: {
-      type: Array,
-      default: () => []
-    },
-    id: {
-      type: String,
-      default: null
-    },
-    name: {
-      type: String,
-      default: null
-    },
-    required: {
-      type: Boolean,
-      default: false
-    },
-    icon: {
-      type: String,
-      default: null
-    },
-    loadingIcon: {
-      type: String,
-      default: () => config.default.loadingIcon
-    },
-    leadingIcon: {
-      type: String,
-      default: null
-    },
-    trailingIcon: {
-      type: String,
-      default: () => config.default.trailingIcon
-    },
-    trailing: {
-      type: Boolean,
-      default: false
-    },
-    leading: {
-      type: Boolean,
-      default: false
-    },
-    loading: {
-      type: Boolean,
-      default: false
-    },
-    selectedIcon: {
-      type: String,
-      default: () => configMenu.default.selectedIcon
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    multiple: {
-      type: Boolean,
-      default: false
-    },
-    searchable: {
-      type: [Boolean, Function],
-      default: false
-    },
-    searchablePlaceholder: {
-      type: String,
-      default: () => configMenu.default.searchablePlaceholder.label
-    },
-    searchableLazy: {
-      type: Boolean,
-      default: false
-    },
-    clearSearchOnClose: {
-      type: Boolean,
-      default: () => configMenu.default.clearSearchOnClose
-    },
-    debounce: {
-      type: Number,
-      default: 200
-    },
-    creatable: {
-      type: Boolean,
-      default: false
-    },
-    showCreateOptionWhen: {
-      type: [String, Function],
-      default: () => configMenu.default.showCreateOptionWhen
-    },
-    placeholder: {
-      type: String,
-      default: null
-    },
-    padded: {
-      type: Boolean,
-      default: true
-    },
-    size: {
-      type: String,
-      default: null,
-      validator(value) {
-        return Object.keys(config.size).includes(value);
-      }
-    },
-    color: {
-      type: String,
-      default: () => config.default.color,
-      validator(value) {
-        return [...appConfig.ui.colors, ...Object.keys(config.color)].includes(value);
-      }
-    },
-    variant: {
-      type: String,
-      default: () => config.default.variant,
-      validator(value) {
-        return [
-          ...Object.keys(config.variant),
-          ...Object.values(config.color).flatMap((value2) => Object.keys(value2))
-        ].includes(value);
-      }
-    },
-    optionAttribute: {
-      type: String,
-      default: "label"
-    },
-    valueAttribute: {
-      type: String,
-      default: null
-    },
-    searchAttributes: {
-      type: Array,
-      default: null
-    },
-    inputTargetForm: {
-      type: String,
-      default: null
-    },
-    popper: {
-      type: Object,
-      default: () => ({})
-    },
-    selectClass: {
-      type: String,
-      default: null
-    },
-    class: {
-      type: [String, Object, Array],
-      default: () => ""
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
-    },
-    uiMenu: {
-      type: Object,
-      default: () => ({})
-    }
+    id: {},
+    schema: {},
+    state: {},
+    validate: {},
+    validateOn: { default() {
+      return ["input", "blur", "change"];
+    } },
+    disabled: { type: Boolean },
+    validateOnInputDelay: { default: 300 },
+    class: {},
+    transform: { type: Boolean, default: true },
+    onSubmit: {}
   },
-  emits: ["update:modelValue", "update:query", "open", "close", "change"],
-  setup(props, { emit, slots }) {
-    const { ui, attrs } = useUI("select", toRef(props, "ui"), config, toRef(props, "class"));
-    const { ui: uiMenu } = useUI("selectMenu", toRef(props, "uiMenu"), configMenu);
-    const popper = computed(() => defu({}, props.popper, uiMenu.value.popper));
-    const [trigger, container] = usePopper(popper.value);
-    const by = computed(() => {
-      if (!props.by) return void 0;
-      if (typeof props.by === "function") {
-        return props.by;
-      }
-      const key = props.by;
-      const hasDot = key.indexOf(".");
-      if (hasDot > 0) {
-        return (a, z) => {
-          return accessor(a, key) === accessor(z, key);
+  emits: ["submit", "error"],
+  setup(__props, { expose: __expose, emit: __emit }) {
+    const props = __props;
+    const emits = __emit;
+    const formId = props.id ?? useId();
+    const bus = useEventBus(`form-${formId}`);
+    const parentBus = inject(
+      formBusInjectionKey,
+      void 0
+    );
+    provide(formBusInjectionKey, bus);
+    const nestedForms = ref(/* @__PURE__ */ new Map());
+    const errors = ref([]);
+    provide("form-errors", errors);
+    const inputs = ref({});
+    provide(formInputsInjectionKey, inputs);
+    const dirtyFields = /* @__PURE__ */ new Set();
+    const touchedFields = /* @__PURE__ */ new Set();
+    const blurredFields = /* @__PURE__ */ new Set();
+    function resolveErrorIds(errs) {
+      return errs.map((err) => {
+        var _a2;
+        return {
+          ...err,
+          id: (err == null ? void 0 : err.name) ? (_a2 = inputs.value[err.name]) == null ? void 0 : _a2.id : void 0
         };
-      }
-      return key;
-    });
-    const { size: sizeButtonGroup, rounded } = useInjectButtonGroup({ ui, props });
-    const { emitFormBlur, emitFormChange, inputId, color, size: sizeFormGroup, name } = useFormGroup(props, config);
-    const size = computed(() => sizeButtonGroup.value ?? sizeFormGroup.value);
-    const internalQuery = ref("");
-    const query = computed({
-      get() {
-        return props.query ?? internalQuery.value;
-      },
-      set(value) {
-        internalQuery.value = value;
-        emit("update:query", value);
-      }
-    });
-    const selected = computed(() => {
-      function compareValues(value1, value2) {
-        if (by.value && typeof by.value !== "function" && typeof value1 === "object" && typeof value2 === "object") {
-          return isEqual(value1[by.value], value2[by.value]);
-        }
-        return isEqual(value1, value2);
-      }
-      function getValue(value) {
-        if (props.valueAttribute) {
-          return accessor(value, props.valueAttribute);
-        }
-        return value;
-      }
-      if (props.multiple) {
-        const modelValue = props.modelValue;
-        if (!Array.isArray(modelValue) || !modelValue.length) {
-          return [];
-        }
-        return options.value.filter((option) => {
-          const optionValue = getValue(option);
-          return modelValue.some((value) => compareValues(value, optionValue));
-        });
-      }
-      return options.value.find((option) => {
-        const optionValue = getValue(option);
-        return compareValues(optionValue, toRaw(props.modelValue));
-      }) ?? props.modelValue;
-    });
-    const label = computed(() => {
-      if (!props.modelValue) return null;
-      if (Array.isArray(props.modelValue) && props.modelValue.length) {
-        return `${props.modelValue.length} selected`;
-      } else if (["string", "number"].includes(typeof props.modelValue)) {
-        return props.valueAttribute ? accessor(selected.value, props.optionAttribute) : props.modelValue;
-      }
-      return accessor(props.modelValue, props.optionAttribute);
-    });
-    const selectClass = computed(() => {
-      var _a, _b;
-      const variant = ((_b = (_a = ui.value.color) == null ? void 0 : _a[color.value]) == null ? void 0 : _b[props.variant]) || ui.value.variant[props.variant];
-      return twMerge(twJoin(
-        ui.value.base,
-        uiMenu.value.select,
-        rounded.value,
-        ui.value.size[size.value],
-        ui.value.gap[size.value],
-        props.padded ? ui.value.padding[size.value] : "p-0",
-        variant == null ? void 0 : variant.replaceAll("{color}", color.value),
-        (isLeading.value || slots.leading) && ui.value.leading.padding[size.value],
-        (isTrailing.value || slots.trailing) && ui.value.trailing.padding[size.value]
-      ), props.placeholder && (!props.modelValue || Array.isArray(props.modelValue) && !props.modelValue.length) && ui.value.placeholder, props.selectClass);
-    });
-    const isLeading = computed(() => {
-      return props.icon && props.leading || props.icon && !props.trailing || props.loading && !props.trailing || props.leadingIcon;
-    });
-    const isTrailing = computed(() => {
-      return props.icon && props.trailing || props.loading && props.trailing || props.trailingIcon;
-    });
-    const leadingIconName = computed(() => {
-      if (props.loading) {
-        return props.loadingIcon;
-      }
-      return props.leadingIcon || props.icon;
-    });
-    const trailingIconName = computed(() => {
-      if (props.loading && !isLeading.value) {
-        return props.loadingIcon;
-      }
-      return props.trailingIcon || props.icon;
-    });
-    const leadingWrapperIconClass = computed(() => {
-      return twJoin(
-        ui.value.icon.leading.wrapper,
-        ui.value.icon.leading.pointer,
-        ui.value.icon.leading.padding[size.value]
-      );
-    });
-    const leadingIconClass = computed(() => {
-      return twJoin(
-        ui.value.icon.base,
-        color.value && appConfig.ui.colors.includes(color.value) && ui.value.icon.color.replaceAll("{color}", color.value),
-        ui.value.icon.size[size.value],
-        props.loading && ui.value.icon.loading
-      );
-    });
-    const trailingWrapperIconClass = computed(() => {
-      return twJoin(
-        ui.value.icon.trailing.wrapper,
-        ui.value.icon.trailing.pointer,
-        ui.value.icon.trailing.padding[size.value]
-      );
-    });
-    const trailingIconClass = computed(() => {
-      return twJoin(
-        ui.value.icon.base,
-        color.value && appConfig.ui.colors.includes(color.value) && ui.value.icon.color.replaceAll("{color}", color.value),
-        ui.value.icon.size[size.value],
-        props.loading && !isLeading.value && ui.value.icon.loading
-      );
-    });
-    const debouncedSearch = props.searchable && typeof props.searchable === "function" ? useDebounceFn(props.searchable, props.debounce) : void 0;
-    const options = computedAsync(async () => {
-      if (debouncedSearch) {
-        return await debouncedSearch(query.value);
-      }
-      return props.options || [];
-    }, [], {
-      lazy: props.searchableLazy
-    });
-    function escapeRegExp(string) {
-      return string.replace(/[.*+?^${}()|[\]\\]/g, (match) => `\\${match}`);
-    }
-    function accessor(obj, key) {
-      return get(obj, key);
-    }
-    const filteredOptions = computed(() => {
-      if (!query.value || debouncedSearch) {
-        return options.value;
-      }
-      const escapedQuery = escapeRegExp(query.value);
-      return options.value.filter((option) => {
-        var _a;
-        return (((_a = props.searchAttributes) == null ? void 0 : _a.length) ? props.searchAttributes : [props.optionAttribute]).some((searchAttribute) => {
-          if (["string", "number"].includes(typeof option)) {
-            return String(option).search(new RegExp(escapedQuery, "i")) !== -1;
-          }
-          const child = get(option, searchAttribute);
-          return child !== null && child !== void 0 && String(child).search(new RegExp(escapedQuery, "i")) !== -1;
-        });
       });
-    });
-    const createOption = computed(() => {
-      if (query.value === "") {
-        return null;
-      }
-      if (props.showCreateOptionWhen === "empty" && filteredOptions.value.length) {
-        return null;
-      }
-      if (props.showCreateOptionWhen === "always") {
-        const existingOption = filteredOptions.value.find((option) => ["string", "number"].includes(typeof option) ? option === query.value : accessor(option, props.optionAttribute) === query.value);
-        if (existingOption) {
-          return null;
-        }
-      }
-      if (typeof props.showCreateOptionWhen === "function") {
-        if (!props.showCreateOptionWhen(query.value, filteredOptions.value)) {
-          return null;
-        }
-      }
-      return ["string", "number"].includes(typeof props.modelValue) ? query.value : { [props.optionAttribute]: query.value };
-    });
-    function clearOnClose() {
-      if (props.clearSearchOnClose) {
-        query.value = "";
-      }
     }
-    watch(container, (value) => {
-      if (value) {
-        emit("open");
+    const transformedState = ref(null);
+    async function getErrors() {
+      let errs = props.validate ? await props.validate(props.state) ?? [] : [];
+      if (props.schema) {
+        const { errors: errors2, result } = await validateSchema(props.state, props.schema);
+        if (errors2) {
+          errs = errs.concat(errors2);
+        } else {
+          transformedState.value = result;
+        }
+      }
+      return resolveErrorIds(errs);
+    }
+    async function _validate(opts = { silent: false, nested: true, transform: false }) {
+      const names = opts.name && !Array.isArray(opts.name) ? [opts.name] : opts.name;
+      const nestedValidatePromises = !names && opts.nested ? Array.from(nestedForms.value.values()).map(
+        ({ validate }) => validate(opts).then(() => void 0).catch((error) => {
+          if (!(error instanceof FormValidationException)) {
+            throw error;
+          }
+          return error;
+        })
+      ) : [];
+      if (names) {
+        const otherErrors = errors.value.filter((error) => !names.some((name) => {
+          var _a2, _b, _c;
+          const pattern = (_b = (_a2 = inputs.value) == null ? void 0 : _a2[name]) == null ? void 0 : _b.pattern;
+          return name === error.name || pattern && ((_c = error.name) == null ? void 0 : _c.match(pattern));
+        }));
+        const pathErrors = (await getErrors()).filter((error) => names.some((name) => {
+          var _a2, _b, _c;
+          const pattern = (_b = (_a2 = inputs.value) == null ? void 0 : _a2[name]) == null ? void 0 : _b.pattern;
+          return name === error.name || pattern && ((_c = error.name) == null ? void 0 : _c.match(pattern));
+        }));
+        errors.value = otherErrors.concat(pathErrors);
       } else {
-        clearOnClose();
-        emit("close");
-        emitFormBlur();
+        errors.value = await getErrors();
       }
+      const childErrors = (await Promise.all(nestedValidatePromises)).filter((val) => val !== void 0);
+      if (errors.value.length + childErrors.length > 0) {
+        if (opts.silent) return false;
+        throw new FormValidationException(formId, errors.value, childErrors);
+      }
+      if (opts.transform) {
+        Object.assign(props.state, transformedState.value);
+      }
+      return props.state;
+    }
+    const loading = ref(false);
+    provide(formLoadingInjectionKey, readonly(loading));
+    async function onSubmitWrapper(payload) {
+      var _a2;
+      loading.value = true;
+      const event = payload;
+      try {
+        event.data = await _validate({ nested: true, transform: props.transform });
+        await ((_a2 = props.onSubmit) == null ? void 0 : _a2.call(props, event));
+      } catch (error) {
+        if (!(error instanceof FormValidationException)) {
+          throw error;
+        }
+        const errorEvent = {
+          ...event,
+          errors: error.errors,
+          children: error.children
+        };
+        emits("error", errorEvent);
+      } finally {
+        loading.value = false;
+      }
+    }
+    const disabled = computed(() => props.disabled || loading.value);
+    provide(formOptionsInjectionKey, computed(() => ({
+      disabled: disabled.value,
+      validateOnInputDelay: props.validateOnInputDelay
+    })));
+    __expose({
+      validate: _validate,
+      errors,
+      setErrors(errs, name) {
+        if (name) {
+          errors.value = errors.value.filter((error) => error.name !== name).concat(resolveErrorIds(errs));
+        } else {
+          errors.value = resolveErrorIds(errs);
+        }
+      },
+      async submit() {
+        await onSubmitWrapper(new Event("submit"));
+      },
+      getErrors(name) {
+        if (name) {
+          return errors.value.filter((err) => err.name === name);
+        }
+        return errors.value;
+      },
+      clear(name) {
+        if (name) {
+          errors.value = errors.value.filter((err) => err.name !== name);
+        } else {
+          errors.value = [];
+        }
+      },
+      disabled,
+      dirty: computed(() => !!dirtyFields.size),
+      dirtyFields: readonly(dirtyFields),
+      blurredFields: readonly(blurredFields),
+      touchedFields: readonly(touchedFields)
     });
-    function onUpdate(value) {
-      if (toRaw(props.modelValue) === value) {
-        return;
-      }
-      emit("update:modelValue", value);
-      emit("change", value);
-      emitFormChange();
-    }
-    function onQueryChange(event) {
-      query.value = event.target.value;
-    }
-    s$1(() => useId());
-    return {
-      // eslint-disable-next-line vue/no-dupe-keys
-      ui,
-      // eslint-disable-next-line vue/no-dupe-keys
-      uiMenu,
-      attrs,
-      // eslint-disable-next-line vue/no-dupe-keys
-      name,
-      inputId,
-      // eslint-disable-next-line vue/no-dupe-keys
-      popper,
-      trigger,
-      container,
-      selected,
-      label,
-      accessor,
-      isLeading,
-      isTrailing,
-      // eslint-disable-next-line vue/no-dupe-keys
-      selectClass,
-      leadingIconName,
-      leadingIconClass,
-      leadingWrapperIconClass,
-      trailingIconName,
-      trailingIconClass,
-      trailingWrapperIconClass,
-      filteredOptions,
-      createOption,
-      // eslint-disable-next-line vue/no-dupe-keys
-      query,
-      onUpdate,
-      onQueryChange,
-      // eslint-disable-next-line vue/no-dupe-keys
-      by
+    return (_ctx, _push, _parent, _attrs) => {
+      ssrRenderVNode(_push, createVNode(resolveDynamicComponent(unref(parentBus) ? "div" : "form"), mergeProps({
+        id: unref(formId),
+        class: unref(form)({ class: props.class }),
+        onSubmit: onSubmitWrapper
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            ssrRenderSlot(_ctx.$slots, "default", { errors: errors.value }, null, _push2, _parent2, _scopeId);
+          } else {
+            return [
+              renderSlot(_ctx.$slots, "default", { errors: errors.value })
+            ];
+          }
+        }),
+        _: 3
+      }), _parent);
     };
   }
 });
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_UIcon = __nuxt_component_3$1;
-  const _component_HComboboxInput = resolveComponent("HComboboxInput");
-  const _component_UAvatar = __nuxt_component_4;
-  ssrRenderVNode(_push, createVNode(resolveDynamicComponent(_ctx.searchable ? "HCombobox" : "HListbox"), mergeProps({
-    by: _ctx.by,
-    name: _ctx.name,
-    "model-value": _ctx.multiple ? Array.isArray(_ctx.modelValue) ? _ctx.modelValue : [] : _ctx.modelValue,
-    multiple: _ctx.multiple,
-    disabled: _ctx.disabled,
-    as: "div",
-    class: _ctx.ui.wrapper,
-    "onUpdate:modelValue": _ctx.onUpdate
-  }, _attrs), {
-    default: withCtx(({ open }, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        if (_ctx.required) {
-          _push2(`<input${ssrRenderAttr("value", _ctx.modelValue)}${ssrIncludeBooleanAttr(_ctx.required) ? " required" : ""} class="${ssrRenderClass(_ctx.uiMenu.required)}"${ssrRenderAttr("form", _ctx.inputTargetForm)} tabindex="-1" aria-hidden="true"${_scopeId}>`);
-        } else {
-          _push2(`<!---->`);
-        }
-        ssrRenderVNode(_push2, createVNode(resolveDynamicComponent(_ctx.searchable ? "HComboboxButton" : "HListboxButton"), {
-          ref: "trigger",
-          as: "div",
-          role: "button",
-          class: _ctx.uiMenu.trigger
-        }, {
-          default: withCtx((_, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              ssrRenderSlot(_ctx.$slots, "default", {
-                open,
-                disabled: _ctx.disabled,
-                loading: _ctx.loading
-              }, () => {
-                _push3(`<button${ssrRenderAttrs(mergeProps({
-                  id: _ctx.inputId,
-                  class: _ctx.selectClass,
-                  disabled: _ctx.disabled,
-                  type: "button"
-                }, _ctx.attrs))}${_scopeId2}>`);
-                if (_ctx.isLeading && _ctx.leadingIconName || _ctx.$slots.leading) {
-                  _push3(`<span class="${ssrRenderClass(_ctx.leadingWrapperIconClass)}"${_scopeId2}>`);
-                  ssrRenderSlot(_ctx.$slots, "leading", {
-                    selected: _ctx.selected,
-                    disabled: _ctx.disabled,
-                    loading: _ctx.loading
-                  }, () => {
-                    _push3(ssrRenderComponent(_component_UIcon, {
-                      name: _ctx.leadingIconName,
-                      class: _ctx.leadingIconClass
-                    }, null, _parent3, _scopeId2));
-                  }, _push3, _parent3, _scopeId2);
-                  _push3(`</span>`);
-                } else {
-                  _push3(`<!---->`);
-                }
-                ssrRenderSlot(_ctx.$slots, "label", { selected: _ctx.selected }, () => {
-                  if (_ctx.label) {
-                    _push3(`<span class="${ssrRenderClass(_ctx.uiMenu.label)}"${_scopeId2}>${ssrInterpolate(_ctx.label)}</span>`);
-                  } else {
-                    _push3(`<span class="${ssrRenderClass(_ctx.uiMenu.label)}"${_scopeId2}>${ssrInterpolate(_ctx.placeholder || " ")}</span>`);
-                  }
-                }, _push3, _parent3, _scopeId2);
-                if (_ctx.isTrailing && _ctx.trailingIconName || _ctx.$slots.trailing) {
-                  _push3(`<span class="${ssrRenderClass(_ctx.trailingWrapperIconClass)}"${_scopeId2}>`);
-                  ssrRenderSlot(_ctx.$slots, "trailing", {
-                    selected: _ctx.selected,
-                    disabled: _ctx.disabled,
-                    loading: _ctx.loading
-                  }, () => {
-                    _push3(ssrRenderComponent(_component_UIcon, {
-                      name: _ctx.trailingIconName,
-                      class: _ctx.trailingIconClass,
-                      "aria-hidden": "true"
-                    }, null, _parent3, _scopeId2));
-                  }, _push3, _parent3, _scopeId2);
-                  _push3(`</span>`);
-                } else {
-                  _push3(`<!---->`);
-                }
-                _push3(`</button>`);
-              }, _push3, _parent3, _scopeId2);
-            } else {
-              return [
-                renderSlot(_ctx.$slots, "default", {
-                  open,
-                  disabled: _ctx.disabled,
-                  loading: _ctx.loading
-                }, () => [
-                  createVNode("button", mergeProps({
-                    id: _ctx.inputId,
-                    class: _ctx.selectClass,
-                    disabled: _ctx.disabled,
-                    type: "button"
-                  }, _ctx.attrs), [
-                    _ctx.isLeading && _ctx.leadingIconName || _ctx.$slots.leading ? (openBlock(), createBlock("span", {
-                      key: 0,
-                      class: _ctx.leadingWrapperIconClass
-                    }, [
-                      renderSlot(_ctx.$slots, "leading", {
-                        selected: _ctx.selected,
-                        disabled: _ctx.disabled,
-                        loading: _ctx.loading
-                      }, () => [
-                        createVNode(_component_UIcon, {
-                          name: _ctx.leadingIconName,
-                          class: _ctx.leadingIconClass
-                        }, null, 8, ["name", "class"])
-                      ])
-                    ], 2)) : createCommentVNode("", true),
-                    renderSlot(_ctx.$slots, "label", { selected: _ctx.selected }, () => [
-                      _ctx.label ? (openBlock(), createBlock("span", {
-                        key: 0,
-                        class: _ctx.uiMenu.label
-                      }, toDisplayString(_ctx.label), 3)) : (openBlock(), createBlock("span", {
-                        key: 1,
-                        class: _ctx.uiMenu.label
-                      }, toDisplayString(_ctx.placeholder || " "), 3))
-                    ]),
-                    _ctx.isTrailing && _ctx.trailingIconName || _ctx.$slots.trailing ? (openBlock(), createBlock("span", {
-                      key: 1,
-                      class: _ctx.trailingWrapperIconClass
-                    }, [
-                      renderSlot(_ctx.$slots, "trailing", {
-                        selected: _ctx.selected,
-                        disabled: _ctx.disabled,
-                        loading: _ctx.loading
-                      }, () => [
-                        createVNode(_component_UIcon, {
-                          name: _ctx.trailingIconName,
-                          class: _ctx.trailingIconClass,
-                          "aria-hidden": "true"
-                        }, null, 8, ["name", "class"])
-                      ])
-                    ], 2)) : createCommentVNode("", true)
-                  ], 16, ["id", "disabled"])
-                ])
-              ];
-            }
-          }),
-          _: 2
-        }), _parent2, _scopeId);
-        if (open) {
-          _push2(`<div class="${ssrRenderClass([_ctx.uiMenu.container, _ctx.uiMenu.width])}"${_scopeId}><template><div${_scopeId}>`);
-          if (_ctx.popper.arrow) {
-            _push2(`<div data-popper-arrow class="${ssrRenderClass(Object.values(_ctx.uiMenu.arrow))}"${_scopeId}></div>`);
-          } else {
-            _push2(`<!---->`);
-          }
-          ssrRenderVNode(_push2, createVNode(resolveDynamicComponent(_ctx.searchable ? "HComboboxOptions" : "HListboxOptions"), {
-            static: "",
-            class: [_ctx.uiMenu.base, _ctx.uiMenu.ring, _ctx.uiMenu.rounded, _ctx.uiMenu.shadow, _ctx.uiMenu.background, _ctx.uiMenu.padding, _ctx.uiMenu.height]
-          }, {
-            default: withCtx((_, _push3, _parent3, _scopeId2) => {
-              var _a, _b, _c, _d;
-              if (_push3) {
-                if (_ctx.searchable) {
-                  _push3(ssrRenderComponent(_component_HComboboxInput, {
-                    "display-value": () => _ctx.query,
-                    name: "q",
-                    placeholder: _ctx.searchablePlaceholder,
-                    autofocus: "",
-                    autocomplete: "off",
-                    class: _ctx.uiMenu.input,
-                    onChange: _ctx.onQueryChange
-                  }, null, _parent3, _scopeId2));
-                } else {
-                  _push3(`<!---->`);
-                }
-                _push3(`<!--[-->`);
-                ssrRenderList(_ctx.filteredOptions, (option, index) => {
-                  ssrRenderVNode(_push3, createVNode(resolveDynamicComponent(_ctx.searchable ? "HComboboxOption" : "HListboxOption"), {
-                    key: index,
-                    as: "template",
-                    value: _ctx.valueAttribute ? _ctx.accessor(option, _ctx.valueAttribute) : option,
-                    disabled: option.disabled
-                  }, {
-                    default: withCtx(({ active, selected: optionSelected, disabled: optionDisabled }, _push4, _parent4, _scopeId3) => {
-                      if (_push4) {
-                        _push4(`<li class="${ssrRenderClass([_ctx.uiMenu.option.base, _ctx.uiMenu.option.rounded, _ctx.uiMenu.option.padding, _ctx.uiMenu.option.size, _ctx.uiMenu.option.color, active ? _ctx.uiMenu.option.active : _ctx.uiMenu.option.inactive, optionSelected && _ctx.uiMenu.option.selected, optionDisabled && _ctx.uiMenu.option.disabled])}"${_scopeId3}><div class="${ssrRenderClass(_ctx.uiMenu.option.container)}"${_scopeId3}>`);
-                        ssrRenderSlot(_ctx.$slots, "option", {
-                          option,
-                          active,
-                          selected: optionSelected
-                        }, () => {
-                          if (option.icon) {
-                            _push4(ssrRenderComponent(_component_UIcon, {
-                              name: option.icon,
-                              class: [_ctx.uiMenu.option.icon.base, active ? _ctx.uiMenu.option.icon.active : _ctx.uiMenu.option.icon.inactive, option.iconClass],
-                              "aria-hidden": "true"
-                            }, null, _parent4, _scopeId3));
-                          } else if (option.avatar) {
-                            _push4(ssrRenderComponent(_component_UAvatar, mergeProps({ ref_for: true }, { size: _ctx.uiMenu.option.avatar.size, ...option.avatar }, {
-                              class: _ctx.uiMenu.option.avatar.base,
-                              "aria-hidden": "true"
-                            }), null, _parent4, _scopeId3));
-                          } else if (option.chip) {
-                            _push4(`<span class="${ssrRenderClass(_ctx.uiMenu.option.chip.base)}" style="${ssrRenderStyle({ background: `#${option.chip}` })}"${_scopeId3}></span>`);
-                          } else {
-                            _push4(`<!---->`);
-                          }
-                          _push4(`<span class="truncate"${_scopeId3}>${ssrInterpolate(["string", "number"].includes(typeof option) ? option : _ctx.accessor(option, _ctx.optionAttribute))}</span>`);
-                        }, _push4, _parent4, _scopeId3);
-                        _push4(`</div>`);
-                        if (optionSelected) {
-                          _push4(`<span class="${ssrRenderClass([_ctx.uiMenu.option.selectedIcon.wrapper, _ctx.uiMenu.option.selectedIcon.padding])}"${_scopeId3}>`);
-                          _push4(ssrRenderComponent(_component_UIcon, {
-                            name: _ctx.selectedIcon,
-                            class: _ctx.uiMenu.option.selectedIcon.base,
-                            "aria-hidden": "true"
-                          }, null, _parent4, _scopeId3));
-                          _push4(`</span>`);
-                        } else {
-                          _push4(`<!---->`);
-                        }
-                        _push4(`</li>`);
-                      } else {
-                        return [
-                          createVNode("li", {
-                            class: [_ctx.uiMenu.option.base, _ctx.uiMenu.option.rounded, _ctx.uiMenu.option.padding, _ctx.uiMenu.option.size, _ctx.uiMenu.option.color, active ? _ctx.uiMenu.option.active : _ctx.uiMenu.option.inactive, optionSelected && _ctx.uiMenu.option.selected, optionDisabled && _ctx.uiMenu.option.disabled]
-                          }, [
-                            createVNode("div", {
-                              class: _ctx.uiMenu.option.container
-                            }, [
-                              renderSlot(_ctx.$slots, "option", {
-                                option,
-                                active,
-                                selected: optionSelected
-                              }, () => [
-                                option.icon ? (openBlock(), createBlock(_component_UIcon, {
-                                  key: 0,
-                                  name: option.icon,
-                                  class: [_ctx.uiMenu.option.icon.base, active ? _ctx.uiMenu.option.icon.active : _ctx.uiMenu.option.icon.inactive, option.iconClass],
-                                  "aria-hidden": "true"
-                                }, null, 8, ["name", "class"])) : option.avatar ? (openBlock(), createBlock(_component_UAvatar, mergeProps({
-                                  key: 1,
-                                  ref_for: true
-                                }, { size: _ctx.uiMenu.option.avatar.size, ...option.avatar }, {
-                                  class: _ctx.uiMenu.option.avatar.base,
-                                  "aria-hidden": "true"
-                                }), null, 16, ["class"])) : option.chip ? (openBlock(), createBlock("span", {
-                                  key: 2,
-                                  class: _ctx.uiMenu.option.chip.base,
-                                  style: { background: `#${option.chip}` }
-                                }, null, 6)) : createCommentVNode("", true),
-                                createVNode("span", { class: "truncate" }, toDisplayString(["string", "number"].includes(typeof option) ? option : _ctx.accessor(option, _ctx.optionAttribute)), 1)
-                              ])
-                            ], 2),
-                            optionSelected ? (openBlock(), createBlock("span", {
-                              key: 0,
-                              class: [_ctx.uiMenu.option.selectedIcon.wrapper, _ctx.uiMenu.option.selectedIcon.padding]
-                            }, [
-                              createVNode(_component_UIcon, {
-                                name: _ctx.selectedIcon,
-                                class: _ctx.uiMenu.option.selectedIcon.base,
-                                "aria-hidden": "true"
-                              }, null, 8, ["name", "class"])
-                            ], 2)) : createCommentVNode("", true)
-                          ], 2)
-                        ];
-                      }
-                    }),
-                    _: 2
-                  }), _parent3, _scopeId2);
-                });
-                _push3(`<!--]-->`);
-                if (_ctx.creatable && _ctx.createOption) {
-                  ssrRenderVNode(_push3, createVNode(resolveDynamicComponent(_ctx.searchable ? "HComboboxOption" : "HListboxOption"), {
-                    value: _ctx.createOption,
-                    as: "template"
-                  }, {
-                    default: withCtx(({ active, selected: optionSelected }, _push4, _parent4, _scopeId3) => {
-                      if (_push4) {
-                        _push4(`<li class="${ssrRenderClass([_ctx.uiMenu.option.base, _ctx.uiMenu.option.rounded, _ctx.uiMenu.option.padding, _ctx.uiMenu.option.size, _ctx.uiMenu.option.color, active ? _ctx.uiMenu.option.active : _ctx.uiMenu.option.inactive])}"${_scopeId3}><div class="${ssrRenderClass(_ctx.uiMenu.option.container)}"${_scopeId3}>`);
-                        ssrRenderSlot(_ctx.$slots, "option-create", {
-                          option: _ctx.createOption,
-                          active,
-                          selected: optionSelected
-                        }, () => {
-                          _push4(`<span class="${ssrRenderClass(_ctx.uiMenu.option.create)}"${_scopeId3}>Create &quot;${ssrInterpolate(typeof _ctx.createOption === "string" ? _ctx.createOption : _ctx.accessor(_ctx.createOption, _ctx.optionAttribute))}&quot;</span>`);
-                        }, _push4, _parent4, _scopeId3);
-                        _push4(`</div></li>`);
-                      } else {
-                        return [
-                          createVNode("li", {
-                            class: [_ctx.uiMenu.option.base, _ctx.uiMenu.option.rounded, _ctx.uiMenu.option.padding, _ctx.uiMenu.option.size, _ctx.uiMenu.option.color, active ? _ctx.uiMenu.option.active : _ctx.uiMenu.option.inactive]
-                          }, [
-                            createVNode("div", {
-                              class: _ctx.uiMenu.option.container
-                            }, [
-                              renderSlot(_ctx.$slots, "option-create", {
-                                option: _ctx.createOption,
-                                active,
-                                selected: optionSelected
-                              }, () => [
-                                createVNode("span", {
-                                  class: _ctx.uiMenu.option.create
-                                }, 'Create "' + toDisplayString(typeof _ctx.createOption === "string" ? _ctx.createOption : _ctx.accessor(_ctx.createOption, _ctx.optionAttribute)) + '"', 3)
-                              ])
-                            ], 2)
-                          ], 2)
-                        ];
-                      }
-                    }),
-                    _: 2
-                  }), _parent3, _scopeId2);
-                } else if (_ctx.searchable && _ctx.query && !((_a = _ctx.filteredOptions) == null ? void 0 : _a.length)) {
-                  _push3(`<p class="${ssrRenderClass(_ctx.uiMenu.option.empty)}"${_scopeId2}>`);
-                  ssrRenderSlot(_ctx.$slots, "option-empty", { query: _ctx.query }, () => {
-                    _push3(`${ssrInterpolate(_ctx.uiMenu.default.optionEmpty.label.replace("{query}", _ctx.query))}`);
-                  }, _push3, _parent3, _scopeId2);
-                  _push3(`</p>`);
-                } else if (!((_b = _ctx.filteredOptions) == null ? void 0 : _b.length)) {
-                  _push3(`<p class="${ssrRenderClass(_ctx.uiMenu.empty)}"${_scopeId2}>`);
-                  ssrRenderSlot(_ctx.$slots, "empty", { query: _ctx.query }, () => {
-                    _push3(`${ssrInterpolate(_ctx.uiMenu.default.empty.label)}`);
-                  }, _push3, _parent3, _scopeId2);
-                  _push3(`</p>`);
-                } else {
-                  _push3(`<!---->`);
-                }
-              } else {
-                return [
-                  _ctx.searchable ? (openBlock(), createBlock(_component_HComboboxInput, {
-                    key: 0,
-                    "display-value": () => _ctx.query,
-                    name: "q",
-                    placeholder: _ctx.searchablePlaceholder,
-                    autofocus: "",
-                    autocomplete: "off",
-                    class: _ctx.uiMenu.input,
-                    onChange: _ctx.onQueryChange
-                  }, null, 8, ["display-value", "placeholder", "class", "onChange"])) : createCommentVNode("", true),
-                  (openBlock(true), createBlock(Fragment, null, renderList(_ctx.filteredOptions, (option, index) => {
-                    return openBlock(), createBlock(resolveDynamicComponent(_ctx.searchable ? "HComboboxOption" : "HListboxOption"), {
-                      key: index,
-                      as: "template",
-                      value: _ctx.valueAttribute ? _ctx.accessor(option, _ctx.valueAttribute) : option,
-                      disabled: option.disabled
-                    }, {
-                      default: withCtx(({ active, selected: optionSelected, disabled: optionDisabled }) => [
-                        createVNode("li", {
-                          class: [_ctx.uiMenu.option.base, _ctx.uiMenu.option.rounded, _ctx.uiMenu.option.padding, _ctx.uiMenu.option.size, _ctx.uiMenu.option.color, active ? _ctx.uiMenu.option.active : _ctx.uiMenu.option.inactive, optionSelected && _ctx.uiMenu.option.selected, optionDisabled && _ctx.uiMenu.option.disabled]
-                        }, [
-                          createVNode("div", {
-                            class: _ctx.uiMenu.option.container
-                          }, [
-                            renderSlot(_ctx.$slots, "option", {
-                              option,
-                              active,
-                              selected: optionSelected
-                            }, () => [
-                              option.icon ? (openBlock(), createBlock(_component_UIcon, {
-                                key: 0,
-                                name: option.icon,
-                                class: [_ctx.uiMenu.option.icon.base, active ? _ctx.uiMenu.option.icon.active : _ctx.uiMenu.option.icon.inactive, option.iconClass],
-                                "aria-hidden": "true"
-                              }, null, 8, ["name", "class"])) : option.avatar ? (openBlock(), createBlock(_component_UAvatar, mergeProps({
-                                key: 1,
-                                ref_for: true
-                              }, { size: _ctx.uiMenu.option.avatar.size, ...option.avatar }, {
-                                class: _ctx.uiMenu.option.avatar.base,
-                                "aria-hidden": "true"
-                              }), null, 16, ["class"])) : option.chip ? (openBlock(), createBlock("span", {
-                                key: 2,
-                                class: _ctx.uiMenu.option.chip.base,
-                                style: { background: `#${option.chip}` }
-                              }, null, 6)) : createCommentVNode("", true),
-                              createVNode("span", { class: "truncate" }, toDisplayString(["string", "number"].includes(typeof option) ? option : _ctx.accessor(option, _ctx.optionAttribute)), 1)
-                            ])
-                          ], 2),
-                          optionSelected ? (openBlock(), createBlock("span", {
-                            key: 0,
-                            class: [_ctx.uiMenu.option.selectedIcon.wrapper, _ctx.uiMenu.option.selectedIcon.padding]
-                          }, [
-                            createVNode(_component_UIcon, {
-                              name: _ctx.selectedIcon,
-                              class: _ctx.uiMenu.option.selectedIcon.base,
-                              "aria-hidden": "true"
-                            }, null, 8, ["name", "class"])
-                          ], 2)) : createCommentVNode("", true)
-                        ], 2)
-                      ]),
-                      _: 2
-                    }, 1032, ["value", "disabled"]);
-                  }), 128)),
-                  _ctx.creatable && _ctx.createOption ? (openBlock(), createBlock(resolveDynamicComponent(_ctx.searchable ? "HComboboxOption" : "HListboxOption"), {
-                    key: 1,
-                    value: _ctx.createOption,
-                    as: "template"
-                  }, {
-                    default: withCtx(({ active, selected: optionSelected }) => [
-                      createVNode("li", {
-                        class: [_ctx.uiMenu.option.base, _ctx.uiMenu.option.rounded, _ctx.uiMenu.option.padding, _ctx.uiMenu.option.size, _ctx.uiMenu.option.color, active ? _ctx.uiMenu.option.active : _ctx.uiMenu.option.inactive]
-                      }, [
-                        createVNode("div", {
-                          class: _ctx.uiMenu.option.container
-                        }, [
-                          renderSlot(_ctx.$slots, "option-create", {
-                            option: _ctx.createOption,
-                            active,
-                            selected: optionSelected
-                          }, () => [
-                            createVNode("span", {
-                              class: _ctx.uiMenu.option.create
-                            }, 'Create "' + toDisplayString(typeof _ctx.createOption === "string" ? _ctx.createOption : _ctx.accessor(_ctx.createOption, _ctx.optionAttribute)) + '"', 3)
-                          ])
-                        ], 2)
-                      ], 2)
-                    ]),
-                    _: 3
-                  }, 8, ["value"])) : _ctx.searchable && _ctx.query && !((_c = _ctx.filteredOptions) == null ? void 0 : _c.length) ? (openBlock(), createBlock("p", {
-                    key: 2,
-                    class: _ctx.uiMenu.option.empty
-                  }, [
-                    renderSlot(_ctx.$slots, "option-empty", { query: _ctx.query }, () => [
-                      createTextVNode(toDisplayString(_ctx.uiMenu.default.optionEmpty.label.replace("{query}", _ctx.query)), 1)
-                    ])
-                  ], 2)) : !((_d = _ctx.filteredOptions) == null ? void 0 : _d.length) ? (openBlock(), createBlock("p", {
-                    key: 3,
-                    class: _ctx.uiMenu.empty
-                  }, [
-                    renderSlot(_ctx.$slots, "empty", { query: _ctx.query }, () => [
-                      createTextVNode(toDisplayString(_ctx.uiMenu.default.empty.label), 1)
-                    ])
-                  ], 2)) : createCommentVNode("", true)
-                ];
-              }
-            }),
-            _: 2
-          }), _parent2, _scopeId);
-          _push2(`</div></template></div>`);
-        } else {
-          _push2(`<!---->`);
-        }
-      } else {
-        return [
-          _ctx.required ? (openBlock(), createBlock("input", {
-            key: 0,
-            value: _ctx.modelValue,
-            required: _ctx.required,
-            class: _ctx.uiMenu.required,
-            form: _ctx.inputTargetForm,
-            tabindex: "-1",
-            "aria-hidden": "true"
-          }, null, 10, ["value", "required", "form"])) : createCommentVNode("", true),
-          (openBlock(), createBlock(resolveDynamicComponent(_ctx.searchable ? "HComboboxButton" : "HListboxButton"), {
-            ref: "trigger",
-            as: "div",
-            role: "button",
-            class: _ctx.uiMenu.trigger
-          }, {
-            default: withCtx(() => [
-              renderSlot(_ctx.$slots, "default", {
-                open,
-                disabled: _ctx.disabled,
-                loading: _ctx.loading
-              }, () => [
-                createVNode("button", mergeProps({
-                  id: _ctx.inputId,
-                  class: _ctx.selectClass,
-                  disabled: _ctx.disabled,
-                  type: "button"
-                }, _ctx.attrs), [
-                  _ctx.isLeading && _ctx.leadingIconName || _ctx.$slots.leading ? (openBlock(), createBlock("span", {
-                    key: 0,
-                    class: _ctx.leadingWrapperIconClass
-                  }, [
-                    renderSlot(_ctx.$slots, "leading", {
-                      selected: _ctx.selected,
-                      disabled: _ctx.disabled,
-                      loading: _ctx.loading
-                    }, () => [
-                      createVNode(_component_UIcon, {
-                        name: _ctx.leadingIconName,
-                        class: _ctx.leadingIconClass
-                      }, null, 8, ["name", "class"])
-                    ])
-                  ], 2)) : createCommentVNode("", true),
-                  renderSlot(_ctx.$slots, "label", { selected: _ctx.selected }, () => [
-                    _ctx.label ? (openBlock(), createBlock("span", {
-                      key: 0,
-                      class: _ctx.uiMenu.label
-                    }, toDisplayString(_ctx.label), 3)) : (openBlock(), createBlock("span", {
-                      key: 1,
-                      class: _ctx.uiMenu.label
-                    }, toDisplayString(_ctx.placeholder || " "), 3))
-                  ]),
-                  _ctx.isTrailing && _ctx.trailingIconName || _ctx.$slots.trailing ? (openBlock(), createBlock("span", {
-                    key: 1,
-                    class: _ctx.trailingWrapperIconClass
-                  }, [
-                    renderSlot(_ctx.$slots, "trailing", {
-                      selected: _ctx.selected,
-                      disabled: _ctx.disabled,
-                      loading: _ctx.loading
-                    }, () => [
-                      createVNode(_component_UIcon, {
-                        name: _ctx.trailingIconName,
-                        class: _ctx.trailingIconClass,
-                        "aria-hidden": "true"
-                      }, null, 8, ["name", "class"])
-                    ])
-                  ], 2)) : createCommentVNode("", true)
-                ], 16, ["id", "disabled"])
-              ])
-            ]),
-            _: 2
-          }, 1032, ["class"])),
-          open ? (openBlock(), createBlock("div", {
-            key: 1,
-            ref: "container",
-            class: [_ctx.uiMenu.container, _ctx.uiMenu.width]
-          }, [
-            createVNode(Transition, mergeProps({ appear: "" }, _ctx.uiMenu.transition), {
-              default: withCtx(() => [
-                createVNode("div", null, [
-                  _ctx.popper.arrow ? (openBlock(), createBlock("div", {
-                    key: 0,
-                    "data-popper-arrow": "",
-                    class: Object.values(_ctx.uiMenu.arrow)
-                  }, null, 2)) : createCommentVNode("", true),
-                  (openBlock(), createBlock(resolveDynamicComponent(_ctx.searchable ? "HComboboxOptions" : "HListboxOptions"), {
-                    static: "",
-                    class: [_ctx.uiMenu.base, _ctx.uiMenu.ring, _ctx.uiMenu.rounded, _ctx.uiMenu.shadow, _ctx.uiMenu.background, _ctx.uiMenu.padding, _ctx.uiMenu.height]
-                  }, {
-                    default: withCtx(() => {
-                      var _a, _b;
-                      return [
-                        _ctx.searchable ? (openBlock(), createBlock(_component_HComboboxInput, {
-                          key: 0,
-                          "display-value": () => _ctx.query,
-                          name: "q",
-                          placeholder: _ctx.searchablePlaceholder,
-                          autofocus: "",
-                          autocomplete: "off",
-                          class: _ctx.uiMenu.input,
-                          onChange: _ctx.onQueryChange
-                        }, null, 8, ["display-value", "placeholder", "class", "onChange"])) : createCommentVNode("", true),
-                        (openBlock(true), createBlock(Fragment, null, renderList(_ctx.filteredOptions, (option, index) => {
-                          return openBlock(), createBlock(resolveDynamicComponent(_ctx.searchable ? "HComboboxOption" : "HListboxOption"), {
-                            key: index,
-                            as: "template",
-                            value: _ctx.valueAttribute ? _ctx.accessor(option, _ctx.valueAttribute) : option,
-                            disabled: option.disabled
-                          }, {
-                            default: withCtx(({ active, selected: optionSelected, disabled: optionDisabled }) => [
-                              createVNode("li", {
-                                class: [_ctx.uiMenu.option.base, _ctx.uiMenu.option.rounded, _ctx.uiMenu.option.padding, _ctx.uiMenu.option.size, _ctx.uiMenu.option.color, active ? _ctx.uiMenu.option.active : _ctx.uiMenu.option.inactive, optionSelected && _ctx.uiMenu.option.selected, optionDisabled && _ctx.uiMenu.option.disabled]
-                              }, [
-                                createVNode("div", {
-                                  class: _ctx.uiMenu.option.container
-                                }, [
-                                  renderSlot(_ctx.$slots, "option", {
-                                    option,
-                                    active,
-                                    selected: optionSelected
-                                  }, () => [
-                                    option.icon ? (openBlock(), createBlock(_component_UIcon, {
-                                      key: 0,
-                                      name: option.icon,
-                                      class: [_ctx.uiMenu.option.icon.base, active ? _ctx.uiMenu.option.icon.active : _ctx.uiMenu.option.icon.inactive, option.iconClass],
-                                      "aria-hidden": "true"
-                                    }, null, 8, ["name", "class"])) : option.avatar ? (openBlock(), createBlock(_component_UAvatar, mergeProps({
-                                      key: 1,
-                                      ref_for: true
-                                    }, { size: _ctx.uiMenu.option.avatar.size, ...option.avatar }, {
-                                      class: _ctx.uiMenu.option.avatar.base,
-                                      "aria-hidden": "true"
-                                    }), null, 16, ["class"])) : option.chip ? (openBlock(), createBlock("span", {
-                                      key: 2,
-                                      class: _ctx.uiMenu.option.chip.base,
-                                      style: { background: `#${option.chip}` }
-                                    }, null, 6)) : createCommentVNode("", true),
-                                    createVNode("span", { class: "truncate" }, toDisplayString(["string", "number"].includes(typeof option) ? option : _ctx.accessor(option, _ctx.optionAttribute)), 1)
-                                  ])
-                                ], 2),
-                                optionSelected ? (openBlock(), createBlock("span", {
-                                  key: 0,
-                                  class: [_ctx.uiMenu.option.selectedIcon.wrapper, _ctx.uiMenu.option.selectedIcon.padding]
-                                }, [
-                                  createVNode(_component_UIcon, {
-                                    name: _ctx.selectedIcon,
-                                    class: _ctx.uiMenu.option.selectedIcon.base,
-                                    "aria-hidden": "true"
-                                  }, null, 8, ["name", "class"])
-                                ], 2)) : createCommentVNode("", true)
-                              ], 2)
-                            ]),
-                            _: 2
-                          }, 1032, ["value", "disabled"]);
-                        }), 128)),
-                        _ctx.creatable && _ctx.createOption ? (openBlock(), createBlock(resolveDynamicComponent(_ctx.searchable ? "HComboboxOption" : "HListboxOption"), {
-                          key: 1,
-                          value: _ctx.createOption,
-                          as: "template"
-                        }, {
-                          default: withCtx(({ active, selected: optionSelected }) => [
-                            createVNode("li", {
-                              class: [_ctx.uiMenu.option.base, _ctx.uiMenu.option.rounded, _ctx.uiMenu.option.padding, _ctx.uiMenu.option.size, _ctx.uiMenu.option.color, active ? _ctx.uiMenu.option.active : _ctx.uiMenu.option.inactive]
-                            }, [
-                              createVNode("div", {
-                                class: _ctx.uiMenu.option.container
-                              }, [
-                                renderSlot(_ctx.$slots, "option-create", {
-                                  option: _ctx.createOption,
-                                  active,
-                                  selected: optionSelected
-                                }, () => [
-                                  createVNode("span", {
-                                    class: _ctx.uiMenu.option.create
-                                  }, 'Create "' + toDisplayString(typeof _ctx.createOption === "string" ? _ctx.createOption : _ctx.accessor(_ctx.createOption, _ctx.optionAttribute)) + '"', 3)
-                                ])
-                              ], 2)
-                            ], 2)
-                          ]),
-                          _: 3
-                        }, 8, ["value"])) : _ctx.searchable && _ctx.query && !((_a = _ctx.filteredOptions) == null ? void 0 : _a.length) ? (openBlock(), createBlock("p", {
-                          key: 2,
-                          class: _ctx.uiMenu.option.empty
-                        }, [
-                          renderSlot(_ctx.$slots, "option-empty", { query: _ctx.query }, () => [
-                            createTextVNode(toDisplayString(_ctx.uiMenu.default.optionEmpty.label.replace("{query}", _ctx.query)), 1)
-                          ])
-                        ], 2)) : !((_b = _ctx.filteredOptions) == null ? void 0 : _b.length) ? (openBlock(), createBlock("p", {
-                          key: 3,
-                          class: _ctx.uiMenu.empty
-                        }, [
-                          renderSlot(_ctx.$slots, "empty", { query: _ctx.query }, () => [
-                            createTextVNode(toDisplayString(_ctx.uiMenu.default.empty.label), 1)
-                          ])
-                        ], 2)) : createCommentVNode("", true)
-                      ];
-                    }),
-                    _: 3
-                  }, 8, ["class"]))
-                ])
-              ]),
-              _: 3
-            }, 16)
-          ], 2)) : createCommentVNode("", true)
-        ];
-      }
-    }),
-    _: 3
-  }), _parent);
-}
-const _sfc_setup$3 = _sfc_main$3.setup;
-_sfc_main$3.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/forms/SelectMenu.vue");
-  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
-};
-const __nuxt_component_6 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender]]), { __name: "USelectMenu" });
 
-const _sfc_main$2 = /* @__PURE__ */ defineComponent({
-  ...{
-    inheritAttrs: false
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Form.vue");
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+};
+const __nuxt_component_3 = Object.assign(_sfc_main$5, { __name: "UForm" });
+
+const theme$2 = {
+  "slots": {
+    "root": "relative flex items-start",
+    "base": "shrink-0 flex items-center justify-center rounded-(--ui-radius) text-(--ui-bg) ring ring-inset ring-(--ui-border-accented) focus-visible:outline-2 focus-visible:outline-offset-2",
+    "container": "flex items-center",
+    "wrapper": "ms-2",
+    "icon": "shrink-0 size-full",
+    "label": "block font-medium text-(--ui-text)",
+    "description": "text-(--ui-text-muted)"
   },
-  __name: "AuthForm",
+  "variants": {
+    "color": {
+      "primary": "focus-visible:outline-(--ui-primary)",
+      "secondary": "focus-visible:outline-(--ui-secondary)",
+      "success": "focus-visible:outline-(--ui-success)",
+      "info": "focus-visible:outline-(--ui-info)",
+      "warning": "focus-visible:outline-(--ui-warning)",
+      "error": "focus-visible:outline-(--ui-error)",
+      "neutral": "focus-visible:outline-(--ui-border-inverted)"
+    },
+    "size": {
+      "xs": {
+        "base": "size-3",
+        "container": "h-4",
+        "wrapper": "text-xs"
+      },
+      "sm": {
+        "base": "size-3.5",
+        "container": "h-4",
+        "wrapper": "text-xs"
+      },
+      "md": {
+        "base": "size-4",
+        "container": "h-5",
+        "wrapper": "text-sm"
+      },
+      "lg": {
+        "base": "size-4.5",
+        "container": "h-5",
+        "wrapper": "text-sm"
+      },
+      "xl": {
+        "base": "size-5",
+        "container": "h-6",
+        "wrapper": "text-base"
+      }
+    },
+    "required": {
+      "true": {
+        "label": "after:content-['*'] after:ms-0.5 after:text-(--ui-error)"
+      }
+    },
+    "disabled": {
+      "true": {
+        "base": "cursor-not-allowed opacity-75",
+        "label": "cursor-not-allowed opacity-75",
+        "description": "cursor-not-allowed opacity-75"
+      }
+    },
+    "checked": {
+      "true": ""
+    }
+  },
+  "compoundVariants": [
+    {
+      "color": "primary",
+      "checked": true,
+      "class": "ring-2 ring-(--ui-primary) bg-(--ui-primary)"
+    },
+    {
+      "color": "secondary",
+      "checked": true,
+      "class": "ring-2 ring-(--ui-secondary) bg-(--ui-secondary)"
+    },
+    {
+      "color": "success",
+      "checked": true,
+      "class": "ring-2 ring-(--ui-success) bg-(--ui-success)"
+    },
+    {
+      "color": "info",
+      "checked": true,
+      "class": "ring-2 ring-(--ui-info) bg-(--ui-info)"
+    },
+    {
+      "color": "warning",
+      "checked": true,
+      "class": "ring-2 ring-(--ui-warning) bg-(--ui-warning)"
+    },
+    {
+      "color": "error",
+      "checked": true,
+      "class": "ring-2 ring-(--ui-error) bg-(--ui-error)"
+    },
+    {
+      "color": "neutral",
+      "checked": true,
+      "class": "ring-2 ring-(--ui-border-inverted) bg-(--ui-bg-inverted)"
+    }
+  ],
+  "defaultVariants": {
+    "size": "md",
+    "color": "primary"
+  }
+};
+
+var _a$2;
+const appConfigCheckbox = _appConfig;
+const checkbox = tv({ extend: tv(theme$2), ...((_a$2 = appConfigCheckbox.ui) == null ? void 0 : _a$2.checkbox) || {} });
+const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+  ...{ inheritAttrs: false },
+  __name: "Checkbox",
   __ssrInlineRender: true,
-  props: {
-    title: {
-      type: String,
-      default: void 0
-    },
-    description: {
-      type: String,
-      default: void 0
-    },
-    icon: {
-      type: String,
-      default: void 0
-    },
-    align: {
-      type: String,
-      default: "bottom"
-    },
-    loading: {
-      type: Boolean,
-      default: false
-    },
-    fields: {
-      type: Array,
-      default: () => []
-    },
-    providers: {
-      type: Array,
-      default: () => []
-    },
-    submitButton: {
-      type: Object,
-      default: () => ({})
-    },
-    passwordToggle: {
-      type: Object,
-      default: () => ({})
-    },
-    schema: {
-      type: Object,
-      default: void 0
-    },
-    validate: {
-      type: [Function, Array],
-      default: void 0
-    },
-    validateOn: {
-      type: Array,
-      default: () => ["submit"]
-    },
-    divider: {
-      type: String,
-      default: "or"
-    },
-    class: {
-      type: [String, Object, Array],
-      default: void 0
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
-    }
-  },
-  emits: ["submit"],
-  setup(__props, { expose: __expose }) {
+  props: /* @__PURE__ */ mergeModels({
+    as: {},
+    label: {},
+    description: {},
+    color: {},
+    size: {},
+    icon: {},
+    indeterminateIcon: {},
+    class: {},
+    ui: {},
+    disabled: { type: Boolean },
+    required: { type: Boolean },
+    name: {},
+    value: {},
+    id: {},
+    defaultValue: { type: [Boolean, String] }
+  }, {
+    "modelValue": { type: [Boolean, String], ...{ default: void 0 } },
+    "modelModifiers": {}
+  }),
+  emits: /* @__PURE__ */ mergeModels(["change"], ["update:modelValue"]),
+  setup(__props, { emit: __emit }) {
     const props = __props;
-    const config = computed(() => {
-      const container = twJoin(
-        "gap-y-6 flex flex-col",
-        props.align === "top" && "flex-col-reverse"
-      );
-      return {
-        wrapper: "w-full max-w-sm space-y-6",
-        base: "",
-        container,
-        title: "text-2xl text-gray-900 dark:text-white font-bold",
-        description: "text-gray-500 dark:text-gray-400 mt-1",
-        icon: {
-          wrapper: "mb-2 pointer-events-none",
-          base: "w-8 h-8 flex-shrink-0 text-gray-900 dark:text-white"
-        },
-        providers: "space-y-3",
-        form: "space-y-6",
-        footer: "text-sm text-gray-500 dark:text-gray-400 mt-2",
-        passwordToggle: {
-          showIcon: "i-heroicons-eye",
-          hideIcon: "i-heroicons-eye-slash"
-        },
-        default: {
-          submitButton: {
-            label: "Continue"
-          },
-          passwordToggle: {
-            color: "gray",
-            variant: "link"
-          }
-        }
-      };
-    });
-    const formRef = ref();
-    const { ui, attrs } = useUI("auth.form", toRef(props, "ui"), config, toRef(props, "class"), true);
-    const state = reactive(Object.values(props.fields).reduce((acc, { name, value }) => {
-      acc[name] = value;
-      return acc;
-    }, {}));
-    const passwordVisibility = ref(false);
-    function togglePasswordVisibility() {
-      passwordVisibility.value = !passwordVisibility.value;
+    const slots = useSlots();
+    const emits = __emit;
+    const modelValue = useModel(__props, "modelValue");
+    const rootProps = useForwardProps(reactivePick(props, "required", "value", "defaultValue"));
+    const appConfig = useAppConfig();
+    const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField(props);
+    const id = _id.value ?? useId();
+    const ui = computed(() => checkbox({
+      size: size.value,
+      color: color.value,
+      required: props.required,
+      disabled: disabled.value,
+      checked: Boolean(modelValue.value ?? props.defaultValue)
+    }));
+    function onUpdate(value) {
+      const event = new Event("change", { target: { value } });
+      emits("change", event);
+      emitFormChange();
+      emitFormInput();
     }
-    __expose({
-      formRef,
-      state
-    });
     return (_ctx, _push, _parent, _attrs) => {
-      var _a, _b, _c, _d;
-      const _component_UIcon = __nuxt_component_3$1;
-      const _component_UButton = __nuxt_component_1;
-      const _component_UDivider = __nuxt_component_2$1;
-      const _component_UForm = __nuxt_component_3;
-      const _component_UFormGroup = __nuxt_component_7;
-      const _component_UCheckbox = __nuxt_component_0$1;
-      const _component_USelectMenu = __nuxt_component_6;
-      const _component_UInput = __nuxt_component_6$1;
-      _push(`<div${ssrRenderAttrs(mergeProps({
-        class: unref(ui).wrapper
-      }, unref(attrs), _attrs))}>`);
-      if (__props.icon || _ctx.$slots.icon || (__props.title || _ctx.$slots.title) || (__props.description || _ctx.$slots.description)) {
-        _push(`<div class="${ssrRenderClass(unref(ui).base)}">`);
-        if (__props.icon || _ctx.$slots.icon) {
-          _push(`<div class="${ssrRenderClass(unref(ui).icon.wrapper)}">`);
-          ssrRenderSlot(_ctx.$slots, "icon", {}, () => {
-            _push(ssrRenderComponent(_component_UIcon, {
-              name: __props.icon,
-              class: unref(ui).icon.base
-            }, null, _parent));
-          }, _push, _parent);
-          _push(`</div>`);
-        } else {
-          _push(`<!---->`);
-        }
-        if (__props.title || _ctx.$slots.title) {
-          _push(`<div class="${ssrRenderClass(unref(ui).title)}">`);
-          ssrRenderSlot(_ctx.$slots, "title", {}, () => {
-            _push(`${ssrInterpolate(__props.title)}`);
-          }, _push, _parent);
-          _push(`</div>`);
-        } else {
-          _push(`<!---->`);
-        }
-        if (__props.description || _ctx.$slots.description) {
-          _push(`<div class="${ssrRenderClass(unref(ui).description)}">`);
-          ssrRenderSlot(_ctx.$slots, "description", {}, () => {
-            _push(`${ssrInterpolate(__props.description)}`);
-          }, _push, _parent);
-          _push(`</div>`);
-        } else {
-          _push(`<!---->`);
-        }
-        _push(`</div>`);
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`<div class="${ssrRenderClass(unref(ui).container)}">`);
-      if ((_a = __props.providers) == null ? void 0 : _a.length) {
-        _push(`<div class="${ssrRenderClass(unref(ui).providers)}"><!--[-->`);
-        ssrRenderList(__props.providers, (provider, index) => {
-          _push(ssrRenderComponent(_component_UButton, mergeProps({
-            key: index,
-            ref_for: true
-          }, provider, {
-            block: "",
-            onClick: provider.click
-          }), null, _parent));
-        });
-        _push(`<!--]--></div>`);
-      } else {
-        _push(`<!---->`);
-      }
-      if (((_b = __props.providers) == null ? void 0 : _b.length) && ((_c = __props.fields) == null ? void 0 : _c.length)) {
-        _push(ssrRenderComponent(_component_UDivider, { label: __props.divider }, null, _parent));
-      } else {
-        _push(`<!---->`);
-      }
-      if ((_d = __props.fields) == null ? void 0 : _d.length) {
-        _push(ssrRenderComponent(_component_UForm, {
-          ref_key: "formRef",
-          ref: formRef,
-          state,
-          schema: __props.schema,
-          validate: __props.validate,
-          "validate-on": __props.validateOn,
-          class: unref(ui).form,
-          onSubmit: ($event) => _ctx.$emit("submit", $event.data)
-        }, {
-          default: withCtx((_, _push2, _parent2, _scopeId) => {
-            if (_push2) {
-              _push2(`<!--[-->`);
-              ssrRenderList(__props.fields, (field) => {
-                _push2(ssrRenderComponent(_component_UFormGroup, {
-                  key: field.name,
-                  label: field.type === "checkbox" ? "" : field.label ?? "",
-                  description: field.description,
-                  help: field.help,
-                  hint: field.hint,
-                  name: field.name,
-                  size: field.size
-                }, createSlots({
+      var _a2;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b, _c, _d, _e, _f, _g, _h, _i, _j;
+          if (_push2) {
+            _push2(`<div class="${ssrRenderClass(ui.value.container({ class: (_a3 = props.ui) == null ? void 0 : _a3.container }))}"${_scopeId}>`);
+            _push2(ssrRenderComponent(unref(CheckboxRoot), mergeProps({ id: unref(id) }, { ...unref(rootProps), ..._ctx.$attrs, ...unref(ariaAttrs) }, {
+              modelValue: modelValue.value,
+              "onUpdate:modelValue": [($event) => modelValue.value = $event, onUpdate],
+              name: unref(name),
+              disabled: unref(disabled),
+              class: ui.value.base({ class: (_b = props.ui) == null ? void 0 : _b.base })
+            }), {
+              default: withCtx(({ modelValue: modelValue2 }, _push3, _parent3, _scopeId2) => {
+                if (_push3) {
+                  _push3(ssrRenderComponent(unref(CheckboxIndicator), { "as-child": "" }, {
+                    default: withCtx((_2, _push4, _parent4, _scopeId3) => {
+                      var _a4, _b2, _c2, _d2;
+                      if (_push4) {
+                        if (modelValue2 === "indeterminate") {
+                          _push4(ssrRenderComponent(__nuxt_component_1, {
+                            name: _ctx.indeterminateIcon || unref(appConfig).ui.icons.minus,
+                            class: ui.value.icon({ class: (_a4 = props.ui) == null ? void 0 : _a4.icon })
+                          }, null, _parent4, _scopeId3));
+                        } else {
+                          _push4(ssrRenderComponent(__nuxt_component_1, {
+                            name: _ctx.icon || unref(appConfig).ui.icons.check,
+                            class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
+                          }, null, _parent4, _scopeId3));
+                        }
+                      } else {
+                        return [
+                          modelValue2 === "indeterminate" ? (openBlock(), createBlock(__nuxt_component_1, {
+                            key: 0,
+                            name: _ctx.indeterminateIcon || unref(appConfig).ui.icons.minus,
+                            class: ui.value.icon({ class: (_c2 = props.ui) == null ? void 0 : _c2.icon })
+                          }, null, 8, ["name", "class"])) : (openBlock(), createBlock(__nuxt_component_1, {
+                            key: 1,
+                            name: _ctx.icon || unref(appConfig).ui.icons.check,
+                            class: ui.value.icon({ class: (_d2 = props.ui) == null ? void 0 : _d2.icon })
+                          }, null, 8, ["name", "class"]))
+                        ];
+                      }
+                    }),
+                    _: 2
+                  }, _parent3, _scopeId2));
+                } else {
+                  return [
+                    createVNode(unref(CheckboxIndicator), { "as-child": "" }, {
+                      default: withCtx(() => {
+                        var _a4, _b2;
+                        return [
+                          modelValue2 === "indeterminate" ? (openBlock(), createBlock(__nuxt_component_1, {
+                            key: 0,
+                            name: _ctx.indeterminateIcon || unref(appConfig).ui.icons.minus,
+                            class: ui.value.icon({ class: (_a4 = props.ui) == null ? void 0 : _a4.icon })
+                          }, null, 8, ["name", "class"])) : (openBlock(), createBlock(__nuxt_component_1, {
+                            key: 1,
+                            name: _ctx.icon || unref(appConfig).ui.icons.check,
+                            class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
+                          }, null, 8, ["name", "class"]))
+                        ];
+                      }),
+                      _: 2
+                    }, 1024)
+                  ];
+                }
+              }),
+              _: 1
+            }, _parent2, _scopeId));
+            _push2(`</div>`);
+            if (_ctx.label || !!slots.label || (_ctx.description || !!slots.description)) {
+              _push2(`<div class="${ssrRenderClass(ui.value.wrapper({ class: (_c = props.ui) == null ? void 0 : _c.wrapper }))}"${_scopeId}>`);
+              if (_ctx.label || !!slots.label) {
+                _push2(ssrRenderComponent(unref(Label), {
+                  for: unref(id),
+                  class: ui.value.label({ class: (_d = props.ui) == null ? void 0 : _d.label })
+                }, {
                   default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                     if (_push3) {
-                      ssrRenderSlot(_ctx.$slots, `${field.name}-field`, mergeProps({ ref_for: true }, { state, field: unref(omit)(field, ["description", "help", "hint", "size"]) }), () => {
-                        if (field.type === "checkbox") {
-                          _push3(ssrRenderComponent(_component_UCheckbox, mergeProps({
-                            modelValue: state[field.name],
-                            "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                            ref_for: true
-                          }, unref(omit)(field, ["description", "help", "hint", "size"])), null, _parent3, _scopeId2));
-                        } else if (field.type === "select") {
-                          _push3(ssrRenderComponent(_component_USelectMenu, mergeProps({
-                            modelValue: state[field.name],
-                            "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                            ref_for: true
-                          }, unref(omit)(field, ["description", "help", "hint", "size"])), null, _parent3, _scopeId2));
-                        } else if (field.type === "password") {
-                          _push3(ssrRenderComponent(_component_UInput, mergeProps({
-                            modelValue: state[field.name],
-                            "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                            type: passwordVisibility.value ? "text" : "password",
-                            ref_for: true
-                          }, unref(omit)(field, ["label", "description", "help", "hint", "size", "type"]), { ui: { icon: { trailing: { pointer: "" } } } }), createSlots({ _: 2 }, [
-                            __props.passwordToggle ? {
-                              name: "trailing",
-                              fn: withCtx((_3, _push4, _parent4, _scopeId3) => {
-                                if (_push4) {
-                                  _push4(ssrRenderComponent(_component_UButton, mergeProps({ ref_for: true }, { ...unref(ui).default.passwordToggle, ...__props.passwordToggle }, {
-                                    icon: passwordVisibility.value ? unref(ui).passwordToggle.hideIcon : unref(ui).passwordToggle.showIcon,
-                                    padded: false,
-                                    onClick: togglePasswordVisibility
-                                  }), null, _parent4, _scopeId3));
-                                } else {
-                                  return [
-                                    createVNode(_component_UButton, mergeProps({ ref_for: true }, { ...unref(ui).default.passwordToggle, ...__props.passwordToggle }, {
-                                      icon: passwordVisibility.value ? unref(ui).passwordToggle.hideIcon : unref(ui).passwordToggle.showIcon,
-                                      padded: false,
-                                      onClick: togglePasswordVisibility
-                                    }), null, 16, ["icon"])
-                                  ];
-                                }
-                              }),
-                              key: "0"
-                            } : void 0
-                          ]), _parent3, _scopeId2));
-                        } else {
-                          _push3(ssrRenderComponent(_component_UInput, mergeProps({
-                            modelValue: state[field.name],
-                            "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                            ref_for: true
-                          }, unref(omit)(field, ["label", "description", "help", "hint", "size"])), null, _parent3, _scopeId2));
-                        }
+                      ssrRenderSlot(_ctx.$slots, "label", { label: _ctx.label }, () => {
+                        _push3(`${ssrInterpolate(_ctx.label)}`);
                       }, _push3, _parent3, _scopeId2);
                     } else {
                       return [
-                        renderSlot(_ctx.$slots, `${field.name}-field`, mergeProps({ ref_for: true }, { state, field: unref(omit)(field, ["description", "help", "hint", "size"]) }), () => [
-                          field.type === "checkbox" ? (openBlock(), createBlock(_component_UCheckbox, mergeProps({
-                            key: 0,
-                            modelValue: state[field.name],
-                            "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                            ref_for: true
-                          }, unref(omit)(field, ["description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"])) : field.type === "select" ? (openBlock(), createBlock(_component_USelectMenu, mergeProps({
-                            key: 1,
-                            modelValue: state[field.name],
-                            "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                            ref_for: true
-                          }, unref(omit)(field, ["description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"])) : field.type === "password" ? (openBlock(), createBlock(_component_UInput, mergeProps({
-                            key: 2,
-                            modelValue: state[field.name],
-                            "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                            type: passwordVisibility.value ? "text" : "password",
-                            ref_for: true
-                          }, unref(omit)(field, ["label", "description", "help", "hint", "size", "type"]), { ui: { icon: { trailing: { pointer: "" } } } }), createSlots({ _: 2 }, [
-                            __props.passwordToggle ? {
-                              name: "trailing",
-                              fn: withCtx(() => [
-                                createVNode(_component_UButton, mergeProps({ ref_for: true }, { ...unref(ui).default.passwordToggle, ...__props.passwordToggle }, {
-                                  icon: passwordVisibility.value ? unref(ui).passwordToggle.hideIcon : unref(ui).passwordToggle.showIcon,
-                                  padded: false,
-                                  onClick: togglePasswordVisibility
-                                }), null, 16, ["icon"])
-                              ]),
-                              key: "0"
-                            } : void 0
-                          ]), 1040, ["modelValue", "onUpdate:modelValue", "type"])) : (openBlock(), createBlock(_component_UInput, mergeProps({
-                            key: 3,
-                            modelValue: state[field.name],
-                            "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                            ref_for: true
-                          }, unref(omit)(field, ["label", "description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"]))
+                        renderSlot(_ctx.$slots, "label", { label: _ctx.label }, () => [
+                          createTextVNode(toDisplayString(_ctx.label), 1)
                         ])
                       ];
                     }
                   }),
-                  _: 2
-                }, [
-                  _ctx.$slots[`${field.name}-label`] ? {
-                    name: "label",
-                    fn: withCtx((_2, _push3, _parent3, _scopeId2) => {
-                      if (_push3) {
-                        ssrRenderSlot(_ctx.$slots, `${field.name}-label`, {}, null, _push3, _parent3, _scopeId2);
-                      } else {
-                        return [
-                          renderSlot(_ctx.$slots, `${field.name}-label`)
-                        ];
-                      }
-                    }),
-                    key: "0"
-                  } : void 0,
-                  _ctx.$slots[`${field.name}-description`] ? {
-                    name: "description",
-                    fn: withCtx((_2, _push3, _parent3, _scopeId2) => {
-                      if (_push3) {
-                        ssrRenderSlot(_ctx.$slots, `${field.name}-description`, {}, null, _push3, _parent3, _scopeId2);
-                      } else {
-                        return [
-                          renderSlot(_ctx.$slots, `${field.name}-description`)
-                        ];
-                      }
-                    }),
-                    key: "1"
-                  } : void 0,
-                  _ctx.$slots[`${field.name}-hint`] ? {
-                    name: "hint",
-                    fn: withCtx((_2, _push3, _parent3, _scopeId2) => {
-                      if (_push3) {
-                        ssrRenderSlot(_ctx.$slots, `${field.name}-hint`, {}, null, _push3, _parent3, _scopeId2);
-                      } else {
-                        return [
-                          renderSlot(_ctx.$slots, `${field.name}-hint`)
-                        ];
-                      }
-                    }),
-                    key: "2"
-                  } : void 0,
-                  _ctx.$slots[`${field.name}-help`] ? {
-                    name: "help",
-                    fn: withCtx((_2, _push3, _parent3, _scopeId2) => {
-                      if (_push3) {
-                        ssrRenderSlot(_ctx.$slots, `${field.name}-help`, {}, null, _push3, _parent3, _scopeId2);
-                      } else {
-                        return [
-                          renderSlot(_ctx.$slots, `${field.name}-help`)
-                        ];
-                      }
-                    }),
-                    key: "3"
-                  } : void 0,
-                  _ctx.$slots[`${field.name}-error`] ? {
-                    name: "error",
-                    fn: withCtx((_2, _push3, _parent3, _scopeId2) => {
-                      if (_push3) {
-                        ssrRenderSlot(_ctx.$slots, `${field.name}-error`, {}, null, _push3, _parent3, _scopeId2);
-                      } else {
-                        return [
-                          renderSlot(_ctx.$slots, `${field.name}-error`)
-                        ];
-                      }
-                    }),
-                    key: "4"
-                  } : void 0
-                ]), _parent2, _scopeId));
-              });
-              _push2(`<!--]-->`);
-              ssrRenderSlot(_ctx.$slots, "validation", {}, null, _push2, _parent2, _scopeId);
-              _push2(ssrRenderComponent(_component_UButton, mergeProps({
-                type: "submit",
-                block: "",
-                loading: __props.loading
-              }, { ...unref(ui).default.submitButton, ...__props.submitButton }), null, _parent2, _scopeId));
+                  _: 3
+                }, _parent2, _scopeId));
+              } else {
+                _push2(`<!---->`);
+              }
+              if (_ctx.description || !!slots.description) {
+                _push2(`<p class="${ssrRenderClass(ui.value.description({ class: (_e = props.ui) == null ? void 0 : _e.description }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, "description", { description: _ctx.description }, () => {
+                  _push2(`${ssrInterpolate(_ctx.description)}`);
+                }, _push2, _parent2, _scopeId);
+                _push2(`</p>`);
+              } else {
+                _push2(`<!---->`);
+              }
+              _push2(`</div>`);
             } else {
-              return [
-                (openBlock(true), createBlock(Fragment, null, renderList(__props.fields, (field) => {
-                  return openBlock(), createBlock(_component_UFormGroup, {
-                    key: field.name,
-                    label: field.type === "checkbox" ? "" : field.label ?? "",
-                    description: field.description,
-                    help: field.help,
-                    hint: field.hint,
-                    name: field.name,
-                    size: field.size
-                  }, createSlots({
-                    default: withCtx(() => [
-                      renderSlot(_ctx.$slots, `${field.name}-field`, mergeProps({ ref_for: true }, { state, field: unref(omit)(field, ["description", "help", "hint", "size"]) }), () => [
-                        field.type === "checkbox" ? (openBlock(), createBlock(_component_UCheckbox, mergeProps({
-                          key: 0,
-                          modelValue: state[field.name],
-                          "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                          ref_for: true
-                        }, unref(omit)(field, ["description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"])) : field.type === "select" ? (openBlock(), createBlock(_component_USelectMenu, mergeProps({
-                          key: 1,
-                          modelValue: state[field.name],
-                          "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                          ref_for: true
-                        }, unref(omit)(field, ["description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"])) : field.type === "password" ? (openBlock(), createBlock(_component_UInput, mergeProps({
-                          key: 2,
-                          modelValue: state[field.name],
-                          "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                          type: passwordVisibility.value ? "text" : "password",
-                          ref_for: true
-                        }, unref(omit)(field, ["label", "description", "help", "hint", "size", "type"]), { ui: { icon: { trailing: { pointer: "" } } } }), createSlots({ _: 2 }, [
-                          __props.passwordToggle ? {
-                            name: "trailing",
+              _push2(`<!---->`);
+            }
+          } else {
+            return [
+              createVNode("div", {
+                class: ui.value.container({ class: (_f = props.ui) == null ? void 0 : _f.container })
+              }, [
+                createVNode(unref(CheckboxRoot), mergeProps({ id: unref(id) }, { ...unref(rootProps), ..._ctx.$attrs, ...unref(ariaAttrs) }, {
+                  modelValue: modelValue.value,
+                  "onUpdate:modelValue": [($event) => modelValue.value = $event, onUpdate],
+                  name: unref(name),
+                  disabled: unref(disabled),
+                  class: ui.value.base({ class: (_g = props.ui) == null ? void 0 : _g.base })
+                }), {
+                  default: withCtx(({ modelValue: modelValue2 }) => [
+                    createVNode(unref(CheckboxIndicator), { "as-child": "" }, {
+                      default: withCtx(() => {
+                        var _a4, _b2;
+                        return [
+                          modelValue2 === "indeterminate" ? (openBlock(), createBlock(__nuxt_component_1, {
+                            key: 0,
+                            name: _ctx.indeterminateIcon || unref(appConfig).ui.icons.minus,
+                            class: ui.value.icon({ class: (_a4 = props.ui) == null ? void 0 : _a4.icon })
+                          }, null, 8, ["name", "class"])) : (openBlock(), createBlock(__nuxt_component_1, {
+                            key: 1,
+                            name: _ctx.icon || unref(appConfig).ui.icons.check,
+                            class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
+                          }, null, 8, ["name", "class"]))
+                        ];
+                      }),
+                      _: 2
+                    }, 1024)
+                  ]),
+                  _: 1
+                }, 16, ["id", "modelValue", "onUpdate:modelValue", "name", "disabled", "class"])
+              ], 2),
+              _ctx.label || !!slots.label || (_ctx.description || !!slots.description) ? (openBlock(), createBlock("div", {
+                key: 0,
+                class: ui.value.wrapper({ class: (_h = props.ui) == null ? void 0 : _h.wrapper })
+              }, [
+                _ctx.label || !!slots.label ? (openBlock(), createBlock(unref(Label), {
+                  key: 0,
+                  for: unref(id),
+                  class: ui.value.label({ class: (_i = props.ui) == null ? void 0 : _i.label })
+                }, {
+                  default: withCtx(() => [
+                    renderSlot(_ctx.$slots, "label", { label: _ctx.label }, () => [
+                      createTextVNode(toDisplayString(_ctx.label), 1)
+                    ])
+                  ]),
+                  _: 3
+                }, 8, ["for", "class"])) : createCommentVNode("", true),
+                _ctx.description || !!slots.description ? (openBlock(), createBlock("p", {
+                  key: 1,
+                  class: ui.value.description({ class: (_j = props.ui) == null ? void 0 : _j.description })
+                }, [
+                  renderSlot(_ctx.$slots, "description", { description: _ctx.description }, () => [
+                    createTextVNode(toDisplayString(_ctx.description), 1)
+                  ])
+                ], 2)) : createCommentVNode("", true)
+              ], 2)) : createCommentVNode("", true)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+    };
+  }
+});
+
+const _sfc_setup$4 = _sfc_main$4.setup;
+_sfc_main$4.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Checkbox.vue");
+  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
+};
+const __nuxt_component_5 = Object.assign(_sfc_main$4, { __name: "UCheckbox" });
+
+const theme$1 = {
+  "slots": {
+    "base": [
+      "relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75",
+      "transition-colors"
+    ],
+    "leading": "absolute inset-y-0 start-0 flex items-center",
+    "leadingIcon": "shrink-0 text-(--ui-text-dimmed)",
+    "leadingAvatar": "shrink-0",
+    "leadingAvatarSize": "",
+    "trailing": "absolute inset-y-0 end-0 flex items-center",
+    "trailingIcon": "shrink-0 text-(--ui-text-dimmed)",
+    "value": "truncate pointer-events-none",
+    "placeholder": "truncate text-(--ui-text-dimmed)",
+    "arrow": "fill-(--ui-border)",
+    "content": "max-h-60 w-(--reka-popper-anchor-width) bg-(--ui-bg) shadow-lg rounded-[calc(var(--ui-radius)*1.5)] ring ring-(--ui-border) overflow-hidden data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in] pointer-events-auto",
+    "viewport": "divide-y divide-(--ui-border) scroll-py-1",
+    "group": "p-1 isolate",
+    "empty": "py-2 text-center text-sm text-(--ui-text-muted)",
+    "label": "font-semibold text-(--ui-text-highlighted)",
+    "separator": "-mx-1 my-1 h-px bg-(--ui-border)",
+    "item": [
+      "group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-(--ui-text) data-highlighted:text-(--ui-text-highlighted) data-highlighted:before:bg-(--ui-bg-elevated)/50",
+      "transition-colors before:transition-colors"
+    ],
+    "itemLeadingIcon": [
+      "shrink-0 text-(--ui-text-dimmed) group-data-highlighted:text-(--ui-text)",
+      "transition-colors"
+    ],
+    "itemLeadingAvatar": "shrink-0",
+    "itemLeadingAvatarSize": "",
+    "itemLeadingChip": "shrink-0",
+    "itemLeadingChipSize": "",
+    "itemTrailing": "ms-auto inline-flex gap-1.5 items-center",
+    "itemTrailingIcon": "shrink-0",
+    "itemLabel": "truncate",
+    "input": "border-b border-(--ui-border)",
+    "focusScope": "flex flex-col min-h-0"
+  },
+  "variants": {
+    "buttonGroup": {
+      "horizontal": "not-only:first:rounded-e-none not-only:last:rounded-s-none not-last:not-first:rounded-none",
+      "vertical": "not-only:first:rounded-b-none not-only:last:rounded-t-none not-last:not-first:rounded-none"
+    },
+    "size": {
+      "xs": {
+        "base": "px-2 py-1 text-xs gap-1",
+        "leading": "ps-2",
+        "trailing": "pe-2",
+        "leadingIcon": "size-4",
+        "leadingAvatarSize": "3xs",
+        "trailingIcon": "size-4",
+        "label": "p-1 text-[10px]/3 gap-1",
+        "item": "p-1 text-xs gap-1",
+        "itemLeadingIcon": "size-4",
+        "itemLeadingAvatarSize": "3xs",
+        "itemLeadingChip": "size-4",
+        "itemLeadingChipSize": "sm",
+        "itemTrailingIcon": "size-4"
+      },
+      "sm": {
+        "base": "px-2.5 py-1.5 text-xs gap-1.5",
+        "leading": "ps-2.5",
+        "trailing": "pe-2.5",
+        "leadingIcon": "size-4",
+        "leadingAvatarSize": "3xs",
+        "trailingIcon": "size-4",
+        "label": "p-1.5 text-[10px]/3 gap-1.5",
+        "item": "p-1.5 text-xs gap-1.5",
+        "itemLeadingIcon": "size-4",
+        "itemLeadingAvatarSize": "3xs",
+        "itemLeadingChip": "size-4",
+        "itemLeadingChipSize": "sm",
+        "itemTrailingIcon": "size-4"
+      },
+      "md": {
+        "base": "px-2.5 py-1.5 text-sm gap-1.5",
+        "leading": "ps-2.5",
+        "trailing": "pe-2.5",
+        "leadingIcon": "size-5",
+        "leadingAvatarSize": "2xs",
+        "trailingIcon": "size-5",
+        "label": "p-1.5 text-xs gap-1.5",
+        "item": "p-1.5 text-sm gap-1.5",
+        "itemLeadingIcon": "size-5",
+        "itemLeadingAvatarSize": "2xs",
+        "itemLeadingChip": "size-5",
+        "itemLeadingChipSize": "md",
+        "itemTrailingIcon": "size-5"
+      },
+      "lg": {
+        "base": "px-3 py-2 text-sm gap-2",
+        "leading": "ps-3",
+        "trailing": "pe-3",
+        "leadingIcon": "size-5",
+        "leadingAvatarSize": "2xs",
+        "trailingIcon": "size-5",
+        "label": "p-2 text-xs gap-2",
+        "item": "p-2 text-sm gap-2",
+        "itemLeadingIcon": "size-5",
+        "itemLeadingAvatarSize": "2xs",
+        "itemLeadingChip": "size-5",
+        "itemLeadingChipSize": "md",
+        "itemTrailingIcon": "size-5"
+      },
+      "xl": {
+        "base": "px-3 py-2 text-base gap-2",
+        "leading": "ps-3",
+        "trailing": "pe-3",
+        "leadingIcon": "size-6",
+        "leadingAvatarSize": "xs",
+        "trailingIcon": "size-6",
+        "label": "p-2 text-sm gap-2",
+        "item": "p-2 text-base gap-2",
+        "itemLeadingIcon": "size-6",
+        "itemLeadingAvatarSize": "xs",
+        "itemLeadingChip": "size-6",
+        "itemLeadingChipSize": "lg",
+        "itemTrailingIcon": "size-6"
+      }
+    },
+    "variant": {
+      "outline": "text-(--ui-text-highlighted) bg-(--ui-bg) ring ring-inset ring-(--ui-border-accented)",
+      "soft": "text-(--ui-text-highlighted) bg-(--ui-bg-elevated)/50 hover:bg-(--ui-bg-elevated) focus:bg-(--ui-bg-elevated) disabled:bg-(--ui-bg-elevated)/50",
+      "subtle": "text-(--ui-text-highlighted) bg-(--ui-bg-elevated) ring ring-inset ring-(--ui-border-accented)",
+      "ghost": "text-(--ui-text-highlighted) bg-transparent hover:bg-(--ui-bg-elevated) focus:bg-(--ui-bg-elevated) disabled:bg-transparent dark:disabled:bg-transparent",
+      "none": "text-(--ui-text-highlighted) bg-transparent"
+    },
+    "color": {
+      "primary": "",
+      "secondary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "neutral": ""
+    },
+    "leading": {
+      "true": ""
+    },
+    "trailing": {
+      "true": ""
+    },
+    "loading": {
+      "true": ""
+    },
+    "highlight": {
+      "true": ""
+    },
+    "type": {
+      "file": "file:me-1.5 file:font-medium file:text-(--ui-text-muted) file:outline-none"
+    }
+  },
+  "compoundVariants": [
+    {
+      "color": "primary",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-primary)"
+    },
+    {
+      "color": "secondary",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-secondary)"
+    },
+    {
+      "color": "success",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-success)"
+    },
+    {
+      "color": "info",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-info)"
+    },
+    {
+      "color": "warning",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-warning)"
+    },
+    {
+      "color": "error",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-error)"
+    },
+    {
+      "color": "primary",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-primary)"
+    },
+    {
+      "color": "secondary",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-secondary)"
+    },
+    {
+      "color": "success",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-success)"
+    },
+    {
+      "color": "info",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-info)"
+    },
+    {
+      "color": "warning",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-warning)"
+    },
+    {
+      "color": "error",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-error)"
+    },
+    {
+      "color": "neutral",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-border-inverted)"
+    },
+    {
+      "color": "neutral",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-border-inverted)"
+    },
+    {
+      "leading": true,
+      "size": "xs",
+      "class": "ps-7"
+    },
+    {
+      "leading": true,
+      "size": "sm",
+      "class": "ps-8"
+    },
+    {
+      "leading": true,
+      "size": "md",
+      "class": "ps-9"
+    },
+    {
+      "leading": true,
+      "size": "lg",
+      "class": "ps-10"
+    },
+    {
+      "leading": true,
+      "size": "xl",
+      "class": "ps-11"
+    },
+    {
+      "trailing": true,
+      "size": "xs",
+      "class": "pe-7"
+    },
+    {
+      "trailing": true,
+      "size": "sm",
+      "class": "pe-8"
+    },
+    {
+      "trailing": true,
+      "size": "md",
+      "class": "pe-9"
+    },
+    {
+      "trailing": true,
+      "size": "lg",
+      "class": "pe-10"
+    },
+    {
+      "trailing": true,
+      "size": "xl",
+      "class": "pe-11"
+    },
+    {
+      "loading": true,
+      "leading": true,
+      "class": {
+        "leadingIcon": "animate-spin"
+      }
+    },
+    {
+      "loading": true,
+      "leading": false,
+      "trailing": true,
+      "class": {
+        "trailingIcon": "animate-spin"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "size": "md",
+    "color": "primary",
+    "variant": "outline"
+  }
+};
+
+var _a$1;
+const appConfigSelectMenu = _appConfig;
+const selectMenu = tv({ extend: tv(theme$1), ...((_a$1 = appConfigSelectMenu.ui) == null ? void 0 : _a$1.selectMenu) || {} });
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
+  ...{ inheritAttrs: false },
+  __name: "SelectMenu",
+  __ssrInlineRender: true,
+  props: /* @__PURE__ */ mergeModels({
+    id: {},
+    placeholder: {},
+    searchInput: { type: [Boolean, Object], default: true },
+    color: {},
+    variant: {},
+    size: {},
+    required: { type: Boolean },
+    trailingIcon: {},
+    selectedIcon: {},
+    content: {},
+    arrow: { type: [Boolean, Object] },
+    portal: { type: Boolean, default: true },
+    valueKey: {},
+    labelKey: { default: "label" },
+    items: {},
+    defaultValue: {},
+    modelValue: {},
+    multiple: { type: Boolean },
+    highlight: { type: Boolean },
+    createItem: { type: [Boolean, String, Object] },
+    filterFields: {},
+    ignoreFilter: { type: Boolean },
+    class: {},
+    ui: {},
+    open: { type: Boolean },
+    defaultOpen: { type: Boolean },
+    disabled: { type: Boolean },
+    name: {},
+    resetSearchTermOnBlur: { type: Boolean, default: true },
+    highlightOnHover: { type: Boolean },
+    icon: {},
+    avatar: {},
+    leading: { type: Boolean },
+    leadingIcon: {},
+    trailing: { type: Boolean },
+    loading: { type: Boolean },
+    loadingIcon: {}
+  }, {
+    "searchTerm": { default: "" },
+    "searchTermModifiers": {}
+  }),
+  emits: /* @__PURE__ */ mergeModels(["highlight", "update:open", "change", "blur", "focus", "create", "update:modelValue"], ["update:searchTerm"]),
+  setup(__props, { emit: __emit }) {
+    const props = __props;
+    const emits = __emit;
+    const slots = useSlots();
+    const searchTerm = useModel(__props, "searchTerm");
+    const { t } = useLocale();
+    const appConfig = useAppConfig();
+    const { contains } = useFilter({ sensitivity: "base" });
+    const rootProps = useForwardPropsEmits(reactivePick(props, "modelValue", "defaultValue", "open", "defaultOpen", "required", "multiple", "resetSearchTermOnBlur", "highlightOnHover"), emits);
+    const contentProps = toRef(() => defu(props.content, { side: "bottom", sideOffset: 8, collisionPadding: 8, position: "popper" }));
+    const arrowProps = toRef(() => props.arrow);
+    const searchInputProps = toRef(() => defu(props.searchInput, { placeholder: t("selectMenu.search"), variant: "none" }));
+    const { emitFormBlur, emitFormFocus, emitFormInput, emitFormChange, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField(props);
+    const { orientation, size: buttonGroupSize } = useButtonGroup(props);
+    const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(toRef(() => defu(props, { trailingIcon: appConfig.ui.icons.chevronDown })));
+    const selectSize = computed(() => buttonGroupSize.value || formGroupSize.value);
+    const [DefineCreateItemTemplate, ReuseCreateItemTemplate] = createReusableTemplate();
+    const ui = computed(() => selectMenu({
+      color: color.value,
+      variant: props.variant,
+      size: selectSize == null ? void 0 : selectSize.value,
+      loading: props.loading,
+      highlight: highlight.value,
+      leading: isLeading.value || !!props.avatar || !!slots.leading,
+      trailing: isTrailing.value || !!slots.trailing,
+      buttonGroup: orientation.value
+    }));
+    function displayValue(value) {
+      if (props.multiple && Array.isArray(value)) {
+        return value.map((v) => displayValue(v)).filter(Boolean).join(", ");
+      }
+      if (!props.valueKey) {
+        return value && (typeof value === "object" ? get(value, props.labelKey) : value);
+      }
+      const item = items.value.find((item2) => compare(typeof item2 === "object" ? get(item2, props.valueKey) : item2, value));
+      return item && (typeof item === "object" ? get(item, props.labelKey) : item);
+    }
+    const groups = computed(() => {
+      var _a2;
+      return ((_a2 = props.items) == null ? void 0 : _a2.length) ? Array.isArray(props.items[0]) ? props.items : [props.items] : [];
+    });
+    const items = computed(() => groups.value.flatMap((group) => group));
+    const filteredGroups = computed(() => {
+      if (props.ignoreFilter || !searchTerm.value) {
+        return groups.value;
+      }
+      const fields = Array.isArray(props.filterFields) ? props.filterFields : [props.labelKey];
+      return groups.value.map((items2) => items2.filter((item) => {
+        if (typeof item !== "object") {
+          return contains(item, searchTerm.value);
+        }
+        if (item.type && ["label", "separator"].includes(item.type)) {
+          return true;
+        }
+        return fields.some((field) => contains(get(item, field), searchTerm.value));
+      })).filter((group) => group.filter((item) => !item.type || !["label", "separator"].includes(item.type)).length > 0);
+    });
+    const filteredItems = computed(() => filteredGroups.value.flatMap((group) => group));
+    const createItem = computed(() => {
+      if (!props.createItem || !searchTerm.value) {
+        return false;
+      }
+      const newItem = props.valueKey ? { [props.valueKey]: searchTerm.value } : searchTerm.value;
+      if (typeof props.createItem === "object" && props.createItem.when === "always" || props.createItem === "always") {
+        return !filteredItems.value.find((item) => compare(item, newItem, props.valueKey));
+      }
+      return !filteredItems.value.length;
+    });
+    const createItemPosition = computed(() => typeof props.createItem === "object" ? props.createItem.position : "bottom");
+    function onUpdate(value) {
+      if (toRaw(props.modelValue) === value) {
+        return;
+      }
+      const event = new Event("change", { target: { value } });
+      emits("change", event);
+      emitFormChange();
+      emitFormInput();
+    }
+    function onUpdateOpen(value) {
+      let timeoutId;
+      if (!value) {
+        const event = new FocusEvent("blur");
+        emits("blur", event);
+        emitFormBlur();
+        if (props.resetSearchTermOnBlur) {
+          const STATE_ANIMATION_DELAY_MS = 100;
+          timeoutId = setTimeout(() => {
+            searchTerm.value = "";
+          }, STATE_ANIMATION_DELAY_MS);
+        }
+      } else {
+        const event = new FocusEvent("focus");
+        emits("focus", event);
+        emitFormFocus();
+        clearTimeout(timeoutId);
+      }
+    }
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(`<!--[-->`);
+      _push(ssrRenderComponent(unref(DefineCreateItemTemplate), null, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a2, _b;
+          if (_push2) {
+            _push2(ssrRenderComponent(unref(ComboboxGroup), {
+              class: ui.value.group({ class: (_a2 = props.ui) == null ? void 0 : _a2.group })
+            }, {
+              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                var _a3, _b2;
+                if (_push3) {
+                  _push3(ssrRenderComponent(unref(ComboboxItem), {
+                    class: ui.value.item({ class: (_a3 = props.ui) == null ? void 0 : _a3.item }),
+                    value: searchTerm.value,
+                    onSelect: ($event) => emits("create", searchTerm.value)
+                  }, {
+                    default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                      var _a4, _b3;
+                      if (_push4) {
+                        _push4(`<span class="${ssrRenderClass(ui.value.itemLabel({ class: (_a4 = props.ui) == null ? void 0 : _a4.itemLabel }))}"${_scopeId3}>`);
+                        ssrRenderSlot(_ctx.$slots, "create-item-label", { item: searchTerm.value }, () => {
+                          _push4(`${ssrInterpolate(unref(t)("selectMenu.create", { label: searchTerm.value }))}`);
+                        }, _push4, _parent4, _scopeId3);
+                        _push4(`</span>`);
+                      } else {
+                        return [
+                          createVNode("span", {
+                            class: ui.value.itemLabel({ class: (_b3 = props.ui) == null ? void 0 : _b3.itemLabel })
+                          }, [
+                            renderSlot(_ctx.$slots, "create-item-label", { item: searchTerm.value }, () => [
+                              createTextVNode(toDisplayString(unref(t)("selectMenu.create", { label: searchTerm.value })), 1)
+                            ])
+                          ], 2)
+                        ];
+                      }
+                    }),
+                    _: 3
+                  }, _parent3, _scopeId2));
+                } else {
+                  return [
+                    createVNode(unref(ComboboxItem), {
+                      class: ui.value.item({ class: (_b2 = props.ui) == null ? void 0 : _b2.item }),
+                      value: searchTerm.value,
+                      onSelect: withModifiers(($event) => emits("create", searchTerm.value), ["prevent"])
+                    }, {
+                      default: withCtx(() => {
+                        var _a4;
+                        return [
+                          createVNode("span", {
+                            class: ui.value.itemLabel({ class: (_a4 = props.ui) == null ? void 0 : _a4.itemLabel })
+                          }, [
+                            renderSlot(_ctx.$slots, "create-item-label", { item: searchTerm.value }, () => [
+                              createTextVNode(toDisplayString(unref(t)("selectMenu.create", { label: searchTerm.value })), 1)
+                            ])
+                          ], 2)
+                        ];
+                      }),
+                      _: 3
+                    }, 8, ["class", "value", "onSelect"])
+                  ];
+                }
+              }),
+              _: 3
+            }, _parent2, _scopeId));
+          } else {
+            return [
+              createVNode(unref(ComboboxGroup), {
+                class: ui.value.group({ class: (_b = props.ui) == null ? void 0 : _b.group })
+              }, {
+                default: withCtx(() => {
+                  var _a3;
+                  return [
+                    createVNode(unref(ComboboxItem), {
+                      class: ui.value.item({ class: (_a3 = props.ui) == null ? void 0 : _a3.item }),
+                      value: searchTerm.value,
+                      onSelect: withModifiers(($event) => emits("create", searchTerm.value), ["prevent"])
+                    }, {
+                      default: withCtx(() => {
+                        var _a4;
+                        return [
+                          createVNode("span", {
+                            class: ui.value.itemLabel({ class: (_a4 = props.ui) == null ? void 0 : _a4.itemLabel })
+                          }, [
+                            renderSlot(_ctx.$slots, "create-item-label", { item: searchTerm.value }, () => [
+                              createTextVNode(toDisplayString(unref(t)("selectMenu.create", { label: searchTerm.value })), 1)
+                            ])
+                          ], 2)
+                        ];
+                      }),
+                      _: 3
+                    }, 8, ["class", "value", "onSelect"])
+                  ];
+                }),
+                _: 3
+              }, 8, ["class"])
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+      _push(ssrRenderComponent(unref(ComboboxRoot), mergeProps({ id: unref(id) }, { ...unref(rootProps), ..._ctx.$attrs, ...unref(ariaAttrs) }, {
+        "ignore-filter": "",
+        "as-child": "",
+        name: unref(name),
+        disabled: unref(disabled),
+        "onUpdate:modelValue": onUpdate,
+        "onUpdate:open": onUpdateOpen
+      }), {
+        default: withCtx(({ modelValue, open }, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(ssrRenderComponent(unref(ComboboxAnchor), { "as-child": "" }, {
+              default: withCtx((_, _push3, _parent3, _scopeId2) => {
+                var _a2, _b;
+                if (_push3) {
+                  _push3(ssrRenderComponent(unref(ComboboxTrigger), {
+                    class: ui.value.base({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.base] }),
+                    tabindex: "0"
+                  }, {
+                    default: withCtx((_2, _push4, _parent4, _scopeId3) => {
+                      var _a3, _b2, _c, _d;
+                      if (_push4) {
+                        if (unref(isLeading) || !!_ctx.avatar || !!slots.leading) {
+                          _push4(`<span class="${ssrRenderClass(ui.value.leading({ class: (_a3 = props.ui) == null ? void 0 : _a3.leading }))}"${_scopeId3}>`);
+                          ssrRenderSlot(_ctx.$slots, "leading", {
+                            modelValue,
+                            open,
+                            ui: ui.value
+                          }, () => {
+                            var _a4, _b3, _c2;
+                            if (unref(isLeading) && unref(leadingIconName)) {
+                              _push4(ssrRenderComponent(__nuxt_component_1, {
+                                name: unref(leadingIconName),
+                                class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
+                              }, null, _parent4, _scopeId3));
+                            } else if (!!_ctx.avatar) {
+                              _push4(ssrRenderComponent(__nuxt_component_3$1, mergeProps({
+                                size: ((_b3 = props.ui) == null ? void 0 : _b3.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize()
+                              }, _ctx.avatar, {
+                                class: ui.value.itemLeadingAvatar({ class: (_c2 = props.ui) == null ? void 0 : _c2.itemLeadingAvatar })
+                              }), null, _parent4, _scopeId3));
+                            } else {
+                              _push4(`<!---->`);
+                            }
+                          }, _push4, _parent4, _scopeId3);
+                          _push4(`</span>`);
+                        } else {
+                          _push4(`<!---->`);
+                        }
+                        ssrRenderSlot(_ctx.$slots, "default", {
+                          modelValue,
+                          open
+                        }, () => {
+                          _push4(`<!--[-->`);
+                          ssrRenderList([displayValue(modelValue)], (displayedModelValue) => {
+                            var _a4, _b3;
+                            _push4(`<!--[-->`);
+                            if (displayedModelValue) {
+                              _push4(`<span class="${ssrRenderClass(ui.value.value({ class: (_a4 = props.ui) == null ? void 0 : _a4.value }))}"${_scopeId3}>${ssrInterpolate(displayedModelValue)}</span>`);
+                            } else {
+                              _push4(`<span class="${ssrRenderClass(ui.value.placeholder({ class: (_b3 = props.ui) == null ? void 0 : _b3.placeholder }))}"${_scopeId3}>${ssrInterpolate(_ctx.placeholder ?? " ")}</span>`);
+                            }
+                            _push4(`<!--]-->`);
+                          });
+                          _push4(`<!--]-->`);
+                        }, _push4, _parent4, _scopeId3);
+                        if (unref(isTrailing) || !!slots.trailing) {
+                          _push4(`<span class="${ssrRenderClass(ui.value.trailing({ class: (_b2 = props.ui) == null ? void 0 : _b2.trailing }))}"${_scopeId3}>`);
+                          ssrRenderSlot(_ctx.$slots, "trailing", {
+                            modelValue,
+                            open,
+                            ui: ui.value
+                          }, () => {
+                            var _a4;
+                            if (unref(trailingIconName)) {
+                              _push4(ssrRenderComponent(__nuxt_component_1, {
+                                name: unref(trailingIconName),
+                                class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })
+                              }, null, _parent4, _scopeId3));
+                            } else {
+                              _push4(`<!---->`);
+                            }
+                          }, _push4, _parent4, _scopeId3);
+                          _push4(`</span>`);
+                        } else {
+                          _push4(`<!---->`);
+                        }
+                      } else {
+                        return [
+                          unref(isLeading) || !!_ctx.avatar || !!slots.leading ? (openBlock(), createBlock("span", {
+                            key: 0,
+                            class: ui.value.leading({ class: (_c = props.ui) == null ? void 0 : _c.leading })
+                          }, [
+                            renderSlot(_ctx.$slots, "leading", {
+                              modelValue,
+                              open,
+                              ui: ui.value
+                            }, () => {
+                              var _a4, _b3, _c2;
+                              return [
+                                unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(__nuxt_component_1, {
+                                  key: 0,
+                                  name: unref(leadingIconName),
+                                  class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
+                                }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$1, mergeProps({
+                                  key: 1,
+                                  size: ((_b3 = props.ui) == null ? void 0 : _b3.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize()
+                                }, _ctx.avatar, {
+                                  class: ui.value.itemLeadingAvatar({ class: (_c2 = props.ui) == null ? void 0 : _c2.itemLeadingAvatar })
+                                }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                              ];
+                            })
+                          ], 2)) : createCommentVNode("", true),
+                          renderSlot(_ctx.$slots, "default", {
+                            modelValue,
+                            open
+                          }, () => [
+                            (openBlock(true), createBlock(Fragment, null, renderList([displayValue(modelValue)], (displayedModelValue) => {
+                              var _a4, _b3;
+                              return openBlock(), createBlock(Fragment, { key: displayedModelValue }, [
+                                displayedModelValue ? (openBlock(), createBlock("span", {
+                                  key: 0,
+                                  class: ui.value.value({ class: (_a4 = props.ui) == null ? void 0 : _a4.value })
+                                }, toDisplayString(displayedModelValue), 3)) : (openBlock(), createBlock("span", {
+                                  key: 1,
+                                  class: ui.value.placeholder({ class: (_b3 = props.ui) == null ? void 0 : _b3.placeholder })
+                                }, toDisplayString(_ctx.placeholder ?? " "), 3))
+                              ], 64);
+                            }), 128))
+                          ]),
+                          unref(isTrailing) || !!slots.trailing ? (openBlock(), createBlock("span", {
+                            key: 1,
+                            class: ui.value.trailing({ class: (_d = props.ui) == null ? void 0 : _d.trailing })
+                          }, [
+                            renderSlot(_ctx.$slots, "trailing", {
+                              modelValue,
+                              open,
+                              ui: ui.value
+                            }, () => {
+                              var _a4;
+                              return [
+                                unref(trailingIconName) ? (openBlock(), createBlock(__nuxt_component_1, {
+                                  key: 0,
+                                  name: unref(trailingIconName),
+                                  class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })
+                                }, null, 8, ["name", "class"])) : createCommentVNode("", true)
+                              ];
+                            })
+                          ], 2)) : createCommentVNode("", true)
+                        ];
+                      }
+                    }),
+                    _: 2
+                  }, _parent3, _scopeId2));
+                } else {
+                  return [
+                    createVNode(unref(ComboboxTrigger), {
+                      class: ui.value.base({ class: [props.class, (_b = props.ui) == null ? void 0 : _b.base] }),
+                      tabindex: "0"
+                    }, {
+                      default: withCtx(() => {
+                        var _a3, _b2;
+                        return [
+                          unref(isLeading) || !!_ctx.avatar || !!slots.leading ? (openBlock(), createBlock("span", {
+                            key: 0,
+                            class: ui.value.leading({ class: (_a3 = props.ui) == null ? void 0 : _a3.leading })
+                          }, [
+                            renderSlot(_ctx.$slots, "leading", {
+                              modelValue,
+                              open,
+                              ui: ui.value
+                            }, () => {
+                              var _a4, _b3, _c;
+                              return [
+                                unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(__nuxt_component_1, {
+                                  key: 0,
+                                  name: unref(leadingIconName),
+                                  class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
+                                }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$1, mergeProps({
+                                  key: 1,
+                                  size: ((_b3 = props.ui) == null ? void 0 : _b3.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize()
+                                }, _ctx.avatar, {
+                                  class: ui.value.itemLeadingAvatar({ class: (_c = props.ui) == null ? void 0 : _c.itemLeadingAvatar })
+                                }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                              ];
+                            })
+                          ], 2)) : createCommentVNode("", true),
+                          renderSlot(_ctx.$slots, "default", {
+                            modelValue,
+                            open
+                          }, () => [
+                            (openBlock(true), createBlock(Fragment, null, renderList([displayValue(modelValue)], (displayedModelValue) => {
+                              var _a4, _b3;
+                              return openBlock(), createBlock(Fragment, { key: displayedModelValue }, [
+                                displayedModelValue ? (openBlock(), createBlock("span", {
+                                  key: 0,
+                                  class: ui.value.value({ class: (_a4 = props.ui) == null ? void 0 : _a4.value })
+                                }, toDisplayString(displayedModelValue), 3)) : (openBlock(), createBlock("span", {
+                                  key: 1,
+                                  class: ui.value.placeholder({ class: (_b3 = props.ui) == null ? void 0 : _b3.placeholder })
+                                }, toDisplayString(_ctx.placeholder ?? " "), 3))
+                              ], 64);
+                            }), 128))
+                          ]),
+                          unref(isTrailing) || !!slots.trailing ? (openBlock(), createBlock("span", {
+                            key: 1,
+                            class: ui.value.trailing({ class: (_b2 = props.ui) == null ? void 0 : _b2.trailing })
+                          }, [
+                            renderSlot(_ctx.$slots, "trailing", {
+                              modelValue,
+                              open,
+                              ui: ui.value
+                            }, () => {
+                              var _a4;
+                              return [
+                                unref(trailingIconName) ? (openBlock(), createBlock(__nuxt_component_1, {
+                                  key: 0,
+                                  name: unref(trailingIconName),
+                                  class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })
+                                }, null, 8, ["name", "class"])) : createCommentVNode("", true)
+                              ];
+                            })
+                          ], 2)) : createCommentVNode("", true)
+                        ];
+                      }),
+                      _: 2
+                    }, 1032, ["class"])
+                  ];
+                }
+              }),
+              _: 2
+            }, _parent2, _scopeId));
+            _push2(ssrRenderComponent(unref(ComboboxPortal), {
+              disabled: !_ctx.portal
+            }, {
+              default: withCtx((_, _push3, _parent3, _scopeId2) => {
+                var _a2, _b;
+                if (_push3) {
+                  _push3(ssrRenderComponent(unref(ComboboxContent), mergeProps({
+                    class: ui.value.content({ class: (_a2 = props.ui) == null ? void 0 : _a2.content })
+                  }, contentProps.value), {
+                    default: withCtx((_2, _push4, _parent4, _scopeId3) => {
+                      var _a3, _b2, _c, _d;
+                      if (_push4) {
+                        _push4(ssrRenderComponent(unref(FocusScope), {
+                          trapped: "",
+                          class: ui.value.focusScope({ class: (_a3 = props.ui) == null ? void 0 : _a3.focusScope })
+                        }, {
+                          default: withCtx((_3, _push5, _parent5, _scopeId4) => {
+                            var _a4, _b3, _c2, _d2;
+                            if (_push5) {
+                              if (!!_ctx.searchInput) {
+                                _push5(ssrRenderComponent(unref(ComboboxInput), {
+                                  modelValue: searchTerm.value,
+                                  "onUpdate:modelValue": ($event) => searchTerm.value = $event,
+                                  "display-value": () => searchTerm.value,
+                                  "as-child": ""
+                                }, {
+                                  default: withCtx((_4, _push6, _parent6, _scopeId5) => {
+                                    var _a5, _b4;
+                                    if (_push6) {
+                                      _push6(ssrRenderComponent(__nuxt_component_6$1, mergeProps({
+                                        autofocus: "",
+                                        autocomplete: "off"
+                                      }, searchInputProps.value, {
+                                        class: ui.value.input({ class: (_a5 = props.ui) == null ? void 0 : _a5.input })
+                                      }), null, _parent6, _scopeId5));
+                                    } else {
+                                      return [
+                                        createVNode(__nuxt_component_6$1, mergeProps({
+                                          autofocus: "",
+                                          autocomplete: "off"
+                                        }, searchInputProps.value, {
+                                          class: ui.value.input({ class: (_b4 = props.ui) == null ? void 0 : _b4.input })
+                                        }), null, 16, ["class"])
+                                      ];
+                                    }
+                                  }),
+                                  _: 2
+                                }, _parent5, _scopeId4));
+                              } else {
+                                _push5(`<!---->`);
+                              }
+                              _push5(ssrRenderComponent(unref(ComboboxEmpty), {
+                                class: ui.value.empty({ class: (_a4 = props.ui) == null ? void 0 : _a4.empty })
+                              }, {
+                                default: withCtx((_4, _push6, _parent6, _scopeId5) => {
+                                  if (_push6) {
+                                    ssrRenderSlot(_ctx.$slots, "empty", { searchTerm: searchTerm.value }, () => {
+                                      _push6(`${ssrInterpolate(searchTerm.value ? unref(t)("selectMenu.noMatch", { searchTerm: searchTerm.value }) : unref(t)("selectMenu.noData"))}`);
+                                    }, _push6, _parent6, _scopeId5);
+                                  } else {
+                                    return [
+                                      renderSlot(_ctx.$slots, "empty", { searchTerm: searchTerm.value }, () => [
+                                        createTextVNode(toDisplayString(searchTerm.value ? unref(t)("selectMenu.noMatch", { searchTerm: searchTerm.value }) : unref(t)("selectMenu.noData")), 1)
+                                      ])
+                                    ];
+                                  }
+                                }),
+                                _: 2
+                              }, _parent5, _scopeId4));
+                              _push5(ssrRenderComponent(unref(ComboboxViewport), {
+                                class: ui.value.viewport({ class: (_b3 = props.ui) == null ? void 0 : _b3.viewport })
+                              }, {
+                                default: withCtx((_4, _push6, _parent6, _scopeId5) => {
+                                  if (_push6) {
+                                    if (createItem.value && createItemPosition.value === "top") {
+                                      _push6(ssrRenderComponent(unref(ReuseCreateItemTemplate), null, null, _parent6, _scopeId5));
+                                    } else {
+                                      _push6(`<!---->`);
+                                    }
+                                    _push6(`<!--[-->`);
+                                    ssrRenderList(filteredGroups.value, (group, groupIndex) => {
+                                      var _a5;
+                                      _push6(ssrRenderComponent(unref(ComboboxGroup), {
+                                        key: `group-${groupIndex}`,
+                                        class: ui.value.group({ class: (_a5 = props.ui) == null ? void 0 : _a5.group })
+                                      }, {
+                                        default: withCtx((_5, _push7, _parent7, _scopeId6) => {
+                                          if (_push7) {
+                                            _push7(`<!--[-->`);
+                                            ssrRenderList(group, (item, index) => {
+                                              var _a6, _b4, _c3;
+                                              _push7(`<!--[-->`);
+                                              if ((item == null ? void 0 : item.type) === "label") {
+                                                _push7(ssrRenderComponent(unref(ComboboxLabel), {
+                                                  class: ui.value.label({ class: (_a6 = props.ui) == null ? void 0 : _a6.label })
+                                                }, {
+                                                  default: withCtx((_6, _push8, _parent8, _scopeId7) => {
+                                                    if (_push8) {
+                                                      _push8(`${ssrInterpolate(unref(get)(item, props.labelKey))}`);
+                                                    } else {
+                                                      return [
+                                                        createTextVNode(toDisplayString(unref(get)(item, props.labelKey)), 1)
+                                                      ];
+                                                    }
+                                                  }),
+                                                  _: 2
+                                                }, _parent7, _scopeId6));
+                                              } else if ((item == null ? void 0 : item.type) === "separator") {
+                                                _push7(ssrRenderComponent(unref(ComboboxSeparator), {
+                                                  class: ui.value.separator({ class: (_b4 = props.ui) == null ? void 0 : _b4.separator })
+                                                }, null, _parent7, _scopeId6));
+                                              } else {
+                                                _push7(ssrRenderComponent(unref(ComboboxItem), {
+                                                  class: ui.value.item({ class: (_c3 = props.ui) == null ? void 0 : _c3.item }),
+                                                  disabled: item.disabled,
+                                                  value: _ctx.valueKey && typeof item === "object" ? unref(get)(item, props.valueKey) : item,
+                                                  onSelect: item.onSelect
+                                                }, {
+                                                  default: withCtx((_6, _push8, _parent8, _scopeId7) => {
+                                                    if (_push8) {
+                                                      ssrRenderSlot(_ctx.$slots, "item", {
+                                                        item,
+                                                        index
+                                                      }, () => {
+                                                        var _a7, _b5;
+                                                        ssrRenderSlot(_ctx.$slots, "item-leading", {
+                                                          item,
+                                                          index
+                                                        }, () => {
+                                                          var _a8, _b6, _c4, _d3, _e;
+                                                          if (item.icon) {
+                                                            _push8(ssrRenderComponent(__nuxt_component_1, {
+                                                              name: item.icon,
+                                                              class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
+                                                            }, null, _parent8, _scopeId7));
+                                                          } else if (item.avatar) {
+                                                            _push8(ssrRenderComponent(__nuxt_component_3$1, mergeProps({
+                                                              size: ((_b6 = props.ui) == null ? void 0 : _b6.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize(),
+                                                              ref_for: true
+                                                            }, item.avatar, {
+                                                              class: ui.value.itemLeadingAvatar({ class: (_c4 = props.ui) == null ? void 0 : _c4.itemLeadingAvatar })
+                                                            }), null, _parent8, _scopeId7));
+                                                          } else if (item.chip) {
+                                                            _push8(ssrRenderComponent(__nuxt_component_0$2, mergeProps({
+                                                              size: ((_d3 = props.ui) == null ? void 0 : _d3.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
+                                                              inset: "",
+                                                              standalone: "",
+                                                              ref_for: true
+                                                            }, item.chip, {
+                                                              class: ui.value.itemLeadingChip({ class: (_e = props.ui) == null ? void 0 : _e.itemLeadingChip })
+                                                            }), null, _parent8, _scopeId7));
+                                                          } else {
+                                                            _push8(`<!---->`);
+                                                          }
+                                                        }, _push8, _parent8, _scopeId7);
+                                                        _push8(`<span class="${ssrRenderClass(ui.value.itemLabel({ class: (_a7 = props.ui) == null ? void 0 : _a7.itemLabel }))}"${_scopeId7}>`);
+                                                        ssrRenderSlot(_ctx.$slots, "item-label", {
+                                                          item,
+                                                          index
+                                                        }, () => {
+                                                          _push8(`${ssrInterpolate(typeof item === "object" ? unref(get)(item, props.labelKey) : item)}`);
+                                                        }, _push8, _parent8, _scopeId7);
+                                                        _push8(`</span><span class="${ssrRenderClass(ui.value.itemTrailing({ class: (_b5 = props.ui) == null ? void 0 : _b5.itemTrailing }))}"${_scopeId7}>`);
+                                                        ssrRenderSlot(_ctx.$slots, "item-trailing", {
+                                                          item,
+                                                          index
+                                                        }, null, _push8, _parent8, _scopeId7);
+                                                        _push8(ssrRenderComponent(unref(ComboboxItemIndicator), { "as-child": "" }, {
+                                                          default: withCtx((_7, _push9, _parent9, _scopeId8) => {
+                                                            var _a8, _b6;
+                                                            if (_push9) {
+                                                              _push9(ssrRenderComponent(__nuxt_component_1, {
+                                                                name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
+                                                                class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
+                                                              }, null, _parent9, _scopeId8));
+                                                            } else {
+                                                              return [
+                                                                createVNode(__nuxt_component_1, {
+                                                                  name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
+                                                                  class: ui.value.itemTrailingIcon({ class: (_b6 = props.ui) == null ? void 0 : _b6.itemTrailingIcon })
+                                                                }, null, 8, ["name", "class"])
+                                                              ];
+                                                            }
+                                                          }),
+                                                          _: 2
+                                                        }, _parent8, _scopeId7));
+                                                        _push8(`</span>`);
+                                                      }, _push8, _parent8, _scopeId7);
+                                                    } else {
+                                                      return [
+                                                        renderSlot(_ctx.$slots, "item", {
+                                                          item,
+                                                          index
+                                                        }, () => {
+                                                          var _a7, _b5;
+                                                          return [
+                                                            renderSlot(_ctx.$slots, "item-leading", {
+                                                              item,
+                                                              index
+                                                            }, () => {
+                                                              var _a8, _b6, _c4, _d3, _e;
+                                                              return [
+                                                                item.icon ? (openBlock(), createBlock(__nuxt_component_1, {
+                                                                  key: 0,
+                                                                  name: item.icon,
+                                                                  class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
+                                                                }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3$1, mergeProps({
+                                                                  key: 1,
+                                                                  size: ((_b6 = props.ui) == null ? void 0 : _b6.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize(),
+                                                                  ref_for: true
+                                                                }, item.avatar, {
+                                                                  class: ui.value.itemLeadingAvatar({ class: (_c4 = props.ui) == null ? void 0 : _c4.itemLeadingAvatar })
+                                                                }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                                  key: 2,
+                                                                  size: ((_d3 = props.ui) == null ? void 0 : _d3.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
+                                                                  inset: "",
+                                                                  standalone: "",
+                                                                  ref_for: true
+                                                                }, item.chip, {
+                                                                  class: ui.value.itemLeadingChip({ class: (_e = props.ui) == null ? void 0 : _e.itemLeadingChip })
+                                                                }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                                                              ];
+                                                            }),
+                                                            createVNode("span", {
+                                                              class: ui.value.itemLabel({ class: (_a7 = props.ui) == null ? void 0 : _a7.itemLabel })
+                                                            }, [
+                                                              renderSlot(_ctx.$slots, "item-label", {
+                                                                item,
+                                                                index
+                                                              }, () => [
+                                                                createTextVNode(toDisplayString(typeof item === "object" ? unref(get)(item, props.labelKey) : item), 1)
+                                                              ])
+                                                            ], 2),
+                                                            createVNode("span", {
+                                                              class: ui.value.itemTrailing({ class: (_b5 = props.ui) == null ? void 0 : _b5.itemTrailing })
+                                                            }, [
+                                                              renderSlot(_ctx.$slots, "item-trailing", {
+                                                                item,
+                                                                index
+                                                              }),
+                                                              createVNode(unref(ComboboxItemIndicator), { "as-child": "" }, {
+                                                                default: withCtx(() => {
+                                                                  var _a8;
+                                                                  return [
+                                                                    createVNode(__nuxt_component_1, {
+                                                                      name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
+                                                                      class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
+                                                                    }, null, 8, ["name", "class"])
+                                                                  ];
+                                                                }),
+                                                                _: 1
+                                                              })
+                                                            ], 2)
+                                                          ];
+                                                        })
+                                                      ];
+                                                    }
+                                                  }),
+                                                  _: 2
+                                                }, _parent7, _scopeId6));
+                                              }
+                                              _push7(`<!--]-->`);
+                                            });
+                                            _push7(`<!--]-->`);
+                                          } else {
+                                            return [
+                                              (openBlock(true), createBlock(Fragment, null, renderList(group, (item, index) => {
+                                                var _a6, _b4, _c3;
+                                                return openBlock(), createBlock(Fragment, {
+                                                  key: `group-${groupIndex}-${index}`
+                                                }, [
+                                                  (item == null ? void 0 : item.type) === "label" ? (openBlock(), createBlock(unref(ComboboxLabel), {
+                                                    key: 0,
+                                                    class: ui.value.label({ class: (_a6 = props.ui) == null ? void 0 : _a6.label })
+                                                  }, {
+                                                    default: withCtx(() => [
+                                                      createTextVNode(toDisplayString(unref(get)(item, props.labelKey)), 1)
+                                                    ]),
+                                                    _: 2
+                                                  }, 1032, ["class"])) : (item == null ? void 0 : item.type) === "separator" ? (openBlock(), createBlock(unref(ComboboxSeparator), {
+                                                    key: 1,
+                                                    class: ui.value.separator({ class: (_b4 = props.ui) == null ? void 0 : _b4.separator })
+                                                  }, null, 8, ["class"])) : (openBlock(), createBlock(unref(ComboboxItem), {
+                                                    key: 2,
+                                                    class: ui.value.item({ class: (_c3 = props.ui) == null ? void 0 : _c3.item }),
+                                                    disabled: item.disabled,
+                                                    value: _ctx.valueKey && typeof item === "object" ? unref(get)(item, props.valueKey) : item,
+                                                    onSelect: item.onSelect
+                                                  }, {
+                                                    default: withCtx(() => [
+                                                      renderSlot(_ctx.$slots, "item", {
+                                                        item,
+                                                        index
+                                                      }, () => {
+                                                        var _a7, _b5;
+                                                        return [
+                                                          renderSlot(_ctx.$slots, "item-leading", {
+                                                            item,
+                                                            index
+                                                          }, () => {
+                                                            var _a8, _b6, _c4, _d3, _e;
+                                                            return [
+                                                              item.icon ? (openBlock(), createBlock(__nuxt_component_1, {
+                                                                key: 0,
+                                                                name: item.icon,
+                                                                class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
+                                                              }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3$1, mergeProps({
+                                                                key: 1,
+                                                                size: ((_b6 = props.ui) == null ? void 0 : _b6.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize(),
+                                                                ref_for: true
+                                                              }, item.avatar, {
+                                                                class: ui.value.itemLeadingAvatar({ class: (_c4 = props.ui) == null ? void 0 : _c4.itemLeadingAvatar })
+                                                              }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                                key: 2,
+                                                                size: ((_d3 = props.ui) == null ? void 0 : _d3.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
+                                                                inset: "",
+                                                                standalone: "",
+                                                                ref_for: true
+                                                              }, item.chip, {
+                                                                class: ui.value.itemLeadingChip({ class: (_e = props.ui) == null ? void 0 : _e.itemLeadingChip })
+                                                              }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                                                            ];
+                                                          }),
+                                                          createVNode("span", {
+                                                            class: ui.value.itemLabel({ class: (_a7 = props.ui) == null ? void 0 : _a7.itemLabel })
+                                                          }, [
+                                                            renderSlot(_ctx.$slots, "item-label", {
+                                                              item,
+                                                              index
+                                                            }, () => [
+                                                              createTextVNode(toDisplayString(typeof item === "object" ? unref(get)(item, props.labelKey) : item), 1)
+                                                            ])
+                                                          ], 2),
+                                                          createVNode("span", {
+                                                            class: ui.value.itemTrailing({ class: (_b5 = props.ui) == null ? void 0 : _b5.itemTrailing })
+                                                          }, [
+                                                            renderSlot(_ctx.$slots, "item-trailing", {
+                                                              item,
+                                                              index
+                                                            }),
+                                                            createVNode(unref(ComboboxItemIndicator), { "as-child": "" }, {
+                                                              default: withCtx(() => {
+                                                                var _a8;
+                                                                return [
+                                                                  createVNode(__nuxt_component_1, {
+                                                                    name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
+                                                                    class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
+                                                                  }, null, 8, ["name", "class"])
+                                                                ];
+                                                              }),
+                                                              _: 1
+                                                            })
+                                                          ], 2)
+                                                        ];
+                                                      })
+                                                    ]),
+                                                    _: 2
+                                                  }, 1032, ["class", "disabled", "value", "onSelect"]))
+                                                ], 64);
+                                              }), 128))
+                                            ];
+                                          }
+                                        }),
+                                        _: 2
+                                      }, _parent6, _scopeId5));
+                                    });
+                                    _push6(`<!--]-->`);
+                                    if (createItem.value && createItemPosition.value === "bottom") {
+                                      _push6(ssrRenderComponent(unref(ReuseCreateItemTemplate), null, null, _parent6, _scopeId5));
+                                    } else {
+                                      _push6(`<!---->`);
+                                    }
+                                  } else {
+                                    return [
+                                      createItem.value && createItemPosition.value === "top" ? (openBlock(), createBlock(unref(ReuseCreateItemTemplate), { key: 0 })) : createCommentVNode("", true),
+                                      (openBlock(true), createBlock(Fragment, null, renderList(filteredGroups.value, (group, groupIndex) => {
+                                        var _a5;
+                                        return openBlock(), createBlock(unref(ComboboxGroup), {
+                                          key: `group-${groupIndex}`,
+                                          class: ui.value.group({ class: (_a5 = props.ui) == null ? void 0 : _a5.group })
+                                        }, {
+                                          default: withCtx(() => [
+                                            (openBlock(true), createBlock(Fragment, null, renderList(group, (item, index) => {
+                                              var _a6, _b4, _c3;
+                                              return openBlock(), createBlock(Fragment, {
+                                                key: `group-${groupIndex}-${index}`
+                                              }, [
+                                                (item == null ? void 0 : item.type) === "label" ? (openBlock(), createBlock(unref(ComboboxLabel), {
+                                                  key: 0,
+                                                  class: ui.value.label({ class: (_a6 = props.ui) == null ? void 0 : _a6.label })
+                                                }, {
+                                                  default: withCtx(() => [
+                                                    createTextVNode(toDisplayString(unref(get)(item, props.labelKey)), 1)
+                                                  ]),
+                                                  _: 2
+                                                }, 1032, ["class"])) : (item == null ? void 0 : item.type) === "separator" ? (openBlock(), createBlock(unref(ComboboxSeparator), {
+                                                  key: 1,
+                                                  class: ui.value.separator({ class: (_b4 = props.ui) == null ? void 0 : _b4.separator })
+                                                }, null, 8, ["class"])) : (openBlock(), createBlock(unref(ComboboxItem), {
+                                                  key: 2,
+                                                  class: ui.value.item({ class: (_c3 = props.ui) == null ? void 0 : _c3.item }),
+                                                  disabled: item.disabled,
+                                                  value: _ctx.valueKey && typeof item === "object" ? unref(get)(item, props.valueKey) : item,
+                                                  onSelect: item.onSelect
+                                                }, {
+                                                  default: withCtx(() => [
+                                                    renderSlot(_ctx.$slots, "item", {
+                                                      item,
+                                                      index
+                                                    }, () => {
+                                                      var _a7, _b5;
+                                                      return [
+                                                        renderSlot(_ctx.$slots, "item-leading", {
+                                                          item,
+                                                          index
+                                                        }, () => {
+                                                          var _a8, _b6, _c4, _d3, _e;
+                                                          return [
+                                                            item.icon ? (openBlock(), createBlock(__nuxt_component_1, {
+                                                              key: 0,
+                                                              name: item.icon,
+                                                              class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
+                                                            }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3$1, mergeProps({
+                                                              key: 1,
+                                                              size: ((_b6 = props.ui) == null ? void 0 : _b6.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize(),
+                                                              ref_for: true
+                                                            }, item.avatar, {
+                                                              class: ui.value.itemLeadingAvatar({ class: (_c4 = props.ui) == null ? void 0 : _c4.itemLeadingAvatar })
+                                                            }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                              key: 2,
+                                                              size: ((_d3 = props.ui) == null ? void 0 : _d3.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
+                                                              inset: "",
+                                                              standalone: "",
+                                                              ref_for: true
+                                                            }, item.chip, {
+                                                              class: ui.value.itemLeadingChip({ class: (_e = props.ui) == null ? void 0 : _e.itemLeadingChip })
+                                                            }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                                                          ];
+                                                        }),
+                                                        createVNode("span", {
+                                                          class: ui.value.itemLabel({ class: (_a7 = props.ui) == null ? void 0 : _a7.itemLabel })
+                                                        }, [
+                                                          renderSlot(_ctx.$slots, "item-label", {
+                                                            item,
+                                                            index
+                                                          }, () => [
+                                                            createTextVNode(toDisplayString(typeof item === "object" ? unref(get)(item, props.labelKey) : item), 1)
+                                                          ])
+                                                        ], 2),
+                                                        createVNode("span", {
+                                                          class: ui.value.itemTrailing({ class: (_b5 = props.ui) == null ? void 0 : _b5.itemTrailing })
+                                                        }, [
+                                                          renderSlot(_ctx.$slots, "item-trailing", {
+                                                            item,
+                                                            index
+                                                          }),
+                                                          createVNode(unref(ComboboxItemIndicator), { "as-child": "" }, {
+                                                            default: withCtx(() => {
+                                                              var _a8;
+                                                              return [
+                                                                createVNode(__nuxt_component_1, {
+                                                                  name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
+                                                                  class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
+                                                                }, null, 8, ["name", "class"])
+                                                              ];
+                                                            }),
+                                                            _: 1
+                                                          })
+                                                        ], 2)
+                                                      ];
+                                                    })
+                                                  ]),
+                                                  _: 2
+                                                }, 1032, ["class", "disabled", "value", "onSelect"]))
+                                              ], 64);
+                                            }), 128))
+                                          ]),
+                                          _: 2
+                                        }, 1032, ["class"]);
+                                      }), 128)),
+                                      createItem.value && createItemPosition.value === "bottom" ? (openBlock(), createBlock(unref(ReuseCreateItemTemplate), { key: 1 })) : createCommentVNode("", true)
+                                    ];
+                                  }
+                                }),
+                                _: 2
+                              }, _parent5, _scopeId4));
+                            } else {
+                              return [
+                                !!_ctx.searchInput ? (openBlock(), createBlock(unref(ComboboxInput), {
+                                  key: 0,
+                                  modelValue: searchTerm.value,
+                                  "onUpdate:modelValue": ($event) => searchTerm.value = $event,
+                                  "display-value": () => searchTerm.value,
+                                  "as-child": ""
+                                }, {
+                                  default: withCtx(() => {
+                                    var _a5;
+                                    return [
+                                      createVNode(__nuxt_component_6$1, mergeProps({
+                                        autofocus: "",
+                                        autocomplete: "off"
+                                      }, searchInputProps.value, {
+                                        class: ui.value.input({ class: (_a5 = props.ui) == null ? void 0 : _a5.input })
+                                      }), null, 16, ["class"])
+                                    ];
+                                  }),
+                                  _: 1
+                                }, 8, ["modelValue", "onUpdate:modelValue", "display-value"])) : createCommentVNode("", true),
+                                createVNode(unref(ComboboxEmpty), {
+                                  class: ui.value.empty({ class: (_c2 = props.ui) == null ? void 0 : _c2.empty })
+                                }, {
+                                  default: withCtx(() => [
+                                    renderSlot(_ctx.$slots, "empty", { searchTerm: searchTerm.value }, () => [
+                                      createTextVNode(toDisplayString(searchTerm.value ? unref(t)("selectMenu.noMatch", { searchTerm: searchTerm.value }) : unref(t)("selectMenu.noData")), 1)
+                                    ])
+                                  ]),
+                                  _: 3
+                                }, 8, ["class"]),
+                                createVNode(unref(ComboboxViewport), {
+                                  class: ui.value.viewport({ class: (_d2 = props.ui) == null ? void 0 : _d2.viewport })
+                                }, {
+                                  default: withCtx(() => [
+                                    createItem.value && createItemPosition.value === "top" ? (openBlock(), createBlock(unref(ReuseCreateItemTemplate), { key: 0 })) : createCommentVNode("", true),
+                                    (openBlock(true), createBlock(Fragment, null, renderList(filteredGroups.value, (group, groupIndex) => {
+                                      var _a5;
+                                      return openBlock(), createBlock(unref(ComboboxGroup), {
+                                        key: `group-${groupIndex}`,
+                                        class: ui.value.group({ class: (_a5 = props.ui) == null ? void 0 : _a5.group })
+                                      }, {
+                                        default: withCtx(() => [
+                                          (openBlock(true), createBlock(Fragment, null, renderList(group, (item, index) => {
+                                            var _a6, _b4, _c3;
+                                            return openBlock(), createBlock(Fragment, {
+                                              key: `group-${groupIndex}-${index}`
+                                            }, [
+                                              (item == null ? void 0 : item.type) === "label" ? (openBlock(), createBlock(unref(ComboboxLabel), {
+                                                key: 0,
+                                                class: ui.value.label({ class: (_a6 = props.ui) == null ? void 0 : _a6.label })
+                                              }, {
+                                                default: withCtx(() => [
+                                                  createTextVNode(toDisplayString(unref(get)(item, props.labelKey)), 1)
+                                                ]),
+                                                _: 2
+                                              }, 1032, ["class"])) : (item == null ? void 0 : item.type) === "separator" ? (openBlock(), createBlock(unref(ComboboxSeparator), {
+                                                key: 1,
+                                                class: ui.value.separator({ class: (_b4 = props.ui) == null ? void 0 : _b4.separator })
+                                              }, null, 8, ["class"])) : (openBlock(), createBlock(unref(ComboboxItem), {
+                                                key: 2,
+                                                class: ui.value.item({ class: (_c3 = props.ui) == null ? void 0 : _c3.item }),
+                                                disabled: item.disabled,
+                                                value: _ctx.valueKey && typeof item === "object" ? unref(get)(item, props.valueKey) : item,
+                                                onSelect: item.onSelect
+                                              }, {
+                                                default: withCtx(() => [
+                                                  renderSlot(_ctx.$slots, "item", {
+                                                    item,
+                                                    index
+                                                  }, () => {
+                                                    var _a7, _b5;
+                                                    return [
+                                                      renderSlot(_ctx.$slots, "item-leading", {
+                                                        item,
+                                                        index
+                                                      }, () => {
+                                                        var _a8, _b6, _c4, _d3, _e;
+                                                        return [
+                                                          item.icon ? (openBlock(), createBlock(__nuxt_component_1, {
+                                                            key: 0,
+                                                            name: item.icon,
+                                                            class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
+                                                          }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3$1, mergeProps({
+                                                            key: 1,
+                                                            size: ((_b6 = props.ui) == null ? void 0 : _b6.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize(),
+                                                            ref_for: true
+                                                          }, item.avatar, {
+                                                            class: ui.value.itemLeadingAvatar({ class: (_c4 = props.ui) == null ? void 0 : _c4.itemLeadingAvatar })
+                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                            key: 2,
+                                                            size: ((_d3 = props.ui) == null ? void 0 : _d3.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
+                                                            inset: "",
+                                                            standalone: "",
+                                                            ref_for: true
+                                                          }, item.chip, {
+                                                            class: ui.value.itemLeadingChip({ class: (_e = props.ui) == null ? void 0 : _e.itemLeadingChip })
+                                                          }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                                                        ];
+                                                      }),
+                                                      createVNode("span", {
+                                                        class: ui.value.itemLabel({ class: (_a7 = props.ui) == null ? void 0 : _a7.itemLabel })
+                                                      }, [
+                                                        renderSlot(_ctx.$slots, "item-label", {
+                                                          item,
+                                                          index
+                                                        }, () => [
+                                                          createTextVNode(toDisplayString(typeof item === "object" ? unref(get)(item, props.labelKey) : item), 1)
+                                                        ])
+                                                      ], 2),
+                                                      createVNode("span", {
+                                                        class: ui.value.itemTrailing({ class: (_b5 = props.ui) == null ? void 0 : _b5.itemTrailing })
+                                                      }, [
+                                                        renderSlot(_ctx.$slots, "item-trailing", {
+                                                          item,
+                                                          index
+                                                        }),
+                                                        createVNode(unref(ComboboxItemIndicator), { "as-child": "" }, {
+                                                          default: withCtx(() => {
+                                                            var _a8;
+                                                            return [
+                                                              createVNode(__nuxt_component_1, {
+                                                                name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
+                                                                class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
+                                                              }, null, 8, ["name", "class"])
+                                                            ];
+                                                          }),
+                                                          _: 1
+                                                        })
+                                                      ], 2)
+                                                    ];
+                                                  })
+                                                ]),
+                                                _: 2
+                                              }, 1032, ["class", "disabled", "value", "onSelect"]))
+                                            ], 64);
+                                          }), 128))
+                                        ]),
+                                        _: 2
+                                      }, 1032, ["class"]);
+                                    }), 128)),
+                                    createItem.value && createItemPosition.value === "bottom" ? (openBlock(), createBlock(unref(ReuseCreateItemTemplate), { key: 1 })) : createCommentVNode("", true)
+                                  ]),
+                                  _: 3
+                                }, 8, ["class"])
+                              ];
+                            }
+                          }),
+                          _: 2
+                        }, _parent4, _scopeId3));
+                        if (!!_ctx.arrow) {
+                          _push4(ssrRenderComponent(unref(ComboboxArrow), mergeProps(arrowProps.value, {
+                            class: ui.value.arrow({ class: (_b2 = props.ui) == null ? void 0 : _b2.arrow })
+                          }), null, _parent4, _scopeId3));
+                        } else {
+                          _push4(`<!---->`);
+                        }
+                      } else {
+                        return [
+                          createVNode(unref(FocusScope), {
+                            trapped: "",
+                            class: ui.value.focusScope({ class: (_c = props.ui) == null ? void 0 : _c.focusScope })
+                          }, {
+                            default: withCtx(() => {
+                              var _a4, _b3;
+                              return [
+                                !!_ctx.searchInput ? (openBlock(), createBlock(unref(ComboboxInput), {
+                                  key: 0,
+                                  modelValue: searchTerm.value,
+                                  "onUpdate:modelValue": ($event) => searchTerm.value = $event,
+                                  "display-value": () => searchTerm.value,
+                                  "as-child": ""
+                                }, {
+                                  default: withCtx(() => {
+                                    var _a5;
+                                    return [
+                                      createVNode(__nuxt_component_6$1, mergeProps({
+                                        autofocus: "",
+                                        autocomplete: "off"
+                                      }, searchInputProps.value, {
+                                        class: ui.value.input({ class: (_a5 = props.ui) == null ? void 0 : _a5.input })
+                                      }), null, 16, ["class"])
+                                    ];
+                                  }),
+                                  _: 1
+                                }, 8, ["modelValue", "onUpdate:modelValue", "display-value"])) : createCommentVNode("", true),
+                                createVNode(unref(ComboboxEmpty), {
+                                  class: ui.value.empty({ class: (_a4 = props.ui) == null ? void 0 : _a4.empty })
+                                }, {
+                                  default: withCtx(() => [
+                                    renderSlot(_ctx.$slots, "empty", { searchTerm: searchTerm.value }, () => [
+                                      createTextVNode(toDisplayString(searchTerm.value ? unref(t)("selectMenu.noMatch", { searchTerm: searchTerm.value }) : unref(t)("selectMenu.noData")), 1)
+                                    ])
+                                  ]),
+                                  _: 3
+                                }, 8, ["class"]),
+                                createVNode(unref(ComboboxViewport), {
+                                  class: ui.value.viewport({ class: (_b3 = props.ui) == null ? void 0 : _b3.viewport })
+                                }, {
+                                  default: withCtx(() => [
+                                    createItem.value && createItemPosition.value === "top" ? (openBlock(), createBlock(unref(ReuseCreateItemTemplate), { key: 0 })) : createCommentVNode("", true),
+                                    (openBlock(true), createBlock(Fragment, null, renderList(filteredGroups.value, (group, groupIndex) => {
+                                      var _a5;
+                                      return openBlock(), createBlock(unref(ComboboxGroup), {
+                                        key: `group-${groupIndex}`,
+                                        class: ui.value.group({ class: (_a5 = props.ui) == null ? void 0 : _a5.group })
+                                      }, {
+                                        default: withCtx(() => [
+                                          (openBlock(true), createBlock(Fragment, null, renderList(group, (item, index) => {
+                                            var _a6, _b4, _c2;
+                                            return openBlock(), createBlock(Fragment, {
+                                              key: `group-${groupIndex}-${index}`
+                                            }, [
+                                              (item == null ? void 0 : item.type) === "label" ? (openBlock(), createBlock(unref(ComboboxLabel), {
+                                                key: 0,
+                                                class: ui.value.label({ class: (_a6 = props.ui) == null ? void 0 : _a6.label })
+                                              }, {
+                                                default: withCtx(() => [
+                                                  createTextVNode(toDisplayString(unref(get)(item, props.labelKey)), 1)
+                                                ]),
+                                                _: 2
+                                              }, 1032, ["class"])) : (item == null ? void 0 : item.type) === "separator" ? (openBlock(), createBlock(unref(ComboboxSeparator), {
+                                                key: 1,
+                                                class: ui.value.separator({ class: (_b4 = props.ui) == null ? void 0 : _b4.separator })
+                                              }, null, 8, ["class"])) : (openBlock(), createBlock(unref(ComboboxItem), {
+                                                key: 2,
+                                                class: ui.value.item({ class: (_c2 = props.ui) == null ? void 0 : _c2.item }),
+                                                disabled: item.disabled,
+                                                value: _ctx.valueKey && typeof item === "object" ? unref(get)(item, props.valueKey) : item,
+                                                onSelect: item.onSelect
+                                              }, {
+                                                default: withCtx(() => [
+                                                  renderSlot(_ctx.$slots, "item", {
+                                                    item,
+                                                    index
+                                                  }, () => {
+                                                    var _a7, _b5;
+                                                    return [
+                                                      renderSlot(_ctx.$slots, "item-leading", {
+                                                        item,
+                                                        index
+                                                      }, () => {
+                                                        var _a8, _b6, _c3, _d2, _e;
+                                                        return [
+                                                          item.icon ? (openBlock(), createBlock(__nuxt_component_1, {
+                                                            key: 0,
+                                                            name: item.icon,
+                                                            class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
+                                                          }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3$1, mergeProps({
+                                                            key: 1,
+                                                            size: ((_b6 = props.ui) == null ? void 0 : _b6.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize(),
+                                                            ref_for: true
+                                                          }, item.avatar, {
+                                                            class: ui.value.itemLeadingAvatar({ class: (_c3 = props.ui) == null ? void 0 : _c3.itemLeadingAvatar })
+                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                            key: 2,
+                                                            size: ((_d2 = props.ui) == null ? void 0 : _d2.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
+                                                            inset: "",
+                                                            standalone: "",
+                                                            ref_for: true
+                                                          }, item.chip, {
+                                                            class: ui.value.itemLeadingChip({ class: (_e = props.ui) == null ? void 0 : _e.itemLeadingChip })
+                                                          }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                                                        ];
+                                                      }),
+                                                      createVNode("span", {
+                                                        class: ui.value.itemLabel({ class: (_a7 = props.ui) == null ? void 0 : _a7.itemLabel })
+                                                      }, [
+                                                        renderSlot(_ctx.$slots, "item-label", {
+                                                          item,
+                                                          index
+                                                        }, () => [
+                                                          createTextVNode(toDisplayString(typeof item === "object" ? unref(get)(item, props.labelKey) : item), 1)
+                                                        ])
+                                                      ], 2),
+                                                      createVNode("span", {
+                                                        class: ui.value.itemTrailing({ class: (_b5 = props.ui) == null ? void 0 : _b5.itemTrailing })
+                                                      }, [
+                                                        renderSlot(_ctx.$slots, "item-trailing", {
+                                                          item,
+                                                          index
+                                                        }),
+                                                        createVNode(unref(ComboboxItemIndicator), { "as-child": "" }, {
+                                                          default: withCtx(() => {
+                                                            var _a8;
+                                                            return [
+                                                              createVNode(__nuxt_component_1, {
+                                                                name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
+                                                                class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
+                                                              }, null, 8, ["name", "class"])
+                                                            ];
+                                                          }),
+                                                          _: 1
+                                                        })
+                                                      ], 2)
+                                                    ];
+                                                  })
+                                                ]),
+                                                _: 2
+                                              }, 1032, ["class", "disabled", "value", "onSelect"]))
+                                            ], 64);
+                                          }), 128))
+                                        ]),
+                                        _: 2
+                                      }, 1032, ["class"]);
+                                    }), 128)),
+                                    createItem.value && createItemPosition.value === "bottom" ? (openBlock(), createBlock(unref(ReuseCreateItemTemplate), { key: 1 })) : createCommentVNode("", true)
+                                  ]),
+                                  _: 3
+                                }, 8, ["class"])
+                              ];
+                            }),
+                            _: 3
+                          }, 8, ["class"]),
+                          !!_ctx.arrow ? (openBlock(), createBlock(unref(ComboboxArrow), mergeProps({ key: 0 }, arrowProps.value, {
+                            class: ui.value.arrow({ class: (_d = props.ui) == null ? void 0 : _d.arrow })
+                          }), null, 16, ["class"])) : createCommentVNode("", true)
+                        ];
+                      }
+                    }),
+                    _: 2
+                  }, _parent3, _scopeId2));
+                } else {
+                  return [
+                    createVNode(unref(ComboboxContent), mergeProps({
+                      class: ui.value.content({ class: (_b = props.ui) == null ? void 0 : _b.content })
+                    }, contentProps.value), {
+                      default: withCtx(() => {
+                        var _a3, _b2;
+                        return [
+                          createVNode(unref(FocusScope), {
+                            trapped: "",
+                            class: ui.value.focusScope({ class: (_a3 = props.ui) == null ? void 0 : _a3.focusScope })
+                          }, {
+                            default: withCtx(() => {
+                              var _a4, _b3;
+                              return [
+                                !!_ctx.searchInput ? (openBlock(), createBlock(unref(ComboboxInput), {
+                                  key: 0,
+                                  modelValue: searchTerm.value,
+                                  "onUpdate:modelValue": ($event) => searchTerm.value = $event,
+                                  "display-value": () => searchTerm.value,
+                                  "as-child": ""
+                                }, {
+                                  default: withCtx(() => {
+                                    var _a5;
+                                    return [
+                                      createVNode(__nuxt_component_6$1, mergeProps({
+                                        autofocus: "",
+                                        autocomplete: "off"
+                                      }, searchInputProps.value, {
+                                        class: ui.value.input({ class: (_a5 = props.ui) == null ? void 0 : _a5.input })
+                                      }), null, 16, ["class"])
+                                    ];
+                                  }),
+                                  _: 1
+                                }, 8, ["modelValue", "onUpdate:modelValue", "display-value"])) : createCommentVNode("", true),
+                                createVNode(unref(ComboboxEmpty), {
+                                  class: ui.value.empty({ class: (_a4 = props.ui) == null ? void 0 : _a4.empty })
+                                }, {
+                                  default: withCtx(() => [
+                                    renderSlot(_ctx.$slots, "empty", { searchTerm: searchTerm.value }, () => [
+                                      createTextVNode(toDisplayString(searchTerm.value ? unref(t)("selectMenu.noMatch", { searchTerm: searchTerm.value }) : unref(t)("selectMenu.noData")), 1)
+                                    ])
+                                  ]),
+                                  _: 3
+                                }, 8, ["class"]),
+                                createVNode(unref(ComboboxViewport), {
+                                  class: ui.value.viewport({ class: (_b3 = props.ui) == null ? void 0 : _b3.viewport })
+                                }, {
+                                  default: withCtx(() => [
+                                    createItem.value && createItemPosition.value === "top" ? (openBlock(), createBlock(unref(ReuseCreateItemTemplate), { key: 0 })) : createCommentVNode("", true),
+                                    (openBlock(true), createBlock(Fragment, null, renderList(filteredGroups.value, (group, groupIndex) => {
+                                      var _a5;
+                                      return openBlock(), createBlock(unref(ComboboxGroup), {
+                                        key: `group-${groupIndex}`,
+                                        class: ui.value.group({ class: (_a5 = props.ui) == null ? void 0 : _a5.group })
+                                      }, {
+                                        default: withCtx(() => [
+                                          (openBlock(true), createBlock(Fragment, null, renderList(group, (item, index) => {
+                                            var _a6, _b4, _c;
+                                            return openBlock(), createBlock(Fragment, {
+                                              key: `group-${groupIndex}-${index}`
+                                            }, [
+                                              (item == null ? void 0 : item.type) === "label" ? (openBlock(), createBlock(unref(ComboboxLabel), {
+                                                key: 0,
+                                                class: ui.value.label({ class: (_a6 = props.ui) == null ? void 0 : _a6.label })
+                                              }, {
+                                                default: withCtx(() => [
+                                                  createTextVNode(toDisplayString(unref(get)(item, props.labelKey)), 1)
+                                                ]),
+                                                _: 2
+                                              }, 1032, ["class"])) : (item == null ? void 0 : item.type) === "separator" ? (openBlock(), createBlock(unref(ComboboxSeparator), {
+                                                key: 1,
+                                                class: ui.value.separator({ class: (_b4 = props.ui) == null ? void 0 : _b4.separator })
+                                              }, null, 8, ["class"])) : (openBlock(), createBlock(unref(ComboboxItem), {
+                                                key: 2,
+                                                class: ui.value.item({ class: (_c = props.ui) == null ? void 0 : _c.item }),
+                                                disabled: item.disabled,
+                                                value: _ctx.valueKey && typeof item === "object" ? unref(get)(item, props.valueKey) : item,
+                                                onSelect: item.onSelect
+                                              }, {
+                                                default: withCtx(() => [
+                                                  renderSlot(_ctx.$slots, "item", {
+                                                    item,
+                                                    index
+                                                  }, () => {
+                                                    var _a7, _b5;
+                                                    return [
+                                                      renderSlot(_ctx.$slots, "item-leading", {
+                                                        item,
+                                                        index
+                                                      }, () => {
+                                                        var _a8, _b6, _c2, _d, _e;
+                                                        return [
+                                                          item.icon ? (openBlock(), createBlock(__nuxt_component_1, {
+                                                            key: 0,
+                                                            name: item.icon,
+                                                            class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
+                                                          }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3$1, mergeProps({
+                                                            key: 1,
+                                                            size: ((_b6 = props.ui) == null ? void 0 : _b6.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize(),
+                                                            ref_for: true
+                                                          }, item.avatar, {
+                                                            class: ui.value.itemLeadingAvatar({ class: (_c2 = props.ui) == null ? void 0 : _c2.itemLeadingAvatar })
+                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                            key: 2,
+                                                            size: ((_d = props.ui) == null ? void 0 : _d.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
+                                                            inset: "",
+                                                            standalone: "",
+                                                            ref_for: true
+                                                          }, item.chip, {
+                                                            class: ui.value.itemLeadingChip({ class: (_e = props.ui) == null ? void 0 : _e.itemLeadingChip })
+                                                          }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                                                        ];
+                                                      }),
+                                                      createVNode("span", {
+                                                        class: ui.value.itemLabel({ class: (_a7 = props.ui) == null ? void 0 : _a7.itemLabel })
+                                                      }, [
+                                                        renderSlot(_ctx.$slots, "item-label", {
+                                                          item,
+                                                          index
+                                                        }, () => [
+                                                          createTextVNode(toDisplayString(typeof item === "object" ? unref(get)(item, props.labelKey) : item), 1)
+                                                        ])
+                                                      ], 2),
+                                                      createVNode("span", {
+                                                        class: ui.value.itemTrailing({ class: (_b5 = props.ui) == null ? void 0 : _b5.itemTrailing })
+                                                      }, [
+                                                        renderSlot(_ctx.$slots, "item-trailing", {
+                                                          item,
+                                                          index
+                                                        }),
+                                                        createVNode(unref(ComboboxItemIndicator), { "as-child": "" }, {
+                                                          default: withCtx(() => {
+                                                            var _a8;
+                                                            return [
+                                                              createVNode(__nuxt_component_1, {
+                                                                name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
+                                                                class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
+                                                              }, null, 8, ["name", "class"])
+                                                            ];
+                                                          }),
+                                                          _: 1
+                                                        })
+                                                      ], 2)
+                                                    ];
+                                                  })
+                                                ]),
+                                                _: 2
+                                              }, 1032, ["class", "disabled", "value", "onSelect"]))
+                                            ], 64);
+                                          }), 128))
+                                        ]),
+                                        _: 2
+                                      }, 1032, ["class"]);
+                                    }), 128)),
+                                    createItem.value && createItemPosition.value === "bottom" ? (openBlock(), createBlock(unref(ReuseCreateItemTemplate), { key: 1 })) : createCommentVNode("", true)
+                                  ]),
+                                  _: 3
+                                }, 8, ["class"])
+                              ];
+                            }),
+                            _: 3
+                          }, 8, ["class"]),
+                          !!_ctx.arrow ? (openBlock(), createBlock(unref(ComboboxArrow), mergeProps({ key: 0 }, arrowProps.value, {
+                            class: ui.value.arrow({ class: (_b2 = props.ui) == null ? void 0 : _b2.arrow })
+                          }), null, 16, ["class"])) : createCommentVNode("", true)
+                        ];
+                      }),
+                      _: 3
+                    }, 16, ["class"])
+                  ];
+                }
+              }),
+              _: 2
+            }, _parent2, _scopeId));
+          } else {
+            return [
+              createVNode(unref(ComboboxAnchor), { "as-child": "" }, {
+                default: withCtx(() => {
+                  var _a2;
+                  return [
+                    createVNode(unref(ComboboxTrigger), {
+                      class: ui.value.base({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.base] }),
+                      tabindex: "0"
+                    }, {
+                      default: withCtx(() => {
+                        var _a3, _b;
+                        return [
+                          unref(isLeading) || !!_ctx.avatar || !!slots.leading ? (openBlock(), createBlock("span", {
+                            key: 0,
+                            class: ui.value.leading({ class: (_a3 = props.ui) == null ? void 0 : _a3.leading })
+                          }, [
+                            renderSlot(_ctx.$slots, "leading", {
+                              modelValue,
+                              open,
+                              ui: ui.value
+                            }, () => {
+                              var _a4, _b2, _c;
+                              return [
+                                unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(__nuxt_component_1, {
+                                  key: 0,
+                                  name: unref(leadingIconName),
+                                  class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
+                                }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$1, mergeProps({
+                                  key: 1,
+                                  size: ((_b2 = props.ui) == null ? void 0 : _b2.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize()
+                                }, _ctx.avatar, {
+                                  class: ui.value.itemLeadingAvatar({ class: (_c = props.ui) == null ? void 0 : _c.itemLeadingAvatar })
+                                }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                              ];
+                            })
+                          ], 2)) : createCommentVNode("", true),
+                          renderSlot(_ctx.$slots, "default", {
+                            modelValue,
+                            open
+                          }, () => [
+                            (openBlock(true), createBlock(Fragment, null, renderList([displayValue(modelValue)], (displayedModelValue) => {
+                              var _a4, _b2;
+                              return openBlock(), createBlock(Fragment, { key: displayedModelValue }, [
+                                displayedModelValue ? (openBlock(), createBlock("span", {
+                                  key: 0,
+                                  class: ui.value.value({ class: (_a4 = props.ui) == null ? void 0 : _a4.value })
+                                }, toDisplayString(displayedModelValue), 3)) : (openBlock(), createBlock("span", {
+                                  key: 1,
+                                  class: ui.value.placeholder({ class: (_b2 = props.ui) == null ? void 0 : _b2.placeholder })
+                                }, toDisplayString(_ctx.placeholder ?? " "), 3))
+                              ], 64);
+                            }), 128))
+                          ]),
+                          unref(isTrailing) || !!slots.trailing ? (openBlock(), createBlock("span", {
+                            key: 1,
+                            class: ui.value.trailing({ class: (_b = props.ui) == null ? void 0 : _b.trailing })
+                          }, [
+                            renderSlot(_ctx.$slots, "trailing", {
+                              modelValue,
+                              open,
+                              ui: ui.value
+                            }, () => {
+                              var _a4;
+                              return [
+                                unref(trailingIconName) ? (openBlock(), createBlock(__nuxt_component_1, {
+                                  key: 0,
+                                  name: unref(trailingIconName),
+                                  class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })
+                                }, null, 8, ["name", "class"])) : createCommentVNode("", true)
+                              ];
+                            })
+                          ], 2)) : createCommentVNode("", true)
+                        ];
+                      }),
+                      _: 2
+                    }, 1032, ["class"])
+                  ];
+                }),
+                _: 2
+              }, 1024),
+              createVNode(unref(ComboboxPortal), {
+                disabled: !_ctx.portal
+              }, {
+                default: withCtx(() => {
+                  var _a2;
+                  return [
+                    createVNode(unref(ComboboxContent), mergeProps({
+                      class: ui.value.content({ class: (_a2 = props.ui) == null ? void 0 : _a2.content })
+                    }, contentProps.value), {
+                      default: withCtx(() => {
+                        var _a3, _b;
+                        return [
+                          createVNode(unref(FocusScope), {
+                            trapped: "",
+                            class: ui.value.focusScope({ class: (_a3 = props.ui) == null ? void 0 : _a3.focusScope })
+                          }, {
+                            default: withCtx(() => {
+                              var _a4, _b2;
+                              return [
+                                !!_ctx.searchInput ? (openBlock(), createBlock(unref(ComboboxInput), {
+                                  key: 0,
+                                  modelValue: searchTerm.value,
+                                  "onUpdate:modelValue": ($event) => searchTerm.value = $event,
+                                  "display-value": () => searchTerm.value,
+                                  "as-child": ""
+                                }, {
+                                  default: withCtx(() => {
+                                    var _a5;
+                                    return [
+                                      createVNode(__nuxt_component_6$1, mergeProps({
+                                        autofocus: "",
+                                        autocomplete: "off"
+                                      }, searchInputProps.value, {
+                                        class: ui.value.input({ class: (_a5 = props.ui) == null ? void 0 : _a5.input })
+                                      }), null, 16, ["class"])
+                                    ];
+                                  }),
+                                  _: 1
+                                }, 8, ["modelValue", "onUpdate:modelValue", "display-value"])) : createCommentVNode("", true),
+                                createVNode(unref(ComboboxEmpty), {
+                                  class: ui.value.empty({ class: (_a4 = props.ui) == null ? void 0 : _a4.empty })
+                                }, {
+                                  default: withCtx(() => [
+                                    renderSlot(_ctx.$slots, "empty", { searchTerm: searchTerm.value }, () => [
+                                      createTextVNode(toDisplayString(searchTerm.value ? unref(t)("selectMenu.noMatch", { searchTerm: searchTerm.value }) : unref(t)("selectMenu.noData")), 1)
+                                    ])
+                                  ]),
+                                  _: 3
+                                }, 8, ["class"]),
+                                createVNode(unref(ComboboxViewport), {
+                                  class: ui.value.viewport({ class: (_b2 = props.ui) == null ? void 0 : _b2.viewport })
+                                }, {
+                                  default: withCtx(() => [
+                                    createItem.value && createItemPosition.value === "top" ? (openBlock(), createBlock(unref(ReuseCreateItemTemplate), { key: 0 })) : createCommentVNode("", true),
+                                    (openBlock(true), createBlock(Fragment, null, renderList(filteredGroups.value, (group, groupIndex) => {
+                                      var _a5;
+                                      return openBlock(), createBlock(unref(ComboboxGroup), {
+                                        key: `group-${groupIndex}`,
+                                        class: ui.value.group({ class: (_a5 = props.ui) == null ? void 0 : _a5.group })
+                                      }, {
+                                        default: withCtx(() => [
+                                          (openBlock(true), createBlock(Fragment, null, renderList(group, (item, index) => {
+                                            var _a6, _b3, _c;
+                                            return openBlock(), createBlock(Fragment, {
+                                              key: `group-${groupIndex}-${index}`
+                                            }, [
+                                              (item == null ? void 0 : item.type) === "label" ? (openBlock(), createBlock(unref(ComboboxLabel), {
+                                                key: 0,
+                                                class: ui.value.label({ class: (_a6 = props.ui) == null ? void 0 : _a6.label })
+                                              }, {
+                                                default: withCtx(() => [
+                                                  createTextVNode(toDisplayString(unref(get)(item, props.labelKey)), 1)
+                                                ]),
+                                                _: 2
+                                              }, 1032, ["class"])) : (item == null ? void 0 : item.type) === "separator" ? (openBlock(), createBlock(unref(ComboboxSeparator), {
+                                                key: 1,
+                                                class: ui.value.separator({ class: (_b3 = props.ui) == null ? void 0 : _b3.separator })
+                                              }, null, 8, ["class"])) : (openBlock(), createBlock(unref(ComboboxItem), {
+                                                key: 2,
+                                                class: ui.value.item({ class: (_c = props.ui) == null ? void 0 : _c.item }),
+                                                disabled: item.disabled,
+                                                value: _ctx.valueKey && typeof item === "object" ? unref(get)(item, props.valueKey) : item,
+                                                onSelect: item.onSelect
+                                              }, {
+                                                default: withCtx(() => [
+                                                  renderSlot(_ctx.$slots, "item", {
+                                                    item,
+                                                    index
+                                                  }, () => {
+                                                    var _a7, _b4;
+                                                    return [
+                                                      renderSlot(_ctx.$slots, "item-leading", {
+                                                        item,
+                                                        index
+                                                      }, () => {
+                                                        var _a8, _b5, _c2, _d, _e;
+                                                        return [
+                                                          item.icon ? (openBlock(), createBlock(__nuxt_component_1, {
+                                                            key: 0,
+                                                            name: item.icon,
+                                                            class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
+                                                          }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3$1, mergeProps({
+                                                            key: 1,
+                                                            size: ((_b5 = props.ui) == null ? void 0 : _b5.itemLeadingAvatarSize) || ui.value.itemLeadingAvatarSize(),
+                                                            ref_for: true
+                                                          }, item.avatar, {
+                                                            class: ui.value.itemLeadingAvatar({ class: (_c2 = props.ui) == null ? void 0 : _c2.itemLeadingAvatar })
+                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                            key: 2,
+                                                            size: ((_d = props.ui) == null ? void 0 : _d.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
+                                                            inset: "",
+                                                            standalone: "",
+                                                            ref_for: true
+                                                          }, item.chip, {
+                                                            class: ui.value.itemLeadingChip({ class: (_e = props.ui) == null ? void 0 : _e.itemLeadingChip })
+                                                          }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                                                        ];
+                                                      }),
+                                                      createVNode("span", {
+                                                        class: ui.value.itemLabel({ class: (_a7 = props.ui) == null ? void 0 : _a7.itemLabel })
+                                                      }, [
+                                                        renderSlot(_ctx.$slots, "item-label", {
+                                                          item,
+                                                          index
+                                                        }, () => [
+                                                          createTextVNode(toDisplayString(typeof item === "object" ? unref(get)(item, props.labelKey) : item), 1)
+                                                        ])
+                                                      ], 2),
+                                                      createVNode("span", {
+                                                        class: ui.value.itemTrailing({ class: (_b4 = props.ui) == null ? void 0 : _b4.itemTrailing })
+                                                      }, [
+                                                        renderSlot(_ctx.$slots, "item-trailing", {
+                                                          item,
+                                                          index
+                                                        }),
+                                                        createVNode(unref(ComboboxItemIndicator), { "as-child": "" }, {
+                                                          default: withCtx(() => {
+                                                            var _a8;
+                                                            return [
+                                                              createVNode(__nuxt_component_1, {
+                                                                name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
+                                                                class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
+                                                              }, null, 8, ["name", "class"])
+                                                            ];
+                                                          }),
+                                                          _: 1
+                                                        })
+                                                      ], 2)
+                                                    ];
+                                                  })
+                                                ]),
+                                                _: 2
+                                              }, 1032, ["class", "disabled", "value", "onSelect"]))
+                                            ], 64);
+                                          }), 128))
+                                        ]),
+                                        _: 2
+                                      }, 1032, ["class"]);
+                                    }), 128)),
+                                    createItem.value && createItemPosition.value === "bottom" ? (openBlock(), createBlock(unref(ReuseCreateItemTemplate), { key: 1 })) : createCommentVNode("", true)
+                                  ]),
+                                  _: 3
+                                }, 8, ["class"])
+                              ];
+                            }),
+                            _: 3
+                          }, 8, ["class"]),
+                          !!_ctx.arrow ? (openBlock(), createBlock(unref(ComboboxArrow), mergeProps({ key: 0 }, arrowProps.value, {
+                            class: ui.value.arrow({ class: (_b = props.ui) == null ? void 0 : _b.arrow })
+                          }), null, 16, ["class"])) : createCommentVNode("", true)
+                        ];
+                      }),
+                      _: 3
+                    }, 16, ["class"])
+                  ];
+                }),
+                _: 3
+              }, 8, ["disabled"])
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+      _push(`<!--]-->`);
+    };
+  }
+});
+
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/SelectMenu.vue");
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+};
+const __nuxt_component_6 = Object.assign(_sfc_main$3, { __name: "USelectMenu" });
+
+const theme = {
+  "slots": {
+    "root": "w-full space-y-6",
+    "header": "flex flex-col text-center",
+    "leading": "mb-2",
+    "leadingIcon": "size-8 shrink-0",
+    "title": "text-xl text-pretty font-semibold text-(--ui-text-highlighted)",
+    "description": "mt-1 text-base text-pretty text-(--ui-text-muted)",
+    "body": "gap-y-6 flex flex-col",
+    "providers": "space-y-3",
+    "separator": "",
+    "form": "space-y-5",
+    "footer": "text-sm text-center text-(--ui-text-muted) mt-2"
+  }
+};
+
+var _a;
+const appConfig = _appConfig;
+const authForm = tv$1({ extend: tv$1(theme), ...((_a = appConfig.uiPro) == null ? void 0 : _a.authForm) || {} });
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
+  __name: "AuthForm",
+  __ssrInlineRender: true,
+  props: {
+    as: {},
+    icon: {},
+    title: {},
+    description: {},
+    fields: {},
+    providers: {},
+    separator: { default: "or" },
+    submit: {},
+    schema: {},
+    validate: {},
+    validateOn: {},
+    validateOnInputDelay: {},
+    disabled: { type: Boolean },
+    class: {},
+    ui: {}
+  },
+  emits: ["submit"],
+  setup(__props, { expose: __expose, emit: __emit }) {
+    const props = __props;
+    const state = reactive((props.fields || []).reduce((acc, field) => {
+      if (field.name) {
+        acc[field.name] = field.defaultValue;
+      }
+      return acc;
+    }, {}));
+    const emits = __emit;
+    const slots = useSlots();
+    const appConfig2 = useAppConfig();
+    const { t } = useLocalePro();
+    const formRef = ref();
+    const passwordVisibility = ref(false);
+    const ui = authForm();
+    __expose({
+      formRef
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      var _a2;
+      const _component_UIcon = __nuxt_component_1;
+      const _component_UButton = __nuxt_component_2$1;
+      const _component_USeparator = __nuxt_component_2$2;
+      const _component_UForm = __nuxt_component_3;
+      const _component_UFormField = __nuxt_component_4;
+      const _component_UCheckbox = __nuxt_component_5;
+      const _component_USelectMenu = __nuxt_component_6;
+      const _component_UInput = __nuxt_component_6$1;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        class: unref(ui).root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t;
+          if (_push2) {
+            if (_ctx.icon || !!slots.icon || (_ctx.title || !!slots.title) || (_ctx.description || !!slots.description) || !!slots.header) {
+              _push2(`<div class="${ssrRenderClass(unref(ui).header({ class: (_a3 = props.ui) == null ? void 0 : _a3.header }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "header", {}, () => {
+                var _a4, _b2, _c2;
+                if (_ctx.icon || !!slots.leading) {
+                  _push2(`<div class="${ssrRenderClass(unref(ui).leading({ class: (_a4 = props.ui) == null ? void 0 : _a4.leading }))}"${_scopeId}>`);
+                  ssrRenderSlot(_ctx.$slots, "leading", {}, () => {
+                    var _a5;
+                    if (_ctx.icon) {
+                      _push2(ssrRenderComponent(_component_UIcon, {
+                        name: _ctx.icon,
+                        class: unref(ui).leadingIcon({ class: (_a5 = props.ui) == null ? void 0 : _a5.leadingIcon })
+                      }, null, _parent2, _scopeId));
+                    } else {
+                      _push2(`<!---->`);
+                    }
+                  }, _push2, _parent2, _scopeId);
+                  _push2(`</div>`);
+                } else {
+                  _push2(`<!---->`);
+                }
+                if (_ctx.title || !!slots.title) {
+                  _push2(`<div class="${ssrRenderClass(unref(ui).title({ class: (_b2 = props.ui) == null ? void 0 : _b2.title }))}"${_scopeId}>`);
+                  ssrRenderSlot(_ctx.$slots, "title", {}, () => {
+                    _push2(`${ssrInterpolate(_ctx.title)}`);
+                  }, _push2, _parent2, _scopeId);
+                  _push2(`</div>`);
+                } else {
+                  _push2(`<!---->`);
+                }
+                if (_ctx.description || !!slots.description) {
+                  _push2(`<div class="${ssrRenderClass(unref(ui).description({ class: (_c2 = props.ui) == null ? void 0 : _c2.description }))}"${_scopeId}>`);
+                  ssrRenderSlot(_ctx.$slots, "description", {}, () => {
+                    _push2(`${ssrInterpolate(_ctx.description)}`);
+                  }, _push2, _parent2, _scopeId);
+                  _push2(`</div>`);
+                } else {
+                  _push2(`<!---->`);
+                }
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            _push2(`<div class="${ssrRenderClass(unref(ui).body({ class: (_b = props.ui) == null ? void 0 : _b.body }))}"${_scopeId}>`);
+            if ((_c = _ctx.providers) == null ? void 0 : _c.length) {
+              _push2(`<div class="${ssrRenderClass(unref(ui).providers({ class: (_d = props.ui) == null ? void 0 : _d.providers }))}"${_scopeId}><!--[-->`);
+              ssrRenderList(_ctx.providers, (provider, index) => {
+                _push2(ssrRenderComponent(_component_UButton, mergeProps({
+                  key: index,
+                  block: "",
+                  color: "neutral",
+                  variant: "subtle",
+                  ref_for: true
+                }, provider), null, _parent2, _scopeId));
+              });
+              _push2(`<!--]--></div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            if (((_e = _ctx.providers) == null ? void 0 : _e.length) && ((_f = _ctx.fields) == null ? void 0 : _f.length)) {
+              _push2(ssrRenderComponent(_component_USeparator, mergeProps(typeof _ctx.separator === "object" ? _ctx.separator : { label: _ctx.separator }, {
+                class: unref(ui).separator({ class: (_g = props.ui) == null ? void 0 : _g.separator })
+              }), null, _parent2, _scopeId));
+            } else {
+              _push2(`<!---->`);
+            }
+            if ((_h = _ctx.fields) == null ? void 0 : _h.length) {
+              _push2(ssrRenderComponent(_component_UForm, {
+                ref_key: "formRef",
+                ref: formRef,
+                state,
+                schema: _ctx.schema,
+                validate: _ctx.validate,
+                "validate-on": _ctx.validateOn,
+                class: unref(ui).form({ class: (_i = props.ui) == null ? void 0 : _i.form }),
+                onSubmit: ($event) => emits("submit", $event)
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`<!--[-->`);
+                    ssrRenderList(_ctx.fields, (field) => {
+                      _push3(ssrRenderComponent(_component_UFormField, {
+                        key: field.name,
+                        label: field.type === "checkbox" ? "" : field.label ?? "",
+                        description: field.description,
+                        help: field.help,
+                        hint: field.hint,
+                        name: field.name,
+                        size: field.size,
+                        required: field.required
+                      }, createSlots({
+                        default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                          if (_push4) {
+                            ssrRenderSlot(_ctx.$slots, `${field.name}-field`, mergeProps({ ref_for: true }, { state, field }), () => {
+                              if (field.type === "checkbox") {
+                                _push4(ssrRenderComponent(_component_UCheckbox, mergeProps({
+                                  modelValue: state[field.name],
+                                  "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                  ref_for: true
+                                }, unref(omit)(field, ["description", "help", "hint", "size"])), null, _parent4, _scopeId3));
+                              } else if (field.type === "select") {
+                                _push4(ssrRenderComponent(_component_USelectMenu, mergeProps({
+                                  modelValue: state[field.name],
+                                  "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                  ref_for: true
+                                }, unref(omit)(field, ["description", "help", "hint", "size"])), null, _parent4, _scopeId3));
+                              } else if (field.type === "password") {
+                                _push4(ssrRenderComponent(_component_UInput, mergeProps({
+                                  modelValue: state[field.name],
+                                  "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                  type: passwordVisibility.value ? "text" : "password",
+                                  ref_for: true
+                                }, unref(omit)(field, ["label", "description", "help", "hint", "size", "type", "required", "defaultValue"]), { ui: { root: "w-full" } }), {
+                                  trailing: withCtx((_4, _push5, _parent5, _scopeId4) => {
+                                    if (_push5) {
+                                      _push5(ssrRenderComponent(_component_UButton, {
+                                        color: "neutral",
+                                        variant: "link",
+                                        size: "sm",
+                                        icon: passwordVisibility.value ? unref(appConfig2).ui.icons.eyeOff : unref(appConfig2).ui.icons.eye,
+                                        "aria-label": passwordVisibility.value ? unref(t)("authForm.hidePassword") : unref(t)("authForm.showPassword"),
+                                        "aria-pressed": passwordVisibility.value,
+                                        "aria-controls": "password",
+                                        onClick: ($event) => passwordVisibility.value = !passwordVisibility.value
+                                      }, null, _parent5, _scopeId4));
+                                    } else {
+                                      return [
+                                        createVNode(_component_UButton, {
+                                          color: "neutral",
+                                          variant: "link",
+                                          size: "sm",
+                                          icon: passwordVisibility.value ? unref(appConfig2).ui.icons.eyeOff : unref(appConfig2).ui.icons.eye,
+                                          "aria-label": passwordVisibility.value ? unref(t)("authForm.hidePassword") : unref(t)("authForm.showPassword"),
+                                          "aria-pressed": passwordVisibility.value,
+                                          "aria-controls": "password",
+                                          onClick: ($event) => passwordVisibility.value = !passwordVisibility.value
+                                        }, null, 8, ["icon", "aria-label", "aria-pressed", "onClick"])
+                                      ];
+                                    }
+                                  }),
+                                  _: 2
+                                }, _parent4, _scopeId3));
+                              } else {
+                                _push4(ssrRenderComponent(_component_UInput, mergeProps({
+                                  modelValue: state[field.name],
+                                  "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                  ref_for: true
+                                }, unref(omit)(field, ["label", "description", "help", "hint", "size", "required", "defaultValue"]), { ui: { root: "w-full" } }), null, _parent4, _scopeId3));
+                              }
+                            }, _push4, _parent4, _scopeId3);
+                          } else {
+                            return [
+                              renderSlot(_ctx.$slots, `${field.name}-field`, mergeProps({ ref_for: true }, { state, field }), () => [
+                                field.type === "checkbox" ? (openBlock(), createBlock(_component_UCheckbox, mergeProps({
+                                  key: 0,
+                                  modelValue: state[field.name],
+                                  "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                  ref_for: true
+                                }, unref(omit)(field, ["description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"])) : field.type === "select" ? (openBlock(), createBlock(_component_USelectMenu, mergeProps({
+                                  key: 1,
+                                  modelValue: state[field.name],
+                                  "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                  ref_for: true
+                                }, unref(omit)(field, ["description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"])) : field.type === "password" ? (openBlock(), createBlock(_component_UInput, mergeProps({
+                                  key: 2,
+                                  modelValue: state[field.name],
+                                  "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                  type: passwordVisibility.value ? "text" : "password",
+                                  ref_for: true
+                                }, unref(omit)(field, ["label", "description", "help", "hint", "size", "type", "required", "defaultValue"]), { ui: { root: "w-full" } }), {
+                                  trailing: withCtx(() => [
+                                    createVNode(_component_UButton, {
+                                      color: "neutral",
+                                      variant: "link",
+                                      size: "sm",
+                                      icon: passwordVisibility.value ? unref(appConfig2).ui.icons.eyeOff : unref(appConfig2).ui.icons.eye,
+                                      "aria-label": passwordVisibility.value ? unref(t)("authForm.hidePassword") : unref(t)("authForm.showPassword"),
+                                      "aria-pressed": passwordVisibility.value,
+                                      "aria-controls": "password",
+                                      onClick: ($event) => passwordVisibility.value = !passwordVisibility.value
+                                    }, null, 8, ["icon", "aria-label", "aria-pressed", "onClick"])
+                                  ]),
+                                  _: 2
+                                }, 1040, ["modelValue", "onUpdate:modelValue", "type"])) : (openBlock(), createBlock(_component_UInput, mergeProps({
+                                  key: 3,
+                                  modelValue: state[field.name],
+                                  "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                  ref_for: true
+                                }, unref(omit)(field, ["label", "description", "help", "hint", "size", "required", "defaultValue"]), { ui: { root: "w-full" } }), null, 16, ["modelValue", "onUpdate:modelValue"]))
+                              ])
+                            ];
+                          }
+                        }),
+                        _: 2
+                      }, [
+                        !!slots[`${field.name}-label`] ? {
+                          name: "label",
+                          fn: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                            if (_push4) {
+                              ssrRenderSlot(_ctx.$slots, `${field.name}-label`, {}, null, _push4, _parent4, _scopeId3);
+                            } else {
+                              return [
+                                renderSlot(_ctx.$slots, `${field.name}-label`)
+                              ];
+                            }
+                          }),
+                          key: "0"
+                        } : void 0,
+                        !!slots[`${field.name}-description`] ? {
+                          name: "description",
+                          fn: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                            if (_push4) {
+                              ssrRenderSlot(_ctx.$slots, `${field.name}-description`, {}, null, _push4, _parent4, _scopeId3);
+                            } else {
+                              return [
+                                renderSlot(_ctx.$slots, `${field.name}-description`)
+                              ];
+                            }
+                          }),
+                          key: "1"
+                        } : void 0,
+                        !!slots[`${field.name}-hint`] ? {
+                          name: "hint",
+                          fn: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                            if (_push4) {
+                              ssrRenderSlot(_ctx.$slots, `${field.name}-hint`, {}, null, _push4, _parent4, _scopeId3);
+                            } else {
+                              return [
+                                renderSlot(_ctx.$slots, `${field.name}-hint`)
+                              ];
+                            }
+                          }),
+                          key: "2"
+                        } : void 0,
+                        !!slots[`${field.name}-help`] ? {
+                          name: "help",
+                          fn: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                            if (_push4) {
+                              ssrRenderSlot(_ctx.$slots, `${field.name}-help`, {}, null, _push4, _parent4, _scopeId3);
+                            } else {
+                              return [
+                                renderSlot(_ctx.$slots, `${field.name}-help`)
+                              ];
+                            }
+                          }),
+                          key: "3"
+                        } : void 0,
+                        !!slots[`${field.name}-error`] ? {
+                          name: "error",
+                          fn: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                            if (_push4) {
+                              ssrRenderSlot(_ctx.$slots, `${field.name}-error`, {}, null, _push4, _parent4, _scopeId3);
+                            } else {
+                              return [
+                                renderSlot(_ctx.$slots, `${field.name}-error`)
+                              ];
+                            }
+                          }),
+                          key: "4"
+                        } : void 0
+                      ]), _parent3, _scopeId2));
+                    });
+                    _push3(`<!--]-->`);
+                    if (!!slots.validation) {
+                      ssrRenderSlot(_ctx.$slots, "validation", {}, null, _push3, _parent3, _scopeId2);
+                    } else {
+                      _push3(`<!---->`);
+                    }
+                    _push3(ssrRenderComponent(_component_UButton, mergeProps({
+                      type: "submit",
+                      label: unref(t)("authForm.submit"),
+                      block: ""
+                    }, _ctx.submit), null, _parent3, _scopeId2));
+                  } else {
+                    return [
+                      (openBlock(true), createBlock(Fragment, null, renderList(_ctx.fields, (field) => {
+                        return openBlock(), createBlock(_component_UFormField, {
+                          key: field.name,
+                          label: field.type === "checkbox" ? "" : field.label ?? "",
+                          description: field.description,
+                          help: field.help,
+                          hint: field.hint,
+                          name: field.name,
+                          size: field.size,
+                          required: field.required
+                        }, createSlots({
+                          default: withCtx(() => [
+                            renderSlot(_ctx.$slots, `${field.name}-field`, mergeProps({ ref_for: true }, { state, field }), () => [
+                              field.type === "checkbox" ? (openBlock(), createBlock(_component_UCheckbox, mergeProps({
+                                key: 0,
+                                modelValue: state[field.name],
+                                "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                ref_for: true
+                              }, unref(omit)(field, ["description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"])) : field.type === "select" ? (openBlock(), createBlock(_component_USelectMenu, mergeProps({
+                                key: 1,
+                                modelValue: state[field.name],
+                                "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                ref_for: true
+                              }, unref(omit)(field, ["description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"])) : field.type === "password" ? (openBlock(), createBlock(_component_UInput, mergeProps({
+                                key: 2,
+                                modelValue: state[field.name],
+                                "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                type: passwordVisibility.value ? "text" : "password",
+                                ref_for: true
+                              }, unref(omit)(field, ["label", "description", "help", "hint", "size", "type", "required", "defaultValue"]), { ui: { root: "w-full" } }), {
+                                trailing: withCtx(() => [
+                                  createVNode(_component_UButton, {
+                                    color: "neutral",
+                                    variant: "link",
+                                    size: "sm",
+                                    icon: passwordVisibility.value ? unref(appConfig2).ui.icons.eyeOff : unref(appConfig2).ui.icons.eye,
+                                    "aria-label": passwordVisibility.value ? unref(t)("authForm.hidePassword") : unref(t)("authForm.showPassword"),
+                                    "aria-pressed": passwordVisibility.value,
+                                    "aria-controls": "password",
+                                    onClick: ($event) => passwordVisibility.value = !passwordVisibility.value
+                                  }, null, 8, ["icon", "aria-label", "aria-pressed", "onClick"])
+                                ]),
+                                _: 2
+                              }, 1040, ["modelValue", "onUpdate:modelValue", "type"])) : (openBlock(), createBlock(_component_UInput, mergeProps({
+                                key: 3,
+                                modelValue: state[field.name],
+                                "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                                ref_for: true
+                              }, unref(omit)(field, ["label", "description", "help", "hint", "size", "required", "defaultValue"]), { ui: { root: "w-full" } }), null, 16, ["modelValue", "onUpdate:modelValue"]))
+                            ])
+                          ]),
+                          _: 2
+                        }, [
+                          !!slots[`${field.name}-label`] ? {
+                            name: "label",
                             fn: withCtx(() => [
-                              createVNode(_component_UButton, mergeProps({ ref_for: true }, { ...unref(ui).default.passwordToggle, ...__props.passwordToggle }, {
-                                icon: passwordVisibility.value ? unref(ui).passwordToggle.hideIcon : unref(ui).passwordToggle.showIcon,
-                                padded: false,
-                                onClick: togglePasswordVisibility
-                              }), null, 16, ["icon"])
+                              renderSlot(_ctx.$slots, `${field.name}-label`)
                             ]),
                             key: "0"
+                          } : void 0,
+                          !!slots[`${field.name}-description`] ? {
+                            name: "description",
+                            fn: withCtx(() => [
+                              renderSlot(_ctx.$slots, `${field.name}-description`)
+                            ]),
+                            key: "1"
+                          } : void 0,
+                          !!slots[`${field.name}-hint`] ? {
+                            name: "hint",
+                            fn: withCtx(() => [
+                              renderSlot(_ctx.$slots, `${field.name}-hint`)
+                            ]),
+                            key: "2"
+                          } : void 0,
+                          !!slots[`${field.name}-help`] ? {
+                            name: "help",
+                            fn: withCtx(() => [
+                              renderSlot(_ctx.$slots, `${field.name}-help`)
+                            ]),
+                            key: "3"
+                          } : void 0,
+                          !!slots[`${field.name}-error`] ? {
+                            name: "error",
+                            fn: withCtx(() => [
+                              renderSlot(_ctx.$slots, `${field.name}-error`)
+                            ]),
+                            key: "4"
                           } : void 0
-                        ]), 1040, ["modelValue", "onUpdate:modelValue", "type"])) : (openBlock(), createBlock(_component_UInput, mergeProps({
-                          key: 3,
-                          modelValue: state[field.name],
-                          "onUpdate:modelValue": ($event) => state[field.name] = $event,
-                          ref_for: true
-                        }, unref(omit)(field, ["label", "description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"]))
-                      ])
-                    ]),
-                    _: 2
-                  }, [
-                    _ctx.$slots[`${field.name}-label`] ? {
-                      name: "label",
-                      fn: withCtx(() => [
-                        renderSlot(_ctx.$slots, `${field.name}-label`)
-                      ]),
-                      key: "0"
-                    } : void 0,
-                    _ctx.$slots[`${field.name}-description`] ? {
-                      name: "description",
-                      fn: withCtx(() => [
-                        renderSlot(_ctx.$slots, `${field.name}-description`)
-                      ]),
-                      key: "1"
-                    } : void 0,
-                    _ctx.$slots[`${field.name}-hint`] ? {
-                      name: "hint",
-                      fn: withCtx(() => [
-                        renderSlot(_ctx.$slots, `${field.name}-hint`)
-                      ]),
-                      key: "2"
-                    } : void 0,
-                    _ctx.$slots[`${field.name}-help`] ? {
-                      name: "help",
-                      fn: withCtx(() => [
-                        renderSlot(_ctx.$slots, `${field.name}-help`)
-                      ]),
-                      key: "3"
-                    } : void 0,
-                    _ctx.$slots[`${field.name}-error`] ? {
-                      name: "error",
-                      fn: withCtx(() => [
-                        renderSlot(_ctx.$slots, `${field.name}-error`)
-                      ]),
-                      key: "4"
-                    } : void 0
-                  ]), 1032, ["label", "description", "help", "hint", "name", "size"]);
-                }), 128)),
-                renderSlot(_ctx.$slots, "validation"),
-                createVNode(_component_UButton, mergeProps({
-                  type: "submit",
-                  block: "",
-                  loading: __props.loading
-                }, { ...unref(ui).default.submitButton, ...__props.submitButton }), null, 16, ["loading"])
-              ];
+                        ]), 1032, ["label", "description", "help", "hint", "name", "size", "required"]);
+                      }), 128)),
+                      !!slots.validation ? renderSlot(_ctx.$slots, "validation", { key: 0 }) : createCommentVNode("", true),
+                      createVNode(_component_UButton, mergeProps({
+                        type: "submit",
+                        label: unref(t)("authForm.submit"),
+                        block: ""
+                      }, _ctx.submit), null, 16, ["label"])
+                    ];
+                  }
+                }),
+                _: 3
+              }, _parent2, _scopeId));
+            } else {
+              _push2(`<!---->`);
             }
-          }),
-          _: 3
-        }, _parent));
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`</div>`);
-      if (_ctx.$slots.footer) {
-        _push(`<div class="${ssrRenderClass(unref(ui).footer)}">`);
-        ssrRenderSlot(_ctx.$slots, "footer", {}, null, _push, _parent);
-        _push(`</div>`);
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`</div>`);
+            _push2(`</div>`);
+            if (!!slots.footer) {
+              _push2(`<div class="${ssrRenderClass(unref(ui).footer({ class: (_j = props.ui) == null ? void 0 : _j.footer }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "footer", {}, null, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+          } else {
+            return [
+              _ctx.icon || !!slots.icon || (_ctx.title || !!slots.title) || (_ctx.description || !!slots.description) || !!slots.header ? (openBlock(), createBlock("div", {
+                key: 0,
+                class: unref(ui).header({ class: (_k = props.ui) == null ? void 0 : _k.header })
+              }, [
+                renderSlot(_ctx.$slots, "header", {}, () => {
+                  var _a4, _b2, _c2;
+                  return [
+                    _ctx.icon || !!slots.leading ? (openBlock(), createBlock("div", {
+                      key: 0,
+                      class: unref(ui).leading({ class: (_a4 = props.ui) == null ? void 0 : _a4.leading })
+                    }, [
+                      renderSlot(_ctx.$slots, "leading", {}, () => {
+                        var _a5;
+                        return [
+                          _ctx.icon ? (openBlock(), createBlock(_component_UIcon, {
+                            key: 0,
+                            name: _ctx.icon,
+                            class: unref(ui).leadingIcon({ class: (_a5 = props.ui) == null ? void 0 : _a5.leadingIcon })
+                          }, null, 8, ["name", "class"])) : createCommentVNode("", true)
+                        ];
+                      })
+                    ], 2)) : createCommentVNode("", true),
+                    _ctx.title || !!slots.title ? (openBlock(), createBlock("div", {
+                      key: 1,
+                      class: unref(ui).title({ class: (_b2 = props.ui) == null ? void 0 : _b2.title })
+                    }, [
+                      renderSlot(_ctx.$slots, "title", {}, () => [
+                        createTextVNode(toDisplayString(_ctx.title), 1)
+                      ])
+                    ], 2)) : createCommentVNode("", true),
+                    _ctx.description || !!slots.description ? (openBlock(), createBlock("div", {
+                      key: 2,
+                      class: unref(ui).description({ class: (_c2 = props.ui) == null ? void 0 : _c2.description })
+                    }, [
+                      renderSlot(_ctx.$slots, "description", {}, () => [
+                        createTextVNode(toDisplayString(_ctx.description), 1)
+                      ])
+                    ], 2)) : createCommentVNode("", true)
+                  ];
+                })
+              ], 2)) : createCommentVNode("", true),
+              createVNode("div", {
+                class: unref(ui).body({ class: (_l = props.ui) == null ? void 0 : _l.body })
+              }, [
+                ((_m = _ctx.providers) == null ? void 0 : _m.length) ? (openBlock(), createBlock("div", {
+                  key: 0,
+                  class: unref(ui).providers({ class: (_n = props.ui) == null ? void 0 : _n.providers })
+                }, [
+                  (openBlock(true), createBlock(Fragment, null, renderList(_ctx.providers, (provider, index) => {
+                    return openBlock(), createBlock(_component_UButton, mergeProps({
+                      key: index,
+                      block: "",
+                      color: "neutral",
+                      variant: "subtle",
+                      ref_for: true
+                    }, provider), null, 16);
+                  }), 128))
+                ], 2)) : createCommentVNode("", true),
+                ((_o = _ctx.providers) == null ? void 0 : _o.length) && ((_p = _ctx.fields) == null ? void 0 : _p.length) ? (openBlock(), createBlock(_component_USeparator, mergeProps({ key: 1 }, typeof _ctx.separator === "object" ? _ctx.separator : { label: _ctx.separator }, {
+                  class: unref(ui).separator({ class: (_q = props.ui) == null ? void 0 : _q.separator })
+                }), null, 16, ["class"])) : createCommentVNode("", true),
+                ((_r = _ctx.fields) == null ? void 0 : _r.length) ? (openBlock(), createBlock(_component_UForm, {
+                  key: 2,
+                  ref_key: "formRef",
+                  ref: formRef,
+                  state,
+                  schema: _ctx.schema,
+                  validate: _ctx.validate,
+                  "validate-on": _ctx.validateOn,
+                  class: unref(ui).form({ class: (_s = props.ui) == null ? void 0 : _s.form }),
+                  onSubmit: ($event) => emits("submit", $event)
+                }, {
+                  default: withCtx(() => [
+                    (openBlock(true), createBlock(Fragment, null, renderList(_ctx.fields, (field) => {
+                      return openBlock(), createBlock(_component_UFormField, {
+                        key: field.name,
+                        label: field.type === "checkbox" ? "" : field.label ?? "",
+                        description: field.description,
+                        help: field.help,
+                        hint: field.hint,
+                        name: field.name,
+                        size: field.size,
+                        required: field.required
+                      }, createSlots({
+                        default: withCtx(() => [
+                          renderSlot(_ctx.$slots, `${field.name}-field`, mergeProps({ ref_for: true }, { state, field }), () => [
+                            field.type === "checkbox" ? (openBlock(), createBlock(_component_UCheckbox, mergeProps({
+                              key: 0,
+                              modelValue: state[field.name],
+                              "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                              ref_for: true
+                            }, unref(omit)(field, ["description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"])) : field.type === "select" ? (openBlock(), createBlock(_component_USelectMenu, mergeProps({
+                              key: 1,
+                              modelValue: state[field.name],
+                              "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                              ref_for: true
+                            }, unref(omit)(field, ["description", "help", "hint", "size"])), null, 16, ["modelValue", "onUpdate:modelValue"])) : field.type === "password" ? (openBlock(), createBlock(_component_UInput, mergeProps({
+                              key: 2,
+                              modelValue: state[field.name],
+                              "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                              type: passwordVisibility.value ? "text" : "password",
+                              ref_for: true
+                            }, unref(omit)(field, ["label", "description", "help", "hint", "size", "type", "required", "defaultValue"]), { ui: { root: "w-full" } }), {
+                              trailing: withCtx(() => [
+                                createVNode(_component_UButton, {
+                                  color: "neutral",
+                                  variant: "link",
+                                  size: "sm",
+                                  icon: passwordVisibility.value ? unref(appConfig2).ui.icons.eyeOff : unref(appConfig2).ui.icons.eye,
+                                  "aria-label": passwordVisibility.value ? unref(t)("authForm.hidePassword") : unref(t)("authForm.showPassword"),
+                                  "aria-pressed": passwordVisibility.value,
+                                  "aria-controls": "password",
+                                  onClick: ($event) => passwordVisibility.value = !passwordVisibility.value
+                                }, null, 8, ["icon", "aria-label", "aria-pressed", "onClick"])
+                              ]),
+                              _: 2
+                            }, 1040, ["modelValue", "onUpdate:modelValue", "type"])) : (openBlock(), createBlock(_component_UInput, mergeProps({
+                              key: 3,
+                              modelValue: state[field.name],
+                              "onUpdate:modelValue": ($event) => state[field.name] = $event,
+                              ref_for: true
+                            }, unref(omit)(field, ["label", "description", "help", "hint", "size", "required", "defaultValue"]), { ui: { root: "w-full" } }), null, 16, ["modelValue", "onUpdate:modelValue"]))
+                          ])
+                        ]),
+                        _: 2
+                      }, [
+                        !!slots[`${field.name}-label`] ? {
+                          name: "label",
+                          fn: withCtx(() => [
+                            renderSlot(_ctx.$slots, `${field.name}-label`)
+                          ]),
+                          key: "0"
+                        } : void 0,
+                        !!slots[`${field.name}-description`] ? {
+                          name: "description",
+                          fn: withCtx(() => [
+                            renderSlot(_ctx.$slots, `${field.name}-description`)
+                          ]),
+                          key: "1"
+                        } : void 0,
+                        !!slots[`${field.name}-hint`] ? {
+                          name: "hint",
+                          fn: withCtx(() => [
+                            renderSlot(_ctx.$slots, `${field.name}-hint`)
+                          ]),
+                          key: "2"
+                        } : void 0,
+                        !!slots[`${field.name}-help`] ? {
+                          name: "help",
+                          fn: withCtx(() => [
+                            renderSlot(_ctx.$slots, `${field.name}-help`)
+                          ]),
+                          key: "3"
+                        } : void 0,
+                        !!slots[`${field.name}-error`] ? {
+                          name: "error",
+                          fn: withCtx(() => [
+                            renderSlot(_ctx.$slots, `${field.name}-error`)
+                          ]),
+                          key: "4"
+                        } : void 0
+                      ]), 1032, ["label", "description", "help", "hint", "name", "size", "required"]);
+                    }), 128)),
+                    !!slots.validation ? renderSlot(_ctx.$slots, "validation", { key: 0 }) : createCommentVNode("", true),
+                    createVNode(_component_UButton, mergeProps({
+                      type: "submit",
+                      label: unref(t)("authForm.submit"),
+                      block: ""
+                    }, _ctx.submit), null, 16, ["label"])
+                  ]),
+                  _: 3
+                }, 8, ["state", "schema", "validate", "validate-on", "class", "onSubmit"])) : createCommentVNode("", true)
+              ], 2),
+              !!slots.footer ? (openBlock(), createBlock("div", {
+                key: 1,
+                class: unref(ui).footer({ class: (_t = props.ui) == null ? void 0 : _t.footer })
+              }, [
+                renderSlot(_ctx.$slots, "footer")
+              ], 2)) : createCommentVNode("", true)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
     };
   }
 });
@@ -2727,7 +3941,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/auth/AuthForm.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/AuthForm.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
 const __nuxt_component_0 = Object.assign(_sfc_main$2, { __name: "UAuthForm" });
@@ -2828,7 +4042,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     }
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UAuthForm = __nuxt_component_0;
-      const _component_UAlert = __nuxt_component_5;
+      const _component_UAlert = __nuxt_component_3$2;
       const _component_NuxtTurnstile = __nuxt_component_8;
       _push(ssrRenderComponent(_component_UAuthForm, mergeProps({
         fields,
@@ -2943,7 +4157,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           sessionId: id
         });
       } catch (error) {
-        console.error(error);
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: t("checkout.index.errorModal.description"),
@@ -2967,7 +4180,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           userName.value = response.data.user.fullname;
         }
       } catch (error) {
-        console.error(error);
       }
     }
     const remove = (id) => {
@@ -2991,15 +4203,15 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       robots: "noindex, nofollow"
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UProgress = __nuxt_component_2$2;
-      const _component_UCard = __nuxt_component_0$2;
+      const _component_UProgress = __nuxt_component_0$1;
+      const _component_UCard = __nuxt_component_1$1;
       const _component_AuthForm = __nuxt_component_2;
       const _component_NuxtLinkLocale = __nuxt_component_2$3;
-      const _component_UButton = __nuxt_component_1;
-      const _component_UIcon = __nuxt_component_3$1;
+      const _component_UButton = __nuxt_component_2$1;
+      const _component_UIcon = __nuxt_component_1;
       const _component_UInput = __nuxt_component_6$1;
-      const _component_UFormGroup = __nuxt_component_7;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full flex flex-wrap justify-center gap-4 mt-4" }, _attrs))}><div class="w-full max-w-6xl">`);
+      const _component_UFormGroup = resolveComponent("UFormGroup");
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full flex flex-wrap justify-center gap-4 m-10" }, _attrs))}><div class="w-full max-w-6xl">`);
       if (unref(step) != 3) {
         _push(ssrRenderComponent(_component_UProgress, {
           value: unref(step),
@@ -3031,10 +4243,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               }, {
                 default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
-                    _push3(ssrRenderComponent(_component_UButton, {
-                      color: "black",
-                      class: "mt-4 w-full max-w-xs flex items-center justify-center"
-                    }, {
+                    _push3(ssrRenderComponent(_component_UButton, { class: "mt-4 w-full max-w-xs flex items-center justify-center" }, {
                       default: withCtx((_3, _push4, _parent4, _scopeId3) => {
                         if (_push4) {
                           _push4(`${ssrInterpolate(_ctx.$t("checkout.index.steps.1.noaccount.actions.createAccount"))}`);
@@ -3048,10 +4257,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     }, _parent3, _scopeId2));
                   } else {
                     return [
-                      createVNode(_component_UButton, {
-                        color: "black",
-                        class: "mt-4 w-full max-w-xs flex items-center justify-center"
-                      }, {
+                      createVNode(_component_UButton, { class: "mt-4 w-full max-w-xs flex items-center justify-center" }, {
                         default: withCtx(() => [
                           createTextVNode(toDisplayString(_ctx.$t("checkout.index.steps.1.noaccount.actions.createAccount")), 1)
                         ]),
@@ -3078,10 +4284,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       target: "_blank"
                     }, {
                       default: withCtx(() => [
-                        createVNode(_component_UButton, {
-                          color: "black",
-                          class: "mt-4 w-full max-w-xs flex items-center justify-center"
-                        }, {
+                        createVNode(_component_UButton, { class: "mt-4 w-full max-w-xs flex items-center justify-center" }, {
                           default: withCtx(() => [
                             createTextVNode(toDisplayString(_ctx.$t("checkout.index.steps.1.noaccount.actions.createAccount")), 1)
                           ]),
@@ -3112,7 +4315,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           default: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
               if (unref(cart).items.length === 0) {
-                _push2(`<div class="flex items-center justify-center bg-gray-100"${_scopeId}><div class="w-48 h-48 flex items-center justify-center text-center text-gray-700"${_scopeId}>${ssrInterpolate(_ctx.$t("cart.isEmpty"))}. </div></div>`);
+                _push2(`<div class="flex items-center justify-center bg-gray-100 rounded-md"${_scopeId}><div class="w-48 h-48 flex items-center justify-center text-center text-gray-700"${_scopeId}>${ssrInterpolate(_ctx.$t("cart.isEmpty"))}. </div></div>`);
               } else {
                 _push2(`<div class="grid grid-cols-1 lg:grid-cols-3 gap-6"${_scopeId}><div class="lg:col-span-2"${_scopeId}><ul${_scopeId}><!--[-->`);
                 ssrRenderList(unref(cart).items, (item) => {
@@ -3314,7 +4517,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               return [
                 unref(cart).items.length === 0 ? (openBlock(), createBlock("div", {
                   key: 0,
-                  class: "flex items-center justify-center bg-gray-100"
+                  class: "flex items-center justify-center bg-gray-100 rounded-md"
                 }, [
                   createVNode("div", { class: "w-48 h-48 flex items-center justify-center text-center text-gray-700" }, toDisplayString(_ctx.$t("cart.isEmpty")) + ". ", 1)
                 ])) : (openBlock(), createBlock("div", {
@@ -3514,10 +4717,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           }),
           default: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<div class="flex items-center justify-center bg-gray-100"${_scopeId}><div class="w-48 h-48 flex items-center justify-center text-center text-gray-700"${_scopeId}>${ssrInterpolate(_ctx.$t("checkout.index.steps.2.waitForPaymentProvider"))}</div></div>`);
+              _push2(`<div class="flex items-center justify-center bg-gray-100 rounded-md"${_scopeId}><div class="w-48 h-48 flex items-center justify-center text-center text-gray-700"${_scopeId}>${ssrInterpolate(_ctx.$t("checkout.index.steps.2.waitForPaymentProvider"))}</div></div>`);
             } else {
               return [
-                createVNode("div", { class: "flex items-center justify-center bg-gray-100" }, [
+                createVNode("div", { class: "flex items-center justify-center bg-gray-100 rounded-md" }, [
                   createVNode("div", { class: "w-48 h-48 flex items-center justify-center text-center text-gray-700" }, toDisplayString(_ctx.$t("checkout.index.steps.2.waitForPaymentProvider")), 1)
                 ])
               ];

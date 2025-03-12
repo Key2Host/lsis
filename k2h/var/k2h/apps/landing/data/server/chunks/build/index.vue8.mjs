@@ -1,12 +1,13 @@
-import { _ as __nuxt_component_0$2 } from './LandingSection.vue.mjs';
-import { defineComponent, toRef, mergeProps, unref, useSSRContext, computed, createSlots, withCtx, createVNode, createBlock, createCommentVNode, renderSlot, openBlock, createTextVNode, toDisplayString, Fragment, renderList, toRaw, withAsyncContext } from 'vue';
-import { ssrRenderAttrs, ssrRenderSlot, ssrRenderComponent, ssrRenderClass, ssrInterpolate, ssrRenderList, ssrRenderAttr } from 'vue/server-renderer';
-import { G as useUI, $ as useAppConfig, Y as __nuxt_component_0, a8 as __nuxt_component_1$1, R as __nuxt_component_2$1, C as __nuxt_component_3, Q as __nuxt_component_1$2, _ as _export_sfc, F as mergeConfig, L as appConfig, M as get, u as useLocalePath, a as useI18n, b as useSeoMeta, X as useCartStore } from './server.mjs';
-import { twJoin } from 'tailwind-merge';
-import { _ as __nuxt_component_3$1 } from './Skeleton.vue.mjs';
-import { _ as __nuxt_component_0$1, b as __nuxt_component_2$2, a as __nuxt_component_5 } from './Alert.vue.mjs';
-import { V as upperFirst, m as defu, P as isEqual } from '../nitro/nitro.mjs';
-import { useVModel } from '@vueuse/core';
+import { h as useAppConfig, r as tv, J as __nuxt_component_0$1, j as __nuxt_component_1, s as __nuxt_component_2$1, _ as _appConfig, c as useLocale, t as tv$1, y as useToast, u as useLocalePath, a as useI18n, b as useSeoMeta, z as useCartStore } from './server.mjs';
+import { defineComponent, useSlots, computed, unref, withCtx, createBlock, createCommentVNode, openBlock, renderSlot, createTextVNode, toDisplayString, createVNode, mergeProps, Fragment, renderList, useSSRContext, mergeModels, useModel, withAsyncContext } from 'vue';
+import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate, ssrRenderList, ssrRenderAttr } from 'vue/server-renderer';
+import { Primitive } from 'reka-ui';
+import { createReusableTemplate, reactiveOmit } from '@vueuse/core';
+import { _ as __nuxt_component_1$1 } from './Skeleton.vue.mjs';
+import { U as upperFirst } from '../nitro/nitro.mjs';
+import { useVueTable, getExpandedRowModel, getSortedRowModel, getFilteredRowModel, getCoreRowModel, FlexRender } from '@tanstack/vue-table';
+import { _ as __nuxt_component_3 } from './Alert.vue.mjs';
+import { U as UPageSection } from './PageSection.vue.mjs';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
@@ -18,6 +19,9 @@ import 'unhead/utils';
 import 'devalue';
 import '@iconify/vue';
 import '@iconify/utils/lib/css/icon';
+import 'tailwind-variants';
+import 'vaul-vue';
+import 'reka-ui/namespaced';
 import 'node:http';
 import 'node:https';
 import 'node:events';
@@ -30,38 +34,446 @@ import 'node:url';
 import '@iconify/utils';
 import 'ipx';
 
-const _sfc_main$3 = /* @__PURE__ */ defineComponent({
-  ...{
-    inheritAttrs: false
+const theme$2 = {
+  "slots": {
+    "root": "relative grid rounded-[calc(var(--ui-radius)*2.5)] p-6 lg:p-8 xl:p-10 gap-6",
+    "header": "",
+    "body": "flex flex-col min-w-0",
+    "footer": "flex flex-col gap-6 items-center",
+    "titleWrapper": "flex items-center gap-3",
+    "title": "text-(--ui-text-highlighted) text-2xl sm:text-3xl text-pretty font-semibold",
+    "description": "text-base text-pretty mt-2",
+    "priceWrapper": "flex items-center gap-1",
+    "price": "text-(--ui-text-highlighted) text-3xl sm:text-4xl font-semibold",
+    "discount": "text-(--ui-text-muted) line-through text-xl sm:text-2xl",
+    "billing": "flex flex-col justify-between min-w-0",
+    "billingPeriod": "text-(--ui-text-toned) truncate text-xs font-medium",
+    "billingCycle": "text-(--ui-text-muted) truncate text-xs font-medium",
+    "features": "flex flex-col gap-3 flex-1 mt-6 grow-0",
+    "feature": "flex items-center gap-2 min-w-0",
+    "featureIcon": "size-5 shrink-0 text-(--ui-primary)",
+    "featureTitle": "text-sm truncate",
+    "badge": "",
+    "button": "",
+    "tagline": "text-base font-semibold text-(--ui-text)",
+    "terms": "text-xs/5 text-(--ui-text-muted) text-center text-balance"
   },
-  __name: "PricingGrid",
+  "variants": {
+    "orientation": {
+      "horizontal": {
+        "root": "grid-cols-1 lg:grid-cols-3 justify-between divide-y lg:divide-y-0 lg:divide-x divide-(--ui-border)",
+        "body": "lg:col-span-2 pb-6 lg:pb-0 lg:pr-6 justify-center",
+        "footer": "lg:justify-center lg:items-center lg:p-6 lg:max-w-xs lg:w-full lg:mx-auto",
+        "features": "lg:grid lg:grid-cols-2 lg:mt-12"
+      },
+      "vertical": {
+        "footer": "justify-end",
+        "priceWrapper": "mt-6"
+      }
+    },
+    "variant": {
+      "solid": {
+        "root": "bg-(--ui-bg-inverted)",
+        "title": "text-(--ui-bg)",
+        "description": "text-(--ui-text-dimmed)",
+        "price": "text-(--ui-bg)",
+        "discount": "text-(--ui-text-dimmed)",
+        "billingCycle": "text-(--ui-text-dimmed)",
+        "billingPeriod": "text-(--ui-text-dimmed)",
+        "featureTitle": "text-(--ui-text-dimmed)"
+      },
+      "outline": {
+        "root": "bg-(--ui-bg) ring ring-inset ring-(--ui-border)",
+        "description": "text-(--ui-text-muted)",
+        "featureTitle": "text-(--ui-text-muted)"
+      },
+      "soft": {
+        "root": "bg-(--ui-bg-elevated)/50",
+        "description": "text-(--ui-text-toned)",
+        "featureTitle": "text-(--ui-text-toned)"
+      },
+      "subtle": {
+        "root": "bg-(--ui-bg-elevated) ring ring-inset ring-(--ui-border-accented)",
+        "description": "text-(--ui-text)",
+        "featureTitle": "text-(--ui-text)"
+      }
+    },
+    "highlight": {
+      "true": {
+        "root": "ring-2 ring-inset ring-(--ui-primary)"
+      }
+    },
+    "scale": {
+      "true": {
+        "root": "lg:scale-[1.1] lg:z-[1]"
+      }
+    }
+  },
+  "compoundVariants": [
+    {
+      "orientation": "horizontal",
+      "variant": "soft",
+      "class": {
+        "root": "divide-(--ui-border-accented)"
+      }
+    },
+    {
+      "orientation": "horizontal",
+      "variant": "subtle",
+      "class": {
+        "root": "divide-(--ui-border-accented)"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "outline"
+  }
+};
+
+var _a$2;
+const appConfigPricingPlan = _appConfig;
+const pricingPlan = tv({ extend: tv(theme$2), ...((_a$2 = appConfigPricingPlan.uiPro) == null ? void 0 : _a$2.pricingPlan) || {} });
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
+  __name: "PricingPlan",
   __ssrInlineRender: true,
   props: {
-    compact: {
-      type: Boolean,
-      default: false
-    },
-    class: {
-      type: [String, Object, Array],
-      default: void 0
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
-    }
+    as: {},
+    title: {},
+    description: {},
+    badge: {},
+    billingCycle: {},
+    billingPeriod: {},
+    price: {},
+    discount: {},
+    features: {},
+    button: {},
+    tagline: {},
+    terms: {},
+    orientation: { default: "vertical" },
+    variant: {},
+    highlight: { type: Boolean },
+    scale: { type: Boolean },
+    class: {},
+    ui: {}
   },
   setup(__props) {
     const props = __props;
-    const config = {
-      wrapper: "flex flex-col lg:grid lg:grid-cols-3 w-full justify-center items-center gap-8"
-    };
-    const { ui, attrs } = useUI("pricing.grid", toRef(props, "ui"), config, toRef(props, "class"), true);
+    const slots = useSlots();
+    const appConfig = useAppConfig();
+    const [DefinePriceTemplate, ReusePriceTemplate] = createReusableTemplate();
+    const ui = computed(() => pricingPlan({
+      orientation: props.orientation,
+      variant: props.variant,
+      highlight: props.highlight,
+      scale: props.scale
+    }));
+    const features = computed(() => {
+      var _a2;
+      return (_a2 = props.features) == null ? void 0 : _a2.map((feature) => typeof feature === "string" ? { title: feature } : feature);
+    });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({
-        class: [unref(ui).wrapper, __props.compact && "gap-x-0"]
-      }, unref(attrs), _attrs))}>`);
-      ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
-      _push(`</div>`);
+      var _a2;
+      const _component_UBadge = __nuxt_component_0$1;
+      const _component_UIcon = __nuxt_component_1;
+      const _component_UButton = __nuxt_component_2$1;
+      _push(`<!--[-->`);
+      _push(ssrRenderComponent(unref(DefinePriceTemplate), null, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b, _c, _d, _e, _f, _g, _h;
+          if (_push2) {
+            if (_ctx.discount || _ctx.price || !!slots.discount || !!slots.price || _ctx.billingCycle || _ctx.billingPeriod || !!slots.billing) {
+              _push2(`<div class="${ssrRenderClass(ui.value.priceWrapper({ class: (_a3 = props.ui) == null ? void 0 : _a3.priceWrapper }))}"${_scopeId}>`);
+              if (_ctx.discount && _ctx.price || !!slots.discount) {
+                _push2(`<div class="${ssrRenderClass(ui.value.discount({ class: (_b = props.ui) == null ? void 0 : _b.discount }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, "discount", {}, () => {
+                  _push2(`${ssrInterpolate(_ctx.price)}`);
+                }, _push2, _parent2, _scopeId);
+                _push2(`</div>`);
+              } else {
+                _push2(`<!---->`);
+              }
+              if (_ctx.discount || _ctx.price || !!slots.price) {
+                _push2(`<div class="${ssrRenderClass(ui.value.price({ class: (_c = props.ui) == null ? void 0 : _c.price }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, "price", {}, () => {
+                  _push2(`${ssrInterpolate(_ctx.discount || _ctx.price)}`);
+                }, _push2, _parent2, _scopeId);
+                _push2(`</div>`);
+              } else {
+                _push2(`<!---->`);
+              }
+              if (_ctx.billingCycle || _ctx.billingPeriod || !!slots.billing) {
+                _push2(`<div class="${ssrRenderClass(ui.value.billing({ class: (_d = props.ui) == null ? void 0 : _d.billing }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, "billing", {}, () => {
+                  var _a4, _b2;
+                  _push2(`<span class="${ssrRenderClass(ui.value.billingPeriod({ class: (_a4 = props.ui) == null ? void 0 : _a4.billingPeriod }))}"${_scopeId}>${ssrInterpolate(_ctx.billingPeriod || " ")}</span>`);
+                  if (_ctx.billingCycle) {
+                    _push2(`<span class="${ssrRenderClass(ui.value.billingCycle({ class: (_b2 = props.ui) == null ? void 0 : _b2.billingCycle }))}"${_scopeId}>${ssrInterpolate(_ctx.billingCycle)}</span>`);
+                  } else {
+                    _push2(`<!---->`);
+                  }
+                }, _push2, _parent2, _scopeId);
+                _push2(`</div>`);
+              } else {
+                _push2(`<!---->`);
+              }
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+          } else {
+            return [
+              _ctx.discount || _ctx.price || !!slots.discount || !!slots.price || _ctx.billingCycle || _ctx.billingPeriod || !!slots.billing ? (openBlock(), createBlock("div", {
+                key: 0,
+                class: ui.value.priceWrapper({ class: (_e = props.ui) == null ? void 0 : _e.priceWrapper })
+              }, [
+                _ctx.discount && _ctx.price || !!slots.discount ? (openBlock(), createBlock("div", {
+                  key: 0,
+                  class: ui.value.discount({ class: (_f = props.ui) == null ? void 0 : _f.discount })
+                }, [
+                  renderSlot(_ctx.$slots, "discount", {}, () => [
+                    createTextVNode(toDisplayString(_ctx.price), 1)
+                  ])
+                ], 2)) : createCommentVNode("", true),
+                _ctx.discount || _ctx.price || !!slots.price ? (openBlock(), createBlock("div", {
+                  key: 1,
+                  class: ui.value.price({ class: (_g = props.ui) == null ? void 0 : _g.price })
+                }, [
+                  renderSlot(_ctx.$slots, "price", {}, () => [
+                    createTextVNode(toDisplayString(_ctx.discount || _ctx.price), 1)
+                  ])
+                ], 2)) : createCommentVNode("", true),
+                _ctx.billingCycle || _ctx.billingPeriod || !!slots.billing ? (openBlock(), createBlock("div", {
+                  key: 2,
+                  class: ui.value.billing({ class: (_h = props.ui) == null ? void 0 : _h.billing })
+                }, [
+                  renderSlot(_ctx.$slots, "billing", {}, () => {
+                    var _a4, _b2;
+                    return [
+                      createVNode("span", {
+                        class: ui.value.billingPeriod({ class: (_a4 = props.ui) == null ? void 0 : _a4.billingPeriod })
+                      }, toDisplayString(_ctx.billingPeriod || " "), 3),
+                      _ctx.billingCycle ? (openBlock(), createBlock("span", {
+                        key: 0,
+                        class: ui.value.billingCycle({ class: (_b2 = props.ui) == null ? void 0 : _b2.billingCycle })
+                      }, toDisplayString(_ctx.billingCycle), 3)) : createCommentVNode("", true)
+                    ];
+                  })
+                ], 2)) : createCommentVNode("", true)
+              ], 2)) : createCommentVNode("", true)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+      _push(ssrRenderComponent(unref(Primitive), {
+        as: _ctx.as,
+        "data-orientation": _ctx.orientation,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
+          if (_push2) {
+            if (!!slots.header && _ctx.orientation === "vertical") {
+              _push2(`<div class="${ssrRenderClass(ui.value.header({ class: (_a3 = props.ui) == null ? void 0 : _a3.header }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "header", {}, null, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            _push2(`<div class="${ssrRenderClass(ui.value.body({ class: (_b = props.ui) == null ? void 0 : _b.body }))}"${_scopeId}><div class="${ssrRenderClass(ui.value.titleWrapper({ class: (_c = props.ui) == null ? void 0 : _c.titleWrapper }))}"${_scopeId}>`);
+            if (_ctx.title || !!slots.title) {
+              _push2(`<div class="${ssrRenderClass(ui.value.title({ class: (_d = props.ui) == null ? void 0 : _d.title }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "title", {}, () => {
+                _push2(`${ssrInterpolate(_ctx.title)}`);
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            ssrRenderSlot(_ctx.$slots, "badge", {}, () => {
+              var _a4;
+              if (_ctx.badge) {
+                _push2(ssrRenderComponent(_component_UBadge, mergeProps({
+                  color: "primary",
+                  variant: "subtle"
+                }, typeof _ctx.badge === "string" ? { label: _ctx.badge } : _ctx.badge, {
+                  class: ui.value.badge({ class: (_a4 = props.ui) == null ? void 0 : _a4.badge })
+                }), null, _parent2, _scopeId));
+              } else {
+                _push2(`<!---->`);
+              }
+            }, _push2, _parent2, _scopeId);
+            _push2(`</div>`);
+            if (_ctx.description || !!slots.description) {
+              _push2(`<div class="${ssrRenderClass(ui.value.description({ class: (_e = props.ui) == null ? void 0 : _e.description }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "description", {}, () => {
+                _push2(`${ssrInterpolate(_ctx.description)}`);
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            if (_ctx.orientation === "vertical") {
+              _push2(ssrRenderComponent(unref(ReusePriceTemplate), null, null, _parent2, _scopeId));
+            } else {
+              _push2(`<!---->`);
+            }
+            if (((_f = features.value) == null ? void 0 : _f.length) || !!slots.features) {
+              _push2(`<ul class="${ssrRenderClass(ui.value.features({ class: (_g = props.ui) == null ? void 0 : _g.features }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "features", {}, () => {
+                _push2(`<!--[-->`);
+                ssrRenderList(features.value, (feature, index) => {
+                  var _a4, _b2, _c2;
+                  _push2(`<li class="${ssrRenderClass(ui.value.feature({ class: (_a4 = props.ui) == null ? void 0 : _a4.feature }))}"${_scopeId}>`);
+                  _push2(ssrRenderComponent(_component_UIcon, {
+                    name: feature.icon || unref(appConfig).ui.icons.success,
+                    class: ui.value.featureIcon({ class: (_b2 = props.ui) == null ? void 0 : _b2.featureIcon })
+                  }, null, _parent2, _scopeId));
+                  _push2(`<span class="${ssrRenderClass(ui.value.featureTitle({ class: (_c2 = props.ui) == null ? void 0 : _c2.featureTitle }))}"${_scopeId}>${ssrInterpolate(feature.title)}</span></li>`);
+                });
+                _push2(`<!--]-->`);
+              }, _push2, _parent2, _scopeId);
+              _push2(`</ul>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            _push2(`</div>`);
+            if (_ctx.terms || (_ctx.button || !!slots.button) || _ctx.orientation === "horizontal" || _ctx.tagline || !!slots.footer) {
+              _push2(`<div class="${ssrRenderClass(ui.value.footer({ class: (_h = props.ui) == null ? void 0 : _h.footer }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "footer", {}, () => {
+                var _a4, _b2;
+                if (_ctx.tagline) {
+                  _push2(`<p class="${ssrRenderClass(ui.value.tagline({ class: (_a4 = props.ui) == null ? void 0 : _a4.tagline }))}"${_scopeId}>${ssrInterpolate(_ctx.tagline)}</p>`);
+                } else {
+                  _push2(`<!---->`);
+                }
+                if (_ctx.orientation === "horizontal") {
+                  _push2(ssrRenderComponent(unref(ReusePriceTemplate), null, null, _parent2, _scopeId));
+                } else {
+                  _push2(`<!---->`);
+                }
+                ssrRenderSlot(_ctx.$slots, "button", {}, () => {
+                  var _a5, _b3;
+                  if (_ctx.button) {
+                    _push2(ssrRenderComponent(_component_UButton, mergeProps({ block: true, size: "lg", ..._ctx.button }, {
+                      class: ui.value.button({ class: (_a5 = props.ui) == null ? void 0 : _a5.button }),
+                      onClick: (_b3 = _ctx.button) == null ? void 0 : _b3.onClick
+                    }), null, _parent2, _scopeId));
+                  } else {
+                    _push2(`<!---->`);
+                  }
+                }, _push2, _parent2, _scopeId);
+                if (_ctx.terms) {
+                  _push2(`<p class="${ssrRenderClass(ui.value.terms({ class: (_b2 = props.ui) == null ? void 0 : _b2.terms }))}"${_scopeId}>${ssrInterpolate(_ctx.terms)}</p>`);
+                } else {
+                  _push2(`<!---->`);
+                }
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+          } else {
+            return [
+              !!slots.header && _ctx.orientation === "vertical" ? (openBlock(), createBlock("div", {
+                key: 0,
+                class: ui.value.header({ class: (_i = props.ui) == null ? void 0 : _i.header })
+              }, [
+                renderSlot(_ctx.$slots, "header")
+              ], 2)) : createCommentVNode("", true),
+              createVNode("div", {
+                class: ui.value.body({ class: (_j = props.ui) == null ? void 0 : _j.body })
+              }, [
+                createVNode("div", {
+                  class: ui.value.titleWrapper({ class: (_k = props.ui) == null ? void 0 : _k.titleWrapper })
+                }, [
+                  _ctx.title || !!slots.title ? (openBlock(), createBlock("div", {
+                    key: 0,
+                    class: ui.value.title({ class: (_l = props.ui) == null ? void 0 : _l.title })
+                  }, [
+                    renderSlot(_ctx.$slots, "title", {}, () => [
+                      createTextVNode(toDisplayString(_ctx.title), 1)
+                    ])
+                  ], 2)) : createCommentVNode("", true),
+                  renderSlot(_ctx.$slots, "badge", {}, () => {
+                    var _a4;
+                    return [
+                      _ctx.badge ? (openBlock(), createBlock(_component_UBadge, mergeProps({
+                        key: 0,
+                        color: "primary",
+                        variant: "subtle"
+                      }, typeof _ctx.badge === "string" ? { label: _ctx.badge } : _ctx.badge, {
+                        class: ui.value.badge({ class: (_a4 = props.ui) == null ? void 0 : _a4.badge })
+                      }), null, 16, ["class"])) : createCommentVNode("", true)
+                    ];
+                  })
+                ], 2),
+                _ctx.description || !!slots.description ? (openBlock(), createBlock("div", {
+                  key: 0,
+                  class: ui.value.description({ class: (_m = props.ui) == null ? void 0 : _m.description })
+                }, [
+                  renderSlot(_ctx.$slots, "description", {}, () => [
+                    createTextVNode(toDisplayString(_ctx.description), 1)
+                  ])
+                ], 2)) : createCommentVNode("", true),
+                _ctx.orientation === "vertical" ? (openBlock(), createBlock(unref(ReusePriceTemplate), { key: 1 })) : createCommentVNode("", true),
+                ((_n = features.value) == null ? void 0 : _n.length) || !!slots.features ? (openBlock(), createBlock("ul", {
+                  key: 2,
+                  class: ui.value.features({ class: (_o = props.ui) == null ? void 0 : _o.features })
+                }, [
+                  renderSlot(_ctx.$slots, "features", {}, () => [
+                    (openBlock(true), createBlock(Fragment, null, renderList(features.value, (feature, index) => {
+                      var _a4, _b2, _c2;
+                      return openBlock(), createBlock("li", {
+                        key: index,
+                        class: ui.value.feature({ class: (_a4 = props.ui) == null ? void 0 : _a4.feature })
+                      }, [
+                        createVNode(_component_UIcon, {
+                          name: feature.icon || unref(appConfig).ui.icons.success,
+                          class: ui.value.featureIcon({ class: (_b2 = props.ui) == null ? void 0 : _b2.featureIcon })
+                        }, null, 8, ["name", "class"]),
+                        createVNode("span", {
+                          class: ui.value.featureTitle({ class: (_c2 = props.ui) == null ? void 0 : _c2.featureTitle })
+                        }, toDisplayString(feature.title), 3)
+                      ], 2);
+                    }), 128))
+                  ])
+                ], 2)) : createCommentVNode("", true)
+              ], 2),
+              _ctx.terms || (_ctx.button || !!slots.button) || _ctx.orientation === "horizontal" || _ctx.tagline || !!slots.footer ? (openBlock(), createBlock("div", {
+                key: 1,
+                class: ui.value.footer({ class: (_p = props.ui) == null ? void 0 : _p.footer })
+              }, [
+                renderSlot(_ctx.$slots, "footer", {}, () => {
+                  var _a4, _b2;
+                  return [
+                    _ctx.tagline ? (openBlock(), createBlock("p", {
+                      key: 0,
+                      class: ui.value.tagline({ class: (_a4 = props.ui) == null ? void 0 : _a4.tagline })
+                    }, toDisplayString(_ctx.tagline), 3)) : createCommentVNode("", true),
+                    _ctx.orientation === "horizontal" ? (openBlock(), createBlock(unref(ReusePriceTemplate), { key: 1 })) : createCommentVNode("", true),
+                    renderSlot(_ctx.$slots, "button", {}, () => {
+                      var _a5, _b3;
+                      return [
+                        _ctx.button ? (openBlock(), createBlock(_component_UButton, mergeProps({ key: 0 }, { block: true, size: "lg", ..._ctx.button }, {
+                          class: ui.value.button({ class: (_a5 = props.ui) == null ? void 0 : _a5.button }),
+                          onClick: (_b3 = _ctx.button) == null ? void 0 : _b3.onClick
+                        }), null, 16, ["class", "onClick"])) : createCommentVNode("", true)
+                      ];
+                    }),
+                    _ctx.terms ? (openBlock(), createBlock("p", {
+                      key: 2,
+                      class: ui.value.terms({ class: (_b2 = props.ui) == null ? void 0 : _b2.terms })
+                    }, toDisplayString(_ctx.terms), 3)) : createCommentVNode("", true)
+                  ];
+                })
+              ], 2)) : createCommentVNode("", true)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+      _push(`<!--]-->`);
     };
   }
 });
@@ -69,454 +481,527 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/pricing/PricingGrid.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/PricingPlan.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const __nuxt_component_1 = Object.assign(_sfc_main$3, { __name: "UPricingGrid" });
+const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UPricingPlan" });
 
-const _sfc_main$2 = /* @__PURE__ */ defineComponent({
-  ...{
-    inheritAttrs: false
+const theme$1 = {
+  "slots": {
+    "root": "relative overflow-auto",
+    "base": "min-w-full overflow-clip",
+    "caption": "sr-only",
+    "thead": "relative [&>tr]:after:absolute [&>tr]:after:inset-x-0 [&>tr]:after:bottom-0 [&>tr]:after:h-px [&>tr]:after:bg-(--ui-border-accented)",
+    "tbody": "divide-y divide-(--ui-border) [&>tr]:data-[selectable=true]:hover:bg-(--ui-bg-elevated)/50 [&>tr]:data-[selectable=true]:focus-visible:outline-(--ui-primary)",
+    "tr": "data-[selected=true]:bg-(--ui-bg-elevated)/50",
+    "th": "px-4 py-3.5 text-sm text-(--ui-text-highlighted) text-left rtl:text-right font-semibold [&:has([role=checkbox])]:pe-0",
+    "td": "p-4 text-sm text-(--ui-text-muted) whitespace-nowrap [&:has([role=checkbox])]:pe-0",
+    "empty": "py-6 text-center text-sm text-(--ui-text-muted)",
+    "loading": "py-6 text-center"
   },
-  __name: "PricingCard",
-  __ssrInlineRender: true,
-  props: {
-    title: {
-      type: String,
-      default: void 0
+  "variants": {
+    "pinned": {
+      "true": {
+        "th": "sticky bg-(--ui-bg)/75 data-[pinned=left]:left-0 data-[pinned=right]:right-0",
+        "td": "sticky bg-(--ui-bg)/75 data-[pinned=left]:left-0 data-[pinned=right]:right-0"
+      }
     },
-    description: {
-      type: String,
-      default: void 0
+    "sticky": {
+      "true": {
+        "thead": "sticky top-0 inset-x-0 bg-(--ui-bg)/75 z-[1] backdrop-blur"
+      }
     },
-    orientation: {
-      type: String,
-      default: "vertical"
+    "loading": {
+      "true": {
+        "thead": "after:absolute after:bottom-0 after:inset-x-0 after:h-px"
+      }
     },
-    align: {
-      type: String,
-      default: "bottom"
+    "loadingAnimation": {
+      "carousel": "",
+      "carousel-inverse": "",
+      "swing": "",
+      "elastic": ""
     },
-    highlight: {
-      type: Boolean,
-      default: false
-    },
-    scale: {
-      type: Boolean,
-      default: false
-    },
-    features: {
-      type: Array,
-      default: () => []
-    },
-    badge: {
-      type: Object,
-      default: void 0
-    },
-    button: {
-      type: Object,
-      default: void 0
-    },
-    price: {
-      type: String,
-      default: void 0
-    },
-    discount: {
-      type: String,
-      default: void 0
-    },
-    cycle: {
-      type: String,
-      default: void 0
-    },
-    class: {
-      type: [String, Object, Array],
-      default: void 0
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
+    "loadingColor": {
+      "primary": "",
+      "secondary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "neutral": ""
     }
   },
-  setup(__props) {
+  "compoundVariants": [
+    {
+      "loading": true,
+      "loadingColor": "primary",
+      "class": {
+        "thead": "after:bg-(--ui-primary)"
+      }
+    },
+    {
+      "loading": true,
+      "loadingColor": "secondary",
+      "class": {
+        "thead": "after:bg-(--ui-secondary)"
+      }
+    },
+    {
+      "loading": true,
+      "loadingColor": "success",
+      "class": {
+        "thead": "after:bg-(--ui-success)"
+      }
+    },
+    {
+      "loading": true,
+      "loadingColor": "info",
+      "class": {
+        "thead": "after:bg-(--ui-info)"
+      }
+    },
+    {
+      "loading": true,
+      "loadingColor": "warning",
+      "class": {
+        "thead": "after:bg-(--ui-warning)"
+      }
+    },
+    {
+      "loading": true,
+      "loadingColor": "error",
+      "class": {
+        "thead": "after:bg-(--ui-error)"
+      }
+    },
+    {
+      "loading": true,
+      "loadingColor": "neutral",
+      "class": {
+        "thead": "after:bg-(--ui-bg-inverted)"
+      }
+    },
+    {
+      "loading": true,
+      "loadingAnimation": "carousel",
+      "class": {
+        "thead": "after:animate-[carousel_2s_ease-in-out_infinite] rtl:after:animate-[carousel-rtl_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "loading": true,
+      "loadingAnimation": "carousel-inverse",
+      "class": {
+        "thead": "after:animate-[carousel-inverse_2s_ease-in-out_infinite] rtl:after:animate-[carousel-inverse-rtl_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "loading": true,
+      "loadingAnimation": "swing",
+      "class": {
+        "thead": "after:animate-[swing_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "loading": true,
+      "loadingAnimation": "elastic",
+      "class": {
+        "thead": "after:animate-[elastic_2s_ease-in-out_infinite]"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "loadingColor": "primary",
+    "loadingAnimation": "carousel"
+  }
+};
+
+var _a$1;
+const appConfigTable = _appConfig;
+const table = tv$1({ extend: tv$1(theme$1), ...((_a$1 = appConfigTable.ui) == null ? void 0 : _a$1.table) || {} });
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
+  __name: "Table",
+  __ssrInlineRender: true,
+  props: /* @__PURE__ */ mergeModels({
+    as: {},
+    data: {},
+    columns: {},
+    caption: {},
+    sticky: { type: Boolean },
+    loading: { type: Boolean },
+    loadingColor: {},
+    loadingAnimation: {},
+    globalFilterOptions: {},
+    columnFiltersOptions: {},
+    columnPinningOptions: {},
+    columnSizingOptions: {},
+    visibilityOptions: {},
+    sortingOptions: {},
+    groupingOptions: {},
+    expandedOptions: {},
+    rowSelectionOptions: {},
+    rowPinningOptions: {},
+    paginationOptions: {},
+    facetedOptions: {},
+    onSelect: { type: Function },
+    class: {},
+    ui: {},
+    state: {},
+    onStateChange: { type: Function },
+    renderFallbackValue: {},
+    _features: {},
+    autoResetAll: { type: Boolean },
+    debugAll: { type: Boolean },
+    debugCells: { type: Boolean },
+    debugColumns: { type: Boolean },
+    debugHeaders: { type: Boolean },
+    debugRows: { type: Boolean },
+    debugTable: { type: Boolean },
+    defaultColumn: {},
+    getRowId: { type: Function },
+    getSubRows: { type: Function },
+    initialState: {},
+    mergeOptions: { type: Function },
+    meta: {}
+  }, {
+    "globalFilter": { default: void 0 },
+    "globalFilterModifiers": {},
+    "columnFilters": { default: [] },
+    "columnFiltersModifiers": {},
+    "columnOrder": { default: [] },
+    "columnOrderModifiers": {},
+    "columnVisibility": { default: {} },
+    "columnVisibilityModifiers": {},
+    "columnPinning": { default: {} },
+    "columnPinningModifiers": {},
+    "columnSizing": { default: {} },
+    "columnSizingModifiers": {},
+    "columnSizingInfo": { default: {} },
+    "columnSizingInfoModifiers": {},
+    "rowSelection": { default: {} },
+    "rowSelectionModifiers": {},
+    "rowPinning": { default: {} },
+    "rowPinningModifiers": {},
+    "sorting": { default: [] },
+    "sortingModifiers": {},
+    "grouping": { default: [] },
+    "groupingModifiers": {},
+    "expanded": { type: [Boolean, Object], ...{ default: {} } },
+    "expandedModifiers": {},
+    "pagination": { default: {} },
+    "paginationModifiers": {}
+  }),
+  emits: ["update:globalFilter", "update:columnFilters", "update:columnOrder", "update:columnVisibility", "update:columnPinning", "update:columnSizing", "update:columnSizingInfo", "update:rowSelection", "update:rowPinning", "update:sorting", "update:grouping", "update:expanded", "update:pagination"],
+  setup(__props, { expose: __expose }) {
     const props = __props;
-    const appConfig = useAppConfig();
-    const config = computed(() => {
-      const base = twJoin(
-        "flex-1 gap-6 lg:gap-x-8 xl:gap-x-10 flex flex-col",
-        props.orientation === "horizontal" ? "lg:grid lg:grid-cols-10" : ""
-      );
-      const left = props.orientation === "horizontal" ? "lg:col-span-7" : "";
-      const right = props.orientation === "horizontal" ? "flex flex-col lg:items-center justify-center gap-y-6 lg:col-span-3 border-t lg:border-l lg:border-t-0 border-gray-200 dark:border-gray-800 pt-6 lg:pt-0 lg:pl-8 xl:pl-10" : "";
-      return {
-        wrapper: "relative flex flex-col self-stretch w-full",
-        highlight: "ring-2 ring-primary dark:ring-primary",
-        scale: "lg:scale-[1.1] lg:z-10",
-        rounded: "rounded-xl",
-        header: {
-          padding: "p-6 lg:px-8 xl:px-10"
+    const slots = useSlots();
+    const { t } = useLocale();
+    const data = computed(() => props.data ?? []);
+    const columns = computed(() => props.columns ?? Object.keys(data.value[0] ?? {}).map((accessorKey) => ({ accessorKey, header: upperFirst(accessorKey) })));
+    const ui = computed(() => table({
+      sticky: props.sticky,
+      loading: props.loading,
+      loadingColor: props.loadingColor,
+      loadingAnimation: props.loadingAnimation
+    }));
+    const globalFilterState = useModel(__props, "globalFilter");
+    const columnFiltersState = useModel(__props, "columnFilters");
+    const columnOrderState = useModel(__props, "columnOrder");
+    const columnVisibilityState = useModel(__props, "columnVisibility");
+    const columnPinningState = useModel(__props, "columnPinning");
+    const columnSizingState = useModel(__props, "columnSizing");
+    const columnSizingInfoState = useModel(__props, "columnSizingInfo");
+    const rowSelectionState = useModel(__props, "rowSelection");
+    const rowPinningState = useModel(__props, "rowPinning");
+    const sortingState = useModel(__props, "sorting");
+    const groupingState = useModel(__props, "grouping");
+    const expandedState = useModel(__props, "expanded");
+    const paginationState = useModel(__props, "pagination");
+    const tableApi = useVueTable({
+      ...reactiveOmit(props, "as", "data", "columns", "caption", "sticky", "loading", "loadingColor", "loadingAnimation", "class", "ui"),
+      data,
+      columns: columns.value,
+      getCoreRowModel: getCoreRowModel(),
+      ...props.globalFilterOptions || {},
+      onGlobalFilterChange: (updaterOrValue) => valueUpdater(updaterOrValue, globalFilterState),
+      ...props.columnFiltersOptions || {},
+      getFilteredRowModel: getFilteredRowModel(),
+      onColumnFiltersChange: (updaterOrValue) => valueUpdater(updaterOrValue, columnFiltersState),
+      onColumnOrderChange: (updaterOrValue) => valueUpdater(updaterOrValue, columnOrderState),
+      ...props.visibilityOptions || {},
+      onColumnVisibilityChange: (updaterOrValue) => valueUpdater(updaterOrValue, columnVisibilityState),
+      ...props.columnPinningOptions || {},
+      onColumnPinningChange: (updaterOrValue) => valueUpdater(updaterOrValue, columnPinningState),
+      ...props.columnSizingOptions || {},
+      onColumnSizingChange: (updaterOrValue) => valueUpdater(updaterOrValue, columnSizingState),
+      onColumnSizingInfoChange: (updaterOrValue) => valueUpdater(updaterOrValue, columnSizingInfoState),
+      ...props.rowSelectionOptions || {},
+      onRowSelectionChange: (updaterOrValue) => valueUpdater(updaterOrValue, rowSelectionState),
+      ...props.rowPinningOptions || {},
+      onRowPinningChange: (updaterOrValue) => valueUpdater(updaterOrValue, rowPinningState),
+      ...props.sortingOptions || {},
+      getSortedRowModel: getSortedRowModel(),
+      onSortingChange: (updaterOrValue) => valueUpdater(updaterOrValue, sortingState),
+      ...props.groupingOptions || {},
+      onGroupingChange: (updaterOrValue) => valueUpdater(updaterOrValue, groupingState),
+      ...props.expandedOptions || {},
+      getExpandedRowModel: getExpandedRowModel(),
+      onExpandedChange: (updaterOrValue) => valueUpdater(updaterOrValue, expandedState),
+      ...props.paginationOptions || {},
+      onPaginationChange: (updaterOrValue) => valueUpdater(updaterOrValue, paginationState),
+      ...props.facetedOptions || {},
+      state: {
+        get globalFilter() {
+          return globalFilterState.value;
         },
-        body: {
-          base,
-          padding: "p-6 lg:p-8 xl:p-10"
+        get columnFilters() {
+          return columnFiltersState.value;
         },
-        footer: {
-          padding: "p-6 lg:px-8 xl:px-10"
+        get columnOrder() {
+          return columnOrderState.value;
         },
-        inner: "flex items-center gap-3",
-        title: "text-2xl text-gray-900 dark:text-white sm:text-3xl font-semibold truncate",
-        description: "text-sm sm:text-base text-gray-500 dark:text-gray-400 mt-2",
-        amount: {
-          base: "flex flex-row items-baseline gap-x-1",
-          discount: "text-gray-500 dark:text-gray-400 line-through text-xl sm:text-2xl font-medium",
-          price: "text-gray-900 dark:text-white text-2xl sm:text-4xl font-semibold",
-          cycle: "text-gray-500 dark:text-gray-400 text-sm/6 font-medium truncate"
+        get columnVisibility() {
+          return columnVisibilityState.value;
         },
-        features: {
-          vertical: "space-y-3 text-sm",
-          horizontal: "grid lg:grid-cols-2 text-sm gap-3",
-          item: {
-            base: "flex items-center gap-x-3 min-w-0",
-            label: "text-gray-600 dark:text-gray-400 truncate",
-            icon: {
-              base: "w-5 h-5 flex-shrink-0 text-primary",
-              name: appConfig.ui.icons.check
-            }
-          }
+        get columnPinning() {
+          return columnPinningState.value;
         },
-        divider: "my-6 lg:my-8",
-        left,
-        right
-      };
+        get expanded() {
+          return expandedState.value;
+        },
+        get rowSelection() {
+          return rowSelectionState.value;
+        },
+        get sorting() {
+          return sortingState.value;
+        },
+        get grouping() {
+          return groupingState.value;
+        },
+        get rowPinning() {
+          return rowPinningState.value;
+        },
+        get columnSizing() {
+          return columnSizingState.value;
+        },
+        get columnSizingInfo() {
+          return columnSizingInfoState.value;
+        },
+        get pagination() {
+          return paginationState.value;
+        }
+      }
     });
-    const { ui, attrs } = useUI("pricing.card", toRef(props, "ui"), config, toRef(props, "class"), true);
+    function valueUpdater(updaterOrValue, ref) {
+      ref.value = typeof updaterOrValue === "function" ? updaterOrValue(ref.value) : updaterOrValue;
+    }
+    function handleRowSelect(row, e) {
+      if (!props.onSelect) {
+        return;
+      }
+      const target = e.target;
+      const isInteractive = target.closest("button");
+      if (isInteractive) {
+        return;
+      }
+      e.preventDefault();
+      e.stopPropagation();
+      props.onSelect(row, e);
+    }
+    __expose({
+      tableApi
+    });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UCard = __nuxt_component_0;
-      const _component_UBadge = __nuxt_component_1$1;
-      const _component_UDivider = __nuxt_component_2$1;
-      const _component_UIcon = __nuxt_component_3;
-      const _component_UButton = __nuxt_component_1$2;
-      _push(ssrRenderComponent(_component_UCard, mergeProps({
-        class: [unref(ui).wrapper, __props.highlight && unref(ui).highlight, __props.scale && unref(ui).scale]
-      }, unref(attrs), { ui: unref(ui) }, _attrs), createSlots({
+      var _a2;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
-          var _a, _b, _c, _d, _e, _f;
+          var _a3, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r;
           if (_push2) {
-            _push2(`<div class="${ssrRenderClass(unref(ui).left)}"${_scopeId}><div class="${ssrRenderClass(unref(ui).inner)}"${_scopeId}>`);
-            if (__props.title || _ctx.$slots.title) {
-              _push2(`<p class="${ssrRenderClass(unref(ui).title)}"${_scopeId}>`);
-              ssrRenderSlot(_ctx.$slots, "title", {}, () => {
-                _push2(`${ssrInterpolate(__props.title)}`);
+            _push2(`<table class="${ssrRenderClass(ui.value.base({ class: [(_a3 = props.ui) == null ? void 0 : _a3.base] }))}"${_scopeId}>`);
+            if (_ctx.caption) {
+              _push2(`<caption class="${ssrRenderClass(ui.value.caption({ class: [(_b = props.ui) == null ? void 0 : _b.caption] }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "caption", {}, () => {
+                _push2(`${ssrInterpolate(_ctx.caption)}`);
               }, _push2, _parent2, _scopeId);
-              _push2(`</p>`);
+              _push2(`</caption>`);
             } else {
               _push2(`<!---->`);
             }
-            if (__props.badge) {
-              _push2(ssrRenderComponent(_component_UBadge, { variant: "subtle", ...__props.badge }, null, _parent2, _scopeId));
-            } else {
-              _push2(`<!---->`);
-            }
-            _push2(`</div>`);
-            if (__props.description || _ctx.$slots.description) {
-              _push2(`<div class="${ssrRenderClass(unref(ui).description)}"${_scopeId}>`);
-              ssrRenderSlot(_ctx.$slots, "description", {}, () => {
-                _push2(`${ssrInterpolate(__props.description)}`);
-              }, _push2, _parent2, _scopeId);
-              _push2(`</div>`);
-            } else {
-              _push2(`<!---->`);
-            }
-            if (__props.orientation === "horizontal") {
+            _push2(`<thead class="${ssrRenderClass(ui.value.thead({ class: [(_c = props.ui) == null ? void 0 : _c.thead] }))}"${_scopeId}><!--[-->`);
+            ssrRenderList(unref(tableApi).getHeaderGroups(), (headerGroup) => {
+              var _a4;
+              _push2(`<tr class="${ssrRenderClass(ui.value.tr({ class: [(_a4 = props.ui) == null ? void 0 : _a4.tr] }))}"${_scopeId}><!--[-->`);
+              ssrRenderList(headerGroup.headers, (header) => {
+                var _a5, _b2, _c2;
+                _push2(`<th${ssrRenderAttr("data-pinned", header.column.getIsPinned())} class="${ssrRenderClass(ui.value.th({ class: [(_a5 = props.ui) == null ? void 0 : _a5.th, (_c2 = (_b2 = header.column.columnDef.meta) == null ? void 0 : _b2.class) == null ? void 0 : _c2.th], pinned: !!header.column.getIsPinned() }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, `${header.id}-header`, mergeProps({ ref_for: true }, header.getContext()), () => {
+                  if (!header.isPlaceholder) {
+                    _push2(ssrRenderComponent(unref(FlexRender), {
+                      render: header.column.columnDef.header,
+                      props: header.getContext()
+                    }, null, _parent2, _scopeId));
+                  } else {
+                    _push2(`<!---->`);
+                  }
+                }, _push2, _parent2, _scopeId);
+                _push2(`</th>`);
+              });
+              _push2(`<!--]--></tr>`);
+            });
+            _push2(`<!--]--></thead><tbody class="${ssrRenderClass(ui.value.tbody({ class: [(_d = props.ui) == null ? void 0 : _d.tbody] }))}"${_scopeId}>`);
+            if ((_e = unref(tableApi).getRowModel().rows) == null ? void 0 : _e.length) {
               _push2(`<!--[-->`);
-              _push2(ssrRenderComponent(_component_UDivider, {
-                class: unref(ui).divider
-              }, null, _parent2, _scopeId));
-              if (((_a = __props.features) == null ? void 0 : _a.length) || _ctx.$slots.features) {
-                _push2(`<div class="flex-1"${_scopeId}>`);
-                ssrRenderSlot(_ctx.$slots, "features", {}, () => {
-                  var _a2;
-                  if ((_a2 = __props.features) == null ? void 0 : _a2.length) {
-                    _push2(`<ul class="${ssrRenderClass(unref(ui).features.horizontal)}"${_scopeId}><!--[-->`);
-                    ssrRenderList(__props.features, (offer, index) => {
-                      _push2(`<li class="${ssrRenderClass(unref(ui).features.item.base)}"${_scopeId}>`);
-                      _push2(ssrRenderComponent(_component_UIcon, {
-                        name: unref(ui).features.item.icon.name,
-                        class: unref(ui).features.item.icon.base
-                      }, null, _parent2, _scopeId));
-                      _push2(`<span class="${ssrRenderClass(unref(ui).features.item.label)}"${_scopeId}>${ssrInterpolate(offer)}</span></li>`);
-                    });
-                    _push2(`<!--]--></ul>`);
-                  } else {
-                    _push2(`<!---->`);
-                  }
-                }, _push2, _parent2, _scopeId);
-                _push2(`</div>`);
-              } else {
-                _push2(`<!---->`);
-              }
-              _push2(`<!--]-->`);
-            } else {
-              _push2(`<!---->`);
-            }
-            _push2(`</div>`);
-            if (__props.orientation === "vertical") {
-              _push2(`<!--[--><div class="${ssrRenderClass(unref(ui).amount.base)}"${_scopeId}>`);
-              ssrRenderSlot(_ctx.$slots, "amount", {}, () => {
-                if (__props.discount && __props.price) {
-                  _push2(`<p class="${ssrRenderClass(unref(ui).amount.discount)}"${_scopeId}>${ssrInterpolate(__props.price)}</p>`);
+              ssrRenderList(unref(tableApi).getRowModel().rows, (row) => {
+                var _a4, _b2, _c2;
+                _push2(`<!--[--><tr${ssrRenderAttr("data-selected", row.getIsSelected())}${ssrRenderAttr("data-selectable", !!props.onSelect)}${ssrRenderAttr("data-expanded", row.getIsExpanded())}${ssrRenderAttr("role", props.onSelect ? "button" : void 0)}${ssrRenderAttr("tabindex", props.onSelect ? 0 : void 0)} class="${ssrRenderClass(ui.value.tr({ class: [(_a4 = props.ui) == null ? void 0 : _a4.tr] }))}"${_scopeId}><!--[-->`);
+                ssrRenderList(row.getVisibleCells(), (cell) => {
+                  var _a5, _b3, _c3;
+                  _push2(`<td${ssrRenderAttr("data-pinned", cell.column.getIsPinned())} class="${ssrRenderClass(ui.value.td({ class: [(_a5 = props.ui) == null ? void 0 : _a5.td, (_c3 = (_b3 = cell.column.columnDef.meta) == null ? void 0 : _b3.class) == null ? void 0 : _c3.td], pinned: !!cell.column.getIsPinned() }))}"${_scopeId}>`);
+                  ssrRenderSlot(_ctx.$slots, `${cell.column.id}-cell`, mergeProps({ ref_for: true }, cell.getContext()), () => {
+                    _push2(ssrRenderComponent(unref(FlexRender), {
+                      render: cell.column.columnDef.cell,
+                      props: cell.getContext()
+                    }, null, _parent2, _scopeId));
+                  }, _push2, _parent2, _scopeId);
+                  _push2(`</td>`);
+                });
+                _push2(`<!--]--></tr>`);
+                if (row.getIsExpanded()) {
+                  _push2(`<tr class="${ssrRenderClass(ui.value.tr({ class: [(_b2 = props.ui) == null ? void 0 : _b2.tr] }))}"${_scopeId}><td${ssrRenderAttr("colspan", row.getAllCells().length)} class="${ssrRenderClass(ui.value.td({ class: [(_c2 = props.ui) == null ? void 0 : _c2.td] }))}"${_scopeId}>`);
+                  ssrRenderSlot(_ctx.$slots, "expanded", { row }, null, _push2, _parent2, _scopeId);
+                  _push2(`</td></tr>`);
                 } else {
                   _push2(`<!---->`);
                 }
-                _push2(`<p class="${ssrRenderClass(unref(ui).amount.price)}"${_scopeId}>${ssrInterpolate(__props.discount || __props.price || " ")}</p>`);
-                ssrRenderSlot(_ctx.$slots, "cycle", {}, () => {
-                  if (__props.cycle) {
-                    _push2(`<p class="${ssrRenderClass(unref(ui).amount.cycle)}"${_scopeId}>${ssrInterpolate(__props.cycle)}</p>`);
-                  } else {
-                    _push2(`<!---->`);
-                  }
-                }, _push2, _parent2, _scopeId);
-              }, _push2, _parent2, _scopeId);
-              _push2(`</div>`);
-              if (((_b = __props.features) == null ? void 0 : _b.length) || _ctx.$slots.features) {
-                _push2(`<div class="${ssrRenderClass([__props.align === "top" && "order-last", "flex-1"])}"${_scopeId}>`);
-                ssrRenderSlot(_ctx.$slots, "features", {}, () => {
-                  var _a2;
-                  if ((_a2 = __props.features) == null ? void 0 : _a2.length) {
-                    _push2(`<ul class="${ssrRenderClass(unref(ui).features.vertical)}"${_scopeId}><!--[-->`);
-                    ssrRenderList(__props.features, (offer, index) => {
-                      _push2(`<li class="${ssrRenderClass(unref(ui).features.item.base)}"${_scopeId}>`);
-                      _push2(ssrRenderComponent(_component_UIcon, {
-                        name: unref(ui).features.item.icon.name,
-                        class: unref(ui).features.item.icon.base
-                      }, null, _parent2, _scopeId));
-                      _push2(`<span class="${ssrRenderClass(unref(ui).features.item.label)}"${_scopeId}>${ssrInterpolate(offer)}</span></li>`);
-                    });
-                    _push2(`<!--]--></ul>`);
-                  } else {
-                    _push2(`<!---->`);
-                  }
-                }, _push2, _parent2, _scopeId);
-                _push2(`</div>`);
-              } else {
-                _push2(`<!---->`);
-              }
+                _push2(`<!--]-->`);
+              });
               _push2(`<!--]-->`);
+            } else if (_ctx.loading && !!slots["loading"]) {
+              _push2(`<tr${_scopeId}><td${ssrRenderAttr("colspan", (_f = columns.value) == null ? void 0 : _f.length)} class="${ssrRenderClass(ui.value.loading({ class: (_g = props.ui) == null ? void 0 : _g.loading }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "loading", {}, null, _push2, _parent2, _scopeId);
+              _push2(`</td></tr>`);
             } else {
-              _push2(`<!---->`);
-            }
-            _push2(`<div class="${ssrRenderClass(unref(ui).right)}"${_scopeId}>`);
-            if (__props.orientation === "horizontal") {
-              _push2(`<div class="${ssrRenderClass([unref(ui).amount.base, __props.align === "top" && "order-last"])}"${_scopeId}>`);
-              ssrRenderSlot(_ctx.$slots, "amount", {}, () => {
-                if (__props.discount && __props.price) {
-                  _push2(`<p class="${ssrRenderClass(unref(ui).amount.discount)}"${_scopeId}>${ssrInterpolate(__props.price)}</p>`);
-                } else {
-                  _push2(`<!---->`);
-                }
-                _push2(`<p class="${ssrRenderClass(unref(ui).amount.price)}"${_scopeId}>${ssrInterpolate(__props.discount || __props.price || " ")}</p>`);
-                ssrRenderSlot(_ctx.$slots, "cycle", {}, () => {
-                  if (__props.cycle) {
-                    _push2(`<p class="${ssrRenderClass(unref(ui).amount.cycle)}"${_scopeId}>${ssrInterpolate(__props.cycle)}</p>`);
-                  } else {
-                    _push2(`<!---->`);
-                  }
-                }, _push2, _parent2, _scopeId);
+              _push2(`<tr${_scopeId}><td${ssrRenderAttr("colspan", (_h = columns.value) == null ? void 0 : _h.length)} class="${ssrRenderClass(ui.value.empty({ class: (_i = props.ui) == null ? void 0 : _i.empty }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "empty", {}, () => {
+                _push2(`${ssrInterpolate(unref(t)("table.noData"))}`);
               }, _push2, _parent2, _scopeId);
-              _push2(`</div>`);
-            } else {
-              _push2(`<!---->`);
+              _push2(`</td></tr>`);
             }
-            if (__props.button) {
-              _push2(ssrRenderComponent(_component_UButton, mergeProps({ block: true, size: "lg", ...__props.button }, {
-                onClick: (_c = __props.button) == null ? void 0 : _c.click
-              }), null, _parent2, _scopeId));
-            } else {
-              _push2(`<!---->`);
-            }
-            if (__props.orientation === "horizontal") {
-              ssrRenderSlot(_ctx.$slots, "bottom", {}, null, _push2, _parent2, _scopeId);
-            } else {
-              _push2(`<!---->`);
-            }
-            _push2(`</div>`);
-            if (__props.orientation === "vertical") {
-              ssrRenderSlot(_ctx.$slots, "bottom", {}, null, _push2, _parent2, _scopeId);
-            } else {
-              _push2(`<!---->`);
-            }
+            _push2(`</tbody></table>`);
           } else {
             return [
-              createVNode("div", {
-                class: unref(ui).left
+              createVNode("table", {
+                class: ui.value.base({ class: [(_j = props.ui) == null ? void 0 : _j.base] })
               }, [
-                createVNode("div", {
-                  class: unref(ui).inner
-                }, [
-                  __props.title || _ctx.$slots.title ? (openBlock(), createBlock("p", {
-                    key: 0,
-                    class: unref(ui).title
-                  }, [
-                    renderSlot(_ctx.$slots, "title", {}, () => [
-                      createTextVNode(toDisplayString(__props.title), 1)
-                    ])
-                  ], 2)) : createCommentVNode("", true),
-                  __props.badge ? (openBlock(), createBlock(_component_UBadge, mergeProps({ key: 1 }, { variant: "subtle", ...__props.badge }), null, 16)) : createCommentVNode("", true)
-                ], 2),
-                __props.description || _ctx.$slots.description ? (openBlock(), createBlock("div", {
+                _ctx.caption ? (openBlock(), createBlock("caption", {
                   key: 0,
-                  class: unref(ui).description
+                  class: ui.value.caption({ class: [(_k = props.ui) == null ? void 0 : _k.caption] })
                 }, [
-                  renderSlot(_ctx.$slots, "description", {}, () => [
-                    createTextVNode(toDisplayString(__props.description), 1)
+                  renderSlot(_ctx.$slots, "caption", {}, () => [
+                    createTextVNode(toDisplayString(_ctx.caption), 1)
                   ])
                 ], 2)) : createCommentVNode("", true),
-                __props.orientation === "horizontal" ? (openBlock(), createBlock(Fragment, { key: 1 }, [
-                  createVNode(_component_UDivider, {
-                    class: unref(ui).divider
-                  }, null, 8, ["class"]),
-                  ((_d = __props.features) == null ? void 0 : _d.length) || _ctx.$slots.features ? (openBlock(), createBlock("div", {
-                    key: 0,
-                    class: "flex-1"
-                  }, [
-                    renderSlot(_ctx.$slots, "features", {}, () => {
-                      var _a2;
-                      return [
-                        ((_a2 = __props.features) == null ? void 0 : _a2.length) ? (openBlock(), createBlock("ul", {
-                          key: 0,
-                          class: unref(ui).features.horizontal
+                createVNode("thead", {
+                  class: ui.value.thead({ class: [(_l = props.ui) == null ? void 0 : _l.thead] })
+                }, [
+                  (openBlock(true), createBlock(Fragment, null, renderList(unref(tableApi).getHeaderGroups(), (headerGroup) => {
+                    var _a4;
+                    return openBlock(), createBlock("tr", {
+                      key: headerGroup.id,
+                      class: ui.value.tr({ class: [(_a4 = props.ui) == null ? void 0 : _a4.tr] })
+                    }, [
+                      (openBlock(true), createBlock(Fragment, null, renderList(headerGroup.headers, (header) => {
+                        var _a5, _b2, _c2;
+                        return openBlock(), createBlock("th", {
+                          key: header.id,
+                          "data-pinned": header.column.getIsPinned(),
+                          class: ui.value.th({ class: [(_a5 = props.ui) == null ? void 0 : _a5.th, (_c2 = (_b2 = header.column.columnDef.meta) == null ? void 0 : _b2.class) == null ? void 0 : _c2.th], pinned: !!header.column.getIsPinned() })
                         }, [
-                          (openBlock(true), createBlock(Fragment, null, renderList(__props.features, (offer, index) => {
-                            return openBlock(), createBlock("li", {
-                              key: index,
-                              class: unref(ui).features.item.base
-                            }, [
-                              createVNode(_component_UIcon, {
-                                name: unref(ui).features.item.icon.name,
-                                class: unref(ui).features.item.icon.base
-                              }, null, 8, ["name", "class"]),
-                              createVNode("span", {
-                                class: unref(ui).features.item.label
-                              }, toDisplayString(offer), 3)
-                            ], 2);
-                          }), 128))
-                        ], 2)) : createCommentVNode("", true)
-                      ];
-                    })
-                  ])) : createCommentVNode("", true)
-                ], 64)) : createCommentVNode("", true)
-              ], 2),
-              __props.orientation === "vertical" ? (openBlock(), createBlock(Fragment, { key: 0 }, [
-                createVNode("div", {
-                  class: unref(ui).amount.base
-                }, [
-                  renderSlot(_ctx.$slots, "amount", {}, () => [
-                    __props.discount && __props.price ? (openBlock(), createBlock("p", {
-                      key: 0,
-                      class: unref(ui).amount.discount
-                    }, toDisplayString(__props.price), 3)) : createCommentVNode("", true),
-                    createVNode("p", {
-                      class: unref(ui).amount.price
-                    }, toDisplayString(__props.discount || __props.price || " "), 3),
-                    renderSlot(_ctx.$slots, "cycle", {}, () => [
-                      __props.cycle ? (openBlock(), createBlock("p", {
-                        key: 0,
-                        class: unref(ui).amount.cycle
-                      }, toDisplayString(__props.cycle), 3)) : createCommentVNode("", true)
-                    ])
-                  ])
+                          renderSlot(_ctx.$slots, `${header.id}-header`, mergeProps({ ref_for: true }, header.getContext()), () => [
+                            !header.isPlaceholder ? (openBlock(), createBlock(unref(FlexRender), {
+                              key: 0,
+                              render: header.column.columnDef.header,
+                              props: header.getContext()
+                            }, null, 8, ["render", "props"])) : createCommentVNode("", true)
+                          ])
+                        ], 10, ["data-pinned"]);
+                      }), 128))
+                    ], 2);
+                  }), 128))
                 ], 2),
-                ((_e = __props.features) == null ? void 0 : _e.length) || _ctx.$slots.features ? (openBlock(), createBlock("div", {
-                  key: 0,
-                  class: [__props.align === "top" && "order-last", "flex-1"]
+                createVNode("tbody", {
+                  class: ui.value.tbody({ class: [(_m = props.ui) == null ? void 0 : _m.tbody] })
                 }, [
-                  renderSlot(_ctx.$slots, "features", {}, () => {
-                    var _a2;
-                    return [
-                      ((_a2 = __props.features) == null ? void 0 : _a2.length) ? (openBlock(), createBlock("ul", {
-                        key: 0,
-                        class: unref(ui).features.vertical
+                  ((_n = unref(tableApi).getRowModel().rows) == null ? void 0 : _n.length) ? (openBlock(true), createBlock(Fragment, { key: 0 }, renderList(unref(tableApi).getRowModel().rows, (row) => {
+                    var _a4, _b2, _c2;
+                    return openBlock(), createBlock(Fragment, {
+                      key: row.id
+                    }, [
+                      createVNode("tr", {
+                        "data-selected": row.getIsSelected(),
+                        "data-selectable": !!props.onSelect,
+                        "data-expanded": row.getIsExpanded(),
+                        role: props.onSelect ? "button" : void 0,
+                        tabindex: props.onSelect ? 0 : void 0,
+                        class: ui.value.tr({ class: [(_a4 = props.ui) == null ? void 0 : _a4.tr] }),
+                        onClick: ($event) => handleRowSelect(row, $event)
                       }, [
-                        (openBlock(true), createBlock(Fragment, null, renderList(__props.features, (offer, index) => {
-                          return openBlock(), createBlock("li", {
-                            key: index,
-                            class: unref(ui).features.item.base
+                        (openBlock(true), createBlock(Fragment, null, renderList(row.getVisibleCells(), (cell) => {
+                          var _a5, _b3, _c3;
+                          return openBlock(), createBlock("td", {
+                            key: cell.id,
+                            "data-pinned": cell.column.getIsPinned(),
+                            class: ui.value.td({ class: [(_a5 = props.ui) == null ? void 0 : _a5.td, (_c3 = (_b3 = cell.column.columnDef.meta) == null ? void 0 : _b3.class) == null ? void 0 : _c3.td], pinned: !!cell.column.getIsPinned() })
                           }, [
-                            createVNode(_component_UIcon, {
-                              name: unref(ui).features.item.icon.name,
-                              class: unref(ui).features.item.icon.base
-                            }, null, 8, ["name", "class"]),
-                            createVNode("span", {
-                              class: unref(ui).features.item.label
-                            }, toDisplayString(offer), 3)
-                          ], 2);
+                            renderSlot(_ctx.$slots, `${cell.column.id}-cell`, mergeProps({ ref_for: true }, cell.getContext()), () => [
+                              createVNode(unref(FlexRender), {
+                                render: cell.column.columnDef.cell,
+                                props: cell.getContext()
+                              }, null, 8, ["render", "props"])
+                            ])
+                          ], 10, ["data-pinned"]);
                         }), 128))
-                      ], 2)) : createCommentVNode("", true)
-                    ];
-                  })
-                ], 2)) : createCommentVNode("", true)
-              ], 64)) : createCommentVNode("", true),
-              createVNode("div", {
-                class: unref(ui).right
-              }, [
-                __props.orientation === "horizontal" ? (openBlock(), createBlock("div", {
-                  key: 0,
-                  class: [unref(ui).amount.base, __props.align === "top" && "order-last"]
-                }, [
-                  renderSlot(_ctx.$slots, "amount", {}, () => [
-                    __props.discount && __props.price ? (openBlock(), createBlock("p", {
-                      key: 0,
-                      class: unref(ui).amount.discount
-                    }, toDisplayString(__props.price), 3)) : createCommentVNode("", true),
-                    createVNode("p", {
-                      class: unref(ui).amount.price
-                    }, toDisplayString(__props.discount || __props.price || " "), 3),
-                    renderSlot(_ctx.$slots, "cycle", {}, () => [
-                      __props.cycle ? (openBlock(), createBlock("p", {
+                      ], 10, ["data-selected", "data-selectable", "data-expanded", "role", "tabindex", "onClick"]),
+                      row.getIsExpanded() ? (openBlock(), createBlock("tr", {
                         key: 0,
-                        class: unref(ui).amount.cycle
-                      }, toDisplayString(__props.cycle), 3)) : createCommentVNode("", true)
-                    ])
-                  ])
-                ], 2)) : createCommentVNode("", true),
-                __props.button ? (openBlock(), createBlock(_component_UButton, mergeProps({ key: 1 }, { block: true, size: "lg", ...__props.button }, {
-                  onClick: (_f = __props.button) == null ? void 0 : _f.click
-                }), null, 16, ["onClick"])) : createCommentVNode("", true),
-                __props.orientation === "horizontal" ? renderSlot(_ctx.$slots, "bottom", { key: 2 }) : createCommentVNode("", true)
-              ], 2),
-              __props.orientation === "vertical" ? renderSlot(_ctx.$slots, "bottom", { key: 1 }) : createCommentVNode("", true)
+                        class: ui.value.tr({ class: [(_b2 = props.ui) == null ? void 0 : _b2.tr] })
+                      }, [
+                        createVNode("td", {
+                          colspan: row.getAllCells().length,
+                          class: ui.value.td({ class: [(_c2 = props.ui) == null ? void 0 : _c2.td] })
+                        }, [
+                          renderSlot(_ctx.$slots, "expanded", { row })
+                        ], 10, ["colspan"])
+                      ], 2)) : createCommentVNode("", true)
+                    ], 64);
+                  }), 128)) : _ctx.loading && !!slots["loading"] ? (openBlock(), createBlock("tr", { key: 1 }, [
+                    createVNode("td", {
+                      colspan: (_o = columns.value) == null ? void 0 : _o.length,
+                      class: ui.value.loading({ class: (_p = props.ui) == null ? void 0 : _p.loading })
+                    }, [
+                      renderSlot(_ctx.$slots, "loading")
+                    ], 10, ["colspan"])
+                  ])) : (openBlock(), createBlock("tr", { key: 2 }, [
+                    createVNode("td", {
+                      colspan: (_q = columns.value) == null ? void 0 : _q.length,
+                      class: ui.value.empty({ class: (_r = props.ui) == null ? void 0 : _r.empty })
+                    }, [
+                      renderSlot(_ctx.$slots, "empty", {}, () => [
+                        createTextVNode(toDisplayString(unref(t)("table.noData")), 1)
+                      ])
+                    ], 10, ["colspan"])
+                  ]))
+                ], 2)
+              ], 2)
             ];
           }
         }),
-        _: 2
-      }, [
-        _ctx.$slots.header ? {
-          name: "header",
-          fn: withCtx((_, _push2, _parent2, _scopeId) => {
-            if (_push2) {
-              ssrRenderSlot(_ctx.$slots, "header", {}, null, _push2, _parent2, _scopeId);
-            } else {
-              return [
-                renderSlot(_ctx.$slots, "header")
-              ];
-            }
-          }),
-          key: "0"
-        } : void 0,
-        _ctx.$slots.footer ? {
-          name: "footer",
-          fn: withCtx((_, _push2, _parent2, _scopeId) => {
-            if (_push2) {
-              ssrRenderSlot(_ctx.$slots, "footer", {}, null, _push2, _parent2, _scopeId);
-            } else {
-              return [
-                renderSlot(_ctx.$slots, "footer")
-              ];
-            }
-          }),
-          key: "1"
-        } : void 0
-      ]), _parent));
+        _: 3
+      }, _parent));
     };
   }
 });
@@ -524,601 +1009,135 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/pricing/PricingCard.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Table.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const __nuxt_component_2 = Object.assign(_sfc_main$2, { __name: "UPricingCard" });
+const __nuxt_component_2 = Object.assign(_sfc_main$2, { __name: "UTable" });
 
-const table = {
-  wrapper: "relative overflow-x-auto",
-  base: "min-w-full table-fixed",
-  divide: "divide-y divide-gray-300 dark:divide-gray-700",
-  thead: "relative",
-  tbody: "divide-y divide-gray-200 dark:divide-gray-800",
-  caption: "sr-only",
-  tr: {
-    base: "",
-    selected: "bg-gray-50 dark:bg-gray-800/50",
-    expanded: "bg-gray-50 dark:bg-gray-800/50",
-    active: "hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer"
-  },
-  th: {
-    base: "text-left rtl:text-right",
-    padding: "px-4 py-3.5",
-    color: "text-gray-900 dark:text-white",
-    font: "font-semibold",
-    size: "text-sm"
-  },
-  td: {
-    base: "whitespace-nowrap",
-    padding: "px-4 py-4",
-    color: "text-gray-500 dark:text-gray-400",
-    font: "",
-    size: "text-sm"
-  },
-  checkbox: {
-    padding: "ps-4"
-  },
-  loadingState: {
-    wrapper: "flex flex-col items-center justify-center flex-1 px-6 py-14 sm:px-14",
-    label: "text-sm text-center text-gray-900 dark:text-white",
-    icon: "w-6 h-6 mx-auto text-gray-400 dark:text-gray-500 mb-4 animate-spin"
-  },
-  emptyState: {
-    wrapper: "flex flex-col items-center justify-center flex-1 px-6 py-14 sm:px-14",
-    label: "text-sm text-center text-gray-900 dark:text-white",
-    icon: "w-6 h-6 mx-auto text-gray-400 dark:text-gray-500 mb-4"
-  },
-  expand: {
-    icon: "transform transition-transform duration-200"
-  },
-  progress: {
-    wrapper: "absolute inset-x-0 -bottom-[0.5px] p-0"
-  },
-  default: {
-    sortAscIcon: "i-heroicons-bars-arrow-up-20-solid",
-    sortDescIcon: "i-heroicons-bars-arrow-down-20-solid",
-    sortButton: {
-      icon: "i-heroicons-arrows-up-down-20-solid",
-      trailing: true,
-      square: true,
-      color: "gray",
-      variant: "ghost",
-      class: "-m-1.5"
+const theme = {
+  "base": "flex flex-col gap-y-8",
+  "variants": {
+    "orientation": {
+      "horizontal": "lg:grid lg:grid-cols-[repeat(var(--count),minmax(0,1fr))]",
+      "vertical": ""
     },
-    expandButton: {
-      icon: "i-heroicons-chevron-down",
-      color: "gray",
-      variant: "ghost",
-      size: "xs",
-      class: "-my-1.5 align-middle"
+    "compact": {
+      "false": "gap-x-8"
     },
-    checkbox: {
-      color: "primary"
-    },
-    progress: {
-      color: "primary",
-      animation: "carousel"
-    },
-    loadingState: {
-      icon: "i-heroicons-arrow-path-20-solid",
-      label: "Loading..."
-    },
-    emptyState: {
-      icon: "i-heroicons-circle-stack-20-solid",
-      label: "No items."
+    "scale": {
+      "true": ""
     }
-  }
+  },
+  "compoundVariants": [
+    {
+      "compact": false,
+      "scale": true,
+      "class": "lg:gap-x-13"
+    }
+  ]
 };
 
-const config = mergeConfig(appConfig.ui.strategy, appConfig.ui.table, table);
-function defaultComparator(a, z) {
-  return isEqual(a, z);
-}
-function defaultSort(a, b, direction) {
-  if (a === b) {
-    return 0;
-  }
-  if (direction === "asc") {
-    return a < b ? -1 : 1;
-  } else {
-    return a > b ? -1 : 1;
-  }
-}
-function getStringifiedSet(arr) {
-  return new Set(arr.map((item) => JSON.stringify(item)));
-}
-function accessor(key) {
-  return (obj) => get(obj, key);
-}
-const _sfc_main$1 = defineComponent({
-  components: {
-    UIcon: __nuxt_component_3,
-    UButton: __nuxt_component_1$2,
-    UProgress: __nuxt_component_2$2,
-    UCheckbox: __nuxt_component_0$1
-  },
-  inheritAttrs: false,
+var _a;
+const appConfigPricingPlans = _appConfig;
+const pricingPlans = tv({ extend: tv(theme), ...((_a = appConfigPricingPlans.uiPro) == null ? void 0 : _a.pricingPlans) || {} });
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+  __name: "PricingPlans",
+  __ssrInlineRender: true,
   props: {
-    modelValue: {
-      type: Array,
-      default: null
-    },
-    by: {
-      type: [String, Function],
-      default: () => defaultComparator
-    },
-    rows: {
-      type: Array,
-      default: () => []
-    },
-    columns: {
-      type: Array,
-      default: null
-    },
-    columnAttribute: {
-      type: String,
-      default: "label"
-    },
-    sort: {
-      type: Object,
-      default: () => ({})
-    },
-    sortMode: {
-      type: String,
-      default: "auto"
-    },
-    sortButton: {
-      type: Object,
-      default: () => config.default.sortButton
-    },
-    sortAscIcon: {
-      type: String,
-      default: () => config.default.sortAscIcon
-    },
-    sortDescIcon: {
-      type: String,
-      default: () => config.default.sortDescIcon
-    },
-    expandButton: {
-      type: Object,
-      default: () => config.default.expandButton
-    },
-    expand: {
-      type: Object,
-      default: () => null
-    },
-    loading: {
-      type: Boolean,
-      default: false
-    },
-    loadingState: {
-      type: Object,
-      default: () => config.default.loadingState
-    },
-    emptyState: {
-      type: Object,
-      default: () => config.default.emptyState
-    },
-    caption: {
-      type: String,
-      default: null
-    },
-    progress: {
-      type: Object,
-      default: () => config.default.progress
-    },
-    class: {
-      type: [String, Object, Array],
-      default: () => ""
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
-    },
-    multipleExpand: {
-      type: Boolean,
-      default: true
-    },
-    singleSelect: {
-      type: Boolean,
-      default: false
-    }
+    as: {},
+    plans: {},
+    orientation: { default: "horizontal" },
+    compact: { type: Boolean, default: false },
+    scale: { type: Boolean, default: false },
+    class: {}
   },
-  emits: ["update:modelValue", "update:sort", "update:expand", "select:all"],
-  setup(props, { emit, attrs: $attrs }) {
-    const { ui, attrs } = useUI("table", toRef(props, "ui"), config, toRef(props, "class"));
-    const columns = computed(() => {
-      const defaultColumns = props.columns ?? Object.keys(props.rows[0]).map((key) => ({
-        key,
-        label: upperFirst(key),
-        sortable: false,
-        class: void 0,
-        sort: defaultSort
-      }));
-      const hasColumnSelect = defaultColumns.find((v) => v.key === "select");
-      if (hasColumnSelect || !props.modelValue) {
-        return defaultColumns;
-      }
-      return [{
-        key: "select",
-        sortable: false,
-        class: void 0,
-        sort: defaultSort
-      }, ...defaultColumns];
+  setup(__props) {
+    const props = __props;
+    const slots = useSlots();
+    const count = computed(() => {
+      var _a2, _b, _c, _d;
+      return ((_a2 = props.plans) == null ? void 0 : _a2.length) || ((_d = (_c = (_b = slots.default) == null ? void 0 : _b.call(slots)) == null ? void 0 : _c.flatMap(mapSlot).filter(Boolean)) == null ? void 0 : _d.length) || 3;
     });
-    const sort = useVModel(props, "sort", emit, { passive: true, defaultValue: defu({}, props.sort, { column: null, direction: "asc" }) });
-    const expand = useVModel(props, "expand", emit, {
-      passive: true,
-      defaultValue: defu({}, props.expand, {
-        openedRows: [],
-        row: null
-      })
-    });
-    const savedSort = { column: sort.value.column, direction: null };
-    const rows = computed(() => {
-      var _a;
-      if (!((_a = sort.value) == null ? void 0 : _a.column) || props.sortMode === "manual") {
-        return props.rows;
-      }
-      const { column, direction } = sort.value;
-      return props.rows.slice().sort((a, b) => {
-        var _a2;
-        const aValue = get(a, column);
-        const bValue = get(b, column);
-        const sort2 = ((_a2 = columns.value.find((col) => col.key === column)) == null ? void 0 : _a2.sort) ?? defaultSort;
-        return sort2(aValue, bValue, direction);
-      });
-    });
-    const selected = computed({
-      get() {
-        return props.modelValue;
-      },
-      set(value) {
-        emit("update:modelValue", value);
-      }
-    });
-    const totalRows = computed(() => props.rows.length);
-    const countCheckedRow = computed(() => {
-      const selectedData = getStringifiedSet(selected.value);
-      const rowsData = getStringifiedSet(props.rows);
-      return Array.from(selectedData).filter((item) => rowsData.has(item)).length;
-    });
-    const indeterminate = computed(() => {
-      if (!selected.value || !props.rows) return false;
-      return countCheckedRow.value > 0 && countCheckedRow.value < totalRows.value;
-    });
-    const isAllRowChecked = computed(() => countCheckedRow.value === totalRows.value);
-    const emptyState = computed(() => {
-      if (props.emptyState === null) return null;
-      return { ...ui.value.default.emptyState, ...props.emptyState };
-    });
-    const loadingState = computed(() => {
-      if (props.loadingState === null) return null;
-      return { ...ui.value.default.loadingState, ...props.loadingState };
-    });
-    function compare(a, z) {
-      if (typeof props.by === "string") {
-        const accesorFn = accessor(props.by);
-        return accesorFn(a) === accesorFn(z);
-      }
-      return props.by(a, z);
-    }
-    function isSelected(row) {
-      if (!props.modelValue) {
-        return false;
-      }
-      return selected.value.some((item) => compare(toRaw(item), toRaw(row)));
-    }
-    function onSort(column) {
-      if (sort.value.column === column.key) {
-        const direction = !column.direction || column.direction === "asc" ? "desc" : "asc";
-        if (sort.value.direction === direction) {
-          sort.value = defu({}, savedSort, { column: null, direction: "asc" });
-        } else {
-          sort.value = { column: sort.value.column, direction: sort.value.direction === "asc" ? "desc" : "asc" };
+    function mapSlot(slot) {
+      if (typeof slot.type === "symbol") {
+        if (slot.children && Array.isArray(slot.children)) {
+          return slot.children.map(mapSlot);
         }
-      } else {
-        sort.value = { column: column.key, direction: column.direction || "asc" };
-      }
-    }
-    function onSelect(row) {
-      const selection = (void 0).getSelection();
-      if (selection && selection.toString().length > 0) {
         return;
       }
-      if (!$attrs.onSelect) {
-        return;
-      }
-      $attrs.onSelect(row);
+      return slot;
     }
-    function onContextmenu(event, row) {
-      if (!$attrs.onContextmenu) {
-        return;
-      }
-      $attrs.onContextmenu(event, row);
-    }
-    function selectAllRows() {
-      const newSelected = [...selected.value];
-      props.rows.forEach((row) => {
-        if (!isSelected(row)) {
-          newSelected.push(row);
-        }
-      });
-      selected.value = newSelected;
-    }
-    function onChange(checked) {
-      if (checked) {
-        selectAllRows();
-      } else {
-        selected.value = [];
-      }
-      emit("select:all", checked);
-    }
-    function onChangeCheckbox(checked, row) {
-      if (checked) {
-        selected.value = props.singleSelect ? [row] : [...selected.value, row];
-      } else {
-        selected.value = selected.value.filter((value) => !compare(toRaw(value), toRaw(row)));
-      }
-    }
-    function getRowData(row, rowKey, defaultValue = "") {
-      return get(row, rowKey, defaultValue);
-    }
-    function isExpanded(row) {
-      var _a;
-      return ((_a = expand.value) == null ? void 0 : _a.openedRows) ? expand.value.openedRows.some((openedRow) => compare(openedRow, row)) : false;
-    }
-    function toggleOpened(row) {
-      expand.value = {
-        openedRows: isExpanded(row) ? expand.value.openedRows.filter((v) => !compare(v, row)) : props.multipleExpand ? [...expand.value.openedRows, row] : [row],
-        row
-      };
-    }
-    function getAriaSort(column) {
-      if (!column.sortable) {
-        return void 0;
-      }
-      if (sort.value.column !== column.key) {
-        return "none";
-      }
-      if (sort.value.direction === "asc") {
-        return "ascending";
-      }
-      if (sort.value.direction === "desc") {
-        return "descending";
-      }
-      return void 0;
-    }
-    return {
-      // eslint-disable-next-line vue/no-dupe-keys
-      ui,
-      attrs,
-      // eslint-disable-next-line vue/no-dupe-keys
-      sort,
-      // eslint-disable-next-line vue/no-dupe-keys
-      columns,
-      // eslint-disable-next-line vue/no-dupe-keys
-      rows,
-      selected,
-      indeterminate,
-      // eslint-disable-next-line vue/no-dupe-keys
-      emptyState,
-      // eslint-disable-next-line vue/no-dupe-keys
-      loadingState,
-      isAllRowChecked,
-      onChangeCheckbox,
-      isSelected,
-      onSort,
-      onSelect,
-      onContextmenu,
-      onChange,
-      getRowData,
-      toggleOpened,
-      getAriaSort,
-      isExpanded
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_UPricingPlan = __nuxt_component_0;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        "data-orientation": _ctx.orientation,
+        class: unref(pricingPlans)({ class: props.class, compact: _ctx.compact, scale: _ctx.scale, orientation: _ctx.orientation }),
+        style: { "--count": count.value }
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            ssrRenderSlot(_ctx.$slots, "default", {}, () => {
+              _push2(`<!--[-->`);
+              ssrRenderList(_ctx.plans, (plan, index) => {
+                _push2(ssrRenderComponent(_component_UPricingPlan, mergeProps({
+                  key: index,
+                  orientation: _ctx.orientation === "vertical" ? "horizontal" : "vertical",
+                  ref_for: true
+                }, plan), null, _parent2, _scopeId));
+              });
+              _push2(`<!--]-->`);
+            }, _push2, _parent2, _scopeId);
+          } else {
+            return [
+              renderSlot(_ctx.$slots, "default", {}, () => [
+                (openBlock(true), createBlock(Fragment, null, renderList(_ctx.plans, (plan, index) => {
+                  return openBlock(), createBlock(_component_UPricingPlan, mergeProps({
+                    key: index,
+                    orientation: _ctx.orientation === "vertical" ? "horizontal" : "vertical",
+                    ref_for: true
+                  }, plan), null, 16, ["orientation"]);
+                }), 128))
+              ])
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
     };
   }
 });
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_UCheckbox = __nuxt_component_0$1;
-  const _component_UButton = __nuxt_component_1$2;
-  const _component_UProgress = __nuxt_component_2$2;
-  const _component_UIcon = __nuxt_component_3;
-  _push(`<div${ssrRenderAttrs(mergeProps({
-    class: _ctx.ui.wrapper
-  }, _ctx.attrs, _attrs))}><table class="${ssrRenderClass([_ctx.ui.base, _ctx.ui.divide])}">`);
-  if (_ctx.$slots.caption || _ctx.caption) {
-    ssrRenderSlot(_ctx.$slots, "caption", {}, () => {
-      _push(`<caption class="${ssrRenderClass(_ctx.ui.caption)}">${ssrInterpolate(_ctx.caption)}</caption>`);
-    }, _push, _parent);
-  } else {
-    _push(`<!---->`);
-  }
-  _push(`<thead class="${ssrRenderClass(_ctx.ui.thead)}"><tr class="${ssrRenderClass(_ctx.ui.tr.base)}">`);
-  if (_ctx.expand) {
-    _push(`<th scope="col" class="${ssrRenderClass(_ctx.ui.tr.base)}"><span class="sr-only">Expand</span></th>`);
-  } else {
-    _push(`<!---->`);
-  }
-  _push(`<!--[-->`);
-  ssrRenderList(_ctx.columns, (column, index) => {
-    _push(`<th scope="col" class="${ssrRenderClass([_ctx.ui.th.base, _ctx.ui.th.padding, _ctx.ui.th.color, _ctx.ui.th.font, _ctx.ui.th.size, column.key === "select" && _ctx.ui.checkbox.padding, column.class])}"${ssrRenderAttr("aria-sort", _ctx.getAriaSort(column))}>`);
-    if (!_ctx.singleSelect && _ctx.modelValue && column.key === "select") {
-      ssrRenderSlot(_ctx.$slots, "select-header", {
-        indeterminate: _ctx.indeterminate,
-        checked: _ctx.isAllRowChecked,
-        change: _ctx.onChange
-      }, () => {
-        _push(ssrRenderComponent(_component_UCheckbox, mergeProps({
-          "model-value": _ctx.isAllRowChecked,
-          indeterminate: _ctx.indeterminate,
-          ref_for: true
-        }, _ctx.ui.default.checkbox, {
-          "aria-label": "Select all",
-          onChange: _ctx.onChange
-        }), null, _parent));
-      }, _push, _parent);
-    } else {
-      ssrRenderSlot(_ctx.$slots, `${column.key}-header`, {
-        column,
-        sort: _ctx.sort,
-        onSort: _ctx.onSort
-      }, () => {
-        if (column.sortable) {
-          _push(ssrRenderComponent(_component_UButton, mergeProps({ ref_for: true }, { ..._ctx.ui.default.sortButton || {}, ..._ctx.sortButton }, {
-            icon: !_ctx.sort.column || _ctx.sort.column !== column.key ? _ctx.sortButton.icon || _ctx.ui.default.sortButton.icon : _ctx.sort.direction === "asc" ? _ctx.sortAscIcon : _ctx.sortDescIcon,
-            label: column[_ctx.columnAttribute],
-            onClick: ($event) => _ctx.onSort(column)
-          }), null, _parent));
-        } else {
-          _push(`<span>${ssrInterpolate(column[_ctx.columnAttribute])}</span>`);
-        }
-      }, _push, _parent);
-    }
-    _push(`</th>`);
-  });
-  _push(`<!--]--></tr>`);
-  if (_ctx.loading && _ctx.progress) {
-    _push(`<tr><td${ssrRenderAttr("colspan", 0)} class="${ssrRenderClass(_ctx.ui.progress.wrapper)}">`);
-    _push(ssrRenderComponent(_component_UProgress, mergeProps({ ..._ctx.ui.default.progress || {}, ..._ctx.progress }, { size: "2xs" }), null, _parent));
-    _push(`</td></tr>`);
-  } else {
-    _push(`<!---->`);
-  }
-  _push(`</thead><tbody class="${ssrRenderClass(_ctx.ui.tbody)}">`);
-  if (_ctx.loadingState && _ctx.loading && !_ctx.rows.length) {
-    _push(`<tr><td${ssrRenderAttr("colspan", _ctx.columns.length + (_ctx.modelValue ? 1 : 0) + (_ctx.expand ? 1 : 0))}>`);
-    ssrRenderSlot(_ctx.$slots, "loading-state", {}, () => {
-      _push(`<div class="${ssrRenderClass(_ctx.ui.loadingState.wrapper)}">`);
-      if (_ctx.loadingState.icon) {
-        _push(ssrRenderComponent(_component_UIcon, {
-          name: _ctx.loadingState.icon,
-          class: _ctx.ui.loadingState.icon,
-          "aria-hidden": "true"
-        }, null, _parent));
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`<p class="${ssrRenderClass(_ctx.ui.loadingState.label)}">${ssrInterpolate(_ctx.loadingState.label)}</p></div>`);
-    }, _push, _parent);
-    _push(`</td></tr>`);
-  } else if (_ctx.emptyState && !_ctx.rows.length) {
-    _push(`<tr><td${ssrRenderAttr("colspan", _ctx.columns.length + (_ctx.modelValue ? 1 : 0) + (_ctx.expand ? 1 : 0))}>`);
-    ssrRenderSlot(_ctx.$slots, "empty-state", {}, () => {
-      _push(`<div class="${ssrRenderClass(_ctx.ui.emptyState.wrapper)}">`);
-      if (_ctx.emptyState.icon) {
-        _push(ssrRenderComponent(_component_UIcon, {
-          name: _ctx.emptyState.icon,
-          class: _ctx.ui.emptyState.icon,
-          "aria-hidden": "true"
-        }, null, _parent));
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`<p class="${ssrRenderClass(_ctx.ui.emptyState.label)}">${ssrInterpolate(_ctx.emptyState.label)}</p></div>`);
-    }, _push, _parent);
-    _push(`</td></tr>`);
-  } else {
-    _push(`<!--[-->`);
-    ssrRenderList(_ctx.rows, (row, index) => {
-      _push(`<!--[--><tr class="${ssrRenderClass([_ctx.ui.tr.base, _ctx.isSelected(row) && _ctx.ui.tr.selected, _ctx.isExpanded(row) && _ctx.ui.tr.expanded, _ctx.$attrs.onSelect && _ctx.ui.tr.active, row == null ? void 0 : row.class])}">`);
-      if (_ctx.expand) {
-        _push(`<td class="${ssrRenderClass([_ctx.ui.td.base, _ctx.ui.td.padding, _ctx.ui.td.color, _ctx.ui.td.font, _ctx.ui.td.size])}">`);
-        if (_ctx.$slots["expand-action"]) {
-          ssrRenderSlot(_ctx.$slots, "expand-action", {
-            row,
-            isExpanded: _ctx.isExpanded(row),
-            toggle: () => _ctx.toggleOpened(row)
-          }, null, _push, _parent);
-        } else {
-          _push(ssrRenderComponent(_component_UButton, mergeProps({
-            disabled: row.disabledExpand,
-            ref_for: true
-          }, { ..._ctx.ui.default.expandButton || {}, ..._ctx.expandButton }, {
-            ui: { icon: { base: [_ctx.ui.expand.icon, _ctx.isExpanded(row) && "rotate-180"].join(" ") } },
-            onClick: ($event) => _ctx.toggleOpened(row)
-          }), null, _parent));
-        }
-        _push(`</td>`);
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`<!--[-->`);
-      ssrRenderList(_ctx.columns, (column, subIndex) => {
-        var _a;
-        _push(`<td class="${ssrRenderClass([_ctx.ui.td.base, _ctx.ui.td.padding, _ctx.ui.td.color, _ctx.ui.td.font, _ctx.ui.td.size, column == null ? void 0 : column.rowClass, (_a = row[column.key]) == null ? void 0 : _a.class, column.key === "select" && _ctx.ui.checkbox.padding])}">`);
-        if (_ctx.modelValue && column.key === "select") {
-          ssrRenderSlot(_ctx.$slots, "select-data", {
-            checked: _ctx.isSelected(row),
-            change: (ev) => _ctx.onChangeCheckbox(ev, row)
-          }, () => {
-            _push(ssrRenderComponent(_component_UCheckbox, mergeProps({
-              "model-value": _ctx.isSelected(row),
-              ref_for: true
-            }, _ctx.ui.default.checkbox, {
-              "aria-label": "Select row",
-              onChange: ($event) => _ctx.onChangeCheckbox($event, row)
-            }), null, _parent));
-          }, _push, _parent);
-        } else {
-          ssrRenderSlot(_ctx.$slots, `${column.key}-data`, {
-            column,
-            row,
-            index,
-            getRowData: (defaultValue) => _ctx.getRowData(row, column.key, defaultValue)
-          }, () => {
-            _push(`${ssrInterpolate(_ctx.getRowData(row, column.key))}`);
-          }, _push, _parent);
-        }
-        _push(`</td>`);
-      });
-      _push(`<!--]--></tr>`);
-      if (_ctx.isExpanded(row)) {
-        _push(`<tr><td colspan="100%">`);
-        ssrRenderSlot(_ctx.$slots, "expand", {
-          row,
-          index
-        }, null, _push, _parent);
-        _push(`</td></tr>`);
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`<!--]-->`);
-    });
-    _push(`<!--]-->`);
-  }
-  _push(`</tbody></table></div>`);
-}
+
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/data/Table.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/PricingPlans.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_4 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender]]), { __name: "UTable" });
+const UPricingPlans = Object.assign(_sfc_main$1, { __name: "UPricingPlans" });
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",
   __ssrInlineRender: true,
   async setup(__props) {
     let __temp, __restore;
+    const toast = useToast();
     const localePath = useLocalePath();
     const { t } = useI18n({
       useScope: "global"
     });
     const columns = [{
-      key: "feature",
-      label: ""
+      accessorKey: "feature",
+      header: ""
     }, {
-      key: "weblite",
-      label: "WebLite"
+      accessorKey: "weblite",
+      header: "WebLite"
     }, {
-      key: "webpro",
-      label: "WebPro"
+      accessorKey: "webpro",
+      header: "WebPro"
     }, {
-      key: "webmax",
-      label: "WebMax"
+      accessorKey: "webmax",
+      header: "WebMax"
     }];
     const items = [{
       feature: t("products.webspace.tablerows.1"),
@@ -1225,10 +1244,26 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             });
           });
         } else {
-          console.error("Die API hat kein Array von Paketen zurückgegeben.");
+          toast.add({
+            icon: "i-heroicons-exclamation-triangle",
+            description: t("products.webspace.errors.emptydata.description"),
+            color: "red",
+            title: t("products.webspace.errors.emptydata.title"),
+            timeout: 5e3,
+            pauseTimeoutOnHover: true
+          });
+          return;
         }
       } catch (error) {
-        console.error("Fehler beim Abrufen der Webspace-Informationen:", error);
+        toast.add({
+          icon: "i-heroicons-exclamation-triangle",
+          description: t("products.webspace.errors.nodata.description"),
+          color: "red",
+          title: t("products.webspace.errors.nodata.title"),
+          timeout: 5e3,
+          pauseTimeoutOnHover: true
+        });
+        return;
       }
     };
     const buy = async (p) => {
@@ -1247,17 +1282,15 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       ogDescription: t("products.webspace.description")
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_ULandingSection = __nuxt_component_0$2;
-      const _component_UPricingGrid = __nuxt_component_1;
-      const _component_UPricingCard = __nuxt_component_2;
-      const _component_USkeleton = __nuxt_component_3$1;
-      const _component_UTable = __nuxt_component_4;
-      const _component_UAlert = __nuxt_component_5;
+      const _component_UPricingPlan = __nuxt_component_0;
+      const _component_USkeleton = __nuxt_component_1$1;
+      const _component_UTable = __nuxt_component_2;
+      const _component_UAlert = __nuxt_component_3;
       _push(`<!--[--><div class="min-h-[91vh]">`);
-      _push(ssrRenderComponent(_component_ULandingSection, {
+      _push(ssrRenderComponent(unref(UPageSection), {
         headline: _ctx.$t("products.webspace.headline"),
         title: _ctx.$t("products.webspace.title"),
-        align: "left"
+        orientation: "horizontal"
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -1271,7 +1304,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         _: 1
       }, _parent));
       _push(`<div class="w-full flex flex-wrap justify-center gap-4">`);
-      _push(ssrRenderComponent(_component_UPricingGrid, {
+      _push(ssrRenderComponent(unref(UPricingPlans), {
         compact: false,
         class: "mt-12 w-full max-w-6xl"
       }, {
@@ -1279,15 +1312,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           if (_push2) {
             _push2(`<!--[-->`);
             ssrRenderList(packages, (packageItem, index) => {
-              _push2(ssrRenderComponent(_component_UPricingCard, {
+              _push2(ssrRenderComponent(_component_UPricingPlan, {
                 key: packageItem.priceID,
                 title: packageItem.name,
                 price: packageItem.amount + "€",
                 discount: "",
                 cycle: "/" + _ctx.$t("products.webspace.cycle"),
                 button: { label: _ctx.$t("products.webspace.addBasket"), click: () => buy(index + 1) },
-                orientation: "vertical",
-                align: "bottom"
+                orientation: "vertical"
               }, null, _parent2, _scopeId));
             });
             _push2(`<!--]-->`);
@@ -1309,15 +1341,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           } else {
             return [
               (openBlock(), createBlock(Fragment, null, renderList(packages, (packageItem, index) => {
-                return createVNode(_component_UPricingCard, {
+                return createVNode(_component_UPricingPlan, {
                   key: packageItem.priceID,
                   title: packageItem.name,
                   price: packageItem.amount + "€",
                   discount: "",
                   cycle: "/" + _ctx.$t("products.webspace.cycle"),
                   button: { label: _ctx.$t("products.webspace.addBasket"), click: () => buy(index + 1) },
-                  orientation: "vertical",
-                  align: "bottom"
+                  orientation: "vertical"
                 }, null, 8, ["title", "price", "cycle", "button"]);
               }), 64)),
               !packages || packages.length === 0 ? (openBlock(), createBlock(_component_USkeleton, {
@@ -1339,12 +1370,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }, _parent));
       _push(`</div></div><div class="w-full flex flex-wrap justify-center gap-4 mb-12"><div class="w-full max-w-6xl">`);
       _push(ssrRenderComponent(_component_UTable, {
-        rows: items,
+        data: items,
         columns
       }, null, _parent));
       _push(ssrRenderComponent(_component_UAlert, {
         class: "mt-4",
-        actions: [{ variant: "solid", color: "primary", label: _ctx.$t("products.webspace.domain.action"), to: unref(localePath)("/products/domain") }]
+        color: "neutral",
+        variant: "subtle",
+        actions: [{ label: _ctx.$t("products.webspace.domain.action"), to: unref(localePath)("/products/domain") }]
       }, {
         title: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {

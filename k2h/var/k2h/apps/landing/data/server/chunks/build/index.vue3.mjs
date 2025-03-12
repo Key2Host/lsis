@@ -1,21 +1,11 @@
-import { _ as __nuxt_component_0$1 } from './LandingSection.vue.mjs';
-import { defineComponent, computed, toRef, mergeProps, unref, useSSRContext, useAttrs, ref, cloneVNode, h, useSlots, withCtx, createVNode, createBlock, createCommentVNode, openBlock, Fragment, renderList } from 'vue';
-import { ssrRenderAttrs, ssrRenderSlot, ssrRenderClass, ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrRenderAttr } from 'vue/server-renderer';
-import { G as useUI, ae as withLeadingSlash, af as hasProtocol, ag as joinURL, ah as parseURL, ai as encodePath, aj as encodeParam, a2 as useNuxtApp, a4 as useRuntimeConfig, a7 as useHead, F as mergeConfig, ak as getSlotsChildren, K as twMerge, D as __nuxt_component_4, L as appConfig, al as avatar, aa as nuxtLinkProps, a6 as getNuxtLinkProps, ab as getSlotChildrenText, a5 as __nuxt_component_1$1, a8 as __nuxt_component_1$2, _ as _export_sfc, am as button, Q as __nuxt_component_1$3, u as useLocalePath, a as useI18n, b as useSeoMeta } from './server.mjs';
-import { m as defu } from '../nitro/nitro.mjs';
-import { twJoin } from 'tailwind-merge';
-import 'pinia';
-import 'vue-router';
-import 'deep-pick-omit';
-import '@vueuse/core';
-import '../routes/renderer.mjs';
-import 'vue-bundle-renderer/runtime';
-import 'unhead/server';
-import 'unhead/plugins';
-import 'unhead/utils';
-import 'devalue';
-import '@iconify/vue';
-import '@iconify/utils/lib/css/icon';
+import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, renderSlot, createVNode, createBlock, createCommentVNode, openBlock, Fragment, renderList, useSSRContext, provide, resolveDynamicComponent, createTextVNode, toDisplayString, ref } from 'vue';
+import { ssrRenderComponent, ssrRenderSlot, ssrRenderList, ssrRenderVNode, ssrRenderClass, ssrInterpolate, ssrRenderAttr } from 'vue/server-renderer';
+import { useForwardPropsEmits, PaginationRoot, PaginationList, PaginationFirst, PaginationPrev, PaginationListItem, PaginationEllipsis, PaginationNext, PaginationLast, Primitive, useDateFormatter } from 'reka-ui';
+import { reactivePick } from '@vueuse/core';
+import { h as useAppConfig, c as useLocale, t as tv, s as __nuxt_component_2$1, _ as _appConfig, N as avatarGroupInjectionKey, o as __nuxt_component_3, r as tv$1, L as __nuxt_component_0$2, O as getSlotChildrenText, P as ImageComponent, J as __nuxt_component_0$3, u as useLocalePath, a as useI18n, b as useSeoMeta } from './server.mjs';
+import { _ as __nuxt_component_0$1 } from './Chip.vue.mjs';
+import { U as UPageSection } from './PageSection.vue.mjs';
+import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
 import 'node:events';
@@ -27,45 +17,766 @@ import 'consola';
 import 'node:url';
 import '@iconify/utils';
 import 'ipx';
+import 'pinia';
+import 'vue-router';
+import 'deep-pick-omit';
+import '../routes/renderer.mjs';
+import 'vue-bundle-renderer/runtime';
+import 'unhead/server';
+import 'unhead/plugins';
+import 'unhead/utils';
+import 'devalue';
+import '@iconify/vue';
+import '@iconify/utils/lib/css/icon';
+import 'tailwind-variants';
+import 'vaul-vue';
+import 'reka-ui/namespaced';
 
-const _sfc_main$4 = /* @__PURE__ */ defineComponent({
-  ...{
-    inheritAttrs: false
-  },
-  __name: "BlogList",
+const theme$4 = {
+  "slots": {
+    "root": "",
+    "list": "flex items-center gap-1",
+    "ellipsis": "pointer-events-none",
+    "label": "min-w-5 text-center",
+    "first": "",
+    "prev": "",
+    "item": "",
+    "next": "",
+    "last": ""
+  }
+};
+
+var _a$4;
+const appConfigPagination = _appConfig;
+const pagination = tv({ extend: tv(theme$4), ...((_a$4 = appConfigPagination.ui) == null ? void 0 : _a$4.pagination) || {} });
+const _sfc_main$5 = /* @__PURE__ */ defineComponent({
+  __name: "Pagination",
   __ssrInlineRender: true,
   props: {
-    orientation: {
-      type: String,
-      default: "horizontal"
-    },
-    class: {
-      type: [String, Object, Array],
-      default: void 0
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
+    as: {},
+    firstIcon: {},
+    prevIcon: {},
+    nextIcon: {},
+    lastIcon: {},
+    ellipsisIcon: {},
+    color: { default: "neutral" },
+    variant: { default: "outline" },
+    activeColor: { default: "primary" },
+    activeVariant: { default: "solid" },
+    showControls: { type: Boolean, default: true },
+    size: { default: "md" },
+    to: {},
+    class: {},
+    ui: {},
+    defaultPage: {},
+    disabled: { type: Boolean },
+    itemsPerPage: { default: 10 },
+    page: {},
+    showEdges: { type: Boolean, default: false },
+    siblingCount: { default: 2 },
+    total: { default: 0 }
+  },
+  emits: ["update:page"],
+  setup(__props, { emit: __emit }) {
+    const props = __props;
+    const emits = __emit;
+    const slots = useSlots();
+    const appConfig = useAppConfig();
+    const { dir } = useLocale();
+    const rootProps = useForwardPropsEmits(reactivePick(props, "as", "defaultPage", "disabled", "itemsPerPage", "page", "showEdges", "siblingCount", "total"), emits);
+    const firstIcon = computed(() => props.firstIcon || (dir.value === "rtl" ? appConfig.ui.icons.chevronDoubleRight : appConfig.ui.icons.chevronDoubleLeft));
+    const prevIcon = computed(() => props.prevIcon || (dir.value === "rtl" ? appConfig.ui.icons.chevronRight : appConfig.ui.icons.chevronLeft));
+    const nextIcon = computed(() => props.nextIcon || (dir.value === "rtl" ? appConfig.ui.icons.chevronLeft : appConfig.ui.icons.chevronRight));
+    const lastIcon = computed(() => props.lastIcon || (dir.value === "rtl" ? appConfig.ui.icons.chevronDoubleLeft : appConfig.ui.icons.chevronDoubleRight));
+    const ui = pagination();
+    return (_ctx, _push, _parent, _attrs) => {
+      var _a2;
+      _push(ssrRenderComponent(unref(PaginationRoot), mergeProps(unref(rootProps), {
+        class: unref(ui).root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
+        default: withCtx(({ page, pageCount }, _push2, _parent2, _scopeId) => {
+          var _a3, _b;
+          if (_push2) {
+            _push2(ssrRenderComponent(unref(PaginationList), {
+              class: unref(ui).list({ class: (_a3 = props.ui) == null ? void 0 : _a3.list })
+            }, {
+              default: withCtx(({ items }, _push3, _parent3, _scopeId2) => {
+                var _a4, _b2, _c, _d, _e, _f, _g, _h;
+                if (_push3) {
+                  if (_ctx.showControls || !!slots.first) {
+                    _push3(ssrRenderComponent(unref(PaginationFirst), {
+                      "as-child": "",
+                      class: unref(ui).first({ class: (_a4 = props.ui) == null ? void 0 : _a4.first })
+                    }, {
+                      default: withCtx((_, _push4, _parent4, _scopeId3) => {
+                        if (_push4) {
+                          ssrRenderSlot(_ctx.$slots, "first", {}, () => {
+                            var _a5;
+                            _push4(ssrRenderComponent(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: firstIcon.value,
+                              to: (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, 1)
+                            }, null, _parent4, _scopeId3));
+                          }, _push4, _parent4, _scopeId3);
+                        } else {
+                          return [
+                            renderSlot(_ctx.$slots, "first", {}, () => {
+                              var _a5;
+                              return [
+                                createVNode(__nuxt_component_2$1, {
+                                  color: _ctx.color,
+                                  variant: _ctx.variant,
+                                  size: _ctx.size,
+                                  icon: firstIcon.value,
+                                  to: (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, 1)
+                                }, null, 8, ["color", "variant", "size", "icon", "to"])
+                              ];
+                            })
+                          ];
+                        }
+                      }),
+                      _: 2
+                    }, _parent3, _scopeId2));
+                  } else {
+                    _push3(`<!---->`);
+                  }
+                  if (_ctx.showControls || !!slots.prev) {
+                    _push3(ssrRenderComponent(unref(PaginationPrev), {
+                      "as-child": "",
+                      class: unref(ui).prev({ class: (_b2 = props.ui) == null ? void 0 : _b2.prev })
+                    }, {
+                      default: withCtx((_, _push4, _parent4, _scopeId3) => {
+                        if (_push4) {
+                          ssrRenderSlot(_ctx.$slots, "prev", {}, () => {
+                            var _a5;
+                            _push4(ssrRenderComponent(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: prevIcon.value,
+                              to: page > 1 ? (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, page - 1) : void 0
+                            }, null, _parent4, _scopeId3));
+                          }, _push4, _parent4, _scopeId3);
+                        } else {
+                          return [
+                            renderSlot(_ctx.$slots, "prev", {}, () => {
+                              var _a5;
+                              return [
+                                createVNode(__nuxt_component_2$1, {
+                                  color: _ctx.color,
+                                  variant: _ctx.variant,
+                                  size: _ctx.size,
+                                  icon: prevIcon.value,
+                                  to: page > 1 ? (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, page - 1) : void 0
+                                }, null, 8, ["color", "variant", "size", "icon", "to"])
+                              ];
+                            })
+                          ];
+                        }
+                      }),
+                      _: 2
+                    }, _parent3, _scopeId2));
+                  } else {
+                    _push3(`<!---->`);
+                  }
+                  _push3(`<!--[-->`);
+                  ssrRenderList(items, (item, index) => {
+                    var _a5, _b3;
+                    _push3(`<!--[-->`);
+                    if (item.type === "page") {
+                      _push3(ssrRenderComponent(unref(PaginationListItem), {
+                        key: index,
+                        "as-child": "",
+                        value: item.value,
+                        class: unref(ui).item({ class: (_a5 = props.ui) == null ? void 0 : _a5.item })
+                      }, {
+                        default: withCtx((_, _push4, _parent4, _scopeId3) => {
+                          if (_push4) {
+                            ssrRenderSlot(_ctx.$slots, "item", mergeProps({ ref_for: true }, { item, index, page, pageCount }), () => {
+                              var _a6;
+                              _push4(ssrRenderComponent(__nuxt_component_2$1, {
+                                color: page === item.value ? _ctx.activeColor : _ctx.color,
+                                variant: page === item.value ? _ctx.activeVariant : _ctx.variant,
+                                size: _ctx.size,
+                                label: String(item.value),
+                                ui: { label: unref(ui).label() },
+                                to: (_a6 = _ctx.to) == null ? void 0 : _a6.call(_ctx, item.value),
+                                square: ""
+                              }, null, _parent4, _scopeId3));
+                            }, _push4, _parent4, _scopeId3);
+                          } else {
+                            return [
+                              renderSlot(_ctx.$slots, "item", mergeProps({ ref_for: true }, { item, index, page, pageCount }), () => {
+                                var _a6;
+                                return [
+                                  createVNode(__nuxt_component_2$1, {
+                                    color: page === item.value ? _ctx.activeColor : _ctx.color,
+                                    variant: page === item.value ? _ctx.activeVariant : _ctx.variant,
+                                    size: _ctx.size,
+                                    label: String(item.value),
+                                    ui: { label: unref(ui).label() },
+                                    to: (_a6 = _ctx.to) == null ? void 0 : _a6.call(_ctx, item.value),
+                                    square: ""
+                                  }, null, 8, ["color", "variant", "size", "label", "ui", "to"])
+                                ];
+                              })
+                            ];
+                          }
+                        }),
+                        _: 2
+                      }, _parent3, _scopeId2));
+                    } else {
+                      _push3(ssrRenderComponent(unref(PaginationEllipsis), {
+                        key: item.type,
+                        index,
+                        "as-child": "",
+                        class: unref(ui).ellipsis({ class: (_b3 = props.ui) == null ? void 0 : _b3.ellipsis })
+                      }, {
+                        default: withCtx((_, _push4, _parent4, _scopeId3) => {
+                          if (_push4) {
+                            ssrRenderSlot(_ctx.$slots, "ellipsis", {}, () => {
+                              _push4(ssrRenderComponent(__nuxt_component_2$1, {
+                                color: _ctx.color,
+                                variant: _ctx.variant,
+                                size: _ctx.size,
+                                icon: _ctx.ellipsisIcon || unref(appConfig).ui.icons.ellipsis
+                              }, null, _parent4, _scopeId3));
+                            }, _push4, _parent4, _scopeId3);
+                          } else {
+                            return [
+                              renderSlot(_ctx.$slots, "ellipsis", {}, () => [
+                                createVNode(__nuxt_component_2$1, {
+                                  color: _ctx.color,
+                                  variant: _ctx.variant,
+                                  size: _ctx.size,
+                                  icon: _ctx.ellipsisIcon || unref(appConfig).ui.icons.ellipsis
+                                }, null, 8, ["color", "variant", "size", "icon"])
+                              ])
+                            ];
+                          }
+                        }),
+                        _: 2
+                      }, _parent3, _scopeId2));
+                    }
+                    _push3(`<!--]-->`);
+                  });
+                  _push3(`<!--]-->`);
+                  if (_ctx.showControls || !!slots.next) {
+                    _push3(ssrRenderComponent(unref(PaginationNext), {
+                      "as-child": "",
+                      class: unref(ui).next({ class: (_c = props.ui) == null ? void 0 : _c.next })
+                    }, {
+                      default: withCtx((_, _push4, _parent4, _scopeId3) => {
+                        if (_push4) {
+                          ssrRenderSlot(_ctx.$slots, "next", {}, () => {
+                            var _a5;
+                            _push4(ssrRenderComponent(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: nextIcon.value,
+                              to: page < pageCount ? (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, page + 1) : void 0
+                            }, null, _parent4, _scopeId3));
+                          }, _push4, _parent4, _scopeId3);
+                        } else {
+                          return [
+                            renderSlot(_ctx.$slots, "next", {}, () => {
+                              var _a5;
+                              return [
+                                createVNode(__nuxt_component_2$1, {
+                                  color: _ctx.color,
+                                  variant: _ctx.variant,
+                                  size: _ctx.size,
+                                  icon: nextIcon.value,
+                                  to: page < pageCount ? (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, page + 1) : void 0
+                                }, null, 8, ["color", "variant", "size", "icon", "to"])
+                              ];
+                            })
+                          ];
+                        }
+                      }),
+                      _: 2
+                    }, _parent3, _scopeId2));
+                  } else {
+                    _push3(`<!---->`);
+                  }
+                  if (_ctx.showControls || !!slots.last) {
+                    _push3(ssrRenderComponent(unref(PaginationLast), {
+                      "as-child": "",
+                      class: unref(ui).last({ class: (_d = props.ui) == null ? void 0 : _d.last })
+                    }, {
+                      default: withCtx((_, _push4, _parent4, _scopeId3) => {
+                        if (_push4) {
+                          ssrRenderSlot(_ctx.$slots, "last", {}, () => {
+                            var _a5;
+                            _push4(ssrRenderComponent(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: lastIcon.value,
+                              to: (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, pageCount)
+                            }, null, _parent4, _scopeId3));
+                          }, _push4, _parent4, _scopeId3);
+                        } else {
+                          return [
+                            renderSlot(_ctx.$slots, "last", {}, () => {
+                              var _a5;
+                              return [
+                                createVNode(__nuxt_component_2$1, {
+                                  color: _ctx.color,
+                                  variant: _ctx.variant,
+                                  size: _ctx.size,
+                                  icon: lastIcon.value,
+                                  to: (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, pageCount)
+                                }, null, 8, ["color", "variant", "size", "icon", "to"])
+                              ];
+                            })
+                          ];
+                        }
+                      }),
+                      _: 2
+                    }, _parent3, _scopeId2));
+                  } else {
+                    _push3(`<!---->`);
+                  }
+                } else {
+                  return [
+                    _ctx.showControls || !!slots.first ? (openBlock(), createBlock(unref(PaginationFirst), {
+                      key: 0,
+                      "as-child": "",
+                      class: unref(ui).first({ class: (_e = props.ui) == null ? void 0 : _e.first })
+                    }, {
+                      default: withCtx(() => [
+                        renderSlot(_ctx.$slots, "first", {}, () => {
+                          var _a5;
+                          return [
+                            createVNode(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: firstIcon.value,
+                              to: (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, 1)
+                            }, null, 8, ["color", "variant", "size", "icon", "to"])
+                          ];
+                        })
+                      ]),
+                      _: 3
+                    }, 8, ["class"])) : createCommentVNode("", true),
+                    _ctx.showControls || !!slots.prev ? (openBlock(), createBlock(unref(PaginationPrev), {
+                      key: 1,
+                      "as-child": "",
+                      class: unref(ui).prev({ class: (_f = props.ui) == null ? void 0 : _f.prev })
+                    }, {
+                      default: withCtx(() => [
+                        renderSlot(_ctx.$slots, "prev", {}, () => {
+                          var _a5;
+                          return [
+                            createVNode(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: prevIcon.value,
+                              to: page > 1 ? (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, page - 1) : void 0
+                            }, null, 8, ["color", "variant", "size", "icon", "to"])
+                          ];
+                        })
+                      ]),
+                      _: 2
+                    }, 1032, ["class"])) : createCommentVNode("", true),
+                    (openBlock(true), createBlock(Fragment, null, renderList(items, (item, index) => {
+                      var _a5, _b3;
+                      return openBlock(), createBlock(Fragment, null, [
+                        item.type === "page" ? (openBlock(), createBlock(unref(PaginationListItem), {
+                          key: index,
+                          "as-child": "",
+                          value: item.value,
+                          class: unref(ui).item({ class: (_a5 = props.ui) == null ? void 0 : _a5.item })
+                        }, {
+                          default: withCtx(() => [
+                            renderSlot(_ctx.$slots, "item", mergeProps({ ref_for: true }, { item, index, page, pageCount }), () => {
+                              var _a6;
+                              return [
+                                createVNode(__nuxt_component_2$1, {
+                                  color: page === item.value ? _ctx.activeColor : _ctx.color,
+                                  variant: page === item.value ? _ctx.activeVariant : _ctx.variant,
+                                  size: _ctx.size,
+                                  label: String(item.value),
+                                  ui: { label: unref(ui).label() },
+                                  to: (_a6 = _ctx.to) == null ? void 0 : _a6.call(_ctx, item.value),
+                                  square: ""
+                                }, null, 8, ["color", "variant", "size", "label", "ui", "to"])
+                              ];
+                            })
+                          ]),
+                          _: 2
+                        }, 1032, ["value", "class"])) : (openBlock(), createBlock(unref(PaginationEllipsis), {
+                          key: item.type,
+                          index,
+                          "as-child": "",
+                          class: unref(ui).ellipsis({ class: (_b3 = props.ui) == null ? void 0 : _b3.ellipsis })
+                        }, {
+                          default: withCtx(() => [
+                            renderSlot(_ctx.$slots, "ellipsis", {}, () => [
+                              createVNode(__nuxt_component_2$1, {
+                                color: _ctx.color,
+                                variant: _ctx.variant,
+                                size: _ctx.size,
+                                icon: _ctx.ellipsisIcon || unref(appConfig).ui.icons.ellipsis
+                              }, null, 8, ["color", "variant", "size", "icon"])
+                            ])
+                          ]),
+                          _: 2
+                        }, 1032, ["index", "class"]))
+                      ], 64);
+                    }), 256)),
+                    _ctx.showControls || !!slots.next ? (openBlock(), createBlock(unref(PaginationNext), {
+                      key: 2,
+                      "as-child": "",
+                      class: unref(ui).next({ class: (_g = props.ui) == null ? void 0 : _g.next })
+                    }, {
+                      default: withCtx(() => [
+                        renderSlot(_ctx.$slots, "next", {}, () => {
+                          var _a5;
+                          return [
+                            createVNode(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: nextIcon.value,
+                              to: page < pageCount ? (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, page + 1) : void 0
+                            }, null, 8, ["color", "variant", "size", "icon", "to"])
+                          ];
+                        })
+                      ]),
+                      _: 2
+                    }, 1032, ["class"])) : createCommentVNode("", true),
+                    _ctx.showControls || !!slots.last ? (openBlock(), createBlock(unref(PaginationLast), {
+                      key: 3,
+                      "as-child": "",
+                      class: unref(ui).last({ class: (_h = props.ui) == null ? void 0 : _h.last })
+                    }, {
+                      default: withCtx(() => [
+                        renderSlot(_ctx.$slots, "last", {}, () => {
+                          var _a5;
+                          return [
+                            createVNode(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: lastIcon.value,
+                              to: (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, pageCount)
+                            }, null, 8, ["color", "variant", "size", "icon", "to"])
+                          ];
+                        })
+                      ]),
+                      _: 2
+                    }, 1032, ["class"])) : createCommentVNode("", true)
+                  ];
+                }
+              }),
+              _: 2
+            }, _parent2, _scopeId));
+          } else {
+            return [
+              createVNode(unref(PaginationList), {
+                class: unref(ui).list({ class: (_b = props.ui) == null ? void 0 : _b.list })
+              }, {
+                default: withCtx(({ items }) => {
+                  var _a4, _b2, _c, _d;
+                  return [
+                    _ctx.showControls || !!slots.first ? (openBlock(), createBlock(unref(PaginationFirst), {
+                      key: 0,
+                      "as-child": "",
+                      class: unref(ui).first({ class: (_a4 = props.ui) == null ? void 0 : _a4.first })
+                    }, {
+                      default: withCtx(() => [
+                        renderSlot(_ctx.$slots, "first", {}, () => {
+                          var _a5;
+                          return [
+                            createVNode(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: firstIcon.value,
+                              to: (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, 1)
+                            }, null, 8, ["color", "variant", "size", "icon", "to"])
+                          ];
+                        })
+                      ]),
+                      _: 3
+                    }, 8, ["class"])) : createCommentVNode("", true),
+                    _ctx.showControls || !!slots.prev ? (openBlock(), createBlock(unref(PaginationPrev), {
+                      key: 1,
+                      "as-child": "",
+                      class: unref(ui).prev({ class: (_b2 = props.ui) == null ? void 0 : _b2.prev })
+                    }, {
+                      default: withCtx(() => [
+                        renderSlot(_ctx.$slots, "prev", {}, () => {
+                          var _a5;
+                          return [
+                            createVNode(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: prevIcon.value,
+                              to: page > 1 ? (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, page - 1) : void 0
+                            }, null, 8, ["color", "variant", "size", "icon", "to"])
+                          ];
+                        })
+                      ]),
+                      _: 2
+                    }, 1032, ["class"])) : createCommentVNode("", true),
+                    (openBlock(true), createBlock(Fragment, null, renderList(items, (item, index) => {
+                      var _a5, _b3;
+                      return openBlock(), createBlock(Fragment, null, [
+                        item.type === "page" ? (openBlock(), createBlock(unref(PaginationListItem), {
+                          key: index,
+                          "as-child": "",
+                          value: item.value,
+                          class: unref(ui).item({ class: (_a5 = props.ui) == null ? void 0 : _a5.item })
+                        }, {
+                          default: withCtx(() => [
+                            renderSlot(_ctx.$slots, "item", mergeProps({ ref_for: true }, { item, index, page, pageCount }), () => {
+                              var _a6;
+                              return [
+                                createVNode(__nuxt_component_2$1, {
+                                  color: page === item.value ? _ctx.activeColor : _ctx.color,
+                                  variant: page === item.value ? _ctx.activeVariant : _ctx.variant,
+                                  size: _ctx.size,
+                                  label: String(item.value),
+                                  ui: { label: unref(ui).label() },
+                                  to: (_a6 = _ctx.to) == null ? void 0 : _a6.call(_ctx, item.value),
+                                  square: ""
+                                }, null, 8, ["color", "variant", "size", "label", "ui", "to"])
+                              ];
+                            })
+                          ]),
+                          _: 2
+                        }, 1032, ["value", "class"])) : (openBlock(), createBlock(unref(PaginationEllipsis), {
+                          key: item.type,
+                          index,
+                          "as-child": "",
+                          class: unref(ui).ellipsis({ class: (_b3 = props.ui) == null ? void 0 : _b3.ellipsis })
+                        }, {
+                          default: withCtx(() => [
+                            renderSlot(_ctx.$slots, "ellipsis", {}, () => [
+                              createVNode(__nuxt_component_2$1, {
+                                color: _ctx.color,
+                                variant: _ctx.variant,
+                                size: _ctx.size,
+                                icon: _ctx.ellipsisIcon || unref(appConfig).ui.icons.ellipsis
+                              }, null, 8, ["color", "variant", "size", "icon"])
+                            ])
+                          ]),
+                          _: 2
+                        }, 1032, ["index", "class"]))
+                      ], 64);
+                    }), 256)),
+                    _ctx.showControls || !!slots.next ? (openBlock(), createBlock(unref(PaginationNext), {
+                      key: 2,
+                      "as-child": "",
+                      class: unref(ui).next({ class: (_c = props.ui) == null ? void 0 : _c.next })
+                    }, {
+                      default: withCtx(() => [
+                        renderSlot(_ctx.$slots, "next", {}, () => {
+                          var _a5;
+                          return [
+                            createVNode(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: nextIcon.value,
+                              to: page < pageCount ? (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, page + 1) : void 0
+                            }, null, 8, ["color", "variant", "size", "icon", "to"])
+                          ];
+                        })
+                      ]),
+                      _: 2
+                    }, 1032, ["class"])) : createCommentVNode("", true),
+                    _ctx.showControls || !!slots.last ? (openBlock(), createBlock(unref(PaginationLast), {
+                      key: 3,
+                      "as-child": "",
+                      class: unref(ui).last({ class: (_d = props.ui) == null ? void 0 : _d.last })
+                    }, {
+                      default: withCtx(() => [
+                        renderSlot(_ctx.$slots, "last", {}, () => {
+                          var _a5;
+                          return [
+                            createVNode(__nuxt_component_2$1, {
+                              color: _ctx.color,
+                              variant: _ctx.variant,
+                              size: _ctx.size,
+                              icon: lastIcon.value,
+                              to: (_a5 = _ctx.to) == null ? void 0 : _a5.call(_ctx, pageCount)
+                            }, null, 8, ["color", "variant", "size", "icon", "to"])
+                          ];
+                        })
+                      ]),
+                      _: 2
+                    }, 1032, ["class"])) : createCommentVNode("", true)
+                  ];
+                }),
+                _: 2
+              }, 1032, ["class"])
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+    };
+  }
+});
+
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Pagination.vue");
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+};
+const __nuxt_component_0 = Object.assign(_sfc_main$5, { __name: "UPagination" });
+
+const theme$3 = {
+  "slots": {
+    "root": "inline-flex flex-row-reverse justify-end",
+    "base": "relative rounded-full ring-(--ui-bg) first:me-0"
+  },
+  "variants": {
+    "size": {
+      "3xs": {
+        "base": "ring -me-0.5"
+      },
+      "2xs": {
+        "base": "ring -me-0.5"
+      },
+      "xs": {
+        "base": "ring -me-0.5"
+      },
+      "sm": {
+        "base": "ring-2 -me-1.5"
+      },
+      "md": {
+        "base": "ring-2 -me-1.5"
+      },
+      "lg": {
+        "base": "ring-2 -me-1.5"
+      },
+      "xl": {
+        "base": "ring-3 -me-2"
+      },
+      "2xl": {
+        "base": "ring-3 -me-2"
+      },
+      "3xl": {
+        "base": "ring-3 -me-2"
+      }
     }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
+};
+
+var _a$3;
+const appConfigAvatarGroup = _appConfig;
+const avatarGroup = tv({ extend: tv(theme$3), ...((_a$3 = appConfigAvatarGroup.ui) == null ? void 0 : _a$3.avatarGroup) || {} });
+const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+  __name: "AvatarGroup",
+  __ssrInlineRender: true,
+  props: {
+    as: {},
+    size: {},
+    max: {},
+    class: {},
+    ui: {}
   },
   setup(__props) {
     const props = __props;
-    const config = computed(() => {
-      const wrapper = {
-        horizontal: "flex flex-col lg:grid lg:grid-cols-3 gap-x-8 gap-y-16",
-        vertical: "flex flex-col gap-y-16 w-full"
-      }[props.orientation];
-      return {
-        wrapper
-      };
+    const slots = useSlots();
+    const ui = computed(() => avatarGroup({
+      size: props.size
+    }));
+    const max = computed(() => typeof props.max === "string" ? Number.parseInt(props.max, 10) : props.max);
+    const children = computed(() => {
+      var _a2;
+      let children2 = (_a2 = slots.default) == null ? void 0 : _a2.call(slots);
+      if (children2 == null ? void 0 : children2.length) {
+        children2 = children2.flatMap((child) => {
+          if (typeof child.type === "symbol") {
+            if (typeof child.children === "string") {
+              return;
+            }
+            return child.children;
+          }
+          return child;
+        }).filter(Boolean);
+      }
+      return children2 || [];
     });
-    const { ui, attrs } = useUI("blog.list", toRef(props, "ui"), config, toRef(props, "class"), true);
+    const visibleAvatars = computed(() => {
+      if (!children.value.length) {
+        return [];
+      }
+      if (!max.value || max.value <= 0) {
+        return [...children.value].reverse();
+      }
+      return [...children.value].slice(0, max.value).reverse();
+    });
+    const hiddenCount = computed(() => {
+      if (!children.value.length) {
+        return 0;
+      }
+      return children.value.length - visibleAvatars.value.length;
+    });
+    provide(avatarGroupInjectionKey, computed(() => ({
+      size: props.size
+    })));
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({
-        class: unref(ui).wrapper
-      }, unref(attrs), _attrs))}>`);
-      ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
-      _push(`</div>`);
+      var _a2;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b;
+          if (_push2) {
+            if (hiddenCount.value > 0) {
+              _push2(ssrRenderComponent(__nuxt_component_3, {
+                text: `+${hiddenCount.value}`,
+                class: ui.value.base({ class: (_a3 = props.ui) == null ? void 0 : _a3.base })
+              }, null, _parent2, _scopeId));
+            } else {
+              _push2(`<!---->`);
+            }
+            _push2(`<!--[-->`);
+            ssrRenderList(visibleAvatars.value, (avatar, count) => {
+              var _a4;
+              ssrRenderVNode(_push2, createVNode(resolveDynamicComponent(avatar), {
+                key: count,
+                class: ui.value.base({ class: (_a4 = props.ui) == null ? void 0 : _a4.base })
+              }, null), _parent2, _scopeId);
+            });
+            _push2(`<!--]-->`);
+          } else {
+            return [
+              hiddenCount.value > 0 ? (openBlock(), createBlock(__nuxt_component_3, {
+                key: 0,
+                text: `+${hiddenCount.value}`,
+                class: ui.value.base({ class: (_b = props.ui) == null ? void 0 : _b.base })
+              }, null, 8, ["text", "class"])) : createCommentVNode("", true),
+              (openBlock(true), createBlock(Fragment, null, renderList(visibleAvatars.value, (avatar, count) => {
+                var _a4;
+                return openBlock(), createBlock(resolveDynamicComponent(avatar), {
+                  key: count,
+                  class: ui.value.base({ class: (_a4 = props.ui) == null ? void 0 : _a4.base })
+                }, null, 8, ["class"]);
+              }), 128))
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
     };
   }
 });
@@ -73,588 +784,295 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
 const _sfc_setup$4 = _sfc_main$4.setup;
 _sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/blog/BlogList.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/AvatarGroup.vue");
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const __nuxt_component_1 = Object.assign(_sfc_main$4, { __name: "UBlogList" });
+const __nuxt_component_2 = Object.assign(_sfc_main$4, { __name: "UAvatarGroup" });
 
-async function imageMeta(_ctx, url) {
-  const meta = await _imageMeta(url).catch((err) => {
-    console.error("Failed to get image meta for " + url, err + "");
-    return {
-      width: 0,
-      height: 0,
-      ratio: 0
-    };
-  });
-  return meta;
-}
-async function _imageMeta(url) {
-  {
-    const imageMeta2 = await import('image-meta').then((r) => r.imageMeta);
-    const data = await fetch(url).then((res) => res.buffer());
-    const metadata = imageMeta2(data);
-    if (!metadata) {
-      throw new Error(`No metadata could be extracted from the image \`${url}\`.`);
-    }
-    const { width, height } = metadata;
-    const meta = {
-      width,
-      height,
-      ratio: width && height ? width / height : void 0
-    };
-    return meta;
-  }
-}
-
-function createMapper(map) {
-  return (key) => {
-    return key ? map[key] || key : map.missingValue;
-  };
-}
-function createOperationsGenerator({ formatter, keyMap, joinWith = "/", valueMap } = {}) {
-  if (!formatter) {
-    formatter = (key, value) => `${key}=${value}`;
-  }
-  if (keyMap && typeof keyMap !== "function") {
-    keyMap = createMapper(keyMap);
-  }
-  const map = valueMap || {};
-  Object.keys(map).forEach((valueKey) => {
-    if (typeof map[valueKey] !== "function") {
-      map[valueKey] = createMapper(map[valueKey]);
-    }
-  });
-  return (modifiers = {}) => {
-    const operations = Object.entries(modifiers).filter(([_, value]) => typeof value !== "undefined").map(([key, value]) => {
-      const mapper = map[key];
-      if (typeof mapper === "function") {
-        value = mapper(modifiers[key]);
+const theme$2 = {
+  "slots": {
+    "root": "relative group/user",
+    "wrapper": "",
+    "name": "font-medium",
+    "description": "text-(--ui-text-muted)",
+    "avatar": "shrink-0"
+  },
+  "variants": {
+    "orientation": {
+      "horizontal": {
+        "root": "flex items-center"
+      },
+      "vertical": {
+        "root": "flex flex-col"
       }
-      key = typeof keyMap === "function" ? keyMap(key) : key;
-      return formatter(key, value);
-    });
-    return operations.join(joinWith);
-  };
-}
-function parseSize(input = "") {
-  if (typeof input === "number") {
-    return input;
-  }
-  if (typeof input === "string") {
-    if (input.replace("px", "").match(/^\d+$/g)) {
-      return Number.parseInt(input, 10);
-    }
-  }
-}
-function parseDensities(input = "") {
-  if (input === void 0 || !input.length) {
-    return [];
-  }
-  const densities = /* @__PURE__ */ new Set();
-  for (const density of input.split(" ")) {
-    const d = Number.parseInt(density.replace("x", ""));
-    if (d) {
-      densities.add(d);
-    }
-  }
-  return Array.from(densities);
-}
-function checkDensities(densities) {
-  if (densities.length === 0) {
-    throw new Error("`densities` must not be empty, configure to `1` to render regular size only (DPR 1.0)");
-  }
-}
-function parseSizes(input) {
-  const sizes = {};
-  if (typeof input === "string") {
-    for (const entry of input.split(/[\s,]+/).filter((e) => e)) {
-      const s = entry.split(":");
-      if (s.length !== 2) {
-        sizes["1px"] = s[0].trim();
-      } else {
-        sizes[s[0].trim()] = s[1].trim();
-      }
-    }
-  } else {
-    Object.assign(sizes, input);
-  }
-  return sizes;
-}
-
-function createImage(globalOptions) {
-  const ctx = {
-    options: globalOptions
-  };
-  const getImage = (input, options = {}) => {
-    const image = resolveImage(ctx, input, options);
-    return image;
-  };
-  const $img = (input, modifiers = {}, options = {}) => {
-    return getImage(input, {
-      ...options,
-      modifiers: defu(modifiers, options.modifiers || {})
-    }).url;
-  };
-  for (const presetName in globalOptions.presets) {
-    $img[presetName] = (source, modifiers, options) => $img(source, modifiers, { ...globalOptions.presets[presetName], ...options });
-  }
-  $img.options = globalOptions;
-  $img.getImage = getImage;
-  $img.getMeta = (input, options) => getMeta(ctx, input, options);
-  $img.getSizes = (input, options) => getSizes(ctx, input, options);
-  ctx.$img = $img;
-  return $img;
-}
-async function getMeta(ctx, input, options) {
-  const image = resolveImage(ctx, input, { ...options });
-  if (typeof image.getMeta === "function") {
-    return await image.getMeta();
-  } else {
-    return await imageMeta(ctx, image.url);
-  }
-}
-function resolveImage(ctx, input, options) {
-  var _a, _b;
-  if (input && typeof input !== "string") {
-    throw new TypeError(`input must be a string (received ${typeof input}: ${JSON.stringify(input)})`);
-  }
-  if (!input || input.startsWith("data:")) {
-    return {
-      url: input
-    };
-  }
-  const { provider, defaults } = getProvider(ctx, options.provider || ctx.options.provider);
-  const preset = getPreset(ctx, options.preset);
-  input = hasProtocol(input) ? input : withLeadingSlash(input);
-  if (!provider.supportsAlias) {
-    for (const base in ctx.options.alias) {
-      if (input.startsWith(base)) {
-        const alias = ctx.options.alias[base];
-        if (alias) {
-          input = joinURL(alias, input.slice(base.length));
-        }
-      }
-    }
-  }
-  if (provider.validateDomains && hasProtocol(input)) {
-    const inputHost = parseURL(input).host;
-    if (!ctx.options.domains.find((d) => d === inputHost)) {
-      return {
-        url: input
-      };
-    }
-  }
-  const _options = defu(options, preset, defaults);
-  _options.modifiers = { ..._options.modifiers };
-  const expectedFormat = _options.modifiers.format;
-  if ((_a = _options.modifiers) == null ? void 0 : _a.width) {
-    _options.modifiers.width = parseSize(_options.modifiers.width);
-  }
-  if ((_b = _options.modifiers) == null ? void 0 : _b.height) {
-    _options.modifiers.height = parseSize(_options.modifiers.height);
-  }
-  const image = provider.getImage(input, _options, ctx);
-  image.format = image.format || expectedFormat || "";
-  return image;
-}
-function getProvider(ctx, name) {
-  const provider = ctx.options.providers[name];
-  if (!provider) {
-    throw new Error("Unknown provider: " + name);
-  }
-  return provider;
-}
-function getPreset(ctx, name) {
-  if (!name) {
-    return {};
-  }
-  if (!ctx.options.presets[name]) {
-    throw new Error("Unknown preset: " + name);
-  }
-  return ctx.options.presets[name];
-}
-function getSizes(ctx, input, opts) {
-  var _a, _b, _c, _d, _e;
-  const width = parseSize((_a = opts.modifiers) == null ? void 0 : _a.width);
-  const height = parseSize((_b = opts.modifiers) == null ? void 0 : _b.height);
-  const sizes = parseSizes(opts.sizes);
-  const densities = ((_c = opts.densities) == null ? void 0 : _c.trim()) ? parseDensities(opts.densities.trim()) : ctx.options.densities;
-  checkDensities(densities);
-  const hwRatio = width && height ? height / width : 0;
-  const sizeVariants = [];
-  const srcsetVariants = [];
-  if (Object.keys(sizes).length >= 1) {
-    for (const key in sizes) {
-      const variant = getSizesVariant(key, String(sizes[key]), height, hwRatio, ctx);
-      if (variant === void 0) {
-        continue;
-      }
-      sizeVariants.push({
-        size: variant.size,
-        screenMaxWidth: variant.screenMaxWidth,
-        media: `(max-width: ${variant.screenMaxWidth}px)`
-      });
-      for (const density of densities) {
-        srcsetVariants.push({
-          width: variant._cWidth * density,
-          src: getVariantSrc(ctx, input, opts, variant, density)
-        });
-      }
-    }
-    finaliseSizeVariants(sizeVariants);
-  } else {
-    for (const density of densities) {
-      const key = Object.keys(sizes)[0];
-      let variant = key ? getSizesVariant(key, String(sizes[key]), height, hwRatio, ctx) : void 0;
-      if (variant === void 0) {
-        variant = {
-          size: "",
-          screenMaxWidth: 0,
-          _cWidth: (_d = opts.modifiers) == null ? void 0 : _d.width,
-          _cHeight: (_e = opts.modifiers) == null ? void 0 : _e.height
-        };
-      }
-      srcsetVariants.push({
-        width: density,
-        src: getVariantSrc(ctx, input, opts, variant, density)
-      });
-    }
-  }
-  finaliseSrcsetVariants(srcsetVariants);
-  const defaultVariant = srcsetVariants[srcsetVariants.length - 1];
-  const sizesVal = sizeVariants.length ? sizeVariants.map((v) => `${v.media ? v.media + " " : ""}${v.size}`).join(", ") : void 0;
-  const suffix = sizesVal ? "w" : "x";
-  const srcsetVal = srcsetVariants.map((v) => `${v.src} ${v.width}${suffix}`).join(", ");
-  return {
-    sizes: sizesVal,
-    srcset: srcsetVal,
-    src: defaultVariant == null ? void 0 : defaultVariant.src
-  };
-}
-function getSizesVariant(key, size, height, hwRatio, ctx) {
-  const screenMaxWidth = ctx.options.screens && ctx.options.screens[key] || Number.parseInt(key);
-  const isFluid = size.endsWith("vw");
-  if (!isFluid && /^\d+$/.test(size)) {
-    size = size + "px";
-  }
-  if (!isFluid && !size.endsWith("px")) {
-    return void 0;
-  }
-  let _cWidth = Number.parseInt(size);
-  if (!screenMaxWidth || !_cWidth) {
-    return void 0;
-  }
-  if (isFluid) {
-    _cWidth = Math.round(_cWidth / 100 * screenMaxWidth);
-  }
-  const _cHeight = hwRatio ? Math.round(_cWidth * hwRatio) : height;
-  return {
-    size,
-    screenMaxWidth,
-    _cWidth,
-    _cHeight
-  };
-}
-function getVariantSrc(ctx, input, opts, variant, density) {
-  return ctx.$img(
-    input,
-    {
-      ...opts.modifiers,
-      width: variant._cWidth ? variant._cWidth * density : void 0,
-      height: variant._cHeight ? variant._cHeight * density : void 0
     },
-    opts
-  );
-}
-function finaliseSizeVariants(sizeVariants) {
-  var _a;
-  sizeVariants.sort((v1, v2) => v1.screenMaxWidth - v2.screenMaxWidth);
-  let previousMedia = null;
-  for (let i = sizeVariants.length - 1; i >= 0; i--) {
-    const sizeVariant = sizeVariants[i];
-    if (sizeVariant.media === previousMedia) {
-      sizeVariants.splice(i, 1);
-    }
-    previousMedia = sizeVariant.media;
-  }
-  for (let i = 0; i < sizeVariants.length; i++) {
-    sizeVariants[i].media = ((_a = sizeVariants[i + 1]) == null ? void 0 : _a.media) || "";
-  }
-}
-function finaliseSrcsetVariants(srcsetVariants) {
-  srcsetVariants.sort((v1, v2) => v1.width - v2.width);
-  let previousWidth = null;
-  for (let i = srcsetVariants.length - 1; i >= 0; i--) {
-    const sizeVariant = srcsetVariants[i];
-    if (sizeVariant.width === previousWidth) {
-      srcsetVariants.splice(i, 1);
-    }
-    previousWidth = sizeVariant.width;
-  }
-}
-
-const operationsGenerator = createOperationsGenerator({
-  keyMap: {
-    format: "f",
-    fit: "fit",
-    width: "w",
-    height: "h",
-    resize: "s",
-    quality: "q",
-    background: "b"
-  },
-  joinWith: "&",
-  formatter: (key, val) => encodeParam(key) + "_" + encodeParam(val)
-});
-const getImage = (src, { modifiers = {}, baseURL } = {}, ctx) => {
-  if (modifiers.width && modifiers.height) {
-    modifiers.resize = `${modifiers.width}x${modifiers.height}`;
-    delete modifiers.width;
-    delete modifiers.height;
-  }
-  const params = operationsGenerator(modifiers) || "_";
-  if (!baseURL) {
-    baseURL = joinURL(ctx.options.nuxt.baseURL, "/_ipx");
-  }
-  return {
-    url: joinURL(baseURL, params, encodePath(src))
-  };
-};
-const validateDomains = true;
-const supportsAlias = true;
-
-const ipx = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  getImage: getImage,
-  supportsAlias: supportsAlias,
-  validateDomains: validateDomains
-});
-
-const imageOptions = {
-  "screens": {
-    "xs": 320,
-    "sm": 640,
-    "md": 768,
-    "lg": 1024,
-    "xl": 1280,
-    "xxl": 1536,
-    "2xl": 1536
-  },
-  "presets": {},
-  "provider": "ipx",
-  "domains": [],
-  "alias": {},
-  "densities": [
-    1,
-    2
-  ],
-  "format": [
-    "webp"
-  ]
-};
-imageOptions.providers = {
-  ["ipx"]: { provider: ipx, defaults: {} }
-};
-
-const useImage = () => {
-  const config = useRuntimeConfig();
-  const nuxtApp = useNuxtApp();
-  return nuxtApp.$img || nuxtApp._img || (nuxtApp._img = createImage({
-    ...imageOptions,
-    nuxt: {
-      baseURL: config.app.baseURL
+    "to": {
+      "true": {
+        "name": [
+          "text-(--ui-text) peer-hover:text-(--ui-text-highlighted)",
+          "transition-colors"
+        ],
+        "description": [
+          "peer-hover:text-(--ui-text-muted-toned)",
+          "transition-colors"
+        ],
+        "avatar": "transform transition-transform duration-200 group-hover/user:scale-115"
+      },
+      "false": {
+        "name": "text-(--ui-text-highlighted)",
+        "description": ""
+      }
     },
-    runtimeConfig: config
-  }));
+    "size": {
+      "3xs": {
+        "root": "gap-1",
+        "wrapper": "flex items-center gap-1",
+        "name": "text-xs",
+        "description": "text-xs"
+      },
+      "2xs": {
+        "root": "gap-1.5",
+        "wrapper": "flex items-center gap-1.5",
+        "name": "text-xs",
+        "description": "text-xs"
+      },
+      "xs": {
+        "root": "gap-1.5",
+        "wrapper": "flex items-center gap-1.5",
+        "name": "text-xs",
+        "description": "text-xs"
+      },
+      "sm": {
+        "root": "gap-2",
+        "name": "text-xs",
+        "description": "text-xs"
+      },
+      "md": {
+        "root": "gap-2",
+        "name": "text-sm",
+        "description": "text-xs"
+      },
+      "lg": {
+        "root": "gap-2.5",
+        "name": "text-sm",
+        "description": "text-sm"
+      },
+      "xl": {
+        "root": "gap-2.5",
+        "name": "text-base",
+        "description": "text-sm"
+      },
+      "2xl": {
+        "root": "gap-3",
+        "name": "text-base",
+        "description": "text-base"
+      },
+      "3xl": {
+        "root": "gap-3",
+        "name": "text-lg",
+        "description": "text-base"
+      }
+    }
+  },
+  "defaultVariants": {
+    "size": "md"
+  }
 };
 
-const baseImageProps = {
-  // input source
-  src: { type: String, required: false },
-  // modifiers
-  format: { type: String, required: false },
-  quality: { type: [Number, String], required: false },
-  background: { type: String, required: false },
-  fit: { type: String, required: false },
-  modifiers: { type: Object, required: false },
-  // options
-  preset: { type: String, required: false },
-  provider: { type: String, required: false },
-  sizes: { type: [Object, String], required: false },
-  densities: { type: String, required: false },
-  preload: {
-    type: [Boolean, Object],
-    required: false
-  },
-  // <img> attributes
-  width: { type: [String, Number], required: false },
-  height: { type: [String, Number], required: false },
-  alt: { type: String, required: false },
-  referrerpolicy: { type: String, required: false },
-  usemap: { type: String, required: false },
-  longdesc: { type: String, required: false },
-  ismap: { type: Boolean, required: false },
-  loading: {
-    type: String,
-    required: false,
-    validator: (val) => ["lazy", "eager"].includes(val)
-  },
-  crossorigin: {
-    type: [Boolean, String],
-    required: false,
-    validator: (val) => ["anonymous", "use-credentials", "", true, false].includes(val)
-  },
-  decoding: {
-    type: String,
-    required: false,
-    validator: (val) => ["async", "auto", "sync"].includes(val)
-  },
-  // csp
-  nonce: { type: [String], required: false }
-};
-const useBaseImage = (props) => {
-  const options = computed(() => {
-    return {
-      provider: props.provider,
-      preset: props.preset
-    };
-  });
-  const attrs = computed(() => {
-    return {
-      width: parseSize(props.width),
-      height: parseSize(props.height),
-      alt: props.alt,
-      referrerpolicy: props.referrerpolicy,
-      usemap: props.usemap,
-      longdesc: props.longdesc,
-      ismap: props.ismap,
-      crossorigin: props.crossorigin === true ? "anonymous" : props.crossorigin || void 0,
-      loading: props.loading,
-      decoding: props.decoding,
-      nonce: props.nonce
-    };
-  });
-  const $img = useImage();
-  const modifiers = computed(() => {
-    return {
-      ...props.modifiers,
-      width: parseSize(props.width),
-      height: parseSize(props.height),
-      format: props.format,
-      quality: props.quality || $img.options.quality,
-      background: props.background,
-      fit: props.fit
-    };
-  });
-  return {
-    options,
-    attrs,
-    modifiers
-  };
-};
-const imgProps = {
-  ...baseImageProps,
-  placeholder: { type: [Boolean, String, Number, Array], required: false },
-  placeholderClass: { type: String, required: false },
-  custom: { type: Boolean, required: false }
-};
-
+var _a$2;
+const appConfigUser = _appConfig;
+const user = tv$1({ extend: tv$1(theme$2), ...((_a$2 = appConfigUser.uiPro) == null ? void 0 : _a$2.user) || {} });
 const _sfc_main$3 = /* @__PURE__ */ defineComponent({
-  __name: "NuxtImg",
+  ...{ inheritAttrs: false },
+  __name: "User",
   __ssrInlineRender: true,
-  props: imgProps,
-  emits: ["load", "error"],
-  setup(__props, { emit: __emit }) {
+  props: {
+    as: {},
+    name: {},
+    description: {},
+    avatar: {},
+    chip: { type: [Boolean, Object] },
+    size: {},
+    orientation: { default: "horizontal" },
+    to: {},
+    target: {},
+    onClick: {},
+    class: {},
+    ui: {}
+  },
+  setup(__props) {
     const props = __props;
-    const attrs = useAttrs();
-    const isServer = true;
-    const $img = useImage();
-    const _base = useBaseImage(props);
-    const placeholderLoaded = ref(false);
-    const imgEl = ref();
-    const sizes = computed(() => $img.getSizes(props.src, {
-      ..._base.options.value,
-      sizes: props.sizes,
-      densities: props.densities,
-      modifiers: {
-        ..._base.modifiers.value,
-        width: parseSize(props.width),
-        height: parseSize(props.height)
-      }
+    const slots = useSlots();
+    const ui = computed(() => user({
+      size: props.size,
+      orientation: props.orientation,
+      to: !!props.to || !!props.onClick
     }));
-    const imgAttrs = computed(() => {
-      const attrs2 = { ..._base.attrs.value, "data-nuxt-img": "" };
-      if (!props.placeholder || placeholderLoaded.value) {
-        attrs2.sizes = sizes.value.sizes;
-        attrs2.srcset = sizes.value.srcset;
-      }
-      return attrs2;
-    });
-    const placeholder = computed(() => {
-      let placeholder2 = props.placeholder;
-      if (placeholder2 === "") {
-        placeholder2 = true;
-      }
-      if (!placeholder2 || placeholderLoaded.value) {
-        return false;
-      }
-      if (typeof placeholder2 === "string") {
-        return placeholder2;
-      }
-      const size = Array.isArray(placeholder2) ? placeholder2 : typeof placeholder2 === "number" ? [placeholder2, placeholder2] : [10, 10];
-      return $img(props.src, {
-        ..._base.modifiers.value,
-        width: size[0],
-        height: size[1],
-        quality: size[2] || 50,
-        blur: size[3] || 3
-      }, _base.options.value);
-    });
-    const mainSrc = computed(
-      () => props.sizes ? sizes.value.src : $img(props.src, _base.modifiers.value, _base.options.value)
-    );
-    const src = computed(() => placeholder.value ? placeholder.value : mainSrc.value);
-    if (props.preload) {
-      const isResponsive = Object.values(sizes.value).every((v) => v);
-      useHead({
-        link: [{
-          rel: "preload",
-          as: "image",
-          nonce: props.nonce,
-          ...!isResponsive ? { href: src.value } : {
-            href: sizes.value.src,
-            imagesizes: sizes.value.sizes,
-            imagesrcset: sizes.value.srcset
-          },
-          ...typeof props.preload !== "boolean" && props.preload.fetchPriority ? { fetchpriority: props.preload.fetchPriority } : {}
-        }]
-      });
-    }
-    const nuxtApp = useNuxtApp();
-    nuxtApp.isHydrating;
     return (_ctx, _push, _parent, _attrs) => {
-      if (!_ctx.custom) {
-        _push(`<img${ssrRenderAttrs(mergeProps({
-          ref_key: "imgEl",
-          ref: imgEl,
-          class: props.placeholder && !placeholderLoaded.value ? props.placeholderClass : void 0
-        }, {
-          ...unref(isServer) ? { onerror: "this.setAttribute('data-error', 1)" } : {},
-          ...imgAttrs.value,
-          ...unref(attrs)
-        }, { src: src.value }, _attrs))}>`);
-      } else {
-        ssrRenderSlot(_ctx.$slots, "default", {
-          ...unref(isServer) ? { onerror: "this.setAttribute('data-error', 1)" } : {},
-          imgAttrs: {
-            ...imgAttrs.value,
-            ...unref(attrs)
-          },
-          isLoaded: placeholderLoaded.value,
-          src: src.value
-        }, null, _push, _parent);
-      }
+      var _a2;
+      const _component_UChip = __nuxt_component_0$1;
+      const _component_UAvatar = __nuxt_component_3;
+      const _component_ULink = __nuxt_component_0$2;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        "data-orientation": _ctx.orientation,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] }),
+        onClick: _ctx.onClick
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b;
+          if (_push2) {
+            ssrRenderSlot(_ctx.$slots, "avatar", {}, () => {
+              var _a4;
+              if (_ctx.chip && _ctx.avatar) {
+                _push2(ssrRenderComponent(_component_UChip, mergeProps({ inset: "" }, typeof _ctx.chip === "object" ? _ctx.chip : {}, { size: _ctx.size }), {
+                  default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                    var _a5, _b2;
+                    if (_push3) {
+                      _push3(ssrRenderComponent(_component_UAvatar, mergeProps({ alt: _ctx.name }, _ctx.avatar, {
+                        size: _ctx.size,
+                        class: ui.value.avatar({ class: (_a5 = props.ui) == null ? void 0 : _a5.avatar })
+                      }), null, _parent3, _scopeId2));
+                    } else {
+                      return [
+                        createVNode(_component_UAvatar, mergeProps({ alt: _ctx.name }, _ctx.avatar, {
+                          size: _ctx.size,
+                          class: ui.value.avatar({ class: (_b2 = props.ui) == null ? void 0 : _b2.avatar })
+                        }), null, 16, ["alt", "size", "class"])
+                      ];
+                    }
+                  }),
+                  _: 1
+                }, _parent2, _scopeId));
+              } else if (_ctx.avatar) {
+                _push2(ssrRenderComponent(_component_UAvatar, mergeProps({ alt: _ctx.name }, _ctx.avatar, {
+                  size: _ctx.size,
+                  class: ui.value.avatar({ class: (_a4 = props.ui) == null ? void 0 : _a4.avatar })
+                }), null, _parent2, _scopeId));
+              } else {
+                _push2(`<!---->`);
+              }
+            }, _push2, _parent2, _scopeId);
+            _push2(`<div class="${ssrRenderClass(ui.value.wrapper({ class: (_a3 = props.ui) == null ? void 0 : _a3.wrapper }))}"${_scopeId}>`);
+            if (_ctx.to) {
+              _push2(ssrRenderComponent(_component_ULink, mergeProps({ "aria-label": _ctx.name }, { to: _ctx.to, target: _ctx.target, ..._ctx.$attrs }, {
+                class: "focus:outline-none peer",
+                tabindex: "-1",
+                raw: ""
+              }), {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`<span class="absolute inset-0" aria-hidden="true"${_scopeId2}></span>`);
+                  } else {
+                    return [
+                      createVNode("span", {
+                        class: "absolute inset-0",
+                        "aria-hidden": "true"
+                      })
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+            } else {
+              _push2(`<!---->`);
+            }
+            ssrRenderSlot(_ctx.$slots, "default", {}, () => {
+              var _a4, _b2;
+              if (_ctx.name || !!slots.name) {
+                _push2(`<p class="${ssrRenderClass(ui.value.name({ class: (_a4 = props.ui) == null ? void 0 : _a4.name }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, "name", {}, () => {
+                  _push2(`${ssrInterpolate(_ctx.name)}`);
+                }, _push2, _parent2, _scopeId);
+                _push2(`</p>`);
+              } else {
+                _push2(`<!---->`);
+              }
+              if (_ctx.description || !!slots.description) {
+                _push2(`<p class="${ssrRenderClass(ui.value.description({ class: (_b2 = props.ui) == null ? void 0 : _b2.description }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, "description", {}, () => {
+                  _push2(`${ssrInterpolate(_ctx.description)}`);
+                }, _push2, _parent2, _scopeId);
+                _push2(`</p>`);
+              } else {
+                _push2(`<!---->`);
+              }
+            }, _push2, _parent2, _scopeId);
+            _push2(`</div>`);
+          } else {
+            return [
+              renderSlot(_ctx.$slots, "avatar", {}, () => {
+                var _a4;
+                return [
+                  _ctx.chip && _ctx.avatar ? (openBlock(), createBlock(_component_UChip, mergeProps({
+                    key: 0,
+                    inset: ""
+                  }, typeof _ctx.chip === "object" ? _ctx.chip : {}, { size: _ctx.size }), {
+                    default: withCtx(() => {
+                      var _a5;
+                      return [
+                        createVNode(_component_UAvatar, mergeProps({ alt: _ctx.name }, _ctx.avatar, {
+                          size: _ctx.size,
+                          class: ui.value.avatar({ class: (_a5 = props.ui) == null ? void 0 : _a5.avatar })
+                        }), null, 16, ["alt", "size", "class"])
+                      ];
+                    }),
+                    _: 1
+                  }, 16, ["size"])) : _ctx.avatar ? (openBlock(), createBlock(_component_UAvatar, mergeProps({
+                    key: 1,
+                    alt: _ctx.name
+                  }, _ctx.avatar, {
+                    size: _ctx.size,
+                    class: ui.value.avatar({ class: (_a4 = props.ui) == null ? void 0 : _a4.avatar })
+                  }), null, 16, ["alt", "size", "class"])) : createCommentVNode("", true)
+                ];
+              }),
+              createVNode("div", {
+                class: ui.value.wrapper({ class: (_b = props.ui) == null ? void 0 : _b.wrapper })
+              }, [
+                _ctx.to ? (openBlock(), createBlock(_component_ULink, mergeProps({
+                  key: 0,
+                  "aria-label": _ctx.name
+                }, { to: _ctx.to, target: _ctx.target, ..._ctx.$attrs }, {
+                  class: "focus:outline-none peer",
+                  tabindex: "-1",
+                  raw: ""
+                }), {
+                  default: withCtx(() => [
+                    createVNode("span", {
+                      class: "absolute inset-0",
+                      "aria-hidden": "true"
+                    })
+                  ]),
+                  _: 1
+                }, 16, ["aria-label"])) : createCommentVNode("", true),
+                renderSlot(_ctx.$slots, "default", {}, () => {
+                  var _a4, _b2;
+                  return [
+                    _ctx.name || !!slots.name ? (openBlock(), createBlock("p", {
+                      key: 0,
+                      class: ui.value.name({ class: (_a4 = props.ui) == null ? void 0 : _a4.name })
+                    }, [
+                      renderSlot(_ctx.$slots, "name", {}, () => [
+                        createTextVNode(toDisplayString(_ctx.name), 1)
+                      ])
+                    ], 2)) : createCommentVNode("", true),
+                    _ctx.description || !!slots.description ? (openBlock(), createBlock("p", {
+                      key: 1,
+                      class: ui.value.description({ class: (_b2 = props.ui) == null ? void 0 : _b2.description })
+                    }, [
+                      renderSlot(_ctx.$slots, "description", {}, () => [
+                        createTextVNode(toDisplayString(_ctx.description), 1)
+                      ])
+                    ], 2)) : createCommentVNode("", true)
+                  ];
+                })
+              ], 2)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
     };
   }
 });
@@ -662,352 +1080,497 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/User.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "NuxtImg" });
+const UUser = Object.assign(_sfc_main$3, { __name: "UUser" });
 
-const avatarGroup = {
-  wrapper: "inline-flex flex-row-reverse justify-end",
-  ring: "ring-2 ring-white dark:ring-gray-900",
-  margin: "-me-1.5 first:me-0"
-};
-
-const avatarConfig = mergeConfig(appConfig.ui.strategy, appConfig.ui.avatar, avatar);
-const avatarGroupConfig = mergeConfig(appConfig.ui.strategy, appConfig.ui.avatarGroup, avatarGroup);
-const __nuxt_component_3$1 = defineComponent({
-  inheritAttrs: false,
-  props: {
-    size: {
-      type: String,
-      default: null,
-      validator(value) {
-        return Object.keys(avatarConfig.size).includes(value);
+const theme$1 = {
+  "slots": {
+    "root": "relative group/blog-post flex flex-col rounded-[calc(var(--ui-radius)*2)] overflow-hidden",
+    "header": "relative overflow-hidden aspect-[16/9] w-full pointer-events-none",
+    "body": "min-w-0 flex-1 flex flex-col",
+    "footer": "",
+    "image": "object-cover object-top w-full h-full",
+    "title": "text-xl text-pretty font-semibold text-(--ui-text-highlighted)",
+    "description": "mt-1 text-base text-pretty",
+    "authors": "pt-4 mt-auto flex flex-wrap gap-x-3 gap-y-1.5",
+    "avatar": "",
+    "meta": "flex items-center gap-2 mb-2",
+    "date": "text-sm",
+    "badge": ""
+  },
+  "variants": {
+    "orientation": {
+      "horizontal": {
+        "root": "lg:grid lg:grid-cols-2 lg:items-center gap-x-8",
+        "body": "justify-center p-4 sm:p-6 lg:px-0"
+      },
+      "vertical": {
+        "root": "flex flex-col",
+        "body": "p-4 sm:p-6"
       }
     },
-    max: {
-      type: Number,
-      default: null
+    "variant": {
+      "outline": {
+        "root": "bg-(--ui-bg) ring ring-(--ui-border)",
+        "date": "text-(--ui-text-toned)",
+        "description": "text-(--ui-text-muted)"
+      },
+      "soft": {
+        "root": "bg-(--ui-bg-elevated)/50",
+        "date": "text-(--ui-text-muted)",
+        "description": "text-(--ui-text-toned)"
+      },
+      "subtle": {
+        "root": "bg-(--ui-bg-elevated)/50 ring ring-(--ui-border)",
+        "date": "text-(--ui-text-muted)",
+        "description": "text-(--ui-text-toned)"
+      },
+      "ghost": {
+        "date": "text-(--ui-text-toned)",
+        "description": "text-(--ui-text-muted)",
+        "header": "shadow-lg rounded-[calc(var(--ui-radius)*2)]"
+      },
+      "naked": {
+        "root": "p-0 sm:p-0",
+        "date": "text-(--ui-text-toned)",
+        "description": "text-(--ui-text-muted)",
+        "header": "shadow-lg rounded-[calc(var(--ui-radius)*2)]"
+      }
     },
-    class: {
-      type: [String, Object, Array],
-      default: () => ""
+    "to": {
+      "true": {
+        "root": [
+          "transition"
+        ],
+        "image": "transform transition-transform duration-200 group-hover/blog-post:scale-110",
+        "avatar": "transform transition-transform duration-200 hover:scale-115"
+      }
     },
-    ui: {
-      type: Object,
-      default: () => ({})
+    "image": {
+      "true": ""
     }
   },
-  setup(props, { slots }) {
-    const { ui, attrs } = useUI("avatarGroup", toRef(props, "ui"), avatarGroupConfig, toRef(props, "class"));
-    const children = computed(() => getSlotsChildren(slots));
-    const max = computed(() => typeof props.max === "string" ? Number.parseInt(props.max, 10) : props.max);
-    const clones = computed(() => children.value.map((node, index) => {
-      const vProps = {};
-      if (!props.max || max.value && index < max.value) {
-        if (props.size) {
-          vProps.size = props.size;
-        }
-        vProps.class = node.props.class || "";
-        vProps.class = twMerge(twJoin(vProps.class, ui.value.ring, ui.value.margin), vProps.class);
-        return cloneVNode(node, vProps);
+  "compoundVariants": [
+    {
+      "variant": "outline",
+      "to": true,
+      "class": {
+        "root": "hover:bg-(--ui-bg-elevated)/50"
       }
-      if (max.value !== void 0 && index === max.value) {
-        return h(__nuxt_component_4, {
-          size: props.size || avatarConfig.default.size,
-          text: `+${children.value.length - max.value}`,
-          class: twJoin(ui.value.ring, ui.value.margin)
-        });
+    },
+    {
+      "variant": "soft",
+      "to": true,
+      "class": {
+        "root": "hover:bg-(--ui-bg-elevated)"
       }
-      return null;
-    }).filter(Boolean).reverse());
-    return () => h("div", { class: ui.value.wrapper, ...attrs.value }, clones.value);
+    },
+    {
+      "variant": "subtle",
+      "to": true,
+      "class": {
+        "root": "hover:bg-(--ui-bg-elevated) hover:ring-(--ui-border-accented)"
+      }
+    },
+    {
+      "variant": "ghost",
+      "to": true,
+      "class": {
+        "root": "hover:bg-(--ui-bg-elevated)/50",
+        "header": [
+          "group-hover/blog-post:shadow-none",
+          "transition-all"
+        ]
+      }
+    },
+    {
+      "variant": "ghost",
+      "to": true,
+      "orientation": "vertical",
+      "class": {
+        "header": "group-hover/blog-post:rounded-b-none"
+      }
+    },
+    {
+      "variant": "ghost",
+      "to": true,
+      "orientation": "horizontal",
+      "class": {
+        "header": "group-hover/blog-post:rounded-r-none"
+      }
+    },
+    {
+      "orientation": "vertical",
+      "image": false,
+      "variant": "naked",
+      "class": {
+        "body": "p-0 sm:p-0"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "variant": "outline"
   }
-});
+};
 
+var _a$1;
+const appConfigBlogPost = _appConfig;
+const blogPost = tv$1({ extend: tv$1(theme$1), ...((_a$1 = appConfigBlogPost.uiPro) == null ? void 0 : _a$1.blogPost) || {} });
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
-  ...{
-    inheritAttrs: false
-  },
+  ...{ inheritAttrs: false },
   __name: "BlogPost",
   __ssrInlineRender: true,
   props: {
-    ...nuxtLinkProps,
-    title: {
-      type: String,
-      default: void 0
-    },
-    description: {
-      type: String,
-      default: void 0
-    },
-    date: {
-      type: [String, Date],
-      default: void 0
-    },
-    image: {
-      type: [String, Object],
-      default: void 0
-    },
-    badge: {
-      type: Object,
-      default: void 0
-    },
-    authors: {
-      type: Array,
-      default: void 0
-    },
-    orientation: {
-      type: String,
-      default: "vertical"
-    },
-    class: {
-      type: [String, Object, Array],
-      default: void 0
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
-    }
+    as: { default: "article" },
+    title: {},
+    description: {},
+    date: {},
+    badge: {},
+    authors: {},
+    image: {},
+    orientation: { default: "vertical" },
+    variant: {},
+    to: {},
+    target: {},
+    onClick: {},
+    class: {},
+    ui: {}
   },
   setup(__props) {
-    const slots = useSlots();
     const props = __props;
-    const config = computed(() => {
-      const wrapper = twJoin(
-        "relative group flex flex-col w-full gap-y-6",
-        props.orientation === "horizontal" && (!!props.image || !!slots.image) ? "lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-center" : void 0
-      );
-      return {
-        wrapper,
-        image: {
-          wrapper: "ring-1 ring-gray-200 dark:ring-gray-800 relative overflow-hidden aspect-[16/9] w-full rounded-lg pointer-events-none",
-          base: "object-cover object-top w-full h-full transform transition-transform duration-200 group-hover:scale-105"
-        },
-        container: "flex flex-col justify-between flex-1",
-        inner: "flex-1",
-        badge: {
-          wrapper: "mb-3",
-          base: ""
-        },
-        title: "text-gray-900 dark:text-white text-xl font-semibold truncate group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors duration-200",
-        description: "text-base text-gray-500 dark:text-gray-400 mt-1",
-        date: "text-sm text-gray-500 dark:text-gray-400 font-medium pointer-events-none",
-        authors: {
-          wrapper: "relative flex items-center gap-x-3 mt-4",
-          avatar: {
-            base: "relative ring-1 lg:hover:scale-105 lg:hover:ring-primary-500 dark:lg:hover:ring-primary-400 transition-transform",
-            size: "xs"
-          }
-        }
-      };
-    });
-    const { ui, attrs } = useUI("blog.post", toRef(props, "ui"), config, toRef(props, "class"), true);
-    const nuxtLinkBind = computed(() => getNuxtLinkProps(props));
-    const ariaLabel = computed(() => (props.title || slots.title && getSlotChildrenText(slots.title()) || "Post link").trim());
-    const datetime = computed(() => {
+    const slots = useSlots();
+    const ui = computed(() => blogPost({
+      orientation: props.orientation,
+      variant: props.variant,
+      image: !!props.image,
+      to: !!props.to || !!props.onClick
+    }));
+    const { locale } = useLocale();
+    const formatter = useDateFormatter(locale.value.code);
+    const date = computed(() => {
       if (!props.date) {
-        return void 0;
+        return;
       }
       try {
-        return new Date(props.date).toISOString();
+        return formatter.custom(new Date(props.date), { dateStyle: "medium" });
+      } catch {
+        return props.date;
+      }
+    });
+    const datetime = computed(() => {
+      var _a2;
+      if (!props.date) {
+        return;
+      }
+      try {
+        return (_a2 = new Date(props.date)) == null ? void 0 : _a2.toISOString();
       } catch {
         return void 0;
       }
     });
+    const ariaLabel = computed(() => (props.title || slots.title && getSlotChildrenText(slots.title()) || "Post link").trim());
     return (_ctx, _push, _parent, _attrs) => {
-      var _a;
-      const _component_NuxtImg = __nuxt_component_0;
-      const _component_NuxtLink = __nuxt_component_1$1;
-      const _component_UBadge = __nuxt_component_1$2;
-      const _component_UAvatarGroup = __nuxt_component_3$1;
-      const _component_UAvatar = __nuxt_component_4;
-      _push(`<article${ssrRenderAttrs(mergeProps({
-        class: unref(ui).wrapper
-      }, unref(attrs), _attrs))}>`);
-      if (__props.image || _ctx.$slots.image) {
-        _push(`<div class="${ssrRenderClass(unref(ui).image.wrapper)}">`);
-        ssrRenderSlot(_ctx.$slots, "image", {}, () => {
-          _push(ssrRenderComponent(_component_NuxtImg, mergeProps(typeof __props.image === "string" ? { src: __props.image, alt: __props.title } : { alt: __props.title, ...__props.image }, {
-            class: unref(ui).image.base
-          }), null, _parent));
-        }, _push, _parent);
-        _push(`</div>`);
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`<div class="${ssrRenderClass(unref(ui).container)}"><div class="${ssrRenderClass(unref(ui).inner)}">`);
-      if (_ctx.to) {
-        _push(ssrRenderComponent(_component_NuxtLink, mergeProps({ "aria-label": unref(ariaLabel) }, unref(nuxtLinkBind), {
-          class: "focus:outline-none",
-          tabindex: "-1"
-        }), {
-          default: withCtx((_, _push2, _parent2, _scopeId) => {
-            if (_push2) {
-              _push2(`<span class="absolute inset-0" aria-hidden="true"${_scopeId}></span>`);
+      var _a2;
+      const _component_ULink = __nuxt_component_0$2;
+      const _component_UBadge = __nuxt_component_0$3;
+      const _component_UAvatarGroup = __nuxt_component_2;
+      const _component_UAvatar = __nuxt_component_3;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        "data-orientation": _ctx.orientation,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] }),
+        onClick: _ctx.onClick
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b, _c, _d, _e, _f;
+          if (_push2) {
+            if (_ctx.image || !!slots.header) {
+              _push2(`<div class="${ssrRenderClass(ui.value.header({ class: (_a3 = props.ui) == null ? void 0 : _a3.header }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "header", {}, () => {
+                var _a4;
+                ssrRenderVNode(_push2, createVNode(resolveDynamicComponent(unref(ImageComponent)), mergeProps(typeof _ctx.image === "string" ? { src: _ctx.image, alt: _ctx.title } : { alt: _ctx.title, ..._ctx.image }, {
+                  class: ui.value.image({ class: (_a4 = props.ui) == null ? void 0 : _a4.image, to: !!_ctx.to })
+                }), null), _parent2, _scopeId);
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
             } else {
-              return [
-                createVNode("span", {
-                  class: "absolute inset-0",
-                  "aria-hidden": "true"
-                })
-              ];
+              _push2(`<!---->`);
             }
-          }),
-          _: 1
-        }, _parent));
-      } else {
-        _push(`<!---->`);
-      }
-      if (__props.badge || _ctx.$slots.badge) {
-        _push(`<div class="${ssrRenderClass(unref(ui).badge.wrapper)}">`);
-        ssrRenderSlot(_ctx.$slots, "badge", {}, () => {
-          if (__props.badge) {
-            _push(ssrRenderComponent(_component_UBadge, mergeProps({ variant: "subtle", ...__props.badge }, {
-              class: unref(ui).badge.base
-            }), null, _parent));
-          } else {
-            _push(`<!---->`);
-          }
-        }, _push, _parent);
-        _push(`</div>`);
-      } else {
-        _push(`<!---->`);
-      }
-      if (__props.title || _ctx.$slots.title) {
-        _push(`<h2 class="${ssrRenderClass(unref(ui).title)}">`);
-        ssrRenderSlot(_ctx.$slots, "title", {}, () => {
-          _push(`${ssrInterpolate(__props.title)}`);
-        }, _push, _parent);
-        _push(`</h2>`);
-      } else {
-        _push(`<!---->`);
-      }
-      if (__props.description || _ctx.$slots.description) {
-        _push(`<div class="${ssrRenderClass(unref(ui).description)}">`);
-        ssrRenderSlot(_ctx.$slots, "description", {}, () => {
-          _push(`${ssrInterpolate(__props.description)}`);
-        }, _push, _parent);
-        _push(`</div>`);
-      } else {
-        _push(`<!---->`);
-      }
-      ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
-      _push(`</div>`);
-      if (((_a = __props.authors) == null ? void 0 : _a.length) || _ctx.$slots.authors || (__props.date || _ctx.$slots.date)) {
-        _push(`<div class="${ssrRenderClass(unref(ui).authors.wrapper)}">`);
-        ssrRenderSlot(_ctx.$slots, "authors", {}, () => {
-          var _a2;
-          if ((_a2 = __props.authors) == null ? void 0 : _a2.length) {
-            _push(ssrRenderComponent(_component_UAvatarGroup, null, {
-              default: withCtx((_, _push2, _parent2, _scopeId) => {
-                if (_push2) {
-                  _push2(`<!--[-->`);
-                  ssrRenderList(__props.authors, (author, index) => {
-                    _push2(ssrRenderComponent(_component_UAvatar, mergeProps({
-                      key: index,
-                      alt: author.name,
-                      class: unref(ui).authors.avatar.base,
-                      ref_for: true
-                    }, { size: unref(ui).authors.avatar.size, ...author.avatar }), {
-                      default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-                        if (_push3) {
-                          if (author.to) {
-                            _push3(ssrRenderComponent(_component_NuxtLink, mergeProps({ ref_for: true }, { target: "_blank", ...unref(getNuxtLinkProps)(author) }, {
-                              class: "focus:outline-none",
-                              tabindex: "-1"
-                            }), {
-                              default: withCtx((_3, _push4, _parent4, _scopeId3) => {
-                                if (_push4) {
-                                  _push4(`<span class="absolute inset-0" aria-hidden="true"${_scopeId3}></span>`);
-                                } else {
-                                  return [
-                                    createVNode("span", {
-                                      class: "absolute inset-0",
-                                      "aria-hidden": "true"
-                                    })
-                                  ];
-                                }
-                              }),
-                              _: 2
-                            }, _parent3, _scopeId2));
+            _push2(`<div class="${ssrRenderClass(ui.value.body({ class: (_b = props.ui) == null ? void 0 : _b.body }))}"${_scopeId}>`);
+            if (_ctx.to) {
+              _push2(ssrRenderComponent(_component_ULink, mergeProps({ "aria-label": ariaLabel.value }, { to: _ctx.to, target: _ctx.target, ..._ctx.$attrs }, {
+                class: "focus:outline-none peer",
+                tabindex: "-1",
+                raw: ""
+              }), {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`<span class="absolute inset-0" aria-hidden="true"${_scopeId2}></span>`);
+                  } else {
+                    return [
+                      createVNode("span", {
+                        class: "absolute inset-0",
+                        "aria-hidden": "true"
+                      })
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+            } else {
+              _push2(`<!---->`);
+            }
+            ssrRenderSlot(_ctx.$slots, "body", {}, () => {
+              var _a4, _b2, _c2, _d2, _e2;
+              if (date.value || !!slots.date || (_ctx.badge || !!slots.badge)) {
+                _push2(`<div class="${ssrRenderClass(ui.value.meta({ class: (_a4 = props.ui) == null ? void 0 : _a4.meta }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, "badge", {}, () => {
+                  var _a5;
+                  if (_ctx.badge) {
+                    _push2(ssrRenderComponent(_component_UBadge, mergeProps({
+                      color: "neutral",
+                      variant: "subtle"
+                    }, typeof _ctx.badge === "string" ? { label: _ctx.badge } : _ctx.badge, {
+                      class: ui.value.badge({ class: (_a5 = props.ui) == null ? void 0 : _a5.badge })
+                    }), null, _parent2, _scopeId));
+                  } else {
+                    _push2(`<!---->`);
+                  }
+                }, _push2, _parent2, _scopeId);
+                ssrRenderSlot(_ctx.$slots, "date", {}, () => {
+                  var _a5;
+                  if (date.value) {
+                    _push2(`<time${ssrRenderAttr("datetime", datetime.value)} class="${ssrRenderClass(ui.value.date({ class: (_a5 = props.ui) == null ? void 0 : _a5.date }))}"${_scopeId}>${ssrInterpolate(date.value)}</time>`);
+                  } else {
+                    _push2(`<!---->`);
+                  }
+                }, _push2, _parent2, _scopeId);
+                _push2(`</div>`);
+              } else {
+                _push2(`<!---->`);
+              }
+              if (_ctx.title || !!slots.title) {
+                _push2(`<h2 class="${ssrRenderClass(ui.value.title({ class: (_b2 = props.ui) == null ? void 0 : _b2.title }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, "title", {}, () => {
+                  _push2(`${ssrInterpolate(_ctx.title)}`);
+                }, _push2, _parent2, _scopeId);
+                _push2(`</h2>`);
+              } else {
+                _push2(`<!---->`);
+              }
+              if (_ctx.description || !!slots.description) {
+                _push2(`<div class="${ssrRenderClass(ui.value.description({ class: (_c2 = props.ui) == null ? void 0 : _c2.description }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, "description", {}, () => {
+                  _push2(`${ssrInterpolate(_ctx.description)}`);
+                }, _push2, _parent2, _scopeId);
+                _push2(`</div>`);
+              } else {
+                _push2(`<!---->`);
+              }
+              if (((_d2 = _ctx.authors) == null ? void 0 : _d2.length) || !!slots.authors) {
+                _push2(`<div class="${ssrRenderClass(ui.value.authors({ class: (_e2 = props.ui) == null ? void 0 : _e2.authors }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, "authors", {}, () => {
+                  var _a5;
+                  if ((_a5 = _ctx.authors) == null ? void 0 : _a5.length) {
+                    _push2(`<!--[-->`);
+                    if (_ctx.authors.length > 1) {
+                      _push2(ssrRenderComponent(_component_UAvatarGroup, null, {
+                        default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                          if (_push3) {
+                            _push3(`<!--[-->`);
+                            ssrRenderList(_ctx.authors, (author, index) => {
+                              var _a6;
+                              _push3(ssrRenderComponent(_component_ULink, {
+                                key: index,
+                                to: author.to,
+                                target: author.target,
+                                class: ui.value.avatar({ class: (_a6 = props.ui) == null ? void 0 : _a6.avatar, to: !!author.to }),
+                                raw: ""
+                              }, {
+                                default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                                  if (_push4) {
+                                    _push4(ssrRenderComponent(_component_UAvatar, mergeProps({ ref_for: true }, author.avatar), null, _parent4, _scopeId3));
+                                  } else {
+                                    return [
+                                      createVNode(_component_UAvatar, mergeProps({ ref_for: true }, author.avatar), null, 16)
+                                    ];
+                                  }
+                                }),
+                                _: 2
+                              }, _parent3, _scopeId2));
+                            });
+                            _push3(`<!--]-->`);
                           } else {
-                            _push3(`<!---->`);
+                            return [
+                              (openBlock(true), createBlock(Fragment, null, renderList(_ctx.authors, (author, index) => {
+                                var _a6;
+                                return openBlock(), createBlock(_component_ULink, {
+                                  key: index,
+                                  to: author.to,
+                                  target: author.target,
+                                  class: ui.value.avatar({ class: (_a6 = props.ui) == null ? void 0 : _a6.avatar, to: !!author.to }),
+                                  raw: ""
+                                }, {
+                                  default: withCtx(() => [
+                                    createVNode(_component_UAvatar, mergeProps({ ref_for: true }, author.avatar), null, 16)
+                                  ]),
+                                  _: 2
+                                }, 1032, ["to", "target", "class"]);
+                              }), 128))
+                            ];
                           }
-                        } else {
-                          return [
-                            author.to ? (openBlock(), createBlock(_component_NuxtLink, mergeProps({
-                              key: 0,
-                              ref_for: true
-                            }, { target: "_blank", ...unref(getNuxtLinkProps)(author) }, {
-                              class: "focus:outline-none",
-                              tabindex: "-1"
-                            }), {
-                              default: withCtx(() => [
-                                createVNode("span", {
-                                  class: "absolute inset-0",
-                                  "aria-hidden": "true"
-                                })
-                              ]),
-                              _: 2
-                            }, 1040)) : createCommentVNode("", true)
-                          ];
-                        }
-                      }),
-                      _: 2
-                    }, _parent2, _scopeId));
-                  });
-                  _push2(`<!--]-->`);
-                } else {
+                        }),
+                        _: 1
+                      }, _parent2, _scopeId));
+                    } else {
+                      _push2(ssrRenderComponent(UUser, _ctx.authors[0], null, _parent2, _scopeId));
+                    }
+                    _push2(`<!--]-->`);
+                  } else {
+                    _push2(`<!---->`);
+                  }
+                }, _push2, _parent2, _scopeId);
+                _push2(`</div>`);
+              } else {
+                _push2(`<!---->`);
+              }
+            }, _push2, _parent2, _scopeId);
+            _push2(`</div>`);
+            if (!!slots.footer) {
+              _push2(`<div class="${ssrRenderClass(ui.value.footer({ class: (_c = props.ui) == null ? void 0 : _c.footer }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "footer", {}, null, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+          } else {
+            return [
+              _ctx.image || !!slots.header ? (openBlock(), createBlock("div", {
+                key: 0,
+                class: ui.value.header({ class: (_d = props.ui) == null ? void 0 : _d.header })
+              }, [
+                renderSlot(_ctx.$slots, "header", {}, () => {
+                  var _a4;
                   return [
-                    (openBlock(true), createBlock(Fragment, null, renderList(__props.authors, (author, index) => {
-                      return openBlock(), createBlock(_component_UAvatar, mergeProps({
-                        key: index,
-                        alt: author.name,
-                        class: unref(ui).authors.avatar.base,
-                        ref_for: true
-                      }, { size: unref(ui).authors.avatar.size, ...author.avatar }), {
-                        default: withCtx(() => [
-                          author.to ? (openBlock(), createBlock(_component_NuxtLink, mergeProps({
-                            key: 0,
-                            ref_for: true
-                          }, { target: "_blank", ...unref(getNuxtLinkProps)(author) }, {
-                            class: "focus:outline-none",
-                            tabindex: "-1"
-                          }), {
-                            default: withCtx(() => [
-                              createVNode("span", {
-                                class: "absolute inset-0",
-                                "aria-hidden": "true"
-                              })
-                            ]),
-                            _: 2
-                          }, 1040)) : createCommentVNode("", true)
-                        ]),
-                        _: 2
-                      }, 1040, ["alt", "class"]);
-                    }), 128))
+                    (openBlock(), createBlock(resolveDynamicComponent(unref(ImageComponent)), mergeProps(typeof _ctx.image === "string" ? { src: _ctx.image, alt: _ctx.title } : { alt: _ctx.title, ..._ctx.image }, {
+                      class: ui.value.image({ class: (_a4 = props.ui) == null ? void 0 : _a4.image, to: !!_ctx.to })
+                    }), null, 16, ["class"]))
                   ];
-                }
-              }),
-              _: 1
-            }, _parent));
-          } else {
-            _push(`<!---->`);
+                })
+              ], 2)) : createCommentVNode("", true),
+              createVNode("div", {
+                class: ui.value.body({ class: (_e = props.ui) == null ? void 0 : _e.body })
+              }, [
+                _ctx.to ? (openBlock(), createBlock(_component_ULink, mergeProps({
+                  key: 0,
+                  "aria-label": ariaLabel.value
+                }, { to: _ctx.to, target: _ctx.target, ..._ctx.$attrs }, {
+                  class: "focus:outline-none peer",
+                  tabindex: "-1",
+                  raw: ""
+                }), {
+                  default: withCtx(() => [
+                    createVNode("span", {
+                      class: "absolute inset-0",
+                      "aria-hidden": "true"
+                    })
+                  ]),
+                  _: 1
+                }, 16, ["aria-label"])) : createCommentVNode("", true),
+                renderSlot(_ctx.$slots, "body", {}, () => {
+                  var _a4, _b2, _c2, _d2, _e2;
+                  return [
+                    date.value || !!slots.date || (_ctx.badge || !!slots.badge) ? (openBlock(), createBlock("div", {
+                      key: 0,
+                      class: ui.value.meta({ class: (_a4 = props.ui) == null ? void 0 : _a4.meta })
+                    }, [
+                      renderSlot(_ctx.$slots, "badge", {}, () => {
+                        var _a5;
+                        return [
+                          _ctx.badge ? (openBlock(), createBlock(_component_UBadge, mergeProps({
+                            key: 0,
+                            color: "neutral",
+                            variant: "subtle"
+                          }, typeof _ctx.badge === "string" ? { label: _ctx.badge } : _ctx.badge, {
+                            class: ui.value.badge({ class: (_a5 = props.ui) == null ? void 0 : _a5.badge })
+                          }), null, 16, ["class"])) : createCommentVNode("", true)
+                        ];
+                      }),
+                      renderSlot(_ctx.$slots, "date", {}, () => {
+                        var _a5;
+                        return [
+                          date.value ? (openBlock(), createBlock("time", {
+                            key: 0,
+                            datetime: datetime.value,
+                            class: ui.value.date({ class: (_a5 = props.ui) == null ? void 0 : _a5.date })
+                          }, toDisplayString(date.value), 11, ["datetime"])) : createCommentVNode("", true)
+                        ];
+                      })
+                    ], 2)) : createCommentVNode("", true),
+                    _ctx.title || !!slots.title ? (openBlock(), createBlock("h2", {
+                      key: 1,
+                      class: ui.value.title({ class: (_b2 = props.ui) == null ? void 0 : _b2.title })
+                    }, [
+                      renderSlot(_ctx.$slots, "title", {}, () => [
+                        createTextVNode(toDisplayString(_ctx.title), 1)
+                      ])
+                    ], 2)) : createCommentVNode("", true),
+                    _ctx.description || !!slots.description ? (openBlock(), createBlock("div", {
+                      key: 2,
+                      class: ui.value.description({ class: (_c2 = props.ui) == null ? void 0 : _c2.description })
+                    }, [
+                      renderSlot(_ctx.$slots, "description", {}, () => [
+                        createTextVNode(toDisplayString(_ctx.description), 1)
+                      ])
+                    ], 2)) : createCommentVNode("", true),
+                    ((_d2 = _ctx.authors) == null ? void 0 : _d2.length) || !!slots.authors ? (openBlock(), createBlock("div", {
+                      key: 3,
+                      class: ui.value.authors({ class: (_e2 = props.ui) == null ? void 0 : _e2.authors })
+                    }, [
+                      renderSlot(_ctx.$slots, "authors", {}, () => {
+                        var _a5;
+                        return [
+                          ((_a5 = _ctx.authors) == null ? void 0 : _a5.length) ? (openBlock(), createBlock(Fragment, { key: 0 }, [
+                            _ctx.authors.length > 1 ? (openBlock(), createBlock(_component_UAvatarGroup, { key: 0 }, {
+                              default: withCtx(() => [
+                                (openBlock(true), createBlock(Fragment, null, renderList(_ctx.authors, (author, index) => {
+                                  var _a6;
+                                  return openBlock(), createBlock(_component_ULink, {
+                                    key: index,
+                                    to: author.to,
+                                    target: author.target,
+                                    class: ui.value.avatar({ class: (_a6 = props.ui) == null ? void 0 : _a6.avatar, to: !!author.to }),
+                                    raw: ""
+                                  }, {
+                                    default: withCtx(() => [
+                                      createVNode(_component_UAvatar, mergeProps({ ref_for: true }, author.avatar), null, 16)
+                                    ]),
+                                    _: 2
+                                  }, 1032, ["to", "target", "class"]);
+                                }), 128))
+                              ]),
+                              _: 1
+                            })) : (openBlock(), createBlock(UUser, mergeProps({ key: 1 }, _ctx.authors[0]), null, 16))
+                          ], 64)) : createCommentVNode("", true)
+                        ];
+                      })
+                    ], 2)) : createCommentVNode("", true)
+                  ];
+                })
+              ], 2),
+              !!slots.footer ? (openBlock(), createBlock("div", {
+                key: 1,
+                class: ui.value.footer({ class: (_f = props.ui) == null ? void 0 : _f.footer })
+              }, [
+                renderSlot(_ctx.$slots, "footer")
+              ], 2)) : createCommentVNode("", true)
+            ];
           }
-        }, _push, _parent);
-        ssrRenderSlot(_ctx.$slots, "date", {}, () => {
-          if (__props.date) {
-            _push(`<time${ssrRenderAttr("datetime", unref(datetime))} class="${ssrRenderClass(unref(ui).date)}">${ssrInterpolate(__props.date)}</time>`);
-          } else {
-            _push(`<!---->`);
-          }
-        }, _push, _parent);
-        _push(`</div>`);
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`</div></article>`);
+        }),
+        _: 3
+      }, _parent));
     };
   }
 });
@@ -1015,350 +1578,81 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/blog/BlogPost.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/BlogPost.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const __nuxt_component_2 = Object.assign(_sfc_main$2, { __name: "UBlogPost" });
+const UBlogPost = Object.assign(_sfc_main$2, { __name: "UBlogPost" });
 
-const pagination = {
-  wrapper: "flex items-center -space-x-px",
-  base: "",
-  rounded: "first:rounded-s-md last:rounded-e-md",
-  default: {
-    size: "sm",
-    activeButton: {
-      color: "primary"
-    },
-    inactiveButton: {
-      color: "white"
-    },
-    firstButton: {
-      color: "white",
-      class: "rtl:[&_span:first-child]:rotate-180",
-      icon: "i-heroicons-chevron-double-left-20-solid"
-    },
-    lastButton: {
-      color: "white",
-      class: "rtl:[&_span:last-child]:rotate-180",
-      icon: "i-heroicons-chevron-double-right-20-solid"
-    },
-    prevButton: {
-      color: "white",
-      class: "rtl:[&_span:first-child]:rotate-180",
-      icon: "i-heroicons-chevron-left-20-solid"
-    },
-    nextButton: {
-      color: "white",
-      class: "rtl:[&_span:last-child]:rotate-180",
-      icon: "i-heroicons-chevron-right-20-solid"
+const theme = {
+  "base": "flex flex-col gap-8 lg:gap-y-16",
+  "variants": {
+    "orientation": {
+      "horizontal": "sm:grid sm:grid-cols-2 lg:grid-cols-3",
+      "vertical": ""
     }
   }
 };
 
-const config = mergeConfig(appConfig.ui.strategy, appConfig.ui.pagination, pagination);
-const buttonConfig = mergeConfig(appConfig.ui.strategy, appConfig.ui.button, button);
-const _sfc_main$1 = defineComponent({
-  components: {
-    UButton: __nuxt_component_1$3
-  },
-  inheritAttrs: false,
+var _a;
+const appConfigBlogPosts = _appConfig;
+const blogPosts = tv$1({ extend: tv$1(theme), ...((_a = appConfigBlogPosts.uiPro) == null ? void 0 : _a.blogPosts) || {} });
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+  __name: "BlogPosts",
+  __ssrInlineRender: true,
   props: {
-    modelValue: {
-      type: Number,
-      required: true
-    },
-    pageCount: {
-      type: Number,
-      default: 10
-    },
-    total: {
-      type: Number,
-      required: true
-    },
-    max: {
-      type: Number,
-      default: 7,
-      validate(value) {
-        return value >= 5 && value < Number.MAX_VALUE;
-      }
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    size: {
-      type: String,
-      default: () => config.default.size,
-      validator(value) {
-        return Object.keys(buttonConfig.size).includes(value);
-      }
-    },
-    to: {
-      type: Function,
-      default: null
-    },
-    activeButton: {
-      type: Object,
-      default: () => config.default.activeButton
-    },
-    inactiveButton: {
-      type: Object,
-      default: () => config.default.inactiveButton
-    },
-    showFirst: {
-      type: Boolean,
-      default: false
-    },
-    showLast: {
-      type: Boolean,
-      default: false
-    },
-    firstButton: {
-      type: Object,
-      default: () => config.default.firstButton
-    },
-    lastButton: {
-      type: Object,
-      default: () => config.default.lastButton
-    },
-    prevButton: {
-      type: Object,
-      default: () => config.default.prevButton
-    },
-    nextButton: {
-      type: Object,
-      default: () => config.default.nextButton
-    },
-    divider: {
-      type: String,
-      default: "…"
-    },
-    class: {
-      type: [String, Object, Array],
-      default: () => ""
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
-    }
+    as: {},
+    posts: {},
+    orientation: { default: "horizontal" },
+    class: {}
   },
-  emits: ["update:modelValue"],
-  setup(props, { emit }) {
-    const { ui, attrs } = useUI("pagination", toRef(props, "ui"), config, toRef(props, "class"));
-    const currentPage = computed({
-      get() {
-        return props.modelValue;
-      },
-      set(value) {
-        emit("update:modelValue", value);
-      }
-    });
-    const pages = computed(() => Array.from({ length: Math.ceil(props.total / props.pageCount) }, (_, i) => i + 1));
-    const displayedPages = computed(() => {
-      const totalPages = pages.value.length;
-      const current = currentPage.value;
-      const maxDisplayedPages = Math.max(props.max, 5);
-      const r = Math.floor((Math.min(maxDisplayedPages, totalPages) - 5) / 2);
-      const r1 = current - r;
-      const r2 = current + r;
-      const beforeWrapped = r1 - 1 > 1;
-      const afterWrapped = r2 + 1 < totalPages;
-      const items = [];
-      if (totalPages <= maxDisplayedPages) {
-        for (let i = 1; i <= totalPages; i++) {
-          items.push(i);
-        }
-        return items;
-      }
-      items.push(1);
-      if (beforeWrapped) items.push(props.divider);
-      if (!afterWrapped) {
-        const addedItems = current + r + 2 - totalPages;
-        for (let i = current - r - addedItems; i <= current - r - 1; i++) {
-          items.push(i);
-        }
-      }
-      for (let i = Math.max(2, r1); i <= Math.min(totalPages, r2); i++) {
-        items.push(i);
-      }
-      if (!beforeWrapped) {
-        const addedItems = 1 - (current - r - 2);
-        for (let i = current + r + 1; i <= current + r + addedItems; i++) {
-          items.push(i);
-        }
-      }
-      if (afterWrapped) items.push(props.divider);
-      if (r2 < totalPages) {
-        items.push(totalPages);
-      }
-      if (items.length >= 3 && items[1] === props.divider && items[2] === 3) {
-        items[1] = 2;
-      }
-      if (items.length >= 3 && items[items.length - 2] === props.divider && items[items.length - 1] === items.length) {
-        items[items.length - 2] = items.length - 1;
-      }
-      return items;
-    });
-    const canGoFirstOrPrev = computed(() => currentPage.value > 1);
-    const canGoLastOrNext = computed(() => currentPage.value < pages.value.length);
-    function onClickFirst() {
-      if (!canGoFirstOrPrev.value) {
-        return;
-      }
-      currentPage.value = 1;
-    }
-    function onClickLast() {
-      if (!canGoLastOrNext.value) {
-        return;
-      }
-      currentPage.value = pages.value.length;
-    }
-    function onClickPage(page) {
-      if (typeof page === "string") {
-        return;
-      }
-      currentPage.value = page;
-    }
-    function onClickPrev() {
-      if (!canGoFirstOrPrev.value) {
-        return;
-      }
-      currentPage.value--;
-    }
-    function onClickNext() {
-      if (!canGoLastOrNext.value) {
-        return;
-      }
-      currentPage.value++;
-    }
-    return {
-      // eslint-disable-next-line vue/no-dupe-keys
-      ui,
-      attrs,
-      currentPage,
-      pages,
-      displayedPages,
-      canGoLastOrNext,
-      canGoFirstOrPrev,
-      onClickPrev,
-      onClickNext,
-      onClickPage,
-      onClickFirst,
-      onClickLast
+  setup(__props) {
+    const props = __props;
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        "data-orientation": _ctx.orientation,
+        class: unref(blogPosts)({ orientation: _ctx.orientation, class: props.class })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            ssrRenderSlot(_ctx.$slots, "default", {}, () => {
+              _push2(`<!--[-->`);
+              ssrRenderList(_ctx.posts, (post, index) => {
+                _push2(ssrRenderComponent(UBlogPost, mergeProps({
+                  key: index,
+                  orientation: _ctx.orientation === "vertical" ? "horizontal" : "vertical",
+                  ref_for: true
+                }, post), null, _parent2, _scopeId));
+              });
+              _push2(`<!--]-->`);
+            }, _push2, _parent2, _scopeId);
+          } else {
+            return [
+              renderSlot(_ctx.$slots, "default", {}, () => [
+                (openBlock(true), createBlock(Fragment, null, renderList(_ctx.posts, (post, index) => {
+                  return openBlock(), createBlock(UBlogPost, mergeProps({
+                    key: index,
+                    orientation: _ctx.orientation === "vertical" ? "horizontal" : "vertical",
+                    ref_for: true
+                  }, post), null, 16, ["orientation"]);
+                }), 128))
+              ])
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
     };
   }
 });
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_UButton = __nuxt_component_1$3;
-  _push(`<div${ssrRenderAttrs(mergeProps({
-    class: _ctx.ui.wrapper
-  }, _ctx.attrs, _attrs))}>`);
-  ssrRenderSlot(_ctx.$slots, "first", {
-    onClick: _ctx.onClickFirst,
-    canGoFirst: _ctx.canGoFirstOrPrev
-  }, () => {
-    var _a;
-    if (_ctx.firstButton && _ctx.showFirst) {
-      _push(ssrRenderComponent(_component_UButton, mergeProps({
-        size: _ctx.size,
-        to: (_a = _ctx.to) == null ? void 0 : _a.call(_ctx, 1),
-        disabled: !_ctx.canGoFirstOrPrev || _ctx.disabled,
-        class: [_ctx.ui.base, _ctx.ui.rounded]
-      }, { ..._ctx.ui.default.firstButton || {}, ..._ctx.firstButton }, {
-        ui: { rounded: "" },
-        "aria-label": "First",
-        onClick: _ctx.onClickFirst
-      }), null, _parent));
-    } else {
-      _push(`<!---->`);
-    }
-  }, _push, _parent);
-  ssrRenderSlot(_ctx.$slots, "prev", {
-    onClick: _ctx.onClickPrev,
-    canGoPrev: _ctx.canGoFirstOrPrev
-  }, () => {
-    var _a;
-    if (_ctx.prevButton) {
-      _push(ssrRenderComponent(_component_UButton, mergeProps({
-        size: _ctx.size,
-        to: (_a = _ctx.to) == null ? void 0 : _a.call(_ctx, _ctx.currentPage - 1),
-        disabled: !_ctx.canGoFirstOrPrev || _ctx.disabled,
-        class: [_ctx.ui.base, _ctx.ui.rounded]
-      }, { ..._ctx.ui.default.prevButton || {}, ..._ctx.prevButton }, {
-        ui: { rounded: "" },
-        "aria-label": "Prev",
-        onClick: _ctx.onClickPrev
-      }), null, _parent));
-    } else {
-      _push(`<!---->`);
-    }
-  }, _push, _parent);
-  _push(`<!--[-->`);
-  ssrRenderList(_ctx.displayedPages, (page, index) => {
-    var _a;
-    _push(ssrRenderComponent(_component_UButton, mergeProps({
-      key: `${page}-${index}`,
-      to: typeof page === "number" ? (_a = _ctx.to) == null ? void 0 : _a.call(_ctx, page) : null,
-      size: _ctx.size,
-      disabled: _ctx.disabled,
-      label: `${page}`,
-      ref_for: true
-    }, page === _ctx.currentPage ? { ..._ctx.ui.default.activeButton || {}, ..._ctx.activeButton } : { ..._ctx.ui.default.inactiveButton || {}, ..._ctx.inactiveButton }, {
-      class: [{ "pointer-events-none": typeof page === "string", "z-[1]": page === _ctx.currentPage }, _ctx.ui.base, _ctx.ui.rounded],
-      ui: { rounded: "" },
-      onClick: () => _ctx.onClickPage(page)
-    }), null, _parent));
-  });
-  _push(`<!--]-->`);
-  ssrRenderSlot(_ctx.$slots, "next", {
-    onClick: _ctx.onClickNext,
-    canGoNext: _ctx.canGoLastOrNext
-  }, () => {
-    var _a;
-    if (_ctx.nextButton) {
-      _push(ssrRenderComponent(_component_UButton, mergeProps({
-        size: _ctx.size,
-        to: (_a = _ctx.to) == null ? void 0 : _a.call(_ctx, _ctx.currentPage + 1),
-        disabled: !_ctx.canGoLastOrNext || _ctx.disabled,
-        class: [_ctx.ui.base, _ctx.ui.rounded]
-      }, { ..._ctx.ui.default.nextButton || {}, ..._ctx.nextButton }, {
-        ui: { rounded: "" },
-        "aria-label": "Next",
-        onClick: _ctx.onClickNext
-      }), null, _parent));
-    } else {
-      _push(`<!---->`);
-    }
-  }, _push, _parent);
-  ssrRenderSlot(_ctx.$slots, "last", {
-    onClick: _ctx.onClickLast,
-    canGoLast: _ctx.canGoLastOrNext
-  }, () => {
-    var _a;
-    if (_ctx.lastButton && _ctx.showLast) {
-      _push(ssrRenderComponent(_component_UButton, mergeProps({
-        size: _ctx.size,
-        to: (_a = _ctx.to) == null ? void 0 : _a.call(_ctx, _ctx.pages.length),
-        disabled: !_ctx.canGoLastOrNext || _ctx.disabled,
-        class: [_ctx.ui.base, _ctx.ui.rounded]
-      }, { ..._ctx.ui.default.lastButton || {}, ..._ctx.lastButton }, {
-        ui: { rounded: "" },
-        "aria-label": "Last",
-        onClick: _ctx.onClickLast
-      }), null, _parent));
-    } else {
-      _push(`<!---->`);
-    }
-  }, _push, _parent);
-  _push(`</div>`);
-}
+
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/navigation/Pagination.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/BlogPosts.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_3 = /* @__PURE__ */ Object.assign(_export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender]]), { __name: "UPagination" });
+const UBlogPosts = Object.assign(_sfc_main$1, { __name: "UBlogPosts" });
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",
@@ -1427,22 +1721,19 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       ogDescription: t("newsroom.description")
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_ULandingSection = __nuxt_component_0$1;
-      const _component_UBlogList = __nuxt_component_1;
-      const _component_UBlogPost = __nuxt_component_2;
-      const _component_UPagination = __nuxt_component_3;
-      _push(ssrRenderComponent(_component_ULandingSection, mergeProps({
+      const _component_UPagination = __nuxt_component_0;
+      _push(ssrRenderComponent(unref(UPageSection), mergeProps({
         title: _ctx.$t("newsroom.title"),
         description: _ctx.$t("newsroom.description")
       }, _attrs), {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(ssrRenderComponent(_component_UBlogList, null, {
+            _push2(ssrRenderComponent(unref(UBlogPosts), null, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
                   _push3(`<!--[-->`);
                   ssrRenderList(blogPosts, (post, index) => {
-                    _push3(ssrRenderComponent(_component_UBlogPost, mergeProps({
+                    _push3(ssrRenderComponent(unref(UBlogPost), mergeProps({
                       key: index,
                       ref_for: true
                     }, post, {
@@ -1453,7 +1744,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 } else {
                   return [
                     (openBlock(), createBlock(Fragment, null, renderList(blogPosts, (post, index) => {
-                      return createVNode(_component_UBlogPost, mergeProps({
+                      return createVNode(unref(UBlogPost), mergeProps({
                         key: index,
                         ref_for: true
                       }, post, {
@@ -1475,10 +1766,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             _push2(`</div>`);
           } else {
             return [
-              createVNode(_component_UBlogList, null, {
+              createVNode(unref(UBlogPosts), null, {
                 default: withCtx(() => [
                   (openBlock(), createBlock(Fragment, null, renderList(blogPosts, (post, index) => {
-                    return createVNode(_component_UBlogPost, mergeProps({
+                    return createVNode(unref(UBlogPost), mergeProps({
                       key: index,
                       ref_for: true
                     }, post, {

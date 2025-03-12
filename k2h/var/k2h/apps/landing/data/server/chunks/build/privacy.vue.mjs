@@ -1,9 +1,9 @@
-import { _ as __nuxt_component_0 } from './LandingCTA.vue.mjs';
+import { _ as __nuxt_component_0 } from './PageCTA.vue.mjs';
 import { _ as __nuxt_component_1 } from './PageBody.vue.mjs';
 import { defineComponent, withCtx, createVNode, createTextVNode, unref, useSSRContext } from 'vue';
 import { ssrRenderComponent } from 'vue/server-renderer';
-import { a1 as useCookieNoticeStore, b as useSeoMeta } from './server.mjs';
-import 'tailwind-merge';
+import { E as useCookieNoticeStore, b as useSeoMeta } from './server.mjs';
+import 'reka-ui';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -19,7 +19,6 @@ import 'ipx';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
-import '@vueuse/core';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
@@ -27,7 +26,11 @@ import 'unhead/plugins';
 import 'unhead/utils';
 import 'devalue';
 import '@iconify/vue';
+import '@vueuse/core';
 import '@iconify/utils/lib/css/icon';
+import 'tailwind-variants';
+import 'vaul-vue';
+import 'reka-ui/namespaced';
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "privacy",
@@ -42,10 +45,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       robots: "noindex, nofollow"
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_ULandingCTA = __nuxt_component_0;
+      const _component_UPageCTA = __nuxt_component_0;
       const _component_UPageBody = __nuxt_component_1;
       _push(`<!--[-->`);
-      _push(ssrRenderComponent(_component_ULandingCTA, {
+      _push(ssrRenderComponent(_component_UPageCTA, {
         title: "Datenschutz",
         description: "Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie\n        über die Verarbeitung personenbezogener Daten auf unserer Website."
       }, null, _parent));

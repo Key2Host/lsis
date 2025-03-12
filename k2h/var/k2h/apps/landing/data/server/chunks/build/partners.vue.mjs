@@ -1,10 +1,10 @@
-import { _ as __nuxt_component_0 } from './LandingSection.vue.mjs';
+import { U as UPageSection } from './PageSection.vue.mjs';
 import { _ as __nuxt_component_7 } from './PageGrid.vue.mjs';
-import { _ as __nuxt_component_1 } from './LandingCard.vue.mjs';
+import { _ as __nuxt_component_1 } from './PageCard.vue.mjs';
 import { defineComponent, ref, mergeProps, withCtx, createVNode, toDisplayString, createBlock, openBlock, Fragment, renderList, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderList, ssrRenderAttr, ssrInterpolate } from 'vue/server-renderer';
 import { a as useI18n, b as useSeoMeta } from './server.mjs';
-import 'tailwind-merge';
+import 'reka-ui';
 import '@vueuse/core';
 import '../nitro/nitro.mjs';
 import 'node:http';
@@ -29,6 +29,9 @@ import 'unhead/utils';
 import 'devalue';
 import '@iconify/vue';
 import '@iconify/utils/lib/css/icon';
+import 'tailwind-variants';
+import 'vaul-vue';
+import 'reka-ui/namespaced';
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "partners",
@@ -64,10 +67,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       ogDescription: t("partners.description")
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_ULandingSection = __nuxt_component_0;
+      const _component_UPageSection = UPageSection;
       const _component_UPageGrid = __nuxt_component_7;
-      const _component_ULandingCard = __nuxt_component_1;
-      _push(ssrRenderComponent(_component_ULandingSection, mergeProps({
+      const _component_UPageCard = __nuxt_component_1;
+      _push(ssrRenderComponent(_component_UPageSection, mergeProps({
         title: _ctx.$t("partners.title"),
         description: _ctx.$t("partners.description")
       }, _attrs), {
@@ -81,12 +84,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 if (_push3) {
                   _push3(`<!--[-->`);
                   ssrRenderList(partners.value, (partner, index) => {
-                    _push3(ssrRenderComponent(_component_ULandingCard, {
+                    _push3(ssrRenderComponent(_component_UPageCard, {
                       key: index,
                       to: partner.url,
                       target: "_blank"
                     }, {
-                      default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                      description: withCtx((_3, _push4, _parent4, _scopeId3) => {
                         if (_push4) {
                           _push4(`<div class="flex items-center"${_scopeId3}><img${ssrRenderAttr("src", partner.logo)}${ssrRenderAttr("alt", partner.name + " Logo")} class="rounded-lg w-32 h-32"${_scopeId3}><div class="ml-4"${_scopeId3}><span class="text-xl font-bold"${_scopeId3}>${ssrInterpolate(partner.name)}</span><br${_scopeId3}><span class="text-sm"${_scopeId3}>${ssrInterpolate(partner.since)}</span></div></div>`);
                         } else {
@@ -113,12 +116,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 } else {
                   return [
                     (openBlock(true), createBlock(Fragment, null, renderList(partners.value, (partner, index) => {
-                      return openBlock(), createBlock(_component_ULandingCard, {
+                      return openBlock(), createBlock(_component_UPageCard, {
                         key: index,
                         to: partner.url,
                         target: "_blank"
                       }, {
-                        default: withCtx(() => [
+                        description: withCtx(() => [
                           createVNode("div", { class: "flex items-center" }, [
                             createVNode("img", {
                               src: partner.logo,
@@ -148,12 +151,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               }, {
                 default: withCtx(() => [
                   (openBlock(true), createBlock(Fragment, null, renderList(partners.value, (partner, index) => {
-                    return openBlock(), createBlock(_component_ULandingCard, {
+                    return openBlock(), createBlock(_component_UPageCard, {
                       key: index,
                       to: partner.url,
                       target: "_blank"
                     }, {
-                      default: withCtx(() => [
+                      description: withCtx(() => [
                         createVNode("div", { class: "flex items-center" }, [
                           createVNode("img", {
                             src: partner.logo,

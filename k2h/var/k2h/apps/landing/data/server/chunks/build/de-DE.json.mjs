@@ -432,6 +432,16 @@ const resource = {
         "17": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Geplante Aufgaben" } },
         "18": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "SSL/TLS Zertifikatsmanager" } },
         "yes": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ja" } }
+      },
+      "errors": {
+        "emptydata": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Fehler beim Laden der Informationen" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die Antwort vom Server war fehlerhaft. Probiere es später erneut." } }
+        },
+        "nodata": {
+          "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Verbindung fehlgeschlagen" } },
+          "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die Informationen konnten nicht vom Server abgerufen werden. Probiere es später erneut." } }
+        }
       }
     },
     "domain": {
@@ -447,9 +457,13 @@ const resource = {
         "abort": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Abbrechen" } },
         "continue": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Fortfahren" } }
       },
-      "noresults": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Keine Ergebnisse gefunden. Bitte eine andere Domain eingeben." } },
       "loading": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Daten werden geladen..." } },
-      "notvalid": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Bitte eine gültige Domain eingeben." } }
+      "errors": {
+        "noresults": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Keine Ergebnisse gefunden. Bitte eine andere Domain eingeben." } },
+        "notvalid": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Bitte eine gültige Domain eingeben." } },
+        "erranswer": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die Antwort vom Server war fehlerhaft." } },
+        "confailed": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Keine Verbindung zum Server" } }
+      }
     },
     "vps-root": {
       "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Produkte > VPS & Root-Server" } },

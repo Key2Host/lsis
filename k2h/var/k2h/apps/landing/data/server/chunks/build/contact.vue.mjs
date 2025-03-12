@@ -1,14 +1,15 @@
-import { _ as __nuxt_component_0$1 } from './LandingSection.vue.mjs';
+import { U as UPageSection } from './PageSection.vue.mjs';
 import { _ as __nuxt_component_7 } from './PageGrid.vue.mjs';
-import { _ as __nuxt_component_2 } from './PageCard.vue.mjs';
+import { _ as __nuxt_component_1 } from './PageCard.vue.mjs';
 import { LMap, LTileLayer, LMarker } from '@vue-leaflet/vue-leaflet';
-import { _ as __nuxt_component_3$1 } from './Skeleton.vue.mjs';
-import { $ as useAppConfig, G as useUI, a0 as __nuxt_component_0, Q as __nuxt_component_1, C as __nuxt_component_3, W as useToast, a1 as useCookieNoticeStore, a as useI18n, b as useSeoMeta, Z as __nuxt_component_2$1 } from './server.mjs';
+import { _ as __nuxt_component_1$1 } from './Skeleton.vue.mjs';
+import { C as __nuxt_component_0, D as transformUI, r as tv, _ as _appConfig, y as useToast, E as useCookieNoticeStore, a as useI18n, b as useSeoMeta, B as __nuxt_component_2, s as __nuxt_component_2$1 } from './server.mjs';
 import { _ as __nuxt_component_8 } from './NuxtTurnstile.vue.mjs';
-import { defineComponent, computed, toRef, mergeProps, unref, withCtx, renderSlot, createVNode, toDisplayString, useSSRContext, ref, createBlock, createTextVNode, openBlock, withDirectives, vModelText } from 'vue';
-import { ssrRenderComponent, ssrRenderSlot, ssrRenderClass, ssrInterpolate, ssrRenderAttrs, ssrRenderAttr, ssrRenderStyle, ssrIncludeBooleanAttr } from 'vue/server-renderer';
+import { defineComponent, useSlots, mergeProps, unref, createSlots, renderList, withCtx, renderSlot, useSSRContext, ref, computed, createVNode, createBlock, createTextVNode, toDisplayString, openBlock, withDirectives, vModelText } from 'vue';
+import { ssrRenderComponent, ssrRenderSlot, ssrRenderAttrs, ssrInterpolate, ssrRenderAttr, ssrRenderStyle, ssrIncludeBooleanAttr } from 'vue/server-renderer';
 import axios from 'axios';
-import 'tailwind-merge';
+import 'reka-ui';
+import '@vueuse/core';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -24,7 +25,6 @@ import 'ipx';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
-import '@vueuse/core';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
@@ -33,139 +33,53 @@ import 'unhead/utils';
 import 'devalue';
 import '@iconify/vue';
 import '@iconify/utils/lib/css/icon';
+import 'tailwind-variants';
+import 'vaul-vue';
+import 'reka-ui/namespaced';
 import 'unhead/scripts';
 import '@vueuse/shared';
 
+const theme = {
+  "slots": {
+    "trigger": "text-base",
+    "body": "text-base text-(--ui-text-muted)"
+  }
+};
+
+var _a;
+const appConfigPageAccordion = _appConfig;
+const pageAccordion = tv({ extend: tv(theme), ...((_a = appConfigPageAccordion.uiPro) == null ? void 0 : _a.pageAccordion) || {} });
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
-  ...{
-    inheritAttrs: false
-  },
-  __name: "LandingFAQ",
+  __name: "PageAccordion",
   __ssrInlineRender: true,
   props: {
-    items: {
-      type: Array,
-      default: () => []
-    },
-    multiple: {
-      type: Boolean,
-      default: false
-    },
-    class: {
-      type: [String, Object, Array],
-      default: void 0
-    },
-    ui: {
-      type: Object,
-      default: () => ({})
-    }
+    type: { default: "multiple" },
+    ui: {}
   },
   setup(__props) {
-    const appConfig = useAppConfig();
-    const config = computed(() => ({
-      wrapper: "divide-y divide-gray-200 dark:divide-gray-800 -mt-6",
-      container: "divide-y divide-gray-200 dark:divide-gray-800",
-      item: {
-        size: "text-base",
-        padding: "py-6"
-      },
-      button: {
-        base: "text-left text-lg py-6 w-full",
-        label: "text-gray-900 dark:text-white",
-        trailingIcon: {
-          name: appConfig.ui.icons.chevron,
-          base: "w-5 h-5 ms-auto transform transition-transform duration-200 flex-shrink-0 mr-1.5",
-          active: "",
-          inactive: "-rotate-90"
-        }
-      }
-    }));
-    const props = __props;
-    const { ui, attrs } = useUI("landing.faq", toRef(props, "ui"), config, toRef(props, "class"), true);
+    const slots = useSlots();
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UAccordion = __nuxt_component_0;
-      const _component_UButton = __nuxt_component_1;
-      const _component_UIcon = __nuxt_component_3;
       _push(ssrRenderComponent(_component_UAccordion, mergeProps({
-        class: unref(ui).wrapper,
-        items: __props.items,
-        multiple: __props.multiple
-      }, unref(attrs), {
-        ui: { item: unref(ui).item, container: unref(ui).container }
-      }, _attrs), {
-        default: withCtx(({ item, open }, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(ssrRenderComponent(_component_UButton, {
-              color: "gray",
-              variant: "link",
-              ui: { rounded: "rounded-none", color: { gray: { link: "hover:no-underline" } } },
-              padded: false,
-              class: unref(ui).button.base
-            }, {
-              trailing: withCtx((_, _push3, _parent3, _scopeId2) => {
-                if (_push3) {
-                  _push3(ssrRenderComponent(_component_UIcon, {
-                    name: unref(ui).button.trailingIcon.name,
-                    class: [unref(ui).button.trailingIcon.base, open ? unref(ui).button.trailingIcon.active : unref(ui).button.trailingIcon.inactive]
-                  }, null, _parent3, _scopeId2));
-                } else {
-                  return [
-                    createVNode(_component_UIcon, {
-                      name: unref(ui).button.trailingIcon.name,
-                      class: [unref(ui).button.trailingIcon.base, open ? unref(ui).button.trailingIcon.active : unref(ui).button.trailingIcon.inactive]
-                    }, null, 8, ["name", "class"])
-                  ];
-                }
-              }),
-              default: withCtx((_, _push3, _parent3, _scopeId2) => {
-                if (_push3) {
-                  _push3(`<span class="${ssrRenderClass(unref(ui).button.label)}"${_scopeId2}>${ssrInterpolate(item.label)}</span>`);
-                } else {
-                  return [
-                    createVNode("span", {
-                      class: unref(ui).button.label
-                    }, toDisplayString(item.label), 3)
-                  ];
-                }
-              }),
-              _: 2
-            }, _parent2, _scopeId));
-          } else {
-            return [
-              createVNode(_component_UButton, {
-                color: "gray",
-                variant: "link",
-                ui: { rounded: "rounded-none", color: { gray: { link: "hover:no-underline" } } },
-                padded: false,
-                class: unref(ui).button.base
-              }, {
-                trailing: withCtx(() => [
-                  createVNode(_component_UIcon, {
-                    name: unref(ui).button.trailingIcon.name,
-                    class: [unref(ui).button.trailingIcon.base, open ? unref(ui).button.trailingIcon.active : unref(ui).button.trailingIcon.inactive]
-                  }, null, 8, ["name", "class"])
-                ]),
-                default: withCtx(() => [
-                  createVNode("span", {
-                    class: unref(ui).button.label
-                  }, toDisplayString(item.label), 3)
-                ]),
-                _: 2
-              }, 1032, ["class"])
-            ];
-          }
-        }),
-        item: withCtx((scope, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            ssrRenderSlot(_ctx.$slots, "item", scope, null, _push2, _parent2, _scopeId);
-          } else {
-            return [
-              renderSlot(_ctx.$slots, "item", scope)
-            ];
-          }
-        }),
-        _: 3
-      }, _parent));
+        type: _ctx.type,
+        "unmount-on-hide": false,
+        ui: unref(transformUI)(unref(pageAccordion)())
+      }, _attrs), createSlots({ _: 2 }, [
+        renderList(slots, (_, name) => {
+          return {
+            name,
+            fn: withCtx((slotData, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                ssrRenderSlot(_ctx.$slots, name, slotData, null, _push2, _parent2, _scopeId);
+              } else {
+                return [
+                  renderSlot(_ctx.$slots, name, slotData)
+                ];
+              }
+            })
+          };
+        })
+      ]), _parent));
     };
   }
 });
@@ -173,10 +87,10 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/components/landing/LandingFAQ.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/PageAccordion.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_10 = Object.assign(_sfc_main$1, { __name: "ULandingFAQ" });
+const UPageAccordion = Object.assign(_sfc_main$1, { __name: "UPageAccordion" });
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "contact",
@@ -212,8 +126,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const faqItems = [
       {
         "label": t("contact.faq.items.1.title"),
-        "content": t("contact.faq.items.1.description"),
-        "defaultOpen": true
+        "content": t("contact.faq.items.1.description")
       },
       {
         "label": t("contact.faq.items.2.title"),
@@ -320,19 +233,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       ogDescription: t("contact.hero.description")
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_ULandingSection = __nuxt_component_0$1;
+      const _component_UPageSection = UPageSection;
       const _component_UPageGrid = __nuxt_component_7;
-      const _component_UPageCard = __nuxt_component_2;
+      const _component_UPageCard = __nuxt_component_1;
       const _component_LMap = LMap;
       const _component_LTileLayer = LTileLayer;
       const _component_LMarker = LMarker;
-      const _component_USkeleton = __nuxt_component_3$1;
-      const _component_NuxtLinkLocale = __nuxt_component_2$1;
+      const _component_USkeleton = __nuxt_component_1$1;
+      const _component_NuxtLinkLocale = __nuxt_component_2;
       const _component_NuxtTurnstile = __nuxt_component_8;
-      const _component_UButton = __nuxt_component_1;
-      const _component_ULandingFAQ = __nuxt_component_10;
+      const _component_UButton = __nuxt_component_2$1;
       _push(`<div${ssrRenderAttrs(_attrs)}>`);
-      _push(ssrRenderComponent(_component_ULandingSection, {
+      _push(ssrRenderComponent(_component_UPageSection, {
         title: _ctx.$t("contact.hero.title"),
         description: _ctx.$t("contact.hero.description")
       }, null, _parent));
@@ -879,7 +791,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(ssrRenderComponent(_component_ULandingSection, {
+      _push(ssrRenderComponent(_component_UPageSection, {
         id: "faq",
         title: _ctx.$t("contact.faq.title"),
         description: _ctx.$t("contact.faq.description"),
@@ -887,7 +799,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(ssrRenderComponent(_component_ULandingFAQ, {
+            _push2(ssrRenderComponent(unref(UPageAccordion), {
               multiple: "",
               items: faqItems,
               ui: {
@@ -902,7 +814,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             }, null, _parent2, _scopeId));
           } else {
             return [
-              createVNode(_component_ULandingFAQ, {
+              createVNode(unref(UPageAccordion), {
                 multiple: "",
                 items: faqItems,
                 ui: {

@@ -1,9 +1,9 @@
-import { _ as __nuxt_component_0 } from './LandingCTA.vue.mjs';
+import { _ as __nuxt_component_0 } from './PageCTA.vue.mjs';
 import { _ as __nuxt_component_1 } from './PageBody.vue.mjs';
 import { defineComponent, withCtx, createVNode, toDisplayString, createTextVNode, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrInterpolate } from 'vue/server-renderer';
-import { a1 as useCookieNoticeStore, a as useI18n, b as useSeoMeta } from './server.mjs';
-import 'tailwind-merge';
+import { E as useCookieNoticeStore, a as useI18n, b as useSeoMeta } from './server.mjs';
+import 'reka-ui';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -19,7 +19,6 @@ import 'ipx';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
-import '@vueuse/core';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
@@ -27,7 +26,11 @@ import 'unhead/plugins';
 import 'unhead/utils';
 import 'devalue';
 import '@iconify/vue';
+import '@vueuse/core';
 import '@iconify/utils/lib/css/icon';
+import 'tailwind-variants';
+import 'vaul-vue';
+import 'reka-ui/namespaced';
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "notice",
@@ -46,10 +49,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     cookienotice.hide();
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_ULandingCTA = __nuxt_component_0;
+      const _component_UPageCTA = __nuxt_component_0;
       const _component_UPageBody = __nuxt_component_1;
       _push(`<!--[-->`);
-      _push(ssrRenderComponent(_component_ULandingCTA, {
+      _push(ssrRenderComponent(_component_UPageCTA, {
         title: _ctx.$t("legal.notice.title"),
         description: _ctx.$t("legal.notice.description")
       }, null, _parent));

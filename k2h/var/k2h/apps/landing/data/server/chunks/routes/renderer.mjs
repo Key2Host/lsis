@@ -86,7 +86,7 @@ const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initi
 
 const appRootTag = "div";
 
-const appRootAttrs = {"id":"__nuxt"};
+const appRootAttrs = {"id":"__nuxt","class":"isolate"};
 
 const appTeleportTag = "div";
 
@@ -109,7 +109,7 @@ const getEntryIds = () => getClientManifest().then((r) => Object.values(r).filte
     r2._globalCSS
   )
 ).map((r2) => r2.src));
-const getServerEntry = () => import('../build/server.mjs').then(function (n) { return n.ap; }).then((r) => r.default || r);
+const getServerEntry = () => import('../build/server.mjs').then(function (n) { return n.S; }).then((r) => r.default || r);
 const getSSRStyles = lazyCachedFunction(() => import('../build/styles.mjs').then((r) => r.default || r));
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
