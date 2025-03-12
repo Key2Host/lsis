@@ -3955,34 +3955,30 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     const { t } = useI18n({
       useScope: "global"
     });
-    const form = reactive({
-      email: "",
-      password: "",
-      rememberMe: false
-    });
     const fields = [{
       name: "email",
       label: t("authform.inputs.email.label"),
       type: "text",
-      placeholder: t("authform.inputs.email.placeholder"),
-      value: form.email
+      placeholder: t("authform.inputs.email.placeholder")
     }, {
       name: "password",
       label: t("authform.inputs.password.label"),
       type: "password",
-      placeholder: t("authform.inputs.password.placeholder"),
-      value: form.password
+      placeholder: t("authform.inputs.password.placeholder")
     }];
     const turnstile = ref();
     const turnstileToken = ref("");
-    const validate = (state) => {
-      const errors = [];
-      if (!state.email) errors.push({ path: "email", message: t("authform.inputs.email.err") });
-      if (!state.password) errors.push({ path: "password", message: t("authform.inputs.password.err") });
-      return errors;
-    };
-    async function onSubmit(data) {
+    async function onSubmit(form) {
       var _a;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(form.data.email)) {
+        errorMessage.value = "Die E-Mail ist ungültig.";
+        return;
+      }
+      if (form.data.password.length <= 0) {
+        errorMessage.value = "Das Passwort ist ungültig.";
+        return;
+      }
       try {
         const response = await axios.post(
           "/api/validateTurnstile",
@@ -4000,9 +3996,10 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             timeout: 5e3,
             pauseTimeoutOnHover: true
           });
+          errorMessage.value = "Das CAPTCHA wurde abgelehnt. Versuche es später erneut.";
           return;
         }
-      } catch (error) {
+      } catch (error2) {
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: "Das CAPTCHA konnte nicht überprüft werden. Versuche es später erneut.",
@@ -4011,24 +4008,26 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
           timeout: 5e3,
           pauseTimeoutOnHover: true
         });
+        errorMessage.value = "Das CAPTCHA konnte nicht überprüft werden. Versuche es später erneut.";
+        return;
       }
       try {
         await axios.post("https://saci.key2host.com/api/auth/login", {
-          email: data.email,
-          password: data.password
+          email: form.data.email,
+          password: form.data.password
         }, {
           withCredentials: true
         });
         (void 0).location.reload();
-      } catch (error) {
-        if (error.response && error.response.status === 401) {
-          console.error("Fehler bei der Anmeldung", error);
+      } catch (error2) {
+        if (error2.response && error2.response.status === 401) {
+          console.error("Fehler bei der Anmeldung", error2);
           errorMessage.value = t("authform.errorModal.wrongCred");
-        } else if (error.response && error.response.status === 403) {
-          console.error("Fehler bei der Anmeldung", error);
+        } else if (error2.response && error2.response.status === 403) {
+          console.error("Fehler bei der Anmeldung", error2);
           errorMessage.value = t("authform.errorModal.suspended");
         } else {
-          console.error("Fehler bei der API-Anfrage:", error.message);
+          console.error("Fehler bei der API-Anfrage:", error2.message);
           errorMessage.value = t("authform.errorModal.err");
         }
         toast.add({
@@ -4047,9 +4046,8 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       _push(ssrRenderComponent(_component_UAuthForm, mergeProps({
         fields,
         submitButton: { label: _ctx.$t("authform.inputs.submit.label") },
-        validate,
+        validate: _ctx.validate,
         title: _ctx.$t("authform.title"),
-        align: "top",
         ui: { base: "text-center", footer: "text-center" },
         onSubmit
       }, _attrs), {
@@ -4057,7 +4055,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
           if (_push2) {
             if (unref(errorMessage)) {
               _push2(ssrRenderComponent(_component_UAlert, {
-                color: "red",
+                color: "error",
                 icon: "i-heroicons-information-circle-20-solid",
                 title: unref(errorMessage)
               }, null, _parent2, _scopeId));
@@ -4075,7 +4073,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             return [
               unref(errorMessage) ? (openBlock(), createBlock(_component_UAlert, {
                 key: 0,
-                color: "red",
+                color: "error",
                 icon: "i-heroicons-information-circle-20-solid",
                 title: unref(errorMessage)
               }, null, 8, ["title"])) : createCommentVNode("", true),
