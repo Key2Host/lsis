@@ -1247,7 +1247,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           toast.add({
             icon: "i-heroicons-exclamation-triangle",
             description: t("products.webspace.errors.emptydata.description"),
-            color: "red",
+            color: "error",
             title: t("products.webspace.errors.emptydata.title"),
             timeout: 5e3,
             pauseTimeoutOnHover: true
@@ -1258,7 +1258,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: t("products.webspace.errors.nodata.description"),
-          color: "red",
+          color: "error",
           title: t("products.webspace.errors.nodata.title"),
           timeout: 5e3,
           pauseTimeoutOnHover: true
@@ -1318,7 +1318,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 price: packageItem.amount + "€",
                 discount: "",
                 cycle: "/" + _ctx.$t("products.webspace.cycle"),
-                button: { label: _ctx.$t("products.webspace.addBasket"), click: () => buy(index + 1) },
+                button: { label: _ctx.$t("products.webspace.addBasket"), onClick() {
+                  buy(index + 1);
+                } },
                 orientation: "vertical"
               }, null, _parent2, _scopeId));
             });
@@ -1347,7 +1349,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   price: packageItem.amount + "€",
                   discount: "",
                   cycle: "/" + _ctx.$t("products.webspace.cycle"),
-                  button: { label: _ctx.$t("products.webspace.addBasket"), click: () => buy(index + 1) },
+                  button: { label: _ctx.$t("products.webspace.addBasket"), onClick() {
+                    buy(index + 1);
+                  } },
                   orientation: "vertical"
                 }, null, 8, ["title", "price", "cycle", "button"]);
               }), 64)),

@@ -160,7 +160,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: t("contact.contactform.lengthModal.description"),
-          color: "red",
+          color: "error",
           title: t("contact.contactform.lengthModal.title"),
           timeout: 5e3,
           pauseTimeoutOnHover: true
@@ -179,7 +179,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           toast.add({
             icon: "i-heroicons-exclamation-triangle",
             description: t("captcha.failed.description"),
-            color: "red",
+            color: "error",
             title: t("captcha.failed.title"),
             timeout: 5e3,
             pauseTimeoutOnHover: true
@@ -190,7 +190,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: t("captcha.error.description"),
-          color: "red",
+          color: "error",
           title: t("captcha.error.title"),
           timeout: 5e3,
           pauseTimeoutOnHover: true
@@ -210,7 +210,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: t("contact.contactform.successModal.description"),
-          color: "green",
+          color: "success",
           title: t("contact.contactform.successModal.title"),
           timeout: 5e3,
           pauseTimeoutOnHover: true
@@ -219,7 +219,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: t("contact.contactform.errorModal.description") + ": " + error,
-          color: "red",
+          color: "error",
           title: t("contact.contactform.errorModal.title"),
           timeout: 5e3,
           pauseTimeoutOnHover: true

@@ -4136,7 +4136,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           icon: "i-heroicons-x-circle",
           title: "Ungültiger Gutschein",
           description: "Der Gutschein wurde nicht akzeptiert, da dieser ungültig ist.",
-          color: "red",
+          color: "error",
           timeout: 2500
         });
         voucherLoading.value = false;
@@ -4158,7 +4158,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: t("checkout.index.errorModal.description"),
-          color: "red",
+          color: "error",
           title: t("checkout.index.errorModal.title"),
           timeout: 5e3,
           pauseTimeoutOnHover: true,

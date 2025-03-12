@@ -17366,7 +17366,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
           icon: "i-heroicons-check-circle",
           title: t("menus.footer.newsletter.successModal.title"),
           description: t("menus.footer.newsletter.successModal.message"),
-          color: "green",
+          color: "success",
           timeout: 2500
         });
         loading.value = false;
@@ -20624,7 +20624,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         }, null, _parent));
         _push(ssrRenderComponent(_component_UBadge, {
           class: "absolute top-0 right-0 rounded-full",
-          color: "gray",
+          color: "neutral",
           variant: "solid"
         }, {
           default: withCtx((_, _push2, _parent2, _scopeId) => {
