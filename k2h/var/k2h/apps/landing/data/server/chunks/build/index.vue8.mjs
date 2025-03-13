@@ -1303,10 +1303,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(`<div class="w-full flex flex-wrap justify-center gap-4">`);
+      _push(`<div class="w-full flex flex-wrap justify-center gap-4 max-md:max-w-[350px] max-w-[90%] mx-auto">`);
       _push(ssrRenderComponent(unref(UPricingPlans), {
         compact: false,
-        class: "mt-12 w-full max-w-6xl"
+        class: "mt-12 w-full"
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -1381,7 +1381,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         class: "mt-4",
         color: "neutral",
         variant: "subtle",
-        actions: [{ label: _ctx.$t("products.webspace.domain.action"), to: unref(localePath)("/products/domain") }]
+        actions: [{ label: _ctx.$t("products.webspace.domain.action"), to: unref(localePath)("/products/domain"), size: "md" }]
       }, {
         title: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {

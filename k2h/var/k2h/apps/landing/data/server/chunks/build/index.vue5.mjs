@@ -149,7 +149,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       if (searchQuery.value && results.value.length > 0) {
         _push(`<div><!--[-->`);
         ssrRenderList(results.value, (result) => {
-          _push(`<div class="w-full flex flex-wrap justify-center gap-4 mb-4">`);
+          _push(`<div class="w-full flex flex-wrap justify-center gap-4 max-md:max-w-[350px] max-w-[90%] mx-auto">`);
           _push(ssrRenderComponent(_component_UPageCard, {
             class: ["w-full max-w-6xl relative", !result.available ? "opacity-50" : ""],
             title: `.${result.name} Domain`,
