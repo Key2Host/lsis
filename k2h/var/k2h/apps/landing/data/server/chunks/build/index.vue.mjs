@@ -4390,7 +4390,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   _push2(`<div class="flex"${_scopeId}>`);
                   _push2(ssrRenderComponent(_component_UButton, {
                     onClick: ($event) => remove(item.id),
+                    size: "xs",
                     color: "error",
+                    variant: "ghost",
                     label: unref(t)("cart.remove")
                   }, null, _parent2, _scopeId));
                   _push2(`</div></div></div></li>`);
@@ -4482,6 +4484,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             _push4(ssrRenderComponent(_component_UButton, {
                               type: "submit",
                               size: "xs",
+                              class: "rounded-full",
                               icon: "i-heroicons-check-circle",
                               loading: unref(voucherLoading)
                             }, null, _parent4, _scopeId3));
@@ -4490,6 +4493,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                               createVNode(_component_UButton, {
                                 type: "submit",
                                 size: "xs",
+                                class: "rounded-full",
                                 icon: "i-heroicons-check-circle",
                                 loading: unref(voucherLoading)
                               }, null, 8, ["loading"])
@@ -4516,6 +4520,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             createVNode(_component_UButton, {
                               type: "submit",
                               size: "xs",
+                              class: "rounded-full",
                               icon: "i-heroicons-check-circle",
                               loading: unref(voucherLoading)
                             }, null, 8, ["loading"])
@@ -4635,7 +4640,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                               createVNode("div", { class: "flex" }, [
                                 createVNode(_component_UButton, {
                                   onClick: ($event) => remove(item.id),
+                                  size: "xs",
                                   color: "error",
+                                  variant: "ghost",
                                   label: unref(t)("cart.remove")
                                 }, null, 8, ["onClick", "label"])
                               ])
@@ -4708,6 +4715,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                               createVNode(_component_UButton, {
                                 type: "submit",
                                 size: "xs",
+                                class: "rounded-full",
                                 icon: "i-heroicons-check-circle",
                                 loading: unref(voucherLoading)
                               }, null, 8, ["loading"])

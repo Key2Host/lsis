@@ -17418,6 +17418,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                     _push6(ssrRenderComponent(_component_UButton, {
                                       type: "submit",
                                       size: "xs",
+                                      class: "rounded-full",
                                       icon: "i-heroicons-check-circle",
                                       loading: unref(loading)
                                     }, null, _parent6, _scopeId5));
@@ -17426,6 +17427,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                       createVNode(_component_UButton, {
                                         type: "submit",
                                         size: "xs",
+                                        class: "rounded-full",
                                         icon: "i-heroicons-check-circle",
                                         loading: unref(loading)
                                       }, null, 8, ["loading"])
@@ -17452,6 +17454,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                     createVNode(_component_UButton, {
                                       type: "submit",
                                       size: "xs",
+                                      class: "rounded-full",
                                       icon: "i-heroicons-check-circle",
                                       loading: unref(loading)
                                     }, null, 8, ["loading"])
@@ -17492,6 +17495,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                     createVNode(_component_UButton, {
                                       type: "submit",
                                       size: "xs",
+                                      class: "rounded-full",
                                       icon: "i-heroicons-check-circle",
                                       loading: unref(loading)
                                     }, null, 8, ["loading"])
@@ -17537,6 +17541,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                   createVNode(_component_UButton, {
                                     type: "submit",
                                     size: "xs",
+                                    class: "rounded-full",
                                     icon: "i-heroicons-check-circle",
                                     loading: unref(loading)
                                   }, null, 8, ["loading"])
@@ -17587,6 +17592,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                 createVNode(_component_UButton, {
                                   type: "submit",
                                   size: "xs",
+                                  class: "rounded-full",
                                   icon: "i-heroicons-check-circle",
                                   loading: unref(loading)
                                 }, null, 8, ["loading"])
@@ -20296,8 +20302,8 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
       const _component_UIcon = __nuxt_component_1$3;
       const _component_UCard = __nuxt_component_1;
       const _component_UInput = __nuxt_component_6;
-      const _component_NuxtLinkLocale = __nuxt_component_2$3;
       const _component_UButton = __nuxt_component_2$4;
+      const _component_NuxtLinkLocale = __nuxt_component_2$3;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex flex-col h-screen" }, _attrs))}><div class="flex justify-between items-center p-4 sticky top-0 z-10"><button class="text-indigo-600 hover:text-indigo-500 block sm:hidden">`);
       _push(ssrRenderComponent(_component_UIcon, {
         name: "i-heroicons-x-mark",
@@ -20386,7 +20392,15 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                     required: ""
                   }, null, _parent2, _scopeId));
                 }
-                _push2(`<div class="flex"${_scopeId}><button type="button" class="font-medium text-blue-600 hover:text-blue-700"${_scopeId}>${ssrInterpolate(_ctx.$t("cart.remove"))}</button></div></div></div></li>`);
+                _push2(`<div class="flex"${_scopeId}>`);
+                _push2(ssrRenderComponent(_component_UButton, {
+                  onClick: ($event) => remove(item.id),
+                  size: "xs",
+                  color: "error",
+                  variant: "ghost",
+                  label: unref(t)("cart.remove")
+                }, null, _parent2, _scopeId));
+                _push2(`</div></div></div></li>`);
               });
               _push2(`<!--]--></ul>`);
             }
@@ -20482,11 +20496,13 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                           required: ""
                         }, null, 8, ["modelValue", "onUpdate:modelValue", "onKeydown"])),
                         createVNode("div", { class: "flex" }, [
-                          createVNode("button", {
-                            type: "button",
-                            class: "font-medium text-blue-600 hover:text-blue-700",
-                            onClick: ($event) => remove(item.id)
-                          }, toDisplayString$1(_ctx.$t("cart.remove")), 9, ["onClick"])
+                          createVNode(_component_UButton, {
+                            onClick: ($event) => remove(item.id),
+                            size: "xs",
+                            color: "error",
+                            variant: "ghost",
+                            label: unref(t)("cart.remove")
+                          }, null, 8, ["onClick", "label"])
                         ])
                       ])
                     ])
