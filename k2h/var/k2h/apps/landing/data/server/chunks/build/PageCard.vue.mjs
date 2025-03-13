@@ -1,4 +1,4 @@
-import { r as tv, O as getSlotChildrenText, j as __nuxt_component_1$1, L as __nuxt_component_0, _ as _appConfig } from './server.mjs';
+import { r as tv, O as getSlotChildrenText, j as __nuxt_component_1, L as __nuxt_component_0, _ as _appConfig } from './server.mjs';
 import { defineComponent, useSlots, ref, computed, watch, unref, mergeProps, withCtx, createVNode, createBlock, createCommentVNode, openBlock, renderSlot, createTextVNode, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
@@ -304,7 +304,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const ariaLabel = computed(() => (props.title || slots.title && getSlotChildrenText(slots.title()) || "Card link").trim());
     return (_ctx, _push, _parent, _attrs) => {
       var _a2;
-      const _component_UIcon = __nuxt_component_1$1;
+      const _component_UIcon = __nuxt_component_1;
       const _component_ULink = __nuxt_component_0;
       _push(ssrRenderComponent(unref(Primitive), mergeProps({
         ref_key: "cardRef",
@@ -513,7 +513,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/PageCard.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const __nuxt_component_1 = Object.assign(_sfc_main, { __name: "UPageCard" });
+const __nuxt_component_2 = Object.assign(_sfc_main, { __name: "UPageCard" });
 
-export { __nuxt_component_1 as _ };
+export { __nuxt_component_2 as _ };
 //# sourceMappingURL=PageCard.vue.mjs.map

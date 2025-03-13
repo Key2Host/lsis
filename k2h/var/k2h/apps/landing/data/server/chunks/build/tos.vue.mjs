@@ -3,7 +3,7 @@ import { defineComponent, unref, mergeProps, withCtx, renderSlot, useSSRContext,
 import { ssrRenderComponent, ssrRenderSlot } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
 import { r as tv, _ as _appConfig, a as useI18n, b as useSeoMeta } from './server.mjs';
-import { _ as __nuxt_component_1$1 } from './PageCard.vue.mjs';
+import { _ as __nuxt_component_2 } from './PageCard.vue.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -92,7 +92,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UPageCTA = __nuxt_component_0;
       const _component_UPageColumns = __nuxt_component_1;
-      const _component_UPageCard = __nuxt_component_1$1;
+      const _component_UPageCard = __nuxt_component_2;
       _push(`<!--[-->`);
       _push(ssrRenderComponent(_component_UPageCTA, {
         title: unref(t)("legal.tos.title"),

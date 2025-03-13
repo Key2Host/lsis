@@ -1,6 +1,6 @@
 import { U as UPageSection } from './PageSection.vue.mjs';
 import { _ as __nuxt_component_7 } from './PageGrid.vue.mjs';
-import { _ as __nuxt_component_1 } from './PageCard.vue.mjs';
+import { _ as __nuxt_component_2 } from './PageCard.vue.mjs';
 import { defineComponent, ref, mergeProps, withCtx, createVNode, toDisplayString, createBlock, openBlock, Fragment, renderList, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderList, ssrRenderAttr, ssrInterpolate } from 'vue/server-renderer';
 import { a as useI18n, b as useSeoMeta } from './server.mjs';
@@ -57,7 +57,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UPageSection = UPageSection;
       const _component_UPageGrid = __nuxt_component_7;
-      const _component_UPageCard = __nuxt_component_1;
+      const _component_UPageCard = __nuxt_component_2;
       _push(ssrRenderComponent(_component_UPageSection, mergeProps({
         title: _ctx.$t("partners.title"),
         description: _ctx.$t("partners.description")

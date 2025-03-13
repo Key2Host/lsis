@@ -5,7 +5,7 @@ import { START_LOCATION, createMemoryHistory, createRouter as createRouter$1, is
 import { deepPickUnsafe, deepOmitUnsafe } from 'deep-pick-omit';
 import { u as useHead$1, a as useSeoMeta$1, h as headSymbol } from '../routes/renderer.mjs';
 import { _api, addAPIProvider, setCustomIconsLoader, getIcon, loadIcon as loadIcon$1, Icon } from '@iconify/vue';
-import { ssrRenderComponent, ssrRenderAttrs, ssrRenderSlot, ssrRenderVNode, ssrRenderClass, ssrInterpolate, ssrRenderList, ssrRenderAttr, ssrRenderStyle, ssrIncludeBooleanAttr, ssrRenderSuspense } from 'vue/server-renderer';
+import { ssrRenderComponent, ssrRenderAttrs, ssrRenderSlot, ssrRenderVNode, ssrRenderClass, ssrInterpolate, ssrRenderList, ssrRenderAttr, ssrRenderStyle, ssrRenderSuspense } from 'vue/server-renderer';
 import { useForwardProps, Primitive, useForwardPropsEmits, DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, VisuallyHidden, DialogTitle, DialogDescription, DialogClose, CollapsibleRoot, CollapsibleTrigger, CollapsibleContent, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuLink, NavigationMenuContent, NavigationMenuRoot, NavigationMenuList, NavigationMenuIndicator, NavigationMenuViewport, Separator, ToastRoot, ToastTitle, ToastDescription, ToastAction, ToastClose, ToastProvider, ToastPortal, ToastViewport, ConfigProvider, TooltipProvider, Label, DropdownMenuRoot, DropdownMenuTrigger, DropdownMenuArrow, AccordionRoot, AccordionItem, AccordionHeader, AccordionTrigger, AccordionContent } from 'reka-ui';
 import { useDebounceFn, reactivePick, reactiveOmit, createSharedComposable, createReusableTemplate } from '@vueuse/core';
 import { getIconCSS } from '@iconify/utils/lib/css/icon';
@@ -8476,7 +8476,7 @@ _sfc_main$y.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Avatar.vue");
   return _sfc_setup$w ? _sfc_setup$w(props, ctx) : void 0;
 };
-const __nuxt_component_3$2 = Object.assign(_sfc_main$y, { __name: "UAvatar" });
+const __nuxt_component_3$3 = Object.assign(_sfc_main$y, { __name: "UAvatar" });
 
 const firstNonUndefined = (...args) => args.find((arg) => arg !== void 0);
 // @__NO_SIDE_EFFECTS__
@@ -9497,7 +9497,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
                         class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon, active })
                       }, null, _parent3, _scopeId2));
                     } else if (!!_ctx.avatar) {
-                      _push3(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
+                      _push3(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
                         size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
                       }, _ctx.avatar, {
                         class: ui.value.leadingAvatar({ class: (_c = props.ui) == null ? void 0 : _c.leadingAvatar, active })
@@ -9534,7 +9534,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
                           key: 0,
                           name: unref(leadingIconName),
                           class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon, active })
-                        }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
+                        }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
                           key: 1,
                           size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
                         }, _ctx.avatar, {
@@ -9585,7 +9585,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
                         key: 0,
                         name: unref(leadingIconName),
                         class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon, active })
-                      }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
+                      }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
                         key: 1,
                         size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
                       }, _ctx.avatar, {
@@ -9630,7 +9630,7 @@ _sfc_main$v.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Button.vue");
   return _sfc_setup$t ? _sfc_setup$t(props, ctx) : void 0;
 };
-const __nuxt_component_2$5 = Object.assign(_sfc_main$v, { __name: "UButton" });
+const __nuxt_component_2$4 = Object.assign(_sfc_main$v, { __name: "UButton" });
 
 const theme$i = {
   "base": "max-w-(--ui-container) mx-auto px-4 sm:px-6 lg:px-8"
@@ -10051,7 +10051,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
                                     ssrRenderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                       var _a5;
                                       if (_ctx.close) {
-                                        _push5(ssrRenderComponent(__nuxt_component_2$5, mergeProps({
+                                        _push5(ssrRenderComponent(__nuxt_component_2$4, mergeProps({
                                           icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                           size: "md",
                                           color: "neutral",
@@ -10069,7 +10069,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$5, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$4, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -10166,7 +10166,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
                                         renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                           var _a5;
                                           return [
-                                            _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$5, mergeProps({
+                                            _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$4, mergeProps({
                                               key: 0,
                                               icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                               size: "md",
@@ -10277,7 +10277,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$5, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$4, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -10407,7 +10407,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$5, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$4, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -10712,7 +10712,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
                                     ssrRenderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                       var _a5;
                                       if (_ctx.close) {
-                                        _push5(ssrRenderComponent(__nuxt_component_2$5, mergeProps({
+                                        _push5(ssrRenderComponent(__nuxt_component_2$4, mergeProps({
                                           icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                           size: "md",
                                           color: "neutral",
@@ -10730,7 +10730,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$5, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$4, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -10831,7 +10831,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
                                         renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                           var _a5;
                                           return [
-                                            _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$5, mergeProps({
+                                            _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$4, mergeProps({
                                               key: 0,
                                               icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                               size: "md",
@@ -10942,7 +10942,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$5, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$4, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -11072,7 +11072,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$5, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$4, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -11126,7 +11126,7 @@ _sfc_main$s.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Modal.vue");
   return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
 };
-const __nuxt_component_2$4 = Object.assign(_sfc_main$s, { __name: "UModal" });
+const __nuxt_component_3$2 = Object.assign(_sfc_main$s, { __name: "UModal" });
 
 const theme$f = {
   "slots": {
@@ -11818,13 +11818,13 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const ui = header();
     const Menu = computed(() => ({
       slideover: __nuxt_component_6$1,
-      modal: __nuxt_component_2$4,
+      modal: __nuxt_component_3$2,
       drawer: UDrawer
     })[props.mode]);
     const menuProps = toRef(() => defu(props.menu, props.mode === "modal" ? { fullscreen: true, transition: false } : {}));
     return (_ctx, _push, _parent, _attrs) => {
       var _a2, _b, _c;
-      const _component_UButton = __nuxt_component_2$5;
+      const _component_UButton = __nuxt_component_2$4;
       const _component_ULink = __nuxt_component_0$6;
       const _component_UContainer = __nuxt_component_0$5;
       _push(`<!--[-->`);
@@ -12382,7 +12382,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
                   class: ui.value.leadingIcon({ class: (_a3 = props.ui) == null ? void 0 : _a3.leadingIcon })
                 }, null, _parent2, _scopeId));
               } else if (!!_ctx.avatar) {
-                _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
+                _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
                   size: ((_b = props.ui) == null ? void 0 : _b.leadingAvatarSize) || ui.value.leadingAvatarSize()
                 }, _ctx.avatar, {
                   class: ui.value.leadingAvatar({ class: (_c = props.ui) == null ? void 0 : _c.leadingAvatar })
@@ -12419,7 +12419,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
                     key: 0,
                     name: unref(leadingIconName),
                     class: ui.value.leadingIcon({ class: (_a3 = props.ui) == null ? void 0 : _a3.leadingIcon })
-                  }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
+                  }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
                     key: 1,
                     size: ((_b = props.ui) == null ? void 0 : _b.leadingAvatarSize) || ui.value.leadingAvatarSize()
                   }, _ctx.avatar, {
@@ -13125,7 +13125,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
               }, () => {
                 var _a4, _b2, _c2;
                 if (item.avatar) {
-                  _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
+                  _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
                     size: ((_a4 = props.ui) == null ? void 0 : _a4.linkLeadingAvatarSize) || ui.value.linkLeadingAvatarSize()
                   }, item.avatar, {
                     class: ui.value.linkLeadingAvatar({ class: (_b2 = props.ui) == null ? void 0 : _b2.linkLeadingAvatar, active, disabled: !!item.disabled })
@@ -13213,7 +13213,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
                   }, () => {
                     var _a4, _b2, _c2;
                     return [
-                      item.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
+                      item.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
                         key: 0,
                         size: ((_a4 = props.ui) == null ? void 0 : _a4.linkLeadingAvatarSize) || ui.value.linkLeadingAvatarSize()
                       }, item.avatar, {
@@ -14406,7 +14406,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
                     class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
                   }, null, _parent2, _scopeId));
                 } else if (_ctx.avatar) {
-                  _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
+                  _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
                     size: ((_c2 = props.ui) == null ? void 0 : _c2.avatarSize) || ui.value.avatarSize()
                   }, _ctx.avatar, {
                     class: ui.value.avatar({ class: (_d2 = props.ui) == null ? void 0 : _d2.avatar })
@@ -14438,7 +14438,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
                         key: 1,
                         name: _ctx.icon,
                         class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
-                      }, null, 8, ["name", "class"])) : _ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
+                      }, null, 8, ["name", "class"])) : _ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
                         key: 2,
                         size: ((_c2 = props.ui) == null ? void 0 : _c2.avatarSize) || ui.value.avatarSize()
                       }, _ctx.avatar, {
@@ -14531,7 +14531,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
       const _component_NuxtLinkLocale = __nuxt_component_2$3;
       const _component_UNavigationMenu = __nuxt_component_7;
       const _component_NuxtLink = __nuxt_component_0$7;
-      const _component_UButton = __nuxt_component_2$5;
+      const _component_UButton = __nuxt_component_2$4;
       const _component_USeparator = __nuxt_component_2$2;
       _push(ssrRenderComponent(_component_UHeader, _attrs, {
         left: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -14759,7 +14759,7 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
     const showEnglishBanner = computed(() => locale.value === "de" && userLang.value.startsWith("en"));
     const dismiss = ref(false);
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UButton = __nuxt_component_2$5;
+      const _component_UButton = __nuxt_component_2$4;
       const _component_UIcon = __nuxt_component_1$3;
       _push(`<!--[-->`);
       if (unref(userLang) && showGermanBanner.value && !unref(dismiss)) {
@@ -15019,7 +15019,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
             ssrRenderSlot(_ctx.$slots, "leading", {}, () => {
               var _a4, _b2, _c2;
               if (_ctx.avatar) {
-                _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
+                _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
                   size: ((_a4 = props.ui) == null ? void 0 : _a4.avatarSize) || ui.value.avatarSize()
                 }, _ctx.avatar, {
                   class: ui.value.avatar({ class: (_b2 = props.ui) == null ? void 0 : _b2.avatar })
@@ -15108,14 +15108,14 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
                   }, {
                     default: withCtx((_, _push3, _parent3, _scopeId2) => {
                       if (_push3) {
-                        _push3(ssrRenderComponent(__nuxt_component_2$5, mergeProps({
+                        _push3(ssrRenderComponent(__nuxt_component_2$4, mergeProps({
                           size: "xs",
                           color: _ctx.color,
                           ref_for: true
                         }, action), null, _parent3, _scopeId2));
                       } else {
                         return [
-                          createVNode(__nuxt_component_2$5, mergeProps({
+                          createVNode(__nuxt_component_2$4, mergeProps({
                             size: "xs",
                             color: _ctx.color,
                             ref_for: true
@@ -15148,14 +15148,14 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
                     }, {
                       default: withCtx((_, _push3, _parent3, _scopeId2) => {
                         if (_push3) {
-                          _push3(ssrRenderComponent(__nuxt_component_2$5, mergeProps({
+                          _push3(ssrRenderComponent(__nuxt_component_2$4, mergeProps({
                             size: "xs",
                             color: _ctx.color,
                             ref_for: true
                           }, action), null, _parent3, _scopeId2));
                         } else {
                           return [
-                            createVNode(__nuxt_component_2$5, mergeProps({
+                            createVNode(__nuxt_component_2$4, mergeProps({
                               size: "xs",
                               color: _ctx.color,
                               ref_for: true
@@ -15177,7 +15177,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
                     ssrRenderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                       var _a4;
                       if (_ctx.close) {
-                        _push3(ssrRenderComponent(__nuxt_component_2$5, mergeProps({
+                        _push3(ssrRenderComponent(__nuxt_component_2$4, mergeProps({
                           icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                           size: "md",
                           color: "neutral",
@@ -15197,7 +15197,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                         var _a4;
                         return [
-                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$5, mergeProps({
+                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$4, mergeProps({
                             key: 0,
                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                             size: "md",
@@ -15230,7 +15230,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
               renderSlot(_ctx.$slots, "leading", {}, () => {
                 var _a4, _b2, _c2;
                 return [
-                  _ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
+                  _ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
                     key: 0,
                     size: ((_a4 = props.ui) == null ? void 0 : _a4.avatarSize) || ui.value.avatarSize()
                   }, _ctx.avatar, {
@@ -15285,7 +15285,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
                         }, ["stop"])
                       }, {
                         default: withCtx(() => [
-                          createVNode(__nuxt_component_2$5, mergeProps({
+                          createVNode(__nuxt_component_2$4, mergeProps({
                             size: "xs",
                             color: _ctx.color,
                             ref_for: true
@@ -15311,7 +15311,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
                       }, ["stop"])
                     }, {
                       default: withCtx(() => [
-                        createVNode(__nuxt_component_2$5, mergeProps({
+                        createVNode(__nuxt_component_2$4, mergeProps({
                           size: "xs",
                           color: _ctx.color,
                           ref_for: true
@@ -15326,7 +15326,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
                     renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                       var _a4;
                       return [
-                        _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$5, mergeProps({
+                        _ctx.close ? (openBlock(), createBlock(__nuxt_component_2$4, mergeProps({
                           key: 0,
                           icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                           size: "md",
@@ -17097,7 +17097,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
                     class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
                   }, null, _parent2, _scopeId));
                 } else if (!!_ctx.avatar) {
-                  _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
+                  _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
                     size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
                   }, _ctx.avatar, {
                     class: ui.value.leadingAvatar({ class: (_c2 = props.ui) == null ? void 0 : _c2.leadingAvatar })
@@ -17159,7 +17159,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
                       key: 0,
                       name: unref(leadingIconName),
                       class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
-                    }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
+                    }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
                       key: 1,
                       size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
                     }, _ctx.avatar, {
@@ -17379,7 +17379,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
       const _component_UFooterColumns = __nuxt_component_3;
       const _component_UFormField = __nuxt_component_4$1;
       const _component_UInput = __nuxt_component_6;
-      const _component_UButton = __nuxt_component_2$5;
+      const _component_UButton = __nuxt_component_2$4;
       const _component_UNavigationMenu = __nuxt_component_7;
       const _component_UColorModeButton = __nuxt_component_8$1;
       _push(`<!--[-->`);
@@ -18221,7 +18221,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                     class: _ctx.ui.itemLeadingIcon({ class: (_b2 = _ctx.uiOverride) == null ? void 0 : _b2.itemLeadingIcon, color: item == null ? void 0 : item.color, active })
                   }, null, _parent2, _scopeId));
                 } else if (item.avatar) {
-                  _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
+                  _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
                     size: ((_c2 = props.uiOverride) == null ? void 0 : _c2.itemLeadingAvatarSize) || _ctx.ui.itemLeadingAvatarSize()
                   }, item.avatar, {
                     class: _ctx.ui.itemLeadingAvatar({ class: (_d = _ctx.uiOverride) == null ? void 0 : _d.itemLeadingAvatar, active })
@@ -18322,7 +18322,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                         key: 1,
                         name: item.icon,
                         class: _ctx.ui.itemLeadingIcon({ class: (_b2 = _ctx.uiOverride) == null ? void 0 : _b2.itemLeadingIcon, color: item == null ? void 0 : item.color, active })
-                      }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
+                      }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
                         key: 2,
                         size: ((_c2 = props.uiOverride) == null ? void 0 : _c2.itemLeadingAvatarSize) || _ctx.ui.itemLeadingAvatarSize()
                       }, item.avatar, {
@@ -19846,10 +19846,10 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
       check();
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UModal = __nuxt_component_2$4;
+      const _component_UModal = __nuxt_component_3$2;
       const _component_UCard = __nuxt_component_1;
       const _component_UDropdownMenu = __nuxt_component_2;
-      const _component_UButton = __nuxt_component_2$5;
+      const _component_UButton = __nuxt_component_2$4;
       const _component_UAccordion = __nuxt_component_0;
       _push(ssrRenderComponent(_component_UModal, mergeProps({
         open: unref(cookienotice).isOpen,
@@ -20283,6 +20283,9 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __ssrInlineRender: true,
   setup(__props) {
     const cart = useCartStore();
+    const { t } = useI18n({
+      useScope: "global"
+    });
     const remove = (id) => {
       cart.removeFromBasket(id);
       if (isCartEmpty()) cart.closeSlideover();
@@ -20300,6 +20303,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
       const _component_UCard = __nuxt_component_1;
       const _component_UInput = __nuxt_component_6;
       const _component_NuxtLinkLocale = __nuxt_component_2$3;
+      const _component_UButton = __nuxt_component_2$4;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex flex-col h-screen" }, _attrs))}><div class="flex justify-between items-center p-4 sticky top-0 z-10"><button class="text-indigo-600 hover:text-indigo-500 block sm:hidden">`);
       _push(ssrRenderComponent(_component_UIcon, {
         name: "i-heroicons-x-mark",
@@ -20509,15 +20513,32 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
       _push(ssrRenderComponent(_component_NuxtLinkLocale, { to: "/checkout" }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<button${ssrIncludeBooleanAttr(isCartEmpty() || isDomainOnly()) ? " disabled" : ""} class="${ssrRenderClass([{ "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }, "mt-4 w-full py-3 bg-indigo-600 text-white font-medium text-lg rounded-md hover:bg-indigo-700 disabled:bg-gray-300"])}" autofocus${_scopeId}>${ssrInterpolate(_ctx.$t("cart.checkout"))}</button>`);
+            _push2(ssrRenderComponent(_component_UButton, {
+              disabled: isCartEmpty() || isDomainOnly(),
+              onClick: ($event) => unref(cart).closeSlideover(),
+              color: "neutral",
+              label: unref(t)("cart.checkout"),
+              icon: "i-heroicons-shopping-cart",
+              trailing: "true",
+              size: "xl",
+              class: ["mt-4", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
+              block: "true",
+              autofocus: ""
+            }, null, _parent2, _scopeId));
           } else {
             return [
-              createVNode("button", {
+              createVNode(_component_UButton, {
                 disabled: isCartEmpty() || isDomainOnly(),
                 onClick: ($event) => unref(cart).closeSlideover(),
-                class: ["mt-4 w-full py-3 bg-indigo-600 text-white font-medium text-lg rounded-md hover:bg-indigo-700 disabled:bg-gray-300", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
+                color: "neutral",
+                label: unref(t)("cart.checkout"),
+                icon: "i-heroicons-shopping-cart",
+                trailing: "true",
+                size: "xl",
+                class: ["mt-4", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
+                block: "true",
                 autofocus: ""
-              }, toDisplayString$1(_ctx.$t("cart.checkout")), 11, ["disabled", "onClick"])
+              }, null, 8, ["disabled", "onClick", "label", "class"])
             ];
           }
         }),
@@ -20675,7 +20696,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$7;
-      const _component_UButton = __nuxt_component_2$5;
+      const _component_UButton = __nuxt_component_2$4;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex items-center justify-center min-h-screen text-center" }, _attrs))}><div><h1 class="text-6xl font-bold mb-2">${ssrInterpolate("Error " + __props.error.statusCode)}</h1><p class="text-xl">${ssrInterpolate(__props.error.statusMessage)}</p>`);
       _push(ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -20785,5 +20806,5 @@ const server = /*#__PURE__*/Object.freeze({
   default: entry$1
 });
 
-export { __nuxt_component_1 as A, __nuxt_component_2$3 as B, __nuxt_component_0 as C, transformUI as D, useCookieNoticeStore as E, useNuxtApp as F, injectHead as G, useRuntimeConfig as H, useHead as I, __nuxt_component_0$3 as J, __nuxt_component_0$5 as K, __nuxt_component_0$6 as L, pickLinkProps as M, avatarGroupInjectionKey as N, getSlotChildrenText as O, ImageComponent as P, useAvatarGroup as Q, __nuxt_component_2$4 as R, server as S, ULinkBase as U, _appConfig as _, useI18n as a, useSeoMeta as b, useLocale as c, formInputsInjectionKey as d, formLoadingInjectionKey as e, formBusInjectionKey as f, formOptionsInjectionKey as g, useAppConfig as h, useFormField as i, __nuxt_component_1$3 as j, useButtonGroup as k, useComponentIcons as l, get as m, compare as n, __nuxt_component_3$2 as o, __nuxt_component_6 as p, useLocalePro as q, tv as r, __nuxt_component_2$5 as s, tv$1 as t, useLocalePath as u, __nuxt_component_2$2 as v, __nuxt_component_4$1 as w, omit as x, useToast as y, useCartStore as z };
+export { __nuxt_component_1 as A, __nuxt_component_2$3 as B, __nuxt_component_0 as C, transformUI as D, useCookieNoticeStore as E, useNuxtApp as F, injectHead as G, useRuntimeConfig as H, useHead as I, __nuxt_component_0$3 as J, __nuxt_component_0$5 as K, __nuxt_component_0$6 as L, pickLinkProps as M, avatarGroupInjectionKey as N, getSlotChildrenText as O, ImageComponent as P, useAvatarGroup as Q, __nuxt_component_3$2 as R, server as S, ULinkBase as U, _appConfig as _, useI18n as a, useSeoMeta as b, useLocale as c, formInputsInjectionKey as d, formLoadingInjectionKey as e, formBusInjectionKey as f, formOptionsInjectionKey as g, useAppConfig as h, useFormField as i, __nuxt_component_1$3 as j, useButtonGroup as k, useComponentIcons as l, get as m, compare as n, __nuxt_component_3$3 as o, __nuxt_component_6 as p, useLocalePro as q, tv as r, __nuxt_component_2$4 as s, tv$1 as t, useLocalePath as u, __nuxt_component_2$2 as v, __nuxt_component_4$1 as w, omit as x, useToast as y, useCartStore as z };
 //# sourceMappingURL=server.mjs.map

@@ -1,10 +1,9 @@
 import { U as UPageSection } from './PageSection.vue.mjs';
-import { _ as __nuxt_component_1 } from './PageCard.vue.mjs';
-import { a as useI18n, b as useSeoMeta, R as __nuxt_component_2, z as useCartStore } from './server.mjs';
-import { defineComponent, ref, withCtx, createVNode, withDirectives, withKeys, vModelText, toDisplayString, createTextVNode, createBlock, openBlock, useSSRContext } from 'vue';
-import { ssrRenderComponent, ssrRenderAttr, ssrInterpolate, ssrRenderList, ssrRenderClass } from 'vue/server-renderer';
+import { a as useI18n, b as useSeoMeta, s as __nuxt_component_2, R as __nuxt_component_3, z as useCartStore } from './server.mjs';
+import { _ as __nuxt_component_2$1 } from './PageCard.vue.mjs';
+import { defineComponent, ref, withCtx, unref, createVNode, withDirectives, withKeys, vModelText, createTextVNode, toDisplayString, createBlock, openBlock, useSSRContext } from 'vue';
+import { ssrRenderComponent, ssrRenderAttr, ssrRenderList, ssrInterpolate } from 'vue/server-renderer';
 import 'reka-ui';
-import '@vueuse/core';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -27,6 +26,7 @@ import 'unhead/plugins';
 import 'unhead/utils';
 import 'devalue';
 import '@iconify/vue';
+import '@vueuse/core';
 import '@iconify/utils/lib/css/icon';
 import 'tailwind-variants';
 import 'vaul-vue';
@@ -110,8 +110,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UPageSection = UPageSection;
-      const _component_UPageCard = __nuxt_component_1;
-      const _component_UModal = __nuxt_component_2;
+      const _component_UButton = __nuxt_component_2;
+      const _component_UPageCard = __nuxt_component_2$1;
+      const _component_UModal = __nuxt_component_3;
       _push(`<!--[-->`);
       _push(ssrRenderComponent(_component_UPageSection, {
         headline: _ctx.$t("products.domain.headline"),
@@ -120,7 +121,16 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<div class="w-full flex flex-col items-center justify-center mt-6"${_scopeId}><div class="w-full max-w-2xl flex"${_scopeId}><input type="text"${ssrRenderAttr("value", domain.value)}${ssrRenderAttr("placeholder", _ctx.$t("products.domain.searchPlaceholder"))} class="w-full p-4 text-lg border border-gray-300 rounded-l-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"${_scopeId}><button class="px-6 py-4 bg-blue-600 text-white text-lg font-semibold rounded-r-2xl shadow-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.search"))}</button></div></div>`);
+            _push2(`<div class="w-full flex flex-col items-center justify-center mt-6"${_scopeId}><div class="w-full max-w-2xl flex"${_scopeId}><input type="text"${ssrRenderAttr("value", domain.value)}${ssrRenderAttr("placeholder", _ctx.$t("products.domain.searchPlaceholder"))} class="w-full p-4 text-lg border border-gray-300 rounded-l-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"${_scopeId}>`);
+            _push2(ssrRenderComponent(_component_UButton, {
+              onClick: searchDomain,
+              color: "neutral",
+              size: "xl",
+              class: "px-6 py-4 rounded-l-none rounded-r-2xl",
+              label: unref(t)("products.domain.search"),
+              autofocus: ""
+            }, null, _parent2, _scopeId));
+            _push2(`</div></div>`);
           } else {
             return [
               createVNode("div", { class: "w-full flex flex-col items-center justify-center mt-6" }, [
@@ -134,10 +144,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   }, null, 40, ["onUpdate:modelValue", "placeholder"]), [
                     [vModelText, domain.value]
                   ]),
-                  createVNode("button", {
+                  createVNode(_component_UButton, {
                     onClick: searchDomain,
-                    class: "px-6 py-4 bg-blue-600 text-white text-lg font-semibold rounded-r-2xl shadow-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500"
-                  }, toDisplayString(_ctx.$t("products.domain.search")), 1)
+                    color: "neutral",
+                    size: "xl",
+                    class: "px-6 py-4 rounded-l-none rounded-r-2xl",
+                    label: unref(t)("products.domain.search"),
+                    autofocus: ""
+                  }, null, 8, ["label"])
                 ])
               ])
             ];
@@ -145,7 +159,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(`<div class="mb-40">`);
       if (searchQuery.value && results.value.length > 0) {
         _push(`<div><!--[-->`);
         ssrRenderList(results.value, (result) => {
@@ -167,17 +180,68 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             }),
             default: withCtx((_, _push2, _parent2, _scopeId) => {
               if (_push2) {
-                _push2(`<button class="${ssrRenderClass([result.available ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-gray-500 text-white hover:bg-gray-600", "absolute top-1/2 right-4 transform -translate-y-1/2 px-4 py-2 rounded-lg shadow-md hidden sm:block"])}"${_scopeId}>${ssrInterpolate(result.available ? _ctx.$t("products.domain.addBasket") : _ctx.$t("products.domain.transfer.title"))}</button><button class="${ssrRenderClass([result.available ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-gray-500 text-white hover:bg-gray-600", "px-4 py-2 rounded-lg shadow-md w-full sm:w-auto sm:self-center sm:hidden"])}"${_scopeId}>${ssrInterpolate(result.available ? _ctx.$t("products.domain.addBasket") : _ctx.$t("products.domain.transfer.title"))}</button>`);
+                _push2(ssrRenderComponent(_component_UButton, {
+                  color: "neutral",
+                  size: "xl",
+                  class: "absolute top-1/2 right-4 transform -translate-y-1/2 px-4 py-2 rounded-lg shadow-md hidden sm:block",
+                  onClick: ($event) => buyDomain(searchQuery.value.split(".")[0] + "." + result.name, result.available, result.amount),
+                  autofocus: ""
+                }, {
+                  default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                    if (_push3) {
+                      _push3(`${ssrInterpolate(result.available ? _ctx.$t("products.domain.addBasket") : _ctx.$t("products.domain.transfer.title"))}`);
+                    } else {
+                      return [
+                        createTextVNode(toDisplayString(result.available ? _ctx.$t("products.domain.addBasket") : _ctx.$t("products.domain.transfer.title")), 1)
+                      ];
+                    }
+                  }),
+                  _: 2
+                }, _parent2, _scopeId));
+                _push2(ssrRenderComponent(_component_UButton, {
+                  color: "neutral",
+                  size: "xl",
+                  class: "px-4 py-2 rounded-lg shadow-md w-full sm:w-auto sm:self-center sm:hidden",
+                  onClick: ($event) => buyDomain(searchQuery.value.split(".")[0] + "." + result.name, result.available, result.amount),
+                  autofocus: ""
+                }, {
+                  default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                    if (_push3) {
+                      _push3(`${ssrInterpolate(result.available ? _ctx.$t("products.domain.addBasket") : _ctx.$t("products.domain.transfer.title"))}`);
+                    } else {
+                      return [
+                        createTextVNode(toDisplayString(result.available ? _ctx.$t("products.domain.addBasket") : _ctx.$t("products.domain.transfer.title")), 1)
+                      ];
+                    }
+                  }),
+                  _: 2
+                }, _parent2, _scopeId));
               } else {
                 return [
-                  createVNode("button", {
-                    class: ["absolute top-1/2 right-4 transform -translate-y-1/2 px-4 py-2 rounded-lg shadow-md hidden sm:block", result.available ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-gray-500 text-white hover:bg-gray-600"],
-                    onClick: ($event) => buyDomain(searchQuery.value.split(".")[0] + "." + result.name, result.available, result.amount)
-                  }, toDisplayString(result.available ? _ctx.$t("products.domain.addBasket") : _ctx.$t("products.domain.transfer.title")), 11, ["onClick"]),
-                  createVNode("button", {
-                    class: ["px-4 py-2 rounded-lg shadow-md w-full sm:w-auto sm:self-center sm:hidden", result.available ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-gray-500 text-white hover:bg-gray-600"],
-                    onClick: ($event) => buyDomain(searchQuery.value.split(".")[0] + "." + result.name, result.available, result.amount)
-                  }, toDisplayString(result.available ? _ctx.$t("products.domain.addBasket") : _ctx.$t("products.domain.transfer.title")), 11, ["onClick"])
+                  createVNode(_component_UButton, {
+                    color: "neutral",
+                    size: "xl",
+                    class: "absolute top-1/2 right-4 transform -translate-y-1/2 px-4 py-2 rounded-lg shadow-md hidden sm:block",
+                    onClick: ($event) => buyDomain(searchQuery.value.split(".")[0] + "." + result.name, result.available, result.amount),
+                    autofocus: ""
+                  }, {
+                    default: withCtx(() => [
+                      createTextVNode(toDisplayString(result.available ? _ctx.$t("products.domain.addBasket") : _ctx.$t("products.domain.transfer.title")), 1)
+                    ]),
+                    _: 2
+                  }, 1032, ["onClick"]),
+                  createVNode(_component_UButton, {
+                    color: "neutral",
+                    size: "xl",
+                    class: "px-4 py-2 rounded-lg shadow-md w-full sm:w-auto sm:self-center sm:hidden",
+                    onClick: ($event) => buyDomain(searchQuery.value.split(".")[0] + "." + result.name, result.available, result.amount),
+                    autofocus: ""
+                  }, {
+                    default: withCtx(() => [
+                      createTextVNode(toDisplayString(result.available ? _ctx.$t("products.domain.addBasket") : _ctx.$t("products.domain.transfer.title")), 1)
+                    ]),
+                    _: 2
+                  }, 1032, ["onClick"])
                 ];
               }
             }),
@@ -187,13 +251,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         });
         _push(`<!--]--></div>`);
       } else if (errorMessage.value) {
-        _push(`<div class="w-full flex justify-center mt-6"><p class="text-red-500 text-lg">${ssrInterpolate(errorMessage.value)}</p></div>`);
+        _push(`<div class="w-full flex justify-center mb-20"><p class="text-red-500 text-lg">${ssrInterpolate(errorMessage.value)}</p></div>`);
       } else if (searchQuery.value) {
-        _push(`<div class="w-full flex justify-center mt-6"><p class="text-gray-500 text-lg">${ssrInterpolate(_ctx.$t("products.domain.noresults"))}</p></div>`);
+        _push(`<div class="w-full flex justify-center mb-20"><p class="text-gray-500 text-lg">${ssrInterpolate(_ctx.$t("products.domain.noresults"))}</p></div>`);
       } else {
         _push(`<!---->`);
       }
-      _push(`</div>`);
       _push(ssrRenderComponent(_component_UModal, {
         open: showModal.value,
         "onUpdate:open": ($event) => showModal.value = $event,

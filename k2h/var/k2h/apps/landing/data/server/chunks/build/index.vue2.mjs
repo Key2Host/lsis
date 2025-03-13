@@ -6,7 +6,7 @@ import { p as publicAssetsURL } from '../nitro/nitro.mjs';
 import { Primitive } from 'reka-ui';
 import { U as UPageSection } from './PageSection.vue.mjs';
 import { _ as __nuxt_component_7 } from './PageGrid.vue.mjs';
-import { _ as __nuxt_component_1$1 } from './PageCard.vue.mjs';
+import { _ as __nuxt_component_2$1 } from './PageCard.vue.mjs';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
@@ -212,7 +212,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_UPageMarquee = __nuxt_component_5;
       const _component_UPageSection = UPageSection;
       const _component_UPageGrid = __nuxt_component_7;
-      const _component_UPageCard = __nuxt_component_1$1;
+      const _component_UPageCard = __nuxt_component_2$1;
       _push(`<div${ssrRenderAttrs(_attrs)}>`);
       _push(ssrRenderComponent(_component_UPageHero, {
         title: _ctx.$t("index.hero.title"),

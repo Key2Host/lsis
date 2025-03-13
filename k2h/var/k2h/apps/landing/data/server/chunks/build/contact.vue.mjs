@@ -1,9 +1,9 @@
 import { U as UPageSection } from './PageSection.vue.mjs';
 import { _ as __nuxt_component_7 } from './PageGrid.vue.mjs';
-import { _ as __nuxt_component_1 } from './PageCard.vue.mjs';
+import { _ as __nuxt_component_2 } from './PageCard.vue.mjs';
 import { LMap, LTileLayer, LMarker } from '@vue-leaflet/vue-leaflet';
-import { _ as __nuxt_component_1$1 } from './Skeleton.vue.mjs';
-import { C as __nuxt_component_0, D as transformUI, r as tv, _ as _appConfig, y as useToast, E as useCookieNoticeStore, a as useI18n, b as useSeoMeta, B as __nuxt_component_2, s as __nuxt_component_2$1 } from './server.mjs';
+import { _ as __nuxt_component_1 } from './Skeleton.vue.mjs';
+import { C as __nuxt_component_0, D as transformUI, r as tv, _ as _appConfig, y as useToast, E as useCookieNoticeStore, a as useI18n, b as useSeoMeta, B as __nuxt_component_2$1, s as __nuxt_component_2$2 } from './server.mjs';
 import { _ as __nuxt_component_8 } from './NuxtTurnstile.vue.mjs';
 import { defineComponent, useSlots, mergeProps, unref, createSlots, renderList, withCtx, renderSlot, useSSRContext, ref, computed, createVNode, createBlock, createTextVNode, toDisplayString, openBlock, withDirectives, vModelText } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot, ssrRenderAttrs, ssrInterpolate, ssrRenderAttr, ssrRenderStyle, ssrIncludeBooleanAttr } from 'vue/server-renderer';
@@ -235,14 +235,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UPageSection = UPageSection;
       const _component_UPageGrid = __nuxt_component_7;
-      const _component_UPageCard = __nuxt_component_1;
+      const _component_UPageCard = __nuxt_component_2;
       const _component_LMap = LMap;
       const _component_LTileLayer = LTileLayer;
       const _component_LMarker = LMarker;
-      const _component_USkeleton = __nuxt_component_1$1;
-      const _component_NuxtLinkLocale = __nuxt_component_2;
+      const _component_USkeleton = __nuxt_component_1;
+      const _component_NuxtLinkLocale = __nuxt_component_2$1;
       const _component_NuxtTurnstile = __nuxt_component_8;
-      const _component_UButton = __nuxt_component_2$1;
+      const _component_UButton = __nuxt_component_2$2;
       _push(`<div${ssrRenderAttrs(_attrs)}>`);
       _push(ssrRenderComponent(_component_UPageSection, {
         title: _ctx.$t("contact.hero.title"),
@@ -404,21 +404,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   }, null, _parent3, _scopeId2));
                   _push3(ssrRenderComponent(_component_UButton, {
                     type: "submit",
-                    class: "bg-blue-600 text-white rounded-md hover:bg-blue-700",
+                    color: "neutral",
+                    label: unref(t)("contact.contactform.inputs.submit"),
+                    icon: "i-heroicons-paper-airplane",
+                    trailing: "true",
                     size: "xl",
-                    disabled: messageSent.value
-                  }, {
-                    default: withCtx((_3, _push4, _parent4, _scopeId3) => {
-                      if (_push4) {
-                        _push4(`${ssrInterpolate(_ctx.$t("contact.contactform.inputs.submit"))}`);
-                      } else {
-                        return [
-                          createTextVNode(toDisplayString(_ctx.$t("contact.contactform.inputs.submit")), 1)
-                        ];
-                      }
-                    }),
-                    _: 1
-                  }, _parent3, _scopeId2));
+                    class: "mt-4",
+                    autofocus: ""
+                  }, null, _parent3, _scopeId2));
                   _push3(`</form>`);
                 } else {
                   return [
@@ -559,15 +552,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       }, null, 8, ["modelValue", "onUpdate:modelValue", "options"]),
                       createVNode(_component_UButton, {
                         type: "submit",
-                        class: "bg-blue-600 text-white rounded-md hover:bg-blue-700",
+                        color: "neutral",
+                        label: unref(t)("contact.contactform.inputs.submit"),
+                        icon: "i-heroicons-paper-airplane",
+                        trailing: "true",
                         size: "xl",
-                        disabled: messageSent.value
-                      }, {
-                        default: withCtx(() => [
-                          createTextVNode(toDisplayString(_ctx.$t("contact.contactform.inputs.submit")), 1)
-                        ]),
-                        _: 1
-                      }, 8, ["disabled"])
+                        class: "mt-4",
+                        autofocus: ""
+                      }, null, 8, ["label"])
                     ], 32)
                   ];
                 }
@@ -773,15 +765,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     }, null, 8, ["modelValue", "onUpdate:modelValue", "options"]),
                     createVNode(_component_UButton, {
                       type: "submit",
-                      class: "bg-blue-600 text-white rounded-md hover:bg-blue-700",
+                      color: "neutral",
+                      label: unref(t)("contact.contactform.inputs.submit"),
+                      icon: "i-heroicons-paper-airplane",
+                      trailing: "true",
                       size: "xl",
-                      disabled: messageSent.value
-                    }, {
-                      default: withCtx(() => [
-                        createTextVNode(toDisplayString(_ctx.$t("contact.contactform.inputs.submit")), 1)
-                      ]),
-                      _: 1
-                    }, 8, ["disabled"])
+                      class: "mt-4",
+                      autofocus: ""
+                    }, null, 8, ["label"])
                   ], 32)
                 ]),
                 _: 1
