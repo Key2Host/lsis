@@ -72,7 +72,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         _push(`<div class="${ssrRenderClass([{
           "md:even:translate-x-[-100%] even:translate-x-0": index % 2 === 1,
           "md:w-max w-full z-[1]": true
-        }, "flex md:flex-row flex-col md:items-center md:gap-2 group relative top-0 md:left-1/2 md:right-1/2"])}"><div class="pointer p-4 dark:bg-gray-900 bg-gray-100 aspect-square w-[125px] flex items-center justify-center rounded-full md:group-even:order-2 group-even:order-none md:group-odd:-translate-x-1/2 md:translate-x-1/2 translate-x-0 mx-auto md:mx-0">${ssrInterpolate(milestone.date)}</div><div class="details md:max-w-sm p-5 bg-gray-100 dark:bg-gray-900 rounded-md my-3"><div class="text-xl">${ssrInterpolate(milestone.title)}</div>`);
+        }, "flex md:flex-row flex-col md:items-center md:gap-2 group relative top-0 md:left-1/2 md:right-1/2"])}"><div class="pointer p-4 dark:bg-gray-500 bg-gray-200 aspect-square w-[125px] flex items-center justify-center rounded-full md:group-even:order-2 group-even:order-none md:group-odd:-translate-x-1/2 md:translate-x-1/2 translate-x-0 mx-auto md:mx-0">${ssrInterpolate(milestone.date)}</div><div class="details md:max-w-sm p-5 bg-gray-200 dark:bg-gray-500 rounded-md my-3"><div class="text-xl">${ssrInterpolate(milestone.title)}</div>`);
         if (milestone.description) {
           _push(`<div><hr class="my-2 opacity-25"><span class="text-md">${ssrInterpolate(milestone.description)}</span></div>`);
         } else {

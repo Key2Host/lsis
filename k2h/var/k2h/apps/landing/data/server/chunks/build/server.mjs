@@ -20008,7 +20008,8 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 footer: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
                     _push3(ssrRenderComponent(_component_UButton, {
-                      onClick: ($event) => unref(cookienotice).showDetails = false
+                      onClick: ($event) => unref(cookienotice).showDetails = false,
+                      size: "sm"
                     }, {
                       default: withCtx((_3, _push4, _parent4, _scopeId3) => {
                         if (_push4) {
@@ -20024,7 +20025,8 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                   } else {
                     return [
                       createVNode(_component_UButton, {
-                        onClick: ($event) => unref(cookienotice).showDetails = false
+                        onClick: ($event) => unref(cookienotice).showDetails = false,
+                        size: "sm"
                       }, {
                         default: withCtx(() => [
                           createTextVNode(toDisplayString$1(_ctx.$t("cookienotice.details.actions.back")), 1)
@@ -20163,7 +20165,8 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 ]),
                 footer: withCtx(() => [
                   createVNode(_component_UButton, {
-                    onClick: ($event) => unref(cookienotice).showDetails = false
+                    onClick: ($event) => unref(cookienotice).showDetails = false,
+                    size: "sm"
                   }, {
                     default: withCtx(() => [
                       createTextVNode(toDisplayString$1(_ctx.$t("cookienotice.details.actions.back")), 1)

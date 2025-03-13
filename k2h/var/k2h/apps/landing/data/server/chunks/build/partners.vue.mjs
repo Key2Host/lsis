@@ -42,22 +42,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     const partners = ref([
       {
-        name: "Partner A",
-        logo: "https://github.com/danielroe.png",
-        url: "https://partner-a.com",
-        since: "January 2024"
-      },
-      {
-        name: "Partner B",
-        logo: "https://github.com/danielroe.png",
-        url: "https://partner-b.com",
-        since: "January 2024"
-      },
-      {
-        name: "Partner C",
-        logo: "https://github.com/danielroe.png",
-        url: "https://partner-c.com",
-        since: "January 2024"
+        name: "DJ MPL",
+        logo: "https://yt3.ggpht.com/ZnHKrAQ8RP2ud-eiJ0CfEbKW8fQTmAlodUBrM8JmP0dJgFLKv9Ig2YmBB_yv-uysYF6YesXK=s88-c-k-c0x00ffffff-no-rj",
+        url: "https://www.dj-mpl.de/",
+        slogan: "Musik von 50er bis Techno"
       }
     ]);
     useSeoMeta({
@@ -91,7 +79,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     }, {
                       description: withCtx((_3, _push4, _parent4, _scopeId3) => {
                         if (_push4) {
-                          _push4(`<div class="flex items-center"${_scopeId3}><img${ssrRenderAttr("src", partner.logo)}${ssrRenderAttr("alt", partner.name + " Logo")} class="rounded-lg w-32 h-32"${_scopeId3}><div class="ml-4"${_scopeId3}><span class="text-xl font-bold"${_scopeId3}>${ssrInterpolate(partner.name)}</span><br${_scopeId3}><span class="text-sm"${_scopeId3}>${ssrInterpolate(partner.since)}</span></div></div>`);
+                          _push4(`<div class="flex items-center"${_scopeId3}><img${ssrRenderAttr("src", partner.logo)}${ssrRenderAttr("alt", partner.name + " Logo")} class="rounded-lg w-32 h-32"${_scopeId3}><div class="ml-4"${_scopeId3}><span class="text-xl font-bold"${_scopeId3}>${ssrInterpolate(partner.name)}</span><br${_scopeId3}><span class="text-sm"${_scopeId3}>${ssrInterpolate(partner.slogan)}</span></div></div>`);
                         } else {
                           return [
                             createVNode("div", { class: "flex items-center" }, [
@@ -103,7 +91,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                               createVNode("div", { class: "ml-4" }, [
                                 createVNode("span", { class: "text-xl font-bold" }, toDisplayString(partner.name), 1),
                                 createVNode("br"),
-                                createVNode("span", { class: "text-sm" }, toDisplayString(partner.since), 1)
+                                createVNode("span", { class: "text-sm" }, toDisplayString(partner.slogan), 1)
                               ])
                             ])
                           ];
@@ -131,7 +119,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             createVNode("div", { class: "ml-4" }, [
                               createVNode("span", { class: "text-xl font-bold" }, toDisplayString(partner.name), 1),
                               createVNode("br"),
-                              createVNode("span", { class: "text-sm" }, toDisplayString(partner.since), 1)
+                              createVNode("span", { class: "text-sm" }, toDisplayString(partner.slogan), 1)
                             ])
                           ])
                         ]),
@@ -166,7 +154,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           createVNode("div", { class: "ml-4" }, [
                             createVNode("span", { class: "text-xl font-bold" }, toDisplayString(partner.name), 1),
                             createVNode("br"),
-                            createVNode("span", { class: "text-sm" }, toDisplayString(partner.since), 1)
+                            createVNode("span", { class: "text-sm" }, toDisplayString(partner.slogan), 1)
                           ])
                         ])
                       ]),
