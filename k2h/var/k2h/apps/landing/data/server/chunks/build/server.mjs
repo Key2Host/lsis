@@ -19916,6 +19916,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                     _push3(`<div class="flex justify-between w-full"${_scopeId2}>`);
                     _push3(ssrRenderComponent(_component_UButton, {
                       variant: "outline",
+                      size: "sm",
                       onClick: ($event) => unref(cookienotice).setConsent("needed")
                     }, {
                       default: withCtx((_3, _push4, _parent4, _scopeId3) => {
@@ -19931,6 +19932,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                     }, _parent3, _scopeId2));
                     _push3(ssrRenderComponent(_component_UButton, {
                       class: "ml-auto",
+                      size: "sm",
                       onClick: ($event) => unref(cookienotice).setConsent("all"),
                       autofocus: ""
                     }, {
@@ -19951,6 +19953,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                       createVNode("div", { class: "flex justify-between w-full" }, [
                         createVNode(_component_UButton, {
                           variant: "outline",
+                          size: "sm",
                           onClick: ($event) => unref(cookienotice).setConsent("needed")
                         }, {
                           default: withCtx(() => [
@@ -19960,6 +19963,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                         }, 8, ["onClick"]),
                         createVNode(_component_UButton, {
                           class: "ml-auto",
+                          size: "sm",
                           onClick: ($event) => unref(cookienotice).setConsent("all"),
                           autofocus: ""
                         }, {
@@ -20118,6 +20122,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                   createVNode("div", { class: "flex justify-between w-full" }, [
                     createVNode(_component_UButton, {
                       variant: "outline",
+                      size: "sm",
                       onClick: ($event) => unref(cookienotice).setConsent("needed")
                     }, {
                       default: withCtx(() => [
@@ -20127,6 +20132,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                     }, 8, ["onClick"]),
                     createVNode(_component_UButton, {
                       class: "ml-auto",
+                      size: "sm",
                       onClick: ($event) => unref(cookienotice).setConsent("all"),
                       autofocus: ""
                     }, {
