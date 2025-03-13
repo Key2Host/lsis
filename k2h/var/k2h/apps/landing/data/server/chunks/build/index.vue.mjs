@@ -4212,7 +4212,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full flex flex-wrap justify-center gap-4 m-10" }, _attrs))}><div class="w-full max-w-6xl">`);
       if (unref(step) != 3) {
         _push(ssrRenderComponent(_component_UProgress, {
-          value: unref(step),
+          modelValue: unref(step),
+          "onUpdate:modelValue": ($event) => isRef(step) ? step.value = $event : null,
           max: 3
         }, null, _parent));
       } else {

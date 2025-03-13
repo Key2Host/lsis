@@ -6679,7 +6679,7 @@ const cfg0 = defineAppConfig({
     },
     button: {
       slots: {
-        base: "rounded-md"
+        base: "rounded-md cursor-pointer"
       },
       defaultVariants: {
         color: "neutral",
