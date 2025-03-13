@@ -4209,7 +4209,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_UIcon = __nuxt_component_1;
       const _component_UInput = __nuxt_component_6$1;
       const _component_UFormGroup = resolveComponent("UFormGroup");
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full flex flex-wrap justify-center gap-4 my-10 max-md:max-w-[400px] mx-auto" }, _attrs))}><div class="w-full max-w-6xl">`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full flex flex-wrap justify-center gap-4 my-10 max-sm:max-w-[325px] max-md:max-w-[700px] max-lg:max-w-[900px] mx-auto" }, _attrs))}><div class="w-full max-w-6xl">`);
       if (unref(step) != 3) {
         _push(ssrRenderComponent(_component_UProgress, {
           modelValue: unref(step),
