@@ -1,5 +1,5 @@
 import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, createVNode, createBlock, createCommentVNode, openBlock, renderSlot, createTextVNode, toDisplayString, Fragment, renderList, useSSRContext, useId, inject, provide, ref, readonly, resolveDynamicComponent, mergeModels, useModel, toRef, withModifiers, toRaw, reactive, createSlots, isRef, withAsyncContext, resolveComponent } from 'vue';
-import { ssrRenderComponent, ssrRenderClass, ssrRenderStyle, ssrRenderSlot, ssrInterpolate, ssrRenderList, ssrRenderVNode, ssrRenderAttrs, ssrIncludeBooleanAttr } from 'vue/server-renderer';
+import { ssrRenderComponent, ssrRenderClass, ssrRenderStyle, ssrRenderSlot, ssrInterpolate, ssrRenderList, ssrRenderVNode, ssrRenderAttrs } from 'vue/server-renderer';
 import { useForwardPropsEmits, Primitive, ProgressRoot, ProgressIndicator, useForwardProps, CheckboxRoot, CheckboxIndicator, Label, useFilter, ComboboxGroup, ComboboxItem, ComboboxRoot, ComboboxAnchor, ComboboxTrigger, ComboboxPortal, ComboboxContent, FocusScope, ComboboxInput, ComboboxEmpty, ComboboxViewport, ComboboxLabel, ComboboxSeparator, ComboboxItemIndicator, ComboboxArrow } from 'reka-ui';
 import { reactivePick, useEventBus, createReusableTemplate } from '@vueuse/core';
 import { c as useLocale, t as tv, _ as _appConfig, f as formBusInjectionKey, d as formInputsInjectionKey, e as formLoadingInjectionKey, g as formOptionsInjectionKey, h as useAppConfig, i as useFormField, j as __nuxt_component_1, k as useButtonGroup, l as useComponentIcons, m as get, n as compare, o as __nuxt_component_3$1, p as __nuxt_component_6$1, q as useLocalePro, r as tv$1, s as __nuxt_component_2$1, v as __nuxt_component_2$2, w as __nuxt_component_4, x as omit, y as useToast, a as useI18n, z as useCartStore, b as useSeoMeta, A as __nuxt_component_1$1, B as __nuxt_component_2$3 } from './server.mjs';
@@ -4387,7 +4387,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       required: ""
                     }, null, _parent2, _scopeId));
                   }
-                  _push2(`<div class="flex"${_scopeId}><button type="button" class="font-medium text-blue-600 hover:text-blue-700"${_scopeId}>${ssrInterpolate(_ctx.$t("cart.remove"))}</button></div></div></div></li>`);
+                  _push2(`<div class="flex"${_scopeId}>`);
+                  _push2(ssrRenderComponent(_component_UButton, {
+                    onClick: ($event) => remove(item.id),
+                    color: "error",
+                    label: unref(t)("cart.remove")
+                  }, null, _parent2, _scopeId));
+                  _push2(`</div></div></div></li>`);
                 });
                 _push2(`<!--]--></ul></div><div${_scopeId}>`);
                 _push2(ssrRenderComponent(_component_UCard, null, {
@@ -4399,7 +4405,20 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       } else {
                         _push3(`<!---->`);
                       }
-                      _push3(`<hr class="my-2"${_scopeId2}><div class="flex justify-between font-semibold"${_scopeId2}><span${_scopeId2}>Gesamt:</span><span${_scopeId2}>${ssrInterpolate(unref(cart).totalPrice)} €</span></div><div class="mt-4"${_scopeId2}><button${ssrIncludeBooleanAttr(isCartEmpty() || isDomainOnly()) ? " disabled" : ""} class="${ssrRenderClass([{ "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }, "mt-2 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 disabled:bg-gray-300"])}" autofocus${_scopeId2}>Zur Bezahlung</button></div>`);
+                      _push3(`<hr class="my-2"${_scopeId2}><div class="flex justify-between font-semibold"${_scopeId2}><span${_scopeId2}>Gesamt:</span><span${_scopeId2}>${ssrInterpolate(unref(cart).totalPrice)} €</span></div><div class="mt-4"${_scopeId2}>`);
+                      _push3(ssrRenderComponent(_component_UButton, {
+                        disabled: isCartEmpty() || isDomainOnly(),
+                        onClick: ($event) => buy(),
+                        color: "neutral",
+                        label: "Zur Bezahlung",
+                        icon: "i-heroicons-shopping-cart",
+                        trailing: "true",
+                        size: "xl",
+                        class: ["mt-2", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
+                        block: "true",
+                        autofocus: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div>`);
                     } else {
                       return [
                         createVNode("h2", { class: "text-lg font-medium" }, "Preisübersicht"),
@@ -4421,12 +4440,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           createVNode("span", null, toDisplayString(unref(cart).totalPrice) + " €", 1)
                         ]),
                         createVNode("div", { class: "mt-4" }, [
-                          createVNode("button", {
+                          createVNode(_component_UButton, {
                             disabled: isCartEmpty() || isDomainOnly(),
-                            class: ["mt-2 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 disabled:bg-gray-300", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
                             onClick: ($event) => buy(),
+                            color: "neutral",
+                            label: "Zur Bezahlung",
+                            icon: "i-heroicons-shopping-cart",
+                            trailing: "true",
+                            size: "xl",
+                            class: ["mt-2", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
+                            block: "true",
                             autofocus: ""
-                          }, "Zur Bezahlung", 10, ["disabled", "onClick"])
+                          }, null, 8, ["disabled", "onClick", "class"])
                         ])
                       ];
                     }
@@ -4455,7 +4480,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         trailing: withCtx((_3, _push4, _parent4, _scopeId3) => {
                           if (_push4) {
                             _push4(ssrRenderComponent(_component_UButton, {
-                              class: "bg-blue-600 text-white hover:bg-blue-700",
                               type: "submit",
                               size: "xs",
                               icon: "i-heroicons-check-circle",
@@ -4464,7 +4488,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           } else {
                             return [
                               createVNode(_component_UButton, {
-                                class: "bg-blue-600 text-white hover:bg-blue-700",
                                 type: "submit",
                                 size: "xs",
                                 icon: "i-heroicons-check-circle",
@@ -4491,7 +4514,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         }, {
                           trailing: withCtx(() => [
                             createVNode(_component_UButton, {
-                              class: "bg-blue-600 text-white hover:bg-blue-700",
                               type: "submit",
                               size: "xs",
                               icon: "i-heroicons-check-circle",
@@ -4611,11 +4633,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                                 required: ""
                               }, null, 8, ["modelValue", "onUpdate:modelValue", "onKeydown"])),
                               createVNode("div", { class: "flex" }, [
-                                createVNode("button", {
-                                  type: "button",
-                                  class: "font-medium text-blue-600 hover:text-blue-700",
-                                  onClick: ($event) => remove(item.id)
-                                }, toDisplayString(_ctx.$t("cart.remove")), 9, ["onClick"])
+                                createVNode(_component_UButton, {
+                                  onClick: ($event) => remove(item.id),
+                                  color: "error",
+                                  label: unref(t)("cart.remove")
+                                }, null, 8, ["onClick", "label"])
                               ])
                             ])
                           ])
@@ -4645,12 +4667,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           createVNode("span", null, toDisplayString(unref(cart).totalPrice) + " €", 1)
                         ]),
                         createVNode("div", { class: "mt-4" }, [
-                          createVNode("button", {
+                          createVNode(_component_UButton, {
                             disabled: isCartEmpty() || isDomainOnly(),
-                            class: ["mt-2 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 disabled:bg-gray-300", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
                             onClick: ($event) => buy(),
+                            color: "neutral",
+                            label: "Zur Bezahlung",
+                            icon: "i-heroicons-shopping-cart",
+                            trailing: "true",
+                            size: "xl",
+                            class: ["mt-2", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
+                            block: "true",
                             autofocus: ""
-                          }, "Zur Bezahlung", 10, ["disabled", "onClick"])
+                          }, null, 8, ["disabled", "onClick", "class"])
                         ])
                       ]),
                       _: 1
@@ -4678,7 +4706,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           }, {
                             trailing: withCtx(() => [
                               createVNode(_component_UButton, {
-                                class: "bg-blue-600 text-white hover:bg-blue-700",
                                 type: "submit",
                                 size: "xs",
                                 icon: "i-heroicons-check-circle",

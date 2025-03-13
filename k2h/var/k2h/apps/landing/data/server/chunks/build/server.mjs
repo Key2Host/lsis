@@ -17419,7 +17419,6 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                       type: "submit",
                                       size: "xs",
                                       icon: "i-heroicons-check-circle",
-                                      class: "cursor-pointer",
                                       loading: unref(loading)
                                     }, null, _parent6, _scopeId5));
                                   } else {
@@ -17428,7 +17427,6 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                         type: "submit",
                                         size: "xs",
                                         icon: "i-heroicons-check-circle",
-                                        class: "cursor-pointer",
                                         loading: unref(loading)
                                       }, null, 8, ["loading"])
                                     ];
@@ -17455,7 +17453,6 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                       type: "submit",
                                       size: "xs",
                                       icon: "i-heroicons-check-circle",
-                                      class: "cursor-pointer",
                                       loading: unref(loading)
                                     }, null, 8, ["loading"])
                                   ]),
@@ -17496,7 +17493,6 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                       type: "submit",
                                       size: "xs",
                                       icon: "i-heroicons-check-circle",
-                                      class: "cursor-pointer",
                                       loading: unref(loading)
                                     }, null, 8, ["loading"])
                                   ]),
@@ -17542,7 +17538,6 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                     type: "submit",
                                     size: "xs",
                                     icon: "i-heroicons-check-circle",
-                                    class: "cursor-pointer",
                                     loading: unref(loading)
                                   }, null, 8, ["loading"])
                                 ]),
@@ -17593,7 +17588,6 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                   type: "submit",
                                   size: "xs",
                                   icon: "i-heroicons-check-circle",
-                                  class: "cursor-pointer",
                                   loading: unref(loading)
                                 }, null, 8, ["loading"])
                               ]),
