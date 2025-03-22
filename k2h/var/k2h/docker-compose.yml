@@ -32,6 +32,14 @@ services:
         restart: unless-stopped
         networks:
             - network
+    panel:
+        container_name: k2h_panel
+        build:
+            context: ./apps/panel
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        networks:
+            - network
     proxy:
         container_name: k2h_proxy
         build:
