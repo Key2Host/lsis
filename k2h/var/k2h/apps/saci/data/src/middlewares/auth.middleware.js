@@ -64,14 +64,14 @@ async function authenticateUser(req, res, next) {
       // Neue Tokens als Cookies setzen
       res.cookie("accessToken", newAccessToken, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: true,
         sameSite: "None",
         path: "/",
       });
 
       res.cookie("refreshToken", newRefreshToken, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: true,
         sameSite: "None",
         path: "/",
       });
