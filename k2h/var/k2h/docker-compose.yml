@@ -25,9 +25,9 @@ services:
         networks:
             - network
     landing:
-        container_name: k2h_landing
+        container_name: k2h_frax
         build:
-            context: ./apps/landing
+            context: ./apps/frax
             dockerfile: Dockerfile
         restart: unless-stopped
         networks:
