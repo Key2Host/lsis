@@ -51,14 +51,14 @@ async function login(req, res) {
 
       res.cookie("accessToken", accessToken, {
         httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
-        secure: process.env.NODE_ENV === "production", // Setze es nur in der Produktion auf `true`
+        secure: true, // Setze es nur in der Produktion auf `true`
         sameSite: "None",      // CORS-freundlich
         path: "/"              // Gilt für die gesamte Website
       });
 
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
-        secure: process.env.NODE_ENV === "production", // Setze es nur in der Produktion auf `true`
+        secure: true, // Setze es nur in der Produktion auf `true`
         sameSite: "None",      // CORS-freundlich
         path: "/"              // Gilt für die gesamte Website
       });
@@ -182,7 +182,7 @@ async function sendPasswordResetEmail(user, token) {
   const transporter = nodemailer.createTransport({
     // Direktes Senden ohne SMTP-Server
     sendmail: true,
-    path: '/usr/sbin/sendmail', // Für Unix-basierte Systeme (z.B. Linux, macOS)
+    path: '/usr/sbin/sendmail',
   });
 
   const resetLink = `http://deine-website.com/reset-password?token=${token}`;
