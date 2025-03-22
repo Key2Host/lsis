@@ -2,7 +2,7 @@ import { _ as __nuxt_component_0 } from './PageCTA.vue.mjs';
 import { defineComponent, unref, mergeProps, withCtx, renderSlot, useSSRContext, createVNode } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
-import { r as tv, _ as _appConfig, a as useI18n, b as useSeoMeta } from './server.mjs';
+import { s as tv, _ as _appConfig, a as useI18n, b as useSeoMeta } from './server.mjs';
 import { _ as __nuxt_component_2 } from './PageCard.vue.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';

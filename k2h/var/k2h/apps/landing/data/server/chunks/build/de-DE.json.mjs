@@ -131,7 +131,7 @@ const resource = {
       }
     },
     "partners": {
-      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die besten der Welt vertrauen auf uns" } }
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Die Technologien, die wir nutzen" } }
     },
     "features": {
       "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Features" } },

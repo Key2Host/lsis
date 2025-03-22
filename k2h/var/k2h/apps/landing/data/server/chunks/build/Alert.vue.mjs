@@ -1,7 +1,7 @@
 import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, renderSlot, createVNode, createBlock, createCommentVNode, openBlock, createTextVNode, toDisplayString, Fragment, renderList, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot, ssrRenderClass, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
-import { c as useLocale, h as useAppConfig, t as tv, o as __nuxt_component_3$1, j as __nuxt_component_1, s as __nuxt_component_2, _ as _appConfig } from './server.mjs';
+import { c as useLocale, h as useAppConfig, t as tv, p as __nuxt_component_3$1, j as __nuxt_component_1, v as __nuxt_component_2, _ as _appConfig } from './server.mjs';
 
 const theme = {
   "slots": {

@@ -1,7 +1,7 @@
 import { defineComponent, unref, mergeProps, withCtx, renderSlot, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
-import { r as tv, _ as _appConfig } from './server.mjs';
+import { s as tv, _ as _appConfig } from './server.mjs';
 
 const theme = {
   "base": "mt-8 pb-24 space-y-12"

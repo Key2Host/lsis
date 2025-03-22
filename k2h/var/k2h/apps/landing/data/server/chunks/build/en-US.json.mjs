@@ -131,7 +131,7 @@ const resource = {
       }
     },
     "partners": {
-      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The best in the world rely on us" } }
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The technologies, we use" } }
     },
     "features": {
       "headline": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Features" } },

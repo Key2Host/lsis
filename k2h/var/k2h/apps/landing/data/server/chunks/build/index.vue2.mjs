@@ -1,5 +1,5 @@
 import { _ as __nuxt_component_0 } from './PageHero.vue.mjs';
-import { r as tv, _ as _appConfig, u as useLocalePath, a as useI18n, I as useHead, b as useSeoMeta, j as __nuxt_component_1, J as __nuxt_component_0$1, B as __nuxt_component_2 } from './server.mjs';
+import { s as tv, _ as _appConfig, u as useLocalePath, a as useI18n, J as useHead, b as useSeoMeta, j as __nuxt_component_1, K as __nuxt_component_0$1, C as __nuxt_component_2 } from './server.mjs';
 import { useSSRContext, mergeProps, defineComponent, computed, unref, withCtx, createBlock, openBlock, Fragment, renderList, renderSlot, createVNode, toDisplayString, createTextVNode } from 'vue';
 import { ssrRenderAttrs, ssrRenderAttr, ssrRenderComponent, ssrRenderList, ssrRenderClass, ssrRenderSlot, ssrInterpolate } from 'vue/server-renderer';
 import { p as publicAssetsURL } from '../nitro/nitro.mjs';
@@ -339,6 +339,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
                   }, null, _parent3, _scopeId2));
                   _push3(ssrRenderComponent(_component_UIcon, {
+                    name: "i-simple-icons-apache",
+                    class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
+                  }, null, _parent3, _scopeId2));
+                  _push3(ssrRenderComponent(_component_UIcon, {
+                    name: "i-simple-icons-nginx",
+                    class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
+                  }, null, _parent3, _scopeId2));
+                  _push3(ssrRenderComponent(_component_UIcon, {
                     name: "i-simple-icons-nuxt",
                     class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
                   }, null, _parent3, _scopeId2));
@@ -358,6 +366,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     }),
                     createVNode(_component_UIcon, {
                       name: "i-simple-icons-debian",
+                      class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
+                    }),
+                    createVNode(_component_UIcon, {
+                      name: "i-simple-icons-apache",
+                      class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
+                    }),
+                    createVNode(_component_UIcon, {
+                      name: "i-simple-icons-nginx",
                       class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
                     }),
                     createVNode(_component_UIcon, {
@@ -389,6 +405,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   }),
                   createVNode(_component_UIcon, {
                     name: "i-simple-icons-debian",
+                    class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
+                  }),
+                  createVNode(_component_UIcon, {
+                    name: "i-simple-icons-apache",
+                    class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
+                  }),
+                  createVNode(_component_UIcon, {
+                    name: "i-simple-icons-nginx",
                     class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
                   }),
                   createVNode(_component_UIcon, {

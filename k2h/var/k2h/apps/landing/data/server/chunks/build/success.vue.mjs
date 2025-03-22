@@ -2,7 +2,7 @@ import { _ as __nuxt_component_0 } from './PageHero.vue.mjs';
 import { _ as __nuxt_component_0$1 } from './PageCTA.vue.mjs';
 import { defineComponent, mergeProps, unref, withCtx, createVNode, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrInterpolate } from 'vue/server-renderer';
-import { u as useLocalePath, z as useCartStore, a as useI18n, b as useSeoMeta } from './server.mjs';
+import { u as useLocalePath, A as useCartStore, a as useI18n, b as useSeoMeta } from './server.mjs';
 import 'reka-ui';
 import '../nitro/nitro.mjs';
 import 'node:http';

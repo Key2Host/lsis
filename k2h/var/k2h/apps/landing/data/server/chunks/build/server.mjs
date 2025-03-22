@@ -19808,7 +19808,8 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
         label: t("cookienotice.details.title"),
         onSelect() {
           cookienotice.showDetails = true;
-        }
+        },
+        to: "#"
       }],
       [{
         label: t("legal.notice.title"),
@@ -19863,24 +19864,23 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 header: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
                     _push3(`<div class="flex items-center justify-between w-full"${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId2}> 🍪 ${ssrInterpolate(_ctx.$t("cookienotice.start.title"))}</h3>`);
-                    _push3(ssrRenderComponent(_component_UDropdownMenu, {
-                      items: menu,
-                      popper: { placement: "bottom-start" }
-                    }, {
+                    _push3(ssrRenderComponent(_component_UDropdownMenu, { items: menu }, {
                       default: withCtx((_3, _push4, _parent4, _scopeId3) => {
                         if (_push4) {
                           _push4(ssrRenderComponent(_component_UButton, {
-                            color: "white",
-                            "trailing-icon": "i-heroicons-cog",
-                            class: "opacity-75",
+                            size: "md",
+                            color: "neutral",
+                            variant: "ghost",
+                            icon: "i-heroicons-cog",
                             "aria-label": "More"
                           }, null, _parent4, _scopeId3));
                         } else {
                           return [
                             createVNode(_component_UButton, {
-                              color: "white",
-                              "trailing-icon": "i-heroicons-cog",
-                              class: "opacity-75",
+                              size: "md",
+                              color: "neutral",
+                              variant: "ghost",
+                              icon: "i-heroicons-cog",
                               "aria-label": "More"
                             })
                           ];
@@ -19893,15 +19893,13 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                     return [
                       createVNode("div", { class: "flex items-center justify-between w-full" }, [
                         createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " 🍪 " + toDisplayString$1(_ctx.$t("cookienotice.start.title")), 1),
-                        createVNode(_component_UDropdownMenu, {
-                          items: menu,
-                          popper: { placement: "bottom-start" }
-                        }, {
+                        createVNode(_component_UDropdownMenu, { items: menu }, {
                           default: withCtx(() => [
                             createVNode(_component_UButton, {
-                              color: "white",
-                              "trailing-icon": "i-heroicons-cog",
-                              class: "opacity-75",
+                              size: "md",
+                              color: "neutral",
+                              variant: "ghost",
+                              icon: "i-heroicons-cog",
                               "aria-label": "More"
                             })
                           ]),
@@ -20104,15 +20102,13 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 header: withCtx(() => [
                   createVNode("div", { class: "flex items-center justify-between w-full" }, [
                     createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " 🍪 " + toDisplayString$1(_ctx.$t("cookienotice.start.title")), 1),
-                    createVNode(_component_UDropdownMenu, {
-                      items: menu,
-                      popper: { placement: "bottom-start" }
-                    }, {
+                    createVNode(_component_UDropdownMenu, { items: menu }, {
                       default: withCtx(() => [
                         createVNode(_component_UButton, {
-                          color: "white",
-                          "trailing-icon": "i-heroicons-cog",
-                          class: "opacity-75",
+                          size: "md",
+                          color: "neutral",
+                          variant: "ghost",
+                          icon: "i-heroicons-cog",
                           "aria-label": "More"
                         })
                       ]),
@@ -20290,6 +20286,10 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
       cart.removeFromBasket(id);
       if (isCartEmpty()) cart.closeSlideover();
     };
+    const clearCart = () => {
+      cart.clearBasket();
+      cart.closeSlideover();
+    };
     const isCartEmpty = () => {
       return cart.totalItems === 0;
     };
@@ -20299,22 +20299,29 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
       return hasDomain && hasOtherItems;
     };
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UIcon = __nuxt_component_1$3;
-      const _component_UCard = __nuxt_component_1;
-      const _component_UInput = __nuxt_component_6;
       const _component_UButton = __nuxt_component_2$4;
+      const _component_UCard = __nuxt_component_1;
+      const _component_UIcon = __nuxt_component_1$3;
+      const _component_UInput = __nuxt_component_6;
       const _component_NuxtLinkLocale = __nuxt_component_2$3;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex flex-col h-screen" }, _attrs))}><div class="flex justify-between items-center p-4 sticky top-0 z-10"><button class="text-indigo-600 hover:text-indigo-500 block sm:hidden">`);
-      _push(ssrRenderComponent(_component_UIcon, {
-        name: "i-heroicons-x-mark",
-        class: "w-5 h-5"
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex flex-col h-screen" }, _attrs))}><div class="flex justify-between items-center p-4 sticky top-0 z-10">`);
+      _push(ssrRenderComponent(_component_UButton, {
+        onClick: ($event) => unref(cart).closeSlideover(),
+        size: "md",
+        color: "neutral",
+        variant: "ghost",
+        class: "sm:hidden",
+        icon: "i-heroicons-x-mark"
       }, null, _parent));
-      _push(`</button><h2 class="text-3xl font-bold">${ssrInterpolate(_ctx.$t("cart.title"))}</h2><button class="text-red-600 hover:text-red-500">`);
-      _push(ssrRenderComponent(_component_UIcon, {
-        name: "i-heroicons-trash",
-        class: "w-5 h-5"
+      _push(`<h2 class="text-3xl font-bold">${ssrInterpolate(_ctx.$t("cart.title"))}</h2>`);
+      _push(ssrRenderComponent(_component_UButton, {
+        onClick: clearCart,
+        size: "md",
+        color: "error",
+        variant: "ghost",
+        icon: "i-heroicons-trash"
       }, null, _parent));
-      _push(`</button></div>`);
+      _push(`</div>`);
       _push(ssrRenderComponent(_component_UCard, { class: "mt-2 mb-8 max-w-sm overflow-y-auto w-full mx-auto" }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -20816,5 +20823,5 @@ const server = /*#__PURE__*/Object.freeze({
   default: entry$1
 });
 
-export { __nuxt_component_1 as A, __nuxt_component_2$3 as B, __nuxt_component_0 as C, transformUI as D, useCookieNoticeStore as E, useNuxtApp as F, injectHead as G, useRuntimeConfig as H, useHead as I, __nuxt_component_0$3 as J, __nuxt_component_0$5 as K, __nuxt_component_0$6 as L, pickLinkProps as M, avatarGroupInjectionKey as N, getSlotChildrenText as O, ImageComponent as P, useAvatarGroup as Q, __nuxt_component_3$2 as R, server as S, ULinkBase as U, _appConfig as _, useI18n as a, useSeoMeta as b, useLocale as c, formInputsInjectionKey as d, formLoadingInjectionKey as e, formBusInjectionKey as f, formOptionsInjectionKey as g, useAppConfig as h, useFormField as i, __nuxt_component_1$3 as j, useButtonGroup as k, useComponentIcons as l, get as m, compare as n, __nuxt_component_3$3 as o, __nuxt_component_6 as p, useLocalePro as q, tv as r, __nuxt_component_2$4 as s, tv$1 as t, useLocalePath as u, __nuxt_component_2$2 as v, __nuxt_component_4$1 as w, omit as x, useToast as y, useCartStore as z };
+export { useCartStore as A, __nuxt_component_1 as B, __nuxt_component_2$3 as C, __nuxt_component_0 as D, transformUI as E, useCookieNoticeStore as F, useNuxtApp as G, injectHead as H, useRuntimeConfig as I, useHead as J, __nuxt_component_0$3 as K, __nuxt_component_0$5 as L, __nuxt_component_0$6 as M, pickLinkProps as N, __nuxt_component_3$2 as O, getSlotChildrenText as P, server as Q, ULinkBase as U, _appConfig as _, useI18n as a, useSeoMeta as b, useLocale as c, formInputsInjectionKey as d, formLoadingInjectionKey as e, formBusInjectionKey as f, formOptionsInjectionKey as g, useAppConfig as h, useFormField as i, __nuxt_component_1$3 as j, useAvatarGroup as k, useButtonGroup as l, useComponentIcons as m, get as n, compare as o, __nuxt_component_3$3 as p, __nuxt_component_6 as q, useLocalePro as r, tv as s, tv$1 as t, useLocalePath as u, __nuxt_component_2$4 as v, __nuxt_component_2$2 as w, __nuxt_component_4$1 as x, omit as y, useToast as z };
 //# sourceMappingURL=server.mjs.map

@@ -1,10 +1,9 @@
 import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, createVNode, createBlock, createCommentVNode, openBlock, renderSlot, createTextVNode, toDisplayString, Fragment, renderList, useSSRContext, useId, inject, provide, ref, readonly, resolveDynamicComponent, mergeModels, useModel, toRef, withModifiers, toRaw, reactive, createSlots, isRef, withAsyncContext, resolveComponent } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderStyle, ssrRenderSlot, ssrInterpolate, ssrRenderList, ssrRenderVNode, ssrRenderAttrs } from 'vue/server-renderer';
-import { useForwardPropsEmits, Primitive, ProgressRoot, ProgressIndicator, useForwardProps, CheckboxRoot, CheckboxIndicator, Label, useFilter, ComboboxGroup, ComboboxItem, ComboboxRoot, ComboboxAnchor, ComboboxTrigger, ComboboxPortal, ComboboxContent, FocusScope, ComboboxInput, ComboboxEmpty, ComboboxViewport, ComboboxLabel, ComboboxSeparator, ComboboxItemIndicator, ComboboxArrow } from 'reka-ui';
+import { useForwardPropsEmits, Primitive, ProgressRoot, ProgressIndicator, useForwardProps, CheckboxRoot, CheckboxIndicator, Label, Slot, useFilter, ComboboxGroup, ComboboxItem, ComboboxRoot, ComboboxAnchor, ComboboxTrigger, ComboboxPortal, ComboboxContent, FocusScope, ComboboxInput, ComboboxEmpty, ComboboxViewport, ComboboxLabel, ComboboxSeparator, ComboboxItemIndicator, ComboboxArrow } from 'reka-ui';
 import { reactivePick, useEventBus, createReusableTemplate } from '@vueuse/core';
-import { c as useLocale, t as tv, _ as _appConfig, f as formBusInjectionKey, d as formInputsInjectionKey, e as formLoadingInjectionKey, g as formOptionsInjectionKey, h as useAppConfig, i as useFormField, j as __nuxt_component_1, k as useButtonGroup, l as useComponentIcons, m as get, n as compare, o as __nuxt_component_3$1, p as __nuxt_component_6$1, q as useLocalePro, r as tv$1, s as __nuxt_component_2$1, v as __nuxt_component_2$2, w as __nuxt_component_4, x as omit, y as useToast, a as useI18n, z as useCartStore, b as useSeoMeta, A as __nuxt_component_1$1, B as __nuxt_component_2$3 } from './server.mjs';
+import { c as useLocale, t as tv, _ as _appConfig, f as formBusInjectionKey, d as formInputsInjectionKey, e as formLoadingInjectionKey, g as formOptionsInjectionKey, h as useAppConfig, i as useFormField, j as __nuxt_component_1, k as useAvatarGroup, l as useButtonGroup, m as useComponentIcons, n as get, o as compare, p as __nuxt_component_3$1, q as __nuxt_component_6$1, r as useLocalePro, s as tv$1, v as __nuxt_component_2$1, w as __nuxt_component_2$2, x as __nuxt_component_4, y as omit, z as useToast, a as useI18n, A as useCartStore, b as useSeoMeta, B as __nuxt_component_1$1, C as __nuxt_component_2$3 } from './server.mjs';
 import { m as defu } from '../nitro/nitro.mjs';
-import { _ as __nuxt_component_0$2 } from './Chip.vue.mjs';
 import { _ as __nuxt_component_3$2 } from './Alert.vue.mjs';
 import { _ as __nuxt_component_8 } from './NuxtTurnstile.vue.mjs';
 import axios from 'axios';
@@ -37,7 +36,7 @@ import 'ipx';
 import 'unhead/scripts';
 import '@vueuse/shared';
 
-const theme$4 = {
+const theme$5 = {
   "slots": {
     "root": "gap-2",
     "base": "relative overflow-hidden rounded-full bg-(--ui-bg-accented)",
@@ -296,10 +295,10 @@ const theme$4 = {
   }
 };
 
-var _a$4;
+var _a$5;
 const appConfigProgress = _appConfig;
-const progress = tv({ extend: tv(theme$4), ...((_a$4 = appConfigProgress.ui) == null ? void 0 : _a$4.progress) || {} });
-const _sfc_main$6 = /* @__PURE__ */ defineComponent({
+const progress = tv({ extend: tv(theme$5), ...((_a$5 = appConfigProgress.ui) == null ? void 0 : _a$5.progress) || {} });
+const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   __name: "Progress",
   __ssrInlineRender: true,
   props: {
@@ -508,13 +507,13 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_setup$6 = _sfc_main$6.setup;
-_sfc_main$6.setup = (props, ctx) => {
+const _sfc_setup$7 = _sfc_main$7.setup;
+_sfc_main$7.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Progress.vue");
-  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
+  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
-const __nuxt_component_0$1 = Object.assign(_sfc_main$6, { __name: "UProgress" });
+const __nuxt_component_0$2 = Object.assign(_sfc_main$7, { __name: "UProgress" });
 
 function isYupSchema(schema) {
   return schema.validate && schema.__isYupSchema__;
@@ -693,14 +692,14 @@ class FormValidationException extends Error {
   }
 }
 
-const theme$3 = {
+const theme$4 = {
   "base": ""
 };
 
-var _a$3;
+var _a$4;
 const appConfigForm = _appConfig;
-const form = tv({ extend: tv(theme$3), ...((_a$3 = appConfigForm.ui) == null ? void 0 : _a$3.form) || {} });
-const _sfc_main$5 = /* @__PURE__ */ defineComponent({
+const form = tv({ extend: tv(theme$4), ...((_a$4 = appConfigForm.ui) == null ? void 0 : _a$4.form) || {} });
+const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   __name: "Form",
   __ssrInlineRender: true,
   props: {
@@ -874,15 +873,15 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_setup$5 = _sfc_main$5.setup;
-_sfc_main$5.setup = (props, ctx) => {
+const _sfc_setup$6 = _sfc_main$6.setup;
+_sfc_main$6.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Form.vue");
-  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-const __nuxt_component_3 = Object.assign(_sfc_main$5, { __name: "UForm" });
+const __nuxt_component_3 = Object.assign(_sfc_main$6, { __name: "UForm" });
 
-const theme$2 = {
+const theme$3 = {
   "slots": {
     "root": "relative flex items-start",
     "base": "shrink-0 flex items-center justify-center rounded-(--ui-radius) text-(--ui-bg) ring ring-inset ring-(--ui-border-accented) focus-visible:outline-2 focus-visible:outline-offset-2",
@@ -988,10 +987,10 @@ const theme$2 = {
   }
 };
 
-var _a$2;
+var _a$3;
 const appConfigCheckbox = _appConfig;
-const checkbox = tv({ extend: tv(theme$2), ...((_a$2 = appConfigCheckbox.ui) == null ? void 0 : _a$2.checkbox) || {} });
-const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+const checkbox = tv({ extend: tv(theme$3), ...((_a$3 = appConfigCheckbox.ui) == null ? void 0 : _a$3.checkbox) || {} });
+const _sfc_main$5 = /* @__PURE__ */ defineComponent({
   ...{ inheritAttrs: false },
   __name: "Checkbox",
   __ssrInlineRender: true,
@@ -1219,13 +1218,177 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   }
 });
 
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Checkbox.vue");
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+};
+const __nuxt_component_5 = Object.assign(_sfc_main$5, { __name: "UCheckbox" });
+
+const theme$2 = {
+  "slots": {
+    "root": "relative inline-flex items-center justify-center shrink-0",
+    "base": "rounded-full ring ring-(--ui-bg) flex items-center justify-center text-(--ui-bg) font-medium whitespace-nowrap"
+  },
+  "variants": {
+    "color": {
+      "primary": "bg-(--ui-primary)",
+      "secondary": "bg-(--ui-secondary)",
+      "success": "bg-(--ui-success)",
+      "info": "bg-(--ui-info)",
+      "warning": "bg-(--ui-warning)",
+      "error": "bg-(--ui-error)",
+      "neutral": "bg-(--ui-text-muted)"
+    },
+    "size": {
+      "3xs": "h-[4px] min-w-[4px] text-[4px]",
+      "2xs": "h-[5px] min-w-[5px] text-[5px]",
+      "xs": "h-[6px] min-w-[6px] text-[6px]",
+      "sm": "h-[7px] min-w-[7px] text-[7px]",
+      "md": "h-[8px] min-w-[8px] text-[8px]",
+      "lg": "h-[9px] min-w-[9px] text-[9px]",
+      "xl": "h-[10px] min-w-[10px] text-[10px]",
+      "2xl": "h-[11px] min-w-[11px] text-[11px]",
+      "3xl": "h-[12px] min-w-[12px] text-[12px]"
+    },
+    "position": {
+      "top-right": "top-0 right-0",
+      "bottom-right": "bottom-0 right-0",
+      "top-left": "top-0 left-0",
+      "bottom-left": "bottom-0 left-0"
+    },
+    "inset": {
+      "false": ""
+    },
+    "standalone": {
+      "false": "absolute"
+    }
+  },
+  "compoundVariants": [
+    {
+      "position": "top-right",
+      "inset": false,
+      "class": "-translate-y-1/2 translate-x-1/2 transform"
+    },
+    {
+      "position": "bottom-right",
+      "inset": false,
+      "class": "translate-y-1/2 translate-x-1/2 transform"
+    },
+    {
+      "position": "top-left",
+      "inset": false,
+      "class": "-translate-y-1/2 -translate-x-1/2 transform"
+    },
+    {
+      "position": "bottom-left",
+      "inset": false,
+      "class": "translate-y-1/2 -translate-x-1/2 transform"
+    }
+  ],
+  "defaultVariants": {
+    "size": "md",
+    "color": "primary",
+    "position": "top-right"
+  }
+};
+
+var _a$2;
+const appConfigChip = _appConfig;
+const chip = tv({ extend: tv(theme$2), ...((_a$2 = appConfigChip.ui) == null ? void 0 : _a$2.chip) || {} });
+const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+  ...{ inheritAttrs: false },
+  __name: "Chip",
+  __ssrInlineRender: true,
+  props: /* @__PURE__ */ mergeModels({
+    as: {},
+    text: {},
+    color: {},
+    size: {},
+    position: {},
+    inset: { type: Boolean, default: false },
+    standalone: { type: Boolean, default: false },
+    class: {},
+    ui: {}
+  }, {
+    "show": { type: Boolean, ...{ default: true } },
+    "showModifiers": {}
+  }),
+  emits: ["update:show"],
+  setup(__props) {
+    const props = __props;
+    const show = useModel(__props, "show");
+    const { size } = useAvatarGroup(props);
+    const ui = computed(() => chip({
+      color: props.color,
+      size: size.value,
+      position: props.position,
+      inset: props.inset,
+      standalone: props.standalone
+    }));
+    return (_ctx, _push, _parent, _attrs) => {
+      var _a2;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b;
+          if (_push2) {
+            _push2(ssrRenderComponent(unref(Slot), _ctx.$attrs, {
+              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                if (_push3) {
+                  ssrRenderSlot(_ctx.$slots, "default", {}, null, _push3, _parent3, _scopeId2);
+                } else {
+                  return [
+                    renderSlot(_ctx.$slots, "default")
+                  ];
+                }
+              }),
+              _: 3
+            }, _parent2, _scopeId));
+            if (show.value) {
+              _push2(`<span class="${ssrRenderClass(ui.value.base({ class: (_a3 = props.ui) == null ? void 0 : _a3.base }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "content", {}, () => {
+                _push2(`${ssrInterpolate(_ctx.text)}`);
+              }, _push2, _parent2, _scopeId);
+              _push2(`</span>`);
+            } else {
+              _push2(`<!---->`);
+            }
+          } else {
+            return [
+              createVNode(unref(Slot), _ctx.$attrs, {
+                default: withCtx(() => [
+                  renderSlot(_ctx.$slots, "default")
+                ]),
+                _: 3
+              }, 16),
+              show.value ? (openBlock(), createBlock("span", {
+                key: 0,
+                class: ui.value.base({ class: (_b = props.ui) == null ? void 0 : _b.base })
+              }, [
+                renderSlot(_ctx.$slots, "content", {}, () => [
+                  createTextVNode(toDisplayString(_ctx.text), 1)
+                ])
+              ], 2)) : createCommentVNode("", true)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+    };
+  }
+});
+
 const _sfc_setup$4 = _sfc_main$4.setup;
 _sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Checkbox.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Chip.vue");
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const __nuxt_component_5 = Object.assign(_sfc_main$4, { __name: "UCheckbox" });
+const __nuxt_component_0$1 = Object.assign(_sfc_main$4, { __name: "UChip" });
 
 const theme$1 = {
   "slots": {
@@ -2167,7 +2330,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                                               class: ui.value.itemLeadingAvatar({ class: (_c4 = props.ui) == null ? void 0 : _c4.itemLeadingAvatar })
                                                             }), null, _parent8, _scopeId7));
                                                           } else if (item.chip) {
-                                                            _push8(ssrRenderComponent(__nuxt_component_0$2, mergeProps({
+                                                            _push8(ssrRenderComponent(__nuxt_component_0$1, mergeProps({
                                                               size: ((_d3 = props.ui) == null ? void 0 : _d3.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
                                                               inset: "",
                                                               standalone: "",
@@ -2236,7 +2399,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                                                   ref_for: true
                                                                 }, item.avatar, {
                                                                   class: ui.value.itemLeadingAvatar({ class: (_c4 = props.ui) == null ? void 0 : _c4.itemLeadingAvatar })
-                                                                }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                                }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$1, mergeProps({
                                                                   key: 2,
                                                                   size: ((_d3 = props.ui) == null ? void 0 : _d3.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
                                                                   inset: "",
@@ -2336,7 +2499,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                                                 ref_for: true
                                                               }, item.avatar, {
                                                                 class: ui.value.itemLeadingAvatar({ class: (_c4 = props.ui) == null ? void 0 : _c4.itemLeadingAvatar })
-                                                              }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                              }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$1, mergeProps({
                                                                 key: 2,
                                                                 size: ((_d3 = props.ui) == null ? void 0 : _d3.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
                                                                 inset: "",
@@ -2452,7 +2615,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                                               ref_for: true
                                                             }, item.avatar, {
                                                               class: ui.value.itemLeadingAvatar({ class: (_c4 = props.ui) == null ? void 0 : _c4.itemLeadingAvatar })
-                                                            }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                            }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$1, mergeProps({
                                                               key: 2,
                                                               size: ((_d3 = props.ui) == null ? void 0 : _d3.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
                                                               inset: "",
@@ -2600,7 +2763,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                                             ref_for: true
                                                           }, item.avatar, {
                                                             class: ui.value.itemLeadingAvatar({ class: (_c4 = props.ui) == null ? void 0 : _c4.itemLeadingAvatar })
-                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$1, mergeProps({
                                                             key: 2,
                                                             size: ((_d3 = props.ui) == null ? void 0 : _d3.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
                                                             inset: "",
@@ -2765,7 +2928,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                                             ref_for: true
                                                           }, item.avatar, {
                                                             class: ui.value.itemLeadingAvatar({ class: (_c3 = props.ui) == null ? void 0 : _c3.itemLeadingAvatar })
-                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$1, mergeProps({
                                                             key: 2,
                                                             size: ((_d2 = props.ui) == null ? void 0 : _d2.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
                                                             inset: "",
@@ -2936,7 +3099,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                                             ref_for: true
                                                           }, item.avatar, {
                                                             class: ui.value.itemLeadingAvatar({ class: (_c2 = props.ui) == null ? void 0 : _c2.itemLeadingAvatar })
-                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$1, mergeProps({
                                                             key: 2,
                                                             size: ((_d = props.ui) == null ? void 0 : _d.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
                                                             inset: "",
@@ -3196,7 +3359,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                                             ref_for: true
                                                           }, item.avatar, {
                                                             class: ui.value.itemLeadingAvatar({ class: (_c2 = props.ui) == null ? void 0 : _c2.itemLeadingAvatar })
-                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$2, mergeProps({
+                                                          }), null, 16, ["size", "class"])) : item.chip ? (openBlock(), createBlock(__nuxt_component_0$1, mergeProps({
                                                             key: 2,
                                                             size: ((_d = props.ui) == null ? void 0 : _d.itemLeadingChipSize) || ui.value.itemLeadingChipSize(),
                                                             inset: "",
@@ -4201,7 +4364,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       robots: "noindex, nofollow"
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UProgress = __nuxt_component_0$1;
+      const _component_UProgress = __nuxt_component_0$2;
       const _component_UCard = __nuxt_component_1$1;
       const _component_AuthForm = __nuxt_component_2;
       const _component_NuxtLinkLocale = __nuxt_component_2$3;
