@@ -1,7 +1,7 @@
 import { u as useDashboard, a as useResizable, _ as __nuxt_component_1$1, b as __nuxt_component_0$2, c as useLocalePro } from './DashboardSidebarToggle.vue.mjs';
 import { defineComponent, useId, toRef, computed, unref, useSSRContext, useSlots, withCtx, mergeProps, renderSlot, createBlock, createCommentVNode, openBlock, createVNode, createTextVNode, toDisplayString, ref, Fragment, renderList } from 'vue';
 import { ssrRenderAttr, ssrRenderClass, ssrRenderStyle, ssrRenderSlot, ssrRenderComponent, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
-import { _ as _appConfig, U as UIcon, u as useAppConfig, b as __nuxt_component_1$2, t as tv$1, c as __nuxt_component_1$3, d as useDashboard$1, e as UChip } from './server.mjs';
+import { _ as _appConfig, U as UIcon, u as useAppConfig, b as __nuxt_component_1$2, t as tv$1, c as UKbd, d as useDashboard$1, e as UChip } from './server.mjs';
 import { t as tv } from './tv.mjs';
 import { Primitive, useForwardProps, useForwardPropsEmits, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow } from 'reka-ui';
 import { createReusableTemplate, reactivePick } from '@vueuse/core';
@@ -418,7 +418,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                             _push4(`<span class="${ssrRenderClass(ui.value.kbds({ class: (_c = props.ui) == null ? void 0 : _c.kbds }))}"${_scopeId3}><!--[-->`);
                             ssrRenderList(_ctx.kbds, (kbd, index) => {
                               var _a5;
-                              _push4(ssrRenderComponent(__nuxt_component_1$3, mergeProps({
+                              _push4(ssrRenderComponent(UKbd, mergeProps({
                                 key: index,
                                 size: ((_a5 = props.ui) == null ? void 0 : _a5.kbdsSize) || ui.value.kbdsSize(),
                                 ref_for: true
@@ -451,7 +451,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                               }, [
                                 (openBlock(true), createBlock(Fragment, null, renderList(_ctx.kbds, (kbd, index) => {
                                   var _a5;
-                                  return openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                  return openBlock(), createBlock(UKbd, mergeProps({
                                     key: index,
                                     size: ((_a5 = props.ui) == null ? void 0 : _a5.kbdsSize) || ui.value.kbdsSize(),
                                     ref_for: true
@@ -489,7 +489,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                               }, [
                                 (openBlock(true), createBlock(Fragment, null, renderList(_ctx.kbds, (kbd, index) => {
                                   var _a5;
-                                  return openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                  return openBlock(), createBlock(UKbd, mergeProps({
                                     key: index,
                                     size: ((_a5 = props.ui) == null ? void 0 : _a5.kbdsSize) || ui.value.kbdsSize(),
                                     ref_for: true
@@ -546,7 +546,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                               }, [
                                 (openBlock(true), createBlock(Fragment, null, renderList(_ctx.kbds, (kbd, index) => {
                                   var _a5;
-                                  return openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                  return openBlock(), createBlock(UKbd, mergeProps({
                                     key: index,
                                     size: ((_a5 = props.ui) == null ? void 0 : _a5.kbdsSize) || ui.value.kbdsSize(),
                                     ref_for: true

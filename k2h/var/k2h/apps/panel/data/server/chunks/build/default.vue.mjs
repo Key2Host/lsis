@@ -1,14 +1,14 @@
-import { defineComponent, ref, unref, mergeProps, withCtx, renderSlot, useSSRContext, mergeModels, useSlots, useModel, computed, createSlots, createBlock, createCommentVNode, openBlock, createVNode, createTextVNode, toDisplayString, Fragment, renderList, toRef, toHandlers, useId, isRef } from 'vue';
-import { ssrRenderComponent, ssrRenderSlot, ssrRenderClass, ssrRenderList, ssrInterpolate, ssrRenderAttr, ssrRenderStyle } from 'vue/server-renderer';
+import { defineComponent, ref, unref, mergeProps, withCtx, renderSlot, useSSRContext, mergeModels, useSlots, useModel, computed, createVNode, createBlock, createCommentVNode, openBlock, createSlots, createTextVNode, toDisplayString, Fragment, renderList, toRef, toHandlers, useId, isRef } from 'vue';
+import { ssrRenderComponent, ssrRenderSlot, ssrRenderAttrs, ssrRenderClass, ssrRenderList, ssrInterpolate, ssrRenderAttr, ssrRenderStyle } from 'vue/server-renderer';
 import { Primitive, useForwardPropsEmits, useForwardProps, ListboxRoot, ListboxFilter, ListboxContent, ListboxGroup, ListboxGroupLabel, ListboxItem, ListboxItemIndicator } from 'reka-ui';
-import { p as provideDashboardContext, u as useDashboard, c as useLocalePro, a as useResizable, b as __nuxt_component_0$1, _ as __nuxt_component_1$4 } from './DashboardSidebarToggle.vue.mjs';
-import { _ as _appConfig, q as useLocale, u as useAppConfig, t as tv$1, b as __nuxt_component_1$2, r as get, s as omit, p as ULink, v as pickLinkProps, w as ULinkBase, U as UIcon, j as UAvatar, e as UChip, c as __nuxt_component_1$3, x as useState, y as defineShortcuts, z as UModal, A as USlideover, B as __nuxt_component_0$2, C as useRoute } from './server.mjs';
+import { p as provideDashboardContext, u as useDashboard, c as useLocalePro, a as useResizable, b as __nuxt_component_0$1, _ as __nuxt_component_1$3 } from './DashboardSidebarToggle.vue.mjs';
+import { _ as _appConfig, g as useFormField, k as useButtonGroup, l as useComponentIcons, t as tv$1, U as UIcon, f as UAvatar, m as looseToNumber, n as useLocale, u as useAppConfig, b as __nuxt_component_1$2, o as get, p as omit, j as ULink, q as pickLinkProps, r as ULinkBase, e as UChip, c as UKbd, s as useState, v as defineShortcuts, w as UModal, x as USlideover, y as __nuxt_component_0$2, z as useRoute } from './server.mjs';
 import { t as tv } from './tv.mjs';
 import { n as defu } from '../nitro/nitro.mjs';
 import { reactivePick, createReusableTemplate } from '@vueuse/core';
 import { useFuse } from '@vueuse/integrations/useFuse';
-import { U as UInput } from './Input.vue.mjs';
 import { DrawerRoot, DrawerTrigger, DrawerPortal, DrawerOverlay, DrawerContent, DrawerTitle, DrawerDescription } from 'vaul-vue';
+import { _ as __nuxt_component_4 } from './DashboardSearchButton.vue.mjs';
 import { _ as __nuxt_component_5 } from './NavigationMenu.vue.mjs';
 import 'pinia';
 import 'vue-router';
@@ -164,6 +164,500 @@ function highlight(item, searchTerm, forceKey, omitKeys) {
 
 const theme$4 = {
   "slots": {
+    "root": "relative inline-flex items-center",
+    "base": [
+      "w-full rounded-[calc(var(--ui-radius)*1.5)] border-0 placeholder:text-(--ui-text-dimmed) focus:outline-none disabled:cursor-not-allowed disabled:opacity-75",
+      "transition-colors"
+    ],
+    "leading": "absolute inset-y-0 start-0 flex items-center",
+    "leadingIcon": "shrink-0 text-(--ui-text-dimmed)",
+    "leadingAvatar": "shrink-0",
+    "leadingAvatarSize": "",
+    "trailing": "absolute inset-y-0 end-0 flex items-center",
+    "trailingIcon": "shrink-0 text-(--ui-text-dimmed)"
+  },
+  "variants": {
+    "buttonGroup": {
+      "horizontal": {
+        "root": "group",
+        "base": "group-not-only:group-first:rounded-e-none group-not-only:group-last:rounded-s-none group-not-last:group-not-first:rounded-none"
+      },
+      "vertical": {
+        "root": "group",
+        "base": "group-not-only:group-first:rounded-b-none group-not-only:group-last:rounded-t-none group-not-last:group-not-first:rounded-none"
+      }
+    },
+    "size": {
+      "xs": {
+        "base": "px-2 py-1 text-xs gap-1",
+        "leading": "ps-2",
+        "trailing": "pe-2",
+        "leadingIcon": "size-4",
+        "leadingAvatarSize": "3xs",
+        "trailingIcon": "size-4"
+      },
+      "sm": {
+        "base": "px-2.5 py-1.5 text-xs gap-1.5",
+        "leading": "ps-2.5",
+        "trailing": "pe-2.5",
+        "leadingIcon": "size-4",
+        "leadingAvatarSize": "3xs",
+        "trailingIcon": "size-4"
+      },
+      "md": {
+        "base": "px-2.5 py-1.5 text-sm gap-1.5",
+        "leading": "ps-2.5",
+        "trailing": "pe-2.5",
+        "leadingIcon": "size-5",
+        "leadingAvatarSize": "2xs",
+        "trailingIcon": "size-5"
+      },
+      "lg": {
+        "base": "px-3 py-2 text-sm gap-2",
+        "leading": "ps-3",
+        "trailing": "pe-3",
+        "leadingIcon": "size-5",
+        "leadingAvatarSize": "2xs",
+        "trailingIcon": "size-5"
+      },
+      "xl": {
+        "base": "px-3 py-2 text-base gap-2",
+        "leading": "ps-3",
+        "trailing": "pe-3",
+        "leadingIcon": "size-6",
+        "leadingAvatarSize": "xs",
+        "trailingIcon": "size-6"
+      }
+    },
+    "variant": {
+      "outline": "text-(--ui-text-highlighted) bg-(--ui-bg) ring ring-inset ring-(--ui-border-accented)",
+      "soft": "text-(--ui-text-highlighted) bg-(--ui-bg-elevated)/50 hover:bg-(--ui-bg-elevated) focus:bg-(--ui-bg-elevated) disabled:bg-(--ui-bg-elevated)/50",
+      "subtle": "text-(--ui-text-highlighted) bg-(--ui-bg-elevated) ring ring-inset ring-(--ui-border-accented)",
+      "ghost": "text-(--ui-text-highlighted) bg-transparent hover:bg-(--ui-bg-elevated) focus:bg-(--ui-bg-elevated) disabled:bg-transparent dark:disabled:bg-transparent",
+      "none": "text-(--ui-text-highlighted) bg-transparent"
+    },
+    "color": {
+      "primary": "",
+      "secondary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "neutral": ""
+    },
+    "leading": {
+      "true": ""
+    },
+    "trailing": {
+      "true": ""
+    },
+    "loading": {
+      "true": ""
+    },
+    "highlight": {
+      "true": ""
+    },
+    "type": {
+      "file": "file:me-1.5 file:font-medium file:text-(--ui-text-muted) file:outline-none"
+    }
+  },
+  "compoundVariants": [
+    {
+      "color": "primary",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-primary)"
+    },
+    {
+      "color": "secondary",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-secondary)"
+    },
+    {
+      "color": "success",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-success)"
+    },
+    {
+      "color": "info",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-info)"
+    },
+    {
+      "color": "warning",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-warning)"
+    },
+    {
+      "color": "error",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-error)"
+    },
+    {
+      "color": "primary",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-primary)"
+    },
+    {
+      "color": "secondary",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-secondary)"
+    },
+    {
+      "color": "success",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-success)"
+    },
+    {
+      "color": "info",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-info)"
+    },
+    {
+      "color": "warning",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-warning)"
+    },
+    {
+      "color": "error",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-error)"
+    },
+    {
+      "color": "neutral",
+      "variant": [
+        "outline",
+        "subtle"
+      ],
+      "class": "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-border-inverted)"
+    },
+    {
+      "color": "neutral",
+      "highlight": true,
+      "class": "ring ring-inset ring-(--ui-border-inverted)"
+    },
+    {
+      "leading": true,
+      "size": "xs",
+      "class": "ps-7"
+    },
+    {
+      "leading": true,
+      "size": "sm",
+      "class": "ps-8"
+    },
+    {
+      "leading": true,
+      "size": "md",
+      "class": "ps-9"
+    },
+    {
+      "leading": true,
+      "size": "lg",
+      "class": "ps-10"
+    },
+    {
+      "leading": true,
+      "size": "xl",
+      "class": "ps-11"
+    },
+    {
+      "trailing": true,
+      "size": "xs",
+      "class": "pe-7"
+    },
+    {
+      "trailing": true,
+      "size": "sm",
+      "class": "pe-8"
+    },
+    {
+      "trailing": true,
+      "size": "md",
+      "class": "pe-9"
+    },
+    {
+      "trailing": true,
+      "size": "lg",
+      "class": "pe-10"
+    },
+    {
+      "trailing": true,
+      "size": "xl",
+      "class": "pe-11"
+    },
+    {
+      "loading": true,
+      "leading": true,
+      "class": {
+        "leadingIcon": "animate-spin"
+      }
+    },
+    {
+      "loading": true,
+      "leading": false,
+      "trailing": true,
+      "class": {
+        "trailingIcon": "animate-spin"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "size": "md",
+    "color": "primary",
+    "variant": "outline"
+  }
+};
+
+var _a$4;
+const appConfigInput = _appConfig;
+const input = tv$1({ extend: tv$1(theme$4), ...((_a$4 = appConfigInput.ui) == null ? void 0 : _a$4.input) || {} });
+const _sfc_main$7 = /* @__PURE__ */ defineComponent({
+  ...{ inheritAttrs: false },
+  __name: "Input",
+  __ssrInlineRender: true,
+  props: /* @__PURE__ */ mergeModels({
+    as: {},
+    id: {},
+    name: {},
+    type: { default: "text" },
+    placeholder: {},
+    color: {},
+    variant: {},
+    size: {},
+    required: { type: Boolean },
+    autocomplete: { default: "off" },
+    autofocus: { type: Boolean },
+    autofocusDelay: { default: 0 },
+    disabled: { type: Boolean },
+    highlight: { type: Boolean },
+    class: {},
+    ui: {},
+    icon: {},
+    avatar: {},
+    leading: { type: Boolean },
+    leadingIcon: {},
+    trailing: { type: Boolean },
+    trailingIcon: {},
+    loading: { type: Boolean },
+    loadingIcon: {}
+  }, {
+    "modelValue": {},
+    "modelModifiers": {}
+  }),
+  emits: /* @__PURE__ */ mergeModels(["update:modelValue", "blur", "change"], ["update:modelValue"]),
+  setup(__props, { expose: __expose, emit: __emit }) {
+    const props = __props;
+    const emits = __emit;
+    const slots = useSlots();
+    const [modelValue, modelModifiers] = useModel(__props, "modelValue");
+    const { emitFormBlur, emitFormInput, emitFormChange, size: formGroupSize, color, id, name, highlight, disabled, emitFormFocus, ariaAttrs } = useFormField(props, { deferInputValidation: true });
+    const { orientation, size: buttonGroupSize } = useButtonGroup(props);
+    const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props);
+    const inputSize = computed(() => buttonGroupSize.value || formGroupSize.value);
+    const ui = computed(() => input({
+      type: props.type,
+      color: color.value,
+      variant: props.variant,
+      size: inputSize == null ? void 0 : inputSize.value,
+      loading: props.loading,
+      highlight: highlight.value,
+      leading: isLeading.value || !!props.avatar || !!slots.leading,
+      trailing: isTrailing.value || !!slots.trailing,
+      buttonGroup: orientation.value
+    }));
+    const inputRef = ref(null);
+    function updateInput(value) {
+      if (modelModifiers.trim) {
+        value = (value == null ? void 0 : value.trim()) ?? null;
+      }
+      if (modelModifiers.number || props.type === "number") {
+        value = looseToNumber(value);
+      }
+      if (modelModifiers.nullify) {
+        value || (value = null);
+      }
+      modelValue.value = value;
+      emitFormInput();
+    }
+    function onInput(event) {
+      if (!modelModifiers.lazy) {
+        updateInput(event.target.value);
+      }
+    }
+    function onChange(event) {
+      const value = event.target.value;
+      if (modelModifiers.lazy) {
+        updateInput(value);
+      }
+      if (modelModifiers.trim) {
+        event.target.value = value.trim();
+      }
+      emitFormChange();
+      emits("change", event);
+    }
+    function onBlur(event) {
+      emitFormBlur();
+      emits("blur", event);
+    }
+    __expose({
+      inputRef
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      var _a2;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b, _c, _d, _e, _f;
+          if (_push2) {
+            _push2(`<input${ssrRenderAttrs(mergeProps({
+              id: unref(id),
+              ref_key: "inputRef",
+              ref: inputRef,
+              type: _ctx.type,
+              value: unref(modelValue),
+              name: unref(name),
+              placeholder: _ctx.placeholder,
+              class: ui.value.base({ class: (_a3 = props.ui) == null ? void 0 : _a3.base }),
+              disabled: unref(disabled),
+              required: _ctx.required,
+              autocomplete: _ctx.autocomplete
+            }, { ..._ctx.$attrs, ...unref(ariaAttrs) }))}${_scopeId}>`);
+            ssrRenderSlot(_ctx.$slots, "default", {}, null, _push2, _parent2, _scopeId);
+            if (unref(isLeading) || !!_ctx.avatar || !!slots.leading) {
+              _push2(`<span class="${ssrRenderClass(ui.value.leading({ class: (_b = props.ui) == null ? void 0 : _b.leading }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "leading", {}, () => {
+                var _a4, _b2, _c2;
+                if (unref(isLeading) && unref(leadingIconName)) {
+                  _push2(ssrRenderComponent(UIcon, {
+                    name: unref(leadingIconName),
+                    class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
+                  }, null, _parent2, _scopeId));
+                } else if (!!_ctx.avatar) {
+                  _push2(ssrRenderComponent(UAvatar, mergeProps({
+                    size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
+                  }, _ctx.avatar, {
+                    class: ui.value.leadingAvatar({ class: (_c2 = props.ui) == null ? void 0 : _c2.leadingAvatar })
+                  }), null, _parent2, _scopeId));
+                } else {
+                  _push2(`<!---->`);
+                }
+              }, _push2, _parent2, _scopeId);
+              _push2(`</span>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            if (unref(isTrailing) || !!slots.trailing) {
+              _push2(`<span class="${ssrRenderClass(ui.value.trailing({ class: (_c = props.ui) == null ? void 0 : _c.trailing }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "trailing", {}, () => {
+                var _a4;
+                if (unref(trailingIconName)) {
+                  _push2(ssrRenderComponent(UIcon, {
+                    name: unref(trailingIconName),
+                    class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })
+                  }, null, _parent2, _scopeId));
+                } else {
+                  _push2(`<!---->`);
+                }
+              }, _push2, _parent2, _scopeId);
+              _push2(`</span>`);
+            } else {
+              _push2(`<!---->`);
+            }
+          } else {
+            return [
+              createVNode("input", mergeProps({
+                id: unref(id),
+                ref_key: "inputRef",
+                ref: inputRef,
+                type: _ctx.type,
+                value: unref(modelValue),
+                name: unref(name),
+                placeholder: _ctx.placeholder,
+                class: ui.value.base({ class: (_d = props.ui) == null ? void 0 : _d.base }),
+                disabled: unref(disabled),
+                required: _ctx.required,
+                autocomplete: _ctx.autocomplete
+              }, { ..._ctx.$attrs, ...unref(ariaAttrs) }, {
+                onInput,
+                onBlur,
+                onChange,
+                onFocus: unref(emitFormFocus)
+              }), null, 16, ["id", "type", "value", "name", "placeholder", "disabled", "required", "autocomplete", "onFocus"]),
+              renderSlot(_ctx.$slots, "default"),
+              unref(isLeading) || !!_ctx.avatar || !!slots.leading ? (openBlock(), createBlock("span", {
+                key: 0,
+                class: ui.value.leading({ class: (_e = props.ui) == null ? void 0 : _e.leading })
+              }, [
+                renderSlot(_ctx.$slots, "leading", {}, () => {
+                  var _a4, _b2, _c2;
+                  return [
+                    unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(UIcon, {
+                      key: 0,
+                      name: unref(leadingIconName),
+                      class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
+                    }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(UAvatar, mergeProps({
+                      key: 1,
+                      size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
+                    }, _ctx.avatar, {
+                      class: ui.value.leadingAvatar({ class: (_c2 = props.ui) == null ? void 0 : _c2.leadingAvatar })
+                    }), null, 16, ["size", "class"])) : createCommentVNode("", true)
+                  ];
+                })
+              ], 2)) : createCommentVNode("", true),
+              unref(isTrailing) || !!slots.trailing ? (openBlock(), createBlock("span", {
+                key: 1,
+                class: ui.value.trailing({ class: (_f = props.ui) == null ? void 0 : _f.trailing })
+              }, [
+                renderSlot(_ctx.$slots, "trailing", {}, () => {
+                  var _a4;
+                  return [
+                    unref(trailingIconName) ? (openBlock(), createBlock(UIcon, {
+                      key: 0,
+                      name: unref(trailingIconName),
+                      class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })
+                    }, null, 8, ["name", "class"])) : createCommentVNode("", true)
+                  ];
+                })
+              ], 2)) : createCommentVNode("", true)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+    };
+  }
+});
+
+const _sfc_setup$7 = _sfc_main$7.setup;
+_sfc_main$7.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Input.vue");
+  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
+};
+const UInput = Object.assign(_sfc_main$7, { __name: "UInput" });
+
+const theme$3 = {
+  "slots": {
     "root": "flex flex-col min-h-0 min-w-0 divide-y divide-(--ui-border)",
     "input": "[&>input]:h-12",
     "close": "",
@@ -213,10 +707,10 @@ const theme$4 = {
   }
 };
 
-var _a$4;
+var _a$3;
 const appConfigCommandPalette = _appConfig;
-const commandPalette = tv$1({ extend: tv$1(theme$4), ...((_a$4 = appConfigCommandPalette.ui) == null ? void 0 : _a$4.commandPalette) || {} });
-const _sfc_main$7 = /* @__PURE__ */ defineComponent({
+const commandPalette = tv$1({ extend: tv$1(theme$3), ...((_a$3 = appConfigCommandPalette.ui) == null ? void 0 : _a$3.commandPalette) || {} });
+const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   __name: "CommandPalette",
   __ssrInlineRender: true,
   props: /* @__PURE__ */ mergeModels({
@@ -556,7 +1050,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                                                       _push7(`<span class="${ssrRenderClass(unref(ui).itemTrailingKbds({ class: (_b6 = props.ui) == null ? void 0 : _b6.itemTrailingKbds }))}"${_scopeId6}><!--[-->`);
                                                       ssrRenderList(item.kbds, (kbd, kbdIndex) => {
                                                         var _a10;
-                                                        _push7(ssrRenderComponent(__nuxt_component_1$3, mergeProps({
+                                                        _push7(ssrRenderComponent(UKbd, mergeProps({
                                                           key: kbdIndex,
                                                           size: ((_a10 = props.ui) == null ? void 0 : _a10.itemTrailingKbdsSize) || unref(ui).itemTrailingKbdsSize(),
                                                           ref_for: true
@@ -672,7 +1166,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                                                             }, [
                                                               (openBlock(true), createBlock(Fragment, null, renderList(item.kbds, (kbd, kbdIndex) => {
                                                                 var _a10;
-                                                                return openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                                                return openBlock(), createBlock(UKbd, mergeProps({
                                                                   key: kbdIndex,
                                                                   size: ((_a10 = props.ui) == null ? void 0 : _a10.itemTrailingKbdsSize) || unref(ui).itemTrailingKbdsSize(),
                                                                   ref_for: true
@@ -788,7 +1282,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                                                           }, [
                                                             (openBlock(true), createBlock(Fragment, null, renderList(item.kbds, (kbd, kbdIndex) => {
                                                               var _a10;
-                                                              return openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                                              return openBlock(), createBlock(UKbd, mergeProps({
                                                                 key: kbdIndex,
                                                                 size: ((_a10 = props.ui) == null ? void 0 : _a10.itemTrailingKbdsSize) || unref(ui).itemTrailingKbdsSize(),
                                                                 ref_for: true
@@ -911,7 +1405,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                                                           }, [
                                                             (openBlock(true), createBlock(Fragment, null, renderList(item.kbds, (kbd, kbdIndex) => {
                                                               var _a10;
-                                                              return openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                                              return openBlock(), createBlock(UKbd, mergeProps({
                                                                 key: kbdIndex,
                                                                 size: ((_a10 = props.ui) == null ? void 0 : _a10.itemTrailingKbdsSize) || unref(ui).itemTrailingKbdsSize(),
                                                                 ref_for: true
@@ -1058,7 +1552,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                                                         }, [
                                                           (openBlock(true), createBlock(Fragment, null, renderList(item.kbds, (kbd, kbdIndex) => {
                                                             var _a10;
-                                                            return openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                                            return openBlock(), createBlock(UKbd, mergeProps({
                                                               key: kbdIndex,
                                                               size: ((_a10 = props.ui) == null ? void 0 : _a10.itemTrailingKbdsSize) || unref(ui).itemTrailingKbdsSize(),
                                                               ref_for: true
@@ -1229,7 +1723,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                                                         }, [
                                                           (openBlock(true), createBlock(Fragment, null, renderList(item.kbds, (kbd, kbdIndex) => {
                                                             var _a10;
-                                                            return openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                                            return openBlock(), createBlock(UKbd, mergeProps({
                                                               key: kbdIndex,
                                                               size: ((_a10 = props.ui) == null ? void 0 : _a10.itemTrailingKbdsSize) || unref(ui).itemTrailingKbdsSize(),
                                                               ref_for: true
@@ -1454,7 +1948,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                                                         }, [
                                                           (openBlock(true), createBlock(Fragment, null, renderList(item.kbds, (kbd, kbdIndex) => {
                                                             var _a10;
-                                                            return openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                                            return openBlock(), createBlock(UKbd, mergeProps({
                                                               key: kbdIndex,
                                                               size: ((_a10 = props.ui) == null ? void 0 : _a10.itemTrailingKbdsSize) || unref(ui).itemTrailingKbdsSize(),
                                                               ref_for: true
@@ -1519,15 +2013,15 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_setup$7 = _sfc_main$7.setup;
-_sfc_main$7.setup = (props, ctx) => {
+const _sfc_setup$6 = _sfc_main$6.setup;
+_sfc_main$6.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/CommandPalette.vue");
-  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
+  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-const __nuxt_component_1$1 = Object.assign(_sfc_main$7, { __name: "UCommandPalette" });
+const __nuxt_component_1$1 = Object.assign(_sfc_main$6, { __name: "UCommandPalette" });
 
-const theme$3 = {
+const theme$2 = {
   "slots": {
     "modal": "sm:max-w-3xl sm:h-[28rem]"
   }
@@ -1537,10 +2031,10 @@ const useColorMode = () => {
   return useState("color-mode").value;
 };
 
-var _a$3;
+var _a$2;
 const appConfigDashboardSearch = _appConfig;
-const dashboardSearch = tv({ extend: tv(theme$3), ...((_a$3 = appConfigDashboardSearch.uiPro) == null ? void 0 : _a$3.dashboardSearch) || {} });
-const _sfc_main$6 = /* @__PURE__ */ defineComponent({
+const dashboardSearch = tv({ extend: tv(theme$2), ...((_a$2 = appConfigDashboardSearch.uiPro) == null ? void 0 : _a$2.dashboardSearch) || {} });
+const _sfc_main$5 = /* @__PURE__ */ defineComponent({
   __name: "DashboardSearch",
   __ssrInlineRender: true,
   props: /* @__PURE__ */ mergeModels({
@@ -1695,15 +2189,15 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_setup$6 = _sfc_main$6.setup;
-_sfc_main$6.setup = (props, ctx) => {
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/DashboardSearch.vue");
-  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
-const __nuxt_component_1 = Object.assign(_sfc_main$6, { __name: "UDashboardSearch" });
+const __nuxt_component_1 = Object.assign(_sfc_main$5, { __name: "UDashboardSearch" });
 
-const theme$2 = {
+const theme$1 = {
   "slots": {
     "overlay": "fixed inset-0 bg-(--ui-bg-elevated)/75",
     "content": "fixed bg-(--ui-bg) ring ring-(--ui-border) flex focus:outline-none",
@@ -1820,10 +2314,10 @@ const theme$2 = {
   ]
 };
 
-var _a$2;
+var _a$1;
 const appConfigDrawer = _appConfig;
-const drawer = tv$1({ extend: tv$1(theme$2), ...((_a$2 = appConfigDrawer.ui) == null ? void 0 : _a$2.drawer) || {} });
-const _sfc_main$5 = /* @__PURE__ */ defineComponent({
+const drawer = tv$1({ extend: tv$1(theme$1), ...((_a$1 = appConfigDrawer.ui) == null ? void 0 : _a$1.drawer) || {} });
+const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "Drawer",
   __ssrInlineRender: true,
   props: {
@@ -2239,15 +2733,15 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_setup$5 = _sfc_main$5.setup;
-_sfc_main$5.setup = (props, ctx) => {
+const _sfc_setup$4 = _sfc_main$4.setup;
+_sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Drawer.vue");
-  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const UDrawer = Object.assign(_sfc_main$5, { __name: "UDrawer" });
+const UDrawer = Object.assign(_sfc_main$4, { __name: "UDrawer" });
 
-const theme$1 = {
+const theme = {
   "slots": {
     "root": "hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) border-r border-(--ui-border) shrink-0",
     "header": "h-(--ui-header-height) shrink-0 flex items-center gap-1.5 px-4",
@@ -2277,10 +2771,10 @@ const theme$1 = {
   }
 };
 
-var _a$1;
+var _a;
 const appConfig = _appConfig;
-const dashboardSidebar = tv({ extend: tv(theme$1), ...((_a$1 = appConfig.uiPro) == null ? void 0 : _a$1.dashboardSidebar) || {} });
-const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+const dashboardSidebar = tv({ extend: tv(theme), ...((_a = appConfig.uiPro) == null ? void 0 : _a.dashboardSidebar) || {} });
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "DashboardSidebar",
   __ssrInlineRender: true,
   props: /* @__PURE__ */ mergeModels({
@@ -2329,7 +2823,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       var _a2, _b, _c, _d, _e, _f;
       const _component_UDashboardSidebarToggle = __nuxt_component_0$1;
-      const _component_UDashboardResizeHandle = __nuxt_component_1$4;
+      const _component_UDashboardResizeHandle = __nuxt_component_1$3;
       _push(`<!--[-->`);
       _push(ssrRenderComponent(unref(DefineToggleTemplate), null, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -2488,15 +2982,15 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_setup$4 = _sfc_main$4.setup;
-_sfc_main$4.setup = (props, ctx) => {
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/DashboardSidebar.vue");
-  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const __nuxt_component_2 = Object.assign(_sfc_main$4, { __name: "UDashboardSidebar" });
+const __nuxt_component_2 = Object.assign(_sfc_main$3, { __name: "UDashboardSidebar" });
 
-const _sfc_main$3 = /* @__PURE__ */ defineComponent({
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "CompanyMenu",
   __ssrInlineRender: true,
   props: {
@@ -2581,113 +3075,13 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_setup$3 = _sfc_main$3.setup;
-_sfc_main$3.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/CompanyMenu.vue");
-  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
-};
-const __nuxt_component_3 = Object.assign(_sfc_main$3, { __name: "CompanyMenu" });
-
-const theme = {
-  "slots": {
-    "base": "",
-    "trailing": "flex items-center gap-0.5 ms-auto"
-  }
-};
-
-var _a;
-const appConfigDashboardSearchButton = _appConfig;
-const dashboardSearchButton = tv({ extend: tv(theme), ...((_a = appConfigDashboardSearchButton.uiPro) == null ? void 0 : _a.dashboardSearchButton) || {} });
-const _sfc_main$2 = /* @__PURE__ */ defineComponent({
-  __name: "DashboardSearchButton",
-  __ssrInlineRender: true,
-  props: {
-    icon: {},
-    label: {},
-    color: { default: "neutral" },
-    variant: { default: "outline" },
-    size: {},
-    collapsed: { type: Boolean, default: false },
-    kbds: { default: () => ["meta", "k"] },
-    ui: {},
-    class: {}
-  },
-  setup(__props) {
-    const props = __props;
-    const rootProps = useForwardProps(reactivePick(props, "color", "variant", "size"));
-    const appConfig = useAppConfig();
-    const { toggleSearch } = useDashboard({ searchOpen: ref(false), toggleSearch: () => {
-    } });
-    const { t } = useLocalePro();
-    const ui = dashboardSearchButton();
-    return (_ctx, _push, _parent, _attrs) => {
-      const _component_UButton = __nuxt_component_1$2;
-      const _component_UKbd = __nuxt_component_1$3;
-      _push(ssrRenderComponent(_component_UButton, mergeProps({
-        icon: _ctx.icon || unref(appConfig).ui.icons.search,
-        label: _ctx.label || unref(t)("dashboardSearchButton.label")
-      }, {
-        ...unref(rootProps),
-        ..._ctx.collapsed ? {
-          "square": true,
-          "label": void 0,
-          "aria-label": _ctx.label || unref(t)("dashboardSearchButton.label")
-        } : {}
-      }, {
-        class: unref(ui).base({ class: props.class }),
-        onClick: unref(toggleSearch)
-      }, _attrs), createSlots({ _: 2 }, [
-        !_ctx.collapsed ? {
-          name: "trailing",
-          fn: withCtx((_, _push2, _parent2, _scopeId) => {
-            var _a2, _b, _c, _d;
-            if (_push2) {
-              _push2(`<div class="${ssrRenderClass(unref(ui).trailing({ class: (_a2 = props.ui) == null ? void 0 : _a2.trailing }))}"${_scopeId}>`);
-              if ((_b = _ctx.kbds) == null ? void 0 : _b.length) {
-                _push2(`<!--[-->`);
-                ssrRenderList(_ctx.kbds, (kbd, index) => {
-                  _push2(ssrRenderComponent(_component_UKbd, mergeProps({
-                    key: index,
-                    variant: "subtle",
-                    ref_for: true
-                  }, typeof kbd === "string" ? { value: kbd } : kbd), null, _parent2, _scopeId));
-                });
-                _push2(`<!--]-->`);
-              } else {
-                _push2(`<!---->`);
-              }
-              _push2(`</div>`);
-            } else {
-              return [
-                createVNode("div", {
-                  class: unref(ui).trailing({ class: (_c = props.ui) == null ? void 0 : _c.trailing })
-                }, [
-                  ((_d = _ctx.kbds) == null ? void 0 : _d.length) ? (openBlock(true), createBlock(Fragment, { key: 0 }, renderList(_ctx.kbds, (kbd, index) => {
-                    return openBlock(), createBlock(_component_UKbd, mergeProps({
-                      key: index,
-                      variant: "subtle",
-                      ref_for: true
-                    }, typeof kbd === "string" ? { value: kbd } : kbd), null, 16);
-                  }), 128)) : createCommentVNode("", true)
-                ], 2)
-              ];
-            }
-          }),
-          key: "0"
-        } : void 0
-      ]), _parent));
-    };
-  }
-});
-
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/DashboardSearchButton.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/CompanyMenu.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const __nuxt_component_4 = Object.assign(_sfc_main$2, { __name: "UDashboardSearchButton" });
+const __nuxt_component_3 = Object.assign(_sfc_main$2, { __name: "CompanyMenu" });
 
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "UserMenu",
@@ -2928,7 +3322,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 if (_push3) {
                   _push3(ssrRenderComponent(_component_UDashboardSearchButton, {
                     collapsed,
-                    class: "bg-transparent ring-(--ui-border)"
+                    class: "bg-transparent ring-(--ui-border) hidden md:flex"
                   }, null, _parent3, _scopeId2));
                   _push3(ssrRenderComponent(_component_UNavigationMenu, {
                     collapsed,
@@ -2945,7 +3339,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   return [
                     createVNode(_component_UDashboardSearchButton, {
                       collapsed,
-                      class: "bg-transparent ring-(--ui-border)"
+                      class: "bg-transparent ring-(--ui-border) hidden md:flex"
                     }, null, 8, ["collapsed"]),
                     createVNode(_component_UNavigationMenu, {
                       collapsed,
@@ -2997,7 +3391,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 default: withCtx(({ collapsed }) => [
                   createVNode(_component_UDashboardSearchButton, {
                     collapsed,
-                    class: "bg-transparent ring-(--ui-border)"
+                    class: "bg-transparent ring-(--ui-border) hidden md:flex"
                   }, null, 8, ["collapsed"]),
                   createVNode(_component_UNavigationMenu, {
                     collapsed,

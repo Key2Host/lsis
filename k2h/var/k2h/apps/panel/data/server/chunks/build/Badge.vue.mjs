@@ -1,7 +1,7 @@
 import { defineComponent, computed, unref, mergeProps, withCtx, renderSlot, createBlock, createCommentVNode, openBlock, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot, ssrRenderClass, ssrInterpolate } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
-import { I as useButtonGroup, J as useComponentIcons, t as tv, U as UIcon, j as UAvatar, _ as _appConfig } from './server.mjs';
+import { k as useButtonGroup, l as useComponentIcons, t as tv, U as UIcon, f as UAvatar, _ as _appConfig } from './server.mjs';
 
 const theme = {
   "slots": {

@@ -9520,7 +9520,7 @@ _sfc_main$i.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Button.vue");
   return _sfc_setup$g ? _sfc_setup$g(props, ctx) : void 0;
 };
-const __nuxt_component_1$3 = Object.assign(_sfc_main$i, { __name: "UButton" });
+const __nuxt_component_1$2 = Object.assign(_sfc_main$i, { __name: "UButton" });
 
 const _sfc_main$h = /* @__PURE__ */ defineComponent({
   __name: "LangNotice",
@@ -9533,7 +9533,7 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
     const showEnglishBanner = computed(() => locale.value === "de" && userLang.value.startsWith("en"));
     const dismiss = ref(false);
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UButton = __nuxt_component_1$3;
+      const _component_UButton = __nuxt_component_1$2;
       const _component_UIcon = UIcon;
       _push(`<!--[-->`);
       if (unref(userLang) && showGermanBanner.value && !unref(dismiss)) {
@@ -9601,7 +9601,7 @@ _sfc_main$h.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LangNotice.vue");
   return _sfc_setup$f ? _sfc_setup$f(props, ctx) : void 0;
 };
-const __nuxt_component_1$2 = Object.assign(_sfc_main$h, { __name: "LangNotice" });
+const __nuxt_component_1$1 = Object.assign(_sfc_main$h, { __name: "LangNotice" });
 
 function buildTranslator(locale) {
   return (path, option) => translate(path, option, unref(locale));
@@ -9971,14 +9971,14 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
                   }, {
                     default: withCtx((_, _push3, _parent3, _scopeId2) => {
                       if (_push3) {
-                        _push3(ssrRenderComponent(__nuxt_component_1$3, mergeProps({
+                        _push3(ssrRenderComponent(__nuxt_component_1$2, mergeProps({
                           size: "xs",
                           color: _ctx.color,
                           ref_for: true
                         }, action), null, _parent3, _scopeId2));
                       } else {
                         return [
-                          createVNode(__nuxt_component_1$3, mergeProps({
+                          createVNode(__nuxt_component_1$2, mergeProps({
                             size: "xs",
                             color: _ctx.color,
                             ref_for: true
@@ -10011,14 +10011,14 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
                     }, {
                       default: withCtx((_, _push3, _parent3, _scopeId2) => {
                         if (_push3) {
-                          _push3(ssrRenderComponent(__nuxt_component_1$3, mergeProps({
+                          _push3(ssrRenderComponent(__nuxt_component_1$2, mergeProps({
                             size: "xs",
                             color: _ctx.color,
                             ref_for: true
                           }, action), null, _parent3, _scopeId2));
                         } else {
                           return [
-                            createVNode(__nuxt_component_1$3, mergeProps({
+                            createVNode(__nuxt_component_1$2, mergeProps({
                               size: "xs",
                               color: _ctx.color,
                               ref_for: true
@@ -10040,7 +10040,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
                     ssrRenderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                       var _a4;
                       if (_ctx.close) {
-                        _push3(ssrRenderComponent(__nuxt_component_1$3, mergeProps({
+                        _push3(ssrRenderComponent(__nuxt_component_1$2, mergeProps({
                           icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                           size: "md",
                           color: "neutral",
@@ -10060,7 +10060,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                         var _a4;
                         return [
-                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$2, mergeProps({
                             key: 0,
                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                             size: "md",
@@ -10148,7 +10148,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
                         }, ["stop"])
                       }, {
                         default: withCtx(() => [
-                          createVNode(__nuxt_component_1$3, mergeProps({
+                          createVNode(__nuxt_component_1$2, mergeProps({
                             size: "xs",
                             color: _ctx.color,
                             ref_for: true
@@ -10174,7 +10174,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
                       }, ["stop"])
                     }, {
                       default: withCtx(() => [
-                        createVNode(__nuxt_component_1$3, mergeProps({
+                        createVNode(__nuxt_component_1$2, mergeProps({
                           size: "xs",
                           color: _ctx.color,
                           ref_for: true
@@ -10189,7 +10189,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
                     renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                       var _a4;
                       return [
-                        _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                        _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$2, mergeProps({
                           key: 0,
                           icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                           size: "md",
@@ -11183,7 +11183,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
                                     ssrRenderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                       var _a5;
                                       if (_ctx.close) {
-                                        _push5(ssrRenderComponent(__nuxt_component_1$3, mergeProps({
+                                        _push5(ssrRenderComponent(__nuxt_component_1$2, mergeProps({
                                           icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                           size: "md",
                                           color: "neutral",
@@ -11201,7 +11201,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$2, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -11302,7 +11302,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
                                         renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                           var _a5;
                                           return [
-                                            _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                            _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$2, mergeProps({
                                               key: 0,
                                               icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                               size: "md",
@@ -11413,7 +11413,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$2, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -11543,7 +11543,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$2, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -11708,7 +11708,7 @@ _sfc_main$b.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Card.vue");
   return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
 };
-const __nuxt_component_1$1 = Object.assign(_sfc_main$b, { __name: "UCard" });
+const __nuxt_component_1 = Object.assign(_sfc_main$b, { __name: "UCard" });
 
 const kbdKeysMap = {
   meta: "",
@@ -11822,7 +11822,7 @@ _sfc_main$a.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Kbd.vue");
   return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
 };
-const __nuxt_component_1 = Object.assign(_sfc_main$a, { __name: "UKbd" });
+const UKbd = Object.assign(_sfc_main$a, { __name: "UKbd" });
 
 const theme$3 = {
   "slots": {
@@ -12142,7 +12142,7 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
                   _push2(`<span class="${ssrRenderClass(_ctx.ui.itemTrailingKbds({ class: (_d = _ctx.uiOverride) == null ? void 0 : _d.itemTrailingKbds }))}"${_scopeId}><!--[-->`);
                   ssrRenderList(item.kbds, (kbd, kbdIndex) => {
                     var _a3;
-                    _push2(ssrRenderComponent(__nuxt_component_1, mergeProps({
+                    _push2(ssrRenderComponent(UKbd, mergeProps({
                       key: kbdIndex,
                       size: ((_a3 = props.uiOverride) == null ? void 0 : _a3.itemTrailingKbdsSize) || _ctx.ui.itemTrailingKbdsSize(),
                       ref_for: true
@@ -12242,7 +12242,7 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
                         }, [
                           (openBlock(true), createBlock(Fragment, null, renderList(item.kbds, (kbd, kbdIndex) => {
                             var _a3;
-                            return openBlock(), createBlock(__nuxt_component_1, mergeProps({
+                            return openBlock(), createBlock(UKbd, mergeProps({
                               key: kbdIndex,
                               size: ((_a3 = props.uiOverride) == null ? void 0 : _a3.itemTrailingKbdsSize) || _ctx.ui.itemTrailingKbdsSize(),
                               ref_for: true
@@ -13721,9 +13721,9 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UModal = UModal;
-      const _component_UCard = __nuxt_component_1$1;
+      const _component_UCard = __nuxt_component_1;
       const _component_UDropdownMenu = __nuxt_component_0;
-      const _component_UButton = __nuxt_component_1$3;
+      const _component_UButton = __nuxt_component_1$2;
       const _component_UAccordion = __nuxt_component_4;
       _push(ssrRenderComponent(_component_UModal, mergeProps({
         open: unref(cookienotice).isOpen,
@@ -14373,7 +14373,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                     ssrRenderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                       var _a5;
                                       if (_ctx.close) {
-                                        _push5(ssrRenderComponent(__nuxt_component_1$3, mergeProps({
+                                        _push5(ssrRenderComponent(__nuxt_component_1$2, mergeProps({
                                           icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                           size: "md",
                                           color: "neutral",
@@ -14391,7 +14391,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$2, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -14488,7 +14488,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                         renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                           var _a5;
                                           return [
-                                            _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                            _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$2, mergeProps({
                                               key: 0,
                                               icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                               size: "md",
@@ -14599,7 +14599,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$2, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -14729,7 +14729,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                       renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
                                         var _a5;
                                         return [
-                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$3, mergeProps({
+                                          _ctx.close ? (openBlock(), createBlock(__nuxt_component_1$2, mergeProps({
                                             key: 0,
                                             icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                                             size: "md",
@@ -15346,7 +15346,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLoadingIndicator = __nuxt_component_0$3;
-      const _component_LangNotice = __nuxt_component_1$2;
+      const _component_LangNotice = __nuxt_component_1$1;
       const _component_UApp = __nuxt_component_2;
       const _component_NuxtLayout = __nuxt_component_3;
       const _component_NuxtPage = __nuxt_component_6$1;
@@ -15413,7 +15413,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$1;
-      const _component_UButton = __nuxt_component_1$3;
+      const _component_UButton = __nuxt_component_1$2;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex items-center justify-center min-h-screen text-center" }, _attrs))}><div><h1 class="text-6xl font-bold mb-2">${ssrInterpolate("Error " + __props.error.statusCode)}</h1><p class="text-xl">${ssrInterpolate(__props.error.statusMessage)}</p>`);
       _push(ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -15523,5 +15523,5 @@ const server = /*#__PURE__*/Object.freeze({
   default: entry$1
 });
 
-export { USlideover as A, __nuxt_component_0 as B, useRoute as C, useCookie as D, defineLocale as E, en as F, localeContextInjectionKey as G, buildLocaleContext as H, useButtonGroup as I, useComponentIcons as J, server as K, UIcon as U, _appConfig as _, __nuxt_component_6$1 as a, __nuxt_component_1$3 as b, __nuxt_component_1 as c, useDashboard as d, UChip as e, formBusInjectionKey as f, formInputsInjectionKey as g, formLoadingInjectionKey as h, formOptionsInjectionKey as i, UAvatar as j, useFormField as k, looseToNumber as l, useToast as m, inputIdInjectionKey as n, formFieldInjectionKey as o, ULink as p, useLocale as q, get as r, omit as s, tv as t, useAppConfig as u, pickLinkProps as v, ULinkBase as w, useState as x, defineShortcuts as y, UModal as z };
+export { useCookie as A, defineLocale as B, en as C, localeContextInjectionKey as D, buildLocaleContext as E, server as F, UIcon as U, _appConfig as _, __nuxt_component_6$1 as a, __nuxt_component_1$2 as b, UKbd as c, useDashboard as d, UChip as e, UAvatar as f, useFormField as g, formFieldInjectionKey as h, inputIdInjectionKey as i, ULink as j, useButtonGroup as k, useComponentIcons as l, looseToNumber as m, useLocale as n, get as o, omit as p, pickLinkProps as q, ULinkBase as r, useState as s, tv as t, useAppConfig as u, defineShortcuts as v, UModal as w, USlideover as x, __nuxt_component_0 as y, useRoute as z };
 //# sourceMappingURL=server.mjs.map

@@ -4,7 +4,7 @@ import { defineComponent, mergeModels, useSlots, useModel, useId, computed, unre
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import { useForwardProps, Primitive, SwitchRoot, SwitchThumb, Label } from 'reka-ui';
 import { reactivePick } from '@vueuse/core';
-import { u as useAppConfig, k as useFormField, t as tv, U as UIcon, _ as _appConfig } from './server.mjs';
+import { u as useAppConfig, g as useFormField, t as tv, U as UIcon, _ as _appConfig } from './server.mjs';
 import './tv.mjs';
 import 'tailwind-variants';
 import '../nitro/nitro.mjs';

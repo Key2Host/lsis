@@ -1,4 +1,5 @@
 import { _ as __nuxt_component_0, a as __nuxt_component_1, b as __nuxt_component_3, c as __nuxt_component_2 } from './NotificationIndicator.vue.mjs';
+import { _ as __nuxt_component_4 } from './DashboardSearchButton.vue.mjs';
 import { useSSRContext, mergeProps, withCtx, createTextVNode, createVNode } from 'vue';
 import { ssrRenderComponent } from 'vue/server-renderer';
 import { _ as _export_sfc } from './_plugin-vue_export-helper.mjs';
@@ -39,6 +40,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   const _component_UDashboardNavbar = __nuxt_component_1;
   const _component_UDashboardSidebarCollapse = __nuxt_component_2;
   const _component_NotificationIndicator = __nuxt_component_3;
+  const _component_UDashboardSearchButton = __nuxt_component_4;
   _push(ssrRenderComponent(_component_UDashboardPanel, mergeProps({ id: "home" }, _attrs), {
     header: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -58,9 +60,17 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
           right: withCtx((_2, _push3, _parent3, _scopeId2) => {
             if (_push3) {
               _push3(ssrRenderComponent(_component_NotificationIndicator, null, null, _parent3, _scopeId2));
+              _push3(ssrRenderComponent(_component_UDashboardSearchButton, {
+                collapsed: true,
+                class: "flex md:hidden"
+              }, null, _parent3, _scopeId2));
             } else {
               return [
-                createVNode(_component_NotificationIndicator)
+                createVNode(_component_NotificationIndicator),
+                createVNode(_component_UDashboardSearchButton, {
+                  collapsed: true,
+                  class: "flex md:hidden"
+                })
               ];
             }
           }),
@@ -76,7 +86,11 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
               createVNode(_component_UDashboardSidebarCollapse)
             ]),
             right: withCtx(() => [
-              createVNode(_component_NotificationIndicator)
+              createVNode(_component_NotificationIndicator),
+              createVNode(_component_UDashboardSearchButton, {
+                collapsed: true,
+                class: "flex md:hidden"
+              })
             ]),
             _: 1
           })
