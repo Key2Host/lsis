@@ -1,7 +1,7 @@
-import { u as useDashboard, a as useResizable, _ as __nuxt_component_1$1, b as __nuxt_component_0$2, c as useLocalePro } from './DashboardSidebarToggle.vue.mjs';
+import { u as useDashboard, a as useResizable, _ as __nuxt_component_1$1, b as __nuxt_component_0$1, c as useLocalePro } from './DashboardSidebarToggle.vue.mjs';
 import { defineComponent, useId, toRef, computed, unref, useSSRContext, useSlots, withCtx, mergeProps, renderSlot, createBlock, createCommentVNode, openBlock, createVNode, createTextVNode, toDisplayString, ref, Fragment, renderList } from 'vue';
 import { ssrRenderAttr, ssrRenderClass, ssrRenderStyle, ssrRenderSlot, ssrRenderComponent, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
-import { _ as _appConfig, U as UIcon, u as useAppConfig, b as __nuxt_component_1$2, t as tv$1, c as UKbd, d as useDashboard$1, e as UChip } from './server.mjs';
+import { a as _appConfig, f as UIcon, e as useAppConfig, c as __nuxt_component_1$2, t as tv$1, h as UKbd, i as useDashboard$1, j as UChip } from './server.mjs';
 import { t as tv } from './tv.mjs';
 import { Primitive, useForwardProps, useForwardPropsEmits, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow } from 'reka-ui';
 import { createReusableTemplate, reactivePick } from '@vueuse/core';
@@ -88,7 +88,7 @@ _sfc_main$4.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/DashboardPanel.vue");
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const __nuxt_component_0$1 = Object.assign(_sfc_main$4, { __name: "UDashboardPanel" });
+const __nuxt_component_0 = Object.assign(_sfc_main$4, { __name: "UDashboardPanel" });
 
 const theme$2 = {
   "slots": {
@@ -135,7 +135,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
     const ui = dashboardNavbar();
     return (_ctx, _push, _parent, _attrs) => {
       var _a2;
-      const _component_UDashboardSidebarToggle = __nuxt_component_0$2;
+      const _component_UDashboardSidebarToggle = __nuxt_component_0$1;
       const _component_UIcon = UIcon;
       _push(`<!--[-->`);
       _push(ssrRenderComponent(unref(DefineToggleTemplate), null, {
@@ -581,7 +581,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Tooltip.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_0 = Object.assign(_sfc_main$1, { __name: "UTooltip" });
+const __nuxt_component_8 = Object.assign(_sfc_main$1, { __name: "UTooltip" });
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "NotificationIndicator",
@@ -589,7 +589,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const { isNotificationsSlideoverOpen } = useDashboard$1();
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UTooltip = __nuxt_component_0;
+      const _component_UTooltip = __nuxt_component_8;
       const _component_UButton = __nuxt_component_1$2;
       const _component_UChip = UChip;
       const _component_UIcon = UIcon;
@@ -688,5 +688,5 @@ _sfc_main.setup = (props, ctx) => {
 };
 const __nuxt_component_3 = Object.assign(_sfc_main, { __name: "NotificationIndicator" });
 
-export { __nuxt_component_0$1 as _, __nuxt_component_1 as a, __nuxt_component_3 as b, __nuxt_component_2 as c };
+export { __nuxt_component_0 as _, __nuxt_component_1 as a, __nuxt_component_3 as b, __nuxt_component_2 as c, __nuxt_component_8 as d };
 //# sourceMappingURL=NotificationIndicator.vue.mjs.map

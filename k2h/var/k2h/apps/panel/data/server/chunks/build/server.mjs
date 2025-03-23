@@ -667,31 +667,67 @@ function encodeURL(location2, isExternalHost = false) {
   return url.toString();
 }
 
+const __nuxt_page_meta$1 = null;
+
 const __nuxt_page_meta = null;
 
-var _a$d, _b;
+var _a$d, _b, _c, _d;
 function handleHotUpdate(_router, _generateRoutes) {
 }
 const _routes = [
   {
+    name: (_a$d = __nuxt_page_meta$1) == null ? void 0 : _a$d.name,
+    path: "/finances",
+    component: () => import('./finances.vue.mjs'),
+    children: [
+      {
+        name: "finances___de",
+        path: "",
+        component: () => import('./index.vue.mjs')
+      },
+      {
+        name: "finances-payment___de",
+        path: "payment",
+        component: () => import('./payment.vue.mjs')
+      }
+    ]
+  },
+  {
+    name: (_b = __nuxt_page_meta$1) == null ? void 0 : _b.name,
+    path: "/en/finances",
+    component: () => import('./finances.vue.mjs'),
+    children: [
+      {
+        name: "finances___en",
+        path: "",
+        component: () => import('./index.vue.mjs')
+      },
+      {
+        name: "finances-payment___en",
+        path: "payment",
+        component: () => import('./payment.vue.mjs')
+      }
+    ]
+  },
+  {
     name: "index___de",
     path: "/",
-    component: () => import('./index.vue.mjs')
+    component: () => import('./index.vue2.mjs')
   },
   {
     name: "index___en",
     path: "/en",
-    component: () => import('./index.vue.mjs')
+    component: () => import('./index.vue2.mjs')
   },
   {
-    name: (_a$d = __nuxt_page_meta) == null ? void 0 : _a$d.name,
+    name: (_c = __nuxt_page_meta) == null ? void 0 : _c.name,
     path: "/settings",
     component: () => import('./settings.vue.mjs'),
     children: [
       {
         name: "settings___de",
         path: "",
-        component: () => import('./index.vue2.mjs')
+        component: () => import('./index.vue3.mjs')
       },
       {
         name: "settings-notifications___de",
@@ -706,14 +742,14 @@ const _routes = [
     ]
   },
   {
-    name: (_b = __nuxt_page_meta) == null ? void 0 : _b.name,
+    name: (_d = __nuxt_page_meta) == null ? void 0 : _d.name,
     path: "/en/settings",
     component: () => import('./settings.vue.mjs'),
     children: [
       {
         name: "settings___en",
         path: "",
-        component: () => import('./index.vue2.mjs')
+        component: () => import('./index.vue3.mjs')
       },
       {
         name: "settings-notifications___en",
@@ -15523,5 +15559,5 @@ const server = /*#__PURE__*/Object.freeze({
   default: entry$1
 });
 
-export { useCookie as A, defineLocale as B, en as C, localeContextInjectionKey as D, buildLocaleContext as E, server as F, UIcon as U, _appConfig as _, __nuxt_component_6$1 as a, __nuxt_component_1$2 as b, UKbd as c, useDashboard as d, UChip as e, UAvatar as f, useFormField as g, formFieldInjectionKey as h, inputIdInjectionKey as i, ULink as j, useButtonGroup as k, useComponentIcons as l, looseToNumber as m, useLocale as n, get as o, omit as p, pickLinkProps as q, ULinkBase as r, useState as s, tv as t, useAppConfig as u, defineShortcuts as v, UModal as w, USlideover as x, __nuxt_component_0 as y, useRoute as z };
+export { looseToNumber as A, useCookie as B, defineLocale as C, en as D, localeContextInjectionKey as E, buildLocaleContext as F, server as G, UAvatar as U, __nuxt_component_6$1 as _, _appConfig as a, useToast as b, __nuxt_component_1$2 as c, __nuxt_component_0 as d, useAppConfig as e, UIcon as f, useState as g, UKbd as h, useDashboard as i, UChip as j, useFormField as k, inputIdInjectionKey as l, formFieldInjectionKey as m, ULink as n, get as o, omit as p, pickLinkProps as q, ULinkBase as r, defineShortcuts as s, tv as t, useLocale as u, UModal as v, USlideover as w, useRoute as x, useButtonGroup as y, useComponentIcons as z };
 //# sourceMappingURL=server.mjs.map

@@ -1,12 +1,13 @@
-import { _ as __nuxt_component_0 } from './PageCard.vue.mjs';
-import { _ as __nuxt_component_1 } from './FormField.vue.mjs';
-import { f as UAvatar, b as __nuxt_component_1$1 } from './server.mjs';
-import { _ as __nuxt_component_1$2 } from './Badge.vue.mjs';
-import { withCtx, createTextVNode, createVNode, useSSRContext } from 'vue';
-import { ssrRenderComponent } from 'vue/server-renderer';
-import { _ as _export_sfc } from './_plugin-vue_export-helper.mjs';
-import 'reka-ui';
-import '@vueuse/core';
+import { _ as __nuxt_component_0, d as __nuxt_component_8, a as __nuxt_component_1$2, b as __nuxt_component_3, c as __nuxt_component_2 } from './NotificationIndicator.vue.mjs';
+import { _ as __nuxt_component_4 } from './DashboardSearchButton.vue.mjs';
+import { defineComponent, unref, mergeProps, withCtx, renderSlot, useSSRContext, useSlots, computed, createVNode, createBlock, createCommentVNode, openBlock, createTextVNode, toDisplayString, Fragment, renderList } from 'vue';
+import { ssrRenderComponent, ssrRenderSlot, ssrRenderClass, ssrInterpolate, ssrRenderList, ssrRenderStyle } from 'vue/server-renderer';
+import { Primitive, useForwardPropsEmits, ProgressRoot, ProgressIndicator } from 'reka-ui';
+import { t as tv, a as _appConfig, u as useLocale, e as useAppConfig, U as UAvatar, f as UIcon, c as __nuxt_component_1, g as useState } from './server.mjs';
+import { _ as __nuxt_component_0$1 } from './PageCard.vue.mjs';
+import { reactivePick } from '@vueuse/core';
+import { _ as __nuxt_component_1$1 } from './Badge.vue.mjs';
+import './DashboardSidebarToggle.vue.mjs';
 import './tv.mjs';
 import 'tailwind-variants';
 import '../nitro/nitro.mjs';
@@ -34,531 +35,1482 @@ import '@iconify/vue';
 import '@iconify/utils/lib/css/icon';
 import 'reka-ui/namespaced';
 
-const _sfc_main = {};
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_UPageCard = __nuxt_component_0;
-  const _component_UFormField = __nuxt_component_1;
-  const _component_UAvatar = UAvatar;
-  const _component_UButton = __nuxt_component_1$1;
-  const _component_UBadge = __nuxt_component_1$2;
-  _push(`<!--[--><div>`);
-  _push(ssrRenderComponent(_component_UPageCard, {
-    title: "Mein Profil",
-    description: "These informations will be displayed publicly.",
-    variant: "naked",
-    class: "mb-4"
-  }, null, _parent));
-  _push(ssrRenderComponent(_component_UPageCard, {
-    variant: "subtle",
-    ui: { container: "divide-y divide-(--ui-border)" }
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(ssrRenderComponent(_component_UFormField, {
-          name: "avatar",
-          label: "Avatar"
-        }, {
-          description: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`<div class="flex items-center justify-between w-full mb-2"${_scopeId2}>`);
-              _push3(ssrRenderComponent(_component_UAvatar, {
-                src: void 0,
-                alt: "Max Mustermann",
-                size: "md"
-              }, null, _parent3, _scopeId2));
-              _push3(ssrRenderComponent(_component_UButton, {
-                size: "md",
-                color: "neutral",
-                variant: "subtle"
-              }, {
-                default: withCtx((_3, _push4, _parent4, _scopeId3) => {
-                  if (_push4) {
-                    _push4(`Bearbeiten`);
-                  } else {
-                    return [
-                      createTextVNode("Bearbeiten")
-                    ];
-                  }
-                }),
-                _: 1
-              }, _parent3, _scopeId2));
-              _push3(`</div>`);
+const theme$2 = {
+  "base": "animate-pulse rounded-[calc(var(--ui-radius)*1.5)] bg-(--ui-bg-elevated)"
+};
+
+var _a$2;
+const appConfigSkeleton = _appConfig;
+const skeleton = tv({ extend: tv(theme$2), ...((_a$2 = appConfigSkeleton.ui) == null ? void 0 : _a$2.skeleton) || {} });
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
+  __name: "Skeleton",
+  __ssrInlineRender: true,
+  props: {
+    as: {},
+    class: {}
+  },
+  setup(__props) {
+    const props = __props;
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        class: unref(skeleton)({ class: props.class })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            ssrRenderSlot(_ctx.$slots, "default", {}, null, _push2, _parent2, _scopeId);
+          } else {
+            return [
+              renderSlot(_ctx.$slots, "default")
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+    };
+  }
+});
+
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Skeleton.vue");
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+};
+const __nuxt_component_5 = Object.assign(_sfc_main$3, { __name: "USkeleton" });
+
+const theme$1 = {
+  "slots": {
+    "root": "relative overflow-hidden w-full rounded-[calc(var(--ui-radius)*2)] p-4 flex gap-2.5",
+    "wrapper": "min-w-0 flex-1 flex flex-col",
+    "title": "text-sm font-medium",
+    "description": "text-sm opacity-90",
+    "icon": "shrink-0 size-5",
+    "avatar": "shrink-0",
+    "avatarSize": "2xl",
+    "actions": "flex flex-wrap gap-1.5 shrink-0",
+    "close": "p-0"
+  },
+  "variants": {
+    "color": {
+      "primary": "",
+      "secondary": "",
+      "success": "",
+      "info": "",
+      "warning": "",
+      "error": "",
+      "neutral": ""
+    },
+    "variant": {
+      "solid": "",
+      "outline": "",
+      "soft": "",
+      "subtle": ""
+    },
+    "orientation": {
+      "horizontal": {
+        "root": "items-center",
+        "actions": "items-center"
+      },
+      "vertical": {
+        "root": "items-start",
+        "actions": "items-start mt-2.5"
+      }
+    },
+    "title": {
+      "true": {
+        "description": "mt-1"
+      }
+    }
+  },
+  "compoundVariants": [
+    {
+      "color": "primary",
+      "variant": "solid",
+      "class": {
+        "root": "bg-(--ui-primary) text-(--ui-bg)"
+      }
+    },
+    {
+      "color": "secondary",
+      "variant": "solid",
+      "class": {
+        "root": "bg-(--ui-secondary) text-(--ui-bg)"
+      }
+    },
+    {
+      "color": "success",
+      "variant": "solid",
+      "class": {
+        "root": "bg-(--ui-success) text-(--ui-bg)"
+      }
+    },
+    {
+      "color": "info",
+      "variant": "solid",
+      "class": {
+        "root": "bg-(--ui-info) text-(--ui-bg)"
+      }
+    },
+    {
+      "color": "warning",
+      "variant": "solid",
+      "class": {
+        "root": "bg-(--ui-warning) text-(--ui-bg)"
+      }
+    },
+    {
+      "color": "error",
+      "variant": "solid",
+      "class": {
+        "root": "bg-(--ui-error) text-(--ui-bg)"
+      }
+    },
+    {
+      "color": "primary",
+      "variant": "outline",
+      "class": {
+        "root": "text-(--ui-primary) ring ring-inset ring-(--ui-primary)/25"
+      }
+    },
+    {
+      "color": "secondary",
+      "variant": "outline",
+      "class": {
+        "root": "text-(--ui-secondary) ring ring-inset ring-(--ui-secondary)/25"
+      }
+    },
+    {
+      "color": "success",
+      "variant": "outline",
+      "class": {
+        "root": "text-(--ui-success) ring ring-inset ring-(--ui-success)/25"
+      }
+    },
+    {
+      "color": "info",
+      "variant": "outline",
+      "class": {
+        "root": "text-(--ui-info) ring ring-inset ring-(--ui-info)/25"
+      }
+    },
+    {
+      "color": "warning",
+      "variant": "outline",
+      "class": {
+        "root": "text-(--ui-warning) ring ring-inset ring-(--ui-warning)/25"
+      }
+    },
+    {
+      "color": "error",
+      "variant": "outline",
+      "class": {
+        "root": "text-(--ui-error) ring ring-inset ring-(--ui-error)/25"
+      }
+    },
+    {
+      "color": "primary",
+      "variant": "soft",
+      "class": {
+        "root": "bg-(--ui-primary)/10 text-(--ui-primary)"
+      }
+    },
+    {
+      "color": "secondary",
+      "variant": "soft",
+      "class": {
+        "root": "bg-(--ui-secondary)/10 text-(--ui-secondary)"
+      }
+    },
+    {
+      "color": "success",
+      "variant": "soft",
+      "class": {
+        "root": "bg-(--ui-success)/10 text-(--ui-success)"
+      }
+    },
+    {
+      "color": "info",
+      "variant": "soft",
+      "class": {
+        "root": "bg-(--ui-info)/10 text-(--ui-info)"
+      }
+    },
+    {
+      "color": "warning",
+      "variant": "soft",
+      "class": {
+        "root": "bg-(--ui-warning)/10 text-(--ui-warning)"
+      }
+    },
+    {
+      "color": "error",
+      "variant": "soft",
+      "class": {
+        "root": "bg-(--ui-error)/10 text-(--ui-error)"
+      }
+    },
+    {
+      "color": "primary",
+      "variant": "subtle",
+      "class": {
+        "root": "bg-(--ui-primary)/10 text-(--ui-primary) ring ring-inset ring-(--ui-primary)/25"
+      }
+    },
+    {
+      "color": "secondary",
+      "variant": "subtle",
+      "class": {
+        "root": "bg-(--ui-secondary)/10 text-(--ui-secondary) ring ring-inset ring-(--ui-secondary)/25"
+      }
+    },
+    {
+      "color": "success",
+      "variant": "subtle",
+      "class": {
+        "root": "bg-(--ui-success)/10 text-(--ui-success) ring ring-inset ring-(--ui-success)/25"
+      }
+    },
+    {
+      "color": "info",
+      "variant": "subtle",
+      "class": {
+        "root": "bg-(--ui-info)/10 text-(--ui-info) ring ring-inset ring-(--ui-info)/25"
+      }
+    },
+    {
+      "color": "warning",
+      "variant": "subtle",
+      "class": {
+        "root": "bg-(--ui-warning)/10 text-(--ui-warning) ring ring-inset ring-(--ui-warning)/25"
+      }
+    },
+    {
+      "color": "error",
+      "variant": "subtle",
+      "class": {
+        "root": "bg-(--ui-error)/10 text-(--ui-error) ring ring-inset ring-(--ui-error)/25"
+      }
+    },
+    {
+      "color": "neutral",
+      "variant": "solid",
+      "class": {
+        "root": "text-(--ui-bg) bg-(--ui-bg-inverted)"
+      }
+    },
+    {
+      "color": "neutral",
+      "variant": "outline",
+      "class": {
+        "root": "text-(--ui-text-highlighted) bg-(--ui-bg) ring ring-inset ring-(--ui-border)"
+      }
+    },
+    {
+      "color": "neutral",
+      "variant": "soft",
+      "class": {
+        "root": "text-(--ui-text-highlighted) bg-(--ui-bg-elevated)/50"
+      }
+    },
+    {
+      "color": "neutral",
+      "variant": "subtle",
+      "class": {
+        "root": "text-(--ui-text-highlighted) bg-(--ui-bg-elevated)/50 ring ring-inset ring-(--ui-border-accented)"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "color": "primary",
+    "variant": "solid"
+  }
+};
+
+var _a$1;
+const appConfigAlert = _appConfig;
+const alert = tv({ extend: tv(theme$1), ...((_a$1 = appConfigAlert.ui) == null ? void 0 : _a$1.alert) || {} });
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
+  __name: "Alert",
+  __ssrInlineRender: true,
+  props: {
+    as: {},
+    title: {},
+    description: {},
+    icon: {},
+    avatar: {},
+    color: {},
+    variant: {},
+    orientation: { default: "vertical" },
+    actions: {},
+    close: { type: [Boolean, Object] },
+    closeIcon: {},
+    class: {},
+    ui: {}
+  },
+  emits: ["update:open"],
+  setup(__props, { emit: __emit }) {
+    const props = __props;
+    const emits = __emit;
+    const slots = useSlots();
+    const { t } = useLocale();
+    const appConfig = useAppConfig();
+    const ui = computed(() => alert({
+      color: props.color,
+      variant: props.variant,
+      orientation: props.orientation,
+      title: !!props.title || !!slots.title
+    }));
+    return (_ctx, _push, _parent, _attrs) => {
+      var _a2;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        "data-orientation": _ctx.orientation,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
+          if (_push2) {
+            ssrRenderSlot(_ctx.$slots, "leading", {}, () => {
+              var _a4, _b2, _c2;
+              if (_ctx.avatar) {
+                _push2(ssrRenderComponent(UAvatar, mergeProps({
+                  size: ((_a4 = props.ui) == null ? void 0 : _a4.avatarSize) || ui.value.avatarSize()
+                }, _ctx.avatar, {
+                  class: ui.value.avatar({ class: (_b2 = props.ui) == null ? void 0 : _b2.avatar })
+                }), null, _parent2, _scopeId));
+              } else if (_ctx.icon) {
+                _push2(ssrRenderComponent(UIcon, {
+                  name: _ctx.icon,
+                  class: ui.value.icon({ class: (_c2 = props.ui) == null ? void 0 : _c2.icon })
+                }, null, _parent2, _scopeId));
+              } else {
+                _push2(`<!---->`);
+              }
+            }, _push2, _parent2, _scopeId);
+            _push2(`<div class="${ssrRenderClass(ui.value.wrapper({ class: (_a3 = props.ui) == null ? void 0 : _a3.wrapper }))}"${_scopeId}>`);
+            if (_ctx.title || !!slots.title) {
+              _push2(`<div class="${ssrRenderClass(ui.value.title({ class: (_b = props.ui) == null ? void 0 : _b.title }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "title", {}, () => {
+                _push2(`${ssrInterpolate(_ctx.title)}`);
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
             } else {
-              return [
-                createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                  createVNode(_component_UAvatar, {
-                    src: void 0,
-                    alt: "Max Mustermann",
-                    size: "md"
-                  }),
-                  createVNode(_component_UButton, {
+              _push2(`<!---->`);
+            }
+            if (_ctx.description || !!slots.description) {
+              _push2(`<div class="${ssrRenderClass(ui.value.description({ class: (_c = props.ui) == null ? void 0 : _c.description }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "description", {}, () => {
+                _push2(`${ssrInterpolate(_ctx.description)}`);
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            if (_ctx.orientation === "vertical" && ((_d = _ctx.actions) == null ? void 0 : _d.length)) {
+              _push2(`<div class="${ssrRenderClass(ui.value.actions({ class: (_e = props.ui) == null ? void 0 : _e.actions }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "actions", {}, () => {
+                _push2(`<!--[-->`);
+                ssrRenderList(_ctx.actions, (action, index) => {
+                  _push2(ssrRenderComponent(__nuxt_component_1, mergeProps({
+                    key: index,
+                    size: "xs",
+                    ref_for: true
+                  }, action), null, _parent2, _scopeId));
+                });
+                _push2(`<!--]-->`);
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            _push2(`</div>`);
+            if (_ctx.orientation === "horizontal" && ((_f = _ctx.actions) == null ? void 0 : _f.length) || _ctx.close) {
+              _push2(`<div class="${ssrRenderClass(ui.value.actions({ class: (_g = props.ui) == null ? void 0 : _g.actions, orientation: "horizontal" }))}"${_scopeId}>`);
+              if (_ctx.orientation === "horizontal" && ((_h = _ctx.actions) == null ? void 0 : _h.length)) {
+                ssrRenderSlot(_ctx.$slots, "actions", {}, () => {
+                  _push2(`<!--[-->`);
+                  ssrRenderList(_ctx.actions, (action, index) => {
+                    _push2(ssrRenderComponent(__nuxt_component_1, mergeProps({
+                      key: index,
+                      size: "xs",
+                      ref_for: true
+                    }, action), null, _parent2, _scopeId));
+                  });
+                  _push2(`<!--]-->`);
+                }, _push2, _parent2, _scopeId);
+              } else {
+                _push2(`<!---->`);
+              }
+              ssrRenderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
+                var _a4;
+                if (_ctx.close) {
+                  _push2(ssrRenderComponent(__nuxt_component_1, mergeProps({
+                    icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
                     size: "md",
                     color: "neutral",
-                    variant: "subtle"
-                  }, {
-                    default: withCtx(() => [
-                      createTextVNode("Bearbeiten")
-                    ]),
-                    _: 1
-                  })
-                ])
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_UFormField, {
-          name: "name",
-          label: "Name"
-        }, {
-          description: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`<div class="flex items-center justify-between w-full mb-2"${_scopeId2}><span class="truncate"${_scopeId2}>Max Mustermann</span>`);
-              _push3(ssrRenderComponent(_component_UButton, {
-                size: "md",
-                color: "neutral",
-                variant: "subtle"
-              }, {
-                default: withCtx((_3, _push4, _parent4, _scopeId3) => {
-                  if (_push4) {
-                    _push4(`Bearbeiten`);
-                  } else {
-                    return [
-                      createTextVNode("Bearbeiten")
-                    ];
-                  }
-                }),
-                _: 1
-              }, _parent3, _scopeId2));
-              _push3(`</div>`);
+                    variant: "link",
+                    "aria-label": unref(t)("alert.close")
+                  }, typeof _ctx.close === "object" ? _ctx.close : {}, {
+                    class: ui.value.close({ class: (_a4 = props.ui) == null ? void 0 : _a4.close }),
+                    onClick: ($event) => emits("update:open", false)
+                  }), null, _parent2, _scopeId));
+                } else {
+                  _push2(`<!---->`);
+                }
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
             } else {
-              return [
-                createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                  createVNode("span", { class: "truncate" }, "Max Mustermann"),
-                  createVNode(_component_UButton, {
-                    size: "md",
-                    color: "neutral",
-                    variant: "subtle"
-                  }, {
-                    default: withCtx(() => [
-                      createTextVNode("Bearbeiten")
-                    ]),
-                    _: 1
-                  })
-                ])
-              ];
+              _push2(`<!---->`);
             }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_UFormField, {
-          name: "birthday",
-          label: "Geburtsdatum"
-        }, {
-          description: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`<div class="flex items-center justify-between w-full mb-2"${_scopeId2}><span class="truncate"${_scopeId2}>01.01.1900</span>`);
-              _push3(ssrRenderComponent(_component_UButton, {
-                size: "md",
-                color: "neutral",
-                variant: "subtle"
-              }, {
-                default: withCtx((_3, _push4, _parent4, _scopeId3) => {
-                  if (_push4) {
-                    _push4(`Bearbeiten`);
-                  } else {
-                    return [
-                      createTextVNode("Bearbeiten")
-                    ];
-                  }
-                }),
-                _: 1
-              }, _parent3, _scopeId2));
-              _push3(`</div>`);
-            } else {
-              return [
-                createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                  createVNode("span", { class: "truncate" }, "01.01.1900"),
-                  createVNode(_component_UButton, {
-                    size: "md",
-                    color: "neutral",
-                    variant: "subtle"
-                  }, {
-                    default: withCtx(() => [
-                      createTextVNode("Bearbeiten")
-                    ]),
-                    _: 1
-                  })
-                ])
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_UFormField, {
-          name: "address",
-          label: "Adresse"
-        }, {
-          description: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`<div class="flex items-center justify-between w-full mb-2"${_scopeId2}><div${_scopeId2}><span class="block"${_scopeId2}>Musterstraße 1</span><span class="block"${_scopeId2}>12345 Musterstadt</span><span class="block"${_scopeId2}>Deutschland</span></div>`);
-              _push3(ssrRenderComponent(_component_UButton, {
-                size: "md",
-                color: "neutral",
-                variant: "subtle"
-              }, {
-                default: withCtx((_3, _push4, _parent4, _scopeId3) => {
-                  if (_push4) {
-                    _push4(`Bearbeiten`);
-                  } else {
-                    return [
-                      createTextVNode("Bearbeiten")
-                    ];
-                  }
-                }),
-                _: 1
-              }, _parent3, _scopeId2));
-              _push3(`</div>`);
-            } else {
-              return [
-                createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                  createVNode("div", null, [
-                    createVNode("span", { class: "block" }, "Musterstraße 1"),
-                    createVNode("span", { class: "block" }, "12345 Musterstadt"),
-                    createVNode("span", { class: "block" }, "Deutschland")
-                  ]),
-                  createVNode(_component_UButton, {
-                    size: "md",
-                    color: "neutral",
-                    variant: "subtle"
-                  }, {
-                    default: withCtx(() => [
-                      createTextVNode("Bearbeiten")
-                    ]),
-                    _: 1
-                  })
-                ])
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_UFormField, {
-          name: "phone",
-          label: "Telefonnummern"
-        }, {
-          description: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`<div class="flex items-center justify-between w-full mb-2"${_scopeId2}><span class="truncate"${_scopeId2}>+49 0000 000000</span>`);
-              _push3(ssrRenderComponent(_component_UButton, {
-                size: "md",
-                color: "neutral",
-                variant: "subtle"
-              }, {
-                default: withCtx((_3, _push4, _parent4, _scopeId3) => {
-                  if (_push4) {
-                    _push4(`Bearbeiten`);
-                  } else {
-                    return [
-                      createTextVNode("Bearbeiten")
-                    ];
-                  }
-                }),
-                _: 1
-              }, _parent3, _scopeId2));
-              _push3(`</div>`);
-            } else {
-              return [
-                createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                  createVNode("span", { class: "truncate" }, "+49 0000 000000"),
-                  createVNode(_component_UButton, {
-                    size: "md",
-                    color: "neutral",
-                    variant: "subtle"
-                  }, {
-                    default: withCtx(() => [
-                      createTextVNode("Bearbeiten")
-                    ]),
-                    _: 1
-                  })
-                ])
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_UFormField, {
-          name: "email",
-          label: "E-Mail Adressen"
-        }, {
-          description: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`<div class="flex items-center justify-between w-full mb-2"${_scopeId2}><span class="truncate"${_scopeId2}>max.mustermann@key2host.com</span>`);
-              _push3(ssrRenderComponent(_component_UButton, {
-                size: "md",
-                color: "neutral",
-                variant: "subtle"
-              }, {
-                default: withCtx((_3, _push4, _parent4, _scopeId3) => {
-                  if (_push4) {
-                    _push4(`Bearbeiten`);
-                  } else {
-                    return [
-                      createTextVNode("Bearbeiten")
-                    ];
-                  }
-                }),
-                _: 1
-              }, _parent3, _scopeId2));
-              _push3(`</div>`);
-            } else {
-              return [
-                createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                  createVNode("span", { class: "truncate" }, "max.mustermann@key2host.com"),
-                  createVNode(_component_UButton, {
-                    size: "md",
-                    color: "neutral",
-                    variant: "subtle"
-                  }, {
-                    default: withCtx(() => [
-                      createTextVNode("Bearbeiten")
-                    ]),
-                    _: 1
-                  })
-                ])
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
+          } else {
+            return [
+              renderSlot(_ctx.$slots, "leading", {}, () => {
+                var _a4, _b2, _c2;
+                return [
+                  _ctx.avatar ? (openBlock(), createBlock(UAvatar, mergeProps({
+                    key: 0,
+                    size: ((_a4 = props.ui) == null ? void 0 : _a4.avatarSize) || ui.value.avatarSize()
+                  }, _ctx.avatar, {
+                    class: ui.value.avatar({ class: (_b2 = props.ui) == null ? void 0 : _b2.avatar })
+                  }), null, 16, ["size", "class"])) : _ctx.icon ? (openBlock(), createBlock(UIcon, {
+                    key: 1,
+                    name: _ctx.icon,
+                    class: ui.value.icon({ class: (_c2 = props.ui) == null ? void 0 : _c2.icon })
+                  }, null, 8, ["name", "class"])) : createCommentVNode("", true)
+                ];
+              }),
+              createVNode("div", {
+                class: ui.value.wrapper({ class: (_i = props.ui) == null ? void 0 : _i.wrapper })
+              }, [
+                _ctx.title || !!slots.title ? (openBlock(), createBlock("div", {
+                  key: 0,
+                  class: ui.value.title({ class: (_j = props.ui) == null ? void 0 : _j.title })
+                }, [
+                  renderSlot(_ctx.$slots, "title", {}, () => [
+                    createTextVNode(toDisplayString(_ctx.title), 1)
+                  ])
+                ], 2)) : createCommentVNode("", true),
+                _ctx.description || !!slots.description ? (openBlock(), createBlock("div", {
+                  key: 1,
+                  class: ui.value.description({ class: (_k = props.ui) == null ? void 0 : _k.description })
+                }, [
+                  renderSlot(_ctx.$slots, "description", {}, () => [
+                    createTextVNode(toDisplayString(_ctx.description), 1)
+                  ])
+                ], 2)) : createCommentVNode("", true),
+                _ctx.orientation === "vertical" && ((_l = _ctx.actions) == null ? void 0 : _l.length) ? (openBlock(), createBlock("div", {
+                  key: 2,
+                  class: ui.value.actions({ class: (_m = props.ui) == null ? void 0 : _m.actions })
+                }, [
+                  renderSlot(_ctx.$slots, "actions", {}, () => [
+                    (openBlock(true), createBlock(Fragment, null, renderList(_ctx.actions, (action, index) => {
+                      return openBlock(), createBlock(__nuxt_component_1, mergeProps({
+                        key: index,
+                        size: "xs",
+                        ref_for: true
+                      }, action), null, 16);
+                    }), 128))
+                  ])
+                ], 2)) : createCommentVNode("", true)
+              ], 2),
+              _ctx.orientation === "horizontal" && ((_n = _ctx.actions) == null ? void 0 : _n.length) || _ctx.close ? (openBlock(), createBlock("div", {
+                key: 0,
+                class: ui.value.actions({ class: (_o = props.ui) == null ? void 0 : _o.actions, orientation: "horizontal" })
+              }, [
+                _ctx.orientation === "horizontal" && ((_p = _ctx.actions) == null ? void 0 : _p.length) ? renderSlot(_ctx.$slots, "actions", { key: 0 }, () => [
+                  (openBlock(true), createBlock(Fragment, null, renderList(_ctx.actions, (action, index) => {
+                    return openBlock(), createBlock(__nuxt_component_1, mergeProps({
+                      key: index,
+                      size: "xs",
+                      ref_for: true
+                    }, action), null, 16);
+                  }), 128))
+                ]) : createCommentVNode("", true),
+                renderSlot(_ctx.$slots, "close", { ui: ui.value }, () => {
+                  var _a4;
+                  return [
+                    _ctx.close ? (openBlock(), createBlock(__nuxt_component_1, mergeProps({
+                      key: 0,
+                      icon: _ctx.closeIcon || unref(appConfig).ui.icons.close,
+                      size: "md",
+                      color: "neutral",
+                      variant: "link",
+                      "aria-label": unref(t)("alert.close")
+                    }, typeof _ctx.close === "object" ? _ctx.close : {}, {
+                      class: ui.value.close({ class: (_a4 = props.ui) == null ? void 0 : _a4.close }),
+                      onClick: ($event) => emits("update:open", false)
+                    }), null, 16, ["icon", "aria-label", "class", "onClick"])) : createCommentVNode("", true)
+                  ];
+                })
+              ], 2)) : createCommentVNode("", true)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+    };
+  }
+});
+
+const _sfc_setup$2 = _sfc_main$2.setup;
+_sfc_main$2.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Alert.vue");
+  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+};
+const __nuxt_component_6 = Object.assign(_sfc_main$2, { __name: "UAlert" });
+
+const theme = {
+  "slots": {
+    "root": "gap-2",
+    "base": "relative overflow-hidden rounded-full bg-(--ui-bg-accented)",
+    "indicator": "rounded-full size-full transition-transform duration-200 ease-out",
+    "status": "flex justify-end text-(--ui-text-dimmed) transition-[width] duration-200",
+    "steps": "grid items-end",
+    "step": "truncate text-end row-start-1 col-start-1 transition-opacity"
+  },
+  "variants": {
+    "animation": {
+      "carousel": "",
+      "carousel-inverse": "",
+      "swing": "",
+      "elastic": ""
+    },
+    "color": {
+      "primary": {
+        "indicator": "bg-(--ui-primary)",
+        "steps": "text-(--ui-primary)"
+      },
+      "secondary": {
+        "indicator": "bg-(--ui-secondary)",
+        "steps": "text-(--ui-secondary)"
+      },
+      "success": {
+        "indicator": "bg-(--ui-success)",
+        "steps": "text-(--ui-success)"
+      },
+      "info": {
+        "indicator": "bg-(--ui-info)",
+        "steps": "text-(--ui-info)"
+      },
+      "warning": {
+        "indicator": "bg-(--ui-warning)",
+        "steps": "text-(--ui-warning)"
+      },
+      "error": {
+        "indicator": "bg-(--ui-error)",
+        "steps": "text-(--ui-error)"
+      },
+      "neutral": {
+        "indicator": "bg-(--ui-bg-inverted)",
+        "steps": "text-(--ui-bg)"
+      }
+    },
+    "size": {
+      "2xs": {
+        "status": "text-xs",
+        "steps": "text-xs"
+      },
+      "xs": {
+        "status": "text-xs",
+        "steps": "text-xs"
+      },
+      "sm": {
+        "status": "text-sm",
+        "steps": "text-sm"
+      },
+      "md": {
+        "status": "text-sm",
+        "steps": "text-sm"
+      },
+      "lg": {
+        "status": "text-sm",
+        "steps": "text-sm"
+      },
+      "xl": {
+        "status": "text-base",
+        "steps": "text-base"
+      },
+      "2xl": {
+        "status": "text-base",
+        "steps": "text-base"
+      }
+    },
+    "step": {
+      "active": {
+        "step": "opacity-100"
+      },
+      "first": {
+        "step": "opacity-100 text-(--ui-text-muted)"
+      },
+      "other": {
+        "step": "opacity-0"
+      },
+      "last": {
+        "step": ""
+      }
+    },
+    "orientation": {
+      "horizontal": {
+        "root": "w-full flex flex-col",
+        "base": "w-full",
+        "status": "flex-row"
+      },
+      "vertical": {
+        "root": "h-full flex flex-row-reverse",
+        "base": "h-full",
+        "status": "flex-col"
+      }
+    },
+    "inverted": {
+      "true": {
+        "status": "self-end"
+      }
+    }
+  },
+  "compoundVariants": [
+    {
+      "inverted": true,
+      "orientation": "horizontal",
+      "class": {
+        "step": "text-start",
+        "status": "flex-row-reverse"
+      }
+    },
+    {
+      "inverted": true,
+      "orientation": "vertical",
+      "class": {
+        "steps": "items-start",
+        "status": "flex-col-reverse"
+      }
+    },
+    {
+      "orientation": "horizontal",
+      "size": "2xs",
+      "class": "h-px"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "xs",
+      "class": "h-0.5"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "sm",
+      "class": "h-1"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "md",
+      "class": "h-2"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "lg",
+      "class": "h-3"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "xl",
+      "class": "h-4"
+    },
+    {
+      "orientation": "horizontal",
+      "size": "2xl",
+      "class": "h-5"
+    },
+    {
+      "orientation": "vertical",
+      "size": "2xs",
+      "class": "w-px"
+    },
+    {
+      "orientation": "vertical",
+      "size": "xs",
+      "class": "w-0.5"
+    },
+    {
+      "orientation": "vertical",
+      "size": "sm",
+      "class": "w-1"
+    },
+    {
+      "orientation": "vertical",
+      "size": "md",
+      "class": "w-2"
+    },
+    {
+      "orientation": "vertical",
+      "size": "lg",
+      "class": "w-3"
+    },
+    {
+      "orientation": "vertical",
+      "size": "xl",
+      "class": "w-4"
+    },
+    {
+      "orientation": "vertical",
+      "size": "2xl",
+      "class": "w-5"
+    },
+    {
+      "orientation": "horizontal",
+      "animation": "carousel",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[carousel_2s_ease-in-out_infinite] data-[state=indeterminate]:rtl:animate-[carousel-rtl_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "vertical",
+      "animation": "carousel",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[carousel-vertical_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "horizontal",
+      "animation": "carousel-inverse",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[carousel-inverse_2s_ease-in-out_infinite] data-[state=indeterminate]:rtl:animate-[carousel-inverse-rtl_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "vertical",
+      "animation": "carousel-inverse",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[carousel-inverse-vertical_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "horizontal",
+      "animation": "swing",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[swing_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "vertical",
+      "animation": "swing",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[swing-vertical_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "horizontal",
+      "animation": "elastic",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[elastic_2s_ease-in-out_infinite]"
+      }
+    },
+    {
+      "orientation": "vertical",
+      "animation": "elastic",
+      "class": {
+        "indicator": "data-[state=indeterminate]:animate-[elastic-vertical_2s_ease-in-out_infinite]"
+      }
+    }
+  ],
+  "defaultVariants": {
+    "animation": "carousel",
+    "color": "primary",
+    "size": "md"
+  }
+};
+
+var _a;
+const appConfigProgress = _appConfig;
+const progress = tv({ extend: tv(theme), ...((_a = appConfigProgress.ui) == null ? void 0 : _a.progress) || {} });
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+  __name: "Progress",
+  __ssrInlineRender: true,
+  props: {
+    as: {},
+    max: {},
+    status: { type: Boolean },
+    inverted: { type: Boolean, default: false },
+    size: {},
+    color: {},
+    orientation: { default: "horizontal" },
+    animation: {},
+    class: {},
+    ui: {},
+    getValueLabel: {},
+    modelValue: { default: null }
+  },
+  emits: ["update:modelValue", "update:max"],
+  setup(__props, { emit: __emit }) {
+    const props = __props;
+    const emits = __emit;
+    const slots = useSlots();
+    const { dir } = useLocale();
+    const rootProps = useForwardPropsEmits(reactivePick(props, "getValueLabel", "modelValue"), emits);
+    const isIndeterminate = computed(() => rootProps.value.modelValue === null);
+    const hasSteps = computed(() => Array.isArray(props.max));
+    const realMax = computed(() => {
+      if (isIndeterminate.value || !props.max) {
+        return void 0;
+      }
+      if (Array.isArray(props.max)) {
+        return props.max.length - 1;
+      }
+      return Number(props.max);
+    });
+    const percent = computed(() => {
+      if (isIndeterminate.value) {
+        return void 0;
+      }
+      switch (true) {
+        case rootProps.value.modelValue < 0:
+          return 0;
+        case rootProps.value.modelValue > (realMax.value ?? 100):
+          return 100;
+        default:
+          return Math.round(rootProps.value.modelValue / (realMax.value ?? 100) * 100);
+      }
+    });
+    const indicatorStyle = computed(() => {
+      if (percent.value === void 0) {
+        return;
+      }
+      if (props.orientation === "vertical") {
+        return {
+          transform: `translateY(${props.inverted ? "" : "-"}${100 - percent.value}%)`
+        };
       } else {
-        return [
-          createVNode(_component_UFormField, {
-            name: "avatar",
-            label: "Avatar"
-          }, {
-            description: withCtx(() => [
-              createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                createVNode(_component_UAvatar, {
-                  src: void 0,
-                  alt: "Max Mustermann",
-                  size: "md"
+        if (dir.value === "rtl") {
+          return {
+            transform: `translateX(${props.inverted ? "-" : ""}${100 - percent.value}%)`
+          };
+        } else {
+          return {
+            transform: `translateX(${props.inverted ? "" : "-"}${100 - percent.value}%)`
+          };
+        }
+      }
+    });
+    const statusStyle = computed(() => {
+      return {
+        [props.orientation === "vertical" ? "height" : "width"]: percent.value ? `${percent.value}%` : "fit-content"
+      };
+    });
+    function isActive(index) {
+      return index === Number(props.modelValue);
+    }
+    function isFirst(index) {
+      return index === 0;
+    }
+    function isLast(index) {
+      return index === realMax.value;
+    }
+    function stepVariant(index) {
+      index = Number(index);
+      if (isActive(index) && !isFirst(index)) {
+        return "active";
+      }
+      if (isFirst(index) && isActive(index)) {
+        return "first";
+      }
+      if (isLast(index) && isActive(index)) {
+        return "last";
+      }
+      return "other";
+    }
+    const ui = computed(() => progress({
+      animation: props.animation,
+      size: props.size,
+      color: props.color,
+      orientation: props.orientation,
+      inverted: props.inverted
+    }));
+    return (_ctx, _push, _parent, _attrs) => {
+      var _a2;
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: _ctx.as,
+        class: ui.value.root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          var _a3, _b, _c, _d, _e, _f;
+          if (_push2) {
+            if (!isIndeterminate.value && (_ctx.status || !!slots.status)) {
+              _push2(`<div class="${ssrRenderClass(ui.value.status({ class: (_a3 = props.ui) == null ? void 0 : _a3.status }))}" style="${ssrRenderStyle(statusStyle.value)}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "status", { percent: percent.value }, () => {
+                _push2(`${ssrInterpolate(percent.value)}% `);
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            _push2(ssrRenderComponent(unref(ProgressRoot), mergeProps(unref(rootProps), {
+              max: realMax.value,
+              class: ui.value.base({ class: (_b = props.ui) == null ? void 0 : _b.base }),
+              style: { "transform": "translateZ(0)" }
+            }), {
+              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                var _a4, _b2;
+                if (_push3) {
+                  _push3(ssrRenderComponent(unref(ProgressIndicator), {
+                    class: ui.value.indicator({ class: (_a4 = props.ui) == null ? void 0 : _a4.indicator }),
+                    style: indicatorStyle.value
+                  }, null, _parent3, _scopeId2));
+                } else {
+                  return [
+                    createVNode(unref(ProgressIndicator), {
+                      class: ui.value.indicator({ class: (_b2 = props.ui) == null ? void 0 : _b2.indicator }),
+                      style: indicatorStyle.value
+                    }, null, 8, ["class", "style"])
+                  ];
+                }
+              }),
+              _: 1
+            }, _parent2, _scopeId));
+            if (hasSteps.value) {
+              _push2(`<div class="${ssrRenderClass(ui.value.steps({ class: (_c = props.ui) == null ? void 0 : _c.steps }))}"${_scopeId}><!--[-->`);
+              ssrRenderList(_ctx.max, (step, index) => {
+                var _a4;
+                _push2(`<div class="${ssrRenderClass(ui.value.step({ class: (_a4 = props.ui) == null ? void 0 : _a4.step, step: stepVariant(index) }))}"${_scopeId}>`);
+                ssrRenderSlot(_ctx.$slots, `step-${index}`, { step }, () => {
+                  _push2(`${ssrInterpolate(step)}`);
+                }, _push2, _parent2, _scopeId);
+                _push2(`</div>`);
+              });
+              _push2(`<!--]--></div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+          } else {
+            return [
+              !isIndeterminate.value && (_ctx.status || !!slots.status) ? (openBlock(), createBlock("div", {
+                key: 0,
+                class: ui.value.status({ class: (_d = props.ui) == null ? void 0 : _d.status }),
+                style: statusStyle.value
+              }, [
+                renderSlot(_ctx.$slots, "status", { percent: percent.value }, () => [
+                  createTextVNode(toDisplayString(percent.value) + "% ", 1)
+                ])
+              ], 6)) : createCommentVNode("", true),
+              createVNode(unref(ProgressRoot), mergeProps(unref(rootProps), {
+                max: realMax.value,
+                class: ui.value.base({ class: (_e = props.ui) == null ? void 0 : _e.base }),
+                style: { "transform": "translateZ(0)" }
+              }), {
+                default: withCtx(() => {
+                  var _a4;
+                  return [
+                    createVNode(unref(ProgressIndicator), {
+                      class: ui.value.indicator({ class: (_a4 = props.ui) == null ? void 0 : _a4.indicator }),
+                      style: indicatorStyle.value
+                    }, null, 8, ["class", "style"])
+                  ];
                 }),
-                createVNode(_component_UButton, {
-                  size: "md",
-                  color: "neutral",
-                  variant: "subtle"
-                }, {
-                  default: withCtx(() => [
-                    createTextVNode("Bearbeiten")
-                  ]),
-                  _: 1
-                })
-              ])
-            ]),
-            _: 1
-          }),
-          createVNode(_component_UFormField, {
-            name: "name",
-            label: "Name"
-          }, {
-            description: withCtx(() => [
-              createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                createVNode("span", { class: "truncate" }, "Max Mustermann"),
-                createVNode(_component_UButton, {
-                  size: "md",
-                  color: "neutral",
-                  variant: "subtle"
-                }, {
-                  default: withCtx(() => [
-                    createTextVNode("Bearbeiten")
-                  ]),
-                  _: 1
-                })
-              ])
-            ]),
-            _: 1
-          }),
-          createVNode(_component_UFormField, {
-            name: "birthday",
-            label: "Geburtsdatum"
-          }, {
-            description: withCtx(() => [
-              createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                createVNode("span", { class: "truncate" }, "01.01.1900"),
-                createVNode(_component_UButton, {
-                  size: "md",
-                  color: "neutral",
-                  variant: "subtle"
-                }, {
-                  default: withCtx(() => [
-                    createTextVNode("Bearbeiten")
-                  ]),
-                  _: 1
-                })
-              ])
-            ]),
-            _: 1
-          }),
-          createVNode(_component_UFormField, {
-            name: "address",
-            label: "Adresse"
-          }, {
-            description: withCtx(() => [
-              createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                createVNode("div", null, [
-                  createVNode("span", { class: "block" }, "Musterstraße 1"),
-                  createVNode("span", { class: "block" }, "12345 Musterstadt"),
-                  createVNode("span", { class: "block" }, "Deutschland")
+                _: 1
+              }, 16, ["max", "class"]),
+              hasSteps.value ? (openBlock(), createBlock("div", {
+                key: 1,
+                class: ui.value.steps({ class: (_f = props.ui) == null ? void 0 : _f.steps })
+              }, [
+                (openBlock(true), createBlock(Fragment, null, renderList(_ctx.max, (step, index) => {
+                  var _a4;
+                  return openBlock(), createBlock("div", {
+                    key: index,
+                    class: ui.value.step({ class: (_a4 = props.ui) == null ? void 0 : _a4.step, step: stepVariant(index) })
+                  }, [
+                    renderSlot(_ctx.$slots, `step-${index}`, { step }, () => [
+                      createTextVNode(toDisplayString(step), 1)
+                    ])
+                  ], 2);
+                }), 128))
+              ], 2)) : createCommentVNode("", true)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+    };
+  }
+});
+
+const _sfc_setup$1 = _sfc_main$1.setup;
+_sfc_main$1.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Progress.vue");
+  return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
+};
+const __nuxt_component_9 = Object.assign(_sfc_main$1, { __name: "UProgress" });
+
+const _sfc_main = {
+  __name: "index",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const greeting = useState("greeting", () => "");
+    const randomQuote = useState("randomQuote", () => "");
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_UDashboardPanel = __nuxt_component_0;
+      const _component_UDashboardNavbar = __nuxt_component_1$2;
+      const _component_UDashboardSidebarCollapse = __nuxt_component_2;
+      const _component_NotificationIndicator = __nuxt_component_3;
+      const _component_UDashboardSearchButton = __nuxt_component_4;
+      const _component_USkeleton = __nuxt_component_5;
+      const _component_UAlert = __nuxt_component_6;
+      const _component_UPageCard = __nuxt_component_0$1;
+      const _component_UTooltip = __nuxt_component_8;
+      const _component_UProgress = __nuxt_component_9;
+      const _component_UButton = __nuxt_component_1;
+      const _component_UBadge = __nuxt_component_1$1;
+      _push(ssrRenderComponent(_component_UDashboardPanel, mergeProps({ id: "home" }, _attrs), {
+        header: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(ssrRenderComponent(_component_UDashboardNavbar, {
+              title: "Übersicht",
+              ui: { right: "gap-3" }
+            }, {
+              leading: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                if (_push3) {
+                  _push3(ssrRenderComponent(_component_UDashboardSidebarCollapse, null, null, _parent3, _scopeId2));
+                } else {
+                  return [
+                    createVNode(_component_UDashboardSidebarCollapse)
+                  ];
+                }
+              }),
+              right: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                if (_push3) {
+                  _push3(ssrRenderComponent(_component_NotificationIndicator, null, null, _parent3, _scopeId2));
+                  _push3(ssrRenderComponent(_component_UDashboardSearchButton, {
+                    collapsed: true,
+                    class: "flex md:hidden"
+                  }, null, _parent3, _scopeId2));
+                } else {
+                  return [
+                    createVNode(_component_NotificationIndicator),
+                    createVNode(_component_UDashboardSearchButton, {
+                      collapsed: true,
+                      class: "flex md:hidden"
+                    })
+                  ];
+                }
+              }),
+              _: 1
+            }, _parent2, _scopeId));
+          } else {
+            return [
+              createVNode(_component_UDashboardNavbar, {
+                title: "Übersicht",
+                ui: { right: "gap-3" }
+              }, {
+                leading: withCtx(() => [
+                  createVNode(_component_UDashboardSidebarCollapse)
                 ]),
-                createVNode(_component_UButton, {
-                  size: "md",
-                  color: "neutral",
-                  variant: "subtle"
-                }, {
-                  default: withCtx(() => [
-                    createTextVNode("Bearbeiten")
-                  ]),
-                  _: 1
-                })
-              ])
-            ]),
-            _: 1
-          }),
-          createVNode(_component_UFormField, {
-            name: "phone",
-            label: "Telefonnummern"
-          }, {
-            description: withCtx(() => [
-              createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                createVNode("span", { class: "truncate" }, "+49 0000 000000"),
-                createVNode(_component_UButton, {
-                  size: "md",
-                  color: "neutral",
-                  variant: "subtle"
-                }, {
-                  default: withCtx(() => [
-                    createTextVNode("Bearbeiten")
-                  ]),
-                  _: 1
-                })
-              ])
-            ]),
-            _: 1
-          }),
-          createVNode(_component_UFormField, {
-            name: "email",
-            label: "E-Mail Adressen"
-          }, {
-            description: withCtx(() => [
-              createVNode("div", { class: "flex items-center justify-between w-full mb-2" }, [
-                createVNode("span", { class: "truncate" }, "max.mustermann@key2host.com"),
-                createVNode(_component_UButton, {
-                  size: "md",
-                  color: "neutral",
-                  variant: "subtle"
-                }, {
-                  default: withCtx(() => [
-                    createTextVNode("Bearbeiten")
-                  ]),
-                  _: 1
-                })
-              ])
-            ]),
-            _: 1
-          })
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div>`);
-  _push(ssrRenderComponent(_component_UPageCard, {
-    title: "Personalausweis",
-    description: "These informations will be displayed publicly.",
-    variant: "naked",
-    class: "mb-4"
-  }, null, _parent));
-  _push(ssrRenderComponent(_component_UPageCard, {
-    variant: "subtle",
-    ui: { container: "divide-y divide-(--ui-border)" }
-  }, {
-    description: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="flex items-center justify-between w-full"${_scopeId}>`);
-        _push2(ssrRenderComponent(_component_UBadge, {
-          icon: "i-heroicons-exclamation-circle",
-          size: "md",
-          color: "error",
-          variant: "soft"
-        }, {
-          default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`Der Ausweis wurde noch nicht verifiziert`);
+                right: withCtx(() => [
+                  createVNode(_component_NotificationIndicator),
+                  createVNode(_component_UDashboardSearchButton, {
+                    collapsed: true,
+                    class: "flex md:hidden"
+                  })
+                ]),
+                _: 1
+              })
+            ];
+          }
+        }),
+        body: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<h1 class="text-2xl"${_scopeId}><span class="font-bold flex items-center"${_scopeId}>`);
+            if (!unref(greeting)) {
+              _push2(ssrRenderComponent(_component_USkeleton, { class: "h-6 w-[150px] mb-3" }, null, _parent2, _scopeId));
             } else {
-              return [
-                createTextVNode("Der Ausweis wurde noch nicht verifiziert")
-              ];
+              _push2(`<!--[-->${ssrInterpolate(unref(greeting))}, Lukas! 👋 <!--]-->`);
             }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_UButton, {
-          size: "md",
-          color: "neutral",
-          variant: "subtle"
-        }, {
-          default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`Verifikation starten`);
+            _push2(`</span><span class="text-sm flex items-center"${_scopeId}>`);
+            if (!unref(randomQuote)) {
+              _push2(ssrRenderComponent(_component_USkeleton, { class: "h-4 w-[250px]" }, null, _parent2, _scopeId));
             } else {
-              return [
-                createTextVNode("Verifikation starten")
-              ];
+              _push2(`<!--[-->${ssrInterpolate(unref(randomQuote))}<!--]-->`);
             }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(`</div>`);
-      } else {
-        return [
-          createVNode("div", { class: "flex items-center justify-between w-full" }, [
-            createVNode(_component_UBadge, {
-              icon: "i-heroicons-exclamation-circle",
-              size: "md",
-              color: "error",
-              variant: "soft"
-            }, {
-              default: withCtx(() => [
-                createTextVNode("Der Ausweis wurde noch nicht verifiziert")
+            _push2(`</span></h1><div class="w-full"${_scopeId}>`);
+            _push2(ssrRenderComponent(_component_UAlert, {
+              color: "warning",
+              title: "Instabile Version",
+              description: "Die aktuelle Version der WebApp befindet sich in der Alpha-Phase und ist daher nicht stabil. Es kann zu Fehlern und Abstürzen kommen...",
+              icon: "i-heroicons-exclamation-triangle"
+            }, null, _parent2, _scopeId));
+            _push2(`</div><div class="flex flex-wrap"${_scopeId}><!--[-->`);
+            ssrRenderList(4, (n) => {
+              _push2(`<div class="w-full md:w-1/2 px-2 mb-4"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UPageCard, {
+                icon: "i-heroicons-globe-europe-africa",
+                variant: "soft"
+              }, {
+                title: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`<span class="text-xl"${_scopeId2}>Webhosting (Small + Domain)</span>`);
+                  } else {
+                    return [
+                      createVNode("span", { class: "text-xl" }, "Webhosting (Small + Domain)")
+                    ];
+                  }
+                }),
+                description: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`<div class="grid grid-cols-2 gap-4 max-sm:grid-cols-1 my-4"${_scopeId2}><span class="text-xs -mb-2 block sm:hidden"${_scopeId2}>Prozessor (CPU)</span>`);
+                    _push3(ssrRenderComponent(_component_UTooltip, {
+                      text: "Prozessor (CPU)",
+                      "delay-duration": 0
+                    }, {
+                      default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                        if (_push4) {
+                          _push4(ssrRenderComponent(_component_UProgress, {
+                            modelValue: 31,
+                            max: 100,
+                            size: "lg"
+                          }, null, _parent4, _scopeId3));
+                        } else {
+                          return [
+                            createVNode(_component_UProgress, {
+                              modelValue: 31,
+                              max: 100,
+                              size: "lg"
+                            })
+                          ];
+                        }
+                      }),
+                      _: 2
+                    }, _parent3, _scopeId2));
+                    _push3(`<span class="text-xs -mb-2 block sm:hidden"${_scopeId2}>Arbeitsspeicher (RAM)</span>`);
+                    _push3(ssrRenderComponent(_component_UTooltip, {
+                      text: "Arbeitsspeicher (RAM)",
+                      "delay-duration": 0
+                    }, {
+                      default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                        if (_push4) {
+                          _push4(ssrRenderComponent(_component_UProgress, {
+                            modelValue: 64,
+                            max: 100,
+                            size: "lg"
+                          }, null, _parent4, _scopeId3));
+                        } else {
+                          return [
+                            createVNode(_component_UProgress, {
+                              modelValue: 64,
+                              max: 100,
+                              size: "lg"
+                            })
+                          ];
+                        }
+                      }),
+                      _: 2
+                    }, _parent3, _scopeId2));
+                    _push3(`<span class="text-xs -mb-2 block sm:hidden"${_scopeId2}>Speicherauslastung</span>`);
+                    _push3(ssrRenderComponent(_component_UTooltip, {
+                      text: "Speicherauslastung",
+                      "delay-duration": 0
+                    }, {
+                      default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                        if (_push4) {
+                          _push4(ssrRenderComponent(_component_UProgress, {
+                            modelValue: 12,
+                            max: 100,
+                            size: "lg"
+                          }, null, _parent4, _scopeId3));
+                        } else {
+                          return [
+                            createVNode(_component_UProgress, {
+                              modelValue: 12,
+                              max: 100,
+                              size: "lg"
+                            })
+                          ];
+                        }
+                      }),
+                      _: 2
+                    }, _parent3, _scopeId2));
+                    _push3(`<span class="text-xs -mb-2 block sm:hidden"${_scopeId2}>Traffic</span>`);
+                    _push3(ssrRenderComponent(_component_UTooltip, {
+                      text: "Traffic",
+                      "delay-duration": 0
+                    }, {
+                      default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                        if (_push4) {
+                          _push4(ssrRenderComponent(_component_UProgress, {
+                            modelValue: 4,
+                            max: 100,
+                            size: "lg"
+                          }, null, _parent4, _scopeId3));
+                        } else {
+                          return [
+                            createVNode(_component_UProgress, {
+                              modelValue: 4,
+                              max: 100,
+                              size: "lg"
+                            })
+                          ];
+                        }
+                      }),
+                      _: 2
+                    }, _parent3, _scopeId2));
+                    _push3(`</div>`);
+                    _push3(ssrRenderComponent(_component_UButton, {
+                      class: "mb-2",
+                      block: ""
+                    }, {
+                      default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                        if (_push4) {
+                          _push4(`Server verwalten`);
+                        } else {
+                          return [
+                            createTextVNode("Server verwalten")
+                          ];
+                        }
+                      }),
+                      _: 2
+                    }, _parent3, _scopeId2));
+                    _push3(ssrRenderComponent(_component_UBadge, {
+                      icon: "i-heroicons-no-symbol",
+                      size: "sm",
+                      color: "error",
+                      variant: "outline"
+                    }, {
+                      default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                        if (_push4) {
+                          _push4(`Offline`);
+                        } else {
+                          return [
+                            createTextVNode("Offline")
+                          ];
+                        }
+                      }),
+                      _: 2
+                    }, _parent3, _scopeId2));
+                  } else {
+                    return [
+                      createVNode("div", { class: "grid grid-cols-2 gap-4 max-sm:grid-cols-1 my-4" }, [
+                        createVNode("span", { class: "text-xs -mb-2 block sm:hidden" }, "Prozessor (CPU)"),
+                        createVNode(_component_UTooltip, {
+                          text: "Prozessor (CPU)",
+                          "delay-duration": 0
+                        }, {
+                          default: withCtx(() => [
+                            createVNode(_component_UProgress, {
+                              modelValue: 31,
+                              max: 100,
+                              size: "lg"
+                            })
+                          ]),
+                          _: 1
+                        }),
+                        createVNode("span", { class: "text-xs -mb-2 block sm:hidden" }, "Arbeitsspeicher (RAM)"),
+                        createVNode(_component_UTooltip, {
+                          text: "Arbeitsspeicher (RAM)",
+                          "delay-duration": 0
+                        }, {
+                          default: withCtx(() => [
+                            createVNode(_component_UProgress, {
+                              modelValue: 64,
+                              max: 100,
+                              size: "lg"
+                            })
+                          ]),
+                          _: 1
+                        }),
+                        createVNode("span", { class: "text-xs -mb-2 block sm:hidden" }, "Speicherauslastung"),
+                        createVNode(_component_UTooltip, {
+                          text: "Speicherauslastung",
+                          "delay-duration": 0
+                        }, {
+                          default: withCtx(() => [
+                            createVNode(_component_UProgress, {
+                              modelValue: 12,
+                              max: 100,
+                              size: "lg"
+                            })
+                          ]),
+                          _: 1
+                        }),
+                        createVNode("span", { class: "text-xs -mb-2 block sm:hidden" }, "Traffic"),
+                        createVNode(_component_UTooltip, {
+                          text: "Traffic",
+                          "delay-duration": 0
+                        }, {
+                          default: withCtx(() => [
+                            createVNode(_component_UProgress, {
+                              modelValue: 4,
+                              max: 100,
+                              size: "lg"
+                            })
+                          ]),
+                          _: 1
+                        })
+                      ]),
+                      createVNode(_component_UButton, {
+                        class: "mb-2",
+                        block: ""
+                      }, {
+                        default: withCtx(() => [
+                          createTextVNode("Server verwalten")
+                        ]),
+                        _: 1
+                      }),
+                      createVNode(_component_UBadge, {
+                        icon: "i-heroicons-no-symbol",
+                        size: "sm",
+                        color: "error",
+                        variant: "outline"
+                      }, {
+                        default: withCtx(() => [
+                          createTextVNode("Offline")
+                        ]),
+                        _: 1
+                      })
+                    ];
+                  }
+                }),
+                _: 2
+              }, _parent2, _scopeId));
+              _push2(`</div>`);
+            });
+            _push2(`<!--]--></div>`);
+          } else {
+            return [
+              createVNode("h1", { class: "text-2xl" }, [
+                createVNode("span", { class: "font-bold flex items-center" }, [
+                  !unref(greeting) ? (openBlock(), createBlock(_component_USkeleton, {
+                    key: 0,
+                    class: "h-6 w-[150px] mb-3"
+                  })) : (openBlock(), createBlock(Fragment, { key: 1 }, [
+                    createTextVNode(toDisplayString(unref(greeting)) + ", Lukas! 👋 ", 1)
+                  ], 64))
+                ]),
+                createVNode("span", { class: "text-sm flex items-center" }, [
+                  !unref(randomQuote) ? (openBlock(), createBlock(_component_USkeleton, {
+                    key: 0,
+                    class: "h-4 w-[250px]"
+                  })) : (openBlock(), createBlock(Fragment, { key: 1 }, [
+                    createTextVNode(toDisplayString(unref(randomQuote)), 1)
+                  ], 64))
+                ])
               ]),
-              _: 1
-            }),
-            createVNode(_component_UButton, {
-              size: "md",
-              color: "neutral",
-              variant: "subtle"
-            }, {
-              default: withCtx(() => [
-                createTextVNode("Verifikation starten")
+              createVNode("div", { class: "w-full" }, [
+                createVNode(_component_UAlert, {
+                  color: "warning",
+                  title: "Instabile Version",
+                  description: "Die aktuelle Version der WebApp befindet sich in der Alpha-Phase und ist daher nicht stabil. Es kann zu Fehlern und Abstürzen kommen...",
+                  icon: "i-heroicons-exclamation-triangle"
+                })
               ]),
-              _: 1
-            })
-          ])
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><!--]-->`);
-}
+              createVNode("div", { class: "flex flex-wrap" }, [
+                (openBlock(), createBlock(Fragment, null, renderList(4, (n) => {
+                  return createVNode("div", {
+                    key: n,
+                    class: "w-full md:w-1/2 px-2 mb-4"
+                  }, [
+                    createVNode(_component_UPageCard, {
+                      icon: "i-heroicons-globe-europe-africa",
+                      variant: "soft"
+                    }, {
+                      title: withCtx(() => [
+                        createVNode("span", { class: "text-xl" }, "Webhosting (Small + Domain)")
+                      ]),
+                      description: withCtx(() => [
+                        createVNode("div", { class: "grid grid-cols-2 gap-4 max-sm:grid-cols-1 my-4" }, [
+                          createVNode("span", { class: "text-xs -mb-2 block sm:hidden" }, "Prozessor (CPU)"),
+                          createVNode(_component_UTooltip, {
+                            text: "Prozessor (CPU)",
+                            "delay-duration": 0
+                          }, {
+                            default: withCtx(() => [
+                              createVNode(_component_UProgress, {
+                                modelValue: 31,
+                                max: 100,
+                                size: "lg"
+                              })
+                            ]),
+                            _: 1
+                          }),
+                          createVNode("span", { class: "text-xs -mb-2 block sm:hidden" }, "Arbeitsspeicher (RAM)"),
+                          createVNode(_component_UTooltip, {
+                            text: "Arbeitsspeicher (RAM)",
+                            "delay-duration": 0
+                          }, {
+                            default: withCtx(() => [
+                              createVNode(_component_UProgress, {
+                                modelValue: 64,
+                                max: 100,
+                                size: "lg"
+                              })
+                            ]),
+                            _: 1
+                          }),
+                          createVNode("span", { class: "text-xs -mb-2 block sm:hidden" }, "Speicherauslastung"),
+                          createVNode(_component_UTooltip, {
+                            text: "Speicherauslastung",
+                            "delay-duration": 0
+                          }, {
+                            default: withCtx(() => [
+                              createVNode(_component_UProgress, {
+                                modelValue: 12,
+                                max: 100,
+                                size: "lg"
+                              })
+                            ]),
+                            _: 1
+                          }),
+                          createVNode("span", { class: "text-xs -mb-2 block sm:hidden" }, "Traffic"),
+                          createVNode(_component_UTooltip, {
+                            text: "Traffic",
+                            "delay-duration": 0
+                          }, {
+                            default: withCtx(() => [
+                              createVNode(_component_UProgress, {
+                                modelValue: 4,
+                                max: 100,
+                                size: "lg"
+                              })
+                            ]),
+                            _: 1
+                          })
+                        ]),
+                        createVNode(_component_UButton, {
+                          class: "mb-2",
+                          block: ""
+                        }, {
+                          default: withCtx(() => [
+                            createTextVNode("Server verwalten")
+                          ]),
+                          _: 1
+                        }),
+                        createVNode(_component_UBadge, {
+                          icon: "i-heroicons-no-symbol",
+                          size: "sm",
+                          color: "error",
+                          variant: "outline"
+                        }, {
+                          default: withCtx(() => [
+                            createTextVNode("Offline")
+                          ]),
+                          _: 1
+                        })
+                      ]),
+                      _: 1
+                    })
+                  ]);
+                }), 64))
+              ])
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+    };
+  }
+};
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/settings/index.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/index.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
-export { index as default };
+export { _sfc_main as default };
 //# sourceMappingURL=index.vue2.mjs.map
