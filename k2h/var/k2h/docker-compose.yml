@@ -1,5 +1,5 @@
 services:
-    database:
+    k2h_database:
         container_name: k2h_database
         build:
             context: ./db
@@ -14,7 +14,7 @@ services:
             - db:/var/lib/mysql
         networks:
             - network
-    saci:
+    k2h_saci:
         container_name: k2h_saci
         build:
             context: ./apps/saci
@@ -24,7 +24,7 @@ services:
             - database
         networks:
             - network
-    landing:
+    k2h_apps_frax:
         container_name: k2h_frax
         build:
             context: ./apps/frax
@@ -32,7 +32,7 @@ services:
         restart: unless-stopped
         networks:
             - network
-    panel:
+    k2h_apps_panel:
         container_name: k2h_panel
         build:
             context: ./apps/panel
@@ -40,7 +40,7 @@ services:
         restart: unless-stopped
         networks:
             - network
-    proxy:
+    k2h_proxy:
         container_name: k2h_proxy
         build:
             context: ./proxy
