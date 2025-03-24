@@ -24,7 +24,7 @@ services:
             - database
         networks:
             - network
-    apps_frax:
+    apps-frax:
         container_name: k2h_frax
         build:
             context: ./apps/frax
@@ -32,7 +32,7 @@ services:
         restart: unless-stopped
         networks:
             - network
-    apps_panel:
+    apps-panel:
         container_name: k2h_panel
         build:
             context: ./apps/panel
