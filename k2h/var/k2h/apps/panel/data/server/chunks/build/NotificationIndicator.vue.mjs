@@ -1,13 +1,13 @@
-import { u as useDashboard, a as useResizable, _ as __nuxt_component_1$1, b as __nuxt_component_0$1, c as useLocalePro } from './DashboardSidebarToggle.vue.mjs';
-import { defineComponent, useId, toRef, computed, unref, useSSRContext, useSlots, withCtx, mergeProps, renderSlot, createBlock, createCommentVNode, openBlock, createVNode, createTextVNode, toDisplayString, ref, Fragment, renderList } from 'vue';
+import { u as useDashboard, b as useResizable, _ as __nuxt_component_1$1, c as __nuxt_component_0$1 } from './DashboardSidebarToggle.vue.mjs';
+import { defineComponent, useId, toRef, computed, unref, useSSRContext, useSlots, withCtx, mergeProps, renderSlot, createBlock, createCommentVNode, openBlock, createVNode, createTextVNode, toDisplayString, Fragment, renderList } from 'vue';
 import { ssrRenderAttr, ssrRenderClass, ssrRenderStyle, ssrRenderSlot, ssrRenderComponent, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
-import { a as _appConfig, f as UIcon, e as useAppConfig, c as __nuxt_component_1$2, t as tv$1, h as UKbd, i as useDashboard$1, j as UChip } from './server.mjs';
+import { a as _appConfig, f as UIcon, t as tv$1, j as UKbd, k as useDashboard$1, c as __nuxt_component_1$2, l as UChip } from './server.mjs';
 import { t as tv } from './tv.mjs';
-import { Primitive, useForwardProps, useForwardPropsEmits, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow } from 'reka-ui';
+import { Primitive, useForwardPropsEmits, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow } from 'reka-ui';
 import { createReusableTemplate, reactivePick } from '@vueuse/core';
 import { n as defu } from '../nitro/nitro.mjs';
 
-const theme$3 = {
+const theme$2 = {
   "slots": {
     "root": "flex flex-col min-w-0 min-h-svh lg:not-last:border-r lg:not-last:border-(--ui-border) shrink-0",
     "body": "flex flex-col gap-4 sm:gap-6 flex-1 overflow-y-auto p-4 sm:p-6",
@@ -25,10 +25,10 @@ const theme$3 = {
   }
 };
 
-var _a$3;
+var _a$2;
 const appConfig$1 = _appConfig;
-const dashboardPanel = tv({ extend: tv(theme$3), ...((_a$3 = appConfig$1.uiPro) == null ? void 0 : _a$3.dashboardPanel) || {} });
-const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+const dashboardPanel = tv({ extend: tv(theme$2), ...((_a$2 = appConfig$1.uiPro) == null ? void 0 : _a$2.dashboardPanel) || {} });
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "DashboardPanel",
   __ssrInlineRender: true,
   props: {
@@ -82,15 +82,15 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_setup$4 = _sfc_main$4.setup;
-_sfc_main$4.setup = (props, ctx) => {
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/DashboardPanel.vue");
-  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const __nuxt_component_0 = Object.assign(_sfc_main$4, { __name: "UDashboardPanel" });
+const __nuxt_component_0 = Object.assign(_sfc_main$3, { __name: "UDashboardPanel" });
 
-const theme$2 = {
+const theme$1 = {
   "slots": {
     "root": "h-(--ui-header-height) shrink-0 flex items-center justify-between border-b border-(--ui-border) px-4 sm:px-6 gap-1.5",
     "left": "flex items-center gap-1.5 min-w-0",
@@ -112,10 +112,10 @@ const theme$2 = {
   }
 };
 
-var _a$2;
+var _a$1;
 const appConfig = _appConfig;
-const dashboardNavbar = tv({ extend: tv(theme$2), ...((_a$2 = appConfig.uiPro) == null ? void 0 : _a$2.dashboardNavbar) || {} });
-const _sfc_main$3 = /* @__PURE__ */ defineComponent({
+const dashboardNavbar = tv({ extend: tv(theme$1), ...((_a$1 = appConfig.uiPro) == null ? void 0 : _a$1.dashboardNavbar) || {} });
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "DashboardNavbar",
   __ssrInlineRender: true,
   props: {
@@ -269,65 +269,13 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_setup$3 = _sfc_main$3.setup;
-_sfc_main$3.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/DashboardNavbar.vue");
-  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
-};
-const __nuxt_component_1 = Object.assign(_sfc_main$3, { __name: "UDashboardNavbar" });
-
-const theme$1 = {
-  "base": "hidden lg:flex",
-  "variants": {
-    "side": {
-      "left": "",
-      "right": ""
-    }
-  }
-};
-
-var _a$1;
-const appConfigDashboardSidebarCollapse = _appConfig;
-const dashboardSidebarCollapse = tv({ extend: tv(theme$1), ...((_a$1 = appConfigDashboardSidebarCollapse.uiPro) == null ? void 0 : _a$1.dashboardSidebarCollapse) || {} });
-const _sfc_main$2 = /* @__PURE__ */ defineComponent({
-  __name: "DashboardSidebarCollapse",
-  __ssrInlineRender: true,
-  props: {
-    side: { default: "left" },
-    color: { default: "neutral" },
-    variant: { default: "ghost" },
-    class: {}
-  },
-  setup(__props) {
-    const props = __props;
-    const rootProps = useForwardProps(reactivePick(props, "color", "variant", "size"));
-    const appConfig = useAppConfig();
-    const { sidebarCollapsed, collapseSidebar } = useDashboard({ sidebarCollapsed: ref(false), collapseSidebar: () => {
-    } });
-    const { t } = useLocalePro();
-    return (_ctx, _push, _parent, _attrs) => {
-      const _component_UButton = __nuxt_component_1$2;
-      _push(ssrRenderComponent(_component_UButton, mergeProps(unref(rootProps), {
-        "aria-label": unref(sidebarCollapsed) ? unref(t)("dashboardSidebarCollapse.expand") : unref(t)("dashboardSidebarCollapse.collapse"),
-        icon: unref(sidebarCollapsed) ? unref(appConfig).ui.icons.panelOpen : unref(appConfig).ui.icons.panelClose,
-        class: unref(dashboardSidebarCollapse)({ class: props.class, side: props.side }),
-        onClick: ($event) => {
-          var _a2;
-          return (_a2 = unref(collapseSidebar)) == null ? void 0 : _a2(!unref(sidebarCollapsed));
-        }
-      }, _attrs), null, _parent));
-    };
-  }
-});
-
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/DashboardSidebarCollapse.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui-pro/dist/runtime/components/DashboardNavbar.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const __nuxt_component_2 = Object.assign(_sfc_main$2, { __name: "UDashboardSidebarCollapse" });
+const __nuxt_component_1 = Object.assign(_sfc_main$2, { __name: "UDashboardNavbar" });
 
 const theme = {
   "slots": {
@@ -688,5 +636,5 @@ _sfc_main.setup = (props, ctx) => {
 };
 const __nuxt_component_3 = Object.assign(_sfc_main, { __name: "NotificationIndicator" });
 
-export { __nuxt_component_0 as _, __nuxt_component_1 as a, __nuxt_component_3 as b, __nuxt_component_2 as c, __nuxt_component_8 as d };
+export { __nuxt_component_0 as _, __nuxt_component_1 as a, __nuxt_component_3 as b, __nuxt_component_8 as c };
 //# sourceMappingURL=NotificationIndicator.vue.mjs.map

@@ -1,9 +1,9 @@
-import { e as useAppConfig, c as __nuxt_component_1, h as UKbd, a as _appConfig } from './server.mjs';
+import { e as useAppConfig, c as __nuxt_component_1, j as UKbd, a as _appConfig } from './server.mjs';
 import { defineComponent, ref, mergeProps, unref, createSlots, withCtx, createVNode, createBlock, createCommentVNode, openBlock, Fragment, renderList, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderList } from 'vue/server-renderer';
 import { useForwardProps } from 'reka-ui';
 import { reactivePick } from '@vueuse/core';
-import { u as useDashboard, c as useLocalePro } from './DashboardSidebarToggle.vue.mjs';
+import { u as useDashboard, a as useLocalePro } from './DashboardSidebarToggle.vue.mjs';
 import { t as tv } from './tv.mjs';
 
 const theme = {

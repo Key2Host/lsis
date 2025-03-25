@@ -1,7 +1,7 @@
 import { defineComponent, unref, mergeProps, withCtx, renderSlot, useSSRContext, ref, computed, isRef, watch, toRef, inject } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot } from 'vue/server-renderer';
 import { Primitive, createContext, useForwardProps } from 'reka-ui';
-import { a as _appConfig, B as useCookie, C as defineLocale, D as en$1, E as localeContextInjectionKey, F as buildLocaleContext, e as useAppConfig, c as __nuxt_component_1$1 } from './server.mjs';
+import { a as _appConfig, v as useCookie, w as defineLocale, x as en$1, y as localeContextInjectionKey, z as buildLocaleContext, e as useAppConfig, c as __nuxt_component_1$1 } from './server.mjs';
 import { t as tv } from './tv.mjs';
 import { useStorage, createSharedComposable, reactivePick } from '@vueuse/core';
 
@@ -330,5 +330,5 @@ _sfc_main.setup = (props, ctx) => {
 };
 const __nuxt_component_0 = Object.assign(_sfc_main, { __name: "UDashboardSidebarToggle" });
 
-export { __nuxt_component_1 as _, useResizable as a, __nuxt_component_0 as b, useLocalePro as c, provideDashboardContext as p, useDashboard as u };
+export { __nuxt_component_1 as _, useLocalePro as a, useResizable as b, __nuxt_component_0 as c, provideDashboardContext as p, useDashboard as u };
 //# sourceMappingURL=DashboardSidebarToggle.vue.mjs.map

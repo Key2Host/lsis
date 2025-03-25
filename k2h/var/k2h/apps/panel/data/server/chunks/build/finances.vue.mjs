@@ -1,4 +1,5 @@
-import { _ as __nuxt_component_0, a as __nuxt_component_1, b as __nuxt_component_3, c as __nuxt_component_2 } from './NotificationIndicator.vue.mjs';
+import { _ as __nuxt_component_0, a as __nuxt_component_1, b as __nuxt_component_3 } from './NotificationIndicator.vue.mjs';
+import { _ as __nuxt_component_2 } from './DashboardSidebarCollapse.vue.mjs';
 import { _ as __nuxt_component_4 } from './DashboardToolbar.vue.mjs';
 import { _ as __nuxt_component_5 } from './NavigationMenu.vue.mjs';
 import { _ as __nuxt_component_6 } from './server.mjs';

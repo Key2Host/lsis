@@ -667,7 +667,11 @@ function encodeURL(location2, isExternalHost = false) {
   return url.toString();
 }
 
-const __nuxt_page_meta$1 = null;
+const __nuxt_page_meta$2 = null;
+
+const __nuxt_page_meta$1 = {
+  layout: "service"
+};
 
 const __nuxt_page_meta = null;
 
@@ -676,7 +680,7 @@ function handleHotUpdate(_router, _generateRoutes) {
 }
 const _routes = [
   {
-    name: (_a$d = __nuxt_page_meta$1) == null ? void 0 : _a$d.name,
+    name: (_a$d = __nuxt_page_meta$2) == null ? void 0 : _a$d.name,
     path: "/finances",
     component: () => import('./finances.vue.mjs'),
     children: [
@@ -693,7 +697,7 @@ const _routes = [
     ]
   },
   {
-    name: (_b = __nuxt_page_meta$1) == null ? void 0 : _b.name,
+    name: (_b = __nuxt_page_meta$2) == null ? void 0 : _b.name,
     path: "/en/finances",
     component: () => import('./finances.vue.mjs'),
     children: [
@@ -720,14 +724,100 @@ const _routes = [
     component: () => import('./index.vue2.mjs')
   },
   {
+    name: "service___de",
+    path: "/service",
+    meta: __nuxt_page_meta$1 || {},
+    component: () => import('./service.vue.mjs'),
+    children: [
+      {
+        name: "service-id-backups___de",
+        path: ":id()/backups",
+        component: () => import('./backups.vue.mjs')
+      },
+      {
+        name: "service-id-databases___de",
+        path: ":id()/databases",
+        component: () => import('./databases.vue.mjs')
+      },
+      {
+        name: "service-id-files___de",
+        path: ":id()/files",
+        component: () => import('./files.vue.mjs')
+      },
+      {
+        name: "service-id___de",
+        path: ":id()",
+        component: () => import('./index.vue3.mjs')
+      },
+      {
+        name: "service-id-network___de",
+        path: ":id()/network",
+        component: () => import('./network.vue.mjs')
+      },
+      {
+        name: "service-id-settings___de",
+        path: ":id()/settings",
+        component: () => import('./settings.vue.mjs')
+      },
+      {
+        name: "service-id-tasks___de",
+        path: ":id()/tasks",
+        component: () => import('./tasks.vue.mjs')
+      }
+    ]
+  },
+  {
+    name: "service___en",
+    path: "/en/service",
+    meta: __nuxt_page_meta$1 || {},
+    component: () => import('./service.vue.mjs'),
+    children: [
+      {
+        name: "service-id-backups___en",
+        path: ":id()/backups",
+        component: () => import('./backups.vue.mjs')
+      },
+      {
+        name: "service-id-databases___en",
+        path: ":id()/databases",
+        component: () => import('./databases.vue.mjs')
+      },
+      {
+        name: "service-id-files___en",
+        path: ":id()/files",
+        component: () => import('./files.vue.mjs')
+      },
+      {
+        name: "service-id___en",
+        path: ":id()",
+        component: () => import('./index.vue3.mjs')
+      },
+      {
+        name: "service-id-network___en",
+        path: ":id()/network",
+        component: () => import('./network.vue.mjs')
+      },
+      {
+        name: "service-id-settings___en",
+        path: ":id()/settings",
+        component: () => import('./settings.vue.mjs')
+      },
+      {
+        name: "service-id-tasks___en",
+        path: ":id()/tasks",
+        component: () => import('./tasks.vue.mjs')
+      }
+    ]
+  },
+  {
     name: (_c = __nuxt_page_meta) == null ? void 0 : _c.name,
     path: "/settings",
-    component: () => import('./settings.vue.mjs'),
+    component: () => import('./settings.vue2.mjs'),
     children: [
       {
         name: "settings___de",
         path: "",
-        component: () => import('./index.vue3.mjs')
+        component: () => import('./index.vue4.mjs')
       },
       {
         name: "settings-notifications___de",
@@ -744,12 +834,12 @@ const _routes = [
   {
     name: (_d = __nuxt_page_meta) == null ? void 0 : _d.name,
     path: "/en/settings",
-    component: () => import('./settings.vue.mjs'),
+    component: () => import('./settings.vue2.mjs'),
     children: [
       {
         name: "settings___en",
         path: "",
-        component: () => import('./index.vue3.mjs')
+        component: () => import('./index.vue4.mjs')
       },
       {
         name: "settings-notifications___en",
@@ -6579,8 +6669,7 @@ const cfg0 = defineAppConfig({
       },
       defaultVariants: {
         color: "neutral",
-        variant: "solid",
-        size: "xl"
+        variant: "solid"
       }
     },
     input: {
@@ -7005,129 +7094,6 @@ const plugins = [
   prerender_server_sqIxOBipVr4FbVMA9kqWL0wT8FPop6sKAXLVfifsJzk,
   ssg_detect_IpHCGcQQ_IR5Rl99qyukWoMA9fJGfuTYyoksTzy81cs
 ];
-
-function defaultEstimatedProgress(duration, elapsed) {
-  const completionPercentage = elapsed / duration * 100;
-  return 2 / Math.PI * 100 * Math.atan(completionPercentage / 50);
-}
-function createLoadingIndicator(opts = {}) {
-  const { duration = 2e3, throttle = 200, hideDelay = 500, resetDelay = 400 } = opts;
-  opts.estimatedProgress || defaultEstimatedProgress;
-  const nuxtApp = useNuxtApp();
-  const progress = ref(0);
-  const isLoading = ref(false);
-  const error = ref(false);
-  const start = (opts2 = {}) => {
-    error.value = false;
-    set(0, opts2);
-  };
-  function set(at = 0, opts2 = {}) {
-    if (nuxtApp.isHydrating) {
-      return;
-    }
-    if (at >= 100) {
-      return finish({ force: opts2.force });
-    }
-    progress.value = at < 0 ? 0 : at;
-    opts2.force ? 0 : throttle;
-    {
-      isLoading.value = true;
-    }
-  }
-  function finish(opts2 = {}) {
-    progress.value = 100;
-    if (opts2.error) {
-      error.value = true;
-    }
-    if (opts2.force) {
-      progress.value = 0;
-      isLoading.value = false;
-    }
-  }
-  function clear() {
-  }
-  let _cleanup = () => {
-  };
-  return {
-    _cleanup,
-    progress: computed(() => progress.value),
-    isLoading: computed(() => isLoading.value),
-    error: computed(() => error.value),
-    start,
-    set,
-    finish,
-    clear
-  };
-}
-function useLoadingIndicator(opts = {}) {
-  const nuxtApp = useNuxtApp();
-  const indicator = nuxtApp._loadingIndicator || (nuxtApp._loadingIndicator = createLoadingIndicator(opts));
-  return indicator;
-}
-
-const __nuxt_component_0$3 = defineComponent({
-  name: "NuxtLoadingIndicator",
-  props: {
-    throttle: {
-      type: Number,
-      default: 200
-    },
-    duration: {
-      type: Number,
-      default: 2e3
-    },
-    height: {
-      type: Number,
-      default: 3
-    },
-    color: {
-      type: [String, Boolean],
-      default: "repeating-linear-gradient(to right,#00dc82 0%,#34cdfe 50%,#0047e1 100%)"
-    },
-    errorColor: {
-      type: String,
-      default: "repeating-linear-gradient(to right,#f87171 0%,#ef4444 100%)"
-    },
-    estimatedProgress: {
-      type: Function,
-      required: false
-    }
-  },
-  setup(props, { slots, expose }) {
-    const { progress, isLoading, error, start, finish, clear } = useLoadingIndicator({
-      duration: props.duration,
-      throttle: props.throttle,
-      estimatedProgress: props.estimatedProgress
-    });
-    expose({
-      progress,
-      isLoading,
-      error,
-      start,
-      finish,
-      clear
-    });
-    return () => h("div", {
-      class: "nuxt-loading-indicator",
-      style: {
-        position: "fixed",
-        top: 0,
-        right: 0,
-        left: 0,
-        pointerEvents: "none",
-        width: "auto",
-        height: `${props.height}px`,
-        opacity: isLoading.value ? 1 : 0,
-        background: error.value ? props.errorColor : props.color || void 0,
-        backgroundSize: `${100 / progress.value * 100}% auto`,
-        transform: `scaleX(${progress.value}%)`,
-        transformOrigin: "left",
-        transition: "transform 0.1s, height 0.4s, opacity 0.4s",
-        zIndex: 999999
-      }
-    }, slots);
-  }
-});
 
 function useComponentIcons(componentProps) {
   const appConfig = useAppConfig();
@@ -7554,7 +7520,7 @@ const NuxtIconSvg = /* @__PURE__ */ defineComponent({
   }
 });
 
-const __nuxt_component_0$2 = defineComponent({
+const __nuxt_component_0$3 = defineComponent({
   name: "NuxtIcon",
   props: {
     name: {
@@ -7607,7 +7573,7 @@ const __nuxt_component_0$2 = defineComponent({
 
 const index2 = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  default: __nuxt_component_0$2
+  default: __nuxt_component_0$3
 });
 
 const _sfc_main$n = /* @__PURE__ */ defineComponent({
@@ -7623,7 +7589,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
     const props = __props;
     const iconProps = useForwardProps(reactivePick(props, "name", "mode", "size", "customize"));
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_Icon = __nuxt_component_0$2;
+      const _component_Icon = __nuxt_component_0$3;
       _push(ssrRenderComponent(_component_Icon, mergeProps(unref(iconProps), _attrs), null, _parent));
     };
   }
@@ -8664,7 +8630,7 @@ function defineNuxtLink(options) {
     // }) as unknown as DefineComponent<NuxtLinkProps, object, object, ComputedOptions, MethodOptions, object, object, EmitsOptions, string, object, NuxtLinkProps, object, SlotsType<NuxtLinkSlots>>
   });
 }
-const __nuxt_component_0$1 = /* @__PURE__ */ defineNuxtLink(nuxtLinkDefaults);
+const __nuxt_component_0$2 = /* @__PURE__ */ defineNuxtLink(nuxtLinkDefaults);
 function applyTrailingSlashBehavior(to, trailingSlash) {
   const normalizeFn = trailingSlash === "append" ? withTrailingSlash : withoutTrailingSlash;
   const hasProtocolDifferentFromHttp = hasProtocol(to) && !to.startsWith("http");
@@ -8849,7 +8815,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
       return ui.value({ class: props.class, active, disabled: props.disabled });
     }
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_NuxtLink = __nuxt_component_0$1;
+      const _component_NuxtLink = __nuxt_component_0$2;
       _push(ssrRenderComponent(_component_NuxtLink, mergeProps(unref(nuxtLinkProps), { custom: "" }, _attrs), {
         default: withCtx(({ href, navigate, route: linkRoute, rel, target, isExternal, isActive, isExactActive }, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -9637,7 +9603,7 @@ _sfc_main$h.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LangNotice.vue");
   return _sfc_setup$f ? _sfc_setup$f(props, ctx) : void 0;
 };
-const __nuxt_component_1$1 = Object.assign(_sfc_main$h, { __name: "LangNotice" });
+const __nuxt_component_0$1 = Object.assign(_sfc_main$h, { __name: "LangNotice" });
 
 function buildTranslator(locale) {
   return (path, option) => translate(path, option, unref(locale));
@@ -10740,10 +10706,11 @@ _sfc_main$d.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/App.vue");
   return _sfc_setup$b ? _sfc_setup$b(props, ctx) : void 0;
 };
-const __nuxt_component_2 = Object.assign(_sfc_main$d, { __name: "UApp" });
+const __nuxt_component_1$1 = Object.assign(_sfc_main$d, { __name: "UApp" });
 
 const layouts = {
-  default: defineAsyncComponent(() => import('./default.vue.mjs').then((m) => m.default || m))
+  default: defineAsyncComponent(() => import('./default.vue.mjs').then((m) => m.default || m)),
+  service: defineAsyncComponent(() => import('./service.vue2.mjs').then((m) => m.default || m))
 };
 
 const LayoutLoader = defineComponent({
@@ -10767,7 +10734,7 @@ const nuxtLayoutProps = {
     default: null
   }
 };
-const __nuxt_component_3 = defineComponent({
+const __nuxt_component_2 = defineComponent({
   name: "NuxtLayout",
   inheritAttrs: false,
   props: nuxtLayoutProps,
@@ -10881,7 +10848,7 @@ const defineRouteProvider = (name = "RouteProvider") => defineComponent({
 });
 const RouteProvider = defineRouteProvider();
 
-const __nuxt_component_6$1 = defineComponent({
+const __nuxt_component_6 = defineComponent({
   name: "NuxtPage",
   inheritAttrs: false,
   props: {
@@ -13665,7 +13632,7 @@ _sfc_main$7.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Accordion.vue");
   return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
-const __nuxt_component_4 = Object.assign(_sfc_main$7, { __name: "UAccordion" });
+const __nuxt_component_4$1 = Object.assign(_sfc_main$7, { __name: "UAccordion" });
 
 const useCookieNoticeStore = defineStore("cookienotice", {
   state: () => ({
@@ -13760,7 +13727,7 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
       const _component_UCard = __nuxt_component_1;
       const _component_UDropdownMenu = __nuxt_component_0;
       const _component_UButton = __nuxt_component_1$2;
-      const _component_UAccordion = __nuxt_component_4;
+      const _component_UAccordion = __nuxt_component_4$1;
       _push(ssrRenderComponent(_component_UModal, mergeProps({
         open: unref(cookienotice).isOpen,
         "onUpdate:open": ($event) => unref(cookienotice).isOpen = $event,
@@ -14121,7 +14088,7 @@ _sfc_main$6.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/CookieNotice.vue");
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const __nuxt_component_5 = Object.assign(_sfc_main$6, { __name: "CookieNotice" });
+const __nuxt_component_4 = Object.assign(_sfc_main$6, { __name: "CookieNotice" });
 
 const theme$1 = {
   "slots": {
@@ -15215,7 +15182,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
     const { data: notifications } = ([__temp, __restore] = withAsyncContext(() => useFetch("/api/notifications", "$MBnYHJXT6o")), __temp = await __temp, __restore(), __temp);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_USlideover = USlideover;
-      const _component_NuxtLink = __nuxt_component_0$1;
+      const _component_NuxtLink = __nuxt_component_0$2;
       const _component_UChip = UChip;
       const _component_UAvatar = UAvatar;
       _push(ssrRenderComponent(_component_USlideover, mergeProps({
@@ -15351,7 +15318,7 @@ _sfc_main$3.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/NotificationsSlideover.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_6 = Object.assign(_sfc_main$3, { __name: "NotificationsSlideover" });
+const __nuxt_component_5 = Object.assign(_sfc_main$3, { __name: "NotificationsSlideover" });
 
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "app",
@@ -15378,21 +15345,17 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     useSeoMeta({
       ogImage: "/img/brand/og.jpg",
       twitterImage: "/img/brand/og.jpg",
-      twitterCard: "summary_large_image"
+      twitterCard: "summary_large_image",
+      robots: "noindex, nofollow"
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_NuxtLoadingIndicator = __nuxt_component_0$3;
-      const _component_LangNotice = __nuxt_component_1$1;
-      const _component_UApp = __nuxt_component_2;
-      const _component_NuxtLayout = __nuxt_component_3;
-      const _component_NuxtPage = __nuxt_component_6$1;
-      const _component_CookieNotice = __nuxt_component_5;
-      const _component_NotificationsSlideover = __nuxt_component_6;
+      const _component_LangNotice = __nuxt_component_0$1;
+      const _component_UApp = __nuxt_component_1$1;
+      const _component_NuxtLayout = __nuxt_component_2;
+      const _component_NuxtPage = __nuxt_component_6;
+      const _component_CookieNotice = __nuxt_component_4;
+      const _component_NotificationsSlideover = __nuxt_component_5;
       _push(`<!--[-->`);
-      _push(ssrRenderComponent(_component_NuxtLoadingIndicator, {
-        color: "primary",
-        errorColor: "error"
-      }, null, _parent));
       _push(ssrRenderComponent(_component_LangNotice, null, null, _parent));
       _push(ssrRenderComponent(_component_UApp, null, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -15448,7 +15411,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       robots: "noindex, nofollow"
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_NuxtLink = __nuxt_component_0$1;
+      const _component_NuxtLink = __nuxt_component_0$2;
       const _component_UButton = __nuxt_component_1$2;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex items-center justify-center min-h-screen text-center" }, _attrs))}><div><h1 class="text-6xl font-bold mb-2">${ssrInterpolate("Error " + __props.error.statusCode)}</h1><p class="text-xl">${ssrInterpolate(__props.error.statusMessage)}</p>`);
       _push(ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
@@ -15559,5 +15522,5 @@ const server = /*#__PURE__*/Object.freeze({
   default: entry$1
 });
 
-export { looseToNumber as A, useCookie as B, defineLocale as C, en as D, localeContextInjectionKey as E, buildLocaleContext as F, server as G, UAvatar as U, __nuxt_component_6$1 as _, _appConfig as a, useToast as b, __nuxt_component_1$2 as c, __nuxt_component_0 as d, useAppConfig as e, UIcon as f, useState as g, UKbd as h, useDashboard as i, UChip as j, useFormField as k, inputIdInjectionKey as l, formFieldInjectionKey as m, ULink as n, get as o, omit as p, pickLinkProps as q, ULinkBase as r, defineShortcuts as s, tv as t, useLocale as u, UModal as v, USlideover as w, useRoute as x, useButtonGroup as y, useComponentIcons as z };
+export { useButtonGroup as A, useComponentIcons as B, looseToNumber as C, omit as D, defineShortcuts as E, UModal as F, USlideover as G, server as H, UAvatar as U, __nuxt_component_6 as _, _appConfig as a, useToast as b, __nuxt_component_1$2 as c, __nuxt_component_0 as d, useAppConfig as e, UIcon as f, useState as g, useRoute as h, __nuxt_component_0$2 as i, UKbd as j, useDashboard as k, UChip as l, useFormField as m, inputIdInjectionKey as n, formFieldInjectionKey as o, ULink as p, get as q, pickLinkProps as r, ULinkBase as s, tv as t, useLocale as u, useCookie as v, defineLocale as w, en as x, localeContextInjectionKey as y, buildLocaleContext as z };
 //# sourceMappingURL=server.mjs.map

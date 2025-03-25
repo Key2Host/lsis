@@ -1,4 +1,4 @@
-import { f as UIcon, n as ULink, a as _appConfig } from './server.mjs';
+import { f as UIcon, p as ULink, a as _appConfig } from './server.mjs';
 import { defineComponent, useSlots, ref, computed, watch, unref, mergeProps, withCtx, createVNode, createBlock, createCommentVNode, openBlock, renderSlot, createTextVNode, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
