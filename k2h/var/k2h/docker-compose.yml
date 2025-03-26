@@ -32,10 +32,10 @@ services:
         restart: unless-stopped
         networks:
             - network
-    apps-panel:
-        container_name: k2h_panel
+    apps-cp:
+        container_name: k2h_cp
         build:
-            context: ./apps/panel
+            context: ./apps/cp
             dockerfile: Dockerfile
         restart: unless-stopped
         networks:
