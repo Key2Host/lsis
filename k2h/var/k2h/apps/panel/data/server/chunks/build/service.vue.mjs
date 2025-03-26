@@ -1,4 +1,4 @@
-import { h as useRoute, i as __nuxt_component_0, c as __nuxt_component_1, _ as __nuxt_component_6 } from './server.mjs';
+import { i as useRoute, j as __nuxt_component_0, a as __nuxt_component_1, _ as __nuxt_component_6 } from './server.mjs';
 import { _ as __nuxt_component_0$1, a as __nuxt_component_1$1, b as __nuxt_component_3 } from './NotificationIndicator.vue.mjs';
 import { _ as __nuxt_component_4 } from './DashboardToolbar.vue.mjs';
 import { _ as __nuxt_component_5 } from './NavigationMenu.vue.mjs';

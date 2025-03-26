@@ -3,7 +3,7 @@ import { _ as __nuxt_component_4 } from './DashboardSearchButton.vue.mjs';
 import { _ as __nuxt_component_5 } from './NavigationMenu.vue.mjs';
 import { defineComponent, ref, computed, withCtx, unref, isRef, createVNode, renderSlot, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot } from 'vue/server-renderer';
-import { h as useRoute } from './server.mjs';
+import { i as useRoute } from './server.mjs';
 import 'reka-ui';
 import './DashboardSidebarToggle.vue.mjs';
 import './tv.mjs';
@@ -60,6 +60,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         label: "Transaktionen",
         to: "/finances",
         exact: true,
+        onSelect: () => {
+          open.value = false;
+        }
+      }, {
+        label: "Bestellungen",
+        to: "/finances/orders",
         onSelect: () => {
           open.value = false;
         }

@@ -46,6 +46,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       to: "/finances",
       exact: true
     }, {
+      label: "Bestellungen",
+      icon: "i-lucide-logs",
+      to: "/finances/orders",
+      exact: true
+    }, {
       label: "Zahlungsmethoden",
       icon: "i-lucide-hand-coins",
       to: "/finances/payment"

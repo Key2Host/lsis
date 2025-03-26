@@ -690,6 +690,11 @@ const _routes = [
         component: () => import('./index.vue.mjs')
       },
       {
+        name: "finances-orders___de",
+        path: "orders",
+        component: () => import('./orders.vue.mjs')
+      },
+      {
         name: "finances-payment___de",
         path: "payment",
         component: () => import('./payment.vue.mjs')
@@ -705,6 +710,11 @@ const _routes = [
         name: "finances___en",
         path: "",
         component: () => import('./index.vue.mjs')
+      },
+      {
+        name: "finances-orders___en",
+        path: "orders",
+        component: () => import('./orders.vue.mjs')
       },
       {
         name: "finances-payment___en",
@@ -15522,5 +15532,5 @@ const server = /*#__PURE__*/Object.freeze({
   default: entry$1
 });
 
-export { useButtonGroup as A, useComponentIcons as B, looseToNumber as C, omit as D, defineShortcuts as E, UModal as F, USlideover as G, server as H, UAvatar as U, __nuxt_component_6 as _, _appConfig as a, useToast as b, __nuxt_component_1$2 as c, __nuxt_component_0 as d, useAppConfig as e, UIcon as f, useState as g, useRoute as h, __nuxt_component_0$2 as i, UKbd as j, useDashboard as k, UChip as l, useFormField as m, inputIdInjectionKey as n, formFieldInjectionKey as o, ULink as p, get as q, pickLinkProps as r, ULinkBase as s, tv as t, useLocale as u, useCookie as v, defineLocale as w, en as x, localeContextInjectionKey as y, buildLocaleContext as z };
+export { useButtonGroup as A, useComponentIcons as B, looseToNumber as C, omit as D, defineShortcuts as E, UModal as F, USlideover as G, server as H, UIcon as U, __nuxt_component_6 as _, __nuxt_component_1$2 as a, __nuxt_component_0 as b, UAvatar as c, _appConfig as d, useLocale as e, useAppConfig as f, get as g, useState as h, useRoute as i, __nuxt_component_0$2 as j, UKbd as k, useDashboard as l, UChip as m, useFormField as n, inputIdInjectionKey as o, formFieldInjectionKey as p, ULink as q, pickLinkProps as r, ULinkBase as s, tv as t, useToast as u, useCookie as v, defineLocale as w, en as x, localeContextInjectionKey as y, buildLocaleContext as z };
 //# sourceMappingURL=server.mjs.map

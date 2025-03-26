@@ -1,7 +1,7 @@
 import { defineComponent, unref, mergeProps, withCtx, renderSlot, useSSRContext, ref, computed, isRef, watch, toRef, inject } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot } from 'vue/server-renderer';
 import { Primitive, createContext, useForwardProps } from 'reka-ui';
-import { a as _appConfig, v as useCookie, w as defineLocale, x as en$1, y as localeContextInjectionKey, z as buildLocaleContext, e as useAppConfig, c as __nuxt_component_1$1 } from './server.mjs';
+import { d as _appConfig, v as useCookie, w as defineLocale, x as en$1, y as localeContextInjectionKey, z as buildLocaleContext, f as useAppConfig, a as __nuxt_component_1$1 } from './server.mjs';
 import { t as tv } from './tv.mjs';
 import { useStorage, createSharedComposable, reactivePick } from '@vueuse/core';
 

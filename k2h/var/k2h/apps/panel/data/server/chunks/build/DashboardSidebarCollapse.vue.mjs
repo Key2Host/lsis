@@ -1,4 +1,4 @@
-import { e as useAppConfig, c as __nuxt_component_1, a as _appConfig } from './server.mjs';
+import { f as useAppConfig, a as __nuxt_component_1, d as _appConfig } from './server.mjs';
 import { defineComponent, ref, mergeProps, unref, useSSRContext } from 'vue';
 import { ssrRenderComponent } from 'vue/server-renderer';
 import { useForwardProps } from 'reka-ui';

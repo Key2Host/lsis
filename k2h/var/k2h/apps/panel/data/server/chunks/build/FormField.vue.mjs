@@ -1,7 +1,7 @@
 import { defineComponent, useSlots, computed, inject, ref, useId, provide, unref, mergeProps, withCtx, renderSlot, createTextVNode, toDisplayString, createVNode, createBlock, createCommentVNode, openBlock, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate, ssrRenderAttr } from 'vue/server-renderer';
 import { Primitive, Label } from 'reka-ui';
-import { t as tv, n as inputIdInjectionKey, o as formFieldInjectionKey, a as _appConfig } from './server.mjs';
+import { t as tv, o as inputIdInjectionKey, p as formFieldInjectionKey, d as _appConfig } from './server.mjs';
 
 const theme = {
   "slots": {

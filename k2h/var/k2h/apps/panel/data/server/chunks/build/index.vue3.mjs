@@ -1,6 +1,6 @@
 import { _ as __nuxt_component_0 } from './PageCard.vue.mjs';
 import { U as UInput } from './Input.vue.mjs';
-import { t as tv, f as UIcon, U as UAvatar, a as _appConfig, c as __nuxt_component_1 } from './server.mjs';
+import { t as tv, U as UIcon, c as UAvatar, d as _appConfig, a as __nuxt_component_1 } from './server.mjs';
 import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, createVNode, createBlock, createCommentVNode, openBlock, Fragment, renderSlot, toDisplayString, useSSRContext, createTextVNode } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate, ssrRenderAttrs } from 'vue/server-renderer';
 import { useForwardProps, Separator } from 'reka-ui';
@@ -297,7 +297,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   const _component_UButton = __nuxt_component_1;
   const _component_USeparator = __nuxt_component_3;
   const _component_UProgress = __nuxt_component_4;
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex gap-4 h-full flex-col lg:flex-row" }, _attrs))}><div class="w-full lg:w-3/4 h-3/4 lg:h-auto">`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex gap-4 h-full flex-col xl:flex-row" }, _attrs))}><div class="w-full xl:w-3/4 h-[50vh] xl:h-auto">`);
   _push(ssrRenderComponent(_component_UPageCard, {
     variant: "subtle",
     class: "overflow-auto bg-black h-full"
@@ -311,7 +311,8 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
           color: "primary",
           variant: "outline",
           size: "lg",
-          placeholder: "Befehle hier tippen..."
+          placeholder: "Befehle hier tippen...",
+          class: "w-[50vw] min-w-[250px]"
         }, null, _parent2, _scopeId));
         _push2(`</div>`);
       } else {
@@ -327,7 +328,8 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
               color: "primary",
               variant: "outline",
               size: "lg",
-              placeholder: "Befehle hier tippen..."
+              placeholder: "Befehle hier tippen...",
+              class: "w-[50vw] min-w-[250px]"
             })
           ])
         ];
@@ -335,7 +337,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="w-full lg:w-1/4 h-3/4 lg:h-auto">`);
+  _push(`</div><div class="w-full xl:w-1/4">`);
   _push(ssrRenderComponent(_component_UPageCard, { title: "Steuerung" }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -343,8 +345,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
         _push2(ssrRenderComponent(_component_UButton, {
           icon: "i-lucide-circle-play",
           color: "success",
-          variant: "subtle",
-          disabled: ""
+          variant: "subtle"
         }, {
           default: withCtx((_2, _push3, _parent3, _scopeId2) => {
             if (_push3) {
@@ -415,8 +416,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
             createVNode(_component_UButton, {
               icon: "i-lucide-circle-play",
               color: "success",
-              variant: "subtle",
-              disabled: ""
+              variant: "subtle"
             }, {
               default: withCtx(() => [
                 createTextVNode("Starten")
@@ -462,8 +462,11 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
     }),
     _: 1
   }, _parent));
-  _push(ssrRenderComponent(_component_USeparator, { class: "my-5" }, null, _parent));
-  _push(ssrRenderComponent(_component_UPageCard, { title: "Informationen" }, {
+  _push(ssrRenderComponent(_component_USeparator, { class: "my-7.5" }, null, _parent));
+  _push(ssrRenderComponent(_component_UPageCard, {
+    title: "Informationen",
+    class: "mb-5 xl:mb-0"
+  }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
         _push2(`<span class="text-xs -mb-2 block"${_scopeId}>Prozessor (CPU)</span>`);

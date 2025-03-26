@@ -4,7 +4,7 @@ import { _ as __nuxt_component_4$1 } from './DashboardSearchButton.vue.mjs';
 import { defineComponent, unref, mergeProps, withCtx, renderSlot, useSSRContext, useSlots, computed, createVNode, createBlock, createCommentVNode, openBlock, createTextVNode, toDisplayString, Fragment, renderList } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot, ssrRenderClass, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
-import { t as tv, a as _appConfig, u as useLocale, e as useAppConfig, U as UAvatar, f as UIcon, c as __nuxt_component_1, g as useState } from './server.mjs';
+import { t as tv, d as _appConfig, e as useLocale, f as useAppConfig, c as UAvatar, U as UIcon, a as __nuxt_component_1, h as useState } from './server.mjs';
 import { _ as __nuxt_component_0$1 } from './PageCard.vue.mjs';
 import { _ as __nuxt_component_4 } from './Progress.vue.mjs';
 import { _ as __nuxt_component_1$1 } from './Badge.vue.mjs';
@@ -664,7 +664,7 @@ const _sfc_main = {
               _push2(`<div class="w-full md:w-1/2 px-2 mb-4"${_scopeId}>`);
               _push2(ssrRenderComponent(_component_UPageCard, {
                 icon: "i-heroicons-globe-europe-africa",
-                variant: "soft"
+                variant: "subtle"
               }, {
                 title: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
@@ -932,7 +932,7 @@ const _sfc_main = {
                   }, [
                     createVNode(_component_UPageCard, {
                       icon: "i-heroicons-globe-europe-africa",
-                      variant: "soft"
+                      variant: "subtle"
                     }, {
                       title: withCtx(() => [
                         createVNode("span", { class: "text-xl" }, "Webhosting (Small + Domain)")

@@ -1,6 +1,6 @@
 import { _ as __nuxt_component_0 } from './PageCard.vue.mjs';
 import { _ as __nuxt_component_1 } from './Badge.vue.mjs';
-import { c as __nuxt_component_1$1 } from './server.mjs';
+import { a as __nuxt_component_1$1 } from './server.mjs';
 import { withCtx, createTextVNode, createVNode, useSSRContext } from 'vue';
 import { ssrRenderComponent } from 'vue/server-renderer';
 import { _ as _export_sfc } from './_plugin-vue_export-helper.mjs';
