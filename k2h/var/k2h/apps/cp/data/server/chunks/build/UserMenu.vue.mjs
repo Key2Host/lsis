@@ -2,7 +2,7 @@ import { defineComponent, ref, unref, mergeProps, withCtx, renderSlot, useSSRCon
 import { ssrRenderComponent, ssrRenderSlot, ssrRenderClass, ssrRenderList, ssrInterpolate, ssrRenderAttr, ssrRenderStyle } from 'vue/server-renderer';
 import { Primitive, useForwardPropsEmits, useForwardProps, ListboxRoot, ListboxFilter, ListboxContent, ListboxGroup, ListboxGroupLabel, ListboxItem, ListboxItemIndicator } from 'reka-ui';
 import { p as provideDashboardContext, u as useDashboard, a as useLocalePro, b as useResizable, c as __nuxt_component_0$1, _ as __nuxt_component_1$3 } from './DashboardSidebarToggle.vue.mjs';
-import { d as _appConfig, e as useLocale, f as useAppConfig, t as tv$1, a as __nuxt_component_1$2, g as get, D as omit, q as ULink, r as pickLinkProps, s as ULinkBase, U as UIcon, c as UAvatar, m as UChip, k as UKbd, h as useState, E as defineShortcuts, F as UModal, G as USlideover, b as __nuxt_component_0$2 } from './server.mjs';
+import { b as _appConfig, u as useLocale, f as useAppConfig, t as tv$1, d as __nuxt_component_1$2, g as get, r as omit, q as ULink, s as pickLinkProps, v as ULinkBase, U as UIcon, a as UAvatar, m as UChip, k as UKbd, h as useState, w as defineShortcuts, x as UModal, y as USlideover, e as __nuxt_component_0$2 } from './server.mjs';
 import { t as tv } from './tv.mjs';
 import { n as defu } from '../nitro/nitro.mjs';
 import { reactivePick, createReusableTemplate } from '@vueuse/core';

@@ -1,7 +1,7 @@
 import { u as useDashboard, b as useResizable, _ as __nuxt_component_1$1, c as __nuxt_component_0$1 } from './DashboardSidebarToggle.vue.mjs';
 import { defineComponent, useId, toRef, computed, unref, useSSRContext, useSlots, withCtx, mergeProps, renderSlot, createBlock, createCommentVNode, openBlock, createVNode, createTextVNode, toDisplayString, Fragment, renderList } from 'vue';
 import { ssrRenderAttr, ssrRenderClass, ssrRenderStyle, ssrRenderSlot, ssrRenderComponent, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
-import { d as _appConfig, U as UIcon, t as tv$1, k as UKbd, l as useDashboard$1, a as __nuxt_component_1$2, m as UChip } from './server.mjs';
+import { b as _appConfig, U as UIcon, t as tv$1, k as UKbd, l as useDashboard$1, d as __nuxt_component_1$2, m as UChip } from './server.mjs';
 import { t as tv } from './tv.mjs';
 import { Primitive, useForwardPropsEmits, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipContent, TooltipArrow } from 'reka-ui';
 import { createReusableTemplate, reactivePick } from '@vueuse/core';

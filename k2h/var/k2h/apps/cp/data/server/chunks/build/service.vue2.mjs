@@ -3,7 +3,6 @@ import { _ as __nuxt_component_4 } from './DashboardSearchButton.vue.mjs';
 import { _ as __nuxt_component_5 } from './NavigationMenu.vue.mjs';
 import { defineComponent, ref, computed, withCtx, createVNode, renderSlot, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot } from 'vue/server-renderer';
-import { useRoute } from 'vue-router';
 import 'reka-ui';
 import './DashboardSidebarToggle.vue.mjs';
 import './server.mjs';
@@ -20,6 +19,7 @@ import '@iconify/utils';
 import 'consola';
 import 'ipx';
 import 'pinia';
+import 'vue-router';
 import 'deep-pick-omit';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
@@ -42,7 +42,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "service",
   __ssrInlineRender: true,
   setup(__props) {
-    const route = useRoute();
     const open = ref(false);
     const collapsed = ref(true);
     const links = [
@@ -107,48 +106,32 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             }
           ]
         }
-      ],
-      [
-        {
-          label: "Störungen",
-          icon: "i-lucide-bug",
-          to: "https://status.key2host.com",
-          target: "_blank"
-        },
-        {
-          label: "Dokumentation",
-          icon: "i-lucide-message-circle",
-          to: "https://wiki.key2host.com",
-          target: "_blank"
-        },
-        {
-          label: "Hilfe & Support",
-          icon: "i-lucide-info",
-          to: "https://help.key2host.com",
-          target: "_blank"
-        }
       ]
     ];
-    const groups = computed(() => [
-      {
-        id: "links",
-        label: "Go to",
-        items: links.flat()
-      },
-      {
-        id: "code",
-        label: "Code",
-        items: [
-          {
-            id: "source",
-            label: "View page source",
-            icon: "i-simple-icons-github",
-            to: `https://github.com/nuxt-ui-pro/dashboard/blob/main/app/pages${route.path === "/" ? "/index" : route.path}.vue`,
-            target: "_blank"
-          }
-        ]
-      }
-    ]);
+    const groups = computed(() => [{
+      id: "links",
+      label: "Go to",
+      items: links.flat()
+    }, {
+      id: "other",
+      label: "Weiteres",
+      items: [{
+        label: "Störungen",
+        icon: "i-lucide-bug",
+        to: "https://status.key2host.com",
+        target: "_blank"
+      }, {
+        label: "Dokumentation",
+        icon: "i-lucide-message-circle",
+        to: "https://docs.key2host.com",
+        target: "_blank"
+      }, {
+        label: "Hilfe & Support",
+        icon: "i-lucide-info",
+        to: "https://help.key2host.com",
+        target: "_blank"
+      }]
+    }]);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_UDashboardGroup = __nuxt_component_0;
       const _component_UDashboardSearch = __nuxt_component_1;

@@ -41,14 +41,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   __ssrInlineRender: true,
   setup(__props) {
     const links = [[{
-      label: "Transaktionen",
+      label: "Bestellungen",
       icon: "i-lucide-chart-area",
       to: "/finances",
-      exact: true
-    }, {
-      label: "Bestellungen",
-      icon: "i-lucide-logs",
-      to: "/finances/orders",
       exact: true
     }, {
       label: "Zahlungsmethoden",

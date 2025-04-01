@@ -1,7 +1,7 @@
 import { shallowReactive, reactive, effectScope, getCurrentScope, hasInjectionContext, getCurrentInstance, toRef, inject, shallowRef, isReadonly, isRef, isShallow, isReactive, toRaw, defineAsyncComponent, unref, ref, computed, defineComponent, h, Fragment, createVNode, Text, toValue, onServerPrefetch, mergeProps, useSSRContext, useAttrs, provide, watch, withCtx, resolveDynamicComponent, createBlock, renderSlot, openBlock, toDisplayString as toDisplayString$1, resolveComponent, useSlots, createCommentVNode, createTextVNode, nextTick, withModifiers, renderList, markRaw, useId, Suspense, toHandlers, createSlots, mergeModels, useModel, withAsyncContext, onErrorCaptured, createApp } from 'vue';
 import { k as createHooks, l as getContext, h as createError$1, t as toRouteMatcher, m as createRouter, n as defu, s as sanitizeStatusCode, o as executeAsync, q as getRequestHeaders, w as serialize, x as destr, y as klona, z as parse$1, A as getRequestHeader, B as isEqual$1, C as setCookie, D as getCookie, E as deleteCookie, F as defuFn, G as hash } from '../nitro/nitro.mjs';
 import { shouldHydrate, createPinia, setActivePinia, defineStore } from 'pinia';
-import { START_LOCATION, createMemoryHistory, createRouter as createRouter$1, isNavigationFailure, useRoute as useRoute$1, RouterView } from 'vue-router';
+import { START_LOCATION, createMemoryHistory, createRouter as createRouter$1, isNavigationFailure, useRoute as useRoute$1, RouterView, useRouter as useRouter$1 } from 'vue-router';
 import { deepPickUnsafe, deepOmitUnsafe } from 'deep-pick-omit';
 import { u as useHead$1, a as useSeoMeta$1, h as headSymbol } from '../routes/renderer.mjs';
 import { _api, addAPIProvider, setCustomIconsLoader, getIcon, loadIcon as loadIcon$1, Icon } from '@iconify/vue';
@@ -690,11 +690,6 @@ const _routes = [
         component: () => import('./index.vue.mjs')
       },
       {
-        name: "finances-orders___de",
-        path: "orders",
-        component: () => import('./orders.vue.mjs')
-      },
-      {
         name: "finances-payment___de",
         path: "payment",
         component: () => import('./payment.vue.mjs')
@@ -710,11 +705,6 @@ const _routes = [
         name: "finances___en",
         path: "",
         component: () => import('./index.vue.mjs')
-      },
-      {
-        name: "finances-orders___en",
-        path: "orders",
-        component: () => import('./orders.vue.mjs')
       },
       {
         name: "finances-payment___en",
@@ -740,19 +730,9 @@ const _routes = [
     component: () => import('./service.vue.mjs'),
     children: [
       {
-        name: "service-id-backups___de",
-        path: ":id()/backups",
-        component: () => import('./backups.vue.mjs')
-      },
-      {
-        name: "service-id-databases___de",
-        path: ":id()/databases",
-        component: () => import('./databases.vue.mjs')
-      },
-      {
-        name: "service-id-files___de",
-        path: ":id()/files",
-        component: () => import('./files.vue.mjs')
+        name: "service-id-dns___de",
+        path: ":id()/dns",
+        component: () => import('./dns.vue.mjs')
       },
       {
         name: "service-id___de",
@@ -765,14 +745,14 @@ const _routes = [
         component: () => import('./network.vue.mjs')
       },
       {
+        name: "service-id-security___de",
+        path: ":id()/security",
+        component: () => import('./security.vue.mjs')
+      },
+      {
         name: "service-id-settings___de",
         path: ":id()/settings",
         component: () => import('./settings.vue.mjs')
-      },
-      {
-        name: "service-id-tasks___de",
-        path: ":id()/tasks",
-        component: () => import('./tasks.vue.mjs')
       }
     ]
   },
@@ -783,19 +763,9 @@ const _routes = [
     component: () => import('./service.vue.mjs'),
     children: [
       {
-        name: "service-id-backups___en",
-        path: ":id()/backups",
-        component: () => import('./backups.vue.mjs')
-      },
-      {
-        name: "service-id-databases___en",
-        path: ":id()/databases",
-        component: () => import('./databases.vue.mjs')
-      },
-      {
-        name: "service-id-files___en",
-        path: ":id()/files",
-        component: () => import('./files.vue.mjs')
+        name: "service-id-dns___en",
+        path: ":id()/dns",
+        component: () => import('./dns.vue.mjs')
       },
       {
         name: "service-id___en",
@@ -808,14 +778,14 @@ const _routes = [
         component: () => import('./network.vue.mjs')
       },
       {
+        name: "service-id-security___en",
+        path: ":id()/security",
+        component: () => import('./security.vue.mjs')
+      },
+      {
         name: "service-id-settings___en",
         path: ":id()/settings",
         component: () => import('./settings.vue.mjs')
-      },
-      {
-        name: "service-id-tasks___en",
-        path: ":id()/tasks",
-        component: () => import('./tasks.vue.mjs')
       }
     ]
   },
@@ -837,7 +807,7 @@ const _routes = [
       {
         name: "settings-security___de",
         path: "security",
-        component: () => import('./security.vue.mjs')
+        component: () => import('./security.vue2.mjs')
       }
     ]
   },
@@ -859,7 +829,7 @@ const _routes = [
       {
         name: "settings-security___en",
         path: "security",
-        component: () => import('./security.vue.mjs')
+        component: () => import('./security.vue2.mjs')
       }
     ]
   }
@@ -15409,7 +15379,11 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     error: Object
   },
   setup(__props) {
+    const router = useRouter$1();
     const props = __props;
+    const goBack = () => {
+      router.back();
+    };
     const statusCode = computed(() => `Error ${props.error.statusCode}`);
     const statusMessage = computed(() => `Error ${props.error.statusMessage}`);
     console.log("[K2H] Detailed error stack: " + props.error.stack);
@@ -15421,32 +15395,18 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       robots: "noindex, nofollow"
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_NuxtLink = __nuxt_component_0$2;
       const _component_UButton = __nuxt_component_1$2;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex items-center justify-center min-h-screen text-center" }, _attrs))}><div><h1 class="text-6xl font-bold mb-2">${ssrInterpolate("Error " + __props.error.statusCode)}</h1><p class="text-xl">${ssrInterpolate(__props.error.statusMessage)}</p>`);
-      _push(ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
+      _push(ssrRenderComponent(_component_UButton, {
+        class: "mt-6",
+        onClick: ($event) => goBack()
+      }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(ssrRenderComponent(_component_UButton, { class: "mt-6" }, {
-              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-                if (_push3) {
-                  _push3(`Back to Home`);
-                } else {
-                  return [
-                    createTextVNode("Back to Home")
-                  ];
-                }
-              }),
-              _: 1
-            }, _parent2, _scopeId));
+            _push2(`Back to Home`);
           } else {
             return [
-              createVNode(_component_UButton, { class: "mt-6" }, {
-                default: withCtx(() => [
-                  createTextVNode("Back to Home")
-                ]),
-                _: 1
-              })
+              createTextVNode("Back to Home")
             ];
           }
         }),
@@ -15532,5 +15492,5 @@ const server = /*#__PURE__*/Object.freeze({
   default: entry$1
 });
 
-export { useButtonGroup as A, useComponentIcons as B, looseToNumber as C, omit as D, defineShortcuts as E, UModal as F, USlideover as G, server as H, UIcon as U, __nuxt_component_6 as _, __nuxt_component_1$2 as a, __nuxt_component_0 as b, UAvatar as c, _appConfig as d, useLocale as e, useAppConfig as f, get as g, useState as h, useRoute as i, __nuxt_component_0$2 as j, UKbd as k, useDashboard as l, UChip as m, useFormField as n, inputIdInjectionKey as o, formFieldInjectionKey as p, ULink as q, pickLinkProps as r, ULinkBase as s, tv as t, useToast as u, useCookie as v, defineLocale as w, en as x, localeContextInjectionKey as y, buildLocaleContext as z };
+export { useComponentIcons as A, looseToNumber as B, useCookie as C, defineLocale as D, en as E, localeContextInjectionKey as F, buildLocaleContext as G, server as H, UIcon as U, __nuxt_component_6 as _, UAvatar as a, _appConfig as b, useToast as c, __nuxt_component_1$2 as d, __nuxt_component_0 as e, useAppConfig as f, get as g, useState as h, useRoute as i, __nuxt_component_0$2 as j, UKbd as k, useDashboard as l, UChip as m, useFormField as n, inputIdInjectionKey as o, formFieldInjectionKey as p, ULink as q, omit as r, pickLinkProps as s, tv as t, useLocale as u, ULinkBase as v, defineShortcuts as w, UModal as x, USlideover as y, useButtonGroup as z };
 //# sourceMappingURL=server.mjs.map

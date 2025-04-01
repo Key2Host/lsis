@@ -42,7 +42,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "default",
   __ssrInlineRender: true,
   setup(__props) {
-    const route = useRoute();
+    useRoute();
     const open = ref(false);
     const links = [[{
       label: "Übersicht",
@@ -57,15 +57,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       to: "/finances",
       icon: "i-lucide-credit-card",
       children: [{
-        label: "Transaktionen",
+        label: "Bestellungen",
         to: "/finances",
         exact: true,
-        onSelect: () => {
-          open.value = false;
-        }
-      }, {
-        label: "Bestellungen",
-        to: "/finances/orders",
         onSelect: () => {
           open.value = false;
         }
@@ -100,34 +94,28 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           open.value = false;
         }
       }]
-    }], [{
-      label: "Störungen",
-      icon: "i-lucide-bug",
-      to: "https://status.key2host.com",
-      target: "_blank"
-    }, {
-      label: "Dokumentation",
-      icon: "i-lucide-message-circle",
-      to: "https://wiki.key2host.com",
-      target: "_blank"
-    }, {
-      label: "Hilfe & Support",
-      icon: "i-lucide-info",
-      to: "https://help.key2host.com",
-      target: "_blank"
     }]];
     const groups = computed(() => [{
       id: "links",
       label: "Go to",
       items: links.flat()
     }, {
-      id: "code",
-      label: "Code",
+      id: "other",
+      label: "Weiteres",
       items: [{
-        id: "source",
-        label: "View page source",
-        icon: "i-simple-icons-github",
-        to: `https://github.com/nuxt-ui-pro/dashboard/blob/main/app/pages${route.path === "/" ? "/index" : route.path}.vue`,
+        label: "Störungen",
+        icon: "i-lucide-bug",
+        to: "https://status.key2host.com",
+        target: "_blank"
+      }, {
+        label: "Dokumentation",
+        icon: "i-lucide-message-circle",
+        to: "https://docs.key2host.com",
+        target: "_blank"
+      }, {
+        label: "Hilfe & Support",
+        icon: "i-lucide-info",
+        to: "https://help.key2host.com",
         target: "_blank"
       }]
     }]);

@@ -4,7 +4,7 @@ import { _ as __nuxt_component_4$1 } from './DashboardSearchButton.vue.mjs';
 import { defineComponent, unref, mergeProps, withCtx, renderSlot, useSSRContext, useSlots, computed, createVNode, createBlock, createCommentVNode, openBlock, createTextVNode, toDisplayString, Fragment, renderList } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot, ssrRenderClass, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
-import { t as tv, d as _appConfig, e as useLocale, f as useAppConfig, c as UAvatar, U as UIcon, a as __nuxt_component_1, h as useState } from './server.mjs';
+import { t as tv, b as _appConfig, u as useLocale, f as useAppConfig, a as UAvatar, U as UIcon, d as __nuxt_component_1, h as useState } from './server.mjs';
 import { _ as __nuxt_component_0$1 } from './PageCard.vue.mjs';
 import { _ as __nuxt_component_4 } from './Progress.vue.mjs';
 import { _ as __nuxt_component_1$1 } from './Badge.vue.mjs';

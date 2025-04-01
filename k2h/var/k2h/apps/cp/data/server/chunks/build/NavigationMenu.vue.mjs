@@ -2,7 +2,7 @@ import { defineComponent, useSlots, unref, mergeProps, withCtx, renderSlot, crea
 import { ssrRenderComponent, ssrRenderSlot, ssrRenderClass, ssrInterpolate, ssrRenderVNode, ssrRenderList } from 'vue/server-renderer';
 import { useForwardPropsEmits, CollapsibleRoot, CollapsibleTrigger, CollapsibleContent, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuLink, NavigationMenuContent, NavigationMenuRoot, NavigationMenuList, NavigationMenuIndicator, NavigationMenuViewport } from 'reka-ui';
 import { reactivePick, createReusableTemplate } from '@vueuse/core';
-import { t as tv, d as _appConfig, f as useAppConfig, c as UAvatar, U as UIcon, g as get, q as ULink, r as pickLinkProps, s as ULinkBase } from './server.mjs';
+import { t as tv, b as _appConfig, f as useAppConfig, a as UAvatar, U as UIcon, g as get, q as ULink, s as pickLinkProps, v as ULinkBase } from './server.mjs';
 import { _ as __nuxt_component_1 } from './Badge.vue.mjs';
 
 const theme$1 = {

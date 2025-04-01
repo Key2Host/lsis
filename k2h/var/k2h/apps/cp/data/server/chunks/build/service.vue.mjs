@@ -1,8 +1,8 @@
-import { i as useRoute, j as __nuxt_component_0, a as __nuxt_component_1, _ as __nuxt_component_6 } from './server.mjs';
+import { i as useRoute, j as __nuxt_component_0, d as __nuxt_component_1, _ as __nuxt_component_6 } from './server.mjs';
 import { _ as __nuxt_component_0$1, a as __nuxt_component_1$1, b as __nuxt_component_3 } from './NotificationIndicator.vue.mjs';
 import { _ as __nuxt_component_4 } from './DashboardToolbar.vue.mjs';
 import { _ as __nuxt_component_5 } from './NavigationMenu.vue.mjs';
-import { defineComponent, mergeProps, withCtx, createTextVNode, createVNode, useSSRContext } from 'vue';
+import { defineComponent, ref, computed, mergeProps, withCtx, createTextVNode, createVNode, unref, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent } from 'vue/server-renderer';
 import '../nitro/nitro.mjs';
 import 'node:http';
@@ -42,7 +42,44 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const route = useRoute();
     const serviceId = route.params.id;
     const isValid = serviceId == "1";
-    const links = [[
+    const type = ref(1);
+    const linksWebspace = [
+      [
+        {
+          label: "Übersicht",
+          icon: "i-lucide-server",
+          to: "/service/" + serviceId,
+          exact: true
+        },
+        {
+          label: "Einstellungen",
+          icon: "i-lucide-cog",
+          to: "/service/" + serviceId + "/settings"
+        }
+      ]
+    ];
+    const linksDomain = [
+      [
+        {
+          label: "Übersicht",
+          icon: "i-lucide-server",
+          to: "/service/" + serviceId,
+          exact: true
+        },
+        {
+          label: "DNS",
+          icon: "i-lucide-globe",
+          to: "/service/" + serviceId + "/dns",
+          exact: true
+        },
+        {
+          label: "Einstellungen",
+          icon: "i-lucide-cog",
+          to: "/service/" + serviceId + "/settings"
+        }
+      ]
+    ];
+    const linksVPSROOT = [[
       {
         label: "Übersicht",
         icon: "i-lucide-server",
@@ -50,24 +87,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         exact: true
       },
       {
-        label: "Datenbanken",
-        icon: "i-lucide-database",
-        to: "/service/" + serviceId + "/databases"
-      },
-      {
-        label: "Dateien",
-        icon: "i-lucide-folders",
-        to: "/service/" + serviceId + "/files"
-      },
-      {
-        label: "Backups",
-        icon: "i-lucide-save",
-        to: "/service/" + serviceId + "/backups"
-      },
-      {
-        label: "Aufgaben",
-        icon: "i-lucide-circle-check-big",
-        to: "/service/" + serviceId + "/tasks"
+        label: "Sicherheit",
+        icon: "i-lucide-lock",
+        to: "/service/" + serviceId + "/security"
       },
       {
         label: "Netzwerk",
@@ -80,6 +102,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         to: "/service/" + serviceId + "/settings"
       }
     ]];
+    const navMenu = computed(() => {
+      if (type.value == 0) return linksWebspace;
+      if (type.value == 1) return linksDomain;
+      if (type.value == 2) return linksVPSROOT;
+      return null;
+    });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0;
       const _component_UButton = __nuxt_component_1;
@@ -127,7 +155,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }, _attrs), {
           header: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(ssrRenderComponent(_component_UDashboardNavbar, { title: "Einstellungen" }, {
+              _push2(ssrRenderComponent(_component_UDashboardNavbar, { title: "Webspace (#123123)" }, {
                 right: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
                     _push3(ssrRenderComponent(_component_NotificationIndicator, null, null, _parent3, _scopeId2));
@@ -143,7 +171,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
                     _push3(ssrRenderComponent(_component_UNavigationMenu, {
-                      items: links,
+                      items: unref(navMenu),
                       highlight: "",
                       class: "-mx-1 flex-1"
                     }, null, _parent3, _scopeId2));
@@ -165,10 +193,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   } else {
                     return [
                       createVNode(_component_UNavigationMenu, {
-                        items: links,
+                        items: unref(navMenu),
                         highlight: "",
                         class: "-mx-1 flex-1"
-                      }),
+                      }, null, 8, ["items"]),
                       createVNode(_component_UButton, {
                         icon: "i-lucide-square-chevron-left",
                         to: "/"
@@ -185,7 +213,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               }, _parent2, _scopeId));
             } else {
               return [
-                createVNode(_component_UDashboardNavbar, { title: "Einstellungen" }, {
+                createVNode(_component_UDashboardNavbar, { title: "Webspace (#123123)" }, {
                   right: withCtx(() => [
                     createVNode(_component_NotificationIndicator)
                   ]),
@@ -194,10 +222,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 createVNode(_component_UDashboardToolbar, null, {
                   default: withCtx(() => [
                     createVNode(_component_UNavigationMenu, {
-                      items: links,
+                      items: unref(navMenu),
                       highlight: "",
                       class: "-mx-1 flex-1"
-                    }),
+                    }, null, 8, ["items"]),
                     createVNode(_component_UButton, {
                       icon: "i-lucide-square-chevron-left",
                       to: "/"

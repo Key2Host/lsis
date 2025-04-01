@@ -2,7 +2,7 @@ import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, create
 import { ssrRenderComponent, ssrRenderClass, ssrRenderStyle, ssrRenderSlot, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import { useForwardPropsEmits, Primitive, ProgressRoot, ProgressIndicator } from 'reka-ui';
 import { reactivePick } from '@vueuse/core';
-import { e as useLocale, t as tv, d as _appConfig } from './server.mjs';
+import { u as useLocale, t as tv, b as _appConfig } from './server.mjs';
 
 const theme = {
   "slots": {

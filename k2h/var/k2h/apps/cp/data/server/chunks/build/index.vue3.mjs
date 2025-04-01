@@ -1,12 +1,11 @@
 import { _ as __nuxt_component_0 } from './PageCard.vue.mjs';
+import { t as tv, U as UIcon, a as UAvatar, b as _appConfig, d as __nuxt_component_1 } from './server.mjs';
 import { U as UInput } from './Input.vue.mjs';
-import { t as tv, U as UIcon, c as UAvatar, d as _appConfig, a as __nuxt_component_1 } from './server.mjs';
-import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, createVNode, createBlock, createCommentVNode, openBlock, Fragment, renderSlot, toDisplayString, useSSRContext, createTextVNode } from 'vue';
+import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, createVNode, createBlock, createCommentVNode, openBlock, Fragment, renderSlot, toDisplayString, useSSRContext, ref, createTextVNode } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate, ssrRenderAttrs } from 'vue/server-renderer';
 import { useForwardProps, Separator } from 'reka-ui';
 import { reactivePick } from '@vueuse/core';
 import { _ as __nuxt_component_4 } from './Progress.vue.mjs';
-import { _ as _export_sfc } from './_plugin-vue_export-helper.mjs';
 import './tv.mjs';
 import 'tailwind-variants';
 import '../nitro/nitro.mjs';
@@ -290,307 +289,655 @@ _sfc_main$1.setup = (props, ctx) => {
 };
 const __nuxt_component_3 = Object.assign(_sfc_main$1, { __name: "USeparator" });
 
-const _sfc_main = {};
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_UPageCard = __nuxt_component_0;
-  const _component_UInput = UInput;
-  const _component_UButton = __nuxt_component_1;
-  const _component_USeparator = __nuxt_component_3;
-  const _component_UProgress = __nuxt_component_4;
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex gap-4 h-full flex-col xl:flex-row" }, _attrs))}><div class="w-full xl:w-3/4 h-[50vh] xl:h-auto">`);
-  _push(ssrRenderComponent(_component_UPageCard, {
-    variant: "subtle",
-    class: "overflow-auto bg-black h-full"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="row p-2 d-flex text-white overflow-auto"${_scopeId}><div class="col-12"${_scopeId}>${ssrInterpolate("[" + new Date(Date.now() - 1e3).toISOString().substr(11, 8) + " UTC]")} Connecting to server...</div><div class="col-12"${_scopeId}>${ssrInterpolate("[" + (/* @__PURE__ */ new Date()).toISOString().substr(11, 8) + " UTC]")} Your server is not responding. Please check again later or contact the support team.</div></div><div class="mt-auto mx-auto"${_scopeId}>`);
-        _push2(ssrRenderComponent(_component_UInput, {
-          type: "text",
-          autofocus: "",
-          color: "primary",
-          variant: "outline",
-          size: "lg",
-          placeholder: "Befehle hier tippen...",
-          class: "w-[50vw] min-w-[250px]"
-        }, null, _parent2, _scopeId));
-        _push2(`</div>`);
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "index",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const mode = ref(1);
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_UPageCard = __nuxt_component_0;
+      const _component_UButton = __nuxt_component_1;
+      const _component_UInput = UInput;
+      const _component_USeparator = __nuxt_component_3;
+      const _component_UProgress = __nuxt_component_4;
+      if (unref(mode) == 0) {
+        _push(`<div${ssrRenderAttrs(_attrs)}><div class="flex justify-center">`);
+        _push(ssrRenderComponent(_component_UPageCard, {
+          variant: "subtle",
+          class: "h-full w-[50vw]"
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<div class="flex gap-4 h-full flex-col xl:flex-row"${_scopeId}><div class="w-full xl:w-1/2 h-[50vh] xl:h-auto"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UPageCard, { variant: "subtle" }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`IP-Adresse:<br${_scopeId2}>0.0.0.0`);
+                  } else {
+                    return [
+                      createTextVNode("IP-Adresse:"),
+                      createVNode("br"),
+                      createTextVNode("0.0.0.0")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`</div><div class="w-full xl:w-1/2 h-[50vh] xl:h-auto"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UPageCard, { variant: "subtle" }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`Paket:<br${_scopeId2}>WebPro`);
+                  } else {
+                    return [
+                      createTextVNode("Paket:"),
+                      createVNode("br"),
+                      createTextVNode("WebPro")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`</div></div><div class="flex gap-4 h-full flex-col xl:flex-row"${_scopeId}><div class="w-full xl:w-1/2 h-[50vh] xl:h-auto"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UPageCard, { variant: "subtle" }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`<span${_scopeId2}>Benutzername:<br${_scopeId2}>k2h-000000</span>`);
+                  } else {
+                    return [
+                      createVNode("span", null, [
+                        createTextVNode("Benutzername:"),
+                        createVNode("br"),
+                        createTextVNode("k2h-000000")
+                      ])
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`</div><div class="w-full xl:w-1/2 h-[50vh] xl:h-auto"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UPageCard, { variant: "subtle" }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`<div class="flex items-center justify-between"${_scopeId2}><span${_scopeId2}>Passwort:<br${_scopeId2}>****************</span>`);
+                    _push3(ssrRenderComponent(_component_UButton, {
+                      icon: "i-heroicons-pencil",
+                      variant: "ghost"
+                    }, null, _parent3, _scopeId2));
+                    _push3(`</div>`);
+                  } else {
+                    return [
+                      createVNode("div", { class: "flex items-center justify-between" }, [
+                        createVNode("span", null, [
+                          createTextVNode("Passwort:"),
+                          createVNode("br"),
+                          createTextVNode("****************")
+                        ]),
+                        createVNode(_component_UButton, {
+                          icon: "i-heroicons-pencil",
+                          variant: "ghost"
+                        })
+                      ])
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`</div></div>`);
+              _push2(ssrRenderComponent(_component_UButton, {
+                variant: "subtle",
+                color: "neutral",
+                size: "xl",
+                icon: "i-lucide-rocket",
+                block: ""
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(` Verwaltung öffnen `);
+                  } else {
+                    return [
+                      createTextVNode(" Verwaltung öffnen ")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+            } else {
+              return [
+                createVNode("div", { class: "flex gap-4 h-full flex-col xl:flex-row" }, [
+                  createVNode("div", { class: "w-full xl:w-1/2 h-[50vh] xl:h-auto" }, [
+                    createVNode(_component_UPageCard, { variant: "subtle" }, {
+                      default: withCtx(() => [
+                        createTextVNode("IP-Adresse:"),
+                        createVNode("br"),
+                        createTextVNode("0.0.0.0")
+                      ]),
+                      _: 1
+                    })
+                  ]),
+                  createVNode("div", { class: "w-full xl:w-1/2 h-[50vh] xl:h-auto" }, [
+                    createVNode(_component_UPageCard, { variant: "subtle" }, {
+                      default: withCtx(() => [
+                        createTextVNode("Paket:"),
+                        createVNode("br"),
+                        createTextVNode("WebPro")
+                      ]),
+                      _: 1
+                    })
+                  ])
+                ]),
+                createVNode("div", { class: "flex gap-4 h-full flex-col xl:flex-row" }, [
+                  createVNode("div", { class: "w-full xl:w-1/2 h-[50vh] xl:h-auto" }, [
+                    createVNode(_component_UPageCard, { variant: "subtle" }, {
+                      default: withCtx(() => [
+                        createVNode("span", null, [
+                          createTextVNode("Benutzername:"),
+                          createVNode("br"),
+                          createTextVNode("k2h-000000")
+                        ])
+                      ]),
+                      _: 1
+                    })
+                  ]),
+                  createVNode("div", { class: "w-full xl:w-1/2 h-[50vh] xl:h-auto" }, [
+                    createVNode(_component_UPageCard, { variant: "subtle" }, {
+                      default: withCtx(() => [
+                        createVNode("div", { class: "flex items-center justify-between" }, [
+                          createVNode("span", null, [
+                            createTextVNode("Passwort:"),
+                            createVNode("br"),
+                            createTextVNode("****************")
+                          ]),
+                          createVNode(_component_UButton, {
+                            icon: "i-heroicons-pencil",
+                            variant: "ghost"
+                          })
+                        ])
+                      ]),
+                      _: 1
+                    })
+                  ])
+                ]),
+                createVNode(_component_UButton, {
+                  variant: "subtle",
+                  color: "neutral",
+                  size: "xl",
+                  icon: "i-lucide-rocket",
+                  block: ""
+                }, {
+                  default: withCtx(() => [
+                    createTextVNode(" Verwaltung öffnen ")
+                  ]),
+                  _: 1
+                })
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`</div></div>`);
+      } else if (unref(mode) == 1) {
+        _push(`<div${ssrRenderAttrs(_attrs)}><div class="flex justify-center">`);
+        _push(ssrRenderComponent(_component_UPageCard, {
+          variant: "subtle",
+          class: "h-full w-[50vw]"
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<div class="flex gap-4 h-full flex-col xl:flex-row items-stretch"${_scopeId}><div class="w-full xl:w-1/2 flex"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UPageCard, {
+                variant: "subtle",
+                class: "flex-1"
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`Domain:<br${_scopeId2}>example.org`);
+                  } else {
+                    return [
+                      createTextVNode("Domain:"),
+                      createVNode("br"),
+                      createTextVNode("example.org")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`</div><div class="w-full xl:w-1/2 flex"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UPageCard, {
+                variant: "subtle",
+                class: "flex-1"
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`Nameserver:<br${_scopeId2}>ns1.key2host.com<br${_scopeId2}>ns2.key2host.com `);
+                  } else {
+                    return [
+                      createTextVNode("Nameserver:"),
+                      createVNode("br"),
+                      createTextVNode("ns1.key2host.com"),
+                      createVNode("br"),
+                      createTextVNode("ns2.key2host.com ")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`</div></div><div class="flex gap-4 h-full flex-col xl:flex-row"${_scopeId}><div class="w-full xl:w-1/2 h-[50vh] xl:h-auto"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UPageCard, { variant: "subtle" }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`<span${_scopeId2}>Registriert am:<br${_scopeId2}>01.01.1990</span>`);
+                  } else {
+                    return [
+                      createVNode("span", null, [
+                        createTextVNode("Registriert am:"),
+                        createVNode("br"),
+                        createTextVNode("01.01.1990")
+                      ])
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`</div><div class="w-full xl:w-1/2 h-[50vh] xl:h-auto"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UPageCard, { variant: "subtle" }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`<div class="flex items-center justify-between"${_scopeId2}><span${_scopeId2}>Auth-Code:<br${_scopeId2}>****************</span>`);
+                    _push3(ssrRenderComponent(_component_UButton, {
+                      icon: "i-heroicons-eye",
+                      variant: "ghost"
+                    }, null, _parent3, _scopeId2));
+                    _push3(`</div>`);
+                  } else {
+                    return [
+                      createVNode("div", { class: "flex items-center justify-between" }, [
+                        createVNode("span", null, [
+                          createTextVNode("Auth-Code:"),
+                          createVNode("br"),
+                          createTextVNode("****************")
+                        ]),
+                        createVNode(_component_UButton, {
+                          icon: "i-heroicons-eye",
+                          variant: "ghost"
+                        })
+                      ])
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`</div></div>`);
+            } else {
+              return [
+                createVNode("div", { class: "flex gap-4 h-full flex-col xl:flex-row items-stretch" }, [
+                  createVNode("div", { class: "w-full xl:w-1/2 flex" }, [
+                    createVNode(_component_UPageCard, {
+                      variant: "subtle",
+                      class: "flex-1"
+                    }, {
+                      default: withCtx(() => [
+                        createTextVNode("Domain:"),
+                        createVNode("br"),
+                        createTextVNode("example.org")
+                      ]),
+                      _: 1
+                    })
+                  ]),
+                  createVNode("div", { class: "w-full xl:w-1/2 flex" }, [
+                    createVNode(_component_UPageCard, {
+                      variant: "subtle",
+                      class: "flex-1"
+                    }, {
+                      default: withCtx(() => [
+                        createTextVNode("Nameserver:"),
+                        createVNode("br"),
+                        createTextVNode("ns1.key2host.com"),
+                        createVNode("br"),
+                        createTextVNode("ns2.key2host.com ")
+                      ]),
+                      _: 1
+                    })
+                  ])
+                ]),
+                createVNode("div", { class: "flex gap-4 h-full flex-col xl:flex-row" }, [
+                  createVNode("div", { class: "w-full xl:w-1/2 h-[50vh] xl:h-auto" }, [
+                    createVNode(_component_UPageCard, { variant: "subtle" }, {
+                      default: withCtx(() => [
+                        createVNode("span", null, [
+                          createTextVNode("Registriert am:"),
+                          createVNode("br"),
+                          createTextVNode("01.01.1990")
+                        ])
+                      ]),
+                      _: 1
+                    })
+                  ]),
+                  createVNode("div", { class: "w-full xl:w-1/2 h-[50vh] xl:h-auto" }, [
+                    createVNode(_component_UPageCard, { variant: "subtle" }, {
+                      default: withCtx(() => [
+                        createVNode("div", { class: "flex items-center justify-between" }, [
+                          createVNode("span", null, [
+                            createTextVNode("Auth-Code:"),
+                            createVNode("br"),
+                            createTextVNode("****************")
+                          ]),
+                          createVNode(_component_UButton, {
+                            icon: "i-heroicons-eye",
+                            variant: "ghost"
+                          })
+                        ])
+                      ]),
+                      _: 1
+                    })
+                  ])
+                ])
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`</div></div>`);
+      } else if (unref(mode) == 2) {
+        _push(`<div${ssrRenderAttrs(_attrs)}><div class="flex gap-4 h-full flex-col xl:flex-row"><div class="w-full xl:w-3/4 h-[50vh] xl:h-auto">`);
+        _push(ssrRenderComponent(_component_UPageCard, {
+          variant: "subtle",
+          class: "overflow-auto bg-black h-full"
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<div class="row p-2 d-flex text-white overflow-auto"${_scopeId}><div class="col-12"${_scopeId}>${ssrInterpolate("[" + new Date(Date.now() - 1e3).toISOString().substr(11, 8) + " UTC]")} Connecting to server...</div><div class="col-12"${_scopeId}>${ssrInterpolate("[" + (/* @__PURE__ */ new Date()).toISOString().substr(11, 8) + " UTC]")} Your server is not responding. Please check again later or contact the support team.</div></div><div class="mt-auto mx-auto"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UInput, {
+                type: "text",
+                autofocus: "",
+                color: "primary",
+                variant: "outline",
+                size: "lg",
+                placeholder: "Befehle hier tippen...",
+                class: "w-[50vw] min-w-[250px]"
+              }, null, _parent2, _scopeId));
+              _push2(`</div>`);
+            } else {
+              return [
+                createVNode("div", { class: "row p-2 d-flex text-white overflow-auto" }, [
+                  createVNode("div", { class: "col-12" }, toDisplayString("[" + new Date(Date.now() - 1e3).toISOString().substr(11, 8) + " UTC]") + " Connecting to server...", 1),
+                  createVNode("div", { class: "col-12" }, toDisplayString("[" + (/* @__PURE__ */ new Date()).toISOString().substr(11, 8) + " UTC]") + " Your server is not responding. Please check again later or contact the support team.", 1)
+                ]),
+                createVNode("div", { class: "mt-auto mx-auto" }, [
+                  createVNode(_component_UInput, {
+                    type: "text",
+                    autofocus: "",
+                    color: "primary",
+                    variant: "outline",
+                    size: "lg",
+                    placeholder: "Befehle hier tippen...",
+                    class: "w-[50vw] min-w-[250px]"
+                  })
+                ])
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`</div><div class="w-full xl:w-1/4">`);
+        _push(ssrRenderComponent(_component_UPageCard, { title: "Steuerung" }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<div class="grid grid-cols-1 sm:grid-cols-2 gap-2"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UButton, {
+                icon: "i-lucide-circle-play",
+                color: "success",
+                variant: "subtle"
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`Starten`);
+                  } else {
+                    return [
+                      createTextVNode("Starten")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(ssrRenderComponent(_component_UButton, {
+                icon: "i-lucide-circle-pause",
+                color: "warning",
+                variant: "subtle",
+                disabled: ""
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`Reset`);
+                  } else {
+                    return [
+                      createTextVNode("Reset")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(ssrRenderComponent(_component_UButton, {
+                icon: "i-lucide-circle-slash",
+                color: "error",
+                variant: "subtle",
+                disabled: ""
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`Stop`);
+                  } else {
+                    return [
+                      createTextVNode("Stop")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(ssrRenderComponent(_component_UButton, {
+                icon: "i-lucide-zap",
+                color: "info",
+                variant: "subtle",
+                disabled: ""
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`Kill`);
+                  } else {
+                    return [
+                      createTextVNode("Kill")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`</div>`);
+            } else {
+              return [
+                createVNode("div", { class: "grid grid-cols-1 sm:grid-cols-2 gap-2" }, [
+                  createVNode(_component_UButton, {
+                    icon: "i-lucide-circle-play",
+                    color: "success",
+                    variant: "subtle"
+                  }, {
+                    default: withCtx(() => [
+                      createTextVNode("Starten")
+                    ]),
+                    _: 1
+                  }),
+                  createVNode(_component_UButton, {
+                    icon: "i-lucide-circle-pause",
+                    color: "warning",
+                    variant: "subtle",
+                    disabled: ""
+                  }, {
+                    default: withCtx(() => [
+                      createTextVNode("Reset")
+                    ]),
+                    _: 1
+                  }),
+                  createVNode(_component_UButton, {
+                    icon: "i-lucide-circle-slash",
+                    color: "error",
+                    variant: "subtle",
+                    disabled: ""
+                  }, {
+                    default: withCtx(() => [
+                      createTextVNode("Stop")
+                    ]),
+                    _: 1
+                  }),
+                  createVNode(_component_UButton, {
+                    icon: "i-lucide-zap",
+                    color: "info",
+                    variant: "subtle",
+                    disabled: ""
+                  }, {
+                    default: withCtx(() => [
+                      createTextVNode("Kill")
+                    ]),
+                    _: 1
+                  })
+                ])
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(ssrRenderComponent(_component_USeparator, { class: "my-7.5" }, null, _parent));
+        _push(ssrRenderComponent(_component_UPageCard, {
+          title: "Informationen",
+          class: "mb-5 xl:mb-0"
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<span class="text-xs -mb-2 block"${_scopeId}>Prozessor (CPU)</span>`);
+              _push2(ssrRenderComponent(_component_UProgress, {
+                modelValue: 31,
+                max: 100,
+                size: "lg"
+              }, null, _parent2, _scopeId));
+              _push2(`<span class="text-xs -mb-2 block"${_scopeId}>Arbeitsspeicher (RAM)</span>`);
+              _push2(ssrRenderComponent(_component_UProgress, {
+                modelValue: 64,
+                max: 100,
+                size: "lg"
+              }, null, _parent2, _scopeId));
+              _push2(`<span class="text-xs -mb-2 block"${_scopeId}>Speicherauslastung</span>`);
+              _push2(ssrRenderComponent(_component_UProgress, {
+                modelValue: 12,
+                max: 100,
+                size: "lg"
+              }, null, _parent2, _scopeId));
+              _push2(`<span class="text-xs -mb-2 block"${_scopeId}>Traffic</span>`);
+              _push2(ssrRenderComponent(_component_UProgress, {
+                modelValue: 4,
+                max: 100,
+                size: "lg"
+              }, null, _parent2, _scopeId));
+              _push2(ssrRenderComponent(_component_USeparator, { class: "my-2" }, null, _parent2, _scopeId));
+              _push2(ssrRenderComponent(_component_UButton, {
+                icon: "i-lucide-zap",
+                color: "info",
+                variant: "subtle",
+                disabled: ""
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`Produkt Up/Downgrade`);
+                  } else {
+                    return [
+                      createTextVNode("Produkt Up/Downgrade")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(ssrRenderComponent(_component_UButton, {
+                icon: "i-lucide-zap",
+                color: "info",
+                variant: "subtle",
+                disabled: ""
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`Kündigen`);
+                  } else {
+                    return [
+                      createTextVNode("Kündigen")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+            } else {
+              return [
+                createVNode("span", { class: "text-xs -mb-2 block" }, "Prozessor (CPU)"),
+                createVNode(_component_UProgress, {
+                  modelValue: 31,
+                  max: 100,
+                  size: "lg"
+                }),
+                createVNode("span", { class: "text-xs -mb-2 block" }, "Arbeitsspeicher (RAM)"),
+                createVNode(_component_UProgress, {
+                  modelValue: 64,
+                  max: 100,
+                  size: "lg"
+                }),
+                createVNode("span", { class: "text-xs -mb-2 block" }, "Speicherauslastung"),
+                createVNode(_component_UProgress, {
+                  modelValue: 12,
+                  max: 100,
+                  size: "lg"
+                }),
+                createVNode("span", { class: "text-xs -mb-2 block" }, "Traffic"),
+                createVNode(_component_UProgress, {
+                  modelValue: 4,
+                  max: 100,
+                  size: "lg"
+                }),
+                createVNode(_component_USeparator, { class: "my-2" }),
+                createVNode(_component_UButton, {
+                  icon: "i-lucide-zap",
+                  color: "info",
+                  variant: "subtle",
+                  disabled: ""
+                }, {
+                  default: withCtx(() => [
+                    createTextVNode("Produkt Up/Downgrade")
+                  ]),
+                  _: 1
+                }),
+                createVNode(_component_UButton, {
+                  icon: "i-lucide-zap",
+                  color: "info",
+                  variant: "subtle",
+                  disabled: ""
+                }, {
+                  default: withCtx(() => [
+                    createTextVNode("Kündigen")
+                  ]),
+                  _: 1
+                })
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`</div></div></div>`);
       } else {
-        return [
-          createVNode("div", { class: "row p-2 d-flex text-white overflow-auto" }, [
-            createVNode("div", { class: "col-12" }, toDisplayString("[" + new Date(Date.now() - 1e3).toISOString().substr(11, 8) + " UTC]") + " Connecting to server...", 1),
-            createVNode("div", { class: "col-12" }, toDisplayString("[" + (/* @__PURE__ */ new Date()).toISOString().substr(11, 8) + " UTC]") + " Your server is not responding. Please check again later or contact the support team.", 1)
-          ]),
-          createVNode("div", { class: "mt-auto mx-auto" }, [
-            createVNode(_component_UInput, {
-              type: "text",
-              autofocus: "",
-              color: "primary",
-              variant: "outline",
-              size: "lg",
-              placeholder: "Befehle hier tippen...",
-              class: "w-[50vw] min-w-[250px]"
-            })
-          ])
-        ];
+        _push(`<!---->`);
       }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div class="w-full xl:w-1/4">`);
-  _push(ssrRenderComponent(_component_UPageCard, { title: "Steuerung" }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div class="grid grid-cols-1 sm:grid-cols-2 gap-2"${_scopeId}>`);
-        _push2(ssrRenderComponent(_component_UButton, {
-          icon: "i-lucide-circle-play",
-          color: "success",
-          variant: "subtle"
-        }, {
-          default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`Starten`);
-            } else {
-              return [
-                createTextVNode("Starten")
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_UButton, {
-          icon: "i-lucide-circle-pause",
-          color: "warning",
-          variant: "subtle",
-          disabled: ""
-        }, {
-          default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`Reset`);
-            } else {
-              return [
-                createTextVNode("Reset")
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_UButton, {
-          icon: "i-lucide-circle-slash",
-          color: "error",
-          variant: "subtle",
-          disabled: ""
-        }, {
-          default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`Stop`);
-            } else {
-              return [
-                createTextVNode("Stop")
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_UButton, {
-          icon: "i-lucide-zap",
-          color: "info",
-          variant: "subtle",
-          disabled: ""
-        }, {
-          default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`Kill`);
-            } else {
-              return [
-                createTextVNode("Kill")
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(`</div>`);
-      } else {
-        return [
-          createVNode("div", { class: "grid grid-cols-1 sm:grid-cols-2 gap-2" }, [
-            createVNode(_component_UButton, {
-              icon: "i-lucide-circle-play",
-              color: "success",
-              variant: "subtle"
-            }, {
-              default: withCtx(() => [
-                createTextVNode("Starten")
-              ]),
-              _: 1
-            }),
-            createVNode(_component_UButton, {
-              icon: "i-lucide-circle-pause",
-              color: "warning",
-              variant: "subtle",
-              disabled: ""
-            }, {
-              default: withCtx(() => [
-                createTextVNode("Reset")
-              ]),
-              _: 1
-            }),
-            createVNode(_component_UButton, {
-              icon: "i-lucide-circle-slash",
-              color: "error",
-              variant: "subtle",
-              disabled: ""
-            }, {
-              default: withCtx(() => [
-                createTextVNode("Stop")
-              ]),
-              _: 1
-            }),
-            createVNode(_component_UButton, {
-              icon: "i-lucide-zap",
-              color: "info",
-              variant: "subtle",
-              disabled: ""
-            }, {
-              default: withCtx(() => [
-                createTextVNode("Kill")
-              ]),
-              _: 1
-            })
-          ])
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(ssrRenderComponent(_component_USeparator, { class: "my-7.5" }, null, _parent));
-  _push(ssrRenderComponent(_component_UPageCard, {
-    title: "Informationen",
-    class: "mb-5 xl:mb-0"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<span class="text-xs -mb-2 block"${_scopeId}>Prozessor (CPU)</span>`);
-        _push2(ssrRenderComponent(_component_UProgress, {
-          modelValue: 31,
-          max: 100,
-          size: "lg"
-        }, null, _parent2, _scopeId));
-        _push2(`<span class="text-xs -mb-2 block"${_scopeId}>Arbeitsspeicher (RAM)</span>`);
-        _push2(ssrRenderComponent(_component_UProgress, {
-          modelValue: 64,
-          max: 100,
-          size: "lg"
-        }, null, _parent2, _scopeId));
-        _push2(`<span class="text-xs -mb-2 block"${_scopeId}>Speicherauslastung</span>`);
-        _push2(ssrRenderComponent(_component_UProgress, {
-          modelValue: 12,
-          max: 100,
-          size: "lg"
-        }, null, _parent2, _scopeId));
-        _push2(`<span class="text-xs -mb-2 block"${_scopeId}>Traffic</span>`);
-        _push2(ssrRenderComponent(_component_UProgress, {
-          modelValue: 4,
-          max: 100,
-          size: "lg"
-        }, null, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_USeparator, { class: "my-2" }, null, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_UButton, {
-          icon: "i-lucide-zap",
-          color: "info",
-          variant: "subtle",
-          disabled: ""
-        }, {
-          default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`Produkt Up/Downgrade`);
-            } else {
-              return [
-                createTextVNode("Produkt Up/Downgrade")
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_UButton, {
-          icon: "i-lucide-zap",
-          color: "info",
-          variant: "subtle",
-          disabled: ""
-        }, {
-          default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`Kündigen`);
-            } else {
-              return [
-                createTextVNode("Kündigen")
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-      } else {
-        return [
-          createVNode("span", { class: "text-xs -mb-2 block" }, "Prozessor (CPU)"),
-          createVNode(_component_UProgress, {
-            modelValue: 31,
-            max: 100,
-            size: "lg"
-          }),
-          createVNode("span", { class: "text-xs -mb-2 block" }, "Arbeitsspeicher (RAM)"),
-          createVNode(_component_UProgress, {
-            modelValue: 64,
-            max: 100,
-            size: "lg"
-          }),
-          createVNode("span", { class: "text-xs -mb-2 block" }, "Speicherauslastung"),
-          createVNode(_component_UProgress, {
-            modelValue: 12,
-            max: 100,
-            size: "lg"
-          }),
-          createVNode("span", { class: "text-xs -mb-2 block" }, "Traffic"),
-          createVNode(_component_UProgress, {
-            modelValue: 4,
-            max: 100,
-            size: "lg"
-          }),
-          createVNode(_component_USeparator, { class: "my-2" }),
-          createVNode(_component_UButton, {
-            icon: "i-lucide-zap",
-            color: "info",
-            variant: "subtle",
-            disabled: ""
-          }, {
-            default: withCtx(() => [
-              createTextVNode("Produkt Up/Downgrade")
-            ]),
-            _: 1
-          }),
-          createVNode(_component_UButton, {
-            icon: "i-lucide-zap",
-            color: "info",
-            variant: "subtle",
-            disabled: ""
-          }, {
-            default: withCtx(() => [
-              createTextVNode("Kündigen")
-            ]),
-            _: 1
-          })
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div></div>`);
-}
+    };
+  }
+});
+
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/service/[id]/index.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
-export { index as default };
+export { _sfc_main as default };
 //# sourceMappingURL=index.vue3.mjs.map
