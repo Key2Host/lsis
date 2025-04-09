@@ -40,6 +40,14 @@ services:
         restart: unless-stopped
         networks:
             - network
+    apps-auth:
+        container_name: k2h_auth
+        build:
+            context: ./apps/auth
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        networks:
+            - network
     proxy:
         container_name: k2h_proxy
         build:
