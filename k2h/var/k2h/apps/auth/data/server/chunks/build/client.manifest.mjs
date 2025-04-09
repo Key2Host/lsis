@@ -24,7 +24,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "lwBpE2uY.js",
+    "file": "wX8eyFmb.js",
     "name": "entry",
     "src": "../node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
@@ -33,12 +33,12 @@ const client_manifest = {
       "../i18n/locales/en-US.json"
     ],
     "css": [
-      "entry.h_Mopf6O.css"
+      "entry.BIVdsb-V.css"
     ],
     "assets": []
   },
-  "entry.h_Mopf6O.css": {
-    "file": "entry.h_Mopf6O.css",
+  "entry.BIVdsb-V.css": {
+    "file": "entry.BIVdsb-V.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
@@ -56,7 +56,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "BNPOA9wj.js",
+    "file": "QzuGhObr.js",
     "name": "index",
     "src": "pages/index.vue",
     "isDynamicEntry": true,

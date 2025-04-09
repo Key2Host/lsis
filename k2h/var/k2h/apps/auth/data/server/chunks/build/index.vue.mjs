@@ -5588,12 +5588,14 @@ const __nuxt_component_0 = Object.assign(_sfc_main$1, { __name: "AuthForm" });
 
 const _imports_0 = publicAssetsURL("/video/Intro.mp4");
 
+const _imports_1 = publicAssetsURL("/img/brand/logo.svg");
+
 const _sfc_main = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   const _component_AuthForm = __nuxt_component_0;
   const _component_USeparator = __nuxt_component_1$1;
   const _component_RouterLink = resolveComponent("RouterLink");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "h-screen" }, _attrs))}><div class="flex h-full"><div class="w-1/2 h-full"><video${ssrRenderAttr("src", _imports_0)} alt="Intro Video" class="w-full h-full object-cover" autoplay playsinline muted></video></div><div class="w-1/2 h-full flex items-center justify-center bg-gray-100"><div class="max-w-lg"><div class="text-center"><h1 class="text-4xl font-bold mb-4">Anmelden</h1><p class="text-lg text-gray-600 mb-4">Bitte melde dich mit deinen Zugangsdaten an, um auf dein Hosting-Dashboard zuzugreifen. </p></div>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "h-screen" }, _attrs))}><div class="flex h-full flex-col lg:flex-row"><div class="hidden lg:block w-1/2 h-full"><video${ssrRenderAttr("src", _imports_0)} class="w-full h-full object-cover" autoplay playsinline muted></video></div><div class="w-full lg:w-1/2 h-full flex items-center justify-center bg-gray-100"><div class="max-w-lg px-4 lg:px-0"><div class="text-center"><img${ssrRenderAttr("src", _imports_1)} alt="Key2Host Logo" width="50" height="50" class="block lg:hidden mx-auto mb-4"><h1 class="text-4xl font-bold mb-4">Anmelden</h1><p class="text-lg text-gray-600 mb-4"> Bitte melde dich mit deinen Zugangsdaten an, um auf dein Hosting-Dashboard zuzugreifen. </p></div>`);
   _push(ssrRenderComponent(_component_AuthForm, null, null, _parent));
   _push(ssrRenderComponent(_component_USeparator, { class: "my-5" }, null, _parent));
   _push(`<div class="text-center"> Du besitzt kein Konto? `);
@@ -5603,10 +5605,10 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
-        _push2(`Jetzt Konto erstellen! `);
+        _push2(`Jetzt Konto erstellen!`);
       } else {
         return [
-          createTextVNode("Jetzt Konto erstellen! ")
+          createTextVNode("Jetzt Konto erstellen!")
         ];
       }
     }),
