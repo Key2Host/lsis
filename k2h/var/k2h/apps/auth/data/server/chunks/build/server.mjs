@@ -13972,12 +13972,13 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       htmlAttrs: {
         lang: "en"
       },
-      titleTemplate: "%s - Key2Host"
+      titleTemplate: "%s - Key2Host Auth"
     });
     useSeoMeta({
       ogImage: "/img/brand/og.jpg",
       twitterImage: "/img/brand/og.jpg",
-      twitterCard: "summary_large_image"
+      twitterCard: "summary_large_image",
+      robots: "noindex, nofollow"
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_LangNotice = __nuxt_component_0$1;
@@ -14133,5 +14134,5 @@ const server = /*#__PURE__*/Object.freeze({
   default: entry$1
 });
 
-export { useToast as A, useI18n as B, server as C, UIcon as U, _appConfig as _, UAvatar as a, formInputsInjectionKey as b, formLoadingInjectionKey as c, formOptionsInjectionKey as d, formFieldInjectionKey as e, formBusInjectionKey as f, useFormField as g, useAvatarGroup as h, inputIdInjectionKey as i, useButtonGroup as j, useComponentIcons as k, looseToNumber as l, useLocale as m, get as n, compare as o, defineLocale as p, en as q, localeContextInjectionKey as r, buildLocaleContext as s, tv as t, useAppConfig as u, UButton as v, omit as w, useNuxtApp as x, injectHead as y, useRuntimeConfig as z };
+export { useToast as A, useI18n as B, useSeoMeta as C, server as D, UIcon as U, _appConfig as _, UAvatar as a, formInputsInjectionKey as b, formLoadingInjectionKey as c, formOptionsInjectionKey as d, formFieldInjectionKey as e, formBusInjectionKey as f, useFormField as g, useAvatarGroup as h, inputIdInjectionKey as i, useButtonGroup as j, useComponentIcons as k, looseToNumber as l, useLocale as m, get as n, compare as o, defineLocale as p, en as q, localeContextInjectionKey as r, buildLocaleContext as s, tv as t, useAppConfig as u, UButton as v, omit as w, useNuxtApp as x, injectHead as y, useRuntimeConfig as z };
 //# sourceMappingURL=server.mjs.map

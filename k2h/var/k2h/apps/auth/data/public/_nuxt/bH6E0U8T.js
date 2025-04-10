@@ -1,0 +1,1 @@
+import{d as e,b9 as t}from"./DVkPf3nX.js";const a=e({__name:"recover",setup(s){return t({title:"Passwort zurücksetzen",ogTitle:"Passwort zurücksetzen",description:"Passwort zurücksetzen",ogDescription:"Passwort zurücksetzen"}),(o,r)=>" Coming Soon "}});export{a as default};

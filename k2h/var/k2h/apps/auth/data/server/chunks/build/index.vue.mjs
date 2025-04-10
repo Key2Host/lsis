@@ -1,4 +1,4 @@
-import { t as tv$1, U as UIcon, a as UAvatar, _ as _appConfig, f as formBusInjectionKey, b as formInputsInjectionKey, c as formLoadingInjectionKey, d as formOptionsInjectionKey, i as inputIdInjectionKey, e as formFieldInjectionKey, u as useAppConfig, g as useFormField, h as useAvatarGroup, j as useButtonGroup, k as useComponentIcons, l as looseToNumber, m as useLocale, n as get, o as compare, p as defineLocale, q as en$1, r as localeContextInjectionKey, s as buildLocaleContext, v as UButton, w as omit, x as useNuxtApp, y as injectHead$1, z as useRuntimeConfig, A as useToast, B as useI18n } from './server.mjs';
+import { t as tv$1, U as UIcon, a as UAvatar, _ as _appConfig, f as formBusInjectionKey, b as formInputsInjectionKey, c as formLoadingInjectionKey, d as formOptionsInjectionKey, i as inputIdInjectionKey, e as formFieldInjectionKey, u as useAppConfig, g as useFormField, h as useAvatarGroup, j as useButtonGroup, k as useComponentIcons, l as looseToNumber, m as useLocale, n as get, o as compare, p as defineLocale, q as en$1, r as localeContextInjectionKey, s as buildLocaleContext, v as UButton, w as omit, x as useNuxtApp, y as injectHead$1, z as useRuntimeConfig, A as useToast, B as useI18n, C as useSeoMeta } from './server.mjs';
 import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, createVNode, createBlock, createCommentVNode, openBlock, Fragment, renderSlot, toDisplayString, useSSRContext, useId, inject, provide, ref, readonly, resolveDynamicComponent, createTextVNode, mergeModels, useModel, toRef, withModifiers, renderList, toRaw, reactive, createSlots, hasInjectionContext, getCurrentInstance, onMounted, isRef, watch, onScopeDispose, resolveComponent } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate, ssrRenderVNode, ssrRenderAttr, ssrRenderAttrs, ssrRenderList } from 'vue/server-renderer';
 import { useForwardProps, Separator, Primitive, Label, CheckboxRoot, CheckboxIndicator, Slot, useFilter, useForwardPropsEmits, ComboboxGroup, ComboboxItem, ComboboxRoot, ComboboxAnchor, ComboboxTrigger, ComboboxPortal, ComboboxContent, FocusScope, ComboboxInput, ComboboxEmpty, ComboboxViewport, ComboboxLabel, ComboboxSeparator, ComboboxItemIndicator, ComboboxArrow } from 'reka-ui';
@@ -8,7 +8,6 @@ import { createTV } from 'tailwind-variants';
 import { useScript as useScript$2 } from 'unhead/scripts';
 import { tryOnMounted, tryOnScopeDispose } from '@vueuse/shared';
 import axios from 'axios';
-import { _ as _export_sfc } from './_plugin-vue_export-helper.mjs';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
@@ -5414,13 +5413,13 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       label: t("authform.inputs.email.label"),
       type: "text",
       placeholder: t("authform.inputs.email.placeholder"),
-      size: "lg"
+      size: "xl"
     }, {
       name: "password",
       label: t("authform.inputs.password.label"),
       type: "password",
       placeholder: t("authform.inputs.password.placeholder"),
-      size: "lg"
+      size: "xl"
     }];
     const turnstile = ref();
     const turnstileToken = ref("");
@@ -5447,10 +5446,9 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
           toast.add({
             icon: "i-heroicons-exclamation-triangle",
             description: "Das CAPTCHA wurde abgelehnt. Versuche es später erneut.",
-            color: "red",
+            color: "error",
             title: "CAPTCHA-Problem",
-            timeout: 5e3,
-            pauseTimeoutOnHover: true
+            duration: 5e3
           });
           errorMessage.value = "Das CAPTCHA wurde abgelehnt. Versuche es später erneut.";
           return;
@@ -5459,10 +5457,9 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: "Das CAPTCHA konnte nicht überprüft werden. Versuche es später erneut.",
-          color: "red",
+          color: "error",
           title: "CAPTCHA-Fehler",
-          timeout: 5e3,
-          pauseTimeoutOnHover: true
+          duration: 5e3
         });
         errorMessage.value = "Das CAPTCHA konnte nicht überprüft werden. Versuche es später erneut.";
         return;
@@ -5479,7 +5476,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
           description: "Du hast dich angemeldet und wirst jetzt weitergeleitet...",
           color: "success",
           title: "Login erfolgreich",
-          timeout: 5e3
+          duration: 5e3
         });
         setTimeout(() => {
           (void 0).location.href = "https://cp.key2host.com";
@@ -5498,9 +5495,9 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: errorMessage.value,
-          color: "red",
-          timeout: 2500,
-          title: t("authform.errorModal.title")
+          color: "error",
+          title: t("authform.errorModal.title"),
+          duration: 2500
         });
       }
     }
@@ -5601,39 +5598,50 @@ const _imports_0 = publicAssetsURL("/video/Intro.mp4");
 
 const _imports_1 = publicAssetsURL("/img/brand/logo.svg");
 
-const _sfc_main = {};
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_AuthForm = __nuxt_component_0;
-  const _component_USeparator = __nuxt_component_1$1;
-  const _component_RouterLink = resolveComponent("RouterLink");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "h-screen" }, _attrs))}><div class="flex h-full flex-col lg:flex-row"><div class="hidden lg:block w-1/2 h-full"><video${ssrRenderAttr("src", _imports_0)} class="w-full h-full object-cover" autoplay playsinline muted></video></div><div class="w-full lg:w-1/2 h-full flex items-center justify-center bg-gray-100"><div class="max-w-lg px-4 lg:px-0"><div class="text-center"><img${ssrRenderAttr("src", _imports_1)} alt="Key2Host Logo" width="50" height="50" class="block lg:hidden mx-auto mb-4"><h1 class="text-4xl font-bold mb-4">Anmelden</h1><p class="text-lg text-gray-600 mb-4"> Bitte melde dich mit deinen Zugangsdaten an, um auf dein Hosting-Dashboard zuzugreifen. </p></div>`);
-  _push(ssrRenderComponent(_component_AuthForm, null, null, _parent));
-  _push(ssrRenderComponent(_component_USeparator, { class: "my-5" }, null, _parent));
-  _push(`<div class="text-center"> Du besitzt kein Konto? `);
-  _push(ssrRenderComponent(_component_RouterLink, {
-    to: "/sign-up",
-    class: "underline"
-  }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`Jetzt Konto erstellen!`);
-      } else {
-        return [
-          createTextVNode("Jetzt Konto erstellen!")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div></div></div></div></div>`);
-}
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "index",
+  __ssrInlineRender: true,
+  setup(__props) {
+    useSeoMeta({
+      title: "Anmelden",
+      ogTitle: "Anmelden",
+      description: "Anmelden",
+      ogDescription: "Anmelden"
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_AuthForm = __nuxt_component_0;
+      const _component_USeparator = __nuxt_component_1$1;
+      const _component_RouterLink = resolveComponent("RouterLink");
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "h-screen" }, _attrs))}><div class="flex h-full flex-col lg:flex-row"><div class="hidden lg:block w-1/2 h-full"><video${ssrRenderAttr("src", _imports_0)} class="w-full h-full object-cover" autoplay playsinline muted></video></div><div class="w-full lg:w-1/2 h-full flex items-center justify-center bg-gray-100"><div class="max-w-lg px-4 lg:px-0"><div class="text-center"><img${ssrRenderAttr("src", _imports_1)} alt="Key2Host Logo" width="50" height="50" class="block lg:hidden mx-auto mb-4"><h1 class="text-4xl font-bold mb-4">Anmelden</h1><p class="text-lg text-gray-600 mb-4"> Bitte melde dich mit deinen Zugangsdaten an, um auf dein Hosting-Dashboard zuzugreifen. </p></div>`);
+      _push(ssrRenderComponent(_component_AuthForm, null, null, _parent));
+      _push(ssrRenderComponent(_component_USeparator, { class: "my-5" }, null, _parent));
+      _push(`<div class="text-center"> Du besitzt kein Konto? `);
+      _push(ssrRenderComponent(_component_RouterLink, {
+        to: "/sign-up",
+        class: "underline"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Jetzt Konto erstellen!`);
+          } else {
+            return [
+              createTextVNode("Jetzt Konto erstellen!")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</div></div></div></div></div>`);
+    };
+  }
+});
+
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/index.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
-export { index as default };
+export { _sfc_main as default };
 //# sourceMappingURL=index.vue.mjs.map
