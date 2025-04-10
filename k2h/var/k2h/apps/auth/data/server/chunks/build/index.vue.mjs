@@ -5413,12 +5413,14 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       name: "email",
       label: t("authform.inputs.email.label"),
       type: "text",
-      placeholder: t("authform.inputs.email.placeholder")
+      placeholder: t("authform.inputs.email.placeholder"),
+      size: "lg"
     }, {
       name: "password",
       label: t("authform.inputs.password.label"),
       type: "password",
-      placeholder: t("authform.inputs.password.placeholder")
+      placeholder: t("authform.inputs.password.placeholder"),
+      size: "lg"
     }];
     const turnstile = ref();
     const turnstileToken = ref("");
@@ -5453,7 +5455,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
           errorMessage.value = "Das CAPTCHA wurde abgelehnt. Versuche es später erneut.";
           return;
         }
-      } catch (error2) {
+      } catch (error) {
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: "Das CAPTCHA konnte nicht überprüft werden. Versuche es später erneut.",
@@ -5472,16 +5474,25 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         }, {
           withCredentials: true
         });
-        (void 0).location.href = "https://cp.key2host.com";
-      } catch (error2) {
-        if (error2.response && error2.response.status === 401) {
-          console.error("Fehler bei der Anmeldung", error2);
+        toast.add({
+          icon: "i-heroicons-exclamation-triangle",
+          description: "Du hast dich angemeldet und wirst jetzt weitergeleitet...",
+          color: "success",
+          title: "Login erfolgreich",
+          timeout: 5e3
+        });
+        setTimeout(() => {
+          (void 0).location.href = "https://cp.key2host.com";
+        }, 5e3);
+      } catch (error) {
+        if (error.response && error.response.status === 401) {
+          console.error("Fehler bei der Anmeldung", error);
           errorMessage.value = t("authform.errorModal.wrongCred");
-        } else if (error2.response && error2.response.status === 403) {
-          console.error("Fehler bei der Anmeldung", error2);
+        } else if (error.response && error.response.status === 403) {
+          console.error("Fehler bei der Anmeldung", error);
           errorMessage.value = t("authform.errorModal.suspended");
         } else {
-          console.error("Fehler bei der API-Anfrage:", error2.message);
+          console.error("Fehler bei der API-Anfrage:", error.message);
           errorMessage.value = t("authform.errorModal.err");
         }
         toast.add({
