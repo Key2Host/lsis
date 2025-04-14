@@ -1,0 +1,1 @@
+import{d as e,b9 as o}from"./CvolEQQZ.js";const i=e({__name:"sign-up",setup(t){return o({title:"Konto erstellen",ogTitle:"Konto erstellen",description:"Konto erstellen",ogDescription:"Konto erstellen"}),(n,s)=>" Coming Soon "}});export{i as default};

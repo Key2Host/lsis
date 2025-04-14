@@ -24,7 +24,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "DVkPf3nX.js",
+    "file": "CvolEQQZ.js",
     "name": "entry",
     "src": "../node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
@@ -33,12 +33,12 @@ const client_manifest = {
       "../i18n/locales/en-US.json"
     ],
     "css": [
-      "entry.BIVdsb-V.css"
+      "entry.CtAhclWB.css"
     ],
     "assets": []
   },
-  "entry.BIVdsb-V.css": {
-    "file": "entry.BIVdsb-V.css",
+  "entry.CtAhclWB.css": {
+    "file": "entry.CtAhclWB.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
@@ -48,7 +48,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "BLVQDoZc.js",
+    "file": "C0Ts8lKn.js",
     "name": "index",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
@@ -61,7 +61,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "bH6E0U8T.js",
+    "file": "CPR9jMlT.js",
     "name": "recover",
     "src": "pages/recover.vue",
     "isDynamicEntry": true,
@@ -74,7 +74,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "OYsYSg4h.js",
+    "file": "Bez_Tnsz.js",
     "name": "sign-up",
     "src": "pages/sign-up.vue",
     "isDynamicEntry": true,
