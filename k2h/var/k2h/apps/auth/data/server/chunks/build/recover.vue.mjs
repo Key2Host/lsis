@@ -1,8 +1,8 @@
 import { _ as __nuxt_component_0 } from './NuxtLinkLocale.mjs';
-import { z as useSeoMeta, A as __nuxt_component_2 } from './server.mjs';
+import { z as useSeoMeta, A as __nuxt_component_2, q as __nuxt_component_5 } from './server.mjs';
+import { b as _imports_0, a as __nuxt_component_3, _ as __nuxt_component_4 } from './virtual_public.mjs';
 import { defineComponent, mergeProps, withCtx, createVNode, createTextVNode, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr } from 'vue/server-renderer';
-import { _ as _imports_0 } from './virtual_public.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -44,6 +44,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLinkLocale = __nuxt_component_0;
       const _component_UCard = __nuxt_component_2;
+      const _component_UFormField = __nuxt_component_3;
+      const _component_UInput = __nuxt_component_4;
+      const _component_UButton = __nuxt_component_5;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full h-screen flex flex-col items-center" }, _attrs))}>`);
       _push(ssrRenderComponent(_component_NuxtLinkLocale, {
         to: "/",
@@ -73,10 +76,78 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }, {
           default: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(` Coming Soon `);
+              _push2(`<div class="border-b px-6 py-4 mb-5"${_scopeId}><p class="text-sm text-center"${_scopeId}>Bitte gib die E-Mail-Adresse ein, mit der du dich bei uns registriert hast. Wir senden dir anschließend einen Link zur Zurücksetzung deines Passworts.</p></div><div class="w-full flex justify-center"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UFormField, { label: "E-Mail Adresse" }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(ssrRenderComponent(_component_UInput, {
+                      name: "email",
+                      type: "email",
+                      variant: "subtle",
+                      icon: "i-lucide-mail",
+                      class: "w-100"
+                    }, null, _parent3, _scopeId2));
+                  } else {
+                    return [
+                      createVNode(_component_UInput, {
+                        name: "email",
+                        type: "email",
+                        variant: "subtle",
+                        icon: "i-lucide-mail",
+                        class: "w-100"
+                      })
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`</div><div class="w-full flex justify-end"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UButton, {
+                size: "lg",
+                variant: "subtle"
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`Weiter`);
+                  } else {
+                    return [
+                      createTextVNode("Weiter")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`</div>`);
             } else {
               return [
-                createTextVNode(" Coming Soon ")
+                createVNode("div", { class: "border-b px-6 py-4 mb-5" }, [
+                  createVNode("p", { class: "text-sm text-center" }, "Bitte gib die E-Mail-Adresse ein, mit der du dich bei uns registriert hast. Wir senden dir anschließend einen Link zur Zurücksetzung deines Passworts.")
+                ]),
+                createVNode("div", { class: "w-full flex justify-center" }, [
+                  createVNode(_component_UFormField, { label: "E-Mail Adresse" }, {
+                    default: withCtx(() => [
+                      createVNode(_component_UInput, {
+                        name: "email",
+                        type: "email",
+                        variant: "subtle",
+                        icon: "i-lucide-mail",
+                        class: "w-100"
+                      })
+                    ]),
+                    _: 1
+                  })
+                ]),
+                createVNode("div", { class: "w-full flex justify-end" }, [
+                  createVNode(_component_UButton, {
+                    size: "lg",
+                    variant: "subtle"
+                  }, {
+                    default: withCtx(() => [
+                      createTextVNode("Weiter")
+                    ]),
+                    _: 1
+                  })
+                ])
               ];
             }
           }),

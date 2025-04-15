@@ -1,15 +1,14 @@
-import { t as tv$1, U as UIcon, a as UAvatar, _ as _appConfig, f as formBusInjectionKey, b as formInputsInjectionKey, c as formLoadingInjectionKey, d as formOptionsInjectionKey, u as useAppConfig, e as useFormField, g as useAvatarGroup, h as useLocale, i as useButtonGroup, j as useComponentIcons, k as get, l as compare, m as defineLocale, n as en$1, o as localeContextInjectionKey, p as buildLocaleContext, q as __nuxt_component_5$1, r as omit, s as useNuxtApp, v as injectHead$1, w as useRuntimeConfig, x as useToast, y as useI18n, z as useSeoMeta } from './server.mjs';
+import { t as tv$1, _ as __nuxt_component_4, U as UAvatar, a as _appConfig, f as formBusInjectionKey, b as formInputsInjectionKey, c as formLoadingInjectionKey, d as formOptionsInjectionKey, u as useAppConfig, e as useFormField, g as useAvatarGroup, h as useLocale, i as useButtonGroup, j as useComponentIcons, k as get, l as compare, m as defineLocale, n as en$1, o as localeContextInjectionKey, p as buildLocaleContext, q as __nuxt_component_5$1, r as omit, s as useNuxtApp, v as injectHead$1, w as useRuntimeConfig, x as useToast, y as useI18n, z as useSeoMeta } from './server.mjs';
 import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, createVNode, createBlock, createCommentVNode, openBlock, Fragment, renderSlot, toDisplayString, useSSRContext, useId, inject, provide, ref, readonly, resolveDynamicComponent, mergeModels, useModel, createTextVNode, toRef, withModifiers, renderList, toRaw, reactive, createSlots, hasInjectionContext, getCurrentInstance, onMounted, isRef, watch, onScopeDispose, resolveComponent } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate, ssrRenderVNode, ssrRenderList, ssrRenderAttrs, ssrRenderAttr } from 'vue/server-renderer';
 import { useForwardProps, Separator, Primitive, CheckboxRoot, CheckboxIndicator, Label, Slot, useFilter, useForwardPropsEmits, ComboboxGroup, ComboboxItem, ComboboxRoot, ComboboxAnchor, ComboboxTrigger, ComboboxPortal, ComboboxContent, FocusScope, ComboboxInput, ComboboxEmpty, ComboboxViewport, ComboboxLabel, ComboboxSeparator, ComboboxItemIndicator, ComboboxArrow } from 'reka-ui';
 import { reactivePick, useEventBus, createReusableTemplate, createSharedComposable, useEventListener } from '@vueuse/core';
-import { _ as __nuxt_component_4, a as __nuxt_component_3$1 } from './Input.vue.mjs';
+import { _ as __nuxt_component_4$1, a as __nuxt_component_3$1, b as _imports_0$1 } from './virtual_public.mjs';
 import { m as defu, p as publicAssetsURL } from '../nitro/nitro.mjs';
 import { createTV } from 'tailwind-variants';
 import { useScript as useScript$2 } from 'unhead/scripts';
 import { tryOnMounted, tryOnScopeDispose } from '@vueuse/shared';
 import axios from 'axios';
-import { _ as _imports_0$1 } from './virtual_public.mjs';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
@@ -223,7 +222,7 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
                 if (_ctx.label) {
                   _push2(`<span class="${ssrRenderClass(ui.value.label({ class: (_a4 = props.ui) == null ? void 0 : _a4.label }))}"${_scopeId}>${ssrInterpolate(_ctx.label)}</span>`);
                 } else if (_ctx.icon) {
-                  _push2(ssrRenderComponent(UIcon, {
+                  _push2(ssrRenderComponent(__nuxt_component_4, {
                     name: _ctx.icon,
                     class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
                   }, null, _parent2, _scopeId));
@@ -256,7 +255,7 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
                       _ctx.label ? (openBlock(), createBlock("span", {
                         key: 0,
                         class: ui.value.label({ class: (_a4 = props.ui) == null ? void 0 : _a4.label })
-                      }, toDisplayString(_ctx.label), 3)) : _ctx.icon ? (openBlock(), createBlock(UIcon, {
+                      }, toDisplayString(_ctx.label), 3)) : _ctx.icon ? (openBlock(), createBlock(__nuxt_component_4, {
                         key: 1,
                         name: _ctx.icon,
                         class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
@@ -836,23 +835,23 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                       var _a4, _b2, _c2, _d2;
                       if (_push4) {
                         if (modelValue2 === "indeterminate") {
-                          _push4(ssrRenderComponent(UIcon, {
+                          _push4(ssrRenderComponent(__nuxt_component_4, {
                             name: _ctx.indeterminateIcon || unref(appConfig).ui.icons.minus,
                             class: ui.value.icon({ class: (_a4 = props.ui) == null ? void 0 : _a4.icon })
                           }, null, _parent4, _scopeId3));
                         } else {
-                          _push4(ssrRenderComponent(UIcon, {
+                          _push4(ssrRenderComponent(__nuxt_component_4, {
                             name: _ctx.icon || unref(appConfig).ui.icons.check,
                             class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
                           }, null, _parent4, _scopeId3));
                         }
                       } else {
                         return [
-                          modelValue2 === "indeterminate" ? (openBlock(), createBlock(UIcon, {
+                          modelValue2 === "indeterminate" ? (openBlock(), createBlock(__nuxt_component_4, {
                             key: 0,
                             name: _ctx.indeterminateIcon || unref(appConfig).ui.icons.minus,
                             class: ui.value.icon({ class: (_c2 = props.ui) == null ? void 0 : _c2.icon })
-                          }, null, 8, ["name", "class"])) : (openBlock(), createBlock(UIcon, {
+                          }, null, 8, ["name", "class"])) : (openBlock(), createBlock(__nuxt_component_4, {
                             key: 1,
                             name: _ctx.icon || unref(appConfig).ui.icons.check,
                             class: ui.value.icon({ class: (_d2 = props.ui) == null ? void 0 : _d2.icon })
@@ -868,11 +867,11 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                       default: withCtx(() => {
                         var _a4, _b2;
                         return [
-                          modelValue2 === "indeterminate" ? (openBlock(), createBlock(UIcon, {
+                          modelValue2 === "indeterminate" ? (openBlock(), createBlock(__nuxt_component_4, {
                             key: 0,
                             name: _ctx.indeterminateIcon || unref(appConfig).ui.icons.minus,
                             class: ui.value.icon({ class: (_a4 = props.ui) == null ? void 0 : _a4.icon })
-                          }, null, 8, ["name", "class"])) : (openBlock(), createBlock(UIcon, {
+                          }, null, 8, ["name", "class"])) : (openBlock(), createBlock(__nuxt_component_4, {
                             key: 1,
                             name: _ctx.icon || unref(appConfig).ui.icons.check,
                             class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
@@ -942,11 +941,11 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                       default: withCtx(() => {
                         var _a4, _b2;
                         return [
-                          modelValue2 === "indeterminate" ? (openBlock(), createBlock(UIcon, {
+                          modelValue2 === "indeterminate" ? (openBlock(), createBlock(__nuxt_component_4, {
                             key: 0,
                             name: _ctx.indeterminateIcon || unref(appConfig).ui.icons.minus,
                             class: ui.value.icon({ class: (_a4 = props.ui) == null ? void 0 : _a4.icon })
-                          }, null, 8, ["name", "class"])) : (openBlock(), createBlock(UIcon, {
+                          }, null, 8, ["name", "class"])) : (openBlock(), createBlock(__nuxt_component_4, {
                             key: 1,
                             name: _ctx.icon || unref(appConfig).ui.icons.check,
                             class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
@@ -1761,7 +1760,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                           }, () => {
                             var _a4, _b3, _c2;
                             if (unref(isLeading) && unref(leadingIconName)) {
-                              _push4(ssrRenderComponent(UIcon, {
+                              _push4(ssrRenderComponent(__nuxt_component_4, {
                                 name: unref(leadingIconName),
                                 class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
                               }, null, _parent4, _scopeId3));
@@ -1805,7 +1804,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                           }, () => {
                             var _a4;
                             if (unref(trailingIconName)) {
-                              _push4(ssrRenderComponent(UIcon, {
+                              _push4(ssrRenderComponent(__nuxt_component_4, {
                                 name: unref(trailingIconName),
                                 class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })
                               }, null, _parent4, _scopeId3));
@@ -1830,7 +1829,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                             }, () => {
                               var _a4, _b3, _c2;
                               return [
-                                unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(UIcon, {
+                                unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(__nuxt_component_4, {
                                   key: 0,
                                   name: unref(leadingIconName),
                                   class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
@@ -1871,7 +1870,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                             }, () => {
                               var _a4;
                               return [
-                                unref(trailingIconName) ? (openBlock(), createBlock(UIcon, {
+                                unref(trailingIconName) ? (openBlock(), createBlock(__nuxt_component_4, {
                                   key: 0,
                                   name: unref(trailingIconName),
                                   class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })
@@ -1904,7 +1903,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                             }, () => {
                               var _a4, _b3, _c;
                               return [
-                                unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(UIcon, {
+                                unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(__nuxt_component_4, {
                                   key: 0,
                                   name: unref(leadingIconName),
                                   class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
@@ -1945,7 +1944,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                             }, () => {
                               var _a4;
                               return [
-                                unref(trailingIconName) ? (openBlock(), createBlock(UIcon, {
+                                unref(trailingIconName) ? (openBlock(), createBlock(__nuxt_component_4, {
                                   key: 0,
                                   name: unref(trailingIconName),
                                   class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })
@@ -1991,7 +1990,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                   default: withCtx((_4, _push6, _parent6, _scopeId5) => {
                                     var _a5, _b4;
                                     if (_push6) {
-                                      _push6(ssrRenderComponent(__nuxt_component_4, mergeProps({
+                                      _push6(ssrRenderComponent(__nuxt_component_4$1, mergeProps({
                                         autofocus: "",
                                         autocomplete: "off"
                                       }, searchInputProps.value, {
@@ -1999,7 +1998,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                       }), null, _parent6, _scopeId5));
                                     } else {
                                       return [
-                                        createVNode(__nuxt_component_4, mergeProps({
+                                        createVNode(__nuxt_component_4$1, mergeProps({
                                           autofocus: "",
                                           autocomplete: "off"
                                         }, searchInputProps.value, {
@@ -2093,7 +2092,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                         }, () => {
                                                           var _a8, _b6, _c4, _d3, _e;
                                                           if (item.icon) {
-                                                            _push8(ssrRenderComponent(UIcon, {
+                                                            _push8(ssrRenderComponent(__nuxt_component_4, {
                                                               name: item.icon,
                                                               class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
                                                             }, null, _parent8, _scopeId7));
@@ -2133,13 +2132,13 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                           default: withCtx((_7, _push9, _parent9, _scopeId8) => {
                                                             var _a8, _b6;
                                                             if (_push9) {
-                                                              _push9(ssrRenderComponent(UIcon, {
+                                                              _push9(ssrRenderComponent(__nuxt_component_4, {
                                                                 name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
                                                                 class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
                                                               }, null, _parent9, _scopeId8));
                                                             } else {
                                                               return [
-                                                                createVNode(UIcon, {
+                                                                createVNode(__nuxt_component_4, {
                                                                   name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
                                                                   class: ui.value.itemTrailingIcon({ class: (_b6 = props.ui) == null ? void 0 : _b6.itemTrailingIcon })
                                                                 }, null, 8, ["name", "class"])
@@ -2164,7 +2163,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                             }, () => {
                                                               var _a8, _b6, _c4, _d3, _e;
                                                               return [
-                                                                item.icon ? (openBlock(), createBlock(UIcon, {
+                                                                item.icon ? (openBlock(), createBlock(__nuxt_component_4, {
                                                                   key: 0,
                                                                   name: item.icon,
                                                                   class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
@@ -2206,7 +2205,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                                 default: withCtx(() => {
                                                                   var _a8;
                                                                   return [
-                                                                    createVNode(UIcon, {
+                                                                    createVNode(__nuxt_component_4, {
                                                                       name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
                                                                       class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
                                                                     }, null, 8, ["name", "class"])
@@ -2264,7 +2263,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                           }, () => {
                                                             var _a8, _b6, _c4, _d3, _e;
                                                             return [
-                                                              item.icon ? (openBlock(), createBlock(UIcon, {
+                                                              item.icon ? (openBlock(), createBlock(__nuxt_component_4, {
                                                                 key: 0,
                                                                 name: item.icon,
                                                                 class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
@@ -2306,7 +2305,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                               default: withCtx(() => {
                                                                 var _a8;
                                                                 return [
-                                                                  createVNode(UIcon, {
+                                                                  createVNode(__nuxt_component_4, {
                                                                     name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
                                                                     class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
                                                                   }, null, 8, ["name", "class"])
@@ -2380,7 +2379,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                         }, () => {
                                                           var _a8, _b6, _c4, _d3, _e;
                                                           return [
-                                                            item.icon ? (openBlock(), createBlock(UIcon, {
+                                                            item.icon ? (openBlock(), createBlock(__nuxt_component_4, {
                                                               key: 0,
                                                               name: item.icon,
                                                               class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
@@ -2422,7 +2421,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                             default: withCtx(() => {
                                                               var _a8;
                                                               return [
-                                                                createVNode(UIcon, {
+                                                                createVNode(__nuxt_component_4, {
                                                                   name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
                                                                   class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
                                                                 }, null, 8, ["name", "class"])
@@ -2460,7 +2459,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                   default: withCtx(() => {
                                     var _a5;
                                     return [
-                                      createVNode(__nuxt_component_4, mergeProps({
+                                      createVNode(__nuxt_component_4$1, mergeProps({
                                         autofocus: "",
                                         autocomplete: "off"
                                       }, searchInputProps.value, {
@@ -2528,7 +2527,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                       }, () => {
                                                         var _a8, _b6, _c4, _d3, _e;
                                                         return [
-                                                          item.icon ? (openBlock(), createBlock(UIcon, {
+                                                          item.icon ? (openBlock(), createBlock(__nuxt_component_4, {
                                                             key: 0,
                                                             name: item.icon,
                                                             class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
@@ -2570,7 +2569,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                           default: withCtx(() => {
                                                             var _a8;
                                                             return [
-                                                              createVNode(UIcon, {
+                                                              createVNode(__nuxt_component_4, {
                                                                 name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
                                                                 class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
                                                               }, null, 8, ["name", "class"])
@@ -2625,7 +2624,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                   default: withCtx(() => {
                                     var _a5;
                                     return [
-                                      createVNode(__nuxt_component_4, mergeProps({
+                                      createVNode(__nuxt_component_4$1, mergeProps({
                                         autofocus: "",
                                         autocomplete: "off"
                                       }, searchInputProps.value, {
@@ -2693,7 +2692,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                       }, () => {
                                                         var _a8, _b6, _c3, _d2, _e;
                                                         return [
-                                                          item.icon ? (openBlock(), createBlock(UIcon, {
+                                                          item.icon ? (openBlock(), createBlock(__nuxt_component_4, {
                                                             key: 0,
                                                             name: item.icon,
                                                             class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
@@ -2735,7 +2734,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                           default: withCtx(() => {
                                                             var _a8;
                                                             return [
-                                                              createVNode(UIcon, {
+                                                              createVNode(__nuxt_component_4, {
                                                                 name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
                                                                 class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
                                                               }, null, 8, ["name", "class"])
@@ -2796,7 +2795,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                   default: withCtx(() => {
                                     var _a5;
                                     return [
-                                      createVNode(__nuxt_component_4, mergeProps({
+                                      createVNode(__nuxt_component_4$1, mergeProps({
                                         autofocus: "",
                                         autocomplete: "off"
                                       }, searchInputProps.value, {
@@ -2864,7 +2863,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                       }, () => {
                                                         var _a8, _b6, _c2, _d, _e;
                                                         return [
-                                                          item.icon ? (openBlock(), createBlock(UIcon, {
+                                                          item.icon ? (openBlock(), createBlock(__nuxt_component_4, {
                                                             key: 0,
                                                             name: item.icon,
                                                             class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
@@ -2906,7 +2905,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                           default: withCtx(() => {
                                                             var _a8;
                                                             return [
-                                                              createVNode(UIcon, {
+                                                              createVNode(__nuxt_component_4, {
                                                                 name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
                                                                 class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
                                                               }, null, 8, ["name", "class"])
@@ -2970,7 +2969,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                             }, () => {
                               var _a4, _b2, _c;
                               return [
-                                unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(UIcon, {
+                                unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(__nuxt_component_4, {
                                   key: 0,
                                   name: unref(leadingIconName),
                                   class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
@@ -3011,7 +3010,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                             }, () => {
                               var _a4;
                               return [
-                                unref(trailingIconName) ? (openBlock(), createBlock(UIcon, {
+                                unref(trailingIconName) ? (openBlock(), createBlock(__nuxt_component_4, {
                                   key: 0,
                                   name: unref(trailingIconName),
                                   class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })
@@ -3056,7 +3055,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                   default: withCtx(() => {
                                     var _a5;
                                     return [
-                                      createVNode(__nuxt_component_4, mergeProps({
+                                      createVNode(__nuxt_component_4$1, mergeProps({
                                         autofocus: "",
                                         autocomplete: "off"
                                       }, searchInputProps.value, {
@@ -3124,7 +3123,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                       }, () => {
                                                         var _a8, _b5, _c2, _d, _e;
                                                         return [
-                                                          item.icon ? (openBlock(), createBlock(UIcon, {
+                                                          item.icon ? (openBlock(), createBlock(__nuxt_component_4, {
                                                             key: 0,
                                                             name: item.icon,
                                                             class: ui.value.itemLeadingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemLeadingIcon })
@@ -3166,7 +3165,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                                                           default: withCtx(() => {
                                                             var _a8;
                                                             return [
-                                                              createVNode(UIcon, {
+                                                              createVNode(__nuxt_component_4, {
                                                                 name: _ctx.selectedIcon || unref(appConfig).ui.icons.check,
                                                                 class: ui.value.itemTrailingIcon({ class: (_a8 = props.ui) == null ? void 0 : _a8.itemTrailingIcon })
                                                               }, null, 8, ["name", "class"])
@@ -3351,14 +3350,14 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       var _a2;
-      const _component_UIcon = UIcon;
+      const _component_UIcon = __nuxt_component_4;
       const _component_UButton = __nuxt_component_5$1;
       const _component_USeparator = __nuxt_component_1$1;
       const _component_UForm = __nuxt_component_3;
       const _component_UFormField = __nuxt_component_3$1;
       const _component_UCheckbox = __nuxt_component_5;
       const _component_USelectMenu = __nuxt_component_6;
-      const _component_UInput = __nuxt_component_4;
+      const _component_UInput = __nuxt_component_4$1;
       _push(ssrRenderComponent(unref(Primitive), mergeProps({
         as: _ctx.as,
         class: unref(ui).root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
@@ -4253,7 +4252,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                   class: ui.value.avatar({ class: (_b2 = props.ui) == null ? void 0 : _b2.avatar })
                 }), null, _parent2, _scopeId));
               } else if (_ctx.icon) {
-                _push2(ssrRenderComponent(UIcon, {
+                _push2(ssrRenderComponent(__nuxt_component_4, {
                   name: _ctx.icon,
                   class: ui.value.icon({ class: (_c2 = props.ui) == null ? void 0 : _c2.icon })
                 }, null, _parent2, _scopeId));
@@ -4346,7 +4345,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                     size: ((_a4 = props.ui) == null ? void 0 : _a4.avatarSize) || ui.value.avatarSize()
                   }, _ctx.avatar, {
                     class: ui.value.avatar({ class: (_b2 = props.ui) == null ? void 0 : _b2.avatar })
-                  }), null, 16, ["size", "class"])) : _ctx.icon ? (openBlock(), createBlock(UIcon, {
+                  }), null, 16, ["size", "class"])) : _ctx.icon ? (openBlock(), createBlock(__nuxt_component_4, {
                     key: 1,
                     name: _ctx.icon,
                     class: ui.value.icon({ class: (_c2 = props.ui) == null ? void 0 : _c2.icon })
