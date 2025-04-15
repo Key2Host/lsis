@@ -3,7 +3,7 @@ import { defineComponent, mergeModels, useSlots, useModel, computed, unref, merg
 import { ssrRenderComponent, ssrRenderClass, ssrRenderList, ssrRenderSlot, ssrInterpolate, ssrRenderStyle, ssrRenderAttrs, ssrRenderAttr } from 'vue/server-renderer';
 import { useForwardProps, StepperRoot, StepperItem, StepperTrigger, StepperIndicator, StepperSeparator, StepperTitle, StepperDescription, useForwardPropsEmits, Primitive, ProgressRoot, ProgressIndicator } from 'reka-ui';
 import { reactivePick } from '@vueuse/core';
-import { t as tv, _ as __nuxt_component_4, a as _appConfig, h as useLocale, q as __nuxt_component_5, z as useSeoMeta, A as __nuxt_component_2 } from './server.mjs';
+import { t as tv, _ as __nuxt_component_4, a as _appConfig, h as useLocale, q as __nuxt_component_5, x as useToast, z as useSeoMeta, A as __nuxt_component_2 } from './server.mjs';
 import { a as __nuxt_component_3, _ as __nuxt_component_4$1, b as _imports_0 } from './virtual_public.mjs';
 import axios from 'axios';
 import '../nitro/nitro.mjs';
@@ -1351,6 +1351,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       { title: "Abschluss", icon: "i-lucide-bookmark-check" }
     ];
     const currentStep = ref(0);
+    const toast = useToast();
     const user = ref({
       firstName: "",
       lastName: "",
@@ -1399,9 +1400,36 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           }
         );
         currentStep.value = 2;
+        checkID();
       } catch (error) {
-        console.log(error);
+        const errorMessage = ref("");
+        if (error.response && error.response.status === 400) {
+          console.error("Fehler bei der Anmeldung", error);
+          errorMessage.value = "Einige Daten scheinen nicht korrekt zu sein.";
+        } else if (error.response && error.response.status === 409) {
+          console.error("Fehler bei der Anmeldung", error);
+          errorMessage.value = "E-Mail oder Telefon wird bereits verwendet.";
+        } else {
+          console.error("Fehler bei der API-Anfrage:", error.message);
+          errorMessage.value = "API Fehler";
+        }
+        toast.add({
+          icon: "i-heroicons-exclamation-triangle",
+          description: errorMessage.value,
+          color: "error",
+          title: "Fehler beim Erstellen des Kontos",
+          duration: 2500
+        });
       }
+    }
+    async function checkID() {
+      const response = await axios.post(
+        "https://saci.key2host.com/api/auth/checkid/",
+        {},
+        { withCredentials: true }
+      );
+      const secret = response.data.secret;
+      await stripe.verifyIdentity(secret);
     }
     useSeoMeta({
       title: "Konto erstellen",

@@ -109,6 +109,17 @@ async function signup(req, res) {
       return res.status(400).json({ message: 'Alle Felder müssen ausgefüllt werden!' });
     }
 
+    // CHECK OB EMAIL BEREITS EXISTIERT
+    const emailEntry = await UserEmail.findOne({ where: { email } });
+    if (emailEntry) {
+      return res.status(409).json({ error: 'E-Mail Adresse wird bereits verwendet.' });
+    }
+
+    const phoneEntry = await UserPhone.findOne({ where: { phone } });
+    if (phoneEntry) {
+      return res.status(409).json({ error: 'Telefonnummer wird bereits verwendet.' });
+    }
+
     const customerID = await generateCustomerID();
 
     // Passwort mit Argon2 hashen
@@ -159,21 +170,89 @@ async function signup(req, res) {
       verified: 0
     });
 
-    res.status(201).json({
-      message: 'Benutzer erfolgreich erstellt',
-      user: {
-        id: newUser.id,
-        customerID: newUser.customerID,
-        firstname: newUser.firstname,
-        lastname: newUser.lastname,
-        city: newUser.city,
-        country: newUser.country,
-        email: email
-      }
-    });
+    // JWT generieren
+    const accessToken = jwt.sign(
+      { id: newUser.id, customerID: newUser.customerID, firstname: newUser.firstname, lastname: newUser.lastname, email: newUser.email },
+      JWT_SECRET,
+      { expiresIn: JWT_EXPIRATION }  // Kurze Lebensdauer (z. B. 15 Minuten)
+    );
+
+    const refreshToken = jwt.sign(
+      { id: newUser.id, customerID: newUser.customerID, firstname: newUser.firstname, lastname: newUser.lastname, email: newUser.email },
+      JWT_SECRET,
+      { expiresIn: JWT_REFRESH_EXPIRATION }  // Lange Lebensdauer (z. B. 7 Tage)
+    );
+
+    try {
+      await RefreshTokens.create({
+        user: newUser.id,
+        token: refreshToken
+      });
+
+      res.cookie("accessToken", accessToken, {
+        httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
+        secure: true, // Setze es nur in der Produktion auf `true`
+        sameSite: "None",      // CORS-freundlich
+        path: "/"              // Gilt für die gesamte Website
+      });
+
+      res.cookie("refreshToken", refreshToken, {
+        httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
+        secure: true, // Setze es nur in der Produktion auf `true`
+        sameSite: "None",      // CORS-freundlich
+        path: "/"              // Gilt für die gesamte Website
+      });
+
+      res.status(201).json({
+        accessToken,
+        refreshToken,
+        message: 'Benutzer erfolgreich erstellt',
+        user: {
+          id: newUser.id,
+          customerID: newUser.customerID,
+          firstname: newUser.firstname,
+          lastname: newUser.lastname,
+          city: newUser.city,
+          country: newUser.country,
+          email: email
+        }
+      });
+
+    } catch (err) {
+      log('Fehler beim Speichern des Refresh Tokens:', err);
+      res.status(500).json({ error: 'Fehler beim Speichern des Refresh Tokens' });
+    }
   } catch (err) {
     log('❌ Fehler beim Erstellen des Benutzers:', err);
     res.status(500).json({ message: 'Fehler beim Erstellen des Benutzers' });
+  }
+}
+
+async function checkID(req, res) {
+  try {
+    const token = req.cookies.accessToken;
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const userid = decoded.id;
+
+    const verificationSession = await stripe.identity.verificationSessions.create({
+      type: 'document',
+      return_url: 'https://deine-domain.de/verify/complete',
+      related_customer: userid,
+      options: {
+        document: {
+          allowed_types: ['id_card'],
+          require_id_number: false,
+          require_live_capture: true,
+          require_matching_selfie: true,
+        },
+      },
+    });
+
+    // Return only the client secret to the frontend.
+    res.json({ secret: verificationSession.client_secret });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Fehler beim Erstellen des ID-Check" });
   }
 }
 
@@ -246,7 +325,7 @@ async function logout(req, res) {
 
     res.clearCookie('accessToken', { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: 'None', path: "/" });
     res.clearCookie('refreshToken', { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: 'None', path: "/" });
-    
+
     res.status(200).json({ message: 'Erfolgreich ausgeloggt' });
 
   } catch (err) {
@@ -255,4 +334,4 @@ async function logout(req, res) {
   }
 }
 
-module.exports = { login, signup, recover, logout };
+module.exports = { login, signup, checkID, recover, logout };
