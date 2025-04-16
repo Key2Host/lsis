@@ -1,6 +1,6 @@
 import { _ as __nuxt_component_0 } from './NuxtLinkLocale.mjs';
 import { z as useSeoMeta, A as __nuxt_component_2, q as __nuxt_component_5 } from './server.mjs';
-import { b as _imports_0, a as __nuxt_component_3, _ as __nuxt_component_4 } from './virtual_public2.mjs';
+import { b as _imports_0, a as __nuxt_component_3, _ as __nuxt_component_4 } from './virtual_public.mjs';
 import { defineComponent, mergeProps, withCtx, createVNode, createTextVNode, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr } from 'vue/server-renderer';
 import '../nitro/nitro.mjs';

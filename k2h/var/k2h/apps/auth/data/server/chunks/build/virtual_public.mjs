@@ -739,4 +739,4 @@ const __nuxt_component_4 = Object.assign(_sfc_main, { __name: "UInput" });
 const _imports_0 = publicAssetsURL("/img/brand/logo.svg");
 
 export { __nuxt_component_4 as _, __nuxt_component_3 as a, _imports_0 as b };
-//# sourceMappingURL=virtual_public2.mjs.map
+//# sourceMappingURL=virtual_public.mjs.map

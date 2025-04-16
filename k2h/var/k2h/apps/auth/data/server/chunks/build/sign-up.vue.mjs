@@ -1,11 +1,12 @@
 import { _ as __nuxt_component_0 } from './NuxtLinkLocale.mjs';
-import { defineComponent, mergeModels, useSlots, useModel, computed, unref, mergeProps, withCtx, renderSlot, createBlock, openBlock, Fragment, createTextVNode, toDisplayString, createVNode, createCommentVNode, renderList, useSSRContext, ref, watch } from 'vue';
+import { defineComponent, mergeModels, useSlots, useModel, computed, unref, mergeProps, withCtx, renderSlot, createBlock, openBlock, Fragment, createTextVNode, toDisplayString, createVNode, createCommentVNode, renderList, useSSRContext, ref, watch, withAsyncContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderList, ssrRenderSlot, ssrInterpolate, ssrRenderStyle, ssrRenderAttrs, ssrRenderAttr } from 'vue/server-renderer';
 import { useForwardProps, StepperRoot, StepperItem, StepperTrigger, StepperIndicator, StepperSeparator, StepperTitle, StepperDescription, useForwardPropsEmits, Primitive, ProgressRoot, ProgressIndicator } from 'reka-ui';
 import { reactivePick } from '@vueuse/core';
 import { t as tv, _ as __nuxt_component_4, a as _appConfig, h as useLocale, q as __nuxt_component_5, x as useToast, z as useSeoMeta, A as __nuxt_component_2 } from './server.mjs';
-import { a as __nuxt_component_3, _ as __nuxt_component_4$1, b as _imports_0 } from './virtual_public2.mjs';
+import { a as __nuxt_component_3, _ as __nuxt_component_4$1, b as _imports_0 } from './virtual_public.mjs';
 import axios from 'axios';
+import { loadStripe } from '@stripe/stripe-js';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -1343,7 +1344,8 @@ const __nuxt_component_6 = Object.assign(_sfc_main$1, { __name: "PasswordForm" }
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "sign-up",
   __ssrInlineRender: true,
-  setup(__props) {
+  async setup(__props) {
+    let __temp, __restore;
     const items = [
       { title: "Persönliche Daten", icon: "i-lucide-book-user" },
       { title: "Sicherheit", icon: "i-lucide-lock" },
@@ -1352,6 +1354,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     ];
     const currentStep = ref(0);
     const toast = useToast();
+    const stripePromise = loadStripe("pk_test_51QslnTCh2zruBO1L6TygyC6pozDvJ8LtsSTArhoWDmriYwZqk6I9a25CyjvP9IovXAgUBtgUpKlrxTfeB8j7bbWp00PzBrxeFI");
+    const stripe = ([__temp, __restore] = withAsyncContext(() => stripePromise), __temp = await __temp, __restore(), __temp);
     const user = ref({
       firstName: "",
       lastName: "",
@@ -1406,6 +1410,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           { withCredentials: true }
         );
         const secret = response2.data.secret;
+        console.log("Secret: " + secret);
         await stripe.verifyIdentity(secret);
       } catch (error) {
         const errorMessage = ref("");
