@@ -76,7 +76,7 @@ async function login(req, res) {
 }
 
 async function generateCustomerID() {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
   let customerID;
   let exists;
 
