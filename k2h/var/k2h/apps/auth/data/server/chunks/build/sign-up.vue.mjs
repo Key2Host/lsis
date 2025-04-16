@@ -1386,7 +1386,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     async function createUser() {
       try {
         const u = user.value;
-        const response = await axios.post(
+        await axios.post(
           "https://saci.key2host.com/api/auth/signup/",
           {
             firstname: u.firstName,
@@ -1404,13 +1404,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           }
         );
         currentStep.value = 2;
-        const response2 = await axios.post(
+        const response = await axios.post(
           "https://saci.key2host.com/api/auth/checkid/",
           {},
           { withCredentials: true }
         );
-        const secret = response2.data.secret;
-        console.log("Secret: " + secret);
+        const secret = response.data.secret;
         await stripe.verifyIdentity(secret);
       } catch (error) {
         const errorMessage = ref("");
