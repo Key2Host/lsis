@@ -1412,6 +1412,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         const secret = response.data.secret;
         await stripe.verifyIdentity(secret);
       } catch (error) {
+        console.log(error);
         const errorMessage = ref("");
         if (error.response && error.response.status === 400) {
           console.error("Fehler bei der Anmeldung", error);
