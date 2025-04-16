@@ -4,7 +4,7 @@ import { ssrRenderComponent, ssrRenderClass, ssrRenderList, ssrRenderSlot, ssrIn
 import { useForwardProps, StepperRoot, StepperItem, StepperTrigger, StepperIndicator, StepperSeparator, StepperTitle, StepperDescription, useForwardPropsEmits, Primitive, ProgressRoot, ProgressIndicator } from 'reka-ui';
 import { reactivePick } from '@vueuse/core';
 import { t as tv, _ as __nuxt_component_4, a as _appConfig, h as useLocale, q as __nuxt_component_5, x as useToast, z as useSeoMeta, A as __nuxt_component_2 } from './server.mjs';
-import { a as __nuxt_component_3, _ as __nuxt_component_4$1, b as _imports_0 } from './virtual_public.mjs';
+import { a as __nuxt_component_3, _ as __nuxt_component_4$1, b as _imports_0 } from './virtual_public2.mjs';
 import axios from 'axios';
 import '../nitro/nitro.mjs';
 import 'node:http';
@@ -1400,7 +1400,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           }
         );
         currentStep.value = 2;
-        checkID();
+        const response2 = await axios.post(
+          "https://saci.key2host.com/api/auth/checkid/",
+          {},
+          { withCredentials: true }
+        );
+        const secret = response2.data.secret;
+        await stripe.verifyIdentity(secret);
       } catch (error) {
         const errorMessage = ref("");
         if (error.response && error.response.status === 400) {
@@ -1421,15 +1427,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           duration: 2500
         });
       }
-    }
-    async function checkID() {
-      const response = await axios.post(
-        "https://saci.key2host.com/api/auth/checkid/",
-        {},
-        { withCredentials: true }
-      );
-      const secret = response.data.secret;
-      await stripe.verifyIdentity(secret);
     }
     useSeoMeta({
       title: "Konto erstellen",
