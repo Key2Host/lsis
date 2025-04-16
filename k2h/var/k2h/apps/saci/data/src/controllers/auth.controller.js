@@ -115,7 +115,7 @@ async function signup(req, res) {
       return res.status(409).json({ error: 'E-Mail Adresse wird bereits verwendet.' });
     }
 
-    const phoneEntry = await UserPhone.findOne({ where: { phone } });
+    const phoneEntry = await UserPhone.findOne({ where: { number: phone } });
     if (phoneEntry) {
       return res.status(409).json({ error: 'Telefonnummer wird bereits verwendet.' });
     }
