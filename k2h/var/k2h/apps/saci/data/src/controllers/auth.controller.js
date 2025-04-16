@@ -238,7 +238,7 @@ async function checkID(req, res) {
 
     const verificationSession = await stripe.identity.verificationSessions.create({
       type: 'document',
-      return_url: 'https://deine-domain.de/verify/complete',
+      return_url: 'https://auth.key2host.com/sign-up/completed',
       related_customer: user.stripeCustomerId,
       options: {
         document: {
@@ -250,8 +250,8 @@ async function checkID(req, res) {
       },
     });
 
-    // Return only the client secret to the frontend.
-    res.json({ secret: verificationSession.client_secret });
+    // Return only the client url to the frontend.
+    res.json({ url: verificationSession.url });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Fehler beim Erstellen des ID-Check" });

@@ -1,4 +1,4 @@
-import { B as defineNuxtLink, C as useLocalePath, D as hasProtocol, E as nuxtLinkDefaults } from './server.mjs';
+import { E as defineNuxtLink, F as useLocalePath, G as hasProtocol, H as nuxtLinkDefaults } from './server.mjs';
 import { defineComponent, computed, h } from 'vue';
 
 const NuxtLinkLocale = defineNuxtLink({ ...nuxtLinkDefaults, componentName: "NuxtLinkLocale" });

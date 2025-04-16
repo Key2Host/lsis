@@ -89,6 +89,42 @@ const sources = [
                 ]
             },
             {
+                "loc": "/sign-up/completed",
+                "_sitemap": "de",
+                "alternatives": [
+                    {
+                        "hreflang": "de",
+                        "href": "/sign-up/completed"
+                    },
+                    {
+                        "hreflang": "en",
+                        "href": "/en/sign-up/completed"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/sign-up/completed"
+                    }
+                ]
+            },
+            {
+                "loc": "/en/sign-up/completed",
+                "_sitemap": "en",
+                "alternatives": [
+                    {
+                        "hreflang": "de",
+                        "href": "/sign-up/completed"
+                    },
+                    {
+                        "hreflang": "en",
+                        "href": "/en/sign-up/completed"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/sign-up/completed"
+                    }
+                ]
+            },
+            {
                 "loc": "/sign-up",
                 "_sitemap": "de",
                 "alternatives": [

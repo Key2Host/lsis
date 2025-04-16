@@ -694,14 +694,24 @@ const _routes = [
     component: () => import('./recover.vue.mjs')
   },
   {
+    name: "sign-up-completed___de",
+    path: "/sign-up/completed",
+    component: () => import('./completed.vue.mjs')
+  },
+  {
+    name: "sign-up-completed___en",
+    path: "/en/sign-up/completed",
+    component: () => import('./completed.vue.mjs')
+  },
+  {
     name: "sign-up___de",
     path: "/sign-up",
-    component: () => import('./sign-up.vue.mjs')
+    component: () => import('./index.vue2.mjs')
   },
   {
     name: "sign-up___en",
     path: "/en/sign-up",
-    component: () => import('./sign-up.vue.mjs')
+    component: () => import('./index.vue2.mjs')
   },
   {
     name: (_a$b = __nuxt_page_meta) == null ? void 0 : _a$b.name,
@@ -14134,5 +14144,5 @@ const server = /*#__PURE__*/Object.freeze({
   default: entry$1
 });
 
-export { __nuxt_component_2$1 as A, defineNuxtLink as B, useLocalePath as C, hasProtocol as D, nuxtLinkDefaults as E, inputIdInjectionKey as F, formFieldInjectionKey as G, looseToNumber as H, server as I, UAvatar as U, __nuxt_component_4$1 as _, _appConfig as a, formInputsInjectionKey as b, formLoadingInjectionKey as c, formOptionsInjectionKey as d, useFormField as e, formBusInjectionKey as f, useAvatarGroup as g, useLocale as h, useButtonGroup as i, useComponentIcons as j, get as k, compare as l, defineLocale as m, en as n, localeContextInjectionKey as o, buildLocaleContext as p, __nuxt_component_5 as q, omit as r, useNuxtApp as s, tv as t, useAppConfig as u, injectHead as v, useRuntimeConfig as w, useToast as x, useI18n as y, useSeoMeta as z };
+export { __nuxt_component_2$1 as A, inputIdInjectionKey as B, formFieldInjectionKey as C, looseToNumber as D, defineNuxtLink as E, useLocalePath as F, hasProtocol as G, nuxtLinkDefaults as H, server as I, UAvatar as U, __nuxt_component_4$1 as _, _appConfig as a, formInputsInjectionKey as b, formLoadingInjectionKey as c, formOptionsInjectionKey as d, useFormField as e, formBusInjectionKey as f, useAvatarGroup as g, useLocale as h, useButtonGroup as i, useComponentIcons as j, get as k, compare as l, defineLocale as m, en as n, localeContextInjectionKey as o, buildLocaleContext as p, __nuxt_component_5 as q, omit as r, useNuxtApp as s, tv as t, useAppConfig as u, injectHead as v, useRuntimeConfig as w, useToast as x, useI18n as y, useSeoMeta as z };
 //# sourceMappingURL=server.mjs.map
