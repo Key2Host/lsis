@@ -4,7 +4,7 @@ import { ssrRenderComponent, ssrRenderClass, ssrRenderList, ssrRenderSlot, ssrIn
 import { useForwardProps, StepperRoot, StepperItem, StepperTrigger, StepperIndicator, StepperSeparator, StepperTitle, StepperDescription, useForwardPropsEmits, Primitive, ProgressRoot, ProgressIndicator } from 'reka-ui';
 import { reactivePick } from '@vueuse/core';
 import { t as tv, _ as __nuxt_component_4, a as _appConfig, h as useLocale, q as __nuxt_component_5, x as useToast, z as useSeoMeta, A as __nuxt_component_2 } from './server.mjs';
-import { a as __nuxt_component_3, _ as __nuxt_component_4$1, b as _imports_0 } from './virtual_public.mjs';
+import { a as __nuxt_component_3, _ as __nuxt_component_4$1, b as _imports_0 } from './virtual_public2.mjs';
 import axios from 'axios';
 import { loadStripe } from '@stripe/stripe-js';
 import '../nitro/nitro.mjs';
@@ -1410,6 +1410,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           { withCredentials: true }
         );
         const secret = response.data.secret;
+        console.log(secret);
         await stripe.verifyIdentity(secret);
       } catch (error) {
         console.log(error);
