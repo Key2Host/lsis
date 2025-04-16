@@ -214,7 +214,7 @@ async function signup(req, res) {
           lastname: newUser.lastname,
           city: newUser.city,
           country: newUser.country,
-          email: email
+          email: newUser.email
         }
       });
 
