@@ -234,7 +234,7 @@ async function checkID(req, res) {
     const decoded = jwt.verify(token, JWT_SECRET);
     const userid = decoded.id;
 
-    const user = await User.findOne({ where: { userid } });
+    const user = await User.findOne({ where: { id: userid } });
 
     const verificationSession = await stripe.identity.verificationSessions.create({
       type: 'document',
