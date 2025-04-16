@@ -1401,6 +1401,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             country: u.address.country,
             email: u.email,
             phone: u.phone
+          },
+          {
+            withCredentials: true
           }
         );
         currentStep.value = 2;
