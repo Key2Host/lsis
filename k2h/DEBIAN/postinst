@@ -62,8 +62,8 @@ else
 fi
 
 # Symbolische Links setzen (zeigt auf aktuelle Version in /etc/letsencrypt)
-sudo ln -sf /etc/letsencrypt/live/mail.key2host.com/fullchain.pem /var/k2h/mailsrv/fullchain.pem
-sudo ln -sf /etc/letsencrypt/live/mail.key2host.com/privkey.pem /var/k2h/mailsrv/privkey.pem
+sudo ln -sf /etc/letsencrypt/live/mail.key2host.com/fullchain.pem /var/k2h/mailsrv/certs/fullchain.pem
+sudo ln -sf /etc/letsencrypt/live/mail.key2host.com/privkey.pem /var/k2h/mailsrv/certs/privkey.pem
 
 # Berechtigungen korrekt setzen
 sudo chmod 644 /etc/letsencrypt/live/mail.key2host.com/fullchain.pem
