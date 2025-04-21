@@ -75,7 +75,10 @@ else
     fi
 fi
 
+# REMOVE --staging FOR PRODUCTION USE
+
 # Symbolische Links setzen (zeigt auf aktuelle Version in /etc/letsencrypt)
+sudo mkdir -p /var/k2h/mailsrv/certs/
 sudo ln -sf /etc/letsencrypt/live/mail.key2host.com/fullchain.pem /var/k2h/mailsrv/certs/fullchain.pem
 sudo ln -sf /etc/letsencrypt/live/mail.key2host.com/privkey.pem /var/k2h/mailsrv/certs/privkey.pem
 
