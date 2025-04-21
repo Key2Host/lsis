@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-packages=("fail2ban" "ufw" "clamav" "docker-ce")
+packages=("fail2ban" "ufw" "clamav" "docker-ce" "certbot")
 for package in "${packages[@]}"; do
   if ! dpkg -l | grep -q "$package"; then
     echo "$package ist nicht installiert."

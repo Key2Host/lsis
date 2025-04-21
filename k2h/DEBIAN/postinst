@@ -44,6 +44,9 @@ systemctl start unattended-upgrades
 echo "Pre-Installation abgeschlossen."
 echo "---"
 
+# SSL/TLS Certificate
+sudo certbot certonly --standalone -d mail.key2host.com --agree-tos --email webmaster@key2host.com --cert-path /var/k2h/mailsrv/cert.pem --key-path /var/k2h/mailsrv/privkey.pem --config-dir /var/k2h/mailsrv/config --work-dir /var/k2h/mailsrv/work --logs-dir /var/k2h/mailsrv/log
+
 # Countdown von 10 Sekunden
 echo "Das System wird neu gestartet um die Änderungen anzuwenden."
 echo "Bitte breche diesen Schritt nicht ab!"
