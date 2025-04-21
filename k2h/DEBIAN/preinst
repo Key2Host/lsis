@@ -1,19 +1,14 @@
 #!/bin/bash
 set -e
 
-packages=("fail2ban" "ufw" "clamav" "docker-ce" "certbot")
+packages=("ufw" "fail2ban" "clamav" "clamav-daemon" "docker-ce" "docker-ce-cli" "containerd.io" "docker-buildx-plugin" "docker-compose-plugin" "certbot")
 for package in "${packages[@]}"; do
   if ! dpkg -l | grep -q "$package"; then
-    echo "$package ist nicht installiert."
+    echo "$package ist nicht verfügbar. Installiere das Paket um fortzufahren..."
     exit 1
-  else
-    echo "$package ist bereits installiert."
   fi
 done
 
 if [ -d "/var/k2h/" ]; then
     systemctl stop k2h.service
-    docker rm portainer -f    
-    docker pull portainer/portainer-ce:latest
 fi
-
