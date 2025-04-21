@@ -37,6 +37,16 @@ echo "Konfiguriere Antivirus..."
 systemctl enable clamav-daemon
 systemctl start clamav-daemon
 
+# Update Cronjob
+CRONJOB="0 4 * * * /var/k2h/updater/k2h-updater.sh >> /var/log/k2h-updater.log 2>&1"
+
+# Prüfen, ob der Cronjob bereits existiert
+( crontab -l 2>/dev/null | grep -Fxq "$CRONJOB" ) || (
+  # Wenn nicht, dann anhängen
+  ( crontab -l 2>/dev/null; echo "$CRONJOB" ) | crontab -
+  echo "[INFO] Cronjob hinzugefügt."
+)
+
 # Zertifikat ausstellen oder erneuern
 if [[ ! -f "/var/k2h/mailsrv/fullchain.pem" || ! -f "/var/k2h/mailsrv/privkey.pem" ]]; then
   echo "[INFO] Zertifikat fehlt – erzwinge Ausstellung"
