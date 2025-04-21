@@ -1,4 +1,15 @@
 services:
+    certbot:
+        image: certbot/certbot
+        container_name: k2h_certbot
+        command: certonly --standalone --non-interactive --agree-tos --email webmaster@key2host.com -d mail.key2host.com
+        volumes:
+            - ./docker-data/certbot/certs:/etc/letsencrypt
+            - ./docker-data/certbot/logs:/var/log/letsencrypt
+        ports:
+            - "80:80"
+        networks:
+            - network
     database:
         container_name: k2h_database
         build:
@@ -80,6 +91,7 @@ services:
              - ./docker-data/dms/mail-logs/:/var/log/mail/
              - ./docker-data/dms/config/:/tmp/docker-mailserver/
              - /etc/localtime:/etc/localtime:ro
+             - ./docker-data/certbot/certs:/etc/letsencrypt
         restart: always
         stop_grace_period: 1m
         cap_add:
