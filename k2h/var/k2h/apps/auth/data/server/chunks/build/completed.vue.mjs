@@ -1,9 +1,9 @@
 import { _ as __nuxt_component_0 } from './NuxtLinkLocale.mjs';
 import { _ as __nuxt_component_1, a as __nuxt_component_7 } from './Progress.vue.mjs';
-import { z as useSeoMeta, A as __nuxt_component_2 } from './server.mjs';
+import { w as useSeoMeta, x as __nuxt_component_2 } from './server.mjs';
 import { defineComponent, ref, mergeProps, withCtx, createVNode, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr } from 'vue/server-renderer';
-import { _ as _imports_0 } from './virtual_public.mjs';
+import { _ as _imports_0 } from './virtual_public2.mjs';
 import 'reka-ui';
 import '@vueuse/core';
 import '../nitro/nitro.mjs';

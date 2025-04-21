@@ -1,9 +1,10 @@
 import { _ as __nuxt_component_0 } from './NuxtLinkLocale.mjs';
-import { z as useSeoMeta, A as __nuxt_component_2, q as __nuxt_component_5 } from './server.mjs';
+import { w as useSeoMeta, x as __nuxt_component_2, q as __nuxt_component_5 } from './server.mjs';
 import { a as __nuxt_component_3, _ as __nuxt_component_4 } from './Input.vue.mjs';
-import { defineComponent, mergeProps, withCtx, createVNode, createTextVNode, useSSRContext } from 'vue';
+import { _ as __nuxt_component_4$1 } from './NuxtTurnstile.vue.mjs';
+import { defineComponent, ref, mergeProps, withCtx, createVNode, unref, isRef, createTextVNode, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr } from 'vue/server-renderer';
-import { _ as _imports_0 } from './virtual_public.mjs';
+import { _ as _imports_0 } from './virtual_public2.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -31,11 +32,15 @@ import '@vueuse/core';
 import '@iconify/utils/lib/css/icon';
 import 'tailwind-variants';
 import 'reka-ui/namespaced';
+import 'unhead/scripts';
+import '@vueuse/shared';
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "recover",
   __ssrInlineRender: true,
   setup(__props) {
+    const turnstile = ref();
+    const turnstileToken = ref("");
     useSeoMeta({
       title: "Passwort zurücksetzen",
       ogTitle: "Passwort zurücksetzen",
@@ -47,6 +52,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_UCard = __nuxt_component_2;
       const _component_UFormField = __nuxt_component_3;
       const _component_UInput = __nuxt_component_4;
+      const _component_NuxtTurnstile = __nuxt_component_4$1;
       const _component_UButton = __nuxt_component_5;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full h-screen flex flex-col items-center" }, _attrs))}>`);
       _push(ssrRenderComponent(_component_NuxtLinkLocale, {
@@ -77,7 +83,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }, {
           default: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<div class="border-b px-6 py-4 mb-5"${_scopeId}><p class="text-sm text-center"${_scopeId}>Bitte gib die mit deinem Konto verknüpfte E-Mail-Adresse ein. Wir senden dir umgehend einen Link, mit dem du dein Passwort sicher zurücksetzen kannst.</p></div><div class="w-full flex justify-center"${_scopeId}>`);
+              _push2(`<div class="border-b px-6 py-4 mb-5"${_scopeId}><p class="text-sm text-center"${_scopeId}>Bitte gib die mit deinem Konto verknüpfte E-Mail-Adresse ein. Wir senden dir umgehend einen Link, mit dem du dein Passwort sicher zurücksetzen kannst.</p></div><div class="w-full flex justify-center mb-5"${_scopeId}>`);
               _push2(ssrRenderComponent(_component_UFormField, { label: "E-Mail Adresse" }, {
                 default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
@@ -102,6 +108,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 }),
                 _: 1
               }, _parent2, _scopeId));
+              _push2(`</div><div class="flex items-center justify-center"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_NuxtTurnstile, {
+                ref_key: "turnstile",
+                ref: turnstile,
+                modelValue: unref(turnstileToken),
+                "onUpdate:modelValue": ($event) => isRef(turnstileToken) ? turnstileToken.value = $event : null,
+                options: { language: _ctx.$i18n.locale === "de" ? "de" : "en" }
+              }, null, _parent2, _scopeId));
               _push2(`</div><div class="w-full flex justify-end"${_scopeId}>`);
               _push2(ssrRenderComponent(_component_UButton, {
                 size: "lg",
@@ -124,7 +138,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 createVNode("div", { class: "border-b px-6 py-4 mb-5" }, [
                   createVNode("p", { class: "text-sm text-center" }, "Bitte gib die mit deinem Konto verknüpfte E-Mail-Adresse ein. Wir senden dir umgehend einen Link, mit dem du dein Passwort sicher zurücksetzen kannst.")
                 ]),
-                createVNode("div", { class: "w-full flex justify-center" }, [
+                createVNode("div", { class: "w-full flex justify-center mb-5" }, [
                   createVNode(_component_UFormField, { label: "E-Mail Adresse" }, {
                     default: withCtx(() => [
                       createVNode(_component_UInput, {
@@ -137,6 +151,15 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     ]),
                     _: 1
                   })
+                ]),
+                createVNode("div", { class: "flex items-center justify-center" }, [
+                  createVNode(_component_NuxtTurnstile, {
+                    ref_key: "turnstile",
+                    ref: turnstile,
+                    modelValue: unref(turnstileToken),
+                    "onUpdate:modelValue": ($event) => isRef(turnstileToken) ? turnstileToken.value = $event : null,
+                    options: { language: _ctx.$i18n.locale === "de" ? "de" : "en" }
+                  }, null, 8, ["modelValue", "onUpdate:modelValue", "options"])
                 ]),
                 createVNode("div", { class: "w-full flex justify-end" }, [
                   createVNode(_component_UButton, {
