@@ -78,8 +78,8 @@ services:
             - mail:/var/mail-state/
             - mail:/var/log/mail/
             - mail:/tmp/docker-mailserver/
-            - /var/k2h/mailsrv/fullchain.pem:/etc/letsencrypt/live/mail.key2host.com/fullchain.pem:ro
-            - /var/k2h/mailsrv/privkey.pem/privkey.pem:/etc/letsencrypt/live/mail.key2host.com/privkey.pem:ro
+            - /var/k2h/mailsrv/certs/fullchain.pem:/etc/letsencrypt/live/mail.key2host.com/fullchain.pem:ro
+            - /var/k2h/mailsrv/certs/privkey.pem:/etc/letsencrypt/live/mail.key2host.com/privkey.pem:ro
             - /etc/localtime:/etc/localtime:ro
         restart: always
         stop_grace_period: 1m
