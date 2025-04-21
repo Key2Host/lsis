@@ -65,7 +65,7 @@ services:
             - network
     mailserver:
         image: ghcr.io/docker-mailserver/docker-mailserver:latest
-        container_name: mailserver
+        container_name: k2h_mailserver
         hostname: mail.key2host.com
         env_file: mailsrv/mailserver.env
         ports:
@@ -82,13 +82,14 @@ services:
              - /etc/localtime:/etc/localtime:ro
         restart: always
         stop_grace_period: 1m
-        # Uncomment if using `ENABLE_FAIL2BAN=1`:
-        # cap_add:
-        #   - NET_ADMIN
+        cap_add:
+           - NET_ADMIN
         healthcheck:
             test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
             timeout: 3s
             retries: 0
+        networks:
+            - network
     phpmyadmin:
         container_name: k2h_phpmyadmin
         image: phpmyadmin/phpmyadmin
