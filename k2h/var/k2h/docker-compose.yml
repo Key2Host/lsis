@@ -95,14 +95,12 @@ services:
         container_name: k2h_roundcube
         restart: always
         ports:
-           - "8888:80"  # Webmail erreichbar unter http://localhost:8080
+           - "8888:80"
         environment:
-            ROUNDCUBEMAIL_DEFAULT_HOST: ssl://mail.key2host.com
-            ROUNDCUBEMAIL_SMTP_SERVER: tls://mail.key2host.com
+            ROUNDCUBEMAIL_DEFAULT_HOST: ssl://k2h_mailserver
+            ROUNDCUBEMAIL_SMTP_SERVER: tls://k2h_mailserver
+            ROUNDCUBEMAIL_DEFAULT_PORT: 143
             ROUNDCUBEMAIL_SMTP_PORT: 587
-            ROUNDCUBEMAIL_DEFAULT_PORT: 993
-            ROUNDCUBEMAIL_SMTP_USER: "%u"
-            ROUNDCUBEMAIL_SMTP_PASS: "%p"
         depends_on:
             - mailserver
         networks:
