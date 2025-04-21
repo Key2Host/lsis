@@ -74,17 +74,17 @@ services:
             - "587:587"  # ESMTP (explicit TLS => STARTTLS)
             - "993:993"  # IMAP4 (implicit TLS)
         volumes:
-            - ./docker-data/dms/mail-data/:/var/mail/
-            - ./docker-data/dms/mail-state/:/var/mail-state/
-            - ./docker-data/dms/mail-logs/:/var/log/mail/
-            - ./docker-data/dms/config/:/tmp/docker-mailserver/
+            - mail:/var/mail/
+            - mail:/var/mail-state/
+            - mail:/var/log/mail/
+            - mail:/tmp/docker-mailserver/
             - /var/k2h/mailsrv/fullchain.pem:/etc/letsencrypt/live/mail.key2host.com/fullchain.pem:ro
             - /var/k2h/mailsrv/privkey.pem/privkey.pem:/etc/letsencrypt/live/mail.key2host.com/privkey.pem:ro
             - /etc/localtime:/etc/localtime:ro
         restart: always
         stop_grace_period: 1m
         cap_add:
-           - NET_ADMIN
+            - NET_ADMIN
         healthcheck:
             test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
             timeout: 3s
@@ -123,3 +123,4 @@ networks:
         driver: bridge
 volumes:
     db:
+    mail:
