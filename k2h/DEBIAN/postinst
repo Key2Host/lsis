@@ -55,9 +55,7 @@ if [[ ! -f "/var/k2h/mailsrv/fullchain.pem" || ! -f "/var/k2h/mailsrv/privkey.pe
         --agree-tos \
          --email webmaster@key2host.com \
         --non-interactive \
-        # TESTING ONLY
-        --staging \ 
-        # TESTING ONLY
+        --staging \
         --force-renewal;
     then
         echo "[FEHLER] Zertifikatsausstellung fehlgeschlagen." >&2
@@ -69,9 +67,7 @@ else
     -d mail.key2host.com \
     --agree-tos \
     --email webmaster@key2host.com \
-    # TESTING ONLY
-    --staging \ 
-    # TESTING ONLY
+    --staging \
     --non-interactive
     then
         echo "[FEHLER] Zertifikatsausstellung fehlgeschlagen." >&2
