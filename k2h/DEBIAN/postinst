@@ -46,19 +46,27 @@ systemctl start unattended-upgrades
 # Zertifikat ausstellen oder erneuern
 if [[ ! -f "/var/k2h/mailsrv/fullchain.pem" || ! -f "/var/k2h/mailsrv/privkey.pem" ]]; then
   echo "[INFO] Zertifikat fehlt – erzwinge Ausstellung"
-  sudo certbot certonly --standalone \
-    -d mail.key2host.com \
-    --agree-tos \
-    --email webmaster@key2host.com \
-    --non-interactive \
-    --force-renewal
+    if ! sudo certbot certonly --standalone \
+        -d mail.key2host.com \
+        --agree-tos \
+         --email webmaster@key2host.com \
+        --non-interactive \
+        --force-renewal;
+    then
+        echo "[FEHLER] Zertifikatsausstellung fehlgeschlagen." >&2
+        exit 1
+    fi
 else
   echo "[INFO] Zertifikat vorhanden – prüfe ggf. Erneuerung"
-  sudo certbot certonly --standalone \
+  if ! sudo certbot certonly --standalone \
     -d mail.key2host.com \
     --agree-tos \
     --email webmaster@key2host.com \
     --non-interactive
+    then
+        echo "[FEHLER] Zertifikatsausstellung fehlgeschlagen." >&2
+        exit 1
+    fi
 fi
 
 # Symbolische Links setzen (zeigt auf aktuelle Version in /etc/letsencrypt)
