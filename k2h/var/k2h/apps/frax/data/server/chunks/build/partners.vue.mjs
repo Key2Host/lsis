@@ -43,7 +43,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const partners = ref([
       {
         name: "DJ MPL",
-        logo: "https://yt3.ggpht.com/ZnHKrAQ8RP2ud-eiJ0CfEbKW8fQTmAlodUBrM8JmP0dJgFLKv9Ig2YmBB_yv-uysYF6YesXK=s88-c-k-c0x00ffffff-no-rj",
+        logo: "/img/partners/dj_mpl.svg",
         url: "https://www.dj-mpl.de/",
         slogan: "Musik von 50er bis Techno"
       }

@@ -668,7 +668,7 @@ function encodeURL(location2, isExternalHost = false) {
 
 const __nuxt_page_meta = null;
 
-const component_45stubF80cPoW72ciq3QDxJMVVTsfnCO912vgXALRUK_JXx0k = {};
+const component_45stubL9o33BuC4_45k25sFe5KMgCZjSNqBfDWqc9iwkaqGmUxs = {};
 
 var _a$o, _b;
 function handleHotUpdate(_router, _generateRoutes) {
@@ -847,12 +847,12 @@ const _routes = [
   {
     name: (_a$o = __nuxt_page_meta) == null ? void 0 : _a$o.name,
     path: "/sitemap.xml",
-    component: component_45stubF80cPoW72ciq3QDxJMVVTsfnCO912vgXALRUK_JXx0k
+    component: component_45stubL9o33BuC4_45k25sFe5KMgCZjSNqBfDWqc9iwkaqGmUxs
   },
   {
     name: (_b = __nuxt_page_meta) == null ? void 0 : _b.name,
     path: "/en/sitemap.xml",
-    component: component_45stubF80cPoW72ciq3QDxJMVVTsfnCO912vgXALRUK_JXx0k
+    component: component_45stubL9o33BuC4_45k25sFe5KMgCZjSNqBfDWqc9iwkaqGmUxs
   }
 ];
 
@@ -1383,20 +1383,20 @@ const localeCodes = [
 const localeLoaders = {
   de: [
     {
-      key: "locale_de_45DE_46json_9dc8d4aa",
+      key: "locale_de_45DE_46json_273d4d4d",
       load: () => import(
         './de-DE.json.mjs'
-        /* webpackChunkName: "locale_de_45DE_46json_9dc8d4aa" */
+        /* webpackChunkName: "locale_de_45DE_46json_273d4d4d" */
       ),
       cache: true
     }
   ],
   en: [
     {
-      key: "locale_en_45US_46json_f28e2cd4",
+      key: "locale_en_45US_46json_50c29693",
       load: () => import(
         './en-US.json.mjs'
-        /* webpackChunkName: "locale_en_45US_46json_f28e2cd4" */
+        /* webpackChunkName: "locale_en_45US_46json_50c29693" */
       ),
       cache: true
     }
@@ -14580,7 +14580,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
         right: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             _push2(ssrRenderComponent(_component_NuxtLink, {
-              to: "https://cp.key2host.com/",
+              to: "https://auth.key2host.com/",
               target: "_blank"
             }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
@@ -14609,7 +14609,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
           } else {
             return [
               createVNode(_component_NuxtLink, {
-                to: "https://cp.key2host.com/",
+                to: "https://auth.key2host.com/",
                 target: "_blank"
               }, {
                 default: withCtx(() => [
@@ -14635,7 +14635,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
             }, null, _parent2, _scopeId));
             _push2(ssrRenderComponent(_component_USeparator, { class: "my-6" }, null, _parent2, _scopeId));
             _push2(ssrRenderComponent(_component_NuxtLink, {
-              to: "https://auth.key2host.com/login",
+              to: "https://auth.key2host.com/",
               target: "_blank"
             }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
@@ -14660,7 +14660,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
               _: 1
             }, _parent2, _scopeId));
             _push2(ssrRenderComponent(_component_NuxtLink, {
-              to: "https://auth.key2host.com/signup",
+              to: "https://auth.key2host.com/sign-up",
               target: "_blank"
             }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
@@ -14689,7 +14689,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
               }, null, 8, ["items"]),
               createVNode(_component_USeparator, { class: "my-6" }),
               createVNode(_component_NuxtLink, {
-                to: "https://auth.key2host.com/login",
+                to: "https://auth.key2host.com/",
                 target: "_blank"
               }, {
                 default: withCtx(() => [
@@ -14703,7 +14703,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
                 _: 1
               }),
               createVNode(_component_NuxtLink, {
-                to: "https://auth.key2host.com/signup",
+                to: "https://auth.key2host.com/sign-up",
                 target: "_blank"
               }, {
                 default: withCtx(() => [

@@ -3,7 +3,7 @@ import { z as useSeoMeta, A as __nuxt_component_2, q as __nuxt_component_5 } fro
 import { a as __nuxt_component_3, _ as __nuxt_component_4 } from './Input.vue.mjs';
 import { defineComponent, mergeProps, withCtx, createVNode, createTextVNode, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr } from 'vue/server-renderer';
-import { _ as _imports_0 } from './virtual_public2.mjs';
+import { _ as _imports_0 } from './virtual_public.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -77,7 +77,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }, {
           default: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<div class="border-b px-6 py-4 mb-5"${_scopeId}><p class="text-sm text-center"${_scopeId}>Bitte gib die E-Mail-Adresse ein, mit der du dich bei uns registriert hast. Wir senden dir anschließend einen Link zur Zurücksetzung deines Passworts.</p></div><div class="w-full flex justify-center"${_scopeId}>`);
+              _push2(`<div class="border-b px-6 py-4 mb-5"${_scopeId}><p class="text-sm text-center"${_scopeId}>Bitte gib die mit deinem Konto verknüpfte E-Mail-Adresse ein. Wir senden dir umgehend einen Link, mit dem du dein Passwort sicher zurücksetzen kannst.</p></div><div class="w-full flex justify-center"${_scopeId}>`);
               _push2(ssrRenderComponent(_component_UFormField, { label: "E-Mail Adresse" }, {
                 default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
@@ -122,7 +122,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             } else {
               return [
                 createVNode("div", { class: "border-b px-6 py-4 mb-5" }, [
-                  createVNode("p", { class: "text-sm text-center" }, "Bitte gib die E-Mail-Adresse ein, mit der du dich bei uns registriert hast. Wir senden dir anschließend einen Link zur Zurücksetzung deines Passworts.")
+                  createVNode("p", { class: "text-sm text-center" }, "Bitte gib die mit deinem Konto verknüpfte E-Mail-Adresse ein. Wir senden dir umgehend einen Link, mit dem du dein Passwort sicher zurücksetzen kannst.")
                 ]),
                 createVNode("div", { class: "w-full flex justify-center" }, [
                   createVNode(_component_UFormField, { label: "E-Mail Adresse" }, {

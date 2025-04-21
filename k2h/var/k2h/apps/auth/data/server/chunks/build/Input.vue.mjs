@@ -1,7 +1,7 @@
 import { defineComponent, useSlots, computed, inject, ref, useId, provide, unref, mergeProps, withCtx, renderSlot, createTextVNode, toDisplayString, createVNode, createBlock, createCommentVNode, openBlock, useSSRContext, mergeModels, useModel } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate, ssrRenderAttr, ssrRenderAttrs } from 'vue/server-renderer';
 import { Primitive, Label } from 'reka-ui';
-import { t as tv, B as inputIdInjectionKey, C as formFieldInjectionKey, a as _appConfig, e as useFormField, i as useButtonGroup, j as useComponentIcons, _ as __nuxt_component_4$1, U as UAvatar, D as looseToNumber } from './server.mjs';
+import { t as tv, B as inputIdInjectionKey, C as formFieldInjectionKey, _ as _appConfig, e as useFormField, i as useButtonGroup, j as useComponentIcons, U as UIcon, a as UAvatar, D as looseToNumber } from './server.mjs';
 
 const theme$1 = {
   "slots": {
@@ -627,7 +627,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               ssrRenderSlot(_ctx.$slots, "leading", {}, () => {
                 var _a4, _b2, _c2;
                 if (unref(isLeading) && unref(leadingIconName)) {
-                  _push2(ssrRenderComponent(__nuxt_component_4$1, {
+                  _push2(ssrRenderComponent(UIcon, {
                     name: unref(leadingIconName),
                     class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
                   }, null, _parent2, _scopeId));
@@ -650,7 +650,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               ssrRenderSlot(_ctx.$slots, "trailing", {}, () => {
                 var _a4;
                 if (unref(trailingIconName)) {
-                  _push2(ssrRenderComponent(__nuxt_component_4$1, {
+                  _push2(ssrRenderComponent(UIcon, {
                     name: unref(trailingIconName),
                     class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })
                   }, null, _parent2, _scopeId));
@@ -690,7 +690,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 renderSlot(_ctx.$slots, "leading", {}, () => {
                   var _a4, _b2, _c2;
                   return [
-                    unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(__nuxt_component_4$1, {
+                    unref(isLeading) && unref(leadingIconName) ? (openBlock(), createBlock(UIcon, {
                       key: 0,
                       name: unref(leadingIconName),
                       class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
@@ -710,7 +710,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 renderSlot(_ctx.$slots, "trailing", {}, () => {
                   var _a4;
                   return [
-                    unref(trailingIconName) ? (openBlock(), createBlock(__nuxt_component_4$1, {
+                    unref(trailingIconName) ? (openBlock(), createBlock(UIcon, {
                       key: 0,
                       name: unref(trailingIconName),
                       class: ui.value.trailingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.trailingIcon })

@@ -1,10 +1,10 @@
 import { _ as __nuxt_component_0 } from './NuxtLinkLocale.mjs';
 import { a as __nuxt_component_7, _ as __nuxt_component_1 } from './Progress.vue.mjs';
-import { q as __nuxt_component_5, _ as __nuxt_component_4$1, x as useToast, z as useSeoMeta, A as __nuxt_component_2 } from './server.mjs';
+import { q as __nuxt_component_5, U as UIcon, x as useToast, z as useSeoMeta, A as __nuxt_component_2 } from './server.mjs';
 import { a as __nuxt_component_3, _ as __nuxt_component_4 } from './Input.vue.mjs';
 import { defineComponent, ref, computed, watch, withCtx, createVNode, useSSRContext, mergeProps, unref, createTextVNode } from 'vue';
 import { ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrRenderClass, ssrRenderAttrs, ssrRenderAttr } from 'vue/server-renderer';
-import { _ as _imports_0 } from './virtual_public2.mjs';
+import { _ as _imports_0 } from './virtual_public.mjs';
 import axios from 'axios';
 import 'reka-ui';
 import '@vueuse/core';
@@ -98,7 +98,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       const _component_UInput = __nuxt_component_4;
       const _component_UButton = __nuxt_component_5;
       const _component_UProgress = __nuxt_component_7;
-      const _component_UIcon = __nuxt_component_4$1;
+      const _component_UIcon = UIcon;
       _push(`<!--[--><div class="space-y-6">`);
       _push(ssrRenderComponent(_component_UFormField, { label: "Passwort" }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {

@@ -219,7 +219,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         description: _ctx.$t("index.hero.description"),
         links: [
           { color: "neutral", label: _ctx.$t("index.hero.links.news"), icon: "i-heroicons-newspaper", trailing: true, to: unref(localePath)("/newsroom"), size: "xl" },
-          { variant: "outline", color: "neutral", label: _ctx.$t("index.hero.links.startnow"), icon: "i-heroicons-arrow-right-20-solid", size: "xl", to: unref(localePath)("https://cp.key2host.com/"), target: "_blank" }
+          { variant: "outline", color: "neutral", label: _ctx.$t("index.hero.links.startnow"), icon: "i-heroicons-arrow-right-20-solid", size: "xl", to: unref(localePath)("https://auth.key2host.com/"), target: "_blank" }
         ]
       }, {
         headline: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -339,10 +339,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
                   }, null, _parent3, _scopeId2));
                   _push3(ssrRenderComponent(_component_UIcon, {
-                    name: "i-simple-icons-apache",
-                    class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
-                  }, null, _parent3, _scopeId2));
-                  _push3(ssrRenderComponent(_component_UIcon, {
                     name: "i-simple-icons-nginx",
                     class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
                   }, null, _parent3, _scopeId2));
@@ -366,10 +362,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     }),
                     createVNode(_component_UIcon, {
                       name: "i-simple-icons-debian",
-                      class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
-                    }),
-                    createVNode(_component_UIcon, {
-                      name: "i-simple-icons-apache",
                       class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
                     }),
                     createVNode(_component_UIcon, {
@@ -405,10 +397,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   }),
                   createVNode(_component_UIcon, {
                     name: "i-simple-icons-debian",
-                    class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
-                  }),
-                  createVNode(_component_UIcon, {
-                    name: "i-simple-icons-apache",
                     class: "w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
                   }),
                   createVNode(_component_UIcon, {

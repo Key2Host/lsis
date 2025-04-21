@@ -2,7 +2,7 @@ import { defineComponent, mergeModels, useSlots, useModel, computed, unref, merg
 import { ssrRenderComponent, ssrRenderClass, ssrRenderList, ssrRenderSlot, ssrInterpolate, ssrRenderStyle } from 'vue/server-renderer';
 import { useForwardProps, StepperRoot, StepperItem, StepperTrigger, StepperIndicator, StepperSeparator, StepperTitle, StepperDescription, useForwardPropsEmits, Primitive, ProgressRoot, ProgressIndicator } from 'reka-ui';
 import { reactivePick } from '@vueuse/core';
-import { t as tv, _ as __nuxt_component_4, a as _appConfig, h as useLocale } from './server.mjs';
+import { t as tv, U as UIcon, _ as _appConfig, h as useLocale } from './server.mjs';
 
 const theme$1 = {
   "slots": {
@@ -289,7 +289,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                                 ssrRenderSlot(_ctx.$slots, "indicator", { item }, () => {
                                   var _a7;
                                   if (item.icon) {
-                                    _push5(ssrRenderComponent(__nuxt_component_4, {
+                                    _push5(ssrRenderComponent(UIcon, {
                                       name: item.icon,
                                       class: ui.value.icon({ class: (_a7 = props.ui) == null ? void 0 : _a7.indicator })
                                     }, null, _parent5, _scopeId4));
@@ -302,7 +302,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                                   renderSlot(_ctx.$slots, "indicator", { item }, () => {
                                     var _a7;
                                     return [
-                                      item.icon ? (openBlock(), createBlock(__nuxt_component_4, {
+                                      item.icon ? (openBlock(), createBlock(UIcon, {
                                         key: 0,
                                         name: item.icon,
                                         class: ui.value.icon({ class: (_a7 = props.ui) == null ? void 0 : _a7.indicator })
@@ -325,7 +325,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                                 renderSlot(_ctx.$slots, "indicator", { item }, () => {
                                   var _a7;
                                   return [
-                                    item.icon ? (openBlock(), createBlock(__nuxt_component_4, {
+                                    item.icon ? (openBlock(), createBlock(UIcon, {
                                       key: 0,
                                       name: item.icon,
                                       class: ui.value.icon({ class: (_a7 = props.ui) == null ? void 0 : _a7.indicator })
@@ -405,7 +405,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                                   renderSlot(_ctx.$slots, "indicator", { item }, () => {
                                     var _a7;
                                     return [
-                                      item.icon ? (openBlock(), createBlock(__nuxt_component_4, {
+                                      item.icon ? (openBlock(), createBlock(UIcon, {
                                         key: 0,
                                         name: item.icon,
                                         class: ui.value.icon({ class: (_a7 = props.ui) == null ? void 0 : _a7.indicator })
@@ -499,7 +499,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                                     renderSlot(_ctx.$slots, "indicator", { item }, () => {
                                       var _a7;
                                       return [
-                                        item.icon ? (openBlock(), createBlock(__nuxt_component_4, {
+                                        item.icon ? (openBlock(), createBlock(UIcon, {
                                           key: 0,
                                           name: item.icon,
                                           class: ui.value.icon({ class: (_a7 = props.ui) == null ? void 0 : _a7.indicator })

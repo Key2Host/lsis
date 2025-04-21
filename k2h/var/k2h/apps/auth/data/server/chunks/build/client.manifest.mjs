@@ -24,7 +24,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "DeY5aFQy.js",
+    "file": "BZvB0IxL.js",
     "name": "entry",
     "src": "../node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
@@ -43,38 +43,38 @@ const client_manifest = {
     "prefetch": true,
     "preload": true
   },
-  "_C46sITTp.js": {
+  "_BJ8f_w7u.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "C46sITTp.js",
-    "name": "virtual_public",
+    "file": "BJ8f_w7u.js",
+    "name": "Stepper",
     "imports": [
-      "../node_modules/nuxt/dist/app/entry.js"
+      "../node_modules/nuxt/dist/app/entry.js",
+      "_CQ9l-_ZG.js"
     ]
   },
-  "_CBeRopCS.js": {
+  "_CQ9l-_ZG.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "CBeRopCS.js",
+    "file": "CQ9l-_ZG.js",
     "name": "Separator",
     "imports": [
       "../node_modules/nuxt/dist/app/entry.js"
     ]
   },
-  "_CgtkSgrn.js": {
+  "_CyHkJMjL.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "CgtkSgrn.js",
-    "name": "Progress",
+    "file": "CyHkJMjL.js",
+    "name": "NuxtLinkLocale",
     "imports": [
-      "../node_modules/nuxt/dist/app/entry.js",
-      "_CBeRopCS.js"
+      "../node_modules/nuxt/dist/app/entry.js"
     ]
   },
   "_D8rVyQy1.js": {
@@ -85,24 +85,24 @@ const client_manifest = {
     "file": "D8rVyQy1.js",
     "name": "index"
   },
-  "_DCfyq0mw.js": {
+  "_DgzJOu4B.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "DCfyq0mw.js",
-    "name": "NuxtLinkLocale",
+    "file": "DgzJOu4B.js",
+    "name": "FormField",
     "imports": [
       "../node_modules/nuxt/dist/app/entry.js"
     ]
   },
-  "_U9XlGzcc.js": {
+  "_hPUeOxQx.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "U9XlGzcc.js",
-    "name": "FormField",
+    "file": "hPUeOxQx.js",
+    "name": "virtual_public",
     "imports": [
       "../node_modules/nuxt/dist/app/entry.js"
     ]
@@ -112,16 +112,16 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "C_9R4eqG.js",
+    "file": "DJGOw3jO.js",
     "name": "index",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
       "../node_modules/nuxt/dist/app/entry.js",
-      "_CBeRopCS.js",
-      "_U9XlGzcc.js",
+      "_CQ9l-_ZG.js",
+      "_DgzJOu4B.js",
       "_D8rVyQy1.js",
-      "_C46sITTp.js"
+      "_hPUeOxQx.js"
     ]
   },
   "pages/recover.vue": {
@@ -129,15 +129,15 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "CWo-0pDu.js",
+    "file": "ZxXphTo3.js",
     "name": "recover",
     "src": "pages/recover.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_DCfyq0mw.js",
-      "_U9XlGzcc.js",
+      "_CyHkJMjL.js",
+      "_DgzJOu4B.js",
       "../node_modules/nuxt/dist/app/entry.js",
-      "_C46sITTp.js"
+      "_hPUeOxQx.js"
     ]
   },
   "pages/sign-up/completed.vue": {
@@ -145,16 +145,16 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "k0u7mOi2.js",
+    "file": "dzQdrxc5.js",
     "name": "completed",
     "src": "pages/sign-up/completed.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_DCfyq0mw.js",
-      "_CgtkSgrn.js",
+      "_CyHkJMjL.js",
+      "_BJ8f_w7u.js",
       "../node_modules/nuxt/dist/app/entry.js",
-      "_C46sITTp.js",
-      "_CBeRopCS.js"
+      "_hPUeOxQx.js",
+      "_CQ9l-_ZG.js"
     ]
   },
   "pages/sign-up/index.vue": {
@@ -162,18 +162,18 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "DODTH_mW.js",
+    "file": "D67ujlGl.js",
     "name": "index",
     "src": "pages/sign-up/index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_DCfyq0mw.js",
-      "_CgtkSgrn.js",
-      "_U9XlGzcc.js",
+      "_CyHkJMjL.js",
+      "_BJ8f_w7u.js",
+      "_DgzJOu4B.js",
       "../node_modules/nuxt/dist/app/entry.js",
-      "_C46sITTp.js",
+      "_hPUeOxQx.js",
       "_D8rVyQy1.js",
-      "_CBeRopCS.js"
+      "_CQ9l-_ZG.js"
     ]
   }
 };

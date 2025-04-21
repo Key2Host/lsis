@@ -59,16 +59,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }, _attrs), {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(ssrRenderComponent(_component_UPageCTA, {
-              class: "h-64 flex flex-col items-center justify-center text-center",
-              card: ""
-            }, {
+            _push2(ssrRenderComponent(_component_UPageCTA, { variant: "subtle" }, {
               description: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
-                  _push3(`<p${_scopeId2}>${ssrInterpolate(_ctx.$t("checkout.success.content.1"))}</p><small class="opacity-50"${_scopeId2}>${ssrInterpolate(_ctx.$t("checkout.success.content.2"))}</small>`);
+                  _push3(`<p class="text-xl"${_scopeId2}>${ssrInterpolate(_ctx.$t("checkout.success.content.1"))}</p><small class="opacity-50"${_scopeId2}>${ssrInterpolate(_ctx.$t("checkout.success.content.2"))}</small>`);
                 } else {
                   return [
-                    createVNode("p", null, toDisplayString(_ctx.$t("checkout.success.content.1")), 1),
+                    createVNode("p", { class: "text-xl" }, toDisplayString(_ctx.$t("checkout.success.content.1")), 1),
                     createVNode("small", { class: "opacity-50" }, toDisplayString(_ctx.$t("checkout.success.content.2")), 1)
                   ];
                 }
@@ -77,12 +74,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             }, _parent2, _scopeId));
           } else {
             return [
-              createVNode(_component_UPageCTA, {
-                class: "h-64 flex flex-col items-center justify-center text-center",
-                card: ""
-              }, {
+              createVNode(_component_UPageCTA, { variant: "subtle" }, {
                 description: withCtx(() => [
-                  createVNode("p", null, toDisplayString(_ctx.$t("checkout.success.content.1")), 1),
+                  createVNode("p", { class: "text-xl" }, toDisplayString(_ctx.$t("checkout.success.content.1")), 1),
                   createVNode("small", { class: "opacity-50" }, toDisplayString(_ctx.$t("checkout.success.content.2")), 1)
                 ]),
                 _: 1
