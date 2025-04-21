@@ -80,7 +80,7 @@ services:
             - ./docker-data/dms/mail-logs/:/var/log/mail/
             - ./docker-data/dms/config/:/tmp/docker-mailserver/
             - /var/k2h/mailsrv/fullchain.pem:/etc/letsencrypt/live/mail.key2host.com/fullchain.pem:ro
-            - /var/k2h/mailsrv/privkey.pem:/etc/letsencrypt/live/mail.key2host.com/privkey.pem:ro
+            - /var/k2h/mailsrv/privkey.pem/privkey.pem:/etc/letsencrypt/live/mail.key2host.com/privkey.pem:ro
             - /etc/localtime:/etc/localtime:ro
         restart: always
         stop_grace_period: 1m
@@ -99,10 +99,10 @@ services:
         ports:
            - "8888:80"
         environment:
-            ROUNDCUBEMAIL_DEFAULT_HOST: ssl://k2h_mailserver
-            ROUNDCUBEMAIL_SMTP_SERVER: tls://k2h_mailserver
-            ROUNDCUBEMAIL_DEFAULT_PORT: 143
-            ROUNDCUBEMAIL_SMTP_PORT: 587
+            ROUNDCUBEMAIL_DEFAULT_HOST: ssl://mail.key2host.com
+            ROUNDCUBEMAIL_SMTP_SERVER: tls://mail.key2host.com
+            ROUNDCUBEMAIL_DEFAULT_PORT: 993
+            ROUNDCUBEMAIL_SMTP_PORT: 465
         depends_on:
             - mailserver
         networks:
