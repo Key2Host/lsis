@@ -3,6 +3,7 @@ set -e
 
 # Portainer
 docker rm  portainer -f
+docker pull portainer/portainer-ce:latest
 docker volume create portainer_data
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 
@@ -35,13 +36,6 @@ echo "Konfiguriere Antivirus..."
 (crontab -l; echo "30 4 * * * /usr/bin/clamscan -r /etc /var /home /usr/local /tmp -i --log=/var/log/clamav/scan.log") | crontab -
 systemctl enable clamav-daemon
 systemctl start clamav-daemon
-
-
-# Unattended Upgrades
-echo "Konfiguriere Automatische Updates..."
-systemctl enable unattended-upgrades
-systemctl start unattended-upgrades
-(crontab -l; echo "0 3 * * * /usr/bin/unattended-upgrades -d") | crontab -
 
 # Zertifikat ausstellen oder erneuern
 if [[ ! -f "/var/k2h/mailsrv/fullchain.pem" || ! -f "/var/k2h/mailsrv/privkey.pem" ]]; then
