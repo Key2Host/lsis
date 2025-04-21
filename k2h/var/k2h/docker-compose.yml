@@ -90,7 +90,7 @@ services:
             retries: 0
         networks:
             - network
-      roundcube:
+    roundcube:
         image: roundcube/roundcubemail:latest
         container_name: k2h_roundcube
         restart: always
