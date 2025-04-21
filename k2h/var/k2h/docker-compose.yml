@@ -79,7 +79,7 @@ services:
             - ./docker-data/dms/mail-state/:/var/mail-state/
             - ./docker-data/dms/mail-logs/:/var/log/mail/
             - ./docker-data/dms/config/:/tmp/docker-mailserver/
-            - /var/k2h/mailsrv/cert.pem:/etc/letsencrypt/live/mail.key2host.com/fullchain.pem:ro
+            - /var/k2h/mailsrv/fullchain.pem:/etc/letsencrypt/live/mail.key2host.com/fullchain.pem:ro
             - /var/k2h/mailsrv/privkey.pem:/etc/letsencrypt/live/mail.key2host.com/privkey.pem:ro
             - /etc/localtime:/etc/localtime:ro
         restart: always

@@ -41,13 +41,23 @@ systemctl enable unattended-upgrades
 systemctl start unattended-upgrades
 (crontab -l; echo "0 3 * * * /usr/bin/unattended-upgrades -d") | crontab -
 
+# Zertifikat abrufen (landet im Standardpfad von Let's Encrypt)
+sudo certbot certonly --standalone \
+  -d mail.key2host.com \
+  --agree-tos \
+  --email webmaster@key2host.com \
+  --non-interactive
+
+# Zertifikate dorthin kopieren
+sudo cp /etc/letsencrypt/live/mail.key2host.com/fullchain.pem /var/k2h/mailsrv/fullchain.pem
+sudo cp /etc/letsencrypt/live/mail.key2host.com/privkey.pem /var/k2h/mailsrv/privkey.pem
+
+# Dateiberechtigungen setzen
+sudo chmod 644 /var/k2h/mailsrv/fullchain.pem
+sudo chmod 600 /var/k2h/mailsrv/privkey.pem
+
 echo "Pre-Installation abgeschlossen."
 echo "---"
-
-# SSL/TLS Certificate
-sudo certbot certonly --standalone -d mail.key2host.com --agree-tos --email webmaster@key2host.com --cert-path /var/k2h/mailsrv/cert.pem --key-path /var/k2h/mailsrv/privkey.pem --config-dir /var/k2h/mailsrv/config --work-dir /var/k2h/mailsrv/work --logs-dir /var/k2h/mailsrv/log
-chmod 644 /var/k2h/mailsrv/cert.pem
-chmod 600 /var/k2h/mailsrv/privkey.pem
 
 # Countdown von 10 Sekunden
 echo "Das System wird neu gestartet um die Änderungen anzuwenden."
