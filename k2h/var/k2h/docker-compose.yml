@@ -19,7 +19,7 @@ services:
         build:
             context: ./apps/saci
             dockerfile: Dockerfile
-        restart: unless-stopped
+        restart: always
         depends_on:
             - database
         networks:
@@ -29,7 +29,7 @@ services:
         build:
             context: ./apps/frax
             dockerfile: Dockerfile
-        restart: unless-stopped
+        restart: always
         networks:
             - network
     apps-cp:
@@ -37,7 +37,7 @@ services:
         build:
             context: ./apps/cp
             dockerfile: Dockerfile
-        restart: unless-stopped
+        restart: always
         networks:
             - network
     apps-auth:
@@ -45,7 +45,7 @@ services:
         build:
             context: ./apps/auth
             dockerfile: Dockerfile
-        restart: unless-stopped
+        restart: always
         networks:
             - network
     proxy:
@@ -94,7 +94,7 @@ services:
     roundcube:
         image: roundcube/roundcubemail:latest
         container_name: k2h_roundcube
-        restart: always
+        restart: unless-stopped
         ports:
            - "8888:80"
         environment:
@@ -109,6 +109,7 @@ services:
     phpmyadmin:
         container_name: k2h_phpmyadmin
         image: phpmyadmin/phpmyadmin
+        restart: unless-stopped
         ports:
             - '8080:80'
         environment:
