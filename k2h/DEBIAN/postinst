@@ -48,7 +48,7 @@ CRONJOB="0 4 * * * /var/k2h/updater/k2h-updater.sh >> /var/log/k2h-updater.log 2
 )
 
 # Zertifikat ausstellen oder erneuern
-if [[ ! -f "/var/k2h/mailsrv/fullchain.pem" || ! -f "/var/k2h/mailsrv/privkey.pem" ]]; then
+if [[ ! -f "/var/k2h/mailsrv/certs/fullchain.pem" || ! -f "/var/k2h/mailsrv/certs/privkey.pem" ]]; then
   echo "[INFO] Zertifikat fehlt – erzwinge Ausstellung"
     if ! sudo certbot certonly --standalone \
         -d mail.key2host.com \
