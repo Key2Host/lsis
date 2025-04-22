@@ -13987,8 +13987,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     useSeoMeta({
       ogImage: "/img/brand/og.jpg",
       twitterImage: "/img/brand/og.jpg",
-      twitterCard: "summary_large_image",
-      robots: "noindex, nofollow"
+      twitterCard: "summary_large_image"
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_LangNotice = __nuxt_component_0$1;

@@ -8,7 +8,7 @@ import { m as defu, p as publicAssetsURL } from '../nitro/nitro.mjs';
 import { createTV } from 'tailwind-variants';
 import { _ as __nuxt_component_4$1 } from './NuxtTurnstile.vue.mjs';
 import axios from 'axios';
-import { _ as _imports_0$1 } from './virtual_public2.mjs';
+import { _ as _imports_0$1 } from './virtual_public.mjs';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';

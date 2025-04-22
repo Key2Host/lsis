@@ -4,7 +4,7 @@ import { a as __nuxt_component_3, _ as __nuxt_component_4 } from './Input.vue.mj
 import { _ as __nuxt_component_4$1 } from './NuxtTurnstile.vue.mjs';
 import { defineComponent, ref, mergeProps, withCtx, createVNode, unref, isRef, createTextVNode, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr } from 'vue/server-renderer';
-import { _ as _imports_0 } from './virtual_public2.mjs';
+import { _ as _imports_0 } from './virtual_public.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';

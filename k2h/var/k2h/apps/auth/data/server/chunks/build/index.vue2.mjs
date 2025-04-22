@@ -4,7 +4,7 @@ import { q as __nuxt_component_5, U as UIcon, s as useToast, w as useSeoMeta, x 
 import { a as __nuxt_component_3, _ as __nuxt_component_4 } from './Input.vue.mjs';
 import { defineComponent, ref, computed, watch, withCtx, createVNode, useSSRContext, mergeProps, unref, createTextVNode } from 'vue';
 import { ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrRenderClass, ssrRenderAttrs, ssrRenderAttr } from 'vue/server-renderer';
-import { _ as _imports_0 } from './virtual_public2.mjs';
+import { _ as _imports_0 } from './virtual_public.mjs';
 import axios from 'axios';
 import 'reka-ui';
 import '@vueuse/core';
