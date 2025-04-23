@@ -180,8 +180,8 @@ async function checkVoucher(req, res) {
             id: coupon.id,
             name: coupon.name,
             valid: coupon.valid,
-            amount_off: coupon.amount_off || null,
-            percent_off: coupon.percent_off || null
+            amount_off: coupon.coupon.amount_off || null,
+            percent_off: coupon.coupon.percent_off || null
         });
 
     } catch (error) {
