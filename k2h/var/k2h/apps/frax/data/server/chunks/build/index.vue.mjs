@@ -4490,7 +4490,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           header: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
               _push2(`<div class="flex justify-between items-center"${_scopeId}><div${_scopeId}><p class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId}> Warenkorb </p><p class="mt-1 text-sm text-gray-500 dark:text-gray-400"${_scopeId}> Überprüfe ob deine Bestellung korrekt ist. </p></div>`);
-              if (!isCartEmpty) {
+              if (!isCartEmpty()) {
                 _push2(ssrRenderComponent(_component_UButton, {
                   onClick: clearCart,
                   size: "md",
@@ -4509,7 +4509,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     createVNode("p", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " Warenkorb "),
                     createVNode("p", { class: "mt-1 text-sm text-gray-500 dark:text-gray-400" }, " Überprüfe ob deine Bestellung korrekt ist. ")
                   ]),
-                  !isCartEmpty ? (openBlock(), createBlock(_component_UButton, {
+                  !isCartEmpty() ? (openBlock(), createBlock(_component_UButton, {
                     key: 0,
                     onClick: clearCart,
                     size: "md",
