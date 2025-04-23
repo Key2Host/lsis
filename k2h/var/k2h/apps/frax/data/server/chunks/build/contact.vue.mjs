@@ -162,8 +162,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           description: t("contact.contactform.lengthModal.description"),
           color: "error",
           title: t("contact.contactform.lengthModal.title"),
-          timeout: 5e3,
-          pauseTimeoutOnHover: true
+          duration: 5e3
         });
         return;
       }
@@ -181,8 +180,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             description: t("captcha.failed.description"),
             color: "error",
             title: t("captcha.failed.title"),
-            timeout: 5e3,
-            pauseTimeoutOnHover: true
+            duration: 5e3
           });
           return;
         }
@@ -192,8 +190,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           description: t("captcha.error.description"),
           color: "error",
           title: t("captcha.error.title"),
-          timeout: 5e3,
-          pauseTimeoutOnHover: true
+          duration: 5e3
         });
       }
       try {
@@ -212,8 +209,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           description: t("contact.contactform.successModal.description"),
           color: "success",
           title: t("contact.contactform.successModal.title"),
-          timeout: 5e3,
-          pauseTimeoutOnHover: true
+          duration: 5e3
         });
       } catch (error) {
         toast.add({
@@ -221,8 +217,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           description: t("contact.contactform.errorModal.description") + ": " + error,
           color: "error",
           title: t("contact.contactform.errorModal.title"),
-          timeout: 5e3,
-          pauseTimeoutOnHover: true
+          duration: 5e3
         });
       }
     }

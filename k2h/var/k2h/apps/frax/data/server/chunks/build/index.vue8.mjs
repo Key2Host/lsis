@@ -1249,8 +1249,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             description: t("products.webspace.errors.emptydata.description"),
             color: "error",
             title: t("products.webspace.errors.emptydata.title"),
-            timeout: 5e3,
-            pauseTimeoutOnHover: true
+            duration: 5e3
           });
           return;
         }
@@ -1260,8 +1259,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           description: t("products.webspace.errors.nodata.description"),
           color: "error",
           title: t("products.webspace.errors.nodata.title"),
-          timeout: 5e3,
-          pauseTimeoutOnHover: true
+          duration: 5e3
         });
         return;
       }

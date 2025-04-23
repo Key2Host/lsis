@@ -17367,7 +17367,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
           title: t("menus.footer.newsletter.successModal.title"),
           description: t("menus.footer.newsletter.successModal.message"),
           color: "success",
-          timeout: 2500
+          duration: 2500
         });
         loading.value = false;
       }, 2500);

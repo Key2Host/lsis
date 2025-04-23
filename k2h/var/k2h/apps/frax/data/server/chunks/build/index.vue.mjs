@@ -4154,10 +4154,9 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
           toast.add({
             icon: "i-heroicons-exclamation-triangle",
             description: "Das CAPTCHA wurde abgelehnt. Versuche es später erneut.",
-            color: "red",
+            color: "error",
             title: "CAPTCHA-Problem",
-            timeout: 5e3,
-            pauseTimeoutOnHover: true
+            duration: 5e3
           });
           errorMessage.value = "Das CAPTCHA wurde abgelehnt. Versuche es später erneut.";
           return;
@@ -4166,10 +4165,9 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: "Das CAPTCHA konnte nicht überprüft werden. Versuche es später erneut.",
-          color: "red",
+          color: "error",
           title: "CAPTCHA-Fehler",
-          timeout: 5e3,
-          pauseTimeoutOnHover: true
+          duration: 5e3
         });
         errorMessage.value = "Das CAPTCHA konnte nicht überprüft werden. Versuche es später erneut.";
         return;
@@ -4196,8 +4194,8 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: errorMessage.value,
-          color: "red",
-          timeout: 2500,
+          color: "error",
+          duration: 2500,
           title: t("authform.errorModal.title")
         });
       }
@@ -4307,13 +4305,20 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         const voucherAmount = response.data.amount_off;
         const voucherPercent = response.data.percent_off;
         cart.addVoucher({ id: voucherID, name: voucherName, amount: voucherAmount, percent: voucherPercent });
-      } catch (error) {
         toast.add({
           icon: "i-heroicons-x-circle",
           title: "Ungültiger Gutschein",
           description: "Der Gutschein wurde nicht akzeptiert, da dieser ungültig ist.",
           color: "error",
-          timeout: 2500
+          duration: 2500
+        });
+      } catch (error) {
+        toast.add({
+          icon: "i-heroicons-check-circle",
+          title: "Gutschein eingelöst",
+          description: "Der Gutschein wurde akzeptiert und beim bezahlen eingelöst.",
+          color: "success",
+          duration: 2500
         });
       }
       voucherLoading.value = false;
@@ -4339,12 +4344,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           description: t("checkout.index.errorModal.description"),
           color: "error",
           title: t("checkout.index.errorModal.title"),
-          timeout: 5e3,
-          pauseTimeoutOnHover: true,
-          callback: () => {
-            history.back();
-          }
+          duration: 5e3
         });
+        setTimeout(() => {
+          history.back();
+        }, 5e3);
       }
     }
     async function fetchData() {
