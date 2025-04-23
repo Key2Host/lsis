@@ -4363,6 +4363,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       cart.removeFromBasket(id);
       if (isCartEmpty()) cart.closeSlideover();
     };
+    const clearCart = () => {
+      cart.clearBasket();
+      cart.closeSlideover();
+    };
+    const removeVoucher = () => {
+      cart.voucher = null;
+    };
     const isCartEmpty = () => {
       return cart.totalItems === 0;
     };
@@ -4482,11 +4489,35 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         _push(ssrRenderComponent(_component_UCard, { class: "mt-4" }, {
           header: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<p class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId}> Warenkorb </p><p class="mt-1 text-sm text-gray-500 dark:text-gray-400"${_scopeId}> Überprüfe ob deine Bestellung korrekt ist. </p>`);
+              _push2(`<div class="flex justify-between items-center"${_scopeId}><div${_scopeId}><p class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId}> Warenkorb </p><p class="mt-1 text-sm text-gray-500 dark:text-gray-400"${_scopeId}> Überprüfe ob deine Bestellung korrekt ist. </p></div>`);
+              if (!isCartEmpty) {
+                _push2(ssrRenderComponent(_component_UButton, {
+                  onClick: clearCart,
+                  size: "md",
+                  color: "error",
+                  variant: "ghost",
+                  icon: "i-heroicons-trash"
+                }, null, _parent2, _scopeId));
+              } else {
+                _push2(`<!---->`);
+              }
+              _push2(`</div>`);
             } else {
               return [
-                createVNode("p", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " Warenkorb "),
-                createVNode("p", { class: "mt-1 text-sm text-gray-500 dark:text-gray-400" }, " Überprüfe ob deine Bestellung korrekt ist. ")
+                createVNode("div", { class: "flex justify-between items-center" }, [
+                  createVNode("div", null, [
+                    createVNode("p", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " Warenkorb "),
+                    createVNode("p", { class: "mt-1 text-sm text-gray-500 dark:text-gray-400" }, " Überprüfe ob deine Bestellung korrekt ist. ")
+                  ]),
+                  !isCartEmpty ? (openBlock(), createBlock(_component_UButton, {
+                    key: 0,
+                    onClick: clearCart,
+                    size: "md",
+                    color: "error",
+                    variant: "ghost",
+                    icon: "i-heroicons-trash"
+                  })) : createCommentVNode("", true)
+                ])
               ];
             }
           }),
@@ -4582,7 +4613,15 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     if (_push3) {
                       _push3(`<h2 class="text-lg font-medium"${_scopeId2}>Preisübersicht</h2><div class="flex justify-between mt-2"${_scopeId2}><span${_scopeId2}>Zwischensumme:</span><span${_scopeId2}>${ssrInterpolate(unref(cart).subTotalPrice)} €</span></div>`);
                       if (unref(cart).voucher) {
-                        _push3(`<div${_scopeId2}><hr class="my-2"${_scopeId2}><div class="flex justify-between mt-2"${_scopeId2}><span${_scopeId2}>Gutscheincode</span>`);
+                        _push3(`<div${_scopeId2}><hr class="my-2"${_scopeId2}><div class="flex justify-between mt-2"${_scopeId2}><span class="flex items-center gap-2"${_scopeId2}> Gutscheincode `);
+                        _push3(ssrRenderComponent(_component_UButton, {
+                          onClick: removeVoucher,
+                          size: "xs",
+                          color: "error",
+                          variant: "ghost",
+                          icon: "i-heroicons-trash"
+                        }, null, _parent3, _scopeId2));
+                        _push3(`</span>`);
                         if (unref(cart).voucher.amount) {
                           _push3(`<span${_scopeId2}>- ${ssrInterpolate((unref(cart).voucher.amount / 100).toFixed(2) + " €")}</span>`);
                         } else if (unref(cart).voucher.percent) {
@@ -4618,7 +4657,16 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         unref(cart).voucher ? (openBlock(), createBlock("div", { key: 0 }, [
                           createVNode("hr", { class: "my-2" }),
                           createVNode("div", { class: "flex justify-between mt-2" }, [
-                            createVNode("span", null, "Gutscheincode"),
+                            createVNode("span", { class: "flex items-center gap-2" }, [
+                              createTextVNode(" Gutscheincode "),
+                              createVNode(_component_UButton, {
+                                onClick: removeVoucher,
+                                size: "xs",
+                                color: "error",
+                                variant: "ghost",
+                                icon: "i-heroicons-trash"
+                              })
+                            ]),
                             unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, "- " + toDisplayString((unref(cart).voucher.amount / 100).toFixed(2) + " €"), 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, "- " + toDisplayString(unref(cart).voucher.percent + " %"), 1)) : createCommentVNode("", true)
                           ]),
                           createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.name), 1)
@@ -4850,7 +4898,16 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         unref(cart).voucher ? (openBlock(), createBlock("div", { key: 0 }, [
                           createVNode("hr", { class: "my-2" }),
                           createVNode("div", { class: "flex justify-between mt-2" }, [
-                            createVNode("span", null, "Gutscheincode"),
+                            createVNode("span", { class: "flex items-center gap-2" }, [
+                              createTextVNode(" Gutscheincode "),
+                              createVNode(_component_UButton, {
+                                onClick: removeVoucher,
+                                size: "xs",
+                                color: "error",
+                                variant: "ghost",
+                                icon: "i-heroicons-trash"
+                              })
+                            ]),
                             unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, "- " + toDisplayString((unref(cart).voucher.amount / 100).toFixed(2) + " €"), 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, "- " + toDisplayString(unref(cart).voucher.percent + " %"), 1)) : createCommentVNode("", true)
                           ]),
                           createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.name), 1)

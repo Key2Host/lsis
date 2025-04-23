@@ -20543,7 +20543,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
       } else {
         _push(`<!---->`);
       }
-      _push(`<div class="p-4 sticky bottom-0 w-full z-10"><div class="flex justify-between items-center text-xl font-semibold"><span>${ssrInterpolate(_ctx.$t("cart.subtotal"))}</span><span>${ssrInterpolate(unref(cart).totalPrice)} €</span></div>`);
+      _push(`<div class="p-4 sticky bottom-0 w-full z-10"><div class="flex justify-between items-center text-xl font-semibold"><span>${ssrInterpolate(_ctx.$t("cart.subtotal"))}</span><span>${ssrInterpolate(unref(cart).subTotalPrice)} €</span></div>`);
       _push(ssrRenderComponent(_component_NuxtLinkLocale, { to: "/checkout" }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
