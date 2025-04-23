@@ -4589,7 +4589,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         } else {
                           _push3(`<!---->`);
                         }
-                        _push3(`</div><small class="opacity-75"${_scopeId2}>${ssrInterpolate(unref(cart).voucher.id)}</small></div>`);
+                        _push3(`</div><small class="opacity-75"${_scopeId2}>${ssrInterpolate(unref(cart).voucher.name)}</small></div>`);
                       } else {
                         _push3(`<!---->`);
                       }
@@ -4620,7 +4620,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             createVNode("span", null, "Gutscheincode"),
                             unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, "- " + toDisplayString(unref(cart).voucher.amount + " €"), 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, "- " + toDisplayString(unref(cart).voucher.percent + " %"), 1)) : createCommentVNode("", true)
                           ]),
-                          createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.id), 1)
+                          createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.name), 1)
                         ])) : createCommentVNode("", true),
                         createVNode("hr", { class: "my-2" }),
                         createVNode("div", { class: "flex justify-between font-semibold" }, [
@@ -4852,7 +4852,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             createVNode("span", null, "Gutscheincode"),
                             unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, "- " + toDisplayString(unref(cart).voucher.amount + " €"), 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, "- " + toDisplayString(unref(cart).voucher.percent + " %"), 1)) : createCommentVNode("", true)
                           ]),
-                          createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.id), 1)
+                          createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.name), 1)
                         ])) : createCommentVNode("", true),
                         createVNode("hr", { class: "my-2" }),
                         createVNode("div", { class: "flex justify-between font-semibold" }, [
