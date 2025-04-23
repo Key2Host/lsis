@@ -178,7 +178,7 @@ async function checkVoucher(req, res) {
 
         return res.json({
             id: voucher.id,
-            name: voucher.coupon.name,
+            name: voucher.code,
             amount_off: voucher.coupon.amount_off || null,
             percent_off: voucher.coupon.percent_off || null
         });
