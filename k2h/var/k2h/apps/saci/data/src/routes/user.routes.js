@@ -1,6 +1,6 @@
 const express = require('express');
 const { authenticateUser, checkSuspended } = require('../middlewares/auth.middleware');
-const { userHello, getWebspaceInfo, getDomainInfo, buy } = require('../controllers/user.controller');
+const { userHello, getWebspaceInfo, getDomainInfo, buy, checkVoucher } = require('../controllers/user.controller');
 
 const router = express.Router();
 
@@ -9,5 +9,6 @@ router.get('/hello', authenticateUser, userHello);
 router.get('/getWebspaceInfo', getWebspaceInfo);
 router.get('/getDomainInfo', getDomainInfo);
 router.post('/buy', authenticateUser, checkSuspended, buy);
+router.post('/checkVoucher', checkVoucher);
 
 module.exports = router;

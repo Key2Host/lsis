@@ -105,6 +105,7 @@ async function getDomainInfo(req, res) {
 async function buy(req, res) {
     try {
         const items = req.body.items; // Annahme, dass der Warenkorb als Array übergeben wird
+        const voucherid = req.body.voucher;
 
         if (!Array.isArray(items)) {
             return res.status(400).json({ error: 'Items müssen als Array übergeben werden.' });
@@ -115,6 +116,10 @@ async function buy(req, res) {
             if (!item.id) {
                 return res.status(401).json({ error: 'Jedes Item muss eine Produktnummer enthalten!' });
             }
+        }
+
+        if (voucherid && typeof voucherid !== 'string') {
+            return res.status(400).json({ error: 'Ein gültiger Gutscheincode muss übermittelt werden.' });
         }
 
         // Get User Email
@@ -131,6 +136,11 @@ async function buy(req, res) {
             })),
             currency: "eur",
             mode: 'subscription', // Setzt den Modus auf Abonnement
+            discounts: [
+                {
+                    promotion_code: voucherid
+                }
+            ],
             success_url: `https://www.key2host.com/checkout/success`,
             cancel_url: `https://www.key2host.com/checkout/failed`,
             customer: user.stripeCustomerId
@@ -143,4 +153,41 @@ async function buy(req, res) {
     }
 }
 
-module.exports = { userHello, getWebspaceInfo, getDomainInfo, buy };
+async function checkVoucher(req, res) {
+    try {
+        const voucherCode = req.body.code;
+
+        if (!voucherCode || typeof voucherCode !== 'string') {
+            return res.status(400).json({ error: 'Ein gültiger Gutscheincode muss übermittelt werden.' });
+        }
+
+        const coupons = await stripe.promotionCodes.list({
+            code: voucherCode,
+            limit: 1
+        });
+
+        const coupon = coupons.data[0];
+
+        if (!coupon) {
+            return res.status(404).json({ error: 'Gutschein nicht gefunden.' });
+        }
+
+        if (!coupon.active || !coupon.coupon.valid) {
+            return res.status(404).json({ error: 'Gutscheincode ist ungültig oder abgelaufen.' });
+        }
+
+        return res.json({
+            id: coupon.id,
+            valid: coupon.valid,
+            amount_off: coupon.amount_off || null,
+            percent_off: coupon.percent_off || null,
+            currency: coupon.currency || null
+        });
+
+    } catch (error) {
+        console.error('Stripe Error:', error);
+        return res.status(500).json({ error: 'Interner Fehler beim Prüfen des Gutscheins.' });
+    }
+}
+
+module.exports = { userHello, getWebspaceInfo, getDomainInfo, buy, checkVoucher };
