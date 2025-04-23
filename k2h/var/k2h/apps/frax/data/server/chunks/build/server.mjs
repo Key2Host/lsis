@@ -20228,7 +20228,7 @@ const useCartStore = defineStore("cart", {
       this.isSlideoverOpen = false;
     },
     addVoucher(voucher) {
-      return;
+      this.voucher = voucher;
     },
     addToBasket(product) {
       if (product.type == "domain") {
@@ -20269,7 +20269,18 @@ const useCartStore = defineStore("cart", {
   },
   getters: {
     totalItems: (state) => state.items.reduce((sum, item) => sum + item.quantity, 0),
-    totalPrice: (state) => state.items.reduce((total, item) => total + item.amount * item.quantity, 0).toFixed(2)
+    totalPrice: (state) => {
+      const subtotal = state.items.reduce((total2, item) => total2 + item.amount * item.quantity, 0);
+      if (!state.voucher) return subtotal.toFixed(2);
+      let discount = 0;
+      if (state.voucher.amount) {
+        discount = state.voucher.amount / 100;
+      } else if (state.voucher.percent) {
+        discount = subtotal * (state.voucher.percent / 100);
+      }
+      const total = Math.max(subtotal - discount, 0);
+      return total.toFixed(2);
+    }
   },
   persist: true
 });
