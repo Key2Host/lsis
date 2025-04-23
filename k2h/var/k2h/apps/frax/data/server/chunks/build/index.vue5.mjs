@@ -1,6 +1,7 @@
 import { U as UPageSection } from './PageSection.vue.mjs';
-import { a as useI18n, b as useSeoMeta, v as __nuxt_component_2, O as __nuxt_component_3, A as useCartStore } from './server.mjs';
+import { a as useI18n, b as useSeoMeta, v as __nuxt_component_2, O as __nuxt_component_4, A as useCartStore } from './server.mjs';
 import { _ as __nuxt_component_2$1 } from './PageCard.vue.mjs';
+import { _ as __nuxt_component_3 } from './Tooltip.vue.mjs';
 import { defineComponent, ref, withCtx, unref, createVNode, withDirectives, withKeys, vModelText, createTextVNode, toDisplayString, createBlock, openBlock, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderAttr, ssrRenderList, ssrInterpolate } from 'vue/server-renderer';
 import 'reka-ui';
@@ -112,7 +113,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_UPageSection = UPageSection;
       const _component_UButton = __nuxt_component_2;
       const _component_UPageCard = __nuxt_component_2$1;
-      const _component_UModal = __nuxt_component_3;
+      const _component_UTooltip = __nuxt_component_3;
+      const _component_UModal = __nuxt_component_4;
       _push(`<!--[-->`);
       _push(ssrRenderComponent(_component_UPageSection, {
         headline: _ctx.$t("products.domain.headline"),
@@ -171,10 +173,38 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           }, {
             description: withCtx((_, _push2, _parent2, _scopeId) => {
               if (_push2) {
-                _push2(` Die Domain ${ssrInterpolate(searchQuery.value.split(".")[0] + "." + result.name)} kostet ${ssrInterpolate(result.amount + "€")} pro Jahr. `);
+                _push2(` Die Domain ${ssrInterpolate(searchQuery.value.split(".")[0] + "." + result.name)} kostet `);
+                _push2(ssrRenderComponent(_component_UTooltip, {
+                  text: "Preise inkl. gesetzl. MwSt.",
+                  delay: 0,
+                  placement: "top"
+                }, {
+                  default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                    if (_push3) {
+                      _push3(`<span class="underline decoration-dotted decoration-1 decoration-black/75 dark:decoration-white/75 underline-offset-2 cursor-help"${_scopeId2}>${ssrInterpolate(result.amount + " €")}</span>`);
+                    } else {
+                      return [
+                        createVNode("span", { class: "underline decoration-dotted decoration-1 decoration-black/75 dark:decoration-white/75 underline-offset-2 cursor-help" }, toDisplayString(result.amount + " €"), 1)
+                      ];
+                    }
+                  }),
+                  _: 2
+                }, _parent2, _scopeId));
+                _push2(` pro Jahr. `);
               } else {
                 return [
-                  createTextVNode(" Die Domain " + toDisplayString(searchQuery.value.split(".")[0] + "." + result.name) + " kostet " + toDisplayString(result.amount + "€") + " pro Jahr. ", 1)
+                  createTextVNode(" Die Domain " + toDisplayString(searchQuery.value.split(".")[0] + "." + result.name) + " kostet ", 1),
+                  createVNode(_component_UTooltip, {
+                    text: "Preise inkl. gesetzl. MwSt.",
+                    delay: 0,
+                    placement: "top"
+                  }, {
+                    default: withCtx(() => [
+                      createVNode("span", { class: "underline decoration-dotted decoration-1 decoration-black/75 dark:decoration-white/75 underline-offset-2 cursor-help" }, toDisplayString(result.amount + " €"), 1)
+                    ]),
+                    _: 2
+                  }, 1024),
+                  createTextVNode(" pro Jahr. ")
                 ];
               }
             }),

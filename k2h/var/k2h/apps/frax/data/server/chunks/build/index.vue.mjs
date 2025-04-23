@@ -7,6 +7,7 @@ import { m as defu } from '../nitro/nitro.mjs';
 import { _ as __nuxt_component_3$2 } from './Alert.vue.mjs';
 import { _ as __nuxt_component_8 } from './NuxtTurnstile.vue.mjs';
 import axios from 'axios';
+import { _ as __nuxt_component_3$3 } from './Tooltip.vue.mjs';
 import { loadStripe } from '@stripe/stripe-js';
 import 'pinia';
 import 'vue-router';
@@ -4398,6 +4399,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_UButton = __nuxt_component_2$1;
       const _component_UIcon = __nuxt_component_1;
       const _component_UInput = __nuxt_component_6$1;
+      const _component_UTooltip = __nuxt_component_3$3;
       const _component_UFormGroup = resolveComponent("UFormGroup");
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full flex flex-wrap justify-center gap-4 my-10 max-sm:max-w-[325px] max-md:max-w-[700px] max-lg:max-w-[900px] mx-auto" }, _attrs))}><div class="w-full max-w-6xl">`);
       if (unref(step) != 3) {
@@ -4637,7 +4639,24 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       } else {
                         _push3(`<!---->`);
                       }
-                      _push3(`<hr class="my-2"${_scopeId2}><div class="flex justify-between font-semibold"${_scopeId2}><span${_scopeId2}>Gesamt:</span><span${_scopeId2}>${ssrInterpolate(unref(cart).totalPrice)} €</span></div><div class="mt-4"${_scopeId2}>`);
+                      _push3(`<hr class="my-2"${_scopeId2}><div class="flex justify-between font-semibold"${_scopeId2}><span${_scopeId2}>Gesamt:</span><span${_scopeId2}>`);
+                      _push3(ssrRenderComponent(_component_UTooltip, {
+                        text: "Preise inkl. gesetzl. MwSt.",
+                        delay: 0,
+                        placement: "top"
+                      }, {
+                        default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                          if (_push4) {
+                            _push4(`<span class="underline decoration-dotted decoration-1 decoration-black/75 dark:decoration-white/75 underline-offset-2 cursor-help"${_scopeId3}>${ssrInterpolate(unref(cart).totalPrice)} € </span>`);
+                          } else {
+                            return [
+                              createVNode("span", { class: "underline decoration-dotted decoration-1 decoration-black/75 dark:decoration-white/75 underline-offset-2 cursor-help" }, toDisplayString(unref(cart).totalPrice) + " € ", 1)
+                            ];
+                          }
+                        }),
+                        _: 1
+                      }, _parent3, _scopeId2));
+                      _push3(`</span></div><div class="mt-4"${_scopeId2}>`);
                       _push3(ssrRenderComponent(_component_UButton, {
                         disabled: isCartEmpty() || isDomainOnly(),
                         onClick: ($event) => buy(),
@@ -4678,7 +4697,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         createVNode("hr", { class: "my-2" }),
                         createVNode("div", { class: "flex justify-between font-semibold" }, [
                           createVNode("span", null, "Gesamt:"),
-                          createVNode("span", null, toDisplayString(unref(cart).totalPrice) + " €", 1)
+                          createVNode("span", null, [
+                            createVNode(_component_UTooltip, {
+                              text: "Preise inkl. gesetzl. MwSt.",
+                              delay: 0,
+                              placement: "top"
+                            }, {
+                              default: withCtx(() => [
+                                createVNode("span", { class: "underline decoration-dotted decoration-1 decoration-black/75 dark:decoration-white/75 underline-offset-2 cursor-help" }, toDisplayString(unref(cart).totalPrice) + " € ", 1)
+                              ]),
+                              _: 1
+                            })
+                          ])
                         ]),
                         createVNode("div", { class: "mt-4" }, [
                           createVNode(_component_UButton, {
@@ -4919,7 +4949,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         createVNode("hr", { class: "my-2" }),
                         createVNode("div", { class: "flex justify-between font-semibold" }, [
                           createVNode("span", null, "Gesamt:"),
-                          createVNode("span", null, toDisplayString(unref(cart).totalPrice) + " €", 1)
+                          createVNode("span", null, [
+                            createVNode(_component_UTooltip, {
+                              text: "Preise inkl. gesetzl. MwSt.",
+                              delay: 0,
+                              placement: "top"
+                            }, {
+                              default: withCtx(() => [
+                                createVNode("span", { class: "underline decoration-dotted decoration-1 decoration-black/75 dark:decoration-white/75 underline-offset-2 cursor-help" }, toDisplayString(unref(cart).totalPrice) + " € ", 1)
+                              ]),
+                              _: 1
+                            })
+                          ])
                         ]),
                         createVNode("div", { class: "mt-4" }, [
                           createVNode(_component_UButton, {

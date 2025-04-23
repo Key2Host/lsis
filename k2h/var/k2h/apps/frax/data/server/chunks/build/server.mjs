@@ -8476,7 +8476,7 @@ _sfc_main$y.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Avatar.vue");
   return _sfc_setup$w ? _sfc_setup$w(props, ctx) : void 0;
 };
-const __nuxt_component_3$3 = Object.assign(_sfc_main$y, { __name: "UAvatar" });
+const __nuxt_component_3$2 = Object.assign(_sfc_main$y, { __name: "UAvatar" });
 
 const firstNonUndefined = (...args) => args.find((arg) => arg !== void 0);
 // @__NO_SIDE_EFFECTS__
@@ -9497,7 +9497,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
                         class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon, active })
                       }, null, _parent3, _scopeId2));
                     } else if (!!_ctx.avatar) {
-                      _push3(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
+                      _push3(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
                         size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
                       }, _ctx.avatar, {
                         class: ui.value.leadingAvatar({ class: (_c = props.ui) == null ? void 0 : _c.leadingAvatar, active })
@@ -9534,7 +9534,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
                           key: 0,
                           name: unref(leadingIconName),
                           class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon, active })
-                        }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
+                        }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
                           key: 1,
                           size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
                         }, _ctx.avatar, {
@@ -9585,7 +9585,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
                         key: 0,
                         name: unref(leadingIconName),
                         class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon, active })
-                      }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
+                      }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
                         key: 1,
                         size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
                       }, _ctx.avatar, {
@@ -11126,7 +11126,7 @@ _sfc_main$s.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Modal.vue");
   return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
 };
-const __nuxt_component_3$2 = Object.assign(_sfc_main$s, { __name: "UModal" });
+const __nuxt_component_4$2 = Object.assign(_sfc_main$s, { __name: "UModal" });
 
 const theme$f = {
   "slots": {
@@ -11818,7 +11818,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     const ui = header();
     const Menu = computed(() => ({
       slideover: __nuxt_component_6$1,
-      modal: __nuxt_component_3$2,
+      modal: __nuxt_component_4$2,
       drawer: UDrawer
     })[props.mode]);
     const menuProps = toRef(() => defu(props.menu, props.mode === "modal" ? { fullscreen: true, transition: false } : {}));
@@ -12382,7 +12382,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
                   class: ui.value.leadingIcon({ class: (_a3 = props.ui) == null ? void 0 : _a3.leadingIcon })
                 }, null, _parent2, _scopeId));
               } else if (!!_ctx.avatar) {
-                _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
+                _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
                   size: ((_b = props.ui) == null ? void 0 : _b.leadingAvatarSize) || ui.value.leadingAvatarSize()
                 }, _ctx.avatar, {
                   class: ui.value.leadingAvatar({ class: (_c = props.ui) == null ? void 0 : _c.leadingAvatar })
@@ -12419,7 +12419,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
                     key: 0,
                     name: unref(leadingIconName),
                     class: ui.value.leadingIcon({ class: (_a3 = props.ui) == null ? void 0 : _a3.leadingIcon })
-                  }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
+                  }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
                     key: 1,
                     size: ((_b = props.ui) == null ? void 0 : _b.leadingAvatarSize) || ui.value.leadingAvatarSize()
                   }, _ctx.avatar, {
@@ -13125,7 +13125,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
               }, () => {
                 var _a4, _b2, _c2;
                 if (item.avatar) {
-                  _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
+                  _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
                     size: ((_a4 = props.ui) == null ? void 0 : _a4.linkLeadingAvatarSize) || ui.value.linkLeadingAvatarSize()
                   }, item.avatar, {
                     class: ui.value.linkLeadingAvatar({ class: (_b2 = props.ui) == null ? void 0 : _b2.linkLeadingAvatar, active, disabled: !!item.disabled })
@@ -13213,7 +13213,7 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
                   }, () => {
                     var _a4, _b2, _c2;
                     return [
-                      item.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
+                      item.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
                         key: 0,
                         size: ((_a4 = props.ui) == null ? void 0 : _a4.linkLeadingAvatarSize) || ui.value.linkLeadingAvatarSize()
                       }, item.avatar, {
@@ -14406,7 +14406,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
                     class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
                   }, null, _parent2, _scopeId));
                 } else if (_ctx.avatar) {
-                  _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
+                  _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
                     size: ((_c2 = props.ui) == null ? void 0 : _c2.avatarSize) || ui.value.avatarSize()
                   }, _ctx.avatar, {
                     class: ui.value.avatar({ class: (_d2 = props.ui) == null ? void 0 : _d2.avatar })
@@ -14438,7 +14438,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
                         key: 1,
                         name: _ctx.icon,
                         class: ui.value.icon({ class: (_b2 = props.ui) == null ? void 0 : _b2.icon })
-                      }, null, 8, ["name", "class"])) : _ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
+                      }, null, 8, ["name", "class"])) : _ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
                         key: 2,
                         size: ((_c2 = props.ui) == null ? void 0 : _c2.avatarSize) || ui.value.avatarSize()
                       }, _ctx.avatar, {
@@ -15019,7 +15019,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
             ssrRenderSlot(_ctx.$slots, "leading", {}, () => {
               var _a4, _b2, _c2;
               if (_ctx.avatar) {
-                _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
+                _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
                   size: ((_a4 = props.ui) == null ? void 0 : _a4.avatarSize) || ui.value.avatarSize()
                 }, _ctx.avatar, {
                   class: ui.value.avatar({ class: (_b2 = props.ui) == null ? void 0 : _b2.avatar })
@@ -15230,7 +15230,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
               renderSlot(_ctx.$slots, "leading", {}, () => {
                 var _a4, _b2, _c2;
                 return [
-                  _ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
+                  _ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
                     key: 0,
                     size: ((_a4 = props.ui) == null ? void 0 : _a4.avatarSize) || ui.value.avatarSize()
                   }, _ctx.avatar, {
@@ -17097,7 +17097,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
                     class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
                   }, null, _parent2, _scopeId));
                 } else if (!!_ctx.avatar) {
-                  _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
+                  _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
                     size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
                   }, _ctx.avatar, {
                     class: ui.value.leadingAvatar({ class: (_c2 = props.ui) == null ? void 0 : _c2.leadingAvatar })
@@ -17159,7 +17159,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
                       key: 0,
                       name: unref(leadingIconName),
                       class: ui.value.leadingIcon({ class: (_a4 = props.ui) == null ? void 0 : _a4.leadingIcon })
-                    }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
+                    }, null, 8, ["name", "class"])) : !!_ctx.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
                       key: 1,
                       size: ((_b2 = props.ui) == null ? void 0 : _b2.leadingAvatarSize) || ui.value.leadingAvatarSize()
                     }, _ctx.avatar, {
@@ -18221,7 +18221,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                     class: _ctx.ui.itemLeadingIcon({ class: (_b2 = _ctx.uiOverride) == null ? void 0 : _b2.itemLeadingIcon, color: item == null ? void 0 : item.color, active })
                   }, null, _parent2, _scopeId));
                 } else if (item.avatar) {
-                  _push2(ssrRenderComponent(__nuxt_component_3$3, mergeProps({
+                  _push2(ssrRenderComponent(__nuxt_component_3$2, mergeProps({
                     size: ((_c2 = props.uiOverride) == null ? void 0 : _c2.itemLeadingAvatarSize) || _ctx.ui.itemLeadingAvatarSize()
                   }, item.avatar, {
                     class: _ctx.ui.itemLeadingAvatar({ class: (_d = _ctx.uiOverride) == null ? void 0 : _d.itemLeadingAvatar, active })
@@ -18322,7 +18322,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
                         key: 1,
                         name: item.icon,
                         class: _ctx.ui.itemLeadingIcon({ class: (_b2 = _ctx.uiOverride) == null ? void 0 : _b2.itemLeadingIcon, color: item == null ? void 0 : item.color, active })
-                      }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3$3, mergeProps({
+                      }, null, 8, ["name", "class"])) : item.avatar ? (openBlock(), createBlock(__nuxt_component_3$2, mergeProps({
                         key: 2,
                         size: ((_c2 = props.uiOverride) == null ? void 0 : _c2.itemLeadingAvatarSize) || _ctx.ui.itemLeadingAvatarSize()
                       }, item.avatar, {
@@ -19847,7 +19847,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
       check();
     });
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_UModal = __nuxt_component_3$2;
+      const _component_UModal = __nuxt_component_4$2;
       const _component_UCard = __nuxt_component_1;
       const _component_UDropdownMenu = __nuxt_component_2;
       const _component_UButton = __nuxt_component_2$4;
@@ -20840,5 +20840,5 @@ const server = /*#__PURE__*/Object.freeze({
   default: entry$1
 });
 
-export { useCartStore as A, __nuxt_component_1 as B, __nuxt_component_2$3 as C, __nuxt_component_0 as D, transformUI as E, useCookieNoticeStore as F, useNuxtApp as G, injectHead as H, useRuntimeConfig as I, useHead as J, __nuxt_component_0$3 as K, __nuxt_component_0$5 as L, __nuxt_component_0$6 as M, pickLinkProps as N, __nuxt_component_3$2 as O, getSlotChildrenText as P, server as Q, ULinkBase as U, _appConfig as _, useI18n as a, useSeoMeta as b, useLocale as c, formInputsInjectionKey as d, formLoadingInjectionKey as e, formBusInjectionKey as f, formOptionsInjectionKey as g, useAppConfig as h, useFormField as i, __nuxt_component_1$3 as j, useAvatarGroup as k, useButtonGroup as l, useComponentIcons as m, get as n, compare as o, __nuxt_component_3$3 as p, __nuxt_component_6 as q, useLocalePro as r, tv as s, tv$1 as t, useLocalePath as u, __nuxt_component_2$4 as v, __nuxt_component_2$2 as w, __nuxt_component_4$1 as x, omit as y, useToast as z };
+export { useCartStore as A, __nuxt_component_1 as B, __nuxt_component_2$3 as C, __nuxt_component_0 as D, transformUI as E, useCookieNoticeStore as F, useNuxtApp as G, injectHead as H, useRuntimeConfig as I, useHead as J, __nuxt_component_0$3 as K, __nuxt_component_0$5 as L, __nuxt_component_0$6 as M, pickLinkProps as N, __nuxt_component_4$2 as O, UKbd as P, getSlotChildrenText as Q, server as R, ULinkBase as U, _appConfig as _, useI18n as a, useSeoMeta as b, useLocale as c, formInputsInjectionKey as d, formLoadingInjectionKey as e, formBusInjectionKey as f, formOptionsInjectionKey as g, useAppConfig as h, useFormField as i, __nuxt_component_1$3 as j, useAvatarGroup as k, useButtonGroup as l, useComponentIcons as m, get as n, compare as o, __nuxt_component_3$2 as p, __nuxt_component_6 as q, useLocalePro as r, tv as s, tv$1 as t, useLocalePath as u, __nuxt_component_2$4 as v, __nuxt_component_2$2 as w, __nuxt_component_4$1 as x, omit as y, useToast as z };
 //# sourceMappingURL=server.mjs.map
