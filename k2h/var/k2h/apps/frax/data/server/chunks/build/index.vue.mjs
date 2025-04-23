@@ -4303,9 +4303,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           { withCredentials: true }
         );
         const voucherID = response.data.id;
+        const voucherName = response.data.name;
         const voucherAmount = response.data.amount_off;
         const voucherPercent = response.data.percent_off;
-        cart.addVoucher({ id: voucherID, amount: voucherAmount, percent: voucherPercent });
+        cart.addVoucher({ id: voucherID, name: voucherName, amount: voucherAmount, percent: voucherPercent });
       } catch (error) {
         toast.add({
           icon: "i-heroicons-x-circle",
@@ -4663,7 +4664,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         size: "xl",
                         autocomplete: "off",
                         class: "w-full",
-                        disabled: unref(voucherLoading) || !!unref(cart).voucher
+                        disabled: unref(voucherLoading)
                       }, {
                         trailing: withCtx((_3, _push4, _parent4, _scopeId3) => {
                           if (_push4) {
@@ -4700,7 +4701,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           size: "xl",
                           autocomplete: "off",
                           class: "w-full",
-                          disabled: unref(voucherLoading) || !!unref(cart).voucher
+                          disabled: unref(voucherLoading)
                         }, {
                           trailing: withCtx(() => [
                             createVNode(_component_UButton, {
@@ -4895,7 +4896,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             size: "xl",
                             autocomplete: "off",
                             class: "w-full",
-                            disabled: unref(voucherLoading) || !!unref(cart).voucher
+                            disabled: unref(voucherLoading)
                           }, {
                             trailing: withCtx(() => [
                               createVNode(_component_UButton, {
