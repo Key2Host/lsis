@@ -20218,7 +20218,7 @@ const useCartStore = defineStore("cart", {
   state: () => ({
     isSlideoverOpen: false,
     items: [],
-    voucher: ""
+    voucher: null
   }),
   actions: {
     openSlideover() {

@@ -4162,7 +4162,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
           errorMessage.value = "Das CAPTCHA wurde abgelehnt. Versuche es später erneut.";
           return;
         }
-      } catch (error2) {
+      } catch (error) {
         toast.add({
           icon: "i-heroicons-exclamation-triangle",
           description: "Das CAPTCHA konnte nicht überprüft werden. Versuche es später erneut.",
@@ -4182,15 +4182,15 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
           withCredentials: true
         });
         (void 0).location.reload();
-      } catch (error2) {
-        if (error2.response && error2.response.status === 401) {
-          console.error("Fehler bei der Anmeldung", error2);
+      } catch (error) {
+        if (error.response && error.response.status === 401) {
+          console.error("Fehler bei der Anmeldung", error);
           errorMessage.value = t("authform.errorModal.wrongCred");
-        } else if (error2.response && error2.response.status === 403) {
-          console.error("Fehler bei der Anmeldung", error2);
+        } else if (error.response && error.response.status === 403) {
+          console.error("Fehler bei der Anmeldung", error);
           errorMessage.value = t("authform.errorModal.suspended");
         } else {
-          console.error("Fehler bei der API-Anfrage:", error2.message);
+          console.error("Fehler bei der API-Anfrage:", error.message);
           errorMessage.value = t("authform.errorModal.err");
         }
         toast.add({
@@ -4291,10 +4291,20 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const { t } = useI18n({
       useScope: "global"
     });
+    const voucherCode = ref("");
     const voucherLoading = ref(false);
-    function onSubmit() {
+    async function submitVoucher() {
       voucherLoading.value = true;
-      setTimeout(() => {
+      const voucher = voucherCode.value;
+      try {
+        const response = await axios.post(
+          "http://localhost:80/api/user/checkVoucher",
+          { code: voucher },
+          { withCredentials: true }
+        );
+        const voucherID = response.data.id;
+        cart.addVoucher(voucherID);
+      } catch (error) {
         toast.add({
           icon: "i-heroicons-x-circle",
           title: "Ungültiger Gutschein",
@@ -4302,15 +4312,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           color: "error",
           timeout: 2500
         });
-        voucherLoading.value = false;
-      }, 2500);
+      }
+      voucherLoading.value = false;
     }
     async function buy() {
       step.value = 3;
       try {
         const response = await axios.post(
           "https://saci.key2host.com/api/user/buy/",
-          { items: cart.items },
+          {
+            items: cart.items,
+            voucher: cart.voucher
+          },
           { withCredentials: true }
         );
         const id = response.data.id;
@@ -4400,7 +4413,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               _push2(ssrRenderComponent(_component_AuthForm, null, null, _parent2, _scopeId));
               _push2(`</div><div class="hidden md:block w-px bg-gray-300 dark:bg-gray-600"${_scopeId}></div><div class="w-full md:w-1/2 flex flex-col items-center justify-center text-center"${_scopeId}><h1 class="text-2xl"${_scopeId}>${ssrInterpolate(_ctx.$t("checkout.index.steps.1.noaccount.title"))}</h1><p class="mt-1"${_scopeId}>${ssrInterpolate(_ctx.$t("checkout.index.steps.1.noaccount.description"))}</p>`);
               _push2(ssrRenderComponent(_component_NuxtLinkLocale, {
-                to: "https://auth.key2host.com/signup",
+                to: "https://auth.key2host.com/sign-up",
                 target: "_blank"
               }, {
                 default: withCtx((_2, _push3, _parent3, _scopeId2) => {
@@ -4442,7 +4455,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     createVNode("h1", { class: "text-2xl" }, toDisplayString(_ctx.$t("checkout.index.steps.1.noaccount.title")), 1),
                     createVNode("p", { class: "mt-1" }, toDisplayString(_ctx.$t("checkout.index.steps.1.noaccount.description")), 1),
                     createVNode(_component_NuxtLinkLocale, {
-                      to: "https://auth.key2host.com/signup",
+                      to: "https://auth.key2host.com/sign-up",
                       target: "_blank"
                     }, {
                       default: withCtx(() => [
@@ -4631,8 +4644,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                     if (_push3) {
                       _push3(ssrRenderComponent(_component_UInput, {
-                        modelValue: _ctx.voucher,
-                        "onUpdate:modelValue": ($event) => _ctx.voucher = $event,
+                        modelValue: unref(voucherCode),
+                        "onUpdate:modelValue": ($event) => isRef(voucherCode) ? voucherCode.value = $event : null,
                         type: "text",
                         placeholder: "Gebe dein Gutscheincode ein",
                         ui: { icon: { trailing: { pointer: "" } } },
@@ -4640,7 +4653,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         size: "xl",
                         autocomplete: "off",
                         class: "w-full",
-                        disabled: unref(voucherLoading)
+                        disabled: unref(voucherLoading) || !!unref(cart).voucher
                       }, {
                         trailing: withCtx((_3, _push4, _parent4, _scopeId3) => {
                           if (_push4) {
@@ -4668,8 +4681,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     } else {
                       return [
                         createVNode(_component_UInput, {
-                          modelValue: _ctx.voucher,
-                          "onUpdate:modelValue": ($event) => _ctx.voucher = $event,
+                          modelValue: unref(voucherCode),
+                          "onUpdate:modelValue": ($event) => isRef(voucherCode) ? voucherCode.value = $event : null,
                           type: "text",
                           placeholder: "Gebe dein Gutscheincode ein",
                           ui: { icon: { trailing: { pointer: "" } } },
@@ -4677,7 +4690,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           size: "xl",
                           autocomplete: "off",
                           class: "w-full",
-                          disabled: unref(voucherLoading)
+                          disabled: unref(voucherLoading) || !!unref(cart).voucher
                         }, {
                           trailing: withCtx(() => [
                             createVNode(_component_UButton, {
@@ -4855,7 +4868,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     }),
                     createVNode("form", {
                       class: "mt-4 flex flex-col items-center w-full max-w-lg mx-auto",
-                      onSubmit: withModifiers(onSubmit, ["prevent"])
+                      onSubmit: withModifiers(submitVoucher, ["prevent"])
                     }, [
                       createVNode(_component_UFormGroup, {
                         ui: { container: "mt-3" },
@@ -4863,8 +4876,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       }, {
                         default: withCtx(() => [
                           createVNode(_component_UInput, {
-                            modelValue: _ctx.voucher,
-                            "onUpdate:modelValue": ($event) => _ctx.voucher = $event,
+                            modelValue: unref(voucherCode),
+                            "onUpdate:modelValue": ($event) => isRef(voucherCode) ? voucherCode.value = $event : null,
                             type: "text",
                             placeholder: "Gebe dein Gutscheincode ein",
                             ui: { icon: { trailing: { pointer: "" } } },
@@ -4872,7 +4885,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             size: "xl",
                             autocomplete: "off",
                             class: "w-full",
-                            disabled: unref(voucherLoading)
+                            disabled: unref(voucherLoading) || !!unref(cart).voucher
                           }, {
                             trailing: withCtx(() => [
                               createVNode(_component_UButton, {
