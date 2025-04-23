@@ -4306,18 +4306,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         const voucherPercent = response.data.percent_off;
         cart.addVoucher({ id: voucherID, name: voucherName, amount: voucherAmount, percent: voucherPercent });
         toast.add({
-          icon: "i-heroicons-x-circle",
-          title: "Ungültiger Gutschein",
-          description: "Der Gutschein wurde nicht akzeptiert, da dieser ungültig ist.",
-          color: "error",
-          duration: 2500
-        });
-      } catch (error) {
-        toast.add({
           icon: "i-heroicons-check-circle",
           title: "Gutschein eingelöst",
           description: "Der Gutschein wurde akzeptiert und beim bezahlen eingelöst.",
           color: "success",
+          duration: 2500
+        });
+      } catch (error) {
+        toast.add({
+          icon: "i-heroicons-x-circle",
+          title: "Ungültiger Gutschein",
+          description: "Der Gutschein wurde nicht akzeptiert, da dieser ungültig ist.",
+          color: "error",
           duration: 2500
         });
       }
