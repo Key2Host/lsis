@@ -20285,7 +20285,7 @@ const useCartStore = defineStore("cart", {
       } else if (this.voucher.percent) {
         newPrice = subtotal - subtotal * (this.voucher.percent / 100);
       }
-      return newPrice.toFixed(2);
+      return Math.max(newPrice, 0).toFixed(2);
     }
   },
   persist: true
