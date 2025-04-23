@@ -166,22 +166,21 @@ async function checkVoucher(req, res) {
             limit: 1
         });
 
-        const coupon = coupons.data[0];
+        const voucher = coupons.data[0];
 
-        if (!coupon) {
+        if (!voucher) {
             return res.status(404).json({ error: 'Gutschein nicht gefunden.' });
         }
 
-        if (!coupon.active || !coupon.coupon.valid) {
+        if (!voucher.active || !voucher.coupon.valid) {
             return res.status(404).json({ error: 'Gutscheincode ist ungültig oder abgelaufen.' });
         }
 
         return res.json({
-            id: coupon.id,
-            name: coupon.name,
-            valid: coupon.valid,
-            amount_off: coupon.coupon.amount_off || null,
-            percent_off: coupon.coupon.percent_off || null
+            id: voucher.id,
+            name: voucher.coupon.name,
+            amount_off: voucher.coupon.amount_off || null,
+            percent_off: voucher.coupon.percent_off || null
         });
 
     } catch (error) {
