@@ -9,6 +9,6 @@ router.get('/hello', authenticateUser, userHello);
 router.get('/getWebspaceInfo', getWebspaceInfo);
 router.get('/getDomainInfo', getDomainInfo);
 router.post('/buy', authenticateUser, checkSuspended, buy);
-router.post('/checkVoucher', checkVoucher);
+router.post('/checkVoucher', authenticateUser, checkSuspended, checkVoucher);
 
 module.exports = router;
