@@ -55,7 +55,6 @@ if [[ ! -f "/var/k2h/mailsrv/certs/fullchain.pem" || ! -f "/var/k2h/mailsrv/cert
         --agree-tos \
          --email webmaster@key2host.com \
         --non-interactive \
-        --staging \
         --force-renewal;
     then
         echo "[FEHLER] Zertifikatsausstellung fehlgeschlagen." >&2
@@ -67,7 +66,6 @@ else
     -d mail.key2host.com \
     --agree-tos \
     --email webmaster@key2host.com \
-    --staging \
     --non-interactive
     then
         echo "[FEHLER] Zertifikatsausstellung fehlgeschlagen." >&2
@@ -75,7 +73,7 @@ else
     fi
 fi
 
-# REMOVE --staging FOR PRODUCTION USE
+# !!! ADD --staging FOR TESTING !!!
 
 # Symbolische Links setzen (zeigt auf aktuelle Version in /etc/letsencrypt)
 sudo mkdir -p /var/k2h/mailsrv/certs/
