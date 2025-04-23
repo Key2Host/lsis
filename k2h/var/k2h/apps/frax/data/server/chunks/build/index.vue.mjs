@@ -4351,10 +4351,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         const response = await axios.get("https://saci.key2host.com/api/user/hello/", {
           withCredentials: true
         });
-        step.value = 2;
         if (response.data.user && response.data.user.fullname) {
           userName.value = response.data.user.fullname;
         }
+        step.value = 2;
       } catch (error) {
       }
     }
@@ -4579,11 +4579,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 _push2(ssrRenderComponent(_component_UCard, null, {
                   default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                     if (_push3) {
-                      _push3(`<h2 class="text-lg font-medium"${_scopeId2}>Preisübersicht</h2><div class="flex justify-between mt-2"${_scopeId2}><span${_scopeId2}>Zwischensumme:</span><span${_scopeId2}>${ssrInterpolate(unref(cart).totalPrice)} €</span></div>`);
+                      _push3(`<h2 class="text-lg font-medium"${_scopeId2}>Preisübersicht</h2><div class="flex justify-between mt-2"${_scopeId2}><span${_scopeId2}>Zwischensumme:</span><span${_scopeId2}>${ssrInterpolate(unref(cart).subTotalPrice)} €</span></div>`);
                       if (unref(cart).voucher) {
                         _push3(`<div${_scopeId2}><hr class="my-2"${_scopeId2}><div class="flex justify-between mt-2"${_scopeId2}><span${_scopeId2}>Gutscheincode</span>`);
                         if (unref(cart).voucher.amount) {
-                          _push3(`<span${_scopeId2}>- ${ssrInterpolate(unref(cart).voucher.amount + " €")}</span>`);
+                          _push3(`<span${_scopeId2}>- ${ssrInterpolate((unref(cart).voucher.amount / 100).toFixed(2) + " €")}</span>`);
                         } else if (unref(cart).voucher.percent) {
                           _push3(`<span${_scopeId2}>- ${ssrInterpolate(unref(cart).voucher.percent + " %")}</span>`);
                         } else {
@@ -4612,13 +4612,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         createVNode("h2", { class: "text-lg font-medium" }, "Preisübersicht"),
                         createVNode("div", { class: "flex justify-between mt-2" }, [
                           createVNode("span", null, "Zwischensumme:"),
-                          createVNode("span", null, toDisplayString(unref(cart).totalPrice) + " €", 1)
+                          createVNode("span", null, toDisplayString(unref(cart).subTotalPrice) + " €", 1)
                         ]),
                         unref(cart).voucher ? (openBlock(), createBlock("div", { key: 0 }, [
                           createVNode("hr", { class: "my-2" }),
                           createVNode("div", { class: "flex justify-between mt-2" }, [
                             createVNode("span", null, "Gutscheincode"),
-                            unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, "- " + toDisplayString(unref(cart).voucher.amount + " €"), 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, "- " + toDisplayString(unref(cart).voucher.percent + " %"), 1)) : createCommentVNode("", true)
+                            unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, "- " + toDisplayString((unref(cart).voucher.amount / 100).toFixed(2) + " €"), 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, "- " + toDisplayString(unref(cart).voucher.percent + " %"), 1)) : createCommentVNode("", true)
                           ]),
                           createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.name), 1)
                         ])) : createCommentVNode("", true),
@@ -4844,13 +4844,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         createVNode("h2", { class: "text-lg font-medium" }, "Preisübersicht"),
                         createVNode("div", { class: "flex justify-between mt-2" }, [
                           createVNode("span", null, "Zwischensumme:"),
-                          createVNode("span", null, toDisplayString(unref(cart).totalPrice) + " €", 1)
+                          createVNode("span", null, toDisplayString(unref(cart).subTotalPrice) + " €", 1)
                         ]),
                         unref(cart).voucher ? (openBlock(), createBlock("div", { key: 0 }, [
                           createVNode("hr", { class: "my-2" }),
                           createVNode("div", { class: "flex justify-between mt-2" }, [
                             createVNode("span", null, "Gutscheincode"),
-                            unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, "- " + toDisplayString(unref(cart).voucher.amount + " €"), 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, "- " + toDisplayString(unref(cart).voucher.percent + " %"), 1)) : createCommentVNode("", true)
+                            unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, "- " + toDisplayString((unref(cart).voucher.amount / 100).toFixed(2) + " €"), 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, "- " + toDisplayString(unref(cart).voucher.percent + " %"), 1)) : createCommentVNode("", true)
                           ]),
                           createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.name), 1)
                         ])) : createCommentVNode("", true),
