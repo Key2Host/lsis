@@ -14523,7 +14523,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
       {
         label: t("menus.header.contact"),
         to: localePath("/contact"),
-        icon: "i-heroicons-question-mark-circle"
+        icon: "i-heroicons-lifebuoy"
       }
     ]);
     return (_ctx, _push, _parent, _attrs) => {
@@ -14587,7 +14587,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
                 if (_push3) {
                   _push3(ssrRenderComponent(_component_UButton, {
                     label: unref(t)("menus.header.buttons.startnow"),
-                    color: "white",
+                    color: "neutral",
                     variant: "ghost",
                     "trailing-icon": "i-heroicons-arrow-right-20-solid",
                     class: "hidden lg:flex"
@@ -14596,7 +14596,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
                   return [
                     createVNode(_component_UButton, {
                       label: unref(t)("menus.header.buttons.startnow"),
-                      color: "white",
+                      color: "neutral",
                       variant: "ghost",
                       "trailing-icon": "i-heroicons-arrow-right-20-solid",
                       class: "hidden lg:flex"
@@ -14615,7 +14615,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
                 default: withCtx(() => [
                   createVNode(_component_UButton, {
                     label: unref(t)("menus.header.buttons.startnow"),
-                    color: "white",
+                    color: "neutral",
                     variant: "ghost",
                     "trailing-icon": "i-heroicons-arrow-right-20-solid",
                     class: "hidden lg:flex"
@@ -14642,7 +14642,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
                 if (_push3) {
                   _push3(ssrRenderComponent(_component_UButton, {
                     label: unref(t)("menus.header.buttons.login"),
-                    color: "white",
+                    color: "primary",
                     block: "",
                     class: "mb-3"
                   }, null, _parent3, _scopeId2));
@@ -14650,7 +14650,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
                   return [
                     createVNode(_component_UButton, {
                       label: unref(t)("menus.header.buttons.login"),
-                      color: "white",
+                      color: "primary",
                       block: "",
                       class: "mb-3"
                     }, null, 8, ["label"])
@@ -14695,7 +14695,7 @@ const _sfc_main$l = /* @__PURE__ */ defineComponent({
                 default: withCtx(() => [
                   createVNode(_component_UButton, {
                     label: unref(t)("menus.header.buttons.login"),
-                    color: "white",
+                    color: "primary",
                     block: "",
                     class: "mb-3"
                   }, null, 8, ["label"])
@@ -17406,7 +17406,6 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                 "onUpdate:modelValue": ($event) => isRef(email) ? email.value = $event : null,
                                 type: "email",
                                 placeholder: unref(t)("menus.footer.newsletter.placeholder"),
-                                ui: { icon: { trailing: { pointer: "" } } },
                                 required: "",
                                 size: "xl",
                                 autocomplete: "off",
@@ -17443,7 +17442,6 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                   "onUpdate:modelValue": ($event) => isRef(email) ? email.value = $event : null,
                                   type: "email",
                                   placeholder: unref(t)("menus.footer.newsletter.placeholder"),
-                                  ui: { icon: { trailing: { pointer: "" } } },
                                   required: "",
                                   size: "xl",
                                   autocomplete: "off",
@@ -17484,7 +17482,6 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                   "onUpdate:modelValue": ($event) => isRef(email) ? email.value = $event : null,
                                   type: "email",
                                   placeholder: unref(t)("menus.footer.newsletter.placeholder"),
-                                  ui: { icon: { trailing: { pointer: "" } } },
                                   required: "",
                                   size: "xl",
                                   autocomplete: "off",
@@ -17530,7 +17527,6 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                                 "onUpdate:modelValue": ($event) => isRef(email) ? email.value = $event : null,
                                 type: "email",
                                 placeholder: unref(t)("menus.footer.newsletter.placeholder"),
-                                ui: { icon: { trailing: { pointer: "" } } },
                                 required: "",
                                 size: "xl",
                                 autocomplete: "off",
@@ -17581,7 +17577,6 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                               "onUpdate:modelValue": ($event) => isRef(email) ? email.value = $event : null,
                               type: "email",
                               placeholder: unref(t)("menus.footer.newsletter.placeholder"),
-                              ui: { icon: { trailing: { pointer: "" } } },
                               required: "",
                               size: "xl",
                               autocomplete: "off",
@@ -17635,7 +17630,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
               target: "_blank",
               icon: "i-simple-icons-instagram",
               "aria-label": "Instagram",
-              color: "gray",
+              color: "neutral",
               variant: "ghost"
             }, null, _parent2, _scopeId));
             _push2(ssrRenderComponent(_component_UButton, {
@@ -17643,7 +17638,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
               target: "_blank",
               icon: "i-simple-icons-facebook",
               "aria-label": "Facebook",
-              color: "gray",
+              color: "neutral",
               variant: "ghost"
             }, null, _parent2, _scopeId));
             _push2(ssrRenderComponent(_component_UButton, {
@@ -17651,7 +17646,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
               target: "_blank",
               icon: "i-simple-icons-x",
               "aria-label": "X",
-              color: "gray",
+              color: "neutral",
               variant: "ghost"
             }, null, _parent2, _scopeId));
             _push2(ssrRenderComponent(_component_UButton, {
@@ -17659,7 +17654,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
               target: "_blank",
               icon: "i-simple-icons-discord",
               "aria-label": "Discord",
-              color: "gray",
+              color: "neutral",
               variant: "ghost"
             }, null, _parent2, _scopeId));
           } else {
@@ -17670,7 +17665,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                 target: "_blank",
                 icon: "i-simple-icons-instagram",
                 "aria-label": "Instagram",
-                color: "gray",
+                color: "neutral",
                 variant: "ghost"
               }),
               createVNode(_component_UButton, {
@@ -17678,7 +17673,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                 target: "_blank",
                 icon: "i-simple-icons-facebook",
                 "aria-label": "Facebook",
-                color: "gray",
+                color: "neutral",
                 variant: "ghost"
               }),
               createVNode(_component_UButton, {
@@ -17686,7 +17681,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                 target: "_blank",
                 icon: "i-simple-icons-x",
                 "aria-label": "X",
-                color: "gray",
+                color: "neutral",
                 variant: "ghost"
               }),
               createVNode(_component_UButton, {
@@ -17694,7 +17689,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
                 target: "_blank",
                 icon: "i-simple-icons-discord",
                 "aria-label": "Discord",
-                color: "gray",
+                color: "neutral",
                 variant: "ghost"
               })
             ];
@@ -19860,7 +19855,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
         content: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             if (!unref(cookienotice).showDetails) {
-              _push2(ssrRenderComponent(_component_UCard, { ui: { ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" } }, {
+              _push2(ssrRenderComponent(_component_UCard, null, {
                 header: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
                     _push3(`<div class="flex items-center justify-between w-full"${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId2}> 🍪 ${ssrInterpolate(_ctx.$t("cookienotice.start.title"))}</h3>`);
@@ -19991,7 +19986,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 _: 1
               }, _parent2, _scopeId));
             } else {
-              _push2(ssrRenderComponent(_component_UCard, { ui: { ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" } }, {
+              _push2(ssrRenderComponent(_component_UCard, null, {
                 header: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
                     _push3(`<div class="flex items-center justify-between w-full"${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId2}>${ssrInterpolate(_ctx.$t("cookienotice.details.title"))}</h3></div>`);
@@ -20095,10 +20090,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
             }
           } else {
             return [
-              !unref(cookienotice).showDetails ? (openBlock(), createBlock(_component_UCard, {
-                key: 0,
-                ui: { ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" }
-              }, {
+              !unref(cookienotice).showDetails ? (openBlock(), createBlock(_component_UCard, { key: 0 }, {
                 header: withCtx(() => [
                   createVNode("div", { class: "flex items-center justify-between w-full" }, [
                     createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " 🍪 " + toDisplayString$1(_ctx.$t("cookienotice.start.title")), 1),
@@ -20150,10 +20142,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                   ])
                 ]),
                 _: 1
-              })) : (openBlock(), createBlock(_component_UCard, {
-                key: 1,
-                ui: { ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" }
-              }, {
+              })) : (openBlock(), createBlock(_component_UCard, { key: 1 }, {
                 header: withCtx(() => [
                   createVNode("div", { class: "flex items-center justify-between w-full" }, [
                     createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, toDisplayString$1(_ctx.$t("cookienotice.details.title")), 1)
@@ -20553,10 +20542,10 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
               color: "neutral",
               label: unref(t)("cart.checkout"),
               icon: "i-heroicons-shopping-cart",
-              trailing: "true",
+              trailing: "",
               size: "xl",
               class: ["mt-4", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
-              block: "true",
+              block: "",
               autofocus: ""
             }, null, _parent2, _scopeId));
           } else {
@@ -20567,10 +20556,10 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                 color: "neutral",
                 label: unref(t)("cart.checkout"),
                 icon: "i-heroicons-shopping-cart",
-                trailing: "true",
+                trailing: "",
                 size: "xl",
                 class: ["mt-4", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
-                block: "true",
+                block: "",
                 autofocus: ""
               }, null, 8, ["disabled", "onClick", "label", "class"])
             ];

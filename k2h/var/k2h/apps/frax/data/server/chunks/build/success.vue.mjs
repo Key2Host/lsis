@@ -55,7 +55,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       _push(ssrRenderComponent(_component_UPageHero, mergeProps({
         title: _ctx.$t("checkout.success.title"),
         description: _ctx.$t("checkout.success.description"),
-        links: [{ label: _ctx.$t("checkout.success.actions.cp"), icon: "i-heroicons-rocket-launch", size: "lg", to: unref(localePath)("https://cp.key2host.com") }, { label: _ctx.$t("checkout.success.actions.home"), icon: "i-heroicons-arrow-small-left", color: "gray", size: "lg", to: unref(localePath)("/") }]
+        links: [{ label: _ctx.$t("checkout.success.actions.cp"), icon: "i-heroicons-rocket-launch", color: "primary", size: "lg", to: unref(localePath)("https://cp.key2host.com") }, { label: _ctx.$t("checkout.success.actions.home"), icon: "i-heroicons-arrow-small-left", size: "lg", to: unref(localePath)("/") }]
       }, _attrs), {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {

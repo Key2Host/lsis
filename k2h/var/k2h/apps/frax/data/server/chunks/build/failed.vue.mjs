@@ -53,7 +53,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       _push(ssrRenderComponent(_component_UPageHero, mergeProps({
         title: _ctx.$t("checkout.failed.title"),
         description: _ctx.$t("checkout.failed.description"),
-        links: [{ label: _ctx.$t("checkout.failed.actions.home"), icon: "i-heroicons-arrow-small-left", color: "gray", size: "lg", to: unref(localePath)("/") }]
+        links: [{ label: _ctx.$t("checkout.failed.actions.home"), icon: "i-heroicons-arrow-small-left", color: "primary", size: "lg", to: unref(localePath)("/") }]
       }, _attrs), {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {

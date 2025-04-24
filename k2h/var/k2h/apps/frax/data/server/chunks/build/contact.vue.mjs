@@ -399,10 +399,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   }, null, _parent3, _scopeId2));
                   _push3(ssrRenderComponent(_component_UButton, {
                     type: "submit",
-                    color: "neutral",
+                    color: "primary",
                     label: unref(t)("contact.contactform.inputs.submit"),
                     icon: "i-heroicons-paper-airplane",
-                    trailing: "true",
+                    trailing: "",
                     size: "xl",
                     class: "mt-4",
                     autofocus: ""
@@ -547,10 +547,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       }, null, 8, ["modelValue", "onUpdate:modelValue", "options"]),
                       createVNode(_component_UButton, {
                         type: "submit",
-                        color: "neutral",
+                        color: "primary",
                         label: unref(t)("contact.contactform.inputs.submit"),
                         icon: "i-heroicons-paper-airplane",
-                        trailing: "true",
+                        trailing: "",
                         size: "xl",
                         class: "mt-4",
                         autofocus: ""
@@ -760,10 +760,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     }, null, 8, ["modelValue", "onUpdate:modelValue", "options"]),
                     createVNode(_component_UButton, {
                       type: "submit",
-                      color: "neutral",
+                      color: "primary",
                       label: unref(t)("contact.contactform.inputs.submit"),
                       icon: "i-heroicons-paper-airplane",
-                      trailing: "true",
+                      trailing: "",
                       size: "xl",
                       class: "mt-4",
                       autofocus: ""
@@ -788,14 +788,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             _push2(ssrRenderComponent(unref(UPageAccordion), {
               multiple: "",
               items: faqItems,
-              ui: {
-                button: {
-                  label: "font-semibold",
-                  trailingIcon: {
-                    base: "w-6 h-6"
-                  }
-                }
-              },
               class: "max-w-4xl mx-auto"
             }, null, _parent2, _scopeId));
           } else {
@@ -803,14 +795,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               createVNode(unref(UPageAccordion), {
                 multiple: "",
                 items: faqItems,
-                ui: {
-                  button: {
-                    label: "font-semibold",
-                    trailingIcon: {
-                      base: "w-6 h-6"
-                    }
-                  }
-                },
                 class: "max-w-4xl mx-auto"
               })
             ];

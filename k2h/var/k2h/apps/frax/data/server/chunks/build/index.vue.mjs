@@ -4208,9 +4208,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       _push(ssrRenderComponent(_component_UAuthForm, mergeProps({
         fields,
         submitButton: { label: _ctx.$t("authform.inputs.submit.label") },
-        validate: _ctx.validate,
         title: _ctx.$t("authform.title"),
-        ui: { base: "text-center", footer: "text-center" },
         onSubmit
       }, _attrs), {
         validation: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -4665,10 +4663,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         color: "neutral",
                         label: "Zur Bezahlung",
                         icon: "i-heroicons-shopping-cart",
-                        trailing: "true",
+                        trailing: "",
                         size: "xl",
                         class: ["mt-2", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
-                        block: "true",
+                        block: "",
                         autofocus: ""
                       }, null, _parent3, _scopeId2));
                       _push3(`</div>`);
@@ -4719,10 +4717,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             color: "neutral",
                             label: "Zur Bezahlung",
                             icon: "i-heroicons-shopping-cart",
-                            trailing: "true",
+                            trailing: "",
                             size: "xl",
                             class: ["mt-2", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
-                            block: "true",
+                            block: "",
                             autofocus: ""
                           }, null, 8, ["disabled", "onClick", "class"])
                         ])
@@ -4743,7 +4741,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         "onUpdate:modelValue": ($event) => isRef(voucherCode) ? voucherCode.value = $event : null,
                         type: "text",
                         placeholder: "Gebe dein Gutscheincode ein",
-                        ui: { icon: { trailing: { pointer: "" } } },
                         required: "",
                         size: "xl",
                         autocomplete: "off",
@@ -4780,7 +4777,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           "onUpdate:modelValue": ($event) => isRef(voucherCode) ? voucherCode.value = $event : null,
                           type: "text",
                           placeholder: "Gebe dein Gutscheincode ein",
-                          ui: { icon: { trailing: { pointer: "" } } },
                           required: "",
                           size: "xl",
                           autocomplete: "off",
@@ -4971,10 +4967,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             color: "neutral",
                             label: "Zur Bezahlung",
                             icon: "i-heroicons-shopping-cart",
-                            trailing: "true",
+                            trailing: "",
                             size: "xl",
                             class: ["mt-2", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
-                            block: "true",
+                            block: "",
                             autofocus: ""
                           }, null, 8, ["disabled", "onClick", "class"])
                         ])
@@ -4995,7 +4991,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             "onUpdate:modelValue": ($event) => isRef(voucherCode) ? voucherCode.value = $event : null,
                             type: "text",
                             placeholder: "Gebe dein Gutscheincode ein",
-                            ui: { icon: { trailing: { pointer: "" } } },
                             required: "",
                             size: "xl",
                             autocomplete: "off",
