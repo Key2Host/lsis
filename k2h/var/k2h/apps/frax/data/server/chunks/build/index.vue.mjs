@@ -4325,14 +4325,16 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       voucherLoading.value = false;
     }
     async function buy() {
+      var _a;
       step.value = 3;
       try {
+        const payload = {
+          items: cart.items,
+          ...((_a = cart.voucher) == null ? void 0 : _a.id) && { voucher: cart.voucher.id }
+        };
         const response = await axios.post(
           "https://saci.key2host.com/api/user/buy/",
-          {
-            items: cart.items,
-            voucher: cart.voucher.id
-          },
+          payload,
           { withCredentials: true }
         );
         const id = response.data.id;
