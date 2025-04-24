@@ -4512,7 +4512,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
           description: "Du hast dich angemeldet und wirst jetzt weitergeleitet...",
           color: "success",
           title: "Login erfolgreich",
-          duration: 5e3
+          duration: 2e3
         });
         setTimeout(() => {
           (void 0).location.href = "https://cp.key2host.com";
