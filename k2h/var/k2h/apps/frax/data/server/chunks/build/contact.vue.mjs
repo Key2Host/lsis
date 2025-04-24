@@ -249,8 +249,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             _push2(ssrRenderComponent(_component_UPageCard, {
               class: "flex flex-col w-full max-w-[625px]",
               title: _ctx.$t("contact.information.title"),
-              description: _ctx.$t("contact.information.description"),
-              icon: "i-heroicons-question-mark-circle"
+              description: _ctx.$t("contact.information.description")
             }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
@@ -350,8 +349,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             _push2(ssrRenderComponent(_component_UPageCard, {
               class: "flex flex-col w-full max-w-[625px]",
               title: _ctx.$t("contact.contactform.title"),
-              description: _ctx.$t("contact.contactform.description"),
-              icon: "i-heroicons-chat-bubble-left-ellipsis"
+              description: _ctx.$t("contact.contactform.description")
             }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
@@ -566,8 +564,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               createVNode(_component_UPageCard, {
                 class: "flex flex-col w-full max-w-[625px]",
                 title: _ctx.$t("contact.information.title"),
-                description: _ctx.$t("contact.information.description"),
-                icon: "i-heroicons-question-mark-circle"
+                description: _ctx.$t("contact.information.description")
               }, {
                 default: withCtx(() => [
                   createVNode("ul", { class: "mt-4 text-gray-700 space-y-2" }, [
@@ -619,8 +616,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               createVNode(_component_UPageCard, {
                 class: "flex flex-col w-full max-w-[625px]",
                 title: _ctx.$t("contact.contactform.title"),
-                description: _ctx.$t("contact.contactform.description"),
-                icon: "i-heroicons-chat-bubble-left-ellipsis"
+                description: _ctx.$t("contact.contactform.description")
               }, {
                 default: withCtx(() => [
                   createVNode("form", {

@@ -4207,7 +4207,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       const _component_NuxtTurnstile = __nuxt_component_8;
       _push(ssrRenderComponent(_component_UAuthForm, mergeProps({
         fields,
-        submitButton: { label: _ctx.$t("authform.inputs.submit.label") },
+        submit: { label: _ctx.$t("authform.inputs.submit.label") },
         title: _ctx.$t("authform.title"),
         onSubmit
       }, _attrs), {

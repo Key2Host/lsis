@@ -4,7 +4,7 @@ import { q as __nuxt_component_5, U as UIcon, s as useToast, w as useSeoMeta, x 
 import { a as __nuxt_component_3, _ as __nuxt_component_4 } from './Input.vue.mjs';
 import { defineComponent, ref, computed, watch, withCtx, createVNode, useSSRContext, mergeProps, unref, createTextVNode } from 'vue';
 import { ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrRenderClass, ssrRenderAttrs, ssrRenderAttr } from 'vue/server-renderer';
-import { _ as _imports_0 } from './virtual_public.mjs';
+import { _ as _imports_0 } from './virtual_public2.mjs';
 import axios from 'axios';
 import 'reka-ui';
 import '@vueuse/core';
@@ -655,8 +655,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       type: "email",
                       variant: "subtle",
                       icon: "i-lucide-mail",
-                      color: unref(showEmailError) ? "red" : void 0,
-                      ui: { variant: "subtle", base: unref(showEmailError) ? "border border-red-500" : "" }
+                      color: unref(showEmailError) ? "error" : void 0,
+                      ui: { base: unref(showEmailError) ? "border border-red-500" : "" }
                     }, null, _parent3, _scopeId2));
                   } else {
                     return [
@@ -668,8 +668,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         type: "email",
                         variant: "subtle",
                         icon: "i-lucide-mail",
-                        color: unref(showEmailError) ? "red" : void 0,
-                        ui: { variant: "subtle", base: unref(showEmailError) ? "border border-red-500" : "" }
+                        color: unref(showEmailError) ? "error" : void 0,
+                        ui: { base: unref(showEmailError) ? "border border-red-500" : "" }
                       }, null, 8, ["modelValue", "onUpdate:modelValue", "color", "ui"])
                     ];
                   }
@@ -690,8 +690,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       type: "email",
                       variant: "subtle",
                       icon: "i-lucide-mail-check",
-                      color: unref(showEmailError) ? "red" : void 0,
-                      ui: { variant: "subtle", base: unref(showEmailError) ? "border border-red-500" : "" }
+                      color: unref(showEmailError) ? "error" : void 0,
+                      ui: { base: unref(showEmailError) ? "border border-red-500" : "" }
                     }, null, _parent3, _scopeId2));
                   } else {
                     return [
@@ -703,8 +703,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         type: "email",
                         variant: "subtle",
                         icon: "i-lucide-mail-check",
-                        color: unref(showEmailError) ? "red" : void 0,
-                        ui: { variant: "subtle", base: unref(showEmailError) ? "border border-red-500" : "" }
+                        color: unref(showEmailError) ? "error" : void 0,
+                        ui: { base: unref(showEmailError) ? "border border-red-500" : "" }
                       }, null, 8, ["modelValue", "onUpdate:modelValue", "color", "ui"])
                     ];
                   }
@@ -853,8 +853,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         type: "email",
                         variant: "subtle",
                         icon: "i-lucide-mail",
-                        color: unref(showEmailError) ? "red" : void 0,
-                        ui: { variant: "subtle", base: unref(showEmailError) ? "border border-red-500" : "" }
+                        color: unref(showEmailError) ? "error" : void 0,
+                        ui: { base: unref(showEmailError) ? "border border-red-500" : "" }
                       }, null, 8, ["modelValue", "onUpdate:modelValue", "color", "ui"])
                     ]),
                     _: 1
@@ -872,8 +872,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         type: "email",
                         variant: "subtle",
                         icon: "i-lucide-mail-check",
-                        color: unref(showEmailError) ? "red" : void 0,
-                        ui: { variant: "subtle", base: unref(showEmailError) ? "border border-red-500" : "" }
+                        color: unref(showEmailError) ? "error" : void 0,
+                        ui: { base: unref(showEmailError) ? "border border-red-500" : "" }
                       }, null, 8, ["modelValue", "onUpdate:modelValue", "color", "ui"])
                     ]),
                     _: 1

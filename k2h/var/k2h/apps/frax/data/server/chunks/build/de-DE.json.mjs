@@ -220,7 +220,7 @@ const resource = {
       }
     },
     "faq": {
-      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Meist gestellte Frage" } },
+      "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Häufig gestellte Fragen" } },
       "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Vielleicht bist du nicht der erste mit der Frage und findest hier deine Antwort!" } },
       "items": {
         "1": {

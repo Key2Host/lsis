@@ -6674,8 +6674,7 @@ const plugin_jjl2DFTrQxMG7TqNyE_rvcIV8r2uFVLO_Sius2B7lXg = defineNuxtPlugin({
 const cfg0 = defineAppConfig({
   ui: {
     colors: {
-      primary: "blue",
-      gray: "slate"
+      primary: "blue"
     },
     button: {
       slots: {
@@ -20644,7 +20643,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       }, {
         content: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(ssrRenderComponent(_component_UCard, { ui: { body: { base: "flex-1" }, ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" } }, {
+            _push2(ssrRenderComponent(_component_UCard, null, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
                   _push3(ssrRenderComponent(_component_Cart, { class: "w-full max-w-md" }, null, _parent3, _scopeId2));
@@ -20658,7 +20657,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             }, _parent2, _scopeId));
           } else {
             return [
-              createVNode(_component_UCard, { ui: { body: { base: "flex-1" }, ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" } }, {
+              createVNode(_component_UCard, null, {
                 default: withCtx(() => [
                   createVNode(_component_Cart, { class: "w-full max-w-md" })
                 ]),
@@ -20670,7 +20669,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         _: 1
       }, _parent));
       if (unref(cart).totalItems != 0 && !unref(route).path.startsWith("/checkout")) {
-        _push(`<div class="fixed bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer bg-blue-600 text-white hover:bg-blue-700 transition z-10">`);
+        _push(`<div class="fixed bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer bg-primary-600 text-white hover:bg-primary-700 transition z-10">`);
         _push(ssrRenderComponent(_component_UIcon, {
           name: "i-heroicons-shopping-cart",
           class: "w-5 h-5"

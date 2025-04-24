@@ -6543,8 +6543,7 @@ const plugin_jjl2DFTrQxMG7TqNyE_rvcIV8r2uFVLO_Sius2B7lXg = defineNuxtPlugin({
 const cfg0 = defineAppConfig({
   ui: {
     colors: {
-      primary: "blue",
-      gray: "slate"
+      primary: "blue"
     },
     button: {
       slots: {
@@ -13608,7 +13607,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
         content: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             if (!unref(cookienotice).showDetails) {
-              _push2(ssrRenderComponent(_component_UCard, { ui: { ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" } }, {
+              _push2(ssrRenderComponent(_component_UCard, null, {
                 header: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
                     _push3(`<div class="flex items-center justify-between w-full"${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId2}> 🍪 ${ssrInterpolate(_ctx.$t("cookienotice.start.title"))}</h3>`);
@@ -13739,7 +13738,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                 _: 1
               }, _parent2, _scopeId));
             } else {
-              _push2(ssrRenderComponent(_component_UCard, { ui: { ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" } }, {
+              _push2(ssrRenderComponent(_component_UCard, null, {
                 header: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
                     _push3(`<div class="flex items-center justify-between w-full"${_scopeId2}><h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId2}>${ssrInterpolate(_ctx.$t("cookienotice.details.title"))}</h3></div>`);
@@ -13843,10 +13842,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
             }
           } else {
             return [
-              !unref(cookienotice).showDetails ? (openBlock(), createBlock(_component_UCard, {
-                key: 0,
-                ui: { ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" }
-              }, {
+              !unref(cookienotice).showDetails ? (openBlock(), createBlock(_component_UCard, { key: 0 }, {
                 header: withCtx(() => [
                   createVNode("div", { class: "flex items-center justify-between w-full" }, [
                     createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " 🍪 " + toDisplayString$1(_ctx.$t("cookienotice.start.title")), 1),
@@ -13898,10 +13894,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                   ])
                 ]),
                 _: 1
-              })) : (openBlock(), createBlock(_component_UCard, {
-                key: 1,
-                ui: { ring: "", divide: "divide-y divide-gray-100 dark:divide-gray-800" }
-              }, {
+              })) : (openBlock(), createBlock(_component_UCard, { key: 1 }, {
                 header: withCtx(() => [
                   createVNode("div", { class: "flex items-center justify-between w-full" }, [
                     createVNode("h3", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, toDisplayString$1(_ctx.$t("cookienotice.details.title")), 1)

@@ -8,7 +8,7 @@ import { m as defu, p as publicAssetsURL } from '../nitro/nitro.mjs';
 import { createTV } from 'tailwind-variants';
 import { _ as __nuxt_component_4$1 } from './NuxtTurnstile.vue.mjs';
 import axios from 'axios';
-import { _ as _imports_0$1 } from './virtual_public.mjs';
+import { _ as _imports_0$1 } from './virtual_public2.mjs';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
@@ -4448,14 +4448,12 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       name: "email",
       label: t("authform.inputs.email.label"),
       type: "text",
-      placeholder: t("authform.inputs.email.placeholder"),
-      size: "xl"
+      placeholder: t("authform.inputs.email.placeholder")
     }, {
       name: "password",
       label: t("authform.inputs.password.label"),
       type: "password",
-      placeholder: t("authform.inputs.password.placeholder"),
-      size: "xl"
+      placeholder: t("authform.inputs.password.placeholder")
     }];
     const turnstile = ref();
     const turnstileToken = ref("");
@@ -4544,9 +4542,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       const _component_RouterLink = resolveComponent("RouterLink");
       _push(ssrRenderComponent(_component_UAuthForm, mergeProps({
         fields,
-        submitButton: { label: _ctx.$t("authform.inputs.submit.label") },
-        validate: _ctx.validate,
-        ui: { base: "text-center", footer: "text-center" },
+        submit: { label: _ctx.$t("authform.inputs.submit.label") },
         onSubmit
       }, _attrs), {
         validation: withCtx((_, _push2, _parent2, _scopeId) => {
