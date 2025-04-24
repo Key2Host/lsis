@@ -285,8 +285,8 @@ const resource = {
     "notice": {
       "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Impressum" } },
       "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Hier finden Sie alle rechtlichen Informationen von Key2Host." } },
-      "provider": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Diensteanbieter" } },
-      "ceo": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Geschäftsführer" } },
+      "provider": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Diensteanbieter gemäß §5 TMG" } },
+      "ceo": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Vertretungsberechtigter" } },
       "contact": {
         "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kontaktmöglichkeiten" } },
         "phone": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Telefon" } },
@@ -294,15 +294,12 @@ const resource = {
       },
       "vat": {
         "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Umsatzsteuer-Identifikationsnummer" } },
-        "notice": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Gemäß §19 UStG erhebt Key2Host keine Umsatzsteuer aufgrund der Anwendung der Kleinunternehmerregelung." } }
-      },
-      "dispute": {
-        "title": { "t": 0, "b": { "static": "", "t": 2, "i": [] } },
-        "description": { "t": 0, "b": { "static": "", "t": 2, "i": [] } }
+        "notice": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG." } },
+        "vat": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Key2Host ist umsatzsteuerpflichtig. Alle Preise verstehen sich inklusive gesetzlicher Umsatzsteuer." } }
       },
       "socialmedia": {
-        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Social Media und andere Onlinepräsenzen" } },
-        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dieses Impressum gilt auch für die auf der Website verlinkten Social-Media-Präsenzen und Onlineprofile." } }
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Geltungsbereich" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Dieses Impressum gilt für alle Online-Dienste von Key2Host." } }
       },
       "liability": {
         "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Haftungs- und Schutzrechtshinweise" } },

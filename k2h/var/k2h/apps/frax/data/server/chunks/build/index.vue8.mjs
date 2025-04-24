@@ -1370,7 +1370,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(`<span class="opacity-25">Preise inkl. gesetzl. MwSt.</span></div></div><div class="w-full flex flex-wrap justify-center gap-4 mb-12"><div class="w-full max-w-6xl">`);
+      _push(`<span class="opacity-25">Preise inkl. gesetzl. USt.</span></div></div><div class="w-full flex flex-wrap justify-center gap-4 mb-12"><div class="w-full max-w-6xl">`);
       _push(ssrRenderComponent(_component_UTable, {
         data: items,
         columns

@@ -175,7 +175,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               if (_push2) {
                 _push2(` Die Domain ${ssrInterpolate(searchQuery.value.split(".")[0] + "." + result.name)} kostet `);
                 _push2(ssrRenderComponent(_component_UTooltip, {
-                  text: "Preise inkl. gesetzl. MwSt.",
+                  text: "Preise inkl. gesetzl. USt.",
                   delay: 0,
                   placement: "top"
                 }, {
@@ -195,7 +195,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 return [
                   createTextVNode(" Die Domain " + toDisplayString(searchQuery.value.split(".")[0] + "." + result.name) + " kostet ", 1),
                   createVNode(_component_UTooltip, {
-                    text: "Preise inkl. gesetzl. MwSt.",
+                    text: "Preise inkl. gesetzl. USt.",
                     delay: 0,
                     placement: "top"
                   }, {

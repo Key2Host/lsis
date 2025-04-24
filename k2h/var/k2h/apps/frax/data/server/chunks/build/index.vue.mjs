@@ -4643,7 +4643,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       }
                       _push3(`<hr class="my-2"${_scopeId2}><div class="flex justify-between font-semibold"${_scopeId2}><span${_scopeId2}>Gesamt:</span><span${_scopeId2}>`);
                       _push3(ssrRenderComponent(_component_UTooltip, {
-                        text: "Preise inkl. gesetzl. MwSt.",
+                        text: "Preise inkl. gesetzl. USt.",
                         delay: 0,
                         placement: "top"
                       }, {
@@ -4701,7 +4701,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           createVNode("span", null, "Gesamt:"),
                           createVNode("span", null, [
                             createVNode(_component_UTooltip, {
-                              text: "Preise inkl. gesetzl. MwSt.",
+                              text: "Preise inkl. gesetzl. USt.",
                               delay: 0,
                               placement: "top"
                             }, {
@@ -4953,7 +4953,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           createVNode("span", null, "Gesamt:"),
                           createVNode("span", null, [
                             createVNode(_component_UTooltip, {
-                              text: "Preise inkl. gesetzl. MwSt.",
+                              text: "Preise inkl. gesetzl. USt.",
                               delay: 0,
                               placement: "top"
                             }, {
