@@ -95,15 +95,13 @@ echo "Bitte breche diesen Schritt nicht ab!"
 i=5
 while [ "$i" -gt 0 ]; do
     if [ "$i" -eq 1 ]; then
-        echo -ne "-> $i Sekunde verbleibt...\r"
+        echo -ne "-> $i Sekunde verbleibt...\r"  # Einzahl
     else
-        echo -ne "-> $i Sekunden verbleiben...\r"
+        echo -ne "-> $i Sekunden verbleiben...\r"  # Mehrzahl
     fi
     sleep 1
     i=$((i - 1))
 done
-echo ""  # Um das "\r" zu beenden und eine neue Zeile zu erzeugen
-
 
 # Sicherer Neustart des Systems
 echo "Das System wird jetzt neu gestartet..."
