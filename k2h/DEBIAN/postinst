@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 # Portainer
@@ -49,8 +49,8 @@ CRONJOB="0 4 * * * /var/k2h/updater/k2h-updater.sh >> /var/log/k2h-updater.log 2
 )
 
 # Zertifikat ausstellen oder erneuern
-if [ ! -f "/var/k2h/mailsrv/certs/fullchain.pem" ] || [ ! -f "/var/k2h/mailsrv/certs/privkey.pem" ]; then
-    echo "[INFO] Zertifikat fehlt – erzwinge Ausstellung"
+if [[ ! -f "/var/k2h/mailsrv/certs/fullchain.pem" || ! -f "/var/k2h/mailsrv/certs/privkey.pem" ]]; then
+  echo "[INFO] Zertifikat fehlt – erzwinge Ausstellung"
     if ! sudo certbot certonly --standalone \
         -d mail.key2host.com \
         --agree-tos \
@@ -88,9 +88,20 @@ sudo chmod 600 /etc/letsencrypt/live/mail.key2host.com/privkey.pem
 echo "Pre-Installation abgeschlossen."
 echo "---"
 
-# Neustart
-echo "Das System wird neu gestartet, um die Änderungen anzuwenden."
+# Countdown von 10 Sekunden
+echo "Das System wird neu gestartet um die Änderungen anzuwenden."
+echo "Bitte breche diesen Schritt nicht ab!"
+for i in {5..1}
+do
+    if [ $i -eq 1 ]; then
+        echo -ne "-> $i Sekunde verbleibt...\r   "  # Einzahl
+    else
+        echo -ne "-> $i Sekunden verbleiben...\r   "  # Mehrzahl
+    fi
+    sleep 1
+done
 
-echo "sudo shutdown -r now" | at now + 5 second
+# Sicherer Neustart des Systems
+echo "Das System wird jetzt neu gestartet..."
 
-exit 0
+shutdown -r now
