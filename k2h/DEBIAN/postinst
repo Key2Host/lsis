@@ -104,4 +104,8 @@ done
 # Sicherer Neustart des Systems
 echo "Das System wird jetzt neu gestartet..."
 
-systemctl reboot
+if [ -x /usr/share/update-notifier/notify-reboot-required ]; then
+    /usr/share/update-notifier/notify-reboot-required
+fi
+
+exit 0
