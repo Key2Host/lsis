@@ -53,6 +53,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         date: "04.12.2024",
         title: t("milestones.items.3.title"),
         description: t("milestones.items.3.description")
+      },
+      {
+        date: "21.04.2025",
+        title: t("milestones.items.4.title"),
+        description: t("milestones.items.4.description")
       }
     ]);
     useSeoMeta({

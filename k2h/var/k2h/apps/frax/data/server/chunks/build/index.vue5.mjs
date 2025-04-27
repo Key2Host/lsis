@@ -47,13 +47,34 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const { t } = useI18n({
       useScope: "global"
     });
+    const domainPattern = new RegExp(
+      "^(((xn--)?[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)|((xn--)?[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\\.)+([a-zA-Z]{2,}))$"
+    );
+    function isValidDomain(domain2) {
+      const trimmedDomain = domain2.trim().toLowerCase();
+      if (!trimmedDomain) return false;
+      if (trimmedDomain.length > 253) return false;
+      const labels = trimmedDomain.split(".");
+      if (labels.length > 1) {
+        for (const label of labels) {
+          if (!label.length || label.length > 63) return false;
+          if (label.startsWith("-") || label.endsWith("-")) return false;
+          if (label.includes("--") && !label.startsWith("xn--")) return false;
+        }
+      } else {
+        const label = labels[0];
+        if (!label.length || label.length > 63) return false;
+        if (label.startsWith("-") || label.endsWith("-")) return false;
+        if (label.includes("--") && !label.startsWith("xn--")) return false;
+      }
+      return domainPattern.test(trimmedDomain);
+    }
     const searchDomain = async () => {
       errorMessage.value = "";
       results.value = [];
       let domainResults;
       errorMessage.value = t("products.domain.loading");
-      const domainPattern = /^[a-zA-Z0-9.-]+$/;
-      if (!domain.value.trim() || !domainPattern.test(domain.value) || domain.value.startsWith(".")) {
+      if (!isValidDomain(domain.value)) {
         errorMessage.value = t("products.domain.errors.notvalid");
         return;
       }
@@ -75,10 +96,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const userTld = domainParts.length > 1 ? domainParts[domainParts.length - 1] : null;
       errorMessage.value = "";
       if (userTld) {
-        domainResults.sort((a, b) => {
-          if (a.name === userTld) return -1;
-          if (b.name === userTld) return 1;
-        });
+        domainResults.sort((a, b) => a.name === userTld ? -1 : b.name === userTld ? 1 : 0);
       }
       results.value = domainResults;
     };
@@ -167,13 +185,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           _push(`<div class="w-full flex flex-wrap justify-center gap-4 max-md:max-w-[350px] max-w-[90%] mx-auto mb-4">`);
           _push(ssrRenderComponent(_component_UPageCard, {
             class: ["w-full max-w-6xl relative", !result.available ? "opacity-50" : ""],
-            title: `.${result.name} Domain`,
+            title: `.${result.name.toLowerCase()} Domain`,
             color: result.available ? "primary" : "gray",
             icon: result.available ? "i-heroicons-check-circle text-green-500 text-3xl" : "i-heroicons-x-circle text-gray-500 text-3xl"
           }, {
             description: withCtx((_, _push2, _parent2, _scopeId) => {
               if (_push2) {
-                _push2(` Die Domain ${ssrInterpolate(searchQuery.value.split(".")[0] + "." + result.name)} kostet `);
+                _push2(` Die Domain ${ssrInterpolate(searchQuery.value.split(".")[0] + "." + result.name.toLowerCase())} kostet `);
                 _push2(ssrRenderComponent(_component_UTooltip, {
                   text: "Preise inkl. gesetzl. USt.",
                   delay: 0,
@@ -193,7 +211,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 _push2(` pro Jahr. `);
               } else {
                 return [
-                  createTextVNode(" Die Domain " + toDisplayString(searchQuery.value.split(".")[0] + "." + result.name) + " kostet ", 1),
+                  createTextVNode(" Die Domain " + toDisplayString(searchQuery.value.split(".")[0] + "." + result.name.toLowerCase()) + " kostet ", 1),
                   createVNode(_component_UTooltip, {
                     text: "Preise inkl. gesetzl. USt.",
                     delay: 0,

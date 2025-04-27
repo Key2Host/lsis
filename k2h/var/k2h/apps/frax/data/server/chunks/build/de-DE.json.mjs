@@ -265,15 +265,19 @@ const resource = {
     "items": {
       "1": {
         "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Beginn der Entwicklung" } },
-        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "An diesem Tag wurde der Grundstein für Key2Host gelegt: Der Beginn der Entwicklung des Frontends, des Backends und der API, um eine leistungsstarke und benutzerfreundliche Hosting-Plattform zu schaffen." } }
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "An diesem Tag wurde der Grundstein für Key2Host gelegt." } }
       },
       "2": {
         "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Kauf des ersten Rootservers" } },
-        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ein wichtiger Meilenstein: Der erste eigene Rootserver wurde erworben, um die Infrastruktur für Key2Host zu starten und hochwertige Hosting-Services zu ermöglichen." } }
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Der erste eigene Rootserver für Key2Host wurde erworben, um die Infrastruktur für Key2Host aufzubauen und hochwertige Hosting-Services zu ermöglichen." } }
       },
       "3": {
         "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": 'Registrierung der Domain "key2host.com"' } },
-        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": 'Die offizielle Domain "key2host.com" wurde gesichert, um die Online-Präsenz des Unternehmens aufzubauen und eine professionelle Plattform für Kunden zu bieten.' } }
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": 'Die Domain "key2host.com" wurde registriert, um die Online-Präsenz des Unternehmens aufzubauen und eine professionelle Plattform für Kunden zu bieten.' } }
+      },
+      "4": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": 'Registrierung der Domain "k2h-webspace.com"' } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": 'Die Domain "k2h-webspace.com" wurde registriert, um den ersten Webspace vollständig einzurichten.' } }
       }
     }
   },

@@ -264,16 +264,20 @@ const resource = {
     "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Learn more about our history!" } },
     "items": {
       "1": {
-        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Start of the development" } },
-        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "On this day, the foundation stone for Key2Host was laid: The start of the development of the frontend, backend and API to create a powerful and user-friendly hosting platform." } }
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Start of Development" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "On this day, the foundation for Key2Host was laid." } }
       },
       "2": {
-        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Purchase of the first root server" } },
-        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "An important milestone: The first own root server was acquired to launch the infrastructure for Key2Host and enable high-quality hosting services." } }
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Purchase of the First Root Server" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The first dedicated root server for Key2Host was acquired to build the infrastructure and provide high-quality hosting services." } }
       },
       "3": {
-        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": 'Registration of the domain "key2host.com"' } },
-        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": `The official domain "key2host.com" was secured to build the company's online presence and provide a professional platform for customers.` } }
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Registration of the Domain 'key2host.com'" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The domain 'key2host.com' was registered to establish the company's online presence and offer a professional platform for customers." } }
+      },
+      "4": {
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Registration of the Domain 'k2h-webspace.com'" } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The domain 'k2h-webspace.com' was registered to set up the first webspace environment." } }
       }
     }
   },
