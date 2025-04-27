@@ -1284,7 +1284,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_USkeleton = __nuxt_component_1$1;
       const _component_UTable = __nuxt_component_2;
       const _component_UAlert = __nuxt_component_3;
-      _push(`<!--[--><div class="min-h-[91vh]">`);
+      _push(`<!--[--><div class="min-h-[92vh]">`);
       _push(ssrRenderComponent(unref(UPageSection), {
         headline: _ctx.$t("products.webspace.headline"),
         title: _ctx.$t("products.webspace.title"),

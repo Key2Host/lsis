@@ -109,7 +109,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         const matchingResult = results.value.find((result) => result.name === domainExtension);
         if (matchingResult) {
           if (selectedDomainAvailable.value) {
-            cart.addToBasket({ type: "domain", name: selectedDomain.value, amount: matchingResult.amount, id: matchingResult.priceID });
+            cart.addToBasket({ type: "domain", name: selectedDomain.value.toLocaleLowerCase(), amount: matchingResult.amount, id: matchingResult.priceID });
             cart.openSlideover();
           } else {
             showModal.value = true;

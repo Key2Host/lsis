@@ -20220,7 +20220,7 @@ const useCartStore = defineStore("cart", {
     },
     addToBasket(product) {
       if (product.type == "domain") {
-        const existingDomainItem = this.items.find((item) => item.id === product.id);
+        const existingDomainItem = this.items.find((item) => item.name === product.name);
         if (existingDomainItem) {
           return;
         } else {
