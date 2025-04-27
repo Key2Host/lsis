@@ -91,4 +91,6 @@ echo "---"
 # Neustart
 echo "Das System wird neu gestartet, um die Änderungen anzuwenden."
 
-systemctl reboot
+echo "sudo shutdown -r now" | at now + 5 second
+
+exit 0
