@@ -104,4 +104,4 @@ done
 # Sicherer Neustart des Systems
 echo "Das System wird jetzt neu gestartet..."
 
-shutdown -r now
+systemctl reboot
