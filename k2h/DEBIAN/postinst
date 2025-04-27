@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 # Portainer
@@ -94,9 +94,9 @@ echo "Bitte breche diesen Schritt nicht ab!"
 for i in {5..1}
 do
     if [ $i -eq 1 ]; then
-        echo -ne "-> $i Sekunde verbleibt...   \r"  # Einzahl mit Leerzeichen zum Löschen
+        echo -ne "-> $i Sekunde verbleibt...\r"  # Einzahl
     else
-        echo -ne "-> $i Sekunden verbleiben...   \r"  # Mehrzahl mit Leerzeichen zum Löschen
+        echo -ne "-> $i Sekunden verbleiben...\r"  # Mehrzahl
     fi
     sleep 1
 done
@@ -104,8 +104,4 @@ done
 # Sicherer Neustart des Systems
 echo "Das System wird jetzt neu gestartet..."
 
-if [ -x /usr/share/update-notifier/notify-reboot-required ]; then
-    /usr/share/update-notifier/notify-reboot-required
-fi
-
-exit 0
+systemctl reboot
