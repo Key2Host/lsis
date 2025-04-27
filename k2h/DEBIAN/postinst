@@ -88,22 +88,7 @@ sudo chmod 600 /etc/letsencrypt/live/mail.key2host.com/privkey.pem
 echo "Pre-Installation abgeschlossen."
 echo "---"
 
-# Countdown von 10 Sekunden
+# Neustart
 echo "Das System wird neu gestartet, um die Änderungen anzuwenden."
-echo "Bitte breche diesen Schritt nicht ab!"
-
-i=5
-while [ "$i" -gt 0 ]; do
-    if [ "$i" -eq 1 ]; then
-        echo -ne "-> $i Sekunde verbleibt...\r"  # Einzahl
-    else
-        echo -ne "-> $i Sekunden verbleiben...\r"  # Mehrzahl
-    fi
-    sleep 1
-    i=$((i - 1))
-done
-
-# Sicherer Neustart des Systems
-echo "Das System wird jetzt neu gestartet..."
 
 systemctl reboot
