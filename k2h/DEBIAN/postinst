@@ -94,9 +94,9 @@ echo "Bitte breche diesen Schritt nicht ab!"
 for i in {5..1}
 do
     if [ $i -eq 1 ]; then
-        echo -ne "-> $i Sekunde verbleibt...\r"  # Einzahl
+        echo -ne "-> $i Sekunde verbleibt...   \r"  # Einzahl mit Leerzeichen zum Löschen
     else
-        echo -ne "-> $i Sekunden verbleiben...\r"  # Mehrzahl
+        echo -ne "-> $i Sekunden verbleiben...   \r"  # Mehrzahl mit Leerzeichen zum Löschen
     fi
     sleep 1
 done
