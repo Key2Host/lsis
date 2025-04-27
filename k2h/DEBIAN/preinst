@@ -1,18 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-# Liste der benötigten Pakete
-REQUIRED_PACKAGES="ufw fail2ban clamav clamav-daemon docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin certbot"
-
-echo "Prüfe erforderliche Pakete..."
-
-# Jedes benötigte Paket prüfen
-for package in $REQUIRED_PACKAGES; do
-    if dpkg-query -W -f='${Status}' "$package" 2>/dev/null | grep -q "install ok installed"; then
-        echo "✓ $package ist bereits installiert."
-    else
-        echo "⚠️  $package ist nicht installiert. Bitte stellen Sie sicher, dass es verfügbar ist."
-    fi
+packages=("ufw" "fail2ban" "clamav" "clamav-daemon" "docker-ce" "docker-ce-cli" "containerd.io" "docker-buildx-plugin" "docker-compose-plugin" "certbot")
+for package in "${packages[@]}"; do
+  if ! dpkg -l | grep -q "$package"; then
+    echo "$package ist nicht verfügbar. Installiere das Paket um fortzufahren..."
+    exit 1
+  fi
 done
 
 if [ -d "/var/k2h/" ]; then
