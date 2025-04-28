@@ -24,35 +24,32 @@ async function getWebspaceInfo(req, res) {
     ];
 
     try {
-        // Array von Promises für die Preisabfragen erstellen
+        // Erstellung eines Arrays von Promises, wobei jeweils das zugehörige Produkt mitabgerufen wird
         const packagesPromises = priceIDs.map(async (priceID) => {
             try {
-                // Abrufen der Preis-Informationen
-                const price = await stripe.prices.retrieve(priceID);
+                const price = await stripe.prices.retrieve(priceID, {
+                    expand: ['product'], // Optimierung durch direktes Expandieren
+                });
 
-                // Preis in Euro umwandeln (Preis in Cent wird durch 100 geteilt)
                 const amountInEuro = price.unit_amount / 100;
 
-                // Rückgabe der Paketdaten
                 return {
                     priceID: priceID,
-                    name: price.nickname, // Falls keine Beschreibung existiert
-                    amount: amountInEuro.toFixed(2),  // Formatierung auf 2 Dezimalstellen
+                    name: price.nickname, // Nutzung des hinterlegten Nicknames
+                    amount: amountInEuro.toFixed(2), // Preisformatierung
                 };
             } catch (error) {
                 console.error(`Fehler beim Abrufen der Preis-Informationen für ${priceID}:`, error);
-                return null; // Fehler bei einer Anfrage überspringen
+                return null; // Fehlerhafte Ergebnisse ausblenden
             }
         });
 
-        // Warten auf alle Promises und das Sammeln der Ergebnisse
-        const packages = (await Promise.all(packagesPromises)).filter(Boolean); // Leere (null) Ergebnisse filtern
+        const packages = (await Promise.all(packagesPromises)).filter(Boolean); // Null-Einträge herausfiltern
 
-        // Alle Pakete zurückgeben
         res.status(200).json({ packages });
     } catch (error) {
-        console.error("Fehler beim Abrufen der Paketdaten:", error);
-        res.status(500).json({ error: 'Fehler beim Abrufen der Preisinformationen oder Produktinformationen' });
+        console.error("Fehler beim Gesamtablauf:", error);
+        res.status(500).json({ error: 'Fehler beim Abrufen der Preisinformationen' });
     }
 }
 
@@ -74,11 +71,12 @@ async function getDomainInfo(req, res) {
     ];
 
     try {
-        // Erstellen eines Arrays von Promises für alle Preis- und Produktabfragen
+        // Erstellung eines Arrays von Promises, wobei bei jedem Abruf gleichzeitig das zugehörige Produkt expandiert wird
         const packagesPromises = priceIDs.map(async (priceID) => {
             try {
-                const price = await stripe.prices.retrieve(priceID);
-                const product = await stripe.products.retrieve(price.product);
+                const price = await stripe.prices.retrieve(priceID, {
+                    expand: ['product'], // Produkt wird direkt mitgeladen
+                });
                 const amountInEuro = price.unit_amount / 100;
                 return {
                     name: price.nickname.replace("TLD .", ""),
@@ -87,19 +85,17 @@ async function getDomainInfo(req, res) {
                     amount: amountInEuro.toFixed(2),
                 };
             } catch (error) {
-                console.error(`Fehler bei der Preisabfrage für ${priceID}:`, error);
-                return null; // Optional: Gebe `null` zurück, um Fehler zu überspringen
+                console.error(`Fehler bei der Abfrage von Preis ${priceID}:`, error);
+                return null; // Fehlerhafte Abfragen werden bewusst ignoriert
             }
         });
 
-        const packages = (await Promise.all(packagesPromises)).filter(Boolean); // Leere (null) Ergebnisse filtern
+        const packages = (await Promise.all(packagesPromises)).filter(Boolean); // Null-Werte filtern
 
-
-        // Alle Pakete zurückgeben
         res.status(200).json({ packages });
     } catch (error) {
-        console.error("Fehler beim Abrufen der Daten:", error);
-        res.status(500).json({ error: 'Fehler beim Abrufen der Preisinformationen oder Produktinformationen' });
+        console.error("Fehler beim Gesamtablauf:", error);
+        res.status(500).json({ error: 'Fehler beim Abrufen der Preisinformationen' });
     }
 }
 
