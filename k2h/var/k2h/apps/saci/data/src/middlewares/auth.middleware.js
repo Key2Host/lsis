@@ -2,11 +2,10 @@ const jwt = require('jsonwebtoken');
 const { User } = require('../models/user.model');
 const { RefreshTokens } = require('../models/auth.model');
 const { log } = require('../../src/utils/logger');
-const { JWT_SECRET, JWT_EXPIRATION, JWT_REFRESH_EXPIRATION } = require('../config/jwt.config');
+const { JWT_SECRET, JWT_EXPIRATION } = require('../config/jwt.config');
 
 async function authenticateUser(req, res, next) {
   try {
-    // Holen des Access Tokens aus den Cookies
     const token = req.cookies.accessToken;
 
     if (token) {
@@ -15,45 +14,40 @@ async function authenticateUser(req, res, next) {
         req.user = decoded;
         return next();
       } catch (err) {
-        console.log("Access Token ungültig oder abgelaufen.");
+        console.log("Access Token ungültig:", err.message);
       }
     }
 
-    // Falls kein oder ein ungültiges Access Token vorliegt, prüfen wir das Refresh Token
     const refreshToken = req.cookies.refreshToken;
     if (!refreshToken) {
       return res.status(401).json({ error: "Keine gültige Sitzung. Bitte erneut anmelden." });
     }
 
     try {
-      // Überprüfen, ob das Refresh Token gültig ist
       const decoded = jwt.verify(refreshToken, JWT_SECRET);
-
-      // Prüfen, ob das Refresh Token in der Datenbank existiert
       const existingToken = await RefreshTokens.findOne({ where: { token: refreshToken } });
       if (!existingToken) {
         return res.status(401).json({ error: "Ungültiger Refresh Token" });
       }
 
-      // Neuer Refresh Token mit der gleichen Ablaufzeit wie der alte
+      const now = Math.floor(Date.now() / 1000);
+      const remainingTime = decoded.exp - now;
+
       const newRefreshToken = jwt.sign(
         { id: decoded.id, customerID: decoded.customerID },
         JWT_SECRET,
-        { expiresIn: JWT_REFRESH_EXPIRATION } // **Restlaufzeit übernehmen!**
+        { expiresIn: remainingTime > 0 ? remainingTime : 0 }
       );
 
-      // Neues Access Token erstellen
       const newAccessToken = jwt.sign(
         { id: decoded.id, customerID: decoded.customerID },
         JWT_SECRET,
-        { expiresIn: JWT_EXPIRATION } // Normale kurze Lebensdauer
+        { expiresIn: JWT_EXPIRATION }
       );
 
-      // Altes Refresh Token löschen & Neues speichern
       await RefreshTokens.destroy({ where: { token: refreshToken } });
       await RefreshTokens.create({ user: decoded.id, token: newRefreshToken });
 
-      // Neue Tokens als Cookies setzen
       res.cookie("accessToken", newAccessToken, {
         httpOnly: true,
         secure: true,
@@ -72,11 +66,12 @@ async function authenticateUser(req, res, next) {
       return next();
 
     } catch (err) {
-      console.error("Refresh Token ungültig:", err);
+      console.error("Refresh Token ungültig:", err.message);
       return res.status(401).json({ error: "Ungültiges Refresh Token oder Token abgelaufen" });
     }
+
   } catch (err) {
-    console.error("Fehler bei der Authentifizierung:", err);
+    console.error("Fehler bei der Authentifizierung:", err.message);
     return res.status(500).json({ error: "Interner Serverfehler" });
   }
 }
