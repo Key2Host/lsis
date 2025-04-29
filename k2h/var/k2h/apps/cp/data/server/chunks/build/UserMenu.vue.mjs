@@ -1,4 +1,4 @@
-import { defineComponent, ref, unref, mergeProps, withCtx, renderSlot, useSSRContext, mergeModels, useSlots, useModel, computed, createSlots, createBlock, createCommentVNode, openBlock, createVNode, createTextVNode, toDisplayString, Fragment, renderList, toRef, toHandlers, useId } from 'vue';
+import { defineComponent, ref, unref, mergeProps, withCtx, renderSlot, useSSRContext, mergeModels, useSlots, useModel, computed, createSlots, createBlock, createCommentVNode, openBlock, createVNode, createTextVNode, toDisplayString, Fragment, renderList, toRef, toHandlers, useId, withAsyncContext } from 'vue';
 import { ssrRenderComponent, ssrRenderSlot, ssrRenderClass, ssrRenderList, ssrInterpolate, ssrRenderAttr, ssrRenderStyle } from 'vue/server-renderer';
 import { Primitive, useForwardPropsEmits, useForwardProps, ListboxRoot, ListboxFilter, ListboxContent, ListboxGroup, ListboxGroupLabel, ListboxItem, ListboxItemIndicator } from 'reka-ui';
 import { p as provideDashboardContext, u as useDashboard, a as useLocalePro, b as useResizable, c as __nuxt_component_0$1, _ as __nuxt_component_1$3 } from './DashboardSidebarToggle.vue.mjs';
@@ -2563,20 +2563,30 @@ _sfc_main$1.setup = (props, ctx) => {
 };
 const __nuxt_component_3 = Object.assign(_sfc_main$1, { __name: "CompanyMenu" });
 
+const fetchData = {
+  async get(url, data = {}, withCookies = true) {
+  },
+  async post(url, body, data = {}, withCookies = true) {
+  }
+};
+
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "UserMenu",
   __ssrInlineRender: true,
   props: {
     collapsed: { type: Boolean }
   },
-  setup(__props) {
+  async setup(__props) {
+    let __temp, __restore;
     const user = ref({
-      name: "Max Mustermann",
+      name: "Unbekannt",
       avatar: {
         src: "https://github.com/benjamincanac.png",
-        alt: "Max Mustermann"
+        alt: "Profile picture"
       }
     });
+    const name = ([__temp, __restore] = withAsyncContext(() => fetchData.get("https://saci.key2host.com/api/user/hello", {}, true)), __temp = await __temp, __restore(), __temp);
+    user.value.name = name;
     const items = computed(() => [[{
       type: "label",
       label: user.value.name,
