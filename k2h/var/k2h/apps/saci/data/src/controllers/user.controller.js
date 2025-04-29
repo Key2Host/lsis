@@ -102,17 +102,15 @@ async function getDomainInfo(req, res) {
 
 async function buy(req, res) {
     try {
-        const items = req.body.items;
+        const item = req.body.item;
         const voucherid = req.body.voucher;
 
-        if (!Array.isArray(items)) {
-            return res.status(400).json({ error: 'Items müssen als Array übergeben werden.' });
+        if (typeof item !== 'object' || Array.isArray(item) || item === null) {
+            return res.status(400).json({ error: 'Item muss ein Objekt sein.' });
         }
 
-        for (const item of items) {
-            if (!item.id) {
-                return res.status(401).json({ error: 'Jedes Item muss eine Produktnummer enthalten!' });
-            }
+        if (!item.id) {
+            return res.status(401).json({ error: 'Das Item muss eine Produktnummer enthalten!' });
         }
 
         if (voucherid && typeof voucherid !== 'string') {
@@ -124,42 +122,26 @@ async function buy(req, res) {
         const userid = decoded.id;
         const user = await User.findOne({ where: { id: userid } });
 
-        // Alle Stripe-Preise abrufen, damit wir den teuersten finden können
-        const itemPricePromises = items.map(async (item) => {
-            const price = await stripe.prices.retrieve(item.id);
-            return {
-                id: item.id,
-                quantity: item.quantity,
-                amount: price.unit_amount, // Betrag in Cent
-            };
+        const session = await stripe.checkout.sessions.create({
+            line_items: [
+                {
+                    price: item.id,
+                    quantity: 1,
+                }
+            ],
+            currency: "eur",
+            mode: 'subscription', // Setzt den Modus auf Abonnement
+            discounts: [
+                {
+                    promotion_code: voucherid
+                }
+            ],
+            success_url: `https://www.key2host.com/checkout/success`,
+            cancel_url: `https://www.key2host.com/checkout/failed`,
+            customer: user.stripeCustomerId
         });
 
-        // Warten, bis alle Preise abgerufen sind
-        const pricedItems = await Promise.all(itemPricePromises);
-
-        // Teuerstes Item bestimmen
-        const mostExpensiveItem = pricedItems.reduce((prev, current) => {
-            return (current.amount > prev.amount) ? current : prev;
-        });
-
-        // Alle Subscriptions gleichzeitig erstellen
-        const subscriptionPromises = pricedItems.map(item => {
-            const isMostExpensive = (item.id === mostExpensiveItem.id);
-
-            return stripe.subscriptions.create({
-                customer: user.stripeCustomerId,
-                items: [{ price: item.id, quantity: item.quantity }],
-                ...(isMostExpensive && voucherid ? { discounts: [{ promotion_code: voucherid }] } : {}),
-                default_payment_method: user.defaultPaymentMethodId, // optional
-            });
-        });
-
-        const subscriptions = await Promise.all(subscriptionPromises);
-
-        const subscriptionIds = subscriptions.map(sub => sub.id);
-
-        res.json({ subscriptions: subscriptionIds });
-
+        res.json({ id: session.id });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error.message });
