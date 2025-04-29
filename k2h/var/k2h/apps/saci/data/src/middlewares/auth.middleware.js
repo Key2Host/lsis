@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const { User } = require('../models/user.model');
 const { RefreshTokens } = require('../models/auth.model');
 const { log } = require('../../src/utils/logger');
-const { JWT_SECRET, JWT_EXPIRATION } = require('../config/jwt.config');
+const { JWT_SECRET, JWT_EXPIRATION, JWT_REFRESH_EXPIRATION } = require('../config/jwt.config');
 
 async function authenticateUser(req, res, next) {
   try {
@@ -35,19 +35,11 @@ async function authenticateUser(req, res, next) {
         return res.status(401).json({ error: "Ungültiger Refresh Token" });
       }
 
-      // **Restlaufzeit des alten Refresh Tokens berechnen**
-      const now = Math.floor(Date.now() / 1000); // Zeit in Sekunden
-      const remainingTime = decoded.exp - now; // Restzeit des alten Tokens
-
-      if (remainingTime <= 0) {
-        return res.status(401).json({ error: "Refresh Token ist abgelaufen" });
-      }
-
       // Neuer Refresh Token mit der gleichen Ablaufzeit wie der alte
       const newRefreshToken = jwt.sign(
         { id: decoded.id, customerID: decoded.customerID },
         JWT_SECRET,
-        { expiresIn: remainingTime } // **Restlaufzeit übernehmen!**
+        { expiresIn: JWT_REFRESH_EXPIRATION } // **Restlaufzeit übernehmen!**
       );
 
       // Neues Access Token erstellen
