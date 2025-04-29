@@ -1,7 +1,7 @@
 import { hasInjectionContext, inject, getCurrentInstance, onMounted, isRef, watch, onScopeDispose, ref, reactive, defineComponent, createVNode, resolveDynamicComponent, mergeProps, useSSRContext } from 'vue';
 import { ssrRenderVNode } from 'vue/server-renderer';
 import { m as defu } from '../nitro/nitro.mjs';
-import { G as useNuxtApp, H as injectHead$1, I as useRuntimeConfig } from './server.mjs';
+import { F as useNuxtApp, G as injectHead$1, H as useRuntimeConfig } from './server.mjs';
 import { useScript as useScript$2 } from 'unhead/scripts';
 import { useEventListener } from '@vueuse/core';
 import { tryOnMounted, tryOnScopeDispose } from '@vueuse/shared';

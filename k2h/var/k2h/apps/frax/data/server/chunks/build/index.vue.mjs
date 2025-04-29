@@ -2,13 +2,14 @@ import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, create
 import { ssrRenderComponent, ssrRenderClass, ssrRenderStyle, ssrRenderSlot, ssrInterpolate, ssrRenderList, ssrRenderVNode, ssrRenderAttrs } from 'vue/server-renderer';
 import { useForwardPropsEmits, Primitive, ProgressRoot, ProgressIndicator, useForwardProps, CheckboxRoot, CheckboxIndicator, Label, Slot, useFilter, ComboboxGroup, ComboboxItem, ComboboxRoot, ComboboxAnchor, ComboboxTrigger, ComboboxPortal, ComboboxContent, FocusScope, ComboboxInput, ComboboxEmpty, ComboboxViewport, ComboboxLabel, ComboboxSeparator, ComboboxItemIndicator, ComboboxArrow } from 'reka-ui';
 import { reactivePick, useEventBus, createReusableTemplate } from '@vueuse/core';
-import { c as useLocale, t as tv, _ as _appConfig, f as formBusInjectionKey, d as formInputsInjectionKey, e as formLoadingInjectionKey, g as formOptionsInjectionKey, h as useAppConfig, i as useFormField, j as __nuxt_component_1, k as useAvatarGroup, l as useButtonGroup, m as useComponentIcons, n as get, o as compare, p as __nuxt_component_3$1, q as __nuxt_component_6$1, r as useLocalePro, s as tv$1, v as __nuxt_component_2$1, w as __nuxt_component_2$2, x as __nuxt_component_4, y as omit, z as useToast, a as useI18n, A as useCartStore, b as useSeoMeta, B as __nuxt_component_1$1, C as __nuxt_component_2$3 } from './server.mjs';
+import { c as useLocale, t as tv, _ as _appConfig, f as formBusInjectionKey, d as formInputsInjectionKey, e as formLoadingInjectionKey, g as formOptionsInjectionKey, h as useAppConfig, i as useFormField, j as __nuxt_component_1, k as useAvatarGroup, l as useButtonGroup, m as useComponentIcons, n as get, o as compare, p as __nuxt_component_3$1, q as __nuxt_component_7, r as useLocalePro, s as tv$1, v as __nuxt_component_2$1, w as __nuxt_component_2$2, x as __nuxt_component_4, y as omit, z as useToast, a as useI18n, b as useSeoMeta, A as __nuxt_component_1$1, B as __nuxt_component_2$3 } from './server.mjs';
 import { m as defu } from '../nitro/nitro.mjs';
 import { _ as __nuxt_component_3$2 } from './Alert.vue.mjs';
 import { _ as __nuxt_component_8 } from './NuxtTurnstile.vue.mjs';
 import axios from 'axios';
 import { _ as __nuxt_component_3$3 } from './Tooltip.vue.mjs';
 import { loadStripe } from '@stripe/stripe-js';
+import { u as useCartStore } from './cart.mjs';
 import 'pinia';
 import 'vue-router';
 import 'deep-pick-omit';
@@ -2217,7 +2218,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                   default: withCtx((_4, _push6, _parent6, _scopeId5) => {
                                     var _a5, _b4;
                                     if (_push6) {
-                                      _push6(ssrRenderComponent(__nuxt_component_6$1, mergeProps({
+                                      _push6(ssrRenderComponent(__nuxt_component_7, mergeProps({
                                         autofocus: "",
                                         autocomplete: "off"
                                       }, searchInputProps.value, {
@@ -2225,7 +2226,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                       }), null, _parent6, _scopeId5));
                                     } else {
                                       return [
-                                        createVNode(__nuxt_component_6$1, mergeProps({
+                                        createVNode(__nuxt_component_7, mergeProps({
                                           autofocus: "",
                                           autocomplete: "off"
                                         }, searchInputProps.value, {
@@ -2686,7 +2687,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                   default: withCtx(() => {
                                     var _a5;
                                     return [
-                                      createVNode(__nuxt_component_6$1, mergeProps({
+                                      createVNode(__nuxt_component_7, mergeProps({
                                         autofocus: "",
                                         autocomplete: "off"
                                       }, searchInputProps.value, {
@@ -2851,7 +2852,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                   default: withCtx(() => {
                                     var _a5;
                                     return [
-                                      createVNode(__nuxt_component_6$1, mergeProps({
+                                      createVNode(__nuxt_component_7, mergeProps({
                                         autofocus: "",
                                         autocomplete: "off"
                                       }, searchInputProps.value, {
@@ -3022,7 +3023,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                   default: withCtx(() => {
                                     var _a5;
                                     return [
-                                      createVNode(__nuxt_component_6$1, mergeProps({
+                                      createVNode(__nuxt_component_7, mergeProps({
                                         autofocus: "",
                                         autocomplete: "off"
                                       }, searchInputProps.value, {
@@ -3282,7 +3283,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
                                   default: withCtx(() => {
                                     var _a5;
                                     return [
-                                      createVNode(__nuxt_component_6$1, mergeProps({
+                                      createVNode(__nuxt_component_7, mergeProps({
                                         autofocus: "",
                                         autocomplete: "off"
                                       }, searchInputProps.value, {
@@ -3516,7 +3517,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       const _component_UFormField = __nuxt_component_4;
       const _component_UCheckbox = __nuxt_component_5;
       const _component_USelectMenu = __nuxt_component_6;
-      const _component_UInput = __nuxt_component_6$1;
+      const _component_UInput = __nuxt_component_7;
       _push(ssrRenderComponent(unref(Primitive), mergeProps({
         as: _ctx.as,
         class: unref(ui).root({ class: [props.class, (_a2 = props.ui) == null ? void 0 : _a2.root] })
@@ -4290,6 +4291,27 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     const voucherCode = ref("");
     const voucherLoading = ref(false);
+    function iconForType(type) {
+      switch (type) {
+        case "webspace":
+          return "i-heroicons-cloud";
+        case "domain":
+          return "i-heroicons-at-symbol";
+        case "vps":
+        case "root":
+          return "i-heroicons-server";
+        case "dedicated":
+          return "i-heroicons-server-stack";
+        case "lic":
+          return "i-heroicons-key";
+        default:
+          return "i-heroicons-question-mark-circle";
+      }
+    }
+    function capitalize(str) {
+      if (!str) return "";
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
     async function submitVoucher() {
       voucherLoading.value = true;
       const voucher = voucherCode.value;
@@ -4327,7 +4349,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       step.value = 3;
       try {
         const payload = {
-          items: cart.items,
+          item: cart.item,
           ...((_a = cart.voucher) == null ? void 0 : _a.id) && { voucher: cart.voucher.id }
         };
         const response = await axios.post(
@@ -4364,25 +4386,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       } catch (error) {
       }
     }
-    const remove = (id) => {
-      cart.removeFromBasket(id);
-      if (isCartEmpty()) cart.closeSlideover();
-    };
-    const clearCart = () => {
-      cart.clearBasket();
-      cart.closeSlideover();
-    };
-    const removeVoucher = () => {
-      cart.voucher = null;
-    };
-    const isCartEmpty = () => {
-      return cart.totalItems === 0;
-    };
-    const isDomainOnly = () => {
-      const hasDomain = cart.items.some((item) => item.type === "domain");
-      const hasOtherItems = cart.items.some((item) => item.type !== "domain");
-      return hasDomain && hasOtherItems;
-    };
     fetchData();
     useSeoMeta({
       title: t("checkout.index.title"),
@@ -4398,10 +4401,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_NuxtLinkLocale = __nuxt_component_2$3;
       const _component_UButton = __nuxt_component_2$1;
       const _component_UIcon = __nuxt_component_1;
-      const _component_UInput = __nuxt_component_6$1;
       const _component_UTooltip = __nuxt_component_3$3;
       const _component_UFormGroup = resolveComponent("UFormGroup");
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full flex flex-wrap justify-center gap-4 my-10 max-sm:max-w-[325px] max-md:max-w-[700px] max-lg:max-w-[900px] mx-auto" }, _attrs))}><div class="w-full max-w-6xl">`);
+      const _component_UInput = __nuxt_component_7;
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full flex flex-wrap justify-center gap-4 my-10 max-sm:max-w-[425px] max-md:max-w-[700px] max-lg:max-w-[900px] mx-auto" }, _attrs))}><div class="w-full max-w-6xl">`);
       if (unref(step) != 3) {
         _push(ssrRenderComponent(_component_UProgress, {
           modelValue: unref(step),
@@ -4496,9 +4499,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           header: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
               _push2(`<div class="flex justify-between items-center"${_scopeId}><div${_scopeId}><p class="text-base font-semibold leading-6 text-gray-900 dark:text-white"${_scopeId}> Warenkorb </p><p class="mt-1 text-sm text-gray-500 dark:text-gray-400"${_scopeId}> Überprüfe ob deine Bestellung korrekt ist. </p></div>`);
-              if (!isCartEmpty()) {
+              if (!unref(cart).isEmpty) {
                 _push2(ssrRenderComponent(_component_UButton, {
-                  onClick: clearCart,
+                  onClick: ($event) => unref(cart).clearAll(),
                   size: "md",
                   color: "error",
                   variant: "ghost",
@@ -4515,113 +4518,64 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     createVNode("p", { class: "text-base font-semibold leading-6 text-gray-900 dark:text-white" }, " Warenkorb "),
                     createVNode("p", { class: "mt-1 text-sm text-gray-500 dark:text-gray-400" }, " Überprüfe ob deine Bestellung korrekt ist. ")
                   ]),
-                  !isCartEmpty() ? (openBlock(), createBlock(_component_UButton, {
+                  !unref(cart).isEmpty ? (openBlock(), createBlock(_component_UButton, {
                     key: 0,
-                    onClick: clearCart,
+                    onClick: ($event) => unref(cart).clearAll(),
                     size: "md",
                     color: "error",
                     variant: "ghost",
                     icon: "i-heroicons-trash"
-                  })) : createCommentVNode("", true)
+                  }, null, 8, ["onClick"])) : createCommentVNode("", true)
                 ])
               ];
             }
           }),
           default: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              if (unref(cart).items.length === 0) {
+              if (unref(cart).isEmpty) {
                 _push2(`<div class="flex items-center justify-center bg-gray-100 rounded-md"${_scopeId}><div class="w-48 h-48 flex items-center justify-center text-center text-gray-700"${_scopeId}>${ssrInterpolate(_ctx.$t("cart.isEmpty"))}. </div></div>`);
               } else {
-                _push2(`<div class="grid grid-cols-1 lg:grid-cols-3 gap-6"${_scopeId}><div class="lg:col-span-2"${_scopeId}><ul${_scopeId}><!--[-->`);
-                ssrRenderList(unref(cart).items, (item) => {
-                  _push2(`<li class="flex py-6"${_scopeId}>`);
-                  if (item.type == "webspace") {
-                    _push2(`<div class="size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"${_scopeId}>`);
-                    _push2(ssrRenderComponent(_component_UIcon, {
-                      name: "i-heroicons-cloud",
-                      class: "w-10 h-10"
-                    }, null, _parent2, _scopeId));
-                    _push2(`</div>`);
-                  } else if (item.type == "domain") {
-                    _push2(`<div class="size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"${_scopeId}>`);
-                    _push2(ssrRenderComponent(_component_UIcon, {
-                      name: "i-heroicons-at-symbol",
-                      class: "w-10 h-10"
-                    }, null, _parent2, _scopeId));
-                    _push2(`</div>`);
-                  } else if (item.type == "vps" || item.type == "root") {
-                    _push2(`<div class="size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"${_scopeId}>`);
-                    _push2(ssrRenderComponent(_component_UIcon, {
-                      name: "i-heroicons-server",
-                      class: "w-10 h-10"
-                    }, null, _parent2, _scopeId));
-                    _push2(`</div>`);
-                  } else if (item.type == "dedicated") {
-                    _push2(`<div class="size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"${_scopeId}>`);
-                    _push2(ssrRenderComponent(_component_UIcon, {
-                      name: "i-heroicons-server-stack",
-                      class: "w-10 h-10"
-                    }, null, _parent2, _scopeId));
-                    _push2(`</div>`);
-                  } else if (item.type == "lic") {
-                    _push2(`<div class="size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"${_scopeId}>`);
-                    _push2(ssrRenderComponent(_component_UIcon, {
-                      name: "i-heroicons-key",
-                      class: "w-10 h-10"
-                    }, null, _parent2, _scopeId));
-                    _push2(`</div>`);
-                  } else {
-                    _push2(`<div class="size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"${_scopeId}>`);
-                    _push2(ssrRenderComponent(_component_UIcon, {
-                      name: "i-heroicons-question-mark-circle",
-                      class: "w-5 h-5"
-                    }, null, _parent2, _scopeId));
-                    _push2(`</div>`);
-                  }
-                  _push2(`<div class="ml-4 flex flex-1 flex-col"${_scopeId}><div${_scopeId}><div class="flex justify-between text-base font-medium"${_scopeId}><h3${_scopeId}>${ssrInterpolate(item.name)}</h3><p class="ml-4"${_scopeId}>${ssrInterpolate(item.amount + " €")}</p></div><p class="mt-1 text-sm text-gray-500"${_scopeId}>${ssrInterpolate(item.type.charAt(0).toUpperCase() + item.type.slice(1))}</p></div><div class="flex flex-1 items-end justify-between text-sm"${_scopeId}>`);
-                  if (item.type == "domain") {
-                    _push2(ssrRenderComponent(_component_UInput, {
-                      type: "number",
-                      size: "xs",
-                      class: "max-w-[50px]",
-                      modelValue: item.quantity,
-                      onKeydown: () => {
-                      },
-                      disabled: ""
-                    }, null, _parent2, _scopeId));
-                  } else {
-                    _push2(ssrRenderComponent(_component_UInput, {
-                      type: "number",
-                      min: "1",
-                      max: "10",
-                      size: "xs",
-                      class: "max-w-[50px]",
-                      modelValue: item.quantity,
-                      "onUpdate:modelValue": ($event) => unref(cart).changeQuantity(item.id, $event),
-                      onKeydown: () => {
-                      },
-                      required: ""
-                    }, null, _parent2, _scopeId));
-                  }
-                  _push2(`<div class="flex"${_scopeId}>`);
-                  _push2(ssrRenderComponent(_component_UButton, {
-                    onClick: ($event) => remove(item.id),
-                    size: "xs",
-                    color: "error",
-                    variant: "ghost",
-                    label: unref(t)("cart.remove")
-                  }, null, _parent2, _scopeId));
-                  _push2(`</div></div></div></li>`);
-                });
-                _push2(`<!--]--></ul></div><div${_scopeId}>`);
-                _push2(ssrRenderComponent(_component_UCard, null, {
+                _push2(`<div class="grid grid-cols-1 lg:grid-cols-3 gap-6"${_scopeId}><div class="lg:col-span-2 flex flex-col"${_scopeId}>`);
+                _push2(ssrRenderComponent(_component_UCard, { class: "flex flex-col justify-center" }, {
                   default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                     if (_push3) {
-                      _push3(`<h2 class="text-lg font-medium"${_scopeId2}>Preisübersicht</h2><div class="flex justify-between mt-2"${_scopeId2}><span${_scopeId2}>Zwischensumme:</span><span${_scopeId2}>${ssrInterpolate(unref(cart).subTotalPrice)} €</span></div>`);
+                      _push3(`<div class="flex gap-4 items-center justify-center"${_scopeId2}><div class="size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200 bg-gray-50"${_scopeId2}>`);
+                      _push3(ssrRenderComponent(_component_UIcon, {
+                        name: iconForType(unref(cart).item.type),
+                        class: "w-10 h-10 text-gray-600"
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div><div class="flex-1"${_scopeId2}><div class="flex justify-between text-base font-medium"${_scopeId2}><h3 class="truncate"${_scopeId2}>${ssrInterpolate(unref(cart).item.name)}</h3><p class="ml-4"${_scopeId2}>${ssrInterpolate(unref(cart).item.amount.toFixed(2))} €</p></div><p class="mt-1 text-sm text-gray-500"${_scopeId2}>${ssrInterpolate(capitalize(unref(cart).item.type))}</p></div></div>`);
+                    } else {
+                      return [
+                        createVNode("div", { class: "flex gap-4 items-center justify-center" }, [
+                          createVNode("div", { class: "size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200 bg-gray-50" }, [
+                            createVNode(_component_UIcon, {
+                              name: iconForType(unref(cart).item.type),
+                              class: "w-10 h-10 text-gray-600"
+                            }, null, 8, ["name"])
+                          ]),
+                          createVNode("div", { class: "flex-1" }, [
+                            createVNode("div", { class: "flex justify-between text-base font-medium" }, [
+                              createVNode("h3", { class: "truncate" }, toDisplayString(unref(cart).item.name), 1),
+                              createVNode("p", { class: "ml-4" }, toDisplayString(unref(cart).item.amount.toFixed(2)) + " €", 1)
+                            ]),
+                            createVNode("p", { class: "mt-1 text-sm text-gray-500" }, toDisplayString(capitalize(unref(cart).item.type)), 1)
+                          ])
+                        ])
+                      ];
+                    }
+                  }),
+                  _: 1
+                }, _parent2, _scopeId));
+                _push2(`</div><div class="flex flex-col"${_scopeId}>`);
+                _push2(ssrRenderComponent(_component_UCard, { class: "h-full flex flex-col justify-between" }, {
+                  default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                    if (_push3) {
+                      _push3(`<div${_scopeId2}><h2 class="text-lg font-medium mb-2"${_scopeId2}>Preisübersicht</h2><div class="flex justify-between mt-2"${_scopeId2}><span${_scopeId2}>Zwischensumme:</span><span${_scopeId2}>${ssrInterpolate(unref(cart).subTotalPrice)} €</span></div>`);
                       if (unref(cart).voucher) {
                         _push3(`<div${_scopeId2}><hr class="my-2"${_scopeId2}><div class="flex justify-between mt-2"${_scopeId2}><span class="flex items-center gap-2"${_scopeId2}> Gutscheincode `);
                         _push3(ssrRenderComponent(_component_UButton, {
-                          onClick: removeVoucher,
+                          onClick: ($event) => unref(cart).clearVoucher(),
                           size: "xs",
                           color: "error",
                           variant: "ghost",
@@ -4629,9 +4583,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         }, null, _parent3, _scopeId2));
                         _push3(`</span>`);
                         if (unref(cart).voucher.amount) {
-                          _push3(`<span${_scopeId2}>- ${ssrInterpolate((unref(cart).voucher.amount / 100).toFixed(2) + " €")}</span>`);
+                          _push3(`<span${_scopeId2}> - ${ssrInterpolate((unref(cart).voucher.amount / 100).toFixed(2))} € </span>`);
                         } else if (unref(cart).voucher.percent) {
-                          _push3(`<span${_scopeId2}>- ${ssrInterpolate(unref(cart).voucher.percent + " %")}</span>`);
+                          _push3(`<span${_scopeId2}> - ${ssrInterpolate(unref(cart).voucher.percent)} % </span>`);
                         } else {
                           _push3(`<!---->`);
                         }
@@ -4656,71 +4610,73 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         }),
                         _: 1
                       }, _parent3, _scopeId2));
-                      _push3(`</span></div><div class="mt-4"${_scopeId2}>`);
+                      _push3(`</span></div></div><div class="mt-4"${_scopeId2}>`);
                       _push3(ssrRenderComponent(_component_UButton, {
-                        disabled: isCartEmpty() || isDomainOnly(),
+                        disabled: unref(cart).isEmpty,
                         onClick: ($event) => buy(),
                         color: "neutral",
                         label: "Zur Bezahlung",
                         icon: "i-heroicons-shopping-cart",
                         trailing: "",
                         size: "xl",
-                        class: ["mt-2", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
                         block: "",
+                        class: { "disabled:cursor-not-allowed": unref(cart).isEmpty },
                         autofocus: ""
                       }, null, _parent3, _scopeId2));
                       _push3(`</div>`);
                     } else {
                       return [
-                        createVNode("h2", { class: "text-lg font-medium" }, "Preisübersicht"),
-                        createVNode("div", { class: "flex justify-between mt-2" }, [
-                          createVNode("span", null, "Zwischensumme:"),
-                          createVNode("span", null, toDisplayString(unref(cart).subTotalPrice) + " €", 1)
-                        ]),
-                        unref(cart).voucher ? (openBlock(), createBlock("div", { key: 0 }, [
-                          createVNode("hr", { class: "my-2" }),
+                        createVNode("div", null, [
+                          createVNode("h2", { class: "text-lg font-medium mb-2" }, "Preisübersicht"),
                           createVNode("div", { class: "flex justify-between mt-2" }, [
-                            createVNode("span", { class: "flex items-center gap-2" }, [
-                              createTextVNode(" Gutscheincode "),
-                              createVNode(_component_UButton, {
-                                onClick: removeVoucher,
-                                size: "xs",
-                                color: "error",
-                                variant: "ghost",
-                                icon: "i-heroicons-trash"
-                              })
-                            ]),
-                            unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, "- " + toDisplayString((unref(cart).voucher.amount / 100).toFixed(2) + " €"), 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, "- " + toDisplayString(unref(cart).voucher.percent + " %"), 1)) : createCommentVNode("", true)
+                            createVNode("span", null, "Zwischensumme:"),
+                            createVNode("span", null, toDisplayString(unref(cart).subTotalPrice) + " €", 1)
                           ]),
-                          createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.name), 1)
-                        ])) : createCommentVNode("", true),
-                        createVNode("hr", { class: "my-2" }),
-                        createVNode("div", { class: "flex justify-between font-semibold" }, [
-                          createVNode("span", null, "Gesamt:"),
-                          createVNode("span", null, [
-                            createVNode(_component_UTooltip, {
-                              text: "Preise inkl. gesetzl. USt.",
-                              delay: 0,
-                              placement: "top"
-                            }, {
-                              default: withCtx(() => [
-                                createVNode("span", { class: "underline decoration-dotted decoration-1 decoration-black/75 dark:decoration-white/75 underline-offset-2 cursor-help" }, toDisplayString(unref(cart).totalPrice) + " € ", 1)
+                          unref(cart).voucher ? (openBlock(), createBlock("div", { key: 0 }, [
+                            createVNode("hr", { class: "my-2" }),
+                            createVNode("div", { class: "flex justify-between mt-2" }, [
+                              createVNode("span", { class: "flex items-center gap-2" }, [
+                                createTextVNode(" Gutscheincode "),
+                                createVNode(_component_UButton, {
+                                  onClick: ($event) => unref(cart).clearVoucher(),
+                                  size: "xs",
+                                  color: "error",
+                                  variant: "ghost",
+                                  icon: "i-heroicons-trash"
+                                }, null, 8, ["onClick"])
                               ]),
-                              _: 1
-                            })
+                              unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, " - " + toDisplayString((unref(cart).voucher.amount / 100).toFixed(2)) + " € ", 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, " - " + toDisplayString(unref(cart).voucher.percent) + " % ", 1)) : createCommentVNode("", true)
+                            ]),
+                            createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.name), 1)
+                          ])) : createCommentVNode("", true),
+                          createVNode("hr", { class: "my-2" }),
+                          createVNode("div", { class: "flex justify-between font-semibold" }, [
+                            createVNode("span", null, "Gesamt:"),
+                            createVNode("span", null, [
+                              createVNode(_component_UTooltip, {
+                                text: "Preise inkl. gesetzl. USt.",
+                                delay: 0,
+                                placement: "top"
+                              }, {
+                                default: withCtx(() => [
+                                  createVNode("span", { class: "underline decoration-dotted decoration-1 decoration-black/75 dark:decoration-white/75 underline-offset-2 cursor-help" }, toDisplayString(unref(cart).totalPrice) + " € ", 1)
+                                ]),
+                                _: 1
+                              })
+                            ])
                           ])
                         ]),
                         createVNode("div", { class: "mt-4" }, [
                           createVNode(_component_UButton, {
-                            disabled: isCartEmpty() || isDomainOnly(),
+                            disabled: unref(cart).isEmpty,
                             onClick: ($event) => buy(),
                             color: "neutral",
                             label: "Zur Bezahlung",
                             icon: "i-heroicons-shopping-cart",
                             trailing: "",
                             size: "xl",
-                            class: ["mt-2", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
                             block: "",
+                            class: { "disabled:cursor-not-allowed": unref(cart).isEmpty },
                             autofocus: ""
                           }, null, 8, ["disabled", "onClick", "class"])
                         ])
@@ -4729,7 +4685,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   }),
                   _: 1
                 }, _parent2, _scopeId));
-                _push2(`<form class="mt-4 flex flex-col items-center w-full max-w-lg mx-auto"${_scopeId}>`);
+                _push2(`<form class="mt-6 flex flex-col items-center w-full"${_scopeId}>`);
                 _push2(ssrRenderComponent(_component_UFormGroup, {
                   ui: { container: "mt-3" },
                   class: "text-center w-full"
@@ -4801,14 +4757,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 }, _parent2, _scopeId));
                 _push2(`</form></div></div>`);
               }
-              if (isDomainOnly()) {
-                _push2(`<div class="p-4 text-center text-red-600 font-semibold"${_scopeId}>${ssrInterpolate(_ctx.$t("cart.domainerror"))}</div>`);
-              } else {
-                _push2(`<!---->`);
-              }
             } else {
               return [
-                unref(cart).items.length === 0 ? (openBlock(), createBlock("div", {
+                unref(cart).isEmpty ? (openBlock(), createBlock("div", {
                   key: 0,
                   class: "flex items-center justify-center bg-gray-100 rounded-md"
                 }, [
@@ -4817,160 +4768,82 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   key: 1,
                   class: "grid grid-cols-1 lg:grid-cols-3 gap-6"
                 }, [
-                  createVNode("div", { class: "lg:col-span-2" }, [
-                    createVNode("ul", null, [
-                      (openBlock(true), createBlock(Fragment, null, renderList(unref(cart).items, (item) => {
-                        return openBlock(), createBlock("li", {
-                          key: item.id,
-                          class: "flex py-6"
-                        }, [
-                          item.type == "webspace" ? (openBlock(), createBlock("div", {
-                            key: 0,
-                            class: "size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"
-                          }, [
+                  createVNode("div", { class: "lg:col-span-2 flex flex-col" }, [
+                    createVNode(_component_UCard, { class: "flex flex-col justify-center" }, {
+                      default: withCtx(() => [
+                        createVNode("div", { class: "flex gap-4 items-center justify-center" }, [
+                          createVNode("div", { class: "size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200 bg-gray-50" }, [
                             createVNode(_component_UIcon, {
-                              name: "i-heroicons-cloud",
-                              class: "w-10 h-10"
-                            })
-                          ])) : item.type == "domain" ? (openBlock(), createBlock("div", {
-                            key: 1,
-                            class: "size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"
-                          }, [
-                            createVNode(_component_UIcon, {
-                              name: "i-heroicons-at-symbol",
-                              class: "w-10 h-10"
-                            })
-                          ])) : item.type == "vps" || item.type == "root" ? (openBlock(), createBlock("div", {
-                            key: 2,
-                            class: "size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"
-                          }, [
-                            createVNode(_component_UIcon, {
-                              name: "i-heroicons-server",
-                              class: "w-10 h-10"
-                            })
-                          ])) : item.type == "dedicated" ? (openBlock(), createBlock("div", {
-                            key: 3,
-                            class: "size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"
-                          }, [
-                            createVNode(_component_UIcon, {
-                              name: "i-heroicons-server-stack",
-                              class: "w-10 h-10"
-                            })
-                          ])) : item.type == "lic" ? (openBlock(), createBlock("div", {
-                            key: 4,
-                            class: "size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"
-                          }, [
-                            createVNode(_component_UIcon, {
-                              name: "i-heroicons-key",
-                              class: "w-10 h-10"
-                            })
-                          ])) : (openBlock(), createBlock("div", {
-                            key: 5,
-                            class: "size-24 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200"
-                          }, [
-                            createVNode(_component_UIcon, {
-                              name: "i-heroicons-question-mark-circle",
-                              class: "w-5 h-5"
-                            })
-                          ])),
-                          createVNode("div", { class: "ml-4 flex flex-1 flex-col" }, [
-                            createVNode("div", null, [
-                              createVNode("div", { class: "flex justify-between text-base font-medium" }, [
-                                createVNode("h3", null, toDisplayString(item.name), 1),
-                                createVNode("p", { class: "ml-4" }, toDisplayString(item.amount + " €"), 1)
-                              ]),
-                              createVNode("p", { class: "mt-1 text-sm text-gray-500" }, toDisplayString(item.type.charAt(0).toUpperCase() + item.type.slice(1)), 1)
+                              name: iconForType(unref(cart).item.type),
+                              class: "w-10 h-10 text-gray-600"
+                            }, null, 8, ["name"])
+                          ]),
+                          createVNode("div", { class: "flex-1" }, [
+                            createVNode("div", { class: "flex justify-between text-base font-medium" }, [
+                              createVNode("h3", { class: "truncate" }, toDisplayString(unref(cart).item.name), 1),
+                              createVNode("p", { class: "ml-4" }, toDisplayString(unref(cart).item.amount.toFixed(2)) + " €", 1)
                             ]),
-                            createVNode("div", { class: "flex flex-1 items-end justify-between text-sm" }, [
-                              item.type == "domain" ? (openBlock(), createBlock(_component_UInput, {
-                                key: 0,
-                                type: "number",
-                                size: "xs",
-                                class: "max-w-[50px]",
-                                modelValue: item.quantity,
-                                onKeydown: withModifiers(() => {
-                                }, ["prevent"]),
-                                disabled: ""
-                              }, null, 8, ["modelValue", "onKeydown"])) : (openBlock(), createBlock(_component_UInput, {
-                                key: 1,
-                                type: "number",
-                                min: "1",
-                                max: "10",
-                                size: "xs",
-                                class: "max-w-[50px]",
-                                modelValue: item.quantity,
-                                "onUpdate:modelValue": ($event) => unref(cart).changeQuantity(item.id, $event),
-                                onKeydown: withModifiers(() => {
-                                }, ["prevent"]),
-                                required: ""
-                              }, null, 8, ["modelValue", "onUpdate:modelValue", "onKeydown"])),
-                              createVNode("div", { class: "flex" }, [
+                            createVNode("p", { class: "mt-1 text-sm text-gray-500" }, toDisplayString(capitalize(unref(cart).item.type)), 1)
+                          ])
+                        ])
+                      ]),
+                      _: 1
+                    })
+                  ]),
+                  createVNode("div", { class: "flex flex-col" }, [
+                    createVNode(_component_UCard, { class: "h-full flex flex-col justify-between" }, {
+                      default: withCtx(() => [
+                        createVNode("div", null, [
+                          createVNode("h2", { class: "text-lg font-medium mb-2" }, "Preisübersicht"),
+                          createVNode("div", { class: "flex justify-between mt-2" }, [
+                            createVNode("span", null, "Zwischensumme:"),
+                            createVNode("span", null, toDisplayString(unref(cart).subTotalPrice) + " €", 1)
+                          ]),
+                          unref(cart).voucher ? (openBlock(), createBlock("div", { key: 0 }, [
+                            createVNode("hr", { class: "my-2" }),
+                            createVNode("div", { class: "flex justify-between mt-2" }, [
+                              createVNode("span", { class: "flex items-center gap-2" }, [
+                                createTextVNode(" Gutscheincode "),
                                 createVNode(_component_UButton, {
-                                  onClick: ($event) => remove(item.id),
+                                  onClick: ($event) => unref(cart).clearVoucher(),
                                   size: "xs",
                                   color: "error",
                                   variant: "ghost",
-                                  label: unref(t)("cart.remove")
-                                }, null, 8, ["onClick", "label"])
-                              ])
-                            ])
-                          ])
-                        ]);
-                      }), 128))
-                    ])
-                  ]),
-                  createVNode("div", null, [
-                    createVNode(_component_UCard, null, {
-                      default: withCtx(() => [
-                        createVNode("h2", { class: "text-lg font-medium" }, "Preisübersicht"),
-                        createVNode("div", { class: "flex justify-between mt-2" }, [
-                          createVNode("span", null, "Zwischensumme:"),
-                          createVNode("span", null, toDisplayString(unref(cart).subTotalPrice) + " €", 1)
-                        ]),
-                        unref(cart).voucher ? (openBlock(), createBlock("div", { key: 0 }, [
-                          createVNode("hr", { class: "my-2" }),
-                          createVNode("div", { class: "flex justify-between mt-2" }, [
-                            createVNode("span", { class: "flex items-center gap-2" }, [
-                              createTextVNode(" Gutscheincode "),
-                              createVNode(_component_UButton, {
-                                onClick: removeVoucher,
-                                size: "xs",
-                                color: "error",
-                                variant: "ghost",
-                                icon: "i-heroicons-trash"
-                              })
-                            ]),
-                            unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, "- " + toDisplayString((unref(cart).voucher.amount / 100).toFixed(2) + " €"), 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, "- " + toDisplayString(unref(cart).voucher.percent + " %"), 1)) : createCommentVNode("", true)
-                          ]),
-                          createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.name), 1)
-                        ])) : createCommentVNode("", true),
-                        createVNode("hr", { class: "my-2" }),
-                        createVNode("div", { class: "flex justify-between font-semibold" }, [
-                          createVNode("span", null, "Gesamt:"),
-                          createVNode("span", null, [
-                            createVNode(_component_UTooltip, {
-                              text: "Preise inkl. gesetzl. USt.",
-                              delay: 0,
-                              placement: "top"
-                            }, {
-                              default: withCtx(() => [
-                                createVNode("span", { class: "underline decoration-dotted decoration-1 decoration-black/75 dark:decoration-white/75 underline-offset-2 cursor-help" }, toDisplayString(unref(cart).totalPrice) + " € ", 1)
+                                  icon: "i-heroicons-trash"
+                                }, null, 8, ["onClick"])
                               ]),
-                              _: 1
-                            })
+                              unref(cart).voucher.amount ? (openBlock(), createBlock("span", { key: 0 }, " - " + toDisplayString((unref(cart).voucher.amount / 100).toFixed(2)) + " € ", 1)) : unref(cart).voucher.percent ? (openBlock(), createBlock("span", { key: 1 }, " - " + toDisplayString(unref(cart).voucher.percent) + " % ", 1)) : createCommentVNode("", true)
+                            ]),
+                            createVNode("small", { class: "opacity-75" }, toDisplayString(unref(cart).voucher.name), 1)
+                          ])) : createCommentVNode("", true),
+                          createVNode("hr", { class: "my-2" }),
+                          createVNode("div", { class: "flex justify-between font-semibold" }, [
+                            createVNode("span", null, "Gesamt:"),
+                            createVNode("span", null, [
+                              createVNode(_component_UTooltip, {
+                                text: "Preise inkl. gesetzl. USt.",
+                                delay: 0,
+                                placement: "top"
+                              }, {
+                                default: withCtx(() => [
+                                  createVNode("span", { class: "underline decoration-dotted decoration-1 decoration-black/75 dark:decoration-white/75 underline-offset-2 cursor-help" }, toDisplayString(unref(cart).totalPrice) + " € ", 1)
+                                ]),
+                                _: 1
+                              })
+                            ])
                           ])
                         ]),
                         createVNode("div", { class: "mt-4" }, [
                           createVNode(_component_UButton, {
-                            disabled: isCartEmpty() || isDomainOnly(),
+                            disabled: unref(cart).isEmpty,
                             onClick: ($event) => buy(),
                             color: "neutral",
                             label: "Zur Bezahlung",
                             icon: "i-heroicons-shopping-cart",
                             trailing: "",
                             size: "xl",
-                            class: ["mt-2", { "disabled:cursor-not-allowed": isCartEmpty() || isDomainOnly() }],
                             block: "",
+                            class: { "disabled:cursor-not-allowed": unref(cart).isEmpty },
                             autofocus: ""
                           }, null, 8, ["disabled", "onClick", "class"])
                         ])
@@ -4978,7 +4851,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       _: 1
                     }),
                     createVNode("form", {
-                      class: "mt-4 flex flex-col items-center w-full max-w-lg mx-auto",
+                      class: "mt-6 flex flex-col items-center w-full",
                       onSubmit: withModifiers(submitVoucher, ["prevent"])
                     }, [
                       createVNode(_component_UFormGroup, {
@@ -5013,11 +4886,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       })
                     ], 32)
                   ])
-                ])),
-                isDomainOnly() ? (openBlock(), createBlock("div", {
-                  key: 2,
-                  class: "p-4 text-center text-red-600 font-semibold"
-                }, toDisplayString(_ctx.$t("cart.domainerror")), 1)) : createCommentVNode("", true)
+                ]))
               ];
             }
           }),

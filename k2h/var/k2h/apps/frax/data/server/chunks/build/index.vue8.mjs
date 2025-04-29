@@ -1,4 +1,4 @@
-import { h as useAppConfig, s as tv, K as __nuxt_component_0$1, j as __nuxt_component_1, v as __nuxt_component_2$1, _ as _appConfig, c as useLocale, t as tv$1, z as useToast, u as useLocalePath, a as useI18n, b as useSeoMeta, A as useCartStore } from './server.mjs';
+import { h as useAppConfig, s as tv, J as __nuxt_component_0$1, j as __nuxt_component_1, v as __nuxt_component_2$1, _ as _appConfig, c as useLocale, t as tv$1, z as useToast, N as useRouter, u as useLocalePath, a as useI18n, b as useSeoMeta } from './server.mjs';
 import { defineComponent, useSlots, computed, unref, withCtx, createBlock, createCommentVNode, openBlock, renderSlot, createTextVNode, toDisplayString, createVNode, mergeProps, Fragment, renderList, useSSRContext, mergeModels, useModel, withAsyncContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate, ssrRenderList, ssrRenderAttr } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
@@ -7,6 +7,7 @@ import { _ as __nuxt_component_1$1 } from './Skeleton.vue.mjs';
 import { U as upperFirst } from '../nitro/nitro.mjs';
 import { useVueTable, getExpandedRowModel, getSortedRowModel, getFilteredRowModel, getCoreRowModel, FlexRender } from '@tanstack/vue-table';
 import { _ as __nuxt_component_3 } from './Alert.vue.mjs';
+import { u as useCartStore } from './cart.mjs';
 import { U as UPageSection } from './PageSection.vue.mjs';
 import 'pinia';
 import 'vue-router';
@@ -1122,6 +1123,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   async setup(__props) {
     let __temp, __restore;
     const toast = useToast();
+    const router = useRouter();
     const localePath = useLocalePath();
     const { t } = useI18n({
       useScope: "global"
@@ -1268,8 +1270,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const cart = useCartStore();
       const selectedPackage = packages[parseInt(p) - 1];
       if (selectedPackage) {
-        cart.addToBasket({ type: "webspace", name: selectedPackage.name, amount: selectedPackage.amount, id: selectedPackage.priceID });
-        cart.openSlideover();
+        cart.setItem({
+          id: selectedPackage.priceID,
+          name: selectedPackage.name,
+          type: "webspace",
+          amount: selectedPackage.amount
+        });
+        router.push("/checkout");
       }
     };
     [__temp, __restore] = withAsyncContext(() => fetchPackageInfo()), await __temp, __restore();

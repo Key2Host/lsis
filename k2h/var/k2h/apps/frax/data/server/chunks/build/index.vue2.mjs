@@ -1,5 +1,5 @@
 import { _ as __nuxt_component_0 } from './PageHero.vue.mjs';
-import { s as tv, _ as _appConfig, u as useLocalePath, a as useI18n, J as useHead, b as useSeoMeta, j as __nuxt_component_1, K as __nuxt_component_0$1, C as __nuxt_component_2 } from './server.mjs';
+import { s as tv, _ as _appConfig, u as useLocalePath, a as useI18n, I as useHead, b as useSeoMeta, j as __nuxt_component_1, J as __nuxt_component_0$1, B as __nuxt_component_2 } from './server.mjs';
 import { useSSRContext, mergeProps, defineComponent, computed, unref, withCtx, createBlock, openBlock, Fragment, renderList, renderSlot, createVNode, toDisplayString, createTextVNode } from 'vue';
 import { ssrRenderAttrs, ssrRenderAttr, ssrRenderComponent, ssrRenderList, ssrRenderClass, ssrRenderSlot, ssrInterpolate } from 'vue/server-renderer';
 import { p as publicAssetsURL } from '../nitro/nitro.mjs';

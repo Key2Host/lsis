@@ -1,9 +1,10 @@
 import { U as UPageSection } from './PageSection.vue.mjs';
-import { a as useI18n, b as useSeoMeta, v as __nuxt_component_2, O as __nuxt_component_4, A as useCartStore } from './server.mjs';
+import { a as useI18n, N as useRouter, b as useSeoMeta, v as __nuxt_component_2, O as __nuxt_component_4 } from './server.mjs';
 import { _ as __nuxt_component_2$1 } from './PageCard.vue.mjs';
 import { _ as __nuxt_component_3 } from './Tooltip.vue.mjs';
 import { defineComponent, ref, withCtx, unref, createVNode, withDirectives, withKeys, vModelText, createTextVNode, toDisplayString, createBlock, openBlock, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderAttr, ssrRenderList, ssrInterpolate } from 'vue/server-renderer';
+import { u as useCartStore } from './cart.mjs';
 import 'reka-ui';
 import '../nitro/nitro.mjs';
 import 'node:http';
@@ -38,8 +39,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   __ssrInlineRender: true,
   setup(__props) {
     const showModal = ref(false);
-    const selectedDomain = ref("");
-    const selectedDomainAvailable = ref("");
     const domain = ref("");
     const searchQuery = ref("");
     const results = ref([]);
@@ -47,6 +46,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const { t } = useI18n({
       useScope: "global"
     });
+    const router = useRouter();
     const domainPattern = new RegExp(
       "^(((xn--)?[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)|((xn--)?[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\\.)+([a-zA-Z]{2,}))$"
     );
@@ -72,7 +72,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const searchDomain = async () => {
       errorMessage.value = "";
       results.value = [];
-      let domainResults;
+      const domainResults = [];
       errorMessage.value = t("products.domain.loading");
       if (!isValidDomain(domain.value)) {
         errorMessage.value = t("products.domain.errors.notvalid");
@@ -82,13 +82,22 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       try {
         const response = await fetch("https://saci.key2host.com/api/user/getDomainInfo");
         const data = await response.json();
+        console.log(data.packages);
         if (Array.isArray(data.packages)) {
-          domainResults = data.packages;
+          data.packages.forEach((price) => {
+            domainResults.push({
+              name: price.name,
+              amount: price.amount,
+              priceID: price.priceID,
+              available: price.available
+            });
+          });
         } else {
           errorMessage.value = t("products.domain.errors.erranswer");
           return;
         }
       } catch (error) {
+        console.log(error);
         errorMessage.value = t("products.domain.errors.confailed");
         return;
       }
@@ -100,17 +109,20 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
       results.value = domainResults;
     };
-    const buyDomain = (domain2, available, amount) => {
-      selectedDomain.value = domain2;
-      selectedDomainAvailable.value = available;
+    const buyDomain = (domain2) => {
       const cart = useCartStore();
       if (Array.isArray(results.value) && results.value.length > 0) {
         const domainExtension = domain2.split(".").pop();
         const matchingResult = results.value.find((result) => result.name === domainExtension);
         if (matchingResult) {
-          if (selectedDomainAvailable.value) {
-            cart.addToBasket({ type: "domain", name: selectedDomain.value.toLocaleLowerCase(), amount: matchingResult.amount, id: matchingResult.priceID });
-            cart.openSlideover();
+          if (domain2) {
+            cart.setItem({
+              id: matchingResult.priceID,
+              name: domain2.toLocaleLowerCase(),
+              type: "domain",
+              amount: matchingResult.amount
+            });
+            router.push("/checkout");
           } else {
             showModal.value = true;
           }
@@ -312,17 +324,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }, {
         content: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            if (selectedDomainAvailable.value) {
-              _push2(`<div class="p-4 text-lg"${_scopeId}> Die Domain ${ssrInterpolate(selectedDomain.value)} kann momentan nicht gekauft werden. </div>`);
+            if (_ctx.selectedDomainAvailable) {
+              _push2(`<div class="p-4 text-lg"${_scopeId}> Die Domain ${ssrInterpolate(_ctx.selectedDomain)} kann momentan nicht gekauft werden. </div>`);
             } else {
-              _push2(`<div class="p-6 text-center"${_scopeId}><h2 class="text-2xl font-bold mb-2"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.title"))}</h2><p class="text-base text-gray-700 mb-6"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.message"))}</p><input type="text"${ssrRenderAttr("placeholder", "AUTH-Schlüssel für " + selectedDomain.value)} class="border border-gray-300 rounded-lg p-2 w-1/2 mb-6"${_scopeId}><div class="flex justify-center gap-4"${_scopeId}><button class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.abort"))}</button><button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.continue"))}</button></div></div>`);
+              _push2(`<div class="p-6 text-center"${_scopeId}><h2 class="text-2xl font-bold mb-2"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.title"))}</h2><p class="text-base text-gray-700 mb-6"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.message"))}</p><input type="text"${ssrRenderAttr("placeholder", "AUTH-Schlüssel für " + _ctx.selectedDomain)} class="border border-gray-300 rounded-lg p-2 w-1/2 mb-6"${_scopeId}><div class="flex justify-center gap-4"${_scopeId}><button class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.abort"))}</button><button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"${_scopeId}>${ssrInterpolate(_ctx.$t("products.domain.transfer.continue"))}</button></div></div>`);
             }
           } else {
             return [
-              selectedDomainAvailable.value ? (openBlock(), createBlock("div", {
+              _ctx.selectedDomainAvailable ? (openBlock(), createBlock("div", {
                 key: 0,
                 class: "p-4 text-lg"
-              }, " Die Domain " + toDisplayString(selectedDomain.value) + " kann momentan nicht gekauft werden. ", 1)) : (openBlock(), createBlock("div", {
+              }, " Die Domain " + toDisplayString(_ctx.selectedDomain) + " kann momentan nicht gekauft werden. ", 1)) : (openBlock(), createBlock("div", {
                 key: 1,
                 class: "p-6 text-center"
               }, [
@@ -330,7 +342,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 createVNode("p", { class: "text-base text-gray-700 mb-6" }, toDisplayString(_ctx.$t("products.domain.transfer.message")), 1),
                 createVNode("input", {
                   type: "text",
-                  placeholder: "AUTH-Schlüssel für " + selectedDomain.value,
+                  placeholder: "AUTH-Schlüssel für " + _ctx.selectedDomain,
                   class: "border border-gray-300 rounded-lg p-2 w-1/2 mb-6"
                 }, null, 8, ["placeholder"]),
                 createVNode("div", { class: "flex justify-center gap-4" }, [

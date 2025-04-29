@@ -2,7 +2,7 @@ import { _ as __nuxt_component_0 } from './PageCTA.vue.mjs';
 import { _ as __nuxt_component_1 } from './PageBody.vue.mjs';
 import { defineComponent, withCtx, createVNode, toDisplayString, createTextVNode, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrInterpolate } from 'vue/server-renderer';
-import { F as useCookieNoticeStore, a as useI18n, b as useSeoMeta } from './server.mjs';
+import { E as useCookieNoticeStore, a as useI18n, b as useSeoMeta } from './server.mjs';
 import 'reka-ui';
 import '../nitro/nitro.mjs';
 import 'node:http';

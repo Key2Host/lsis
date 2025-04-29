@@ -1,4 +1,4 @@
-import { s as tv, L as __nuxt_component_0$1, v as __nuxt_component_2, _ as _appConfig } from './server.mjs';
+import { s as tv, K as __nuxt_component_0$1, v as __nuxt_component_2, _ as _appConfig } from './server.mjs';
 import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, createVNode, renderSlot, createBlock, createCommentVNode, openBlock, createTextVNode, toDisplayString, Fragment, renderList, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';

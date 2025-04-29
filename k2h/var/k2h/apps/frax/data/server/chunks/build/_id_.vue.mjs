@@ -1,7 +1,7 @@
 import { defineComponent, useSlots, computed, unref, mergeProps, withCtx, renderSlot, createBlock, createCommentVNode, openBlock, createTextVNode, toDisplayString, createVNode, Fragment, renderList, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderList, ssrRenderSlot, ssrInterpolate } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
-import { c as useLocale, h as useAppConfig, t as tv, M as __nuxt_component_0$1, N as pickLinkProps, U as ULinkBase, j as __nuxt_component_1, p as __nuxt_component_3, n as get, _ as _appConfig, u as useLocalePath, b as useSeoMeta } from './server.mjs';
+import { c as useLocale, h as useAppConfig, t as tv, L as __nuxt_component_0$1, M as pickLinkProps, U as ULinkBase, j as __nuxt_component_1, p as __nuxt_component_3, n as get, _ as _appConfig, u as useLocalePath, b as useSeoMeta } from './server.mjs';
 import { U as UPageSection } from './PageSection.vue.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';

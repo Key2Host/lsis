@@ -1,4 +1,4 @@
-import { s as tv, Q as getSlotChildrenText, j as __nuxt_component_1, M as __nuxt_component_0, _ as _appConfig } from './server.mjs';
+import { s as tv, Q as getSlotChildrenText, j as __nuxt_component_1, L as __nuxt_component_0, _ as _appConfig } from './server.mjs';
 import { defineComponent, useSlots, ref, computed, watch, unref, mergeProps, withCtx, createVNode, createBlock, createCommentVNode, openBlock, renderSlot, createTextVNode, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderComponent, ssrRenderClass, ssrRenderSlot, ssrInterpolate } from 'vue/server-renderer';
 import { Primitive } from 'reka-ui';
