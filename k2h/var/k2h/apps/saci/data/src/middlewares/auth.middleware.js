@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const { User } = require('../models/user.model');
 const { RefreshTokens } = require('../models/auth.model');
 const { log } = require('../../src/utils/logger');
-const { JWT_SECRET, JWT_EXPIRATION } = require('../config/jwt.config');
+const { JWT_SECRET, JWT_EXPIRATION, JWT_REFRESH_EXPIRATION } = require('../config/jwt.config');
 
 async function authenticateUser(req, res, next) {
   try {
@@ -30,13 +30,10 @@ async function authenticateUser(req, res, next) {
         return res.status(401).json({ error: "Ungültiger Refresh Token" });
       }
 
-      const now = Math.floor(Date.now() / 1000);
-      const remainingTime = decoded.exp - now;
-
       const newRefreshToken = jwt.sign(
         { id: decoded.id, customerID: decoded.customerID },
         JWT_SECRET,
-        { expiresIn: remainingTime > 0 ? remainingTime : 0 }
+        { expiresIn: JWT_REFRESH_EXPIRATION }
       );
 
       const newAccessToken = jwt.sign(
@@ -49,21 +46,21 @@ async function authenticateUser(req, res, next) {
       await RefreshTokens.create({ user: decoded.id, token: newRefreshToken });
 
       res.cookie("accessToken", newAccessToken, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "None",
-        path: "/",
+        httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
+        secure: true, // Setze es nur in der Produktion auf `true`
+        sameSite: "None",      // CORS-freundlich
+        path: "/"              // Gilt für die gesamte Website
       });
 
       res.cookie("refreshToken", newRefreshToken, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "None",
-        path: "/",
+        httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
+        secure: true, // Setze es nur in der Produktion auf `true`
+        sameSite: "None",      // CORS-freundlich
+        path: "/"              // Gilt für die gesamte Website
       });
 
       req.user = decoded;
-      return next();
+      res.status(200).json({ accessToken, refreshToken });
 
     } catch (err) {
       console.error("Refresh Token ungültig:", err.message);
