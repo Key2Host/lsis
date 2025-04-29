@@ -24,6 +24,7 @@ import 'ipx';
 import '@vueuse/integrations/useFuse';
 import './Input.vue.mjs';
 import 'vaul-vue';
+import 'axios';
 import './Badge.vue.mjs';
 import 'pinia';
 import 'vue-router';

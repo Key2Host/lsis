@@ -36,6 +36,7 @@ import './tv.mjs';
 import '@vueuse/integrations/useFuse';
 import './Input.vue.mjs';
 import 'vaul-vue';
+import 'axios';
 import './Badge.vue.mjs';
 
 const _sfc_main = /* @__PURE__ */ defineComponent({

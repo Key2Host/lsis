@@ -9,6 +9,7 @@ import { reactivePick, createReusableTemplate } from '@vueuse/core';
 import { useFuse } from '@vueuse/integrations/useFuse';
 import { U as UInput } from './Input.vue.mjs';
 import { DrawerRoot, DrawerTrigger, DrawerPortal, DrawerOverlay, DrawerContent, DrawerTitle, DrawerDescription } from 'vaul-vue';
+import axios from 'axios';
 
 const theme$4 = {
   "base": "fixed inset-0 flex overflow-hidden"
@@ -2563,13 +2564,6 @@ _sfc_main$1.setup = (props, ctx) => {
 };
 const __nuxt_component_3 = Object.assign(_sfc_main$1, { __name: "CompanyMenu" });
 
-const fetchData = {
-  async get(url, data = {}, withCookies = true) {
-  },
-  async post(url, body, data = {}, withCookies = true) {
-  }
-};
-
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "UserMenu",
   __ssrInlineRender: true,
@@ -2579,14 +2573,21 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   async setup(__props) {
     let __temp, __restore;
     const user = ref({
-      name: "Unbekannt",
+      name: "Max Mustermann",
       avatar: {
         src: "https://github.com/benjamincanac.png",
-        alt: "Profile picture"
+        alt: "Max Mustermann"
       }
     });
-    const name = ([__temp, __restore] = withAsyncContext(() => fetchData.get("https://saci.key2host.com/api/user/hello", {}, true)), __temp = await __temp, __restore(), __temp);
-    user.value.name = name;
+    try {
+      const response = ([__temp, __restore] = withAsyncContext(() => axios.get("https://saci.key2host.com/api/user/hello/", {
+        withCredentials: true
+      })), __temp = await __temp, __restore(), __temp);
+      if (response.data.user && response.data.user.fullname) {
+        user.value.name = response.data.user.fullname;
+      }
+    } catch (error) {
+    }
     const items = computed(() => [[{
       type: "label",
       label: user.value.name,
