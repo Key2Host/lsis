@@ -53,14 +53,16 @@ async function login(req, res) {
         httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
         secure: true, // Setze es nur in der Produktion auf `true`
         sameSite: "None",      // CORS-freundlich
-        path: "/"              // Gilt für die gesamte Website
+        path: "/",              // Gilt für die gesamte Website
+        domain: ".key2host.com"
       });
 
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
         secure: true, // Setze es nur in der Produktion auf `true`
         sameSite: "None",      // CORS-freundlich
-        path: "/"              // Gilt für die gesamte Website
+        path: "/",              // Gilt für die gesamte Website
+        domain: ".key2host.com"
       });
 
       res.status(200).json({ accessToken, refreshToken });
@@ -193,14 +195,16 @@ async function signup(req, res) {
         httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
         secure: true, // Setze es nur in der Produktion auf `true`
         sameSite: "None",      // CORS-freundlich
-        path: "/"              // Gilt für die gesamte Website
+        path: "/",              // Gilt für die gesamte Website
+        domain: ".key2host.com"
       });
 
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
         secure: true, // Setze es nur in der Produktion auf `true`
         sameSite: "None",      // CORS-freundlich
-        path: "/"              // Gilt für die gesamte Website
+        path: "/",              // Gilt für die gesamte Website
+        domain: ".key2host.com"
       });
 
       res.status(201).json({
@@ -336,4 +340,56 @@ async function logout(req, res) {
   }
 }
 
-module.exports = { login, signup, checkID, recover, logout };
+async function refresh(req, res) {
+  const refreshToken = req.cookies.refreshToken;
+  if (!refreshToken) return res.status(401).json({ error: 'Kein Refresh Token' });
+
+  try {
+    const decoded = jwt.verify(refreshToken, JWT_SECRET);
+
+    // JWT generieren
+    const accessToken = jwt.sign(
+      { id: user.id, customerID: user.customerID, firstname: user.firstname, lastname: user.lastname, email: user.email },
+      JWT_SECRET,
+      { expiresIn: JWT_EXPIRATION }  // Kurze Lebensdauer (z. B. 15 Minuten)
+    );
+
+    const refreshToken = jwt.sign(
+      { id: user.id, customerID: user.customerID, firstname: user.firstname, lastname: user.lastname, email: user.email },
+      JWT_SECRET,
+      { expiresIn: JWT_REFRESH_EXPIRATION }  // Lange Lebensdauer (z. B. 7 Tage)
+    );
+
+    try {
+      await RefreshTokens.create({
+        user: user.id,
+        token: refreshToken
+      });
+
+      res.cookie("accessToken", accessToken, {
+        httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
+        secure: true, // Setze es nur in der Produktion auf `true`
+        sameSite: "None",      // CORS-freundlich
+        path: "/"              // Gilt für die gesamte Website
+      });
+
+      res.cookie("refreshToken", refreshToken, {
+        httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
+        secure: true, // Setze es nur in der Produktion auf `true`
+        sameSite: "None",      // CORS-freundlich
+        path: "/"              // Gilt für die gesamte Website
+      });
+
+      res.status(200).json({ accessToken, refreshToken });
+
+    } catch (err) {
+      log('Fehler beim Speichern des Refresh Tokens:', err);
+      res.status(500).json({ error: 'Fehler beim Speichern des Refresh Tokens' });
+    }
+  } catch (err) {
+    return res.status(401).json({ error: 'Refresh Token ungültig' });
+  }
+}
+
+
+module.exports = { login, signup, checkID, recover, logout, refresh };
