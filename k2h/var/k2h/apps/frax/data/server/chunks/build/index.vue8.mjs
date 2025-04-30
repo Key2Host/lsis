@@ -1235,7 +1235,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const packages = [];
     const fetchPackageInfo = async () => {
       try {
-        const response = await fetch("https://saci.key2host.com/api/user/getWebspaceInfo");
+        const response = await fetch("https://saci.key2host.com/api/products/webspace");
         const data = await response.json();
         if (Array.isArray(data.packages)) {
           data.packages.forEach((price) => {

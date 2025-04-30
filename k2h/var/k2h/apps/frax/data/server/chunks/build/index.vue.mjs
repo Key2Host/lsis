@@ -4921,7 +4921,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         _push(`<!---->`);
       }
       if (unref(step) == 2) {
-        _push(`<small class="opacity-75">${ssrInterpolate(_ctx.$t("checkout.index.steps.2.loggedInAs"))} ${ssrInterpolate(unref(userName) || _ctx.$t("checkout.index.steps.2.unknownUser"))}. <span class="text-primary underline cursor-pointer">${ssrInterpolate(_ctx.$t("checkout.index.steps.2.notYou"))}?</span></small>`);
+        _push(`<small class="opacity-75">${ssrInterpolate(_ctx.$t("checkout.index.steps.2.loggedInAs"))} ${ssrInterpolate(unref(userName))}. <span class="text-primary underline cursor-pointer">${ssrInterpolate(_ctx.$t("checkout.index.steps.2.notYou"))}?</span></small>`);
       } else {
         _push(`<!---->`);
       }

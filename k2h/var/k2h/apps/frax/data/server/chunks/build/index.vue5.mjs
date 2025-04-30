@@ -80,7 +80,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
       searchQuery.value = domain.value.trim();
       try {
-        const response = await fetch("https://saci.key2host.com/api/user/getDomainInfo");
+        const response = await fetch("https://saci.key2host.com/api/products/domain");
         const data = await response.json();
         console.log(data.packages);
         if (Array.isArray(data.packages)) {
