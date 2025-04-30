@@ -1,17 +1,75 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../models/user.model');
-const { JWT_SECRET } = require('../config/jwt.config');
+const { RefreshTokens } = require('../models/auth.model');
+const { log } = require('../../src/utils/logger');
+const { JWT_SECRET, JWT_EXPIRATION, JWT_REFRESH_EXPIRATION } = require('../config/jwt.config');
 
-function authenticateUser(req, res, next) {
-  const token = req.cookies.accessToken;
-  if (!token) return res.status(401).json({ error: 'Nicht eingeloggt' });
-
+async function authenticateUser(req, res, next) {
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    req.user = decoded;
-    return next();
+    const token = req.cookies.accessToken;
+
+    if (token) {
+      try {
+        const decoded = jwt.verify(token, JWT_SECRET);
+        req.user = decoded;
+        return next();
+      } catch (err) {
+        console.log("Access Token ungültig:", err.message);
+      }
+    }
+
+    const refreshToken = req.cookies.refreshToken;
+    if (!refreshToken) {
+      return res.status(401).json({ error: "Keine gültige Sitzung. Bitte erneut anmelden." });
+    }
+
+    try {
+      const decoded = jwt.verify(refreshToken, JWT_SECRET);
+      const existingToken = await RefreshTokens.findOne({ where: { token: refreshToken } });
+      if (!existingToken) {
+        return res.status(401).json({ error: "Ungültiger Refresh Token" });
+      }
+
+      const newRefreshToken = jwt.sign(
+        { id: decoded.id, customerID: decoded.customerID },
+        JWT_SECRET,
+        { expiresIn: JWT_REFRESH_EXPIRATION }
+      );
+
+      const newAccessToken = jwt.sign(
+        { id: decoded.id, customerID: decoded.customerID },
+        JWT_SECRET,
+        { expiresIn: JWT_EXPIRATION }
+      );
+
+      await RefreshTokens.destroy({ where: { token: refreshToken } });
+      await RefreshTokens.create({ user: decoded.id, token: newRefreshToken });
+
+      res.cookie("accessToken", newAccessToken, {
+        httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
+        secure: true, // Setze es nur in der Produktion auf `true`
+        sameSite: "None",      // CORS-freundlich
+        path: "/"              // Gilt für die gesamte Website
+      });
+
+      res.cookie("refreshToken", newRefreshToken, {
+        httpOnly: true,        // Sicherstellen, dass `httpOnly` gesetzt ist
+        secure: true, // Setze es nur in der Produktion auf `true`
+        sameSite: "None",      // CORS-freundlich
+        path: "/"              // Gilt für die gesamte Website
+      });
+
+      req.user = decoded;
+      res.status(200).json({ accessToken, refreshToken });
+
+    } catch (err) {
+      console.error("Refresh Token ungültig:", err.message);
+      return res.status(401).json({ error: "Ungültiges Refresh Token oder Token abgelaufen" });
+    }
+
   } catch (err) {
-    return res.status(401).json({ error: 'Access Token ungültig' });
+    console.error("Fehler bei der Authentifizierung:", err.message);
+    return res.status(500).json({ error: "Interner Serverfehler" });
   }
 }
 

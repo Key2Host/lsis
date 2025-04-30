@@ -1,14 +1,13 @@
 const express = require('express');
 const { authenticateUser, checkSuspended } = require('../middlewares/auth.middleware');
-const { userHello, getWebspaceInfo, getDomainInfo, buy, checkVoucher } = require('../controllers/user.controller');
+const { getUser, patchUser } = require('../controllers/user/user');
+const { deleteUser } = require('../controllers/user/delete');
 
 const router = express.Router();
 
 // Geschützte Route: Gibt "Hallo" zurück, wenn der User authentifiziert ist
-router.get('/hello', authenticateUser, userHello);
-router.get('/getWebspaceInfo', getWebspaceInfo);
-router.get('/getDomainInfo', getDomainInfo);
-router.post('/buy', authenticateUser, checkSuspended, buy);
-router.post('/checkVoucher', authenticateUser, checkSuspended, checkVoucher);
+router.get('/user', authenticateUser, getUser);
+router.patch('/user', authenticateUser, patchUser);
+router.patch('/user/delete', authenticateUser, checkSuspended, deleteUser);
 
 module.exports = router;
