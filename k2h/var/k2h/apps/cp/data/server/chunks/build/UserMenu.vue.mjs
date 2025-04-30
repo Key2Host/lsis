@@ -9,7 +9,6 @@ import { reactivePick, createReusableTemplate } from '@vueuse/core';
 import { useFuse } from '@vueuse/integrations/useFuse';
 import { U as UInput } from './Input.vue.mjs';
 import { DrawerRoot, DrawerTrigger, DrawerPortal, DrawerOverlay, DrawerContent, DrawerTitle, DrawerDescription } from 'vaul-vue';
-import axios from 'axios';
 
 const theme$4 = {
   "base": "fixed inset-0 flex overflow-hidden"
@@ -2580,13 +2579,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
     });
     try {
-      const response = ([__temp, __restore] = withAsyncContext(() => axios.get("https://saci.key2host.com/api/user/hello/", {
-        withCredentials: true
+      const response = ([__temp, __restore] = withAsyncContext(() => $fetch("https://saci.key2host.com/api/user/hello/", {
+        credentials: "include"
+        // Sorgt dafür, dass Cookies gesendet werden
       })), __temp = await __temp, __restore(), __temp);
-      if (response.data.user && response.data.user.fullname) {
-        user.value.name = response.data.user.fullname;
+      if (response && response.user) {
+        user.value.name = response.user.fullname;
+      } else {
+        console.error("Die Antwort hat nicht die erwartete Struktur oder keine Benutzerdaten");
       }
     } catch (error) {
+      console.error(error);
     }
     const items = computed(() => [[{
       type: "label",
