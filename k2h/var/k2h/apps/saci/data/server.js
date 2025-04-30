@@ -35,18 +35,28 @@ app.use(cookieParser());
 log(`The REST API is started up. Please wait...`)
 
 // Importiere Routen
-const userRoutes = require('./src/routes/user.routes');
 const adminRoutes = require('./src/routes/admin.routes');
-const publicRoutes = require('./src/routes/public.routes');
 const authRoutes = require('./src/routes/auth.routes');
+const ordersRoutes = require('./src/routes/orders.routes');
+const productsRoutes = require('./src/routes/products.routes');
+const servicesRoutes = require('./src/routes/services.routes');
+const statusRoutes = require('./src/routes/status.routes');
+const supportRoutes = require('./src/routes/support.routes');
+const userRoutes = require('./src/routes/user.routes');
+const vouchersRoutes = require('./src/routes/vouchers.routes');
 
 app.use(express.json()); // JSON-Parsing aktivieren
 
 // API-Routen registrieren
-app.use('/api/user', userRoutes);
 app.use('/api/admin', adminRoutes);
-app.use('/api/public', publicRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/orders', ordersRoutes);
+app.use('/api/products', productsRoutes);
+app.use('/api/services', servicesRoutes);
+app.use('/api/status', statusRoutes);
+app.use('/api/support', supportRoutes);
+app.use('/api/user', userRoutes);
+app.use('/api/vouchers', vouchersRoutes);
 //app.use('/hooks/');
 
 const PORT = process.env.PORT || 80;
