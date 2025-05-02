@@ -1,0 +1,4 @@
+const IntroVideo_vue_vue_type_style_index_0_scoped_2a92cdde_lang = '.border-gradient[data-v-2a92cdde]:after{--angle:0deg;--border-color:rgb(var(--color-gray-300));--highlight-color:rgb(var(--color-primary-500));background:var(--border-color);border-radius:.8rem;bottom:0;content:"";left:0;margin:-1px;opacity:.5;position:absolute;right:0;top:0;z-index:-1}@supports (background:paint(houdini)){{animation:rotate-2a92cdde 10s linear infinite;background:linear-gradient(var(--angle),var(--border-color),var(--border-color),var(--border-color),var(--border-color),var(--highlight-color))}}.dark .border-gradient[data-v-2a92cdde]:after{--border-color:rgb(var(--color-gray-700));--highlight-color:rgb(var(--color-gray-400))}@keyframes rotate-2a92cdde{to{--angle:360deg}}@property --angle{syntax:"<angle>";initial-value:0deg;inherits:false}';
+
+export { IntroVideo_vue_vue_type_style_index_0_scoped_2a92cdde_lang as I };
+//# sourceMappingURL=IntroVideo-styles-1.mjs-2rYjTpUY.mjs.map
