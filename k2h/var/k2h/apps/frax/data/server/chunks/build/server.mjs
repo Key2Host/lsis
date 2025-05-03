@@ -937,12 +937,12 @@ const _routes = [
   {
     name: "newsroom-slug___de",
     path: "/newsroom/:slug(.*)*",
-    component: () => import('./_...slug_-B9ajQ2af.mjs')
+    component: () => import('./_...slug_-DFQ6peTq.mjs')
   },
   {
     name: "newsroom-slug___en",
     path: "/en/newsroom/:slug(.*)*",
-    component: () => import('./_...slug_-B9ajQ2af.mjs')
+    component: () => import('./_...slug_-DFQ6peTq.mjs')
   },
   {
     name: "products-domain___de",
