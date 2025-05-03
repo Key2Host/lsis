@@ -887,12 +887,12 @@ const _routes = [
   {
     name: "newsroom___de",
     path: "/newsroom",
-    component: () => import('./index-DuMwTtJD.mjs')
+    component: () => import('./index-D97tpN8E.mjs')
   },
   {
     name: "newsroom___en",
     path: "/en/newsroom",
-    component: () => import('./index-DuMwTtJD.mjs')
+    component: () => import('./index-D97tpN8E.mjs')
   },
   {
     name: "checkout-failed___de",
@@ -937,12 +937,12 @@ const _routes = [
   {
     name: "newsroom-slug___de",
     path: "/newsroom/:slug(.*)*",
-    component: () => import('./_...slug_-DFQ6peTq.mjs')
+    component: () => import('./_...slug_-CWeiePNu.mjs')
   },
   {
     name: "newsroom-slug___en",
     path: "/en/newsroom/:slug(.*)*",
-    component: () => import('./_...slug_-DFQ6peTq.mjs')
+    component: () => import('./_...slug_-CWeiePNu.mjs')
   },
   {
     name: "products-domain___de",
@@ -20927,11 +20927,11 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         { name: "copyright", content: "© Key2Host - All Rights Reserved." }
       ],
       link: [
-        { rel: "icon", type: "image/png", href: "/img/favicon/favicon-96x96.png", sizes: "96x96" },
-        { rel: "icon", type: "image/svg+xml", href: "/img/favicon/favicon.svg" },
-        { rel: "shortcut icon", href: "/img/favicon/favicon.ico" },
-        { rel: "apple-touch-icon", sizes: "180x180", href: "/img/favicon/apple-touch-icon.png" },
-        { rel: "manifest", href: "/img/favicon/site.webmanifest" }
+        { rel: "icon", type: "image/png", href: "https://www.key2host.com/img/favicon/favicon-96x96.png", sizes: "96x96" },
+        { rel: "icon", type: "image/svg+xml", href: "https://www.key2host.com/img/favicon/favicon.svg" },
+        { rel: "shortcut icon", href: "https://www.key2host.com/img/favicon/favicon.ico" },
+        { rel: "apple-touch-icon", sizes: "180x180", href: "https://www.key2host.com/img/favicon/apple-touch-icon.png" },
+        { rel: "manifest", href: "https://www.key2host.com/img/favicon/site.webmanifest" }
       ],
       htmlAttrs: {
         lang: "en"
@@ -20939,8 +20939,8 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       titleTemplate: "%s - Key2Host"
     });
     useSeoMeta({
-      ogImage: "/img/brand/og.jpg",
-      twitterImage: "/img/brand/og.jpg",
+      ogImage: "https://www.key2host.com/img/brand/og.jpg",
+      twitterImage: "https://www.key2host.com/img/brand/og.jpg",
       twitterCard: "summary_large_image"
     });
     return (_ctx, _push, _parent, _attrs) => {
