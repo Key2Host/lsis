@@ -1,4 +1,4 @@
-import { defineComponent, computed, toValue, shallowRef, ref, watch, unref, mergeProps, withCtx, createVNode, resolveDynamicComponent, renderSlot, createBlock, openBlock, toDisplayString as toDisplayString$1, mergeModels, useSlots, useModel, createCommentVNode, effectScope, inject, useId, provide, createTextVNode, hasInjectionContext, nextTick, getCurrentScope, onScopeDispose, getCurrentInstance, onServerPrefetch, toRef as toRef$1, toHandlers, readonly, h, Fragment, renderList, resolveComponent, useAttrs, customRef, shallowReadonly, isRef, reactive, defineAsyncComponent, toRefs, toRaw, useSSRContext, Suspense, createElementBlock, createApp, Text, shallowReactive, withModifiers, onErrorCaptured, isReadonly, isShallow, isReactive, createSlots, markRaw } from 'vue';
+import { defineComponent, shallowRef, computed, ref, watch, unref, mergeProps, withCtx, createVNode, resolveDynamicComponent, renderSlot, createBlock, openBlock, toDisplayString as toDisplayString$1, mergeModels, useSlots, useModel, createCommentVNode, effectScope, inject, useId, provide, createTextVNode, hasInjectionContext, toValue, nextTick, getCurrentScope, onScopeDispose, getCurrentInstance, onServerPrefetch, toRef as toRef$1, toHandlers, readonly, h, Fragment, renderList, resolveComponent, useAttrs, customRef, shallowReadonly, isRef, reactive, defineAsyncComponent, toRefs, toRaw, useSSRContext, Suspense, createElementBlock, createApp, Text, shallowReactive, withModifiers, onErrorCaptured, isReadonly, isShallow, isReactive, createSlots, markRaw } from 'vue';
 import { E as serialize, f as createError$1, F as isEqual$1, n as defu, G as defuFn, H as klona, I as getContext, h as destr, J as getRequestHeader, K as sanitizeStatusCode, L as setCookie, M as getCookie, N as deleteCookie, $ as $fetch$1, O as baseURL, p as publicAssetsURL, P as createHooks, Q as executeAsync, R as toRouteMatcher, S as createRouter$1, T as getRequestProtocol, U as getRequestHeaders } from '../nitro/nitro.mjs';
 import { defineStore, createPinia, setActivePinia, shouldHydrate } from 'pinia';
 import { RouterView, useRoute as useRoute$1, createMemoryHistory, createRouter, START_LOCATION, isNavigationFailure } from 'vue-router';
@@ -827,32 +827,32 @@ const _routes = [
   {
     name: "index___de",
     path: "/",
-    component: () => import('./index-BPqbffi5.mjs')
+    component: () => import('./index-xLVc2giC.mjs')
   },
   {
     name: "index___en",
     path: "/en",
-    component: () => import('./index-BPqbffi5.mjs')
+    component: () => import('./index-xLVc2giC.mjs')
   },
   {
     name: "contact___de",
     path: "/contact",
-    component: () => import('./contact-DyxnshGv.mjs')
+    component: () => import('./contact-JdH84Xdl.mjs')
   },
   {
     name: "contact___en",
     path: "/en/contact",
-    component: () => import('./contact-DyxnshGv.mjs')
+    component: () => import('./contact-JdH84Xdl.mjs')
   },
   {
     name: "legal-tos___de",
     path: "/legal/tos",
-    component: () => import('./tos-DbMhWAqg.mjs')
+    component: () => import('./tos-5I1Dvb2g.mjs')
   },
   {
     name: "legal-tos___en",
     path: "/en/legal/tos",
-    component: () => import('./tos-DbMhWAqg.mjs')
+    component: () => import('./tos-5I1Dvb2g.mjs')
   },
   {
     name: "legal-notice___de",
@@ -877,22 +877,22 @@ const _routes = [
   {
     name: "checkout___de",
     path: "/checkout",
-    component: () => import('./index-BrfjupZ8.mjs')
+    component: () => import('./index-CX8wbMxS.mjs')
   },
   {
     name: "checkout___en",
     path: "/en/checkout",
-    component: () => import('./index-BrfjupZ8.mjs')
+    component: () => import('./index-CX8wbMxS.mjs')
   },
   {
     name: "newsroom___de",
     path: "/newsroom",
-    component: () => import('./index-D97tpN8E.mjs')
+    component: () => import('./index-BCGM-Z9d.mjs')
   },
   {
     name: "newsroom___en",
     path: "/en/newsroom",
-    component: () => import('./index-D97tpN8E.mjs')
+    component: () => import('./index-BCGM-Z9d.mjs')
   },
   {
     name: "checkout-failed___de",
@@ -917,82 +917,82 @@ const _routes = [
   {
     name: "company-partners___de",
     path: "/company/partners",
-    component: () => import('./partners-CxSC1SD9.mjs')
+    component: () => import('./partners-OIgY4Q58.mjs')
   },
   {
     name: "company-partners___en",
     path: "/en/company/partners",
-    component: () => import('./partners-CxSC1SD9.mjs')
+    component: () => import('./partners-OIgY4Q58.mjs')
   },
   {
     name: "company-milestones___de",
     path: "/company/milestones",
-    component: () => import('./milestones-BJ9jCerv.mjs')
+    component: () => import('./milestones-B7wGwo-B.mjs')
   },
   {
     name: "company-milestones___en",
     path: "/en/company/milestones",
-    component: () => import('./milestones-BJ9jCerv.mjs')
+    component: () => import('./milestones-B7wGwo-B.mjs')
   },
   {
     name: "newsroom-slug___de",
     path: "/newsroom/:slug(.*)*",
-    component: () => import('./_...slug_-CWeiePNu.mjs')
+    component: () => import('./_...slug_-CobTwH4c.mjs')
   },
   {
     name: "newsroom-slug___en",
     path: "/en/newsroom/:slug(.*)*",
-    component: () => import('./_...slug_-CWeiePNu.mjs')
+    component: () => import('./_...slug_-CobTwH4c.mjs')
   },
   {
     name: "products-domain___de",
     path: "/products/domain",
-    component: () => import('./index-DI-TcDS5.mjs')
+    component: () => import('./index-CH0n1T1q.mjs')
   },
   {
     name: "products-domain___en",
     path: "/en/products/domain",
-    component: () => import('./index-DI-TcDS5.mjs')
+    component: () => import('./index-CH0n1T1q.mjs')
   },
   {
     name: "products-lic-cert___de",
     path: "/products/lic-cert",
-    component: () => import('./index-DleZ20mG.mjs')
+    component: () => import('./index-65qJOxQ5.mjs')
   },
   {
     name: "products-lic-cert___en",
     path: "/en/products/lic-cert",
-    component: () => import('./index-DleZ20mG.mjs')
+    component: () => import('./index-65qJOxQ5.mjs')
   },
   {
     name: "products-vps-root___de",
     path: "/products/vps-root",
-    component: () => import('./index-htZaSlCm.mjs')
+    component: () => import('./index-CuSYSwHE.mjs')
   },
   {
     name: "products-vps-root___en",
     path: "/en/products/vps-root",
-    component: () => import('./index-htZaSlCm.mjs')
+    component: () => import('./index-CuSYSwHE.mjs')
   },
   {
     name: "products-webspace___de",
     path: "/products/webspace",
-    component: () => import('./index-yUVf6Nf1.mjs')
+    component: () => import('./index-ByR_lNtu.mjs')
   },
   {
     name: "products-webspace___en",
     path: "/en/products/webspace",
-    component: () => import('./index-yUVf6Nf1.mjs')
+    component: () => import('./index-ByR_lNtu.mjs')
   },
   {
     name: "products-dedicated___de",
     path: "/products/dedicated",
-    component: () => import('./index-BTczQgW2.mjs')
+    component: () => import('./index-790Hd1Z2.mjs')
   },
   {
     name: "products-dedicated___en",
     path: "/en/products/dedicated",
-    component: () => import('./index-BTczQgW2.mjs')
+    component: () => import('./index-790Hd1Z2.mjs')
   },
   {
     name: void 0 ,
@@ -7180,22 +7180,22 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
   }
 });
 const LazyProseA = defineAsyncComponent(() => import('./A-CTE75DXd.mjs').then((r) => r["default"] || r.default || r));
-const LazyProseAccordion = defineAsyncComponent(() => import('./Accordion-CiJlchev.mjs').then((r) => r["default"] || r.default || r));
-const LazyProseAccordionItem = defineAsyncComponent(() => import('./AccordionItem-D0Fx5JKf.mjs').then((r) => r["default"] || r.default || r));
+const LazyProseAccordion = defineAsyncComponent(() => import('./Accordion-CD6UJkbL.mjs').then((r) => r["default"] || r.default || r));
+const LazyProseAccordionItem = defineAsyncComponent(() => import('./AccordionItem-CbjBRCPd.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseBadge = defineAsyncComponent(() => import('./Badge-CCzrGep1.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseBlockquote = defineAsyncComponent(() => import('./Blockquote-sTJHnwVk.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseCallout = defineAsyncComponent(() => import('./Callout-Do8BDlHY.mjs').then((r) => r["default"] || r.default || r));
-const LazyProseCard = defineAsyncComponent(() => import('./Card-D-l9cqu-.mjs').then((r) => r["default"] || r.default || r));
+const LazyProseCard = defineAsyncComponent(() => import('./Card-D0omFAzm.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseCardGroup = defineAsyncComponent(() => import('./CardGroup-CrpB7LI3.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseCode = defineAsyncComponent(() => import('./Code-CX5ns6WH.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseCodeCollapse = defineAsyncComponent(() => import('./CodeCollapse-RyMrDPzb.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseCodeGroup = defineAsyncComponent(() => import('./CodeGroup-DpDTGAee.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseCodeIcon = defineAsyncComponent(() => import('./CodeIcon-Cr9vgMql.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseCodePreview = defineAsyncComponent(() => import('./CodePreview-CwRACpRT.mjs').then((r) => r["default"] || r.default || r));
-const LazyProseCodeTree = defineAsyncComponent(() => import('./CodeTree-Bclz7LMT.mjs').then((r) => r["default"] || r.default || r));
+const LazyProseCodeTree = defineAsyncComponent(() => import('./CodeTree-BGyHpL-Y.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseCollapsible = defineAsyncComponent(() => import('./Collapsible-DzOr4FPh.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseEm = defineAsyncComponent(() => import('./Em-reykh10z.mjs').then((r) => r["default"] || r.default || r));
-const LazyProseField = defineAsyncComponent(() => import('./Field-DNC4T5JR.mjs').then((r) => r["default"] || r.default || r));
+const LazyProseField = defineAsyncComponent(() => import('./Field-BEpghThw.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseFieldGroup = defineAsyncComponent(() => import('./FieldGroup-eTTn5ReZ.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseH1 = defineAsyncComponent(() => import('./H1-DChecLPf.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseH2 = defineAsyncComponent(() => import('./H2-Bx4HMT8-.mjs').then((r) => r["default"] || r.default || r));
@@ -7208,13 +7208,13 @@ const LazyProseKbd = defineAsyncComponent(() => import('./Kbd-B5wR58Wy.mjs').the
 const LazyProseLi = defineAsyncComponent(() => import('./Li-BO96khZ4.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseOl = defineAsyncComponent(() => import('./Ol-BDducKKk.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseP = defineAsyncComponent(() => import('./P-CX0pN_k2.mjs').then((r) => r["default"] || r.default || r));
-const LazyProsePre = defineAsyncComponent(() => import('./Pre-BFiXs97r.mjs').then((r) => r["default"] || r.default || r));
+const LazyProsePre = defineAsyncComponent(() => import('./Pre-Dd3iMEak.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseScript = defineAsyncComponent(() => import('./Script-DSYN7Zaf.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseSteps = defineAsyncComponent(() => import('./Steps-D4c6Z4WX.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseStrong = defineAsyncComponent(() => import('./Strong-C1noShX6.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseTable = defineAsyncComponent(() => import('./Table-CAJNB6My.mjs').then((r) => r["default"] || r.default || r));
-const LazyProseTabs = defineAsyncComponent(() => import('./Tabs-D7ddjRgF.mjs').then((r) => r["default"] || r.default || r));
-const LazyProseTabsItem = defineAsyncComponent(() => import('./TabsItem-D2MuKRkH.mjs').then((r) => r["default"] || r.default || r));
+const LazyProseTabs = defineAsyncComponent(() => import('./Tabs-ViGK29Az.mjs').then((r) => r["default"] || r.default || r));
+const LazyProseTabsItem = defineAsyncComponent(() => import('./TabsItem-DYrjiCH1.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseTbody = defineAsyncComponent(() => import('./Tbody-DFPqeZ5S.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseTd = defineAsyncComponent(() => import('./Td-DPonbEqO.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseTh = defineAsyncComponent(() => import('./Th-DA65dDm7.mjs').then((r) => r["default"] || r.default || r));
@@ -21105,5 +21105,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { createError as $, useComponentIcons as A, createReusableTemplate as B, isArrayOfArray as C, get as D, compare as E, _sfc_main$x as F, _sfc_main$b as G, useLocalePro as H, _sfc_main$c as I, _sfc_main$8 as J, useNuxtApp as K, injectHead as L, useRuntimeConfig as M, useEventListener as N, tryOnMounted as O, tryOnScopeDispose as P, avatarGroupInjectionKey as Q, _sfc_main$v as R, getSlotChildrenText as S, ImageComponent as T, useAsyncData as U, useAvatarGroup as V, _sfc_main$t as W, pickLinkProps as X, _sfc_main$w as Y, useRoute as Z, _sfc_main$z as _, useLocalePath as a, withoutTrailingSlash as a0, tryUseNuxtApp as a1, useRouter as a2, _sfc_main$r as a3, _sfc_main$7 as a4, pausableFilter as a5, useMouseInElement as a6, reactiveOmit as a7, _sfc_main$n as a8, withLeadingSlash as a9, withTrailingSlash as aa, joinURL as ab, useClipboard as ac, useI18n as b, useHead as c, useSeoMeta as d, entry$1 as default, _sfc_main$o as e, __nuxt_component_3$1 as f, _sfc_main$4 as g, transformUI as h, useToast as i, useCookieNoticeStore as j, _sfc_main$u as k, _sfc_main$l as l, useLocale as m, tv$1 as n, omit as o, useEventBus as p, formBusInjectionKey as q, reactivePick as r, formInputsInjectionKey as s, tv as t, useAppConfig as u, formLoadingInjectionKey as v, formOptionsInjectionKey as w, useFormField as x, usePortal as y, useButtonGroup as z };
+export { createError as $, createReusableTemplate as A, isArrayOfArray as B, get as C, compare as D, _sfc_main$x as E, _sfc_main$b as F, useLocalePro as G, _sfc_main$c as H, omit as I, _sfc_main$8 as J, useNuxtApp as K, injectHead as L, useRuntimeConfig as M, useEventListener as N, tryOnMounted as O, tryOnScopeDispose as P, avatarGroupInjectionKey as Q, _sfc_main$v as R, getSlotChildrenText as S, ImageComponent as T, useAsyncData as U, useAvatarGroup as V, _sfc_main$t as W, pickLinkProps as X, _sfc_main$w as Y, useRoute as Z, _sfc_main$z as _, useLocalePath as a, withoutTrailingSlash as a0, tryUseNuxtApp as a1, useRouter as a2, _sfc_main$r as a3, _sfc_main$7 as a4, pausableFilter as a5, useMouseInElement as a6, reactiveOmit as a7, _sfc_main$n as a8, withLeadingSlash as a9, withTrailingSlash as aa, joinURL as ab, useClipboard as ac, useI18n as b, useHead as c, useSeoMeta as d, entry$1 as default, _sfc_main$o as e, __nuxt_component_3$1 as f, _sfc_main$4 as g, transformUI as h, useToast as i, useCookieNoticeStore as j, _sfc_main$u as k, _sfc_main$l as l, useLocale as m, tv$1 as n, useEventBus as o, formBusInjectionKey as p, formInputsInjectionKey as q, reactivePick as r, formLoadingInjectionKey as s, tv as t, useAppConfig as u, formOptionsInjectionKey as v, useFormField as w, usePortal as x, useButtonGroup as y, useComponentIcons as z };
 //# sourceMappingURL=server.mjs.map

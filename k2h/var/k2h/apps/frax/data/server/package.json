@@ -128,6 +128,7 @@
     "hast-util-to-text": "4.0.2",
     "hast-util-whitespace": "3.0.0",
     "hastscript": "9.0.1",
+    "hey-listen": "1.0.8",
     "hookable": "5.5.3",
     "html-void-elements": "3.0.0",
     "html-whitespace-sensitive-tag-names": "3.0.1",
