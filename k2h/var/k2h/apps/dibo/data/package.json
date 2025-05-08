@@ -1,0 +1,14 @@
+{
+  "name": "k2h-discordbot",
+  "version": "1.0.0",
+  "author": "Key2Host Development Team",
+  "description": "Coming Soon",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "discord.js": "^14.17.3",
+    "dotenv": "^16.5.0"
+  }
+}
