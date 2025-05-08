@@ -19,7 +19,7 @@ services:
         build:
             context: ./apps/dibo
             dockerfile: Dockerfile
-        env_file: dibo/config.env
+        env_file: ./apps/dibo/config.env
         restart: unless-stopped
         networks:
             - network
@@ -45,6 +45,14 @@ services:
         container_name: k2h_cp
         build:
             context: ./apps/cp
+            dockerfile: Dockerfile
+        restart: always
+        networks:
+            - network
+    apps-docs:
+        container_name: k2h_docs
+        build:
+            context: ./apps/docs
             dockerfile: Dockerfile
         restart: always
         networks:
@@ -76,7 +84,7 @@ services:
         image: ghcr.io/docker-mailserver/docker-mailserver:latest
         container_name: k2h_mailserver
         hostname: mail.key2host.com
-        env_file: mailsrv/mailserver.env
+        env_file: ./mailsrv/mailserver.env
         ports:
             - "25:25"
             - "143:143"  # IMAP4 (explicit TLS => STARTTLS)
