@@ -1,8 +1,13 @@
 // Require the necessary discord.js classes
-require('dotenv').config(); // <--- dotenv aktivieren
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config();
+}
+
+const TOKEN = process.env.TOKEN;
 
 // Importiere die Datei für Aktivitäten
 const setActivity = require('./utils/activity.js');
@@ -60,4 +65,4 @@ client.once(Events.ClientReady, readyClient => {
 });
 
 // Login mit dem Token aus der .env
-client.login(process.env.TOKEN);
+client.login(TOKEN);

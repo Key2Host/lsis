@@ -1,11 +1,14 @@
-require('dotenv').config(); // .env laden
 const { REST, Routes } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
 
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config();
+}
+
+const TOKEN = process.env.TOKEN;
 const CLIENT_ID = process.env.CLIENTID;
 const GUILD_ID = process.env.GUILDID;
-const TOKEN = process.env.TOKEN;
 
 module.exports = function (client) {
 	const commands = [];

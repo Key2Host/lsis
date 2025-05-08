@@ -19,6 +19,7 @@ services:
         build:
             context: ./apps/dibo
             dockerfile: Dockerfile
+        env_file: dibo/config.env
         restart: unless-stopped
         networks:
             - network
