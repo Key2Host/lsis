@@ -1,6 +1,6 @@
 services:
-    database:
-        container_name: k2h_database
+    core_database:
+        container_name: k2h_core_database
         build:
             context: ./db
             dockerfile: Dockerfile
@@ -14,8 +14,8 @@ services:
             - db:/var/lib/mysql
         networks:
             - network
-    dibo:
-        container_name: k2h_dibo
+    apps_dibo:
+        container_name: k2h_apps_dibo
         build:
             context: ./apps/dibo
             dockerfile: Dockerfile
@@ -23,8 +23,8 @@ services:
         restart: unless-stopped
         networks:
             - network
-    saci:
-        container_name: k2h_saci
+    core_saci:
+        container_name: k2h_core_saci
         build:
             context: ./apps/saci
             dockerfile: Dockerfile
@@ -33,40 +33,40 @@ services:
             - database
         networks:
             - network
-    apps-frax:
-        container_name: k2h_frax
+    apps_frax:
+        container_name: k2h_apps_frax
         build:
             context: ./apps/frax
             dockerfile: Dockerfile
         restart: always
         networks:
             - network
-    apps-cp:
-        container_name: k2h_cp
+    apps_panel:
+        container_name: k2h_apps_panel
         build:
-            context: ./apps/cp
+            context: ./apps/panel
             dockerfile: Dockerfile
         restart: always
         networks:
             - network
-    apps-docs:
-        container_name: k2h_docs
+    apps_docs:
+        container_name: k2h_apps_docs
         build:
             context: ./apps/docs
             dockerfile: Dockerfile
         restart: always
         networks:
             - network
-    apps-auth:
-        container_name: k2h_auth
+    apps_auth:
+        container_name: k2h_apps_auth
         build:
             context: ./apps/auth
             dockerfile: Dockerfile
         restart: always
         networks:
             - network
-    proxy:
-        container_name: k2h_proxy
+    core_proxy:
+        container_name: k2h_core_proxy
         build:
             context: ./proxy
             dockerfile: Dockerfile
@@ -80,9 +80,9 @@ services:
             - apps-cp
         networks:
             - network
-    mailserver:
+    core_mailserver:
         image: ghcr.io/docker-mailserver/docker-mailserver:latest
-        container_name: k2h_mailserver
+        container_name: k2h_core_mailserver
         hostname: mail.key2host.com
         env_file: ./mailsrv/mailserver.env
         ports:
@@ -109,9 +109,9 @@ services:
             retries: 0
         networks:
             - network
-    roundcube:
+    utils_roundcube:
         image: roundcube/roundcubemail:latest
-        container_name: k2h_roundcube
+        container_name: k2h_utils_roundcube
         restart: unless-stopped
         ports:
            - "8888:80"
@@ -124,8 +124,8 @@ services:
             - mailserver
         networks:
              - network
-    phpmyadmin:
-        container_name: k2h_phpmyadmin
+    utils_phpmyadmin:
+        container_name: k2h_utils_phpmyadmin
         image: phpmyadmin/phpmyadmin
         restart: unless-stopped
         ports:
