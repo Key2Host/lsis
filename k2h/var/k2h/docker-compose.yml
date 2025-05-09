@@ -30,7 +30,7 @@ services:
             dockerfile: Dockerfile
         restart: always
         depends_on:
-            - database
+            - core_database
         networks:
             - network
     apps_frax:
@@ -75,9 +75,9 @@ services:
             - 80:80
             - 443:443
         depends_on:
-            - saci
-            - apps-frax
-            - apps-cp
+            - core_saci
+            - apps_frax
+            - apps_panel
         networks:
             - network
     core_mailserver:
@@ -121,7 +121,7 @@ services:
             ROUNDCUBEMAIL_SMTP_SERVER: ssl://mail.key2host.com
             ROUNDCUBEMAIL_SMTP_PORT: 465
         depends_on:
-            - mailserver
+            - core_mailserver
         networks:
              - network
     utils_phpmyadmin:
@@ -131,10 +131,10 @@ services:
         ports:
             - '8080:80'
         environment:
-            PMA_HOST: database
+            PMA_HOST: core_database
             HIDE_PHP_VERSION: true
         depends_on:
-            - database
+            - core_database
         networks:
             - network
 networks:
