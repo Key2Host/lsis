@@ -1,0 +1,1 @@
+import{ac as s}from"./B8ecJpJH.js";function r(e,i,o){const t=e.findIndex(n=>s(n,i)),d=e.findIndex(n=>s(n,o));if(t===-1||d===-1)return[];const[x,f]=[t,d].sort((n,c)=>n-c);return e.slice(x,f+1)}export{r as f};
